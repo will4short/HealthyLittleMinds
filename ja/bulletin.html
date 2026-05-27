@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>📌 お知らせ掲示板 – Healthy Little Minds</title>
+  <link rel="alternate" href="https://www.healthylittleminds.club/parents.html" hreflang="en" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/zh-tw/parents.html" hreflang="zh-TW" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/zh-cn/parents.html" hreflang="zh-CN" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/ja/parents.html" hreflang="ja" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/ko/parents.html" hreflang="ko" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/parents.html" hreflang="x-default" />
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=DM+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #FFF2E5;
+      margin: 0;
+      padding: 0;
+      color: #254E70;
+    }
+    header {
+      padding: 1.5rem;
+      background: white;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    header h1 {
+      font-family: 'Comic Neue', sans-serif;
+      font-size: 2rem;
+      color: #FF6B6B;
+      margin: 0;
+    }
+    .toggle-wrapper {
+      max-width: 800px;
+      margin: 0 auto 3rem auto;
+      padding: 1rem;
+    }
+    .toggle-card {
+      background-color: #FFF2E5;
+      border: 2px solid #FFDD59;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .toggle-header {
+      background-color: #FFDD59;
+      padding: 1rem 1.2rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #254E70;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .toggle-content {
+      padding: 1rem 1.2rem;
+      display: none;
+      color: #333;
+      font-size: 0.95rem;
+      background-color: #fff;
+    }
+    .toggle-card.open .toggle-content {
+      display: block;
+    }
+    .toggle-card.open .toggle-header::after {
+      content: "▲";
+    }
+    .toggle-header::after {
+      content: "▼";
+      font-size: 1rem;
+      margin-left: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggles = document.querySelectorAll('.toggle-card');
+      toggles.forEach(card => {
+        const header = card.querySelector('.toggle-header');
+        header.addEventListener('click', () => {
+          card.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+
+</head>
+<body>
+<script>
+  (function () {
+    const isLocal = location.protocol === 'file:';
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isLocal && !isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1];
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo);
+    }
+  })();
+</script>
+
+<div style="position: fixed; top: 15px; right: 15px; z-index: 1000; background: #FFE4F0; border: 2px solid #F8CFE0; border-radius: 30px; padding: 0.5rem 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <a href="home.html" style="text-decoration: none; color: #D6336C; font-weight: bold; font-size: 0.95rem;">🏠 ホームにもどる</a>
+</div>
+
+<header>
+  <h1>📌 お知らせ掲示板</h1>
+  <p>ヘルシー・リトル・マインズの最新情報をチェックしよう！</p>
+</header>
+
+<main class="toggle-wrapper">
+  <h2 style="text-align:center;">📢 最新のお知らせ</h2>
+  <p style="text-align:center;">リリースされた絵本、活動情報などをご紹介します！</p>
+
+<div class="toggle-card">
+  <div class="toggle-header">📘 2025/08/06: 新作「まだできないときは」公開！</div>
+  <div class="toggle-content">
+    「できない……でも、もしかして“まだ”できないだけかも？」<br>
+    あきらめそうになる心に寄り添い、努力と感情の大切さを伝える絵本です。<br>
+    <a href="https://heyzine.com/flip-book/1fb2ef8177.html" target="_blank">読む</a>
+  </div>
+</div>
+
+
+<div class="toggle-card">
+  <div class="toggle-header">❓ 2025/07/19: 新作「Why Why Why?」公開！</div>
+  <div class="toggle-content">
+    「なんで？」と聞くことは、心と知識を育てる第一歩。<br>
+    やさしい語りで、好奇心と感情のつながりを描いた新しい絵本です。<br>
+    <a href="https://online.fliphtml5.com/aogil/asyu/" target="_blank">読む</a>
+  </div>
+</div>
+
+
+  <div class="toggle-card">
+    <div class="toggle-header">👑 2025/07/13: 「プリンセスと写真の日のびっくり」新登場！</div>
+    <div class="toggle-content">
+      じぶんらしくいることの大切さを伝える、心あたたまるストーリーです。<br>
+      <a href="https://heyzine.com/flip-book/a958329538.html" target="_blank">読む</a>
+    </div>
+  </div>
+
+  <div class="toggle-card">
+    <div class="toggle-header">💖 2025/07/10: 「Little Acts, Big Feelings」公開！</div>
+    <div class="toggle-content">
+      小さな思いやりが大きな感情になる！優しさと共感を育む絵本。<br>
+      <a href="https://heyzine.com/flip-book/034942038a.html" target="_blank">読む</a>
+    </div>
+  </div>
+
+  <div class="toggle-card">
+    <div class="toggle-header">📘 2025/06/29: 「こわいときのきもち」公開！</div>
+    <div class="toggle-content">
+      大きな気持ちに寄り添う、安心できるストーリー。<br>
+      <a href="https://heyzine.com/flip-book/1f4337da92.html" target="_blank">読む</a>
+    </div>
+  </div>
+
+  <div class="toggle-card">
+    <div class="toggle-header">🌀 2025/06/10: 「心の嵐をしずめるには」登場！</div>
+    <div class="toggle-content">
+      感情を整える呼吸法やお絵かき、会話が学べるヒーリング絵本。<br>
+      <a href="https://heyzine.com/flip-book/3cf1027650.html" target="_blank">読む</a>
+    </div>
+  </div>
+
+  <div class="toggle-card">
+    <div class="toggle-header">📄 2025/06/23: 「心の嵐ワークブック」ダウンロード可能！</div>
+    <div class="toggle-content">
+      気持ちを描いて、整える。印刷してすぐ使えるワークブック！<br>
+      <a href="worksheets/Calm the Storm Inside - My Feelings Workbook.pdf" download>ダウンロード</a>
+    </div>
+  </div>
+
+  <div class="toggle-card">
+    <div class="toggle-header">📱 Instagram 最新情報</div>
+    <div class="toggle-content">
+      @heal.thylittleminds をフォローして、舞台裏や新作のお知らせをゲット！<br>
+      <a href="https://instagram.com/healthylittleminds" target="_blank">Instagram を見る</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2025 ヘルシー・リトル・マインズ | All rights reserved 🌟
+</footer>
+
+  <script defer src="../shared-language-switcher.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feeling Bored - Healthy Little Minds</title>
+  <meta name="description" content="Help children understand boredom and find gentle ways to reconnect, create, and play.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="feelings-guide.css">
+</head>
+<body class="feeling-page feeling-page--bored">
+  <script>
+    (function () {
+      if (localStorage.getItem("isMember") !== "true") {
+        const local = window.location.protocol === "file:";
+        const path = window.location.pathname;
+        const locale = path.split("/")[1];
+        window.location.replace(local ? "index.html" : (locale && path.includes("/" + locale + "/") ? "/" + locale + "/index.html" : "/index.html"));
+      }
+    })();
+  </script>
+  <main class="feelings-shell">
+    <a class="breadcrumb" href="more-feelings.html">&larr; Explore more feelings</a>
+    <section class="feeling-hero">
+      <div>
+        <p class="kicker">Explore a feeling</p>
+        <h1>Feeling Bored</h1>
+        <p class="feeling-lead">Boredom can be your brain saying, "I need something interesting, meaningful, or restful to do." It is not a bad feeling; it can be the beginning of an idea.</p>
+      </div>
+      <aside class="hero-prompt">
+        <h2>Try saying</h2>
+        <p>"I feel bored. Can I choose something to make, move, or help with?"</p>
+      </aside>
+    </section>
+    <section class="guide-section">
+      <h2>What boredom might be telling you</h2>
+      <div class="card-grid">
+        <article class="insight-card"><h3>I need a spark</h3><p>Your mind may want a challenge, a question, or something creative.</p></article>
+        <article class="insight-card"><h3>I need movement</h3><p>A stretch, dance, or outside play can help energy find a direction.</p></article>
+        <article class="insight-card"><h3>I need connection</h3><p>Sometimes boredom is a wish to play, talk, or help someone.</p></article>
+      </div>
+    </section>
+    <div class="two-column">
+      <section class="panel">
+        <h2>Try this now</h2>
+        <ol class="steps">
+          <li><strong>Pick three choices.</strong> Draw, build, read, help, or move; then select one.</li>
+          <li><strong>Set a ten-minute mission.</strong> Make a paper invention, tidy a small area, or find five blue things.</li>
+          <li><strong>Ask a wonder question.</strong> "How does that work?" can turn boredom into curiosity.</li>
+        </ol>
+      </section>
+      <aside class="support-card">
+        <h2>For grown-ups</h2>
+        <p>Offer a small menu rather than filling every quiet minute. Unstructured time can help children practise choosing and imagining.</p>
+      </aside>
+    </div>
+    <section class="resource-panel">
+      <h2>Keep exploring</h2>
+      <div class="tool-link">
+        <div>
+          <strong>Curious activities and feeling tools</strong>
+          <p>Turn a slow moment into drawing, reflection, or playful learning.</p>
+        </div>
+        <a class="read-button" href="interactive-tools.html">Open tools</a>
+      </div>
+    </section>
+  </main>
+  <script defer src="shared-language-switcher.js?v=1"></script>
+</body>
+</html>

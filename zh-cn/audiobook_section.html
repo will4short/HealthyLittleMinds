@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>音频书 - 现在还不会没关系</title>
+  <meta name="description" content="面向儿童的情绪教育音频书。帮助孩子先靠近失敗，再学会坚强。">
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      margin: 0;
+      background-color: #fffaf3;
+      color: #333;
+    }
+    .sticky-header {
+      background-color: #fff;
+      border-bottom: 1px solid #eee;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo {
+      height: 40px;
+    }
+    .site-title {
+      margin: 0;
+      font-size: 1.4rem;
+      font-weight: 800;
+    }
+    .navbar-menu a {
+      margin-left: 15px;
+      text-decoration: none;
+      color: #254E70;
+      font-weight: 600;
+    }
+    .navbar-menu a.active {
+      color: #FF6B6B;
+    }
+    .audiobook-container {
+      max-width: 680px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .book-cover img {
+      max-width: 160px;
+      height: auto;
+      border-radius: 12px;
+    }
+    .book-info h2 {
+      font-size: 1.8em;
+      color: #254E70;
+      margin-bottom: 0.3em;
+    }
+    .book-info p {
+      font-size: 0.95em;
+      color: #666;
+    }
+    .audio-player {
+      margin: 20px 0;
+    }
+    .lyrics-box {
+      background-color: #fff7e8;
+      border-left: 6px solid #FFD44D;
+      border-radius: 10px;
+      padding: 16px 20px;
+      text-align: left;
+      font-size: 1em;
+      margin-top: 20px;
+      overflow-y: auto;
+      max-height: 400px;
+    }
+    .lyrics-box h3 {
+      margin-top: 0;
+      color: #B45F06;
+    }
+    .site-footer {
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9em;
+      color: #888;
+    }
+    .mobile-nav {
+      display: none;
+    }
+.lyrics-box::-webkit-scrollbar {
+  width: 6px;
+}
+.lyrics-box::-webkit-scrollbar-thumb {
+  background: #FFDD59;
+  border-radius: 6px;
+}
+<style>
+/* 简洁的抽屉导航样式 */
+.header-container{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.navbar-menu{display:flex;gap:16px}
+.hamburger{display:none;background:#fff;border:1px solid #ddd;border-radius:8px;padding:.4rem .6rem}
+@media (max-width:768px){ .navbar-menu{display:none} .hamburger{display:block} }
+
+.mobile-nav{
+  position:fixed; top:0; right:-280px; width:260px; height:100dvh;
+  background:#fff; box-shadow:-8px 0 16px rgba(0,0,0,.08);
+  display:flex; flex-direction:column; gap:6px; padding:72px 16px 16px;
+  transition:right .25s ease; z-index:1001;
+}
+.mobile-nav a{padding:.8rem .6rem; border-bottom:1px solid #f2f2f2; text-decoration:none; color:#254E70}
+.mobile-nav.open{ right:0 }
+.nav-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,.35); opacity:0; pointer-events:none; transition:opacity .2s ease; z-index:1000 }
+.nav-backdrop.show{ opacity:1; pointer-events:auto }
+.body-lock{ overflow:hidden }
+
+/* Princess 卡片的小视频尺寸 */
+.audioplayer video{
+  width:auto !important; max-width:320px !important;
+  height:auto; display:block; margin:0 auto;
+  border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.1); object-fit:contain; background:#fff;
+}
+
+/* 封面更易读的统一大小 */
+.book-cover img, .audiobook-cover{ max-width:200px; height:auto; border-radius:12px }
+</style>
+
+  </style>
+</head>
+<body>
+  <header class="sticky-header">
+    <div class="header-container">
+      <div class="header-brand">
+        <img src="../images/logo-icon.webp" class="logo" alt="Healthy Little Minds 标志" />
+        <div class="brand-text">
+          <h1 class="site-title">
+            <span style="color:#254E70">Healthy</span>
+            <span style="color:#FF6B6B">Little Minds</span>
+            <span style="font-size: 0.75em; color:#999"> (健康小心灵)</span>
+          </h1>
+        </div>
+      </div>
+      <nav class="navbar-menu">
+        <a href="home.html">首页</a>
+        <a href="parents.html">父母区</a>
+        <a href="bulletin.html" class="bulletin-link">📌 公告</a>
+        <a href="dashboard.html">资源板</a>
+        <a href="inspire_page.html">🎬 视频</a>
+        <a href="audiobook_section.html" class="active">🎧 音频书</a>
+      </nav>
+      <button class="hamburger" onclick="toggleMobileMenu()">☰</button>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="home.html" onclick="toggleMobileMenu()">首页</a>
+      <a href="parents.html" onclick="toggleMobileMenu()">父母区</a>
+      <a href="bulletin.html" class="bulletin-link" onclick="toggleMobileMenu()">📌 公告</a>
+      <a href="dashboard.html" onclick="toggleMobileMenu()">资源板</a>
+      <a href="inspire_page.html" onclick="toggleMobileMenu()">🎬 视频</a>
+      <a href="audiobook_section.html" onclick="toggleMobileMenu()">🎧 音频书</a>
+    </div>
+  </header>
+
+  <main class="audiobook-section">
+    <section class="audiobook-container">
+      <div class="book-cover">
+        <img src="../images/when_i_cant_coverpage.webp" alt="环绕面 - 现在还不会没关系">
+      </div>
+      <div class="book-info">
+        <h2>现在还不会没关系</h2>
+        <p><strong>Healthy Little Minds ® 图文书</strong><br>作者: Godswill Ambrose</p>
+      </div>
+
+      <div class="audio-player">
+        <div id="elevenlabs-audionative-widget" data-height="90" data-width="100%" data-frameborder="no" data-scrolling="no" data-publicuserid="fccc387f98753d04a28caacf608d8958d73a745a239c1f12627df78aa11d1869" data-playerurl="https://elevenlabs.io/player/index.html" data-projectid="6X3EXiuT3BMRiVy4ykvQ">
+          正在加载 <a href="https://elevenlabs.io/text-to-speech" target="_blank" rel="noopener">Elevenlabs 文本转说</a> 音频播放器...
+        </div>
+        <script src="https://elevenlabs.io/player/audioNativeHelper.js" type="text/javascript"></script>
+      </div>
+
+      <div class="lyrics-box">
+  <h3>📜 故事文本</h3>
+  <p>当我还做不到的时候</p>
+  <p>没关系，还不会也可以。</p>
+  <p>Healthy Little Minds ® 系列绘本 — 作者：Godswill Ambrose</p>
+
+  <p>有时候，孩子们已经非常努力了，但还是做不好。鞋带还是打不好，字写得歪歪扭扭，搭好的积木会倒下。</p>
+  <p>这种时候，会有很多大大的情绪跑出来：沮丧、害羞，甚至是想放弃的感觉。</p>
+  <p>但这个故事温柔地告诉孩子们：“我现在做不到……并不代表我永远做不到。”</p>
+  <p><strong>《当我还做不到的时候》</strong>帮助小读者建立成长型思维 —— 相信通过时间、练习和耐心，他们的能力是可以提高的。</p>
+  <p>他们会学会认识像愤怒、羞耻或自我怀疑这样的情绪，练习深呼吸、学会请求帮助。把“我不会”换成“我还不会”，并为每一个小小的进步感到骄傲。</p>
+
+  <p>有时候，我真的很努力，但还是做不到。</p>
+  <p>比如，拉上外套拉链，或者写出数字 8。</p>
+  <p>我一次又一次地尝试，但还是不行。然后，我就开始觉得情绪低落。</p>
+  <p>脸变得热热的，我想大叫、跺脚，甚至把东西丢掉。</p>
+  <p>“为什么这么难啊？”我小声说。</p>
+  <p>老师坐在我旁边，微笑着看着我。</p>
+  <p>她说：“没关系，Destiny。你只是还做不到而已。” 这个“还”字像一个柔软的枕头落在我心里。</p>
+
+  <p>我慢慢吸气，就像这样……吸气……1、2、3……呼气……1、2、3……</p>
+  <p>我的肩膀放松了，肚子也平静下来了。</p>
+  <p>我再试一次。这次，我的手轻柔了许多。</p>
+  <p>我的脑袋也安静了一些。</p>
+  <p>我还是需要帮忙，但我在学习。每一次尝试，都是一个小小的脚步。</p>
+  <p>即使是微小的一步，也算数！一步一步，我越来越接近目标。</p>
+
+  <p>有一天，我成功了。</p>
+  <p>我写出了 8。</p>
+  <p>我自己拉好了拉链。</p>
+  <p>我一个人完成了！</p>
+  <p>“快看！我做到了！”我大声说。</p>
+  <p>大家都为我鼓掌。老师笑得特别灿烂。我感觉心里暖暖的，就像阳光洒进来一样。</p>
+  <p>我做到了，真的做到了。现在我记住了：如果我现在还做不到，也没关系。我还在成长。</p>
+  <p>我可以学习，我可以尝试。当事情变得困难时……</p>
+  <p>我深呼吸，再试一次。</p>
+
+  <p>你现在有什么事情还不会，但很想学会的？</p>
+  <p>在下面的框里画出来吧！</p>
+  <p>或者写下来也可以。记住：每一个小小的步骤，都是进步！</p>
+
+  <p>欢迎关注我们的社交平台，也可以访问 www.healthylittleminds.club 阅读更多精彩内容！</p>
+</div>
+
+    </section>
+
+
+<!-- 🎧 音频书 #2（Princess MP4） -->
+<section class="audiobook-container" style="margin-top:28px;">
+  <div class="book-cover">
+    <img src="../images/princess_has_something_to_say_cover.webp" alt="《小公主有话要说》封面">
+  </div>
+  <div class="book-info">
+    <h2>小公主有话要说</h2>
+    <p><strong>格式：</strong> 视效音频书（静态封面 + 旁白）</p>
+  </div>
+
+  <div class="audio-player">
+    <video controls preload="metadata" playsinline
+           poster="../images/princess_has_something_to_say_cover.webp"
+           data-resume-key="ab_princess_capcut_v1"
+           aria-label="小公主有话要说（视效音频书）">
+      <source src="../audio-books/princess_has_something_to_say.mp4" type="video/mp4">
+      您的浏览器不支持视频标签。
+    </video>
+    <p style="margin:.5rem 0 0;"><a href="../audio-books/princess_has_something_to_say.mp4" target="_blank">📥 下载 MP4</a></p>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>📚 更多免费资源，请访问 <a href="https://www.healthylittleminds.club/zh-cn/home.html">Healthy Little Minds</a></p>
+  </footer>
+
+<script>
+/* 会员重定向（保持你原来的逻辑） */
+(function () {
+  const isMember = localStorage.getItem("isMember") === "true";
+  if (!isMember) {
+    const isLocal = window.location.protocol === "file:";
+    const path = window.location.pathname;
+    const locale = path.split('/')[1];
+    const redirectTo = isLocal ? "index.html"
+      : (locale && path.includes(`/${locale}/`) ? `/${locale}/index.html` : "/index.html");
+    window.location.replace(redirectTo);
+  }
+})();
+
+/* 抽屉导航开关 + 无障碍 */
+function toggleMobileMenu(force){
+  const nav = document.getElementById('mobileNav');
+  const backdrop = document.getElementById('navBackdrop');
+  const btn = document.querySelector('.hamburger');
+  if(!nav) return;
+
+  const willOpen = (typeof force==='boolean') ? force : !nav.classList.contains('open');
+  nav.classList.toggle('open', willOpen);
+  backdrop?.classList.toggle('show', willOpen);
+  document.body.classList.toggle('body-lock', willOpen);
+  btn?.setAttribute('aria-expanded', String(willOpen));
+  nav.setAttribute('aria-hidden', String(!willOpen));
+}
+window.addEventListener('keydown', e=>{ if(e.key==='Escape') toggleMobileMenu(false); });
+window.addEventListener('resize', ()=>{ if(window.innerWidth>768) toggleMobileMenu(false); });
+
+/* 播放进度自动续播（video/audio 带 data-resume-key 即可） */
+(function () {
+  const els = document.querySelectorAll('video[data-resume-key], audio[data-resume-key]');
+  els.forEach(el => {
+    const KEY = el.getAttribute('data-resume-key');
+    if (!KEY) return;
+
+    el.addEventListener('loadedmetadata', () => {
+      const t = parseFloat(localStorage.getItem(KEY) || '0');
+      if (!isNaN(t) && t > 0 && t < (el.duration || Infinity) - 2) el.currentTime = t;
+    });
+
+    let tick;
+    el.addEventListener('play', () => {
+      clearInterval(tick);
+      tick = setInterval(() => localStorage.setItem(KEY, String(el.currentTime || 0)), 1000);
+    });
+    const save = () => { clearInterval(tick); localStorage.setItem(KEY, String(el.currentTime || 0)); };
+    el.addEventListener('pause', save);
+    el.addEventListener('ended', () => { clearInterval(tick); localStorage.removeItem(KEY); });
+  });
+})();
+</script>
+
+  <script defer src="../shared-language-switcher.js?v=1"></script>
+</body>
+</html>

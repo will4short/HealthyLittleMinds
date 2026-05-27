@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>노래 | Healthy Little Minds</title>
+
+  <!-- Meta Tags -->
+  <meta name="description" content="아이들이 마음을 가라앉히고 감정을 이해하며 안전하게 표현할 수 있도록 돕는 부드러운 노래들입니다.">
+  <meta name="keywords" content="어린이 노래, 감정 안정 음악, 감정 학습 음악, 어린이 마음챙김, healthy little minds">
+  <meta name="author" content="Healthy Little Minds">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="노래 | Healthy Little Minds">
+  <meta property="og:description" content="아이들의 감정 성장과 평온한 일상을 돕는 부드러운 노래들입니다.">
+  <meta property="og:image" content="https://www.healthylittleminds.club/assets/hlm_songs_cover.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.healthylittleminds.club/songs.html">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="노래 | Healthy Little Minds">
+  <meta name="twitter:description" content="부드러운 노래를 들으며 아이들이 감정을 이해하도록 도와주세요.">
+  <meta name="twitter:image" content="https://www.healthylittleminds.club/assets/hlm_songs_cover.png">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#FFDD59">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T2F8H8ZYBL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T2F8H8ZYBL');
+  </script>
+
+<!-- 🔒 Member Guard (MUST be in head, early) -->
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember");
+      if (isMember !== "true") {
+        window.location.replace("/index.html");
+      }
+    })();
+  </script>
+  
+  <style>
+    :root{
+      --navy:#254E70;
+      --pink:#FF6B6B;
+      --sun:#FFDD59;
+      --ink:#0f172a;
+      --muted:#3b4a5a;
+      --card:#ffffff;
+      --line:rgba(15,23,42,.08);
+    }
+
+    body{
+      margin:0;
+      font-family:"Nunito", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 300px at 50% 0%, rgba(255,221,89,.35), transparent 60%),
+        radial-gradient(900px 380px at 90% 15%, rgba(255,107,107,.18), transparent 55%),
+        radial-gradient(900px 380px at 10% 15%, rgba(37,78,112,.14), transparent 55%),
+        #f7fbff;
+    }
+
+    /* ===== NAV (simple + consistent) ===== */
+    header{ position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.88); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+    .navbar{ max-width: 1100px; margin: 0 auto; padding: .75rem 1rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .navbar-brand{ display:flex; align-items:center; gap:.6rem; }
+    .site-title{ margin:0; font-size: 1.2rem; line-height: 1; }
+    .navbar-menu{ display:flex; gap: .9rem; align-items:center; }
+    .navbar-menu a{ text-decoration:none; color:#1f2a37; font-weight:800; font-size:.95rem; padding:.45rem .55rem; border-radius:12px; }
+    .navbar-menu a:hover{ background: rgba(37,78,112,.08); }
+    .navbar-menu a.active{ background: rgba(255,107,107,.12); color:#d94f4f; border:1px solid rgba(255,107,107,.22); }
+
+    .hamburger{
+      display:none;
+      border:1px solid rgba(37,78,112,.22);
+      background:#fff;
+      color:var(--navy);
+      border-radius:12px;
+      padding:.45rem .7rem;
+      font-weight:900;
+      cursor:pointer;
+    }
+
+    .nav-backdrop{
+      display:none;
+      position:fixed; inset:0;
+      background:rgba(15,23,42,.42);
+      z-index:49;
+    }
+
+    .mobile-nav{
+      display:none;
+      position:fixed;
+      top:0; right:0;
+      height:100vh; width:min(86vw, 340px);
+      background:#fff;
+      z-index:50;
+      padding:1.1rem 1rem;
+      box-shadow:-18px 0 48px rgba(15,23,42,.18);
+      transform: translateX(100%);
+      transition: transform .18s ease;
+    }
+    .mobile-nav a{
+      display:block;
+      padding:.85rem .85rem;
+      border-radius:14px;
+      text-decoration:none;
+      color:#1f2a37;
+      font-weight:900;
+      margin-bottom:.5rem;
+      border:1px solid rgba(15,23,42,.06);
+      background: rgba(37,78,112,.04);
+    }
+    .mobile-nav a.active{
+      background: rgba(255,107,107,.10);
+      border-color: rgba(255,107,107,.20);
+      color:#d94f4f;
+    }
+
+    .mobile-open .nav-backdrop{ display:block; }
+    .mobile-open .mobile-nav{ display:block; transform: translateX(0); }
+
+    @media (max-width: 920px){
+      .navbar-menu{ display:none; }
+      .hamburger{ display:inline-flex; }
+    }
+
+    /* ===== PAGE ===== */
+    .songs-page{
+      max-width:1020px;
+      margin:0 auto;
+      padding:1.6rem 1rem 3rem;
+    }
+
+    .songs-hero{
+      text-align:center;
+      padding:1.4rem 1rem 1.2rem;
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:rgba(255,255,255,.75);
+      box-shadow:0 16px 40px rgba(15,23,42,.08);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      padding:.35rem .75rem;
+      border-radius:999px;
+      border:1px solid rgba(255,107,107,.25);
+      background:rgba(255,107,107,.10);
+      color:#c94b4b;
+      font-weight:800;
+      font-size:.85rem;
+    }
+
+    .hero-title{
+      margin:.65rem 0 .35rem;
+      font-size:2.2rem;
+      color:var(--navy);
+    }
+
+    .hero-subtitle{
+      margin:0 auto 1rem;
+      max-width:62ch;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    .hero-chips{
+      display:flex;
+      gap:.5rem;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin:.6rem 0 1rem;
+    }
+
+    .chip{
+      border:1px solid rgba(37,78,112,.22);
+      background:#fff;
+      color:var(--navy);
+      padding:.55rem .8rem;
+      border-radius:999px;
+      font-weight:900;
+      cursor:pointer;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+    }
+    .chip:hover{ transform: translateY(-1px); box-shadow:0 10px 20px rgba(15,23,42,.08); }
+    .chip.is-active{
+      background:rgba(255,107,107,.12);
+      border-color:rgba(255,107,107,.35);
+      color:#d94f4f;
+    }
+
+    .mini-steps{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:.75rem;
+      margin-top:.4rem;
+    }
+    @media (max-width:760px){
+      .mini-steps{ grid-template-columns:1fr; text-align:left; }
+    }
+
+    .step{
+      display:flex;
+      gap:.7rem;
+      align-items:flex-start;
+      padding:.75rem .8rem;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+    }
+    .step-icon{
+      width:36px;height:36px;
+      border-radius:12px;
+      display:grid;place-items:center;
+      background:rgba(37,78,112,.08);
+      font-size:18px;
+      flex:0 0 auto;
+    }
+    .muted{ color:var(--muted); font-size:.92rem; }
+
+    .song-section{ margin-top:1.6rem; }
+    .section-head{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:1rem;
+      padding:0 .2rem;
+    }
+    .section-head h2{
+      margin:0;
+      color:var(--navy);
+      font-size:1.35rem;
+    }
+    .section-note{
+      color:rgba(15,23,42,.55);
+      font-weight:900;
+      font-size:.9rem;
+    }
+
+    .featured-card{
+      margin-top:.85rem;
+      display:grid;
+      grid-template-columns: 280px 1fr;
+      gap:1rem;
+      padding:1rem;
+      border-radius:22px;
+      background:var(--card);
+      border:1px solid var(--line);
+      box-shadow:0 16px 40px rgba(15,23,42,.08);
+    }
+    @media (max-width:860px){
+      .featured-card{ grid-template-columns:1fr; }
+    }
+
+    .cover{
+      border-radius:18px;
+      padding:1rem;
+      background:
+        radial-gradient(420px 220px at 30% 10%, rgba(255,221,89,.75), transparent 60%),
+        radial-gradient(520px 260px at 90% 30%, rgba(255,107,107,.35), transparent 55%),
+        radial-gradient(520px 260px at 10% 70%, rgba(37,78,112,.28), transparent 55%),
+        #0b1f33;
+      color:#fff;
+      overflow:hidden;
+      min-height:170px;
+    }
+    .cover-icon{
+      width:46px;height:46px;
+      border-radius:16px;
+      display:grid;place-items:center;
+      background:rgba(255,255,255,.16);
+      font-size:22px;
+      margin-bottom:.6rem;
+    }
+    .cover-title{ font-weight:900; font-size:1.25rem; }
+    .cover-sub{ opacity:.9; font-weight:800; }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+      padding:.35rem .7rem;
+      border-radius:999px;
+      font-weight:900;
+      font-size:.85rem;
+      background:rgba(37,78,112,.08);
+      color:var(--navy);
+      border:1px solid rgba(37,78,112,.14);
+    }
+
+    .desc{ margin:.2rem 0 .8rem; color:var(--muted); line-height:1.45; }
+
+    .tip{
+      background:rgba(255,107,107,.10);
+      border:1px solid rgba(255,107,107,.20);
+      color:var(--muted);
+      padding:.7rem .8rem;
+      border-radius:16px;
+      margin:.65rem 0 .85rem;
+    }
+
+    .song-grid{
+      margin-top:.85rem;
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:1rem;
+    }
+    @media (max-width:760px){ .song-grid{ grid-template-columns:1fr; } }
+
+    .song-card{
+      padding:1rem;
+      border-radius:22px;
+      border:1px solid var(--line);
+      background:var(--card);
+      box-shadow:0 14px 34px rgba(15,23,42,.07);
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .song-card:hover{
+      transform: translateY(-2px);
+      box-shadow:0 18px 46px rgba(15,23,42,.10);
+    }
+    .song-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:.8rem;
+      margin-bottom:.5rem;
+    }
+    .tiny{ color:rgba(15,23,42,.55); font-weight:900; font-size:.9rem; }
+
+    .song-actions{
+      display:flex;
+      gap:.7rem;
+      flex-wrap:wrap;
+      margin-top:.7rem;
+    }
+
+    .song-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.85rem 1rem;
+      border-radius:16px;
+      background:var(--navy);
+      color:#fff;
+      text-decoration:none;
+      font-weight:900;
+      border:1px solid rgba(37,78,112,.22);
+      cursor:pointer;
+      flex:1 1 180px;
+    }
+    .song-btn.ghost{
+      background:#fff;
+      color:var(--navy);
+    }
+    .song-btn:hover{ filter: brightness(1.04); }
+
+    .yt-lite{
+      margin-top:.85rem;
+      border-radius:18px;
+      overflow:hidden;
+      background: rgba(15,23,42,.04);
+      border:1px solid rgba(15,23,42,.08);
+      min-height:0;
+    }
+    .yt-lite.is-open{ min-height:220px; }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ transition:none !important; animation:none !important; }
+    }
+  .song-cover{
+  width: 100%;
+  aspect-ratio: 16 / 9;          /* ✅ consistent photo shape */
+  border-radius: 16px;
+  background-size: cover;         /* ✅ no stretching */
+  background-position: center top;/* ✅ protects faces/heads */
+  background-repeat: no-repeat;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+  </style>
+  </head>
+
+<body>
+
+<!-- Header/Nav -->
+<header>
+  <div class="navbar">
+    <a href="home.html" style="text-decoration:none; color:inherit;">
+      <div class="navbar-brand" id="logo">
+        <img src="images/logo-icon.webp" alt="Healthy Little Minds 로고" style="height:30px;" />
+        <h1 class="site-title">
+          <span style="color:#254E70">Healthy</span>
+          <span style="color:#FF6B6B">Little Minds</span>
+        </h1>
+      </div>
+    </a>
+
+    <nav class="navbar-menu">
+      <a href="home.html">홈</a>
+      <a href="home.html#worksheets">학습지</a>
+      <a href="parents.html">부모 안내</a>
+      <a href="bulletin.html">📌 공지사항</a>
+      <a href="dashboard.html">대시보드</a>
+      <a href="songs.html" class="active">🎵 노래</a>
+      <a href="inspire_page.html">🎬 영상</a>
+      <a href="audiobook_section.html">🎧 오디오북</a>
+      <a href="social.html">🌐 소셜 콘텐츠</a>
+    </nav>
+
+    <button class="hamburger" onclick="toggleMobileMenu()">☰</button>
+  </div>
+
+  <div class="nav-backdrop" id="navBackdrop" onclick="toggleMobileMenu(false)"></div>
+
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <a href="home.html">홈</a>
+    <a href="home.html#worksheets">학습지</a>
+    <a href="parents.html">부모 안내</a>
+    <a href="bulletin.html">📌 공지사항</a>
+    <a href="dashboard.html">대시보드</a>
+    <a href="songs.html" class="active">🎵 노래</a>
+    <a href="inspire_page.html">🎬 영상</a>
+    <a href="audiobook_section.html">🎧 오디오북</a>
+    <a href="social.html">🌐 소셜 콘텐츠</a>
+  </div>
+</header>
+
+<main class="songs-page">
+
+<!-- HERO -->
+<section class="songs-hero">
+  <div class="hero-badge">Healthy Little Minds • 음악</div>
+  <h1 class="hero-title">🎵 노래</h1>
+  <p class="hero-subtitle">
+    아이들이 마음을 가라앉히고 감정을 이해하며 안전하게 표현할 수 있도록 돕는 부드러운 노래들입니다.
+  </p>
+
+  <div class="hero-chips">
+    <button class="chip is-active" data-filter="all">전체</button>
+    <button class="chip" data-filter="calm">😌 편안함</button>
+    <button class="chip" data-filter="happy">😄 기쁨</button>
+    <button class="chip" data-filter="brave">💪 용기</button>
+    <button class="chip" data-filter="focus">🎯 집중</button>
+  </div>
+
+  <div class="mini-steps">
+    <div class="step">
+      <span class="step-icon">👂</span>
+      <div>
+        <strong>듣기</strong>
+        <div class="muted">함께 노래를 들어보세요.</div>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-icon">💬</span>
+      <div>
+        <strong>이야기하기</strong>
+        <div class="muted">간단한 질문을 해보세요.</div>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-icon">🧠</span>
+      <div>
+        <strong>연습하기</strong>
+        <div class="muted">조용한 마음 연습을 해보세요.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section class="song-section">
+  <div class="section-head">
+    <h2>⭐ 추천 노래</h2>
+    <span class="section-note">클릭 시 로드 • 더 부드럽게</span>
+  </div>
+
+  <div class="featured-card song-card" data-mood="calm">
+    <div class="cover"
+         style="background-image:url('images/pause-breathe-feel.webp');
+                background-size:cover;
+                background-position:center;
+                background-repeat:no-repeat;">
+      <div class="cover-icon">🎶</div>
+      <div class="cover-title">PAUSE.</div>
+      <div class="cover-sub">BREATHE. FEEL.</div>
+    </div>
+
+    <div class="featured-content">
+      <div class="pill">😌 편안함</div>
+      <h3>PAUSE. BREATHE. FEEL.</h3>
+      <p class="desc">
+        아이들이 호흡을 연습하고 감정을 알아차릴 수 있도록 돕는
+        부드러운 어린이 노래입니다.
+      </p>
+
+      <div class="tip">
+        💡 들은 후 이렇게 물어보세요:
+        <strong>“이 노래에서 가장 많이 느껴진 감정은 뭐였어?”</strong>
+      </div>
+
+      <div class="song-actions">
+        <button class="song-btn ghost yt-open" data-youtube-id="zQzcjrHSp8g">
+          ▶️ 여기서 재생
+        </button>
+        <a class="song-btn"
+           href="https://www.youtube.com/watch?v=zQzcjrHSp8g"
+           target="_blank" rel="noopener">
+          🔗 YouTube에서 열기
+        </a>
+      </div>
+
+      <div class="yt-lite" aria-label="YouTube player"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MORE SONGS -->
+<section class="song-section">
+  <div class="section-head">
+    <h2>더 많은 노래</h2>
+    <span class="section-note">재생할 때만 로드됩니다</span>
+  </div>
+
+  <div class="song-grid">
+
+    <!-- ✅ NEW SONG WITH COVER -->
+    <article class="song-card" data-mood="brave">
+      <div class="song-cover"
+           style="background-image:url('images/keep-trying-ella-song.webp');"
+           aria-label="Keep Trying, Ella cover">
+      </div>
+
+      <div class="song-top">
+        <span class="pill">💪 용기</span>
+        <span class="tiny">2:30</span>
+      </div>
+
+      <h3>Keep Trying, Ella</h3>
+      <p class="desc">
+        엘라의 이야기에서 영감을 받은 따뜻한 응원 노래입니다.<br>
+        노력하고, 기다리고, 다시 시도하는 마음의 소중함을 전해줍니다.
+      </p>
+
+      <div class="song-actions">
+        <button class="song-btn ghost yt-open"
+                type="button"
+                data-youtube-id="eEETWhmRaqA">
+          ▶️ 여기서 재생
+        </button>
+
+        <a class="song-btn"
+           href="https://www.youtube.com/watch?v=eEETWhmRaqA"
+           target="_blank" rel="noopener">
+          🔗 YouTube에서 열기
+        </a>
+      </div>
+
+      <div class="yt-lite" aria-label="YouTube player"></div>
+    </article>
+
+    <!-- Existing song -->
+    <article class="song-card" data-mood="calm">
+      <div class="song-top">
+        <span class="pill">😌 편안함</span>
+        <span class="tiny">2:20</span>
+      </div>
+      <h3>Calm Down, Little Heart</h3>
+      <p class="desc">큰 감정을 진정시키는 호흡 노래입니다.</p>
+    </article>
+
+    <!-- Existing song -->
+    <article class="song-card" data-mood="brave">
+      <div class="song-top">
+        <span class="pill">💪 용기</span>
+        <span class="tiny">2:05</span>
+      </div>
+      <h3>I Can Try Again</h3>
+      <p class="desc">다시 도전하는 용기를 알려주는 성장형 사고 노래입니다.</p>
+    </article>
+
+  </div>
+</section>
+
+<script>
+    // Mobile menu toggle (works with your header)
+    function toggleMobileMenu(force){
+      const body = document.body;
+      const mobileNav = document.getElementById("mobileNav");
+      const btn = document.querySelector(".hamburger");
+
+      const willOpen = (typeof force === "boolean") ? force : !body.classList.contains("mobile-open");
+      if (willOpen) {
+        body.classList.add("mobile-open");
+        mobileNav.setAttribute("aria-hidden","false");
+        btn?.setAttribute("aria-expanded","true");
+      } else {
+        body.classList.remove("mobile-open");
+        mobileNav.setAttribute("aria-hidden","true");
+        btn?.setAttribute("aria-expanded","false");
+      }
+    }
+
+    // Mood filter chips
+    const chips = document.querySelectorAll(".chip");
+    const cards = document.querySelectorAll(".song-card");
+    chips.forEach(chip => {
+      chip.addEventListener("click", () => {
+        chips.forEach(c => c.classList.remove("is-active"));
+        chip.classList.add("is-active");
+        const f = chip.dataset.filter;
+        cards.forEach(card => {
+          card.style.display = (f === "all" || card.dataset.mood === f) ? "" : "none";
+        });
+      });
+    });
+
+    // Click-to-load YouTube embeds (no lag, only loads on click)
+    document.querySelectorAll(".yt-open").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const id = btn.dataset.youtubeId;
+        const card = btn.closest(".song-card");
+        const box = card.querySelector(".yt-lite");
+
+        // Close other open embeds
+        document.querySelectorAll(".yt-lite.is-open").forEach(other => {
+          if (other !== box) {
+            other.classList.remove("is-open");
+            other.innerHTML = "";
+            const otherBtn = other.closest(".song-card")?.querySelector(".yt-open");
+            if (otherBtn) otherBtn.textContent = "▶️ 在此播放";
+          }
+        });
+
+        // Toggle this embed
+        const isOpen = box.classList.contains("is-open");
+        if (isOpen) {
+          box.classList.remove("is-open");
+          box.innerHTML = "";
+          btn.textContent = "▶️ 在此播放";
+          return;
+        }
+
+        box.classList.add("is-open");
+        box.innerHTML = `
+          <iframe
+            width="100%" height="220"
+            src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1"
+            title="YouTube video player"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen>
+          </iframe>
+        `;
+        btn.textContent = "✖ 关闭";
+      });
+    });
+  </script>
+  <script defer src="../shared-language-switcher.js?v=1"></script>
+</body>
+</html>

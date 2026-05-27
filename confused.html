@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feeling Confused - Healthy Little Minds</title>
+  <meta name="description" content="Help children respond to confusion with questions, patience, and helpful next steps.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="feelings-guide.css">
+</head>
+<body class="feeling-page feeling-page--confused">
+  <script>
+    (function () {
+      if (localStorage.getItem("isMember") !== "true") {
+        const local = window.location.protocol === "file:";
+        const path = window.location.pathname;
+        const locale = path.split("/")[1];
+        window.location.replace(local ? "index.html" : (locale && path.includes("/" + locale + "/") ? "/" + locale + "/index.html" : "/index.html"));
+      }
+    })();
+  </script>
+  <main class="feelings-shell">
+    <a class="breadcrumb" href="more-feelings.html">&larr; Explore more feelings</a>
+    <section class="feeling-hero">
+      <div>
+        <p class="kicker">Explore a feeling</p>
+        <h1>Feeling Confused</h1>
+        <p class="feeling-lead">Confusion happens when information, choices, or feelings do not fit together yet. Not knowing is a place to begin, not a mistake.</p>
+      </div>
+      <aside class="hero-prompt"><h2>Try saying</h2><p>"I do not understand yet. Can you show me one step at a time?"</p></aside>
+    </section>
+    <section class="guide-section">
+      <h2>When confusion shows up</h2>
+      <div class="card-grid">
+        <article class="insight-card"><h3>New learning</h3><p>A lesson, game, or rule may take practice before it feels clear.</p></article>
+        <article class="insight-card"><h3>Mixed messages</h3><p>People may say different things, and it is okay to ask for clarity.</p></article>
+        <article class="insight-card"><h3>Big choices</h3><p>Too many options can make deciding difficult.</p></article>
+      </div>
+    </section>
+    <div class="two-column">
+      <section class="panel">
+        <h2>Try this now</h2>
+        <ol class="steps">
+          <li><strong>Pause and name it.</strong> Saying "I am confused" helps others support you.</li>
+          <li><strong>Find one question.</strong> Ask what the first step is or what a word means.</li>
+          <li><strong>Draw or sort.</strong> Pictures, lists, and two simple choices can help ideas become clear.</li>
+        </ol>
+      </section>
+      <aside class="support-card">
+        <h2>For grown-ups</h2>
+        <p>Slow down, repeat using simpler words, and invite questions without shame. Understanding grows with safety.</p>
+      </aside>
+    </div>
+    <section class="resource-panel">
+      <h2>Read together</h2>
+      <div class="resource-grid">
+        <article class="resource-card">
+          <img src="images/grey-thinking.webp" alt="The World Isn't Just Black and White book cover">
+          <h3>The World Isn't Just Black and White</h3>
+          <p>A story about seeing possibilities in between two simple answers.</p>
+          <a class="read-button" href="https://heyzine.com/flip-book/d765b64bda.html" target="_blank" rel="noopener">Read the book</a>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script defer src="shared-language-switcher.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>인터랙티브 도구 | 건강한 작은 마음</title>
+<!-- 🌐 Multilingual SEO: Hreflang Tags for Parents Page -->
+<link rel="alternate" href="https://www.healthylittleminds.club/parents.html" hreflang="en" />
+<link rel="alternate" href="https://www.healthylittleminds.club/zh-tw/parents.html" hreflang="zh-TW" />
+<link rel="alternate" href="https://www.healthylittleminds.club/zh-cn/parents.html" hreflang="zh-CN" />
+<link rel="alternate" href="https://www.healthylittleminds.club/ja/parents.html" hreflang="ja" />
+<link rel="alternate" href="https://www.healthylittleminds.club/ko/parents.html" hreflang="ko" />
+<link rel="alternate" href="https://www.healthylittleminds.club/parents.html" hreflang="x-default" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #E3F2FD;
+      color: #254E70;
+    }
+    h2, h3 {
+      text-align: center;
+      color: #254E70;
+    }
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      margin-top: 2rem;
+    }
+    button {
+      background-color: #FF66B6;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.4rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 0.5rem;
+    }
+    .sound-btn {
+      background: #FF66B6;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      margin: 0.3rem;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .sound-btn:hover {
+      transform: scale(1.05);
+    }
+    #nowPlayingLabel {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      color: #254E70;
+      font-weight: 500;
+    }
+    .story-card:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+  .story-card {
+    background: #dff6ff;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    max-width: 320px;
+    text-align: center;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .story-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 12px;
+    margin: 1rem 0;
+  }
+
+  .story-card h4 {
+    font-size: 1.25rem;
+    color: #254e70;
+    margin-bottom: 0.5rem;
+  }
+
+  .story-card p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 1rem;
+  }
+
+  .story-card .btn {
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    background-color: #ff6b6b;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  .story-card .btn:hover {
+    background-color: #e25555;
+  }
+  .bubble-box {
+    background: #fff0f6;
+    border: 2px dashed #ff6b6b;
+    padding: 1rem;
+    border-radius: 20px;
+    margin-top: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .bubble-box:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.15);
+  }
+
+  .bubble-box a {
+    background-color: #ff6b81;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+
+  .bubble-box a:hover {
+    background-color: #ff4f6b;
+  }
+</style>
+</head>
+<body>
+<script>
+  (function () {
+    const isLocal = location.protocol === 'file:';
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isLocal && !isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1];
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo);
+    }
+  })();
+</script>
+
+<div style="
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  background: #E6E6FA;
+  border: 2px solid #D8BFD8;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+">
+  <a href="home.html" style="
+    text-decoration: none;
+    color: #5A3E8A;
+    font-weight: bold;
+    font-size: 0.95rem;
+  ">
+    🏠 홈으로 돌아가기
+  </a>
+</div>
+
+
+<section id="calm-corner">
+  <h2>🧘‍♂️ 마음을 진정시키는 공간</h2>
+  <p>깊게 숨 쉬고, 마음을 평온하게 해주는 소리를 선택해 보세요.</p>
+  <div>
+    <button onclick="playSound('../audio/ocean.mp3', '바다 소리')" class="sound-btn">🌊 바다 소리</button>
+    <button onclick="playSound('../audio/gentle-piano.mp3', '잔잔한 피아노')" class="sound-btn">🎹 잔잔한 피아노</button>
+    <button onclick="playSound('../audio/forest-sound.mp3', '숲속 소리')" class="sound-btn">🌲 숲속 소리</button>
+    <button onclick="stopMusic()" class="sound-btn">⏹️ 음악 멈추기</button>
+    <p id="nowPlayingLabel"></p>
+  </div>
+  <div id="breathing-circle" style="width: 150px; height: 150px; margin: 2rem auto; border-radius: 50%; background: #A7E5F3; transition: all 4s ease-in-out;"></div>
+  <p id="breathing-text" style="text-align:center; font-size: 1.4rem;">준비하세요...</p>
+  <div style="text-align: center;">
+    <button onclick="startBreathing()">🌬️ 호흡 시작</button>
+  </div>
+</section>
+
+<section>
+  <h2>🎨 감정을 그림으로 표현해요</h2>
+  <p style="text-align:center;">색을 선택하고 당신의 감정을 그려보세요.</p>
+  <div style="text-align:center; margin: 1rem 0;">
+    🖍️ 색상 선택: <input type="color" id="inkColor" value="#254E70" />
+    <button id="saveBtn">💾 저장</button>
+  </div>
+  <p style="text-align:center; font-size: 0.9rem;">💌 그림을 저장한 후 부모님께 이메일로 보내보세요.</p>
+  <div style="text-align: center; margin-top: 1.5rem;">
+    <button id="send-email" style="background:#FF6086; color:white; padding:0.6rem 1.2rem; border-radius:20px; font-weight:bold; border:none; cursor:pointer;">
+      📩 부모님께 보내기
+    </button>
+    <p style="font-size: 0.8rem; color: #999; margin-top: 0.5rem;">
+      다운로드 폴더에서 그림 파일을 찾아 이메일에 첨부해 주세요.
+    </p>
+  </div>
+  <canvas id="drawingCanvas" style="display:block; margin:auto; border:1px solid #ccc; border-radius: 12px; background:#fffbea;" width="300" height="300"></canvas>
+  <div style="text-align:center; margin-top:1rem;">
+    <button id="eraserBtn">🧽 지우개</button>
+    <label for="eraserSize">지우개 크기:</label>
+    <input type="range" id="eraserSize" min="5" max="40" value="10" />
+    <button id="clearBtn">💖 모두 지우기</button>
+  </div>
+</section>
+
+<section id="mood-story-builder" style="text-align:center; padding: 2rem; background:#fffbea;">
+  <h2 style="color:#254E70;">📖 감정 이야기 만들기</h2>
+  <p>지금 기분을 선택하면, 마음을 다스릴 수 있는 활동을 안내할게요.</p>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin: 1.5rem 0;">
+    <button onclick="showMoodStory('happy')">😊 기쁨</button>
+    <button onclick="showMoodStory('angry')">😡 화남</button>
+    <button onclick="showMoodStory('sad')">😢 슬픔</button>
+    <button onclick="showMoodStory('scared')">😨 무서움</button>
+    <button onclick="showMoodStory('calm')">😌 평온함</button>
+    <button onclick="showMoodStory('unsure')">😕 잘 모르겠어요</button>
+  </div>
+  <div id="storyOutput" style="max-width: 600px; margin: auto; background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); display:none;">
+    <h3 id="moodTitle"></h3>
+    <p id="moodMessage"></p>
+    <button onclick="resetStory()" style="margin-top:1rem;">🔁 다시 선택하기</button>
+  </div>
+</section>
+
+<div class="story-card">
+  <img src="images/destiny-sad.png" alt="Destiny feeling sad" />
+  <h4>슬픔</h4>
+<p>데스티니가 기분이 나아지도록 다음 행동을 선택해 주세요.</p>
+  <a href="story-sad.html" class="btn">📖 스토리 시작하기</a>
+</div>
+
+<div class="story-card">
+  <img src="../images/bella_interactive_story.png" alt="벨라의 인터랙티브 스토리" />
+  <h4>🌈 선택과 감정</h4>
+  <p>벨라가 다양한 상황에서 어떤 선택을 하고 그것이 감정과 우정에 어떤 영향을 주는지 함께 알아봐요.</p>
+  <a href="interactive-stories/scene_1_bella_story.html" class="btn bubble">📖 벨라의 이야기 시작하기</a>
+</div>
+
+
+<script>
+const moodResponses = {
+  happy: {
+    title: "당신은 지금 기뻐요! 😊",
+    message: "정말 좋네요! 오늘 웃게 한 일을 그림이나 글로 표현해 보세요. 기쁜 순간을 공유하면 더 커져요."
+  },
+  angry: {
+    title: "당신은 지금 화가 났어요 😡",
+    message: "화나는 건 괜찮아요. 함께 깊게 숨을 세 번 쉬어볼까요? 감정을 그림으로 표현하거나 쿠션을 꽉 안아보세요."
+  },
+  sad: {
+    title: "당신은 지금 슬퍼요 😢",
+    message: "슬플 땐 안전함이 필요해요. 감정을 그림으로 표현하거나 편지를 써보세요. 누군가와 이야기하는 것도 도움이 돼요."
+  },
+  scared: {
+    title: "당신은 지금 무서워요 😨",
+    message: "무섭다는 건 무언가 소중하다는 뜻이에요. 부드러운 것을 껴안거나 안전한 장소를 그려보세요. 혼자가 아니에요."
+  },
+  calm: {
+    title: "당신은 지금 평온해요 😌",
+    message: "평온한 순간이네요! 평화로운 정원이나 구름을 그려보며 이 순간을 만끽하세요."
+  },
+  unsure: {
+    title: "당신은 잘 모르겠어요 😕",
+    message: "감정을 모를 때도 있어요. 무작위로 도형을 그려보면 감정이 드러날지도 몰라요."
+  }
+};
+
+function showMoodStory(mood) {
+  document.getElementById('moodTitle').textContent = moodResponses[mood].title;
+  document.getElementById('moodMessage').textContent = moodResponses[mood].message;
+  document.getElementById('storyOutput').style.display = 'block';
+}
+function resetStory() {
+  document.getElementById('storyOutput').style.display = 'none';
+}
+</script>
+
+<script>
+const canvas = document.getElementById('drawingCanvas');
+const ctx = canvas.getContext('2d');
+const colorPicker = document.getElementById('inkColor');
+const eraserBtn = document.getElementById('eraserBtn');
+const clearBtn = document.getElementById('clearBtn');
+const saveBtn = document.getElementById('saveBtn');
+const eraserSize = document.getElementById('eraserSize');
+
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetHeight;
+ctx.fillStyle = '#fffbea';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+let drawing = false;
+let erasing = false;
+let lastX = 0;
+let lastY = 0;
+
+function getXY(e) {
+  const rect = canvas.getBoundingClientRect();
+  return {
+    x: (e.touches ? e.touches[0].clientX : e.clientX) - rect.left,
+    y: (e.touches ? e.touches[0].clientY : e.clientY) - rect.top
+  };
+}
+
+function startDrawing(e) {
+  drawing = true;
+  const pos = getXY(e);
+  lastX = pos.x;
+  lastY = pos.y;
+}
+function draw(e) {
+  if (!drawing) return;
+  e.preventDefault();
+  const pos = getXY(e);
+  ctx.strokeStyle = erasing ? '#fffbea' : colorPicker.value;
+  ctx.lineWidth = erasing ? parseInt(eraserSize.value) : 3;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.moveTo(lastX, lastY);
+  ctx.lineTo(pos.x, pos.y);
+  ctx.stroke();
+  lastX = pos.x;
+  lastY = pos.y;
+}
+function stopDrawing() {
+  drawing = false;
+}
+
+canvas.addEventListener('mousedown', startDrawing);
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseup', stopDrawing);
+canvas.addEventListener('mouseout', stopDrawing);
+canvas.addEventListener('touchstart', startDrawing);
+canvas.addEventListener('touchmove', draw);
+canvas.addEventListener('touchend', stopDrawing);
+
+eraserBtn.addEventListener('click', () => {
+  erasing = !erasing;
+  eraserBtn.textContent = erasing ? '🧽 지우는 중...' : '🧽 지우개';
+});
+clearBtn.addEventListener('click', () => {
+  ctx.fillStyle = '#fffbea';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+});
+saveBtn.addEventListener('click', () => {
+  const image = canvas.toDataURL("image/png");
+  const link = document.createElement('a');
+  link.href = image;
+  link.download = "my_drawing.png";
+  link.click();
+});
+</script>
+
+<script>
+function startBreathing() {
+  const circle = document.getElementById('breathing-circle');
+  const text = document.getElementById('breathing-text');
+  let state = 'breathe in';
+
+  text.textContent = '들이마시기...';
+  circle.style.transform = 'scale(1.4)';
+
+  if (window.breathingInterval) clearInterval(window.breathingInterval);
+
+  window.breathingInterval = setInterval(() => {
+    if (state === 'breathe in') {
+      state = 'hold';
+      text.textContent = '멈추기...';
+      circle.style.transform = 'scale(1.4)';
+    } else if (state === 'hold') {
+      state = 'breathe out';
+      text.textContent = '내쉬기...';
+      circle.style.transform = 'scale(1)';
+    } else {
+      state = 'breathe in';
+      text.textContent = '들이마시기...';
+      circle.style.transform = 'scale(1.4)';
+    }
+  }, 4000);
+}
+
+let audioPlayer = new Audio();
+function playSound(src, label = "") {
+  audioPlayer.pause();
+  audioPlayer = new Audio(src);
+  audioPlayer.loop = true;
+  audioPlayer.play();
+  document.getElementById('nowPlayingLabel').textContent = `🎵 재생 중: ${label}`;
+}
+function stopMusic() {
+  audioPlayer.pause();
+  audioPlayer.currentTime = 0;
+  document.getElementById('nowPlayingLabel').textContent = "";
+}
+
+document.getElementById("send-email").addEventListener("click", function () {
+  const subject = encodeURIComponent("내 감정 그림");
+  const body = encodeURIComponent("안녕하세요! 오늘의 감정을 그림으로 표현했어요. 다운로드 폴더에서 저장된 그림을 이메일에 첨부해주세요. ❤️");
+  window.location.href = `mailto:?subject=${subject}&body=${body}`;
+});
+</script>
+<footer>
+    © 2025 건강한 작은 마음 | 모든 권리 보유 🌟
+ </footer>
+
+  <script defer src="../shared-language-switcher.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "Healthy Little Minds",
+  "short_name": "Little Minds",
+  "lang": "zh-TW",
+  "start_url": "/zh-tw/home.html",
+  "scope": "/zh-tw/",
+  "display": "standalone",
+  "background_color": "#DFF6FF",
+  "theme_color": "#FF6B6B",
+  "orientation": "portrait",
+  "description": "一個溫暖又安全的地方，讓孩子學會了解與表達情緒。",
+  "icons": [
+    {
+      "src": "/icon-192.webp",
+      "type": "image/webp",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512.webp",
+      "type": "image/webp",
+      "sizes": "512x512"
+    }
+  ]
+}

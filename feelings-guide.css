@@ -1,0 +1,410 @@
+:root {
+  --ink: #193f5c;
+  --muted: #4c6b80;
+  --paper: #fffdf9;
+  --surface: #ffffff;
+  --line: #e6e2dc;
+  --accent: #f47b62;
+  --accent-dark: #c64e3b;
+  --soft: #fff2e5;
+  --highlight: #fff0da;
+  --shadow: 0 14px 36px rgba(25, 63, 92, 0.09);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body.feeling-page,
+body.feelings-hub {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--soft);
+  color: var(--ink);
+  font-family: "DM Sans", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+.feelings-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 26px 0 54px;
+}
+
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.breadcrumb:hover,
+.breadcrumb:focus-visible {
+  color: var(--accent-dark);
+}
+
+.feelings-hub__hero,
+.feeling-hero {
+  border-radius: 30px;
+  background: var(--surface);
+  border: 1px solid rgba(25, 63, 92, 0.08);
+  box-shadow: var(--shadow);
+}
+
+.feelings-hub__hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(30px, 6vw, 60px);
+  text-align: center;
+}
+
+.feelings-hub__hero::after {
+  position: absolute;
+  right: -62px;
+  bottom: -70px;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: #ffe0bf;
+  content: "";
+}
+
+.kicker {
+  margin: 0 0 10px;
+  color: var(--accent-dark);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.feelings-hub h1,
+.feeling-hero h1 {
+  margin: 0 0 14px;
+  font-family: "Nunito", Arial, sans-serif;
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  line-height: 1.12;
+}
+
+.feelings-hub__intro,
+.feeling-lead {
+  max-width: 710px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.14rem);
+}
+
+.feelings-section {
+  margin-top: 38px;
+}
+
+.feelings-section__heading {
+  margin: 0 0 17px;
+  font-family: "Nunito", Arial, sans-serif;
+  font-size: clamp(1.38rem, 3vw, 1.7rem);
+}
+
+.feelings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.feeling-tile {
+  --tile-accent: #d9eef7;
+  display: flex;
+  min-height: 126px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 20px;
+  border: 1px solid rgba(25, 63, 92, 0.08);
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--surface), var(--tile-accent));
+  box-shadow: 0 6px 18px rgba(25, 63, 92, 0.04);
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.feeling-tile:hover,
+.feeling-tile:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 24px rgba(25, 63, 92, 0.1);
+}
+
+.feeling-tile strong {
+  font-family: "Nunito", Arial, sans-serif;
+  font-size: 1.23rem;
+}
+
+.feeling-tile span {
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.tile--confused { --tile-accent: #e6eafd; }
+.tile--embarrassed { --tile-accent: #ffe8ef; }
+.tile--love { --tile-accent: #ffe4df; }
+.tile--bored { --tile-accent: #fff3c8; }
+.tile--frustrated { --tile-accent: #ffe9c9; }
+.tile--proud { --tile-accent: #dcf5e4; }
+.tile--disappointed { --tile-accent: #dbf2f2; }
+.tile--nervous { --tile-accent: #fae2dc; }
+.tile--lonely { --tile-accent: #ece4f4; }
+.tile--grateful { --tile-accent: #fff0c9; }
+.tile--curious { --tile-accent: #dff2fa; }
+.tile--shy { --tile-accent: #e9e7ff; }
+.tile--jealous { --tile-accent: #e6f1de; }
+.tile--silly { --tile-accent: #ffe8b7; }
+
+.hub-actions {
+  margin-top: 38px;
+  text-align: center;
+}
+
+.button,
+.read-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #ffffff;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.button:hover,
+.button:focus-visible,
+.read-button:hover,
+.read-button:focus-visible {
+  background: #102f46;
+  transform: translateY(-1px);
+}
+
+.feeling-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(220px, 0.72fr);
+  gap: clamp(22px, 4vw, 42px);
+  align-items: center;
+  padding: clamp(26px, 5vw, 48px);
+}
+
+.feeling-lead {
+  margin: 0;
+}
+
+.hero-prompt {
+  padding: 22px;
+  border-radius: 20px;
+  background: var(--highlight);
+}
+
+.hero-prompt h2 {
+  margin: 0 0 8px;
+  color: var(--accent-dark);
+  font-size: 0.86rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-prompt p {
+  margin: 0;
+  font-size: 1.04rem;
+  font-weight: 700;
+}
+
+.guide-section {
+  margin-top: 32px;
+}
+
+.guide-section > h2,
+.panel h2,
+.resource-panel h2 {
+  margin: 0 0 16px;
+  font-family: "Nunito", Arial, sans-serif;
+  font-size: clamp(1.35rem, 3vw, 1.7rem);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.insight-card,
+.panel,
+.resource-panel,
+.support-card {
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid rgba(25, 63, 92, 0.08);
+  box-shadow: 0 5px 15px rgba(25, 63, 92, 0.04);
+}
+
+.insight-card {
+  padding: 20px;
+}
+
+.insight-card h3 {
+  margin: 0 0 6px;
+  font-family: "Nunito", Arial, sans-serif;
+  font-size: 1.1rem;
+}
+
+.insight-card p,
+.support-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 1.24fr) minmax(260px, 0.8fr);
+  gap: 15px;
+  margin-top: 32px;
+}
+
+.panel,
+.support-card {
+  padding: clamp(20px, 3vw, 28px);
+}
+
+.steps {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding-left: 22px;
+}
+
+.steps li {
+  padding-left: 5px;
+  color: var(--muted);
+}
+
+.steps strong {
+  color: var(--ink);
+}
+
+.support-card {
+  background: var(--highlight);
+}
+
+.support-card h2 {
+  margin: 0 0 9px;
+  font-family: "Nunito", Arial, sans-serif;
+  font-size: 1.3rem;
+}
+
+.resource-panel {
+  margin-top: 32px;
+  padding: clamp(20px, 4vw, 30px);
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  gap: 16px;
+}
+
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--paper);
+}
+
+.resource-card img {
+  width: 100%;
+  max-height: 270px;
+  object-fit: contain;
+  border-radius: 11px;
+  background: #ffffff;
+}
+
+.resource-card h3 {
+  margin: 0;
+  font-family: "Nunito", Arial, sans-serif;
+  font-size: 1.17rem;
+}
+
+.resource-card p {
+  flex: 1;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+.tool-link {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 18px;
+  border-radius: 16px;
+  background: var(--paper);
+}
+
+.tool-link p {
+  margin: 3px 0 0;
+  color: var(--muted);
+}
+
+.tool-link .read-button {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.feeling-page--bored { --highlight: #fff2cf; --accent: #dd8244; --accent-dark: #a85625; }
+.feeling-page--shy { --highlight: #eeebff; --accent: #655ac8; --accent-dark: #463d9e; }
+.feeling-page--jealous { --highlight: #e9f2de; --accent: #4d8871; --accent-dark: #296249; }
+.feeling-page--silly { --highlight: #fff0c6; --accent: #e07a39; --accent-dark: #a95320; }
+.feeling-page--confused { --highlight: #eaf0ff; --accent: #5077bc; --accent-dark: #315492; }
+.feeling-page--frustrated { --highlight: #ffe6d7; --accent: #d65c45; --accent-dark: #a4382c; }
+.feeling-page--curious { --highlight: #e1f5fc; --accent: #277a99; --accent-dark: #14546c; }
+.feeling-page--proud { --highlight: #e1f4e6; --accent: #377e61; --accent-dark: #205940; }
+.feeling-page--love { --highlight: #ffe5e7; --accent: #cf596a; --accent-dark: #9d3547; }
+.feeling-page--grateful { --highlight: #fff0cb; --accent: #bd7723; --accent-dark: #85500f; }
+
+@media (max-width: 780px) {
+  .feelings-grid,
+  .card-grid,
+  .feeling-hero,
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .feeling-tile {
+    min-height: 106px;
+  }
+
+  .tool-link {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tool-link .read-button {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .feelings-shell {
+    width: min(100% - 24px, 1120px);
+    padding-top: 16px;
+  }
+
+  .feelings-grid {
+    gap: 11px;
+  }
+}

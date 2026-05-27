@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Healthy Little Minds | Bulletin Board</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=DM+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #FFF2E5;
+      margin: 0;
+      padding: 0;
+      color: #254E70;
+    }
+    header {
+      padding: 1.5rem;
+      background: white;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    header h1 {
+      font-family: 'Comic Neue', sans-serif;
+      font-size: 2rem;
+      color: #FF6B6B;
+    }
+    .bulletin-section {
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .bulletin-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .bulletin-note {
+      background: #FFDD59;
+      border-radius: 16px;
+      padding: 1rem;
+      width: 100%;
+      max-width: 280px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      font-family: 'Comic Neue', cursive;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .bulletin-note a {
+      color: #FF6B6B;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .bulletin-note a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+ <div style="text-align: center; padding-top: 1.5rem; margin-bottom: 2rem;">
+  <a href="home.html" style="
+    display: inline-block;
+    background: #254E70;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: background 0.3s ease;
+  " onmouseover="this.style.background='#3a6fa3'" onmouseout="this.style.background='#254E70'">
+    🏠 Go Home
+  </a>
+</div>
+
+
+  <header>
+    <h1>📌 Bulletin Board</h1>
+    <p>Catch up on the latest from Healthy Little Minds!</p>
+  </header>
+
+<section class="bulletin-section">
+  <div class="bulletin-grid">
+
+<div class="bulletin-note">
+  📘 <strong>New Book Release:</strong><br>
+  <a href="https://heyzine.com/flip-book/1fb2ef8177.html" target="_blank">
+    Read <em>"When I Can’t Do It Yet"</em> – A gentle story about effort, emotions, and trying again.
+  </a>
+</div>
+
+
+ <div class="bulletin-note">
+      🆕 <strong>New Book Released!</strong><br>
+      “<em>Why Why Why? Surprise</em>” is now live!  
+      <a href="https://online.fliphtml5.com/aogil/asyu/index.html" target="_blank">Read it here</a>
+    </div>
+
+
+    <div class="bulletin-note">
+      🆕 <strong>New Book Released!</strong><br>
+      “<em>Princess and the Picture Day Surprise</em>” is now live!  
+      <a href="https://heyzine.com/flip-book/a958329538.html" target="_blank">Read it here</a>
+    </div>
+
+    <div class="bulletin-note">
+      🆕 <strong>New Book Released!</strong><br>
+      “<em>Little Acts, Big Feelings</em>” is now live!  
+      <a href="https://heyzine.com/flip-book/034942038a.html" target="_blank">Read it here</a>
+    </div>
+
+    <div class="bulletin-note">
+      📘 <strong>New Book Release:</strong><br>
+      <a href="https://heyzine.com/flip-book/1f4337da92.html" target="_blank">
+        Read "When I Feel Scared – A Comforting Story for Big Feelings"
+      </a>
+    </div>
+
+    <div class="bulletin-note">
+      🆕 <strong>New Book Released!</strong><br>
+      “<em>How to Calm the Storm Inside</em>” is now live!  
+      <a href="https://heyzine.com/flip-book/3cf1027650.html" target="_blank">Read it here</a>
+    </div>
+
+    <div class="bulletin-note">
+      🎉 <strong>New Worksheet Release:</strong><br>
+      “Calm the Storm Inside – My Feelings Workbook” is now available!  
+      Download it <a href="worksheets/Calm the Storm Inside - My Feelings Workbook.pdf">here</a> 🎨
+    </div>
+
+    <div class="bulletin-note">
+      📱 Follow us on Instagram <a href="https://instagram.com/healthylittleminds" target="_blank">@heal.thylittleminds</a>  
+      for behind-the-scenes stories and sneak peeks!
+    </div>
+
+  </div>
+</section>
+<script>
+  // 🔒 Redirect to login page if not logged in
+  (function () {
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo); // 👈 Smooth silent redirect
+    }
+  })();
+</script>
+
+  <script defer src="shared-language-switcher.js?v=1"></script>
+</body>
+</html>

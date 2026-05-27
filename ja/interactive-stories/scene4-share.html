@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🗣️ シーン 4 – 気持ちを話すと楽になる</title>
+  <style>
+    body { background-color: #f0fbf8; font-family: "Segoe UI", sans-serif; margin: 0; padding: 0; color: #2e2e2e; }
+    .scene-wrapper { max-width: 800px; margin: 2rem auto; background-color: #ffffff; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); text-align: center; }
+    h1 { font-size: 2rem; margin-bottom: 1rem; color: #333; }
+    .story-text { font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.6; }
+    .scene-img { max-width: 70%; height: auto; border-radius: 12px; margin: 1.5rem 0; }
+    .thought-bubble { background-color: #e1f9ed; border-left: 5px solid #5dd39e; padding: 1rem; font-style: italic; border-radius: 8px; margin: 1.5rem 0; }
+    .parent-tip { background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 1rem; font-size: 1rem; border-radius: 8px; margin-bottom: 2rem; text-align: left; }
+    .nav-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .choice-btn { padding: 0.8rem 1.5rem; border-radius: 8px; font-size: 1rem; font-weight: bold; text-decoration: none; transition: background-color 0.3s ease; }
+    .choice-btn.blue { background-color: #e0f0ff; color: #0056b3; border: 1px solid #b3d9ff; }
+    .choice-btn.red { background-color: #ffeaea; color: #b30000; border: 1px solid #ffcccc; }
+    .choice-btn:hover { opacity: 0.85; }
+    @media (max-width: 600px) { body { padding: 1rem; } .scene-wrapper { padding: 1.5rem 1rem; } }
+  </style>
+</head>
+<body>
+<div style="
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  background: #E6E6FA;
+  border: 2px solid #D8BFD8;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+">
+  <a href="../home.html" style="
+    text-decoration: none;
+    color: #5A3E8A;
+    font-weight: bold;
+    font-size: 0.95rem;
+  ">
+    🏠 ホームにもどる
+  </a>
+</div>
+
+  <div class="scene-wrapper">
+    <h1>🗣️ シーン 4 – 気持ちを話すと楽になる</h1>
+    <p class="story-text">
+  ベラは深呼吸をして、先生に話しかけました。<br>
+  自分の気持ちを伝えると、胸が少し軽くなり、目が少し輝きました。
+</p>
+
+    <img src="images/scene4-share.png" alt="先生に気持ちを話すベラ" class="scene-img" />
+
+    <div class="thought-bubble">「話すのは難しかったけど…ちょっと楽になった気がする。」</div>
+
+    <div class="parent-tip">
+      🧠 <strong>保護者へのヒント：</strong> 子どもが安心して気持ちを話せると、自分が理解されていると感じられます。<br>その勇気を褒めて、もっと話せる環境を作りましょう。
+    </div>
+
+    <div class="nav-buttons">
+      <a href="scene_5_calm.html" class="choice-btn blue">🌈 落ち着きを取り戻す</a>
+      <a href="scene5-regret.html" class="choice-btn red">🙈 話さなければよかった</a>
+    </div>
+  </div>
+<script>
+  // 🔒 Redirect to login page if not logged in
+  (function () {
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo); // 👈 Smooth silent redirect
+    }
+  })();
+</script>
+
+</body>
+</html>

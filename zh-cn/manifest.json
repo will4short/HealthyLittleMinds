@@ -1,0 +1,24 @@
+{
+  "name": "Healthy Little Minds",
+  "short_name": "小小心灵",
+  "lang": "zh-CN",
+  "start_url": "/zh-cn/home.html",
+  "scope": "/zh-cn/",
+  "display": "standalone",
+  "background_color": "#DFF6FF",
+  "theme_color": "#FF6B6B",
+  "orientation": "portrait",
+  "description": "一个温馨的空间，帮助孩子们理解和表达自己的情绪。",
+  "icons": [
+    {
+      "src": "/icon-192.webp",
+      "type": "image/webp",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512.webp",
+      "type": "image/webp",
+      "sizes": "512x512"
+    }
+  ]
+}

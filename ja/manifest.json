@@ -1,0 +1,24 @@
+{
+  "name": "Healthy Little Minds",
+  "short_name": "リトル・マインズ",
+  "lang": "ja",
+  "start_url": "/ja/home.html",
+  "scope": "/ja/",
+  "display": "standalone",
+  "background_color": "#DFF6FF",
+  "theme_color": "#FF6B6B",
+  "orientation": "portrait",
+  "description": "子どもたちが感情を理解し、安心して表現できるようになる優しい学びの空間。",
+  "icons": [
+    {
+      "src": "/icon-192.webp",
+      "type": "image/webp",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512.webp",
+      "type": "image/webp",
+      "sizes": "512x512"
+    }
+  ]
+}

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>インタラクティブ・ツール | こころのひろば</title>
+<!-- 🌐 Multilingual SEO: Hreflang Tags for Parents Page -->
+<link rel="alternate" href="https://www.healthylittleminds.club/parents.html" hreflang="en" />
+<link rel="alternate" href="https://www.healthylittleminds.club/zh-tw/parents.html" hreflang="zh-TW" />
+<link rel="alternate" href="https://www.healthylittleminds.club/zh-cn/parents.html" hreflang="zh-CN" />
+<link rel="alternate" href="https://www.healthylittleminds.club/ja/parents.html" hreflang="ja" />
+<link rel="alternate" href="https://www.healthylittleminds.club/ko/parents.html" hreflang="ko" />
+<link rel="alternate" href="https://www.healthylittleminds.club/parents.html" hreflang="x-default" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=DM+Sans&display=swap" rel="stylesheet">
+  <style>
+     #nowPlayingLabel {
+      transition: opacity 0.3s ease-in-out;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      color: #254E70;
+      font-weight: 500;
+    }
+    .sound-btn {
+      background: #FF66B6;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      margin: 0.3rem;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .sound-btn:hover {
+      transform: scale(1.05);
+    }
+    @media (max-width: 600px) {
+      .sound-btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+      }
+      #nowPlayingLabel {
+        font-size: 1rem;
+      }
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #E3F2FD;
+      color: #254E70;
+    }
+    h2, h3 {
+      text-align: center;
+      color: #254E70;
+    }
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      margin-top: 2rem;
+    }
+    button {
+      background-color: #FF66B6;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.4rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 0.5rem;
+    }
+  #mood-story-builder button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #FF6B6B;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  #mood-story-builder button:hover {
+    background: #e15b5b;
+  }
+  .story-card {
+    background: #dff6ff;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    max-width: 320px;
+    text-align: center;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .story-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 12px;
+    margin: 1rem 0;
+  }
+
+  .story-card h4 {
+    font-size: 1.25rem;
+    color: #254e70;
+    margin-bottom: 0.5rem;
+  }
+
+  .story-card p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 1rem;
+  }
+
+  .story-card .btn {
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    background-color: #ff6b6b;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .story-card .btn:hover {
+    background-color: #e25555;
+  }
+  .story-card:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+</style>
+</head>
+<body>
+
+<div style="
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  background: #E6E6FA;
+  border: 2px solid #D8BFD8;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+">
+  <a href="home.html" style="
+    text-decoration: none;
+    color: #5A3E8A;
+    font-weight: bold;
+    font-size: 0.95rem;
+  ">
+    🏠 ホームにもどる
+  </a>
+</div>
+
+<section id="calm-corner">
+  <h2>🧘‍♂️ オチツキコーナー</h2>
+  <p>深い息をして、オーディオを選んでこころを落ち着けましょう。</p>
+  <div>
+    <button onclick="playSound('../audio/ocean.mp3', '海のさざなみ')" class="sound-btn">🌊 海のさざなみ</button>
+    <button onclick="playSound('../audio/gentle-piano.mp3', 'やさしいピアノ')" class="sound-btn">🎹 やさしいピアノ</button>
+    <button onclick="playSound('../audio/forest-sound.mp3', '森の声')" class="sound-btn">🌲 森の声</button>
+    <button onclick="stopMusic()" class="stop-btn">⏹️ サウンド停止</button>
+    <p id="nowPlayingLabel"></p>
+  </div>
+
+  <div id="breathing-circle" style="width: 150px; height: 150px; margin: 2rem auto; border-radius: 50%; background: #A7E5F3; transition: all 4s ease-in-out;"></div>
+  <p id="breathing-text" style="text-align:center; font-size: 1.4rem;">準備はいいかな...？</p>
+  <div style="text-align: center;">
+    <button onclick="startBreathing()">🌬️ 息をしましょう</button>
+  </div>
+</section>
+
+<section>
+  <h2>🎨 きもちをえがこう</h2>
+  <p style="text-align:center;">色を選んで、いまのきもちをえがいてみましょう。</p>
+  <div style="text-align:center; margin: 1rem 0;">
+    🖍️ 色を選ぶ: <input type="color" id="inkColor" value="#254E70" />
+    <button id="saveBtn">📀 えがきを保存</button>
+  </div>
+  <p style="font-size: 0.9rem; color: #555; margin-top: 0.5rem;">
+    えがきを保存したら、おとなの人と一緒にメールを送ってみましょう。
+  </p>
+  <div style="text-align: center; margin-top: 1.5rem;">
+    <button id="send-email" style="background:#FF6086; color:white; padding:0.6rem 1.2rem; border-radius:20px; font-weight:bold; border:none; cursor:pointer;">
+      📩 おうちの人に送る
+    </button>
+    <p style="font-size: 0.8rem; color: #999; margin-top: 0.5rem;">
+      📌 ダウンロードのえがきを添付してください。
+    </p>
+  </div>
+  <canvas id="drawingCanvas" style="display:block; margin:auto; border:1px solid #ccc; border-radius: 12px; background:#fffbea;" width="300" height="300"></canvas>
+  <div style="text-align:center; margin-top:1rem;">
+    <button id="eraserBtn">🧽 けしごむ</button>
+    <label for="eraserSize">けしごむの大きさ:</label>
+    <input type="range" id="eraserSize" min="5" max="40" value="10" />
+    <button id="clearBtn">💖 すべて削除</button>
+  </div>
+</section>
+
+<section id="mood-story-builder">
+  <h2 style="color:#254E70;">📖 きもちのストーリーをつくろう</h2>
+  <p style="text-align:center;">今日のきもちに合わせてアクティビティをご紹介します。</p>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin: 1.5rem 0;">
+    <button onclick="showMoodStory('happy')">✨ うれしい</button>
+    <button onclick="showMoodStory('angry')">😠 いらいら</button>
+    <button onclick="showMoodStory('sad')">😢 かなしい</button>
+    <button onclick="showMoodStory('scared')">😨 こわい</button>
+    <button onclick="showMoodStory('calm')">😌 りらく</button>
+    <button onclick="showMoodStory('unsure')">😕 わからない</button>
+  </div>
+
+  <div id="storyOutput" style="max-width: 600px; margin: auto; background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); display:none;">
+    <h3 id="moodTitle"></h3>
+    <p id="moodMessage"></p>
+    <button onclick="resetStory()" style="margin-top:1rem;">🔁 きもちを選びなおす</button>
+  </div>
+</section>
+
+<div class="story-card">
+  <img src="images/destiny-sad.png" alt="Destiny feeling sad" />
+  <h4>😢 悲しみ</h4>
+  <p>デスティニーの次の行動を選んで、気持ちがよくなるお手伝いをしよう。</p>
+  <a href="story-sad.html" class="btn">📖 ストーリーをはじめる</a>
+</div>
+
+<div class="story-card">
+  <img src="../images/bella_interactive_story.png" alt="ベラのインタラクティブストーリー" />
+  <h4>🌈 選択と感情</h4>
+  <p>
+    ベラがさまざまな場面でどのように選び、それが感情や友情にどう影響するのかを一緒に体験しましょう。
+  </p>
+
+  <!-- 🌸 Bubbled Button Wrapper -->
+  <div style="
+    background-color: #ffeef4;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 30px;
+    display: inline-block;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  ">
+    <a href="interactive-stories/scene_1_bella_story.html" class="choice-btn pink" style="
+      background-color: #ff6b81;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+    ">📖 ベラの物語を始める</a>
+  </div>
+</div>
+
+<script>
+  // 🔒 Redirect to login page if not logged in
+  (function () {
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo); // 👈 Smooth silent redirect
+    }
+  })();
+</script>
+
+<script>
+  const moodResponses = {
+  happy: {
+    title: "あなたはうれしい気持ちですね！😊",
+    message: "すばらしいですね！今日はあなたを笑顔にしたことを絵や文で描いてみましょう。幸せな瞬間を共有すると、もっと大きくなります。"
+  },
+  angry: {
+    title: "あなたはいらいらしています 😡",
+    message: "いらいらするのは普通のことです。深呼吸を3回してから、気持ちを絵に描いたり、クッションをぎゅっとしてみましょう。"
+  },
+  sad: {
+    title: "あなたはかなしい気持ちです 😢",
+    message: "かなしい時は安心できる場所が必要です。かなしい気持ちを絵で描いたり、気持ちに手紙を書いてみましょう。信頼できる人に話すのもいいですよ。"
+  },
+  scared: {
+    title: "あなたはこわい気持ちです 😨",
+    message: "こわいと感じるのは、それだけ大切なことがあるということです。やわらかい物を持ったり、安心できる場所を描いてみましょう。あなたは一人じゃないよ。"
+  },
+  calm: {
+    title: "あなたはいま、りらくしています 😌",
+    message: "落ち着いた時間ですね！お花や雲、動物など、静かな絵を描いてゆっくり呼吸してみましょう。"
+  },
+  unsure: {
+    title: "気持ちがわからない 😕",
+    message: "どんな気持ちかはっきりしなくても大丈夫。自由に線や形を描いてみて、そこから見えてくる気持ちを探してみましょう。"
+  }
+};
+
+  function showMoodStory(mood) {
+    const output = document.getElementById('storyOutput');
+    document.getElementById('moodTitle').textContent = moodResponses[mood].title;
+    document.getElementById('moodMessage').textContent = moodResponses[mood].message;
+    output.style.display = 'block';
+  }
+
+  function resetStory() {
+    document.getElementById('storyOutput').style.display = 'none';
+  }
+</script>
+
+<script>
+const canvas = document.getElementById('drawingCanvas');
+const ctx = canvas.getContext('2d');
+const colorPicker = document.getElementById('inkColor');
+const eraserBtn = document.getElementById('eraserBtn');
+const clearBtn = document.getElementById('clearBtn');
+const saveBtn = document.getElementById('saveBtn');
+const eraserSize = document.getElementById('eraserSize');
+
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetHeight;
+ctx.fillStyle = '#fffbea';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+let drawing = false;
+let erasing = false;
+let lastX = 0;
+let lastY = 0;
+
+function getXY(e) {
+  const rect = canvas.getBoundingClientRect();
+  return {
+    x: (e.touches ? e.touches[0].clientX : e.clientX) - rect.left,
+    y: (e.touches ? e.touches[0].clientY : e.clientY) - rect.top
+  };
+}
+
+function startDrawing(e) {
+  drawing = true;
+  const pos = getXY(e);
+  lastX = pos.x;
+  lastY = pos.y;
+}
+
+function draw(e) {
+  if (!drawing) return;
+  e.preventDefault();
+  const pos = getXY(e);
+  ctx.strokeStyle = erasing ? '#fffbea' : colorPicker.value;
+  ctx.lineWidth = erasing ? parseInt(eraserSize.value) : 3;
+  ctx.lineCap = 'round';
+
+  ctx.beginPath();
+  ctx.moveTo(lastX, lastY);
+  ctx.lineTo(pos.x, pos.y);
+  ctx.stroke();
+
+  lastX = pos.x;
+  lastY = pos.y;
+}
+
+function stopDrawing() {
+  drawing = false;
+}
+
+canvas.addEventListener('mousedown', startDrawing);
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseup', stopDrawing);
+canvas.addEventListener('mouseout', stopDrawing);
+canvas.addEventListener('touchstart', startDrawing);
+canvas.addEventListener('touchmove', draw);
+canvas.addEventListener('touchend', stopDrawing);
+
+eraserBtn.addEventListener('click', () => {
+  erasing = !erasing;
+  eraserBtn.textContent = erasing ? '🧽 Erasing...' : '🧽 Eraser';
+});
+
+clearBtn.addEventListener('click', () => {
+  ctx.fillStyle = '#fffbea';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+});
+
+saveBtn.addEventListener('click', () => {
+  const image = canvas.toDataURL("image/png");
+  const link = document.createElement('a');
+  link.href = image;
+  link.download = "my_drawing.png";
+  link.click();
+});
+
+function startBreathing() {
+  const circle = document.getElementById('breathing-circle');
+  const text = document.getElementById('breathing-text');
+  let state = 'breathe in';
+
+  text.textContent = 'Breathe in...';
+  circle.style.transform = 'scale(1.4)';
+
+  if (window.breathingInterval) clearInterval(window.breathingInterval);
+
+  window.breathingInterval = setInterval(() => {
+    if (state === 'breathe in') {
+      state = 'hold';
+      text.textContent = 'Hold...';
+      circle.style.transform = 'scale(1.4)';
+    } else if (state === 'hold') {
+      state = 'breathe out';
+      text.textContent = 'Breathe out...';
+      circle.style.transform = 'scale(1)';
+    } else {
+      state = 'breathe in';
+      text.textContent = 'Breathe in...';
+      circle.style.transform = 'scale(1.4)';
+    }
+  }, 4000);
+}
+
+let audioPlayer = new Audio();
+
+function playSound(src, label = "") {
+  audioPlayer.pause();
+  audioPlayer = new Audio(src);
+  audioPlayer.loop = true;
+  audioPlayer.play();
+  document.getElementById('nowPlayingLabel').textContent = `🎵 Now Playing: ${label}`;
+}
+
+function stopMusic() {
+  audioPlayer.pause();
+  audioPlayer.currentTime = 0;
+  document.getElementById('nowPlayingLabel').textContent = "";
+}
+
+document.getElementById("send-email").addEventListener("click", function () {
+  const subject = encodeURIComponent("My Drawing from Healthy Little Minds");
+  const body = encodeURIComponent("Hi Mom/Dad! I've drawn how I feel today. Please help me send it. You can find the file I just saved in the Downloads folder and attach it to this message. ❤️");
+  window.location.href = `mailto:?subject=${subject}&body=${body}`;
+});
+</script>
+
+  <script defer src="../shared-language-switcher.js?v=1"></script>
+</body>
+</html>

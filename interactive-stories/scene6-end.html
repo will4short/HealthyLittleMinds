@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌟 Scene 6 – The Story You Choose</title>
+  <style>
+    body {
+      background-color: #fdf6e3;
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .scene-wrapper {
+      max-width: 800px;
+      margin: 2rem auto;
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #3b3b3b;
+    }
+    .story-text {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .scene-img {
+      max-width: 70%;
+      height: auto;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+    }
+    .parent-tip {
+      background-color: #fff9e6;
+      border-left: 5px solid #ffc107;
+      padding: 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .choice-btn {
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .choice-btn.green {
+      background-color: #e0f8e9;
+      color: #226f3c;
+      border: 1px solid #b2e5c7;
+    }
+    .choice-btn.gray {
+      background-color: #f2f2f2;
+      color: #444;
+      border: 1px solid #ccc;
+    }
+    .choice-btn:hover {
+      opacity: 0.85;
+    }
+    @media (max-width: 600px) {
+      body { padding: 1rem; }
+      .scene-wrapper { padding: 1.5rem 1rem; }
+    }
+.choice-btn {
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+  margin: 0.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.choice-btn.green { background: #55efc4; }
+.choice-btn.blue { background: #74b9ff; }
+.choice-btn.purple { background: #a29bfe; }
+.choice-btn.pink { background: #ff6b81; }
+
+.choice-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+  </style>
+</head>
+<body>
+<script>
+  // 🔒 Redirect to login page if not logged in
+  (function () {
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo); // 👈 Smooth silent redirect
+    }
+  })();
+</script>
+
+<div style="
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  background: #E6E6FA;
+  border: 2px solid #D8BFD8;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+">
+  <a href="../home.html" style="
+    text-decoration: none;
+    color: #5A3E8A;
+    font-weight: bold;
+    font-size: 0.95rem;
+  ">
+    🏠 Go Home
+  </a>
+</div>
+
+  <div class="scene-wrapper">
+    <h1>🌟 Scene 6 – The Story You Choose</h1>
+
+    <p class="story-text">
+      Bella learned something big today:<br>
+      every choice she made led to a different path.<br><br>
+      Being scared, staying quiet, speaking up — all of them mattered.<br>
+      And even when things felt tricky, she kept trying.<br><br>
+      🌈 <strong>Your choices matter too.</strong><br>
+      They can help you grow stronger, braver, and kinder every day.
+    </p>
+
+    <img src="images/scene6-end.png" alt="Bella walking forward with confidence" class="scene-img" />
+
+    <div class="parent-tip">
+      🧠 <strong>Parent Tip:</strong> Every child’s choices — whether bold or quiet — shape who they are becoming.  
+      Encourage reflection, not perfection. Help them feel proud of their growth.
+    </div>
+
+   <div class="nav-buttons">
+  <a href="scene_1_bella_story.html" class="choice-btn green">🔁 Start Again</a>
+  <a href="../parents-tips.html" class="choice-btn blue">👨‍👩‍👧 Parents Tips</a>
+  <a href="../interactive-tools.html" class="choice-btn purple">🧰 Explore More Tools</a>
+  </div>
+  </div>
+</body>
+</html>

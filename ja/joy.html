@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>よろこび（Joy）</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      text-align: center;
+      padding: 4rem 2rem;
+      color: #254E70;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 10px 20px;
+      background-color: #FF6B6B;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+    .back-btn:hover {
+      background-color: #e25555;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      max-width: 320px;
+      margin: 3rem auto 1rem;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 1rem;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: #FFDD59;
+      color: #254E70;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      background-color: #ffe98d;
+    }
+
+    .card h4 {
+      color: #FF6B6B;
+      margin-bottom: 0.6rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+<script>
+  (function () {
+    const isLocal = location.protocol === 'file:';
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isLocal && !isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1];
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo);
+    }
+  })();
+</script>
+
+  <h1>🧠 よろこびのリソースはまもなく公開！</h1>
+  <p>「よろこび」に関する本やツールはこちらに追加されます。</p>
+
+  <div class="card">
+    <h4>💖 Little Acts, Big Feelings</h4>
+    <p>思いやりと共感が心をあたためる、やさしいストーリー。<br>小さな行動が大きな感情につながることを伝えます。</p>
+    <img src="../images/little-acts-book-cover.webp" alt="Little Acts, Big Feelings" />
+    <a href="https://heyzine.com/flip-book/034942038a.html" target="_blank">📘 読む</a>
+  </div>
+
+  <a href="home.html" class="back-btn">← ホームに戻る</a>
+  <script defer src="../shared-language-switcher.js?v=1"></script>
+</body>
+</html>

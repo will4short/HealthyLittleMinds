@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Anger – Healthy Little Minds</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .book-card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      width: 90%;
+      max-width: 320px;
+    }
+
+    .book-card img {
+      max-width: 200px;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .book-card a {
+      display: inline-block;
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #FF6B6B;
+      text-decoration: none;
+    }
+
+    .book-grid {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 10px 20px;
+      background-color: #FF6B6B;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+
+    .back-btn:hover {
+      background-color: #e25555;
+    }
+
+    .subtopic-header {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 15px;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      margin: 1rem auto;
+      max-width: 800px;
+      transition: background-color 0.3s ease;
+    }
+
+    .subtopic-header:hover {
+      background-color: #FFF7F0;
+    }
+
+    .subtopic-header h2 {
+      margin: 0;
+      color: #FF6B6B;
+      font-size: 1.3rem;
+    }
+
+    .toggle-icon {
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .subtopic-content {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1rem 2rem 1rem;
+    }
+
+    .subtopic-content.active {
+      display: grid;
+    }
+
+    .subtopic-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .subtopic-card h3 {
+      color: #FF6B6B;
+      margin-top: 0;
+    }
+
+    .subtopic-card p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .subtopic-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body style="background-color:#FFF2E5; color:#254E70; font-family:'Poppins', sans-serif; margin:0; padding:2rem;">
+
+  <h1 style="text-align:center;">😡 Understanding Anger</h1>
+
+  <p style="text-align:center; max-width:600px; margin:auto; font-size:1.1rem;">
+    These stories help kids explore big feelings like anger and learn calming,
+    healthy ways to understand and express them.
+  </p>
+
+  <!-- 🎯 CAUSES OF ANGER -->
+  <div class="subtopic-header" onclick="toggleSection('causes')">
+    <h2>🎯 What Causes Anger in Young People?</h2>
+    <span class="toggle-icon" id="causes-icon">➕</span>
+  </div>
+  <div class="subtopic-content" id="causes">
+    <div class="subtopic-card">
+      <h3>🧠 Unmet Needs</h3>
+      <p>Hunger, tiredness, or not feeling heard can trigger anger. Young people often lack the words to express these needs.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>😤 Loss of Control</h3>
+      <p>Feeling powerless or when plans suddenly change can frustrate young people who need structure and predictability.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>💔 Hurt Feelings</h3>
+      <p>Rejection, being left out, or feeling disrespected by peers or adults. Anger is often a secondary emotion masking sadness or shame.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>⚡ Brain Development</h3>
+      <p>The prefrontal cortex (responsible for impulse control) is still developing. Quick reactions are normal, not defiance.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>🧬 Stress & Overwhelm</h3>
+      <p>School pressure, social anxiety, or too many demands. An overwhelmed nervous system reacts more quickly with anger.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>🏠 Environment & Modeling</h3>
+      <p>Children mirror what they see. Family conflict, yelling, or aggressive behavior at home or in media influences how they express anger.</p>
+    </div>
+  </div>
+
+  <!-- 💪 WAYS TO MANAGE ANGER -->
+  <div class="subtopic-header" onclick="toggleSection('management')">
+    <h2>💪 Ways to Manage Anger</h2>
+    <span class="toggle-icon" id="management-icon">➕</span>
+  </div>
+  <div class="subtopic-content" id="management">
+    <div class="subtopic-card">
+      <h3>🌬️ Breathing Techniques</h3>
+      <p><strong>4-7-8 Breath:</strong> Breathe in for 4, hold for 7, breathe out for 8. Slows the nervous system instantly.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>🚶 Take a Pause</h3>
+      <p>Step away from the situation. A 10-minute break helps the amygdala calm down so the thinking brain can work again.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>🎨 Creative Expression</h3>
+      <p>Draw, paint, write, or play music. Getting feelings out through creation is safer than through words or actions.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>🏃 Physical Activity</h3>
+      <p>Run, jump, dance, or squeeze a pillow. Movement burns off the stress chemicals (adrenaline) built up in anger.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>💭 Name What You Feel</h3>
+      <p>Say it out loud: "I feel angry because..." Naming emotions reduces their power and helps find real solutions.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>🤝 Talk to Someone</h3>
+      <p>A trusted adult, friend, or counselor. Being heard and understood helps process anger, not just react to it.</p>
+    </div>
+  </div>
+
+  <!-- 📚 BOOKS -->
+  <section class="book-grid">
+
+    <!-- NEWEST: When My Feelings Get Too Big -->
+    <div class="book-card">
+      <h3>👑 When My Feelings Get Too Big</h3>
+      <p style="color:#555; font-size:1rem;">
+        A gentle story about Princess learning that big feelings are not bad.
+        Children practice pausing, breathing, and naming emotions when anger feels overwhelming.
+      </p>
+
+      <img
+        src="images/when-my-feelings-cover.webp"
+        alt="When My Feelings Get Too Big"
+      />
+
+      <a href="https://heyzine.com/flip-book/5cbe03c993.html" target="_blank" rel="noopener">
+        📖 Read When My Feelings Get Too Big
+      </a>
+    </div>
+
+    <!-- How to Calm the Storm Inside -->
+    <div class="book-card">
+      <h3>🌧️ How to Calm the Storm Inside</h3>
+      <p style="color:#555; font-size:1rem;">
+        Helps kids recognize big emotions and learn gentle calming tools—
+        like breathing, drawing, and talking to someone they trust.
+      </p>
+
+      <img
+        src="images/storm-book-cover.webp"
+        alt="How to Calm the Storm Inside"
+      />
+
+      <a href="https://heyzine.com/flip-book/3cf1027650.html" target="_blank" rel="noopener">
+        📖 Read How to Calm the Storm Inside
+      </a>
+    </div>
+
+  </section>
+
+  <!-- ⬅ BACK -->
+  <div style="text-align:center;">
+    <a href="home.html" class="back-btn">⬅ Back to Home</a>
+  </div>
+
+  <!-- 🔒 MEMBER CHECK -->
+  <script>
+    function toggleSection(sectionId) {
+      const content = document.getElementById(sectionId);
+      const icon = document.getElementById(sectionId + '-icon');
+      
+      content.classList.toggle('active');
+      icon.textContent = content.classList.contains('active') ? '➖' : '➕';
+    }
+
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+
+      if (!isMember) {
+        const path = window.location.pathname;
+        const locale = path.split('/')[1];
+        const redirectTo =
+          locale && path.includes(`/${locale}/`)
+            ? `/${locale}/index.html`
+            : "/index.html";
+
+        window.location.replace(redirectTo);
+      }
+    })();
+  </script>
+
+  <script defer src="shared-language-switcher.js?v=1"></script>
+</body>
+</html>

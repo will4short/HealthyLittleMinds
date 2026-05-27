@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <title>Trauma – Healthy Little Minds</title>
+  <meta name="description" content="Care after hard experiences: safety, choice, and gentle skills for the nervous system."/>
+  <meta name="keywords" content="trauma, kids, teens, parents, educators, mental health, emotional learning, worksheets"/>
+  <meta name="author" content="Godswill Ambrose"/>
+  <link rel="canonical" href="https://www.healthylittleminds.club/resources/trauma.html"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://www.healthylittleminds.club/resources/trauma.html"/>
+  <meta property="og:title" content="Trauma – Healthy Little Minds"/>
+  <meta property="og:description" content="Care after hard experiences: safety, choice, and gentle skills for the nervous system."/>
+  <meta property="og:image" content="https://www.healthylittleminds.club/images/social-preview.jpg"/>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Trauma – Healthy Little Minds"/>
+  <meta name="twitter:description" content="Care after hard experiences: safety, choice, and gentle skills for the nervous system."/>
+  <meta name="twitter:image" content="https://www.healthylittleminds.club/images/social-preview.jpg"/>
+
+  <meta name="theme-color" content="#FFDD59"/>
+
+  <!-- Fonts & Site CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="../style.css?v=83" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+
+  <style>
+ /* ========= Topic Layout (scoped) ========= */
+:root{
+  --ink:#254E70;
+  --ink-2:#364c63;
+  --brand:#FF6B6B;
+  --chip:#FFF0B3;
+  --hero:#FFF4E6;
+  --shadow:0 6px 18px rgba(0,0,0,.05);
+}
+
+/* Anchor offset so in-page links don't hide under sticky header */
+:root{
+  --header-offset-desktop:96px;
+  --header-offset-mobile:130px;
+}
+html{scroll-behavior:smooth;scroll-padding-top:var(--header-offset-desktop);}
+@media (max-width:820px){ html{scroll-padding-top:var(--header-offset-mobile);} }
+
+/* Container & breadcrumb */
+.topic-wrap{max-width:1100px;margin:0 auto;padding:1rem;}
+.breadcrumb{font-size:.9rem;color:#476882;margin:.75rem 0 0;padding:0 1rem;}
+.breadcrumb a{color:var(--ink);text-decoration:none;}
+.breadcrumb span[aria-current]{color:#6b7a8e;}
+
+/* Grid: hero | main + sticky aside */
+.topic-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 320px;
+  grid-template-areas:
+    "hero aside"
+    "main aside";
+  gap:24px;
+  margin:1rem;
+  padding:0 1rem;
+}
+.topic-hero{grid-area:hero;}
+.topic-main{grid-area:main;}
+.topic-aside{grid-area:aside;}
+@media (max-width:980px){
+  .topic-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "hero"
+      "main"
+      "aside";
+    margin:.75rem 0;
+    padding:0 .75rem;
+  }
+}
+
+/* Hero (split + subtle pattern) */
+.topic-hero{
+  background:var(--hero);
+  border-radius:16px;
+  box-shadow:var(--shadow);
+  padding:1rem 1rem 1.15rem;
+  position:relative;
+  overflow:hidden;
+}
+.topic-hero::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(#fed 1px, transparent 1px) 0 0/18px 18px;
+  opacity:.35; pointer-events:none;
+}
+.topic-hero--split .th-grid{
+  display:grid;
+  grid-template-columns:minmax(220px,1fr) minmax(320px,1.35fr);
+  gap:24px; align-items:center;
+}
+.topic-hero--split .th-title h1{
+  font-family:'Nunito',sans-serif;font-weight:800;
+  color:var(--ink); margin:0; line-height:1.05;
+  font-size:clamp(1.9rem,1.2vw + 1.4rem,2.6rem);
+}
+.topic-hero--split .th-copy .lead{
+  color:var(--ink-2); line-height:1.7;
+  margin:.1rem 0 .55rem; font-size:1.06rem;
+}
+@media (max-width:820px){
+  .topic-hero--split .th-grid{grid-template-columns:1fr;gap:10px;}
+}
+
+/* Audience chips */
+.aud-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:.2rem 0 .6rem;}
+.aud-chips span{
+  background:var(--chip); color:var(--ink); font-weight:800;
+  padding:.4rem .7rem; border-radius:999px; font-size:.9rem; white-space:nowrap;
+  box-shadow:0 2px 6px rgba(0,0,0,.04);
+}
+
+/* Quick-nav pills */
+.qrow{display:flex;flex-wrap:wrap;gap:.6rem;}
+.qbtn{
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.55rem .9rem; border-radius:999px; background:#fff; color:var(--ink);
+  font-weight:800; text-decoration:none;
+  box-shadow:0 6px 16px rgba(0,0,0,.08);
+  transition:transform .12s ease, box-shadow .12s ease, background .12s ease, color .12s ease;
+}
+.qbtn::before{content:'•'; color:var(--ink); font-weight:900;}
+.qbtn:hover{
+  background:var(--ink); color:#fff; transform:translateY(-1px);
+  box-shadow:0 10px 22px rgba(0,0,0,.12);
+}
+.qbtn:hover::before{color:#fff;}
+.qbtn:focus-visible{
+  outline:3px solid #9ad1ff; outline-offset:2px;
+}
+.qbtn--muted{
+  background:#eef2f6; color:#7a8aa0;
+  box-shadow:none; cursor:not-allowed; pointer-events:none;
+}
+.qbtn--muted::before{color:#7a8aa0;}
+
+/* Cards + aside */
+.topic-main h2,.topic-main h3{font-family:'Nunito',sans-serif;color:var(--ink);}
+.topic-card{
+  background:#fff; border-radius:14px; box-shadow:0 8px 18px rgba(0,0,0,.06);
+  padding:1rem; margin-bottom:1rem;
+}
+.topic-main .topic-card:first-child{margin-top:.25rem;}
+
+.topic-aside{
+  background:#fff; border:1px solid #f0f0f0; border-radius:16px;
+  padding:1rem; box-shadow:0 8px 18px rgba(0,0,0,.05);
+}
+@media (min-width:981px){ .topic-aside{ position:sticky; top:88px; } }
+
+.disclaimer{font-size:.9rem;color:#6b7a8e;margin-top:.75rem;}
+.cta-btn{
+  display:inline-block; background:var(--brand); color:#fff; text-decoration:none;
+  padding:.65rem 1rem; border-radius:12px; font-weight:800;
+  transition:transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+.cta-btn:hover{transform:translateY(-1px); box-shadow:0 10px 22px rgba(0,0,0,.12);}
+.cta-btn:focus-visible{outline:3px solid #ffd5d5; outline-offset:2px;}
+
+/* Tick list */
+ul.ticks{list-style:none;padding-left:0;margin:.25rem 0;}
+ul.ticks li{margin:.4rem 0;padding-left:1.25rem;position:relative;}
+ul.ticks li::before{content:'✔';position:absolute;left:0;top:0;color:#24b159;font-weight:900;}
+
+hr.soft{border:0;border-top:1px solid #eee;margin:1rem 0;}
+
+/* ===== Link states (scoped to topic page) ===== */
+.topic-wrap a:not(.qbtn){
+  text-decoration:underline;
+  text-decoration-thickness:.08em;
+  text-underline-offset:.18em;
+}
+.topic-wrap a:not(.qbtn):hover{
+  color:#0b5aa1;
+  text-decoration:none;
+}
+.topic-aside a:not(.qbtn){ font-weight:700; }
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition:none !important; scroll-behavior:auto !important;}
+}
+
+  </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Trauma – Healthy Little Minds","datePublished":"2025-09-02","dateModified":"2025-09-02","author":{"@type":"Person","name":"Godswill Ambrose"},"publisher":{"@type":"Organization","name":"Healthy Little Minds"},"inLanguage":"en","about":"Trauma"}
+  </script>
+  <link href="resource-polish.css?v=4" rel="stylesheet" />
+</head>
+<body class="topic-page topic-page--trauma">
+  <script defer src="resource-language-switcher.js?v=1"></script>
+  <div class="topic-wrap">
+    <div class="resource-toolbar">
+      <a href="../home.html#resources">&larr; All topics</a>
+      <span class="resource-reading">Practical guide &middot; 3 minute read</span>
+    </div>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../home.html">Home</a> &raquo;
+      <a href="../home.html#resources">Resources</a> &raquo;
+      <span aria-current="page">Trauma</span>
+    </nav>
+
+    <!-- HERO -->
+    <header class="topic-hero topic-hero--split" role="banner">
+      <div class="th-grid">
+        <div class="th-title">
+          <h1>Trauma</h1>
+        </div>
+        <div class="th-copy">
+          <p class="lead">
+            Care after hard experiences: safety, choice, and gentle skills for the nervous system.
+          </p>
+
+          <div class="aud-chips" role="list" aria-label="Audience">
+            <span role="listitem">Teens</span>
+            <span role="listitem">Parents</span>
+            <span role="listitem">Educators</span>
+          </div>
+
+          <!-- Quick nav pills -->
+          <div class="qrow">
+            <a class="qbtn" href="#overview">Overview</a>
+            <a class="qbtn" href="#try">Try It Now</a>
+            <a class="qbtn" href="#talk">Talk Starters</a>
+            <a class="qbtn" href="#download">Download &amp; Explore</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- GRID -->
+    <section class="topic-grid">
+      <article class="topic-main">
+        <div id="overview" class="topic-card">
+          <h2>Overview</h2>
+          <p>
+            After difficult or scary events, bodies can stay on “high alert.” This page
+            offers gentle, practical ideas focused on safety, choice, and small skills
+            you can practice over time. Take what helps, leave the rest, and reach out
+            for professional support if you need it.
+          </p>
+        </div>
+
+        <div id="try" class="topic-card">
+          <h2>Try It Now</h2>
+          <ul class="ticks">
+            <li><strong>Safe place:</strong> picture somewhere you feel safe; name 3 things you can see, 2 you can hear, 1 you can feel.</li>
+            <li><strong>Choice menu:</strong> write 3 options you can choose anytime (sip water, step outside, slow breaths).</li>
+            <li><strong>Co-regulate:</strong> sit with a trusted person and breathe together for 60 seconds—long exhale.</li>
+          </ul>
+        </div>
+
+        <div id="talk" class="topic-card">
+          <h3>Talk Starters</h3>
+          <ul>
+            <li>“When reminders pop up, what signs does your body give you?”</li>
+            <li>“Which coping choices feel most helpful—and which feel too much?”</li>
+            <li>“Who could we ask for support if this gets heavy?”</li>
+          </ul>
+        </div>
+
+        <div class="topic-card">
+          <h2>Support After a Scary Experience</h2>
+          <p>After trauma, reactions can include fear, anger, sleep changes, avoidance, body tension, or wanting extra reassurance. These reactions are not a child's fault.</p>
+          <div class="subtopic-grid">
+            <div class="subtopic">
+              <h3>Safety</h3>
+              <p>Prioritize physical safety and calm adults. Remind the child what is happening now and who is helping.</p>
+            </div>
+            <div class="subtopic">
+              <h3>Choice</h3>
+              <p>Offer simple choices such as where to sit, whether to talk now, or which calming activity to try.</p>
+            </div>
+            <div class="subtopic">
+              <h3>Routine</h3>
+              <p>Predictable meals, school support, bedtime, and caring check-ins can help restore a sense of steadiness.</p>
+            </div>
+          </div>
+          <p class="support-note"><strong>Professional support matters</strong> when reactions persist, intensify, interfere with daily life, or when safety, abuse, or self-harm concerns are present.</p>
+        </div>
+
+        <div id="download" class="topic-card">
+          <h3>Download &amp; Explore</h3>
+          <p>
+            Try our printable tools and stories:
+            <a class="cta-btn" href="../home.html#worksheets">🎨 Worksheets</a>
+            &nbsp;&nbsp;
+            <a class="cta-btn" href="../inspire_page.html">🎬 Short Videos</a>
+          </p>
+          <p class="disclaimer">
+            Educational content only — not medical or therapy advice. If you’re worried
+            about safety or health, contact a qualified professional or local services immediately.
+          </p>
+        </div>
+      </article>
+
+      <aside class="topic-aside">
+        <nav class="related-topics" aria-label="Related topics">
+          <h3>Continue Exploring</h3>
+          <a href="relaxation.html"><strong>Relaxation</strong><span>Find grounding tools</span></a>
+          <a href="sleep.html"><strong>Sleep</strong><span>Support rest after worry</span></a>
+          <a href="emotions.html"><strong>Emotions</strong><span>Understand body clues</span></a>
+        </nav>
+        <hr class="soft" />
+        <h3>Helpful Links</h3>
+        <ul>
+          <li><a href="../interactive-tools.html">Interactive Tools</a></li>
+          <li><a href="../audiobook_section.html">Audiobooks</a></li>
+          <li><a href="../parents.html">For Parents</a></li>
+          <li><a href="../home.html#characters">Meet the Characters</a></li>
+        </ul>
+        <hr class="soft">
+        <p class="disclaimer">If you’re in immediate danger, call local emergency services.</p>
+      </aside>
+    </section>
+  </div>
+
+  <footer class="topic-footer">
+    &copy; 2025 Healthy Little Minds
+  </footer>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>當迪斯尼感到傷心時</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Nunito:wght@800&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #DFF6FF;
+      padding: 2rem;
+      color: #254E70;
+      text-align: center;
+    }
+
+    .story-box {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      max-width: 600px;
+      margin: 2rem auto;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .story-text {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    button {
+      font-family: 'DM Sans', sans-serif;
+      background: #FFDD59;
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #ffeaa7;
+    }
+  </style>
+</head>
+<body>
+<script>
+  (function () {
+    const isLocal = location.protocol === 'file:';
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isLocal && !isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1];
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo);
+    }
+  })();
+</script>
+
+  <div class="story-box" id="story">
+    <p class="story-text" id="storyText">
+      迪斯尼感到難過，因為他最好的朋友今天不想一起玩。他應該怎麼辦？
+    </p>
+    <div class="choices" id="choices">
+      <button onclick="nextStep('breathe')">🧘 深呼吸三次</button>
+      <button onclick="nextStep('talk')">🗣️ 跟老師說一說</button>
+    </div>
+  </div>
+
+  <script>
+    function nextStep(choice) {
+      const storyText = document.getElementById('storyText');
+      const choices = document.getElementById('choices');
+
+      if (choice === 'breathe') {
+        storyText.innerHTML = "迪斯尼閉上眼睛，慢慢地做了三次深呼吸。他開始覺得好一些了。接下來他應該怎麼做？";
+        choices.innerHTML = `
+          <button onclick="nextStep('draw')">🎨 畫出他的感覺</button>
+          <button onclick="nextStep('tellMom')">💬 放學後跟媽媽說</button>
+        `;
+      }
+
+      else if (choice === 'talk') {
+        storyText.innerHTML = "迪斯尼跟老師說他難過的事。老師溫柔地聽他說話，並給了他一個鼓勵的微笑。他覺得好多了。接下來他可以怎麼做？";
+        choices.innerHTML = `
+          <button onclick="nextStep('write')">📝 寫在他的日記裡</button>
+          <button onclick="nextStep('breatheAgain')">🧘 再試一次深呼吸</button>
+        `;
+      }
+
+      else {
+        let message = "";
+        if (choice === 'draw') {
+          message = "他畫了一張表達感受的圖畫，覺得很有成就感 🎨";
+        } else if (choice === 'tellMom') {
+          message = "媽媽給了他一個大大的擁抱 ❤️ 迪斯尼感到很安全也被愛著。";
+        } else if (choice === 'write') {
+          message = "他把心情寫在日記裡，感覺更加平靜了 📝";
+        } else if (choice === 'breatheAgain') {
+          message = "他再次深呼吸，感覺像雲一樣輕柔 ☁️";
+        }
+
+        storyText.innerHTML = message + "<br><br><strong>✨ 你幫助了迪斯尼感覺好多了！</strong>";
+        choices.innerHTML = `<a href="../home.html"><button>🏠 回首頁</button></a>`;
+      }
+    }
+  </script>
+
+  <script defer src="../shared-language-switcher.js?v=1"></script>
+</body>
+</html>

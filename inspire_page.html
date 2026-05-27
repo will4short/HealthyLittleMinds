@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be Inspired | Healthy Little Minds</title>
+
+<!-- Meta Tags -->
+<meta name="description" content="Watch inspiring animated videos that nurture emotional growth and spark creativity in children.">
+<meta name="keywords" content="children's mental health, emotional learning, inspirational videos, animated stories, positivity">
+<meta name="author" content="Healthy Little Minds">
+
+<!-- Open Graph for Facebook and others -->
+<meta property="og:title" content="Be Inspired | Healthy Little Minds">
+<meta property="og:description" content="Inspiring animations for children to support their emotional and mental well-being.">
+<meta property="og:image" content="https://www.healthylittleminds.club/assets/fill_your_jar.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.healthylittleminds.club/inspire_page.html">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Be Inspired | Healthy Little Minds">
+<meta name="twitter:description" content="Discover uplifting videos for children that spark imagination and promote emotional intelligence.">
+<meta name="twitter:image" content="https://www.healthylittleminds.club/assets/fill_your_jar.png">
+
+  <!-- Fonts & Favicon -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <meta name="theme-color" content="#FFDD59">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T2F8H8ZYBL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T2F8H8ZYBL');
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+   <style>
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      background: #E6F4FA;
+      color: #254E70;
+    }
+
+    header {
+      background: white;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .site-title h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .site-title span:first-child { color: #254E70; }
+    .site-title span:last-child { color: #FF6B6B; }
+
+    nav a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #254E70;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #FF6B6B;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    .scroll-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.5rem;
+      padding: 1rem 2rem;
+      scroll-snap-type: x mandatory;
+    }
+
+    .video-card {
+      flex: 0 0 80%;
+      max-width: 480px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      text-align: center;
+      scroll-snap-align: center;
+    }
+
+    .video-card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+    .video-description {
+      font-size: 1rem;
+      color: #555;
+      margin-top: 1rem;
+    }
+    video {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+.video-card video,
+.video-card .preview-img {
+  width: 90%;
+  max-width: 300px;     /* compact and consistent */
+  margin: 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  display: block;
+}
+    .replay-note {
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 0.5rem;
+    }
+    .share-section {
+      margin-top: 1.2rem;
+    }
+    .share-section img {
+      width: 32px;
+      height: 32px;
+      transition: transform 0.2s;
+    }
+    .share-section img:hover {
+      transform: scale(1.2);
+    }
+    .share-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .video-card { flex: 0 0 90%; }
+    }
+.share-section {
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+.share-text {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.share-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.share-icons a img,
+.share-icons button img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.2s ease;
+}
+
+.share-icons button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.share-icons img:hover {
+  transform: scale(1.15);
+}
+
+  </style>
+</head>
+<body>
+ <header>
+  <div class="site-branding" style="display: flex; align-items: center; gap: 10px;">
+    <a href="home.html" style="display: flex; align-items: center; text-decoration: none;">
+      <picture>
+        <source srcset="images/logo-icon.webp" type="image/webp">
+        <img class="logo" src="images/logo-icon.png" alt="Healthy Little Minds Logo" height="48">
+      </picture>
+    </a>
+    <div class="site-title">
+      <h1><span>Healthy</span> <span>Little Minds</span></h1>
+    </div>
+  </div>
+  
+  <nav id="nav-menu">
+    <!-- Links will be inserted by script -->
+  </nav>
+</header>
+
+
+<section class="hero">
+  <h1>🎬 Be Inspired</h1>
+  <p>Watch meaningful animations that fill your heart and spark your feelings.</p>
+</section>
+
+<div class="scroll-container">
+  <!-- 1) Fill Your Jar -->
+  <div class="video-card">
+    <h3>✨ Fill Your Jar with Magic</h3>
+
+    <video autoplay muted playsinline loop preload="metadata"
+      poster="images/video-poster-placeholder.jpg"
+      onclick="this.muted = false; this.currentTime = 0; this.play();">
+      <!-- Modern browsers (smaller) -->
+      <source src="video/fill_your_jar.webm" type="video/webm">
+      <!-- Safari/iOS fallback -->
+      <source src="video/Fill_your_jar.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <p class="replay-note">🔊 Tap to replay with sound</p>
+    <p class="video-description">A gentle story about filling our hearts with kindness, wonder, and calmness—layer by layer.</p>
+
+    <div class="share-section">
+      <p class="share-text">💌 Love this video? Share it!</p>
+      <div class="share-icons">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.healthylittleminds.club/inspire_page" target="_blank" rel="noopener">
+          <img src="images/facebook.webp" alt="Facebook" width="28" height="28" loading="lazy" decoding="async">
+        </a>
+        <a href="https://twitter.com/intent/tweet?url=https://www.healthylittleminds.club/inspire_page" target="_blank" rel="noopener">
+          <img src="images/twitter.png" alt="Twitter" width="28" height="28" loading="lazy" decoding="async">
+        </a>
+        <a href="https://wa.me/?text=%E2%9C%A8%20Check%20out%20this%20story:%20https://www.healthylittleminds.club/inspire_page" target="_blank" rel="noopener">
+          <img src="images/whatsapp.png" alt="WhatsApp" width="28" height="28" loading="lazy" decoding="async">
+        </a>
+        <a href="https://www.instagram.com/heal.thylittleminds/" target="_blank" rel="noopener">
+          <img src="images/instagram.webp" alt="Instagram" width="28" height="28" loading="lazy" decoding="async">
+        </a>
+        <button type="button"
+          onclick="navigator.clipboard.writeText('https://www.healthylittleminds.club/inspire_page'); alert('🔗 Link copied!');"
+          title="Copy Link" aria-label="Copy Link">
+          <img src="images/link.png" alt="Copy Link" width="28" height="28" loading="lazy" decoding="async">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2) Not Yet -->
+  <div class="video-card">
+    <h3>💪 I Just Can’t Do It… Yet</h3>
+
+    <video autoplay muted playsinline loop preload="metadata"
+      poster="images/video-poster-placeholder.jpg"
+      onclick="this.muted = false; this.currentTime = 0; this.play();">
+      <source src="video/when_i_cant_do_it.webm" type="video/webm">
+      <source src="video/when_i_can't_do_it.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <p class="replay-note">🔊 Tap to replay with sound</p>
+    <p class="video-description">A gentle reminder that struggling now doesn’t mean failing forever. Growth takes time, and that’s okay.</p>
+
+    <div class="share-section">
+      <p class="share-text">💌 Know someone who needs this reminder? Share it!</p>
+      <div class="share-icons">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.healthylittleminds.club/inspire_page" target="_blank" rel="noopener">
+          <img src="images/facebook.webp" alt="Facebook" width="28" height="28" loading="lazy" decoding="async">
+        </a>
+        <a href="https://twitter.com/intent/tweet?url=https://www.healthylittleminds.club/inspire_page" target="_blank" rel="noopener">
+          <img src="images/twitter.png" alt="Twitter" width="28" height="28" loading="lazy" decoding="async">
+        </a>
+        <a href="https://wa.me/?text=%F0%9F%92%AA%20Watch%20this%20story:%20https://www.healthylittleminds.club/inspire_page" target="_blank" rel="noopener">
+          <img src="images/whatsapp.png" alt="WhatsApp" width="28" height="28" loading="lazy" decoding="async">
+        </a>
+        <a href="https://www.instagram.com/heal.thylittleminds/" target="_blank" rel="noopener">
+          <img src="images/instagram.webp" alt="Instagram" width="28" height="28" loading="lazy" decoding="async">
+        </a>
+        <button type="button"
+          onclick="navigator.clipboard.writeText('https://www.healthylittleminds.club/inspire_page'); alert('🔗 Link copied!');"
+          title="Copy Link" aria-label="Copy Link">
+          <img src="images/link.png" alt="Copy Link" width="28" height="28" loading="lazy" decoding="async">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3) Coming Soon -->
+  <div class="video-card">
+    <h3>🌟 Next Story Coming Soon</h3>
+    <img src="images/coming-soon.png" alt="Coming Soon" class="preview-img">
+    <p class="video-description">More animations are on the way. Stay tuned!</p>
+  </div>
+</div>
+
+  <!-- ✅ Navigation Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const nav = document.getElementById("nav-menu");
+      const isMember = localStorage.getItem("isMember");
+
+      console.log("isMember:", isMember); // Optional debug
+
+      if (isMember === "true") {
+        nav.innerHTML = `
+          <a href="home.html">🏠 Home</a>
+          <a href="dashboard.html">📋 Dashboard</a>
+        `;
+        document.querySelectorAll('.guest-only').forEach(el => el.style.display = 'none');
+      } else {
+        nav.innerHTML = `<a href="index.html">🔐 Login to View More</a>`;
+      }
+    });
+  </script>
+  <script defer src="shared-language-switcher.js?v=1"></script>
+</body>
+</html>

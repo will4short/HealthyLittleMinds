@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>シーン3：逃した瞬間</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #fff2e5;
+      color: #254E70;
+      margin: 0;
+      padding: 2rem;
+    }
+    .scene-wrapper {
+      max-width: 700px;
+      margin: auto;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+    }
+    .reflection {
+      background: #ffe3e3;
+      border-radius: 12px;
+      padding: 1rem;
+      margin: 2rem 0;
+      font-weight: bold;
+      color: #254E70;
+    }
+    .scene-image img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 12px;
+      margin-top: 1rem;
+    }
+    .btn-end {
+      display: inline-block;
+      background: #ff6b6b;
+      color: white;
+      font-weight: bold;
+      padding: 0.8rem 1.5rem;
+      border-radius: 12px;
+      text-decoration: none;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+      .scene-wrapper {
+        padding: 1.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<script>
+  // 🔒 Redirect to login page if not logged in
+  (function () {
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo); // 👈 Smooth silent redirect
+    }
+  })();
+</script>
+
+<div style="
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  background: #E6E6FA;
+  border: 2px solid #D8BFD8;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+">
+  <a href="../home.html" style="
+    text-decoration: none;
+    color: #5A3E8A;
+    font-weight: bold;
+    font-size: 0.95rem;
+  ">
+    🏠 ホームにもどる
+  </a>
+</div>
+
+  <div class="scene-wrapper">
+    <h1>😞 シーン3：逃した瞬間</h1>
+    <p>ベラは教室の外にとどまりました。心臓はまだドキドキしています。</p>
+    <p>彼女は話す順番を逃しました。すでに他の誰かが前に出ていました。</p>
+    <p>リベラ先生はドアの方を見ましたが、何も言いませんでした。</p>
+
+    <div class="scene-image">
+      <img src="images/bella-scene_3_missed.png" alt="がっかりした表情で廊下に座っているベラ" />
+    </div>
+
+    <div class="reflection">💭 ベラの心の声：「次は頑張ってみようかな。」</div>
+
+    <div class="buttons" style="text-align: center; margin-top: 2rem;">
+      <a href="scene_1_bella_story.html" class="btn-end">🔁 最初からやり直す</a>
+      <a href="scene4-share.html" class="btn-end" style="margin-left: 1rem;">🧑‍🏫 先生と話す</a>
+    </div>
+  </div>
+</body>
+</html>

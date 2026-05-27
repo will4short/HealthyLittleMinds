@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>마음챙김 – 헬시 리틀 마인즈</title>
+  <meta name="description" content="판단하지 않고 현재의 생각, 감정, 감각에 부드럽게 집중하는 것."/>
+  <meta name="keywords" content="마음챙김, 아동, 청소년, 부모, 교사, 정신 건강, 감정 교육, 워크시트"/>
+  <meta name="author" content="갓스윌 앰브로즈"/>
+  <link rel="canonical" href="https://www.healthylittleminds.club/resources/mindfulness.html"/>
+  <meta name="robots" content="index,follow"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://www.healthylittleminds.club/resources/mindfulness.html"/>
+  <meta property="og:title" content="마음챙김 – 헬시 리틀 마인즈"/>
+  <meta property="og:description" content="판단하지 않고 현재의 생각, 감정, 감각에 부드럽게 집중하는 것."/>
+  <meta property="og:image" content="https://www.healthylittleminds.club/images/og/resources-mindfulness.jpg"/>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="마음챙김 – 헬시 리틀 마인즈"/>
+  <meta name="twitter:description" content="판단하지 않고 현재의 생각, 감정, 감각에 부드럽게 집중하는 것."/>
+  <meta name="twitter:image" content="https://www.healthylittleminds.club/images/og/resources-mindfulness.jpg"/>
+
+  <meta name="theme-color" content="#FFDD59"/>
+
+  <!-- Fonts & CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="../style.css?v=61" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+
+  <!-- Styles (unchanged) -->
+   <style>
+/* ===== Page frame (works alongside your main style.css) ===== */
+html{scroll-behavior:smooth;}
+.topic-wrap{max-width:1100px;margin:0 auto;padding:1rem;}
+.breadcrumb{font-size:.9rem;color:#476882;margin:.75rem 0 0;padding:0 1rem;}
+.breadcrumb a{color:#254E70;text-decoration:none;}
+
+/* ===== Grid: hero + main + aside ===== */
+.topic-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 320px;
+  grid-template-areas:
+    "hero  aside"
+    "main  aside";
+  gap:24px;
+  margin:1rem;
+  padding:0 1rem;
+}
+.topic-hero{ grid-area:hero; }
+.topic-main{ grid-area:main; }
+.topic-aside{ grid-area:aside; }
+
+@media (max-width:980px){
+  .topic-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "hero"
+      "main"
+      "aside";
+    margin:.75rem 0;
+    padding:0 .75rem;
+  }
+}
+
+/* ===== Hero (split + compact + calm palette) ===== */
+.topic-hero{
+  background:#F7FFF8; /* base */
+  border-radius:16px;
+  box-shadow:0 6px 18px rgba(0,0,0,.05);
+  padding:1rem 1rem 1.15rem;
+  position:relative;
+  overflow:hidden;
+}
+
+/* gentle pattern + subtle gradient tint */
+.topic-hero.topic-hero--calm{
+  background: radial-gradient(900px 500px at -10% -20%, rgba(37,78,112,.06) 0%, transparent 70%),
+              linear-gradient(180deg, #F4FFF8 0%, #F1FAFF 100%);
+}
+
+/* Split layout inside hero */
+.topic-hero--split .th-grid{
+  display:grid;
+  grid-template-columns:minmax(220px,1fr) minmax(320px,1.35fr);
+  gap:24px;
+  align-items:center;
+  max-width:100%;
+}
+
+/* Compact tweaks */
+.topic-hero--compact{ padding:.9rem 1rem 1rem; border-radius:14px; }
+.topic-hero--compact .th-grid{ gap:16px; }
+
+/* Title */
+.topic-hero--split .th-title h1{
+  font-family:'Nunito',sans-serif;
+  font-weight:800;
+  color:#254E70;
+  margin:0;
+  line-height:1.05;
+  font-size:clamp(1.9rem,1.2vw + 1.4rem,2.6rem);
+}
+
+/* Lead */
+.topic-hero--split .th-copy .lead{
+  color:#364c63;
+  line-height:1.7;
+  margin:.1rem 0 .55rem;
+  font-size:1.06rem;
+  max-width:60ch;
+}
+.topic-hero--compact .th-copy .lead{ font-size:1rem; line-height:1.6; }
+
+/* Audience chips */
+.aud-chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
+.aud-chips span{
+  background:#EAF7D6;
+  color:#254E70;
+  font-weight:800;
+  padding:.38rem .72rem;
+  border-radius:999px;
+  font-size:.9rem;
+  white-space:nowrap;
+  box-shadow:0 2px 6px rgba(0,0,0,.04);
+}
+.topic-hero--compact .aud-chips{ gap:.4rem; }
+.topic-hero--compact .aud-chips span{ padding:.3rem .6rem; font-size:.85rem; }
+
+/* Quick nav pills */
+.quick-nav{ display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.45rem; }
+.quick-nav a{
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:#fff; color:#254E70; text-decoration:none;
+  font-weight:700; font-size:.9rem;
+  padding:.38rem .72rem; border-radius:999px;
+  box-shadow:0 4px 12px rgba(0,0,0,.06), inset 0 0 0 1px rgba(37,78,112,.06);
+}
+.quick-nav a::before{
+  content:'•'; color:#7aa3b8; font-size:1rem; line-height:1;
+}
+.topic-hero--compact .quick-nav a{ padding:.34rem .66rem; font-size:.86rem; }
+
+/* Cards + aside */
+.topic-main h2,.topic-main h3{font-family:'Nunito',sans-serif;color:#254E70}
+.topic-card{
+  background:#fff;border-radius:14px;
+  box-shadow:0 8px 18px rgba(0,0,0,.06);
+  padding:1rem;margin-bottom:1rem;
+  scroll-margin-top:90px; /* anchor targets */
+}
+.topic-main .topic-card:first-child{ margin-top:.35rem; }
+
+.topic-aside{
+  background:#FFFFFF;border:1px solid #f0f0f0;border-radius:16px;
+  padding:1rem;box-shadow:0 8px 18px rgba(0,0,0,.05)
+}
+@media (min-width:981px){ .topic-aside{ position:sticky; top:88px; } }
+
+.topic-aside a{color:#FF6B6B;text-decoration:none;font-weight:700}
+.disclaimer{font-size:.9rem;color:#6b7a8e;margin-top:.75rem}
+.cta-btn{display:inline-block;background:#FF6B6B;color:#fff;text-decoration:none;padding:.65rem 1rem;border-radius:12px;font-weight:800}
+
+/* Ticks list */
+ul.ticks{list-style:none;padding-left:0;margin:.25rem 0}
+ul.ticks li{margin:.4rem 0;padding-left:1.25rem;position:relative}
+ul.ticks li::before{content:'✔';position:absolute;left:0;top:0;color:#24b159;font-weight:900}
+hr.soft{border:0;border-top:1px solid #eee;margin:1rem 0}
+
+/* Mobile: stack hero sections */
+@media (max-width:820px){
+  .topic-hero--split .th-grid{ grid-template-columns:1fr; gap:10px; }
+  .topic-hero--split .th-title h1{ font-size:1.8rem; }
+}
+/* ===== Link states (scoped to the topic page) ===== */
+
+/* Body + aside links: visible underline + hover color */
+.topic-main a,
+.topic-aside a {
+  color:#254E70;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  transition: color .15s ease, text-decoration-color .15s ease, box-shadow .15s ease;
+}
+
+.topic-main a:hover,
+.topic-aside a:hover {
+  color:#163652;
+  text-decoration-color:#FF6B6B; /* underline tint on hover */
+}
+
+.topic-main a:focus-visible,
+.topic-aside a:focus-visible {
+  outline:3px solid #FFDD59;       /* keyboard focus ring */
+  outline-offset:2px;
+  border-radius:6px;
+  text-decoration: none;            /* ring is enough when focused */
+}
+
+/* Quick-nav pills: clear hover + focus feedback */
+.quick-nav a{
+  cursor:pointer;
+  background:#fff;
+  color:#254E70;
+  border:1px solid rgba(37,78,112,.12);
+  box-shadow:0 2px 6px rgba(0,0,0,.06);
+  text-decoration:none;             /* pills don’t use underline */
+  transition:transform .12s ease, background .12s ease, color .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+
+.quick-nav a:hover{
+  background:#254E70;
+  color:#fff;
+  border-color:#254E70;
+  transform:translateY(-1px);
+  box-shadow:0 6px 14px rgba(37,78,112,.25);
+}
+
+.quick-nav a:active{
+  transform:translateY(0);
+}
+
+.quick-nav a:focus-visible{
+  outline:3px solid #FFDD59;
+  outline-offset:2px;
+  box-shadow:0 0 0 3px rgba(255,221,89,.35);
+}
+
+/* Make the bullet dot flip to white on hover for contrast */
+.quick-nav a:hover::before{ color:#fff; }
+
+  </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Mindfulness – Healthy Little Minds",
+    "datePublished": "2025-09-02",
+    "dateModified": "2025-09-02",
+    "author": {"@type": "Person", "name": "Godswill Ambrose"},
+    "publisher": {"@type": "Organization", "name": "Healthy Little Minds"},
+    "inLanguage": "en",
+    "about": "Mindfulness"
+  }
+  </script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "마음챙김 – 헬시 리틀 마인즈",
+    "datePublished": "2025-09-02",
+    "dateModified": "2025-09-02",
+    "author": {"@type": "Person", "name": "갓스윌 앰브로즈"},
+    "publisher": {"@type": "Organization", "name": "헬시 리틀 마인즈"},
+    "inLanguage": "ko",
+    "about": "마음챙김"
+  }
+  </script>
+  <link href="../../resources/resource-polish.css?v=7" rel="stylesheet" />
+</head>
+<body class="topic-page topic-page--mindfulness">
+  <script defer src="../../resources/resource-language-switcher.js?v=1"></script>
+  <a class="topic-back-link" href="../home.html#topics">← 모든 주제로 돌아가기</a>
+<div class="topic-wrap">
+    <nav class="breadcrumb" aria-label="탐색 경로">
+      <a href="../home.html">홈</a> &raquo;
+      <a href="../home.html#hlm-topics-title">자료</a> &raquo;
+      <span aria-current="page">마음챙김</span>
+    </nav>
+
+    <!-- HERO -->
+    <header class="topic-hero topic-hero--split topic-hero--compact topic-hero--calm" role="banner">
+      <div class="th-grid">
+        <div class="th-title">
+          <h1>마음챙김</h1>
+        </div>
+
+        <div class="th-copy">
+          <p class="lead">
+            판단하지 않고 현재의 생각, 감정, 감각에 부드럽게 집중하는 것.
+          </p>
+
+          <div class="aud-chips" role="list" aria-label="대상">
+            <span role="listitem">어린이</span>
+            <span role="listitem">청소년</span>
+            <span role="listitem">부모</span>
+            <span role="listitem">교사</span>
+          </div>
+
+          <!-- 빠른 탐색 -->
+          <nav class="quick-nav" aria-label="이 페이지에서">
+            <a href="#overview">개요</a>
+            <a href="#try">지금 해보기</a>
+            <a href="#talk">대화 시작하기</a>
+            <a href="#download">다운로드 &amp; 탐색</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN + ASIDE -->
+    <section class="topic-grid">
+      <article class="topic-main">
+        <div id="overview" class="topic-card">
+          <h2>개요</h2>
+          <p>
+            마음챙김이란 지금 이 순간, 내면과 주변에서 일어나는 일에
+            친절한 마음으로 주의를 기울이는 것입니다.
+            집이나 학교에서 간단하게 실천할 수 있어요.
+            아이마다 다르기 때문에 도움이 되는 부분만 선택해서 시도해보세요.
+          </p>
+        </div>
+
+        <div id="try" class="topic-card">
+          <h2>지금 해보기</h2>
+          <ul class="ticks">
+            <li><strong>마인드풀 1분:</strong> 발바닥의 감각을 느끼고, 숨을 의식하며, 세 가지 소리를 들어보세요.</li>
+            <li><strong>조약돌 연습:</strong> 작은 물건을 들고 오감을 모두 사용해 묘사해 보세요.</li>
+            <li><strong>관찰 산책:</strong> 천천히 5분 동안 걸으며 10까지 세고 다시 1까지 세어보세요.</li>
+          </ul>
+        </div>
+
+        <div id="talk" class="topic-card">
+          <h3>대화 시작하기</h3>
+          <ul>
+            <li>“지금 몸에서 어떤 느낌이 있어? 편안한 곳이나 긴장된 곳은 어디야?”</li>
+            <li>“스트레스를 받을 때 조금이라도 도움이 되는 작은 습관이 있을까?”</li>
+            <li>“더 많은 도움이 필요할 때 누구에게 요청할 수 있을까?”</li>
+          </ul>
+        </div>
+
+        <div id="download" class="topic-card">
+          <h3>다운로드 &amp; 탐색</h3>
+          <p>
+            인쇄 가능한 도구와 이야기들을 시도해보세요:
+            <a class="cta-btn" href="../home.html#worksheets">🎨 워크시트</a>
+            &nbsp;&nbsp;
+            <a class="cta-btn" href="../inspire_page.html">🎬 짧은 영상</a>
+          </p>
+          <p class="disclaimer">
+            본 콘텐츠는 교육 목적으로만 제공되며, 의료 또는 치료 상담이 아닙니다.
+            안전이나 건강에 우려가 있다면 즉시 전문가나 지역 서비스에 연락하세요.
+          </p>
+        </div>
+      </article>
+
+      <aside class="topic-aside">
+        <h3>유용한 링크</h3>
+        <ul>
+          <li><a href="../interactive-tools.html">인터랙티브 도구</a></li>
+          <li><a href="../audiobook_section.html">오디오북</a></li>
+          <li><a href="../parents.html">부모를 위한 페이지</a></li>
+        </ul>
+        <hr class="soft">
+        <p class="disclaimer">긴급한 위험 상황이라면 즉시 지역 응급 서비스에 연락하세요.</p>
+      </aside>
+    </section>
+  </div>
+
+  <footer style="text-align:center; padding:1rem; color:#6b7a8e;">
+    &copy; 2025 헬시 리틀 마인즈
+  </footer>
+</body>
+</html>

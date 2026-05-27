@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>デスティニーが悲しいとき</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Nunito:wght@800&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #DFF6FF;
+      padding: 2rem;
+      color: #254E70;
+      text-align: center;
+    }
+
+    .story-box {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      max-width: 600px;
+      margin: 2rem auto;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .story-text {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    button {
+      font-family: 'DM Sans', sans-serif;
+      background: #FFDD59;
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #ffeaa7;
+    }
+  </style>
+</head>
+<body>
+<script>
+  (function () {
+    const isLocal = location.protocol === 'file:';
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isLocal && !isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1];
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo);
+    }
+  })();
+</script>
+
+  <div class="story-box" id="story">
+    <p class="story-text" id="storyText">
+      デスティニーは悲しんでいます。今日、親友が一緒に遊んでくれなかったのです。<br>どうしたらいいでしょうか？
+    </p>
+    <div class="choices" id="choices">
+      <button onclick="nextStep('breathe')">🧘 深呼吸をする</button>
+      <button onclick="nextStep('talk')">🗣️ 先生に話す</button>
+    </div>
+  </div>
+
+  <script>
+    function nextStep(choice) {
+      const storyText = document.getElementById('storyText');
+      const choices = document.getElementById('choices');
+
+      if (choice === 'breathe') {
+        storyText.innerHTML = "デスティニーは目を閉じて、ゆっくりと3回深呼吸をします。少し気持ちが落ち着いてきました。次はどうしましょうか？";
+        choices.innerHTML = `
+          <button onclick="nextStep('draw')">🎨 気持ちを絵に描く</button>
+          <button onclick="nextStep('tellMom')">💬 学校のあとでママに話す</button>
+        `;
+      }
+
+      else if (choice === 'talk') {
+        storyText.innerHTML = "デスティニーは先生に悲しい気持ちを話しました。先生は優しく聞いてくれて、笑顔をくれました。次はどうしましょうか？";
+        choices.innerHTML = `
+          <button onclick="nextStep('write')">📝 日記に書く</button>
+          <button onclick="nextStep('breatheAgain')">🧘 もう一度深呼吸する</button>
+        `;
+      }
+
+      else {
+        let message = "";
+        if (choice === 'draw') {
+          message = "気持ちを絵に描いて、スッキリしました 🎨";
+        } else if (choice === 'tellMom') {
+          message = "ママがハグしてくれました ❤️ デスティニーは安心しました。";
+        } else if (choice === 'write') {
+          message = "日記に書いたことで、気持ちが整理されて落ち着きました 📝";
+        } else if (choice === 'breatheAgain') {
+          message = "もう一度深呼吸して、気持ちがふわふわの雲のように軽くなりました ☁️";
+        }
+
+        storyText.innerHTML = message + "<br><br><strong>✨ あなたのおかげで、デスティニーは元気を取り戻しました！</strong>";
+        choices.innerHTML = `<a href="../home.html"><button>🏠 ホームに戻る</button></a>`;
+      }
+    }
+  </script>
+
+  <script defer src="../shared-language-switcher.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feeling Love - Healthy Little Minds</title>
+  <meta name="description" content="Explore love, belonging, caring actions, and respectful boundaries with children.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="feelings-guide.css">
+</head>
+<body class="feeling-page feeling-page--love">
+  <script>
+    (function () {
+      if (localStorage.getItem("isMember") !== "true") {
+        const local = window.location.protocol === "file:";
+        const path = window.location.pathname;
+        const locale = path.split("/")[1];
+        window.location.replace(local ? "index.html" : (locale && path.includes("/" + locale + "/") ? "/" + locale + "/index.html" : "/index.html"));
+      }
+    })();
+  </script>
+  <main class="feelings-shell">
+    <a class="breadcrumb" href="more-feelings.html">&larr; Explore more feelings</a>
+    <section class="feeling-hero">
+      <div>
+        <p class="kicker">Explore a feeling</p>
+        <h1>Feeling Love</h1>
+        <p class="feeling-lead">Love can feel warm, safe, and connected. It grows through caring words and actions while always respecting each person's body, space, and choices.</p>
+      </div>
+      <aside class="hero-prompt"><h2>Try saying</h2><p>"I care about you. Would you like a hug, help, or some space?"</p></aside>
+    </section>
+    <section class="guide-section">
+      <h2>Ways love can show</h2>
+      <div class="card-grid">
+        <article class="insight-card"><h3>Care</h3><p>Listening, comforting, helping, and remembering what matters to someone.</p></article>
+        <article class="insight-card"><h3>Belonging</h3><p>Knowing you matter, even when you make mistakes or have big feelings.</p></article>
+        <article class="insight-card"><h3>Respect</h3><p>Kind love accepts "no," asks permission, and gives safe space.</p></article>
+      </div>
+    </section>
+    <div class="two-column">
+      <section class="panel">
+        <h2>Try this now</h2>
+        <ol class="steps">
+          <li><strong>Share appreciation.</strong> Tell someone one kind thing you notice about them.</li>
+          <li><strong>Offer a helpful act.</strong> Tidy together, make a note, or listen without interrupting.</li>
+          <li><strong>Practise consent.</strong> Ask before a hug or touch, and respect the answer kindly.</li>
+        </ol>
+      </section>
+      <aside class="support-card">
+        <h2>For grown-ups</h2>
+        <p>Help children learn that love includes affection, repair after conflict, and body-safety boundaries that are always respected.</p>
+      </aside>
+    </div>
+    <section class="resource-panel">
+      <h2>Read together</h2>
+      <div class="resource-grid">
+        <article class="resource-card">
+          <img src="images/I-will-wait-cover.webp" alt="I Will Wait Till I Get Older book cover">
+          <h3>I Will Wait Till I Get Older</h3>
+          <p>A story about finding home in love, belonging, and hope.</p>
+          <a class="read-button" href="https://heyzine.com/flip-book/81bf5a9f97.html" target="_blank" rel="noopener">Read the book</a>
+        </article>
+        <article class="resource-card">
+          <img src="images/when-my-feelings-cover.webp" alt="When My Feelings Get Too Big book cover">
+          <h3>When My Feelings Get Too Big</h3>
+          <p>A reassuring story about support and feeling loved during overwhelming emotions.</p>
+          <a class="read-button" href="https://heyzine.com/flip-book/5cbe03c993.html" target="_blank" rel="noopener">Read the book</a>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script defer src="shared-language-switcher.js?v=1"></script>
+</body>
+</html>

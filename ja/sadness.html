@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>悲しいとき</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f9f9f9;
+      color: #254E70;
+      text-align: center;
+    }
+
+    .banner {
+      background: #ACE7FF;
+      padding: 2rem 1rem;
+      border-radius: 0 0 20px 20px;
+    }
+
+    .emotion-wrapper {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 500px;
+      margin: 2rem auto;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    }
+
+    .emotion-wrapper img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin: 1rem 0;
+    }
+
+    .book-link {
+      display: inline-block;
+      margin: 1rem 0;
+      font-weight: bold;
+      color: #2d2dff;
+      text-decoration: none;
+    }
+
+    .book-link:hover {
+      text-decoration: underline;
+    }
+
+    .back-button a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #ff6b6b;
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+
+    .back-button a:hover {
+      background-color: #e55a5a;
+    }
+  </style>
+</head>
+<body>
+<script>
+  (function () {
+    const isLocal = location.protocol === 'file:';
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isLocal && !isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1];
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo);
+    }
+  })();
+</script>
+
+  <div class="banner">
+    <h1>😢 悲しいとき</h1>
+    <p>このページでは、「悲しい」気持ちに向き合うためのストーリーやツールを紹介します。</p>
+  </div>
+
+  <div class="emotion-wrapper">
+    <img src="../images/destiny-sad.png" alt="悲しんでいるデスティニー" />
+
+    <a class="book-link" href="story-sad.html">📖 インタラクティブストーリーを見る</a>
+
+    <div class="back-button">
+      <a href="../ja/more-feelings.html">⬅ 他の感情に戻る</a>
+    </div>
+  </div>
+
+  <script defer src="../shared-language-switcher.js?v=1"></script>
+</body>
+</html>

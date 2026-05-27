@@ -1,0 +1,148 @@
+body.feeling-page,
+body.feelings-hub {
+  font-family: "Noto Sans JP", "DM Sans", Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+.ja-feeling-header {
+  background: #fff;
+  border-bottom: 1px solid #e9e2da;
+}
+
+.ja-feeling-header__inner {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 15px 16px;
+}
+
+.ja-feeling-brand {
+  align-items: center;
+  color: #193f5c;
+  display: inline-flex;
+  font-family: "Nunito", "Noto Sans JP", sans-serif;
+  font-size: 1.18rem;
+  font-weight: 800;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.ja-feeling-brand img {
+  height: 38px;
+  width: 38px;
+}
+
+.ja-feeling-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.ja-feeling-nav a {
+  border-radius: 999px;
+  color: #31566f;
+  font-size: .92rem;
+  font-weight: 700;
+  padding: 8px 13px;
+  text-decoration: none;
+}
+
+.ja-feeling-nav a:hover,
+.ja-feeling-nav a:focus-visible {
+  background: #f1f7fa;
+}
+
+.feelings-shell {
+  padding-top: 22px;
+}
+
+.feeling-emoji {
+  display: block;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  margin-bottom: 8px;
+}
+
+.ja-feelings-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.ja-feelings-actions .button--secondary {
+  background: #fff;
+  border: 1px solid #c9dce5;
+  color: #193f5c;
+}
+
+.ja-feelings-actions .button--secondary:hover,
+.ja-feelings-actions .button--secondary:focus-visible {
+  background: #edf6fa;
+}
+
+.feeling-page--embarrassed { --highlight: #fff0eb; --accent: #d56d62; --accent-dark: #ac433a; }
+.feeling-page--nervous { --highlight: #eaf4fb; --accent: #467d9d; --accent-dark: #27566f; }
+.feeling-page--disappointed { --highlight: #e7f5f5; --accent: #397f83; --accent-dark: #20585c; }
+.feeling-page--fear { --highlight: #e9f0fc; --accent: #5271b1; --accent-dark: #334f89; }
+.feeling-page--lonely { --highlight: #f0ebf8; --accent: #7564a5; --accent-dark: #55437f; }
+.tile--fear { --tile-accent: #e9f0fc; }
+
+.feeling-page .guide-section .insight-card {
+  min-height: 138px;
+}
+
+.ja-resource-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.ja-resource-actions a {
+  background: #fff;
+  border: 1px solid #dbe6ea;
+  border-radius: 999px;
+  color: #254e70;
+  font-weight: 700;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+.ja-resource-actions a:hover,
+.ja-resource-actions a:focus-visible {
+  background: #edf6fa;
+}
+
+.ja-feeling-footer {
+  color: #62798a;
+  font-size: .92rem;
+  padding: 0 16px 34px;
+  text-align: center;
+}
+
+@media (max-width: 620px) {
+  .ja-feeling-header__inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ja-feeling-nav {
+    width: 100%;
+  }
+
+  .ja-feeling-nav a {
+    padding-left: 0;
+  }
+
+  .feeling-hero {
+    border-radius: 20px;
+  }
+
+  .ja-feelings-actions .button {
+    width: 100%;
+  }
+}

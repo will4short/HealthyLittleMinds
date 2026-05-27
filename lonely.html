@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lonely – Healthy Little Minds</title>
+  <meta name="description" content="Explore loneliness in children and teens: causes, practical steps to build connection, and supportive resources." />
+  <meta name="keywords" content="loneliness, connection, friendships, children, teens, belonging" />
+  <style>
+    body{ font-family:'Poppins',sans-serif; background:#F5F3FF; color:#333; margin:0; padding:2rem }
+    h1{ text-align:center; font-size:2rem }
+    .intro-text{ max-width:700px; margin:0 auto 1.5rem; text-align:center }
+    .breadcrumb{ text-align:center; margin-bottom:1rem }
+    .breadcrumb a{ color:#6C5CE7; text-decoration:none }
+    .subtopic-header{ background:#fff; padding:1.2rem; border-radius:12px; max-width:900px; margin:1rem auto; display:flex; justify-content:space-between; align-items:center; cursor:pointer }
+    .subtopic-header h2{ margin:0; color:#6C5CE7 }
+    .toggle-icon{ font-size:1.4rem }
+    .subtopic-content{ display:none; max-width:900px; margin:1rem auto; gap:1rem; grid-template-columns:1fr 1fr }
+    .subtopic-content.active{ display:grid }
+    .subtopic-card{ background:white; padding:1rem; border-radius:12px }
+    .book-section{ max-width:520px; margin:2rem auto; text-align:center }
+    footer{ text-align:center; margin-top:2rem; color:#777 }
+    @media (max-width:768px){ .subtopic-content{ grid-template-columns:1fr } }
+  </style>
+</head>
+<body>
+  <script>
+    (function(){ const isMember=localStorage.getItem('isMember')==='true'; if(!isMember){ const p=window.location.pathname; const l=p.split('/')[1]; const r=l&&p.includes('/'+l+'/')?'/'+l+'/index.html':'/index.html'; window.location.replace(r); }})();
+    function toggleSection(id){ const el=document.getElementById(id); const ic=document.getElementById(id+'-icon'); el.classList.toggle('active'); ic.textContent = el.classList.contains('active') ? '➖' : '➕'; }
+  </script>
+
+  <div class="breadcrumb"><a href="home.html">Home</a> &gt; <span>Lonely</span></div>
+  <h1>🌱 Feeling Lonely</h1>
+  <p class="intro-text">Loneliness can feel heavy, but small changes and supportive steps can help children and teens grow connections and feel less alone.</p>
+
+  <div class="subtopic-header" onclick="toggleSection('causes')">
+    <h2>What can cause loneliness</h2>
+    <span id="causes-icon" class="toggle-icon">➕</span>
+  </div>
+  <div id="causes" class="subtopic-content">
+    <div class="subtopic-card"><h3>Moving or Changing Schools</h3><p>Leaving familiar friends and places can make it hard to feel connected.</p></div>
+    <div class="subtopic-card"><h3>Different Interests</h3><p>Not sharing hobbies or language with peers can feel isolating.</p></div>
+    <div class="subtopic-card"><h3>Family Changes</h3><p>Separation, loss, or shifts at home can reduce feelings of safety and belonging.</p></div>
+    <div class="subtopic-card"><h3>Social Anxiety</h3><p>Feeling worried in social situations can make reaching out harder.</p></div>
+    <div class="subtopic-card"><h3>Exclusion</h3><p>Being left out, even sometimes, can create a sense of loneliness.</p></div>
+    <div class="subtopic-card"><h3>Online vs Real Life</h3><p>Online connections sometimes feel less deep than face-to-face ones.</p></div>
+  </div>
+
+  <div class="subtopic-header" onclick="toggleSection('management')">
+    <h2>Ways to feel more connected</h2>
+    <span id="management-icon" class="toggle-icon">➕</span>
+  </div>
+  <div id="management" class="subtopic-content">
+    <div class="subtopic-card"><h3>Join Small Groups</h3><p>Clubs or activities give gentle chances to meet people who like the same things.</p></div>
+    <div class="subtopic-card"><h3>Reach Out</h3><p>Send a message or invite someone for a short activity — small steps add up.</p></div>
+    <div class="subtopic-card"><h3>Volunteer</h3><p>Helping others creates natural connections and purpose.</p></div>
+    <div class="subtopic-card"><h3>Talk with a Trusted Adult</h3><p>Share how you feel — they can help with next steps and support.</p></div>
+    <div class="subtopic-card"><h3>Practice Conversation</h3><p>Try simple questions or shared activities to make starting easier.</p></div>
+    <div class="subtopic-card"><h3>Be Patient</h3><p>Friendships take time — keep showing up and small bonds will grow.</p></div>
+  </div>
+
+  <div class="book-section">
+    <h2>📚 Helpful Reads</h2>
+    <div class="book-card" style="background:#fff;padding:1.25rem;border-radius:16px;box-shadow:0 10px 24px rgba(0,0,0,.06);margin:1.25rem auto;max-width:420px;text-align:center;">
+      <img src="images/The_Day_Destiny_Wanted_To_Quit.webp" alt="The Day Destiny Wanted To Quit — cover" style="max-width:220px;border-radius:10px;display:block;margin:0 auto 1rem;" />
+      <h3 style="margin:0 0 .75rem;font-size:1.1rem;color:#6C5CE7;">📗 The Day Destiny Wanted To Quit</h3>
+      <p style="margin:0 0 1rem;color:#555;line-height:1.5;">Free interactive story about resilience, feelings, and keeping going when things feel hard.</p>
+      <a class="book-link" href="https://heyzine.com/flip-book/8736fac672.html" target="_blank" rel="noopener noreferrer">Read for free</a>
+    </div>
+    <div class="book-card" style="background:#fff;padding:1.25rem;border-radius:16px;box-shadow:0 10px 24px rgba(0,0,0,.06);margin:1.25rem auto;max-width:420px;text-align:center;">
+      <img src="images/little-acts-book-cover.webp" alt="Little Acts — cover" style="max-width:220px;border-radius:10px;display:block;margin:0 auto 1rem;" />
+      <h3 style="margin:0 0 .75rem;font-size:1.1rem;color:#6C5CE7;">📘 Little Acts, Big Feelings</h3>
+      <p style="margin:0 0 1rem;color:#555;line-height:1.5;">Helpful story for young readers about connection, kindness, and small steps when feeling alone.</p>
+      <a class="book-link" href="https://heyzine.com/flip-book/034942038a.html" target="_blank">Read the book</a>
+    </div>
+  </div>
+
+  <footer>© 2026 Healthy Little Minds • <a href="index.html">Home</a> • <a href="parents.html">Parents</a></footer>
+
+  <script>
+    function toggleSection(id){ const el=document.getElementById(id); const ic=document.getElementById(id+'-icon'); el.classList.toggle('active'); ic.textContent = el.classList.contains('active') ? '➖' : '➕'; }
+    (function(){ const isMember=localStorage.getItem('isMember')==='true'; if(!isMember){ const p=window.location.pathname; const l=p.split('/')[1]; const r=l&&p.includes('/'+l+'/')?'/'+l+'/index.html':'/index.html'; window.location.replace(r); }})();
+  </script>
+  <script defer src="shared-language-switcher.js?v=1"></script>
+</body>
+</html>

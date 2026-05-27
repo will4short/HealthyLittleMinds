@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <title>Grief – Healthy Little Minds</title>
+  <meta name="description" content="Gentle guidance for talking about loss, memory, and the many shapes grief can take."/>
+  <meta name="keywords" content="grief, loss, memory, kids, teens, parents, educators, mental health, emotional learning, coping, worksheets"/>
+  <meta name="author" content="Godswill Ambrose"/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://www.healthylittleminds.club/resources/grief.html"/>
+
+  <!-- Favicons / PWA -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+  <link rel="apple-touch-icon" href="/icon-512.webp"/>
+  <link rel="manifest" href="/manifest.json"/>
+  <meta name="theme-color" content="#FFDD59"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://www.healthylittleminds.club/resources/grief.html"/>
+  <meta property="og:title" content="Grief – Healthy Little Minds"/>
+  <meta property="og:description" content="Gentle guidance for talking about loss, memory, and the many shapes grief can take."/>
+  <!-- Use topic-specific image if you have it; fallback to site preview -->
+  <meta property="og:image" content="https://www.healthylittleminds.club/images/og/resources-grief.jpg"/>
+  <meta property="og:image:alt" content="Healthy Little Minds — Grief resources for teens, parents, and educators"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:site_name" content="Healthy Little Minds"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:url" content="https://www.healthylittleminds.club/resources/grief.html"/>
+  <meta name="twitter:title" content="Grief – Healthy Little Minds"/>
+  <meta name="twitter:description" content="Gentle guidance for talking about loss, memory, and the many shapes grief can take."/>
+  <meta name="twitter:image" content="https://www.healthylittleminds.club/images/og/resources-grief.jpg"/>
+
+  <!-- Fonts & Site CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="../style.css?v=83" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+
+  <!-- Topic CSS (inline; move to shared topic.css if you prefer) -->
+  <style>
+:root{
+  --navy:#254E70; --coral:#FF6B6B; --sand:#FFF4E6; --chip:#FFF0B3;
+  --muted:#6b7a8e; --ring:0 0 0 3px rgba(37,78,112,.15);
+  --offset-desktop:96px; --offset-mobile:130px;
+}
+
+/* Smooth anchor scrolling + offset for sticky header */
+html{scroll-behavior:smooth; scroll-padding-top:var(--offset-desktop);}
+@media (max-width:820px){ html{scroll-padding-top:var(--offset-mobile);} }
+
+.topic-wrap{max-width:1100px;margin:0 auto;padding:1rem}
+
+/* Breadcrumb */
+.breadcrumb{font-size:.9rem;color:#476882;margin:.75rem 0 0;padding:0 1rem}
+.breadcrumb a{color:var(--navy);text-decoration:none}
+.breadcrumb span[aria-current]{color:#6b7a8e}
+
+/* Grid: hero + main (left), aside (right) */
+.topic-grid{
+  display:grid; grid-template-columns:minmax(0,1fr) 320px;
+  grid-template-areas:"hero aside" "main aside";
+  gap:24px; margin:1rem; padding:0 1rem;
+}
+.topic-hero{grid-area:hero}
+.topic-main{grid-area:main}
+.topic-aside{grid-area:aside}
+@media (max-width:980px){
+  .topic-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:"hero" "main" "aside";
+    margin:.75rem 0; padding:0 .75rem;
+  }
+}
+@media (min-width:981px){ .topic-aside{position:sticky; top:88px;} }
+
+/* Hero */
+.topic-hero{
+  background:
+    radial-gradient(12px 12px at 24px 24px, rgba(255,255,255,.22) 1px, transparent 1px),
+    linear-gradient(180deg, var(--sand), var(--sand));
+  border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,.06);
+  padding:1rem 1rem 1.1rem; position:relative; overflow:hidden;
+}
+.topic-hero--split .th-grid{
+  display:grid; grid-template-columns:minmax(220px,1fr) minmax(320px,1.35fr);
+  gap:24px; align-items:center;
+}
+.topic-hero--split .th-title h1{
+  font-family:'Nunito',sans-serif; font-weight:800; color:var(--navy);
+  margin:0; line-height:1.05; font-size:clamp(1.9rem,1.2vw + 1.4rem,2.6rem);
+}
+.topic-hero--split .th-copy .lead{
+  color:#364c63; line-height:1.7; margin:.12rem 0 .55rem; font-size:1.06rem;
+}
+@media (max-width:820px){ .topic-hero--split .th-grid{grid-template-columns:1fr; gap:10px;} }
+
+/* Compact hero option */
+.topic-hero--compact{ padding:.85rem 1rem 1rem; border-radius:14px; }
+.topic-hero--compact .th-grid{ gap:16px; }
+.topic-hero--compact .th-title h1{
+  font-size:clamp(1.6rem, 1.1vw + 1.2rem, 2.2rem); letter-spacing:-.2px; line-height:1.06;
+}
+.topic-hero--compact .th-copy .lead{
+  font-size:1rem; line-height:1.6; margin:.2rem 0 .4rem; max-width:48ch;
+}
+.topic-hero--compact .aud-chips{ gap:.4rem; }
+.topic-hero--compact .aud-chips span{ padding:.3rem .6rem; font-size:.85rem; box-shadow:0 2px 5px rgba(0,0,0,.04); }
+.topic-hero--compact .quick-nav{ gap:.35rem; margin-top:.4rem; }
+.topic-hero--compact .quick-nav a{ padding:.34rem .66rem; font-size:.86rem; }
+@media (max-width:820px){ .topic-hero--compact .th-title h1{ font-size:1.7rem; } }
+
+/* Audience chips */
+.aud-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.25rem}
+.aud-chips span{
+  background:var(--chip); color:var(--navy); font-weight:800;
+  padding:.38rem .72rem; border-radius:999px; font-size:.9rem;
+  box-shadow:0 2px 6px rgba(0,0,0,.05); white-space:nowrap;
+}
+
+/* Quick nav pills */
+.quick-nav{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.55rem}
+.quick-nav a{
+  display:inline-flex; align-items:center; gap:.45rem; padding:.42rem .8rem;
+  font-size:.88rem; font-weight:700; color:#0f172a; background:#fff;
+  border:1px solid #e9eef5; border-radius:999px; text-decoration:none;
+  box-shadow:0 1px 0 rgba(0,0,0,.02);
+  transition:transform .08s ease, box-shadow .12s ease, background .12s ease;
+}
+.quick-nav a::before{content:"•"; color:var(--navy); opacity:.6}
+.quick-nav a:hover{transform:translateY(-1px); box-shadow:0 10px 22px rgba(0,0,0,.10)}
+.quick-nav a:focus-visible{outline:none; box-shadow:var(--ring); border-color:#dbe3ec}
+.quick-nav a.is-active{background:#fdfdfd; border-color:#dfe7f0}
+@media (max-width:980px){
+  .quick-nav{overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .quick-nav a{white-space:nowrap}
+}
+
+/* Cards */
+.topic-main h2,.topic-main h3{font-family:'Nunito',sans-serif;color:var(--navy)}
+.topic-card{
+  background:#fff; border-radius:14px; border-left:4px solid #eef2f7;
+  box-shadow:0 8px 18px rgba(0,0,0,.06); padding:1rem; margin-bottom:1rem;
+  scroll-margin-top:var(--offset-desktop);
+}
+.topic-main .topic-card:first-child{margin-top:.25rem;}
+.topic-card:target{
+  border-left-color:var(--coral);
+  box-shadow:0 0 0 4px rgba(255,221,89,.35), 0 10px 24px rgba(0,0,0,.12);
+  transition:box-shadow .2s ease, border-color .2s ease;
+}
+
+/* Aside */
+.topic-aside{
+  background:#fff; border:1px solid #eef1f5; border-radius:16px;
+  padding:1rem; box-shadow:0 12px 28px rgba(0,0,0,.07)
+}
+.topic-aside h3{font-family:'Nunito',sans-serif;color:var(--navy);margin-top:.25rem}
+
+/* CTA + misc */
+.cta-btn{
+  display:inline-block; background:var(--coral); color:#fff; text-decoration:none;
+  padding:.65rem 1rem; border-radius:12px; font-weight:800;
+  box-shadow:0 10px 22px rgba(255,107,107,.18);
+}
+.cta-btn:hover{filter:brightness(.98)}
+.disclaimer{font-size:.92rem;color:var(--muted)}
+ul.ticks{list-style:none;padding-left:0;margin:.25rem 0}
+ul.ticks li{margin:.45rem 0;padding-left:1.25rem;position:relative}
+ul.ticks li::before{content:'✔';position:absolute;left:0;top:0;color:#24b159;font-weight:900}
+hr.soft{border:0;border-top:1px solid #eef1f5;margin:1rem 0}
+
+/* ===== Link states (consistent across page) ===== */
+.topic-wrap a:not(.quick-nav a):not(.cta-btn){
+  text-decoration:underline;
+  text-decoration-thickness:.08em;
+  text-underline-offset:.18em;
+}
+.topic-wrap a:not(.quick-nav a):not(.cta-btn):hover{
+  color:#0b5aa1;
+  text-decoration:none;          /* hover = color change, no underline */
+}
+.topic-aside a{font-weight:700;}
+
+/* Accessibility: strong focus outline for all tabbable links/buttons */
+a:focus-visible, button:focus-visible{ outline:3px solid #9ad1ff; outline-offset:2px; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition:none !important; scroll-behavior:auto !important;}
+}
+
+  </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Grief – Healthy Little Minds",
+    "url":"https://www.healthylittleminds.club/resources/grief.html",
+    "description":"Gentle guidance for talking about loss, memory, and the many shapes grief can take.",
+    "isPartOf":{"@type":"WebSite","name":"Healthy Little Minds","url":"https://www.healthylittleminds.club"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.healthylittleminds.club/home.html"},
+      {"@type":"ListItem","position":2,"name":"Resources","item":"https://www.healthylittleminds.club/home.html#resources"},
+      {"@type":"ListItem","position":3,"name":"Grief"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Grief – Healthy Little Minds",
+    "datePublished":"2025-09-02",
+    "dateModified":"2025-09-02",
+    "author":{"@type":"Person","name":"Godswill Ambrose"},
+    "publisher":{"@type":"Organization","name":"Healthy Little Minds"},
+    "inLanguage":"en",
+    "about":"Grief"
+  }
+  </script>
+  <link href="resource-polish.css?v=4" rel="stylesheet" />
+</head>
+<body class="topic-page topic-page--grief">
+  <script defer src="resource-language-switcher.js?v=1"></script>
+  <div class="topic-wrap">
+    <div class="resource-toolbar">
+      <a href="../home.html#resources">&larr; All topics</a>
+      <span class="resource-reading">Practical guide &middot; 3 minute read</span>
+    </div>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../home.html">Home</a> &raquo;
+      <a href="../home.html#resources">Resources</a> &raquo;
+      <span aria-current="page">Grief</span>
+    </nav>
+
+    <!-- One grid controls hero + main + aside -->
+    <section class="topic-grid">
+      <!-- HERO -->
+      <header class="topic-hero topic-hero--split topic-hero--compact" role="banner">
+        <div class="th-grid">
+          <div class="th-title">
+            <h1>Grief</h1>
+          </div>
+
+          <div class="th-copy">
+            <p class="lead">Gentle guidance for talking about loss, memory, and the many shapes grief can take.</p>
+
+            <div class="aud-chips" role="list" aria-label="Audience">
+              <span role="listitem">Teens</span>
+              <span role="listitem">Parents</span>
+              <span role="listitem">Educators</span>
+            </div>
+
+            <!-- Quick nav -->
+            <nav class="quick-nav" aria-label="On this page">
+              <a href="#overview">Overview</a>
+              <a href="#try">Try It Now</a>
+              <a href="#talk">Talk Starters</a>
+              <a href="#download">Download &amp; Explore</a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <!-- MAIN -->
+      <article class="topic-main">
+        <section id="overview" class="topic-card">
+          <h2>Overview</h2>
+          <p>
+            Grief can look like sadness, anger, numbness, or even moments of laughter. This page offers
+            simple, gentle ideas you can try at home or school. Every child and family is different—take
+            what helps and leave the rest.
+          </p>
+        </section>
+
+        <section id="try" class="topic-card">
+          <h2>Try It Now</h2>
+          <ul class="ticks">
+            <li><strong>Memory jar:</strong> write or draw one favorite memory; add to the jar this week.</li>
+            <li><strong>Name the wave:</strong> “Right now my wave feels ___.” Let it rise and fall with 3 slow breaths.</li>
+            <li><strong>Share &amp; care:</strong> choose a trusted person and share one story or feeling today.</li>
+          </ul>
+        </section>
+
+        <section id="talk" class="topic-card">
+          <h3>Talk Starters</h3>
+          <ul>
+            <li>“When grief shows up, how does your body let you know—heavy, tight, tired?”</li>
+            <li>“What helps a little, even if it doesn’t fix everything—music, walks, hugs, a quiet space?”</li>
+            <li>“Who are safe adults we can turn to if we need more help?”</li>
+          </ul>
+        </section>
+
+        <section class="topic-card">
+          <h2>Grief Has Many Shapes</h2>
+          <p>Young people may move between missing someone, playing, feeling angry, asking questions, or feeling nothing for a while.</p>
+          <div class="subtopic-grid">
+            <div class="subtopic">
+              <h3>Remembering</h3>
+              <p>Photos, stories, drawings, songs, or a small ritual can help keep a loving connection.</p>
+            </div>
+            <div class="subtopic">
+              <h3>Routine</h3>
+              <p>Ordinary meals, school, play, and bedtime routines can offer steadiness while feelings change.</p>
+            </div>
+            <div class="subtopic">
+              <h3>Questions</h3>
+              <p>Answer honestly in simple words, and let children ask the same question more than once.</p>
+            </div>
+          </div>
+          <p class="support-note"><strong>When more help may be needed:</strong> reach out to a qualified professional if grief is strongly affecting everyday life for a long time, or if a young person talks about harming themselves or not wanting to live.</p>
+        </section>
+
+        <section id="download" class="topic-card">
+          <h3>Download &amp; Explore</h3>
+          <p>
+            Try our printable tools and stories:
+            <a class="cta-btn" href="../home.html#worksheets">🎨 Worksheets</a>
+            &nbsp;&nbsp;
+            <a class="cta-btn" href="../inspire_page.html">🎬 Short Videos</a>
+          </p>
+          <p class="disclaimer">
+            Educational content only — not medical or therapy advice. If you’re worried about safety or health,
+            contact a qualified professional or local services immediately.
+          </p>
+        </section>
+      </article>
+
+      <!-- ASIDE -->
+      <aside class="topic-aside">
+        <nav class="related-topics" aria-label="Related topics">
+          <h3>Continue Exploring</h3>
+          <a href="emotions.html"><strong>Emotions</strong><span>Name changing feelings</span></a>
+          <a href="relaxation.html"><strong>Relaxation</strong><span>Gentle settling tools</span></a>
+          <a href="relationships.html"><strong>Relationships</strong><span>Lean on caring connections</span></a>
+        </nav>
+        <hr class="soft" />
+        <h3>Helpful Links</h3>
+        <ul>
+          <li><a href="../interactive-tools.html">Interactive Tools</a></li>
+          <li><a href="../audiobook_section.html">Audiobooks</a></li>
+          <li><a href="../parents.html">For Parents</a></li>
+          <li><a href="../home.html#characters">Meet the Characters</a></li>
+        </ul>
+        <hr class="soft">
+        <p class="disclaimer">If you’re in immediate danger, call local emergency services.</p>
+      </aside>
+    </section>
+  </div>
+
+  <footer class="topic-footer">
+    &copy; 2025 Healthy Little Minds
+  </footer>
+
+  <!-- Topic JS (inline; move to shared topic.js if you prefer) -->
+  <script>
+  (() => {
+    const OFFSET = 88;
+    function smoothTo(hash){
+      const el = document.querySelector(hash);
+      if(!el) return;
+      const top = el.getBoundingClientRect().top + window.scrollY - OFFSET;
+      window.scrollTo({ top, behavior:'smooth' });
+    }
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if(!a) return;
+      const url = new URL(a.href, location.href);
+      if(url.pathname !== location.pathname) return;
+      e.preventDefault();
+      history.pushState({}, "", url.hash);
+      smoothTo(url.hash);
+    });
+
+    const nav = document.querySelector('.quick-nav');
+    if(nav){
+      const links = [...nav.querySelectorAll('a[href^="#"]')];
+      const pairs = links.map(a => ({ a, el: document.querySelector(a.getAttribute('href')) })).filter(x => x.el);
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const hit = pairs.find(x => x.el === entry.target);
+          if(!hit) return;
+          if(entry.isIntersecting){
+            links.forEach(a => a.classList.remove('is-active'));
+            hit.a.classList.add('is-active');
+          }
+        });
+      }, { rootMargin: `-${OFFSET + 10}px 0px -60% 0px`, threshold: 0.01 });
+      pairs.forEach(x => io.observe(x.el));
+    }
+    if(location.hash) setTimeout(() => smoothTo(location.hash), 0);
+  })();
+  </script>
+</body>
+</html>

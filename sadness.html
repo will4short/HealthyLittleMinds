@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sadness – Healthy Little Minds</title>
+  <meta name="description" content="Understanding sadness in young people. Explore research-based causes, coping strategies, and interactive stories to help children process grief and loss.">
+  <meta name="keywords" content="sadness, grief, loss, emotions, children, teens, coping strategies, emotional support">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #FFF2E5;
+      color: #254E70;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .intro-text {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .breadcrumb {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 2rem;
+    }
+
+    .breadcrumb a {
+      color: #4B8FD4;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 10px 20px;
+      background-color: #4B8FD4;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #3a6fa3;
+    }
+
+    .subtopic-header {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 15px;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      margin: 1rem auto;
+      max-width: 800px;
+      transition: background-color 0.3s ease;
+    }
+
+    .subtopic-header:hover {
+      background-color: #FFF7F0;
+    }
+
+    .subtopic-header h2 {
+      margin: 0;
+      color: #4B8FD4;
+      font-size: 1.3rem;
+    }
+
+    .toggle-icon {
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .subtopic-content {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1rem 2rem 1rem;
+    }
+
+    .subtopic-content.active {
+      display: grid;
+    }
+
+    .subtopic-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .subtopic-card h3 {
+      color: #4B8FD4;
+      margin-top: 0;
+    }
+
+    .subtopic-card p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .story-section {
+      max-width: 500px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    .cta-button {
+      background: #4B8FD4;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 8px;
+      display: inline-block;
+      font-weight: bold;
+      margin-top: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #3a6fa3;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 2rem;
+      border-top: 1px solid #ddd;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .subtopic-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<script>
+  function toggleSection(sectionId) {
+    const content = document.getElementById(sectionId);
+    const icon = document.getElementById(sectionId + '-icon');
+    
+    content.classList.toggle('active');
+    icon.textContent = content.classList.contains('active') ? '➖' : '➕';
+  }
+
+  (function () {
+    const isMember = localStorage.getItem("isMember") === "true";
+    if (!isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1];
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo);
+    }
+  })();
+</script>
+
+  <div class="breadcrumb">
+    <a href="home.html">Home</a> > <span>Sadness</span>
+  </div>
+
+  <h1>😢 Understanding Sadness</h1>
+
+  <p class="intro-text">
+    Sadness is a natural emotion that helps us process difficult experiences, loss, and change. Here you'll explore what causes sadness, healthy ways to cope with it, and stories that help kids understand and express this important feeling.
+  </p>
+
+    <!-- 🎯 CAUSES OF SADNESS -->
+  <div class="subtopic-header" onclick="toggleSection('causes')">
+    <h2>🎯 Why Young People Feel Sad</h2>
+    <span class="toggle-icon" id="causes-icon">➕</span>
+  </div>
+  <div class="subtopic-content" id="causes">
+    <div class="subtopic-card">
+      <h3>💔 Loss and Grief</h3>
+      <p>Death of a loved one, moving away, losing a friendship, or significant change. These are major life events that naturally trigger sadness.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>😔 Disappointment</h3>
+      <p>Not getting what they hoped for—failed test, didn't make the team, plans fell through. Unmet expectations hurt and create sadness.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>🚫 Rejection or Loneliness</h3>
+      <p>Being excluded, bullied, misunderstood, or feeling isolated. Humans are social—lack of connection creates deep sadness.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>😰 Stress and Overwhelm</h3>
+      <p>Too much pressure, conflict at home, school anxiety, or uncertainty about the future. Chronic stress depletes emotional reserves.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>🧠 Chemical & Biological Factors</h3>
+      <p>Sleep deprivation, poor nutrition, hormonal changes (especially in teens), or low sunlight can contribute to low mood and sadness.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>🎭 Witnessing Others' Pain</h3>
+      <p>Empathy makes kids sad when they see others suffering—a friend's struggles, world events, or family problems affect them deeply.</p>
+    </div>
+  </div>
+
+  <!-- 💪 WAYS TO MANAGE SADNESS -->
+  <div class="subtopic-header" onclick="toggleSection('management')">
+    <h2>💪 Ways to Care for Yourself When Sad</h2>
+    <span class="toggle-icon" id="management-icon">➕</span>
+  </div>
+  <div class="subtopic-content" id="management">
+    <div class="subtopic-card">
+      <h3>🗣️ Talk About It</h3>
+      <p>Share feelings with a trusted adult, friend, or counselor. Being heard and validated helps process sadness and prevents it from building up.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>😭 Let Yourself Cry</h3>
+      <p>Crying releases tension and is healing. Don't suppress sadness—feeling it fully helps move through it faster than ignoring it.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>💪 Move Your Body</h3>
+      <p>Physical activity releases endorphins and reduces sadness. Even a short walk, dance, or stretch can improve mood naturally.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>🎨 Express Through Creativity</h3>
+      <p>Art, music, writing, or journaling helps process complex emotions. Creative expression gives sadness a safe outlet.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>☀️ Get Sunlight & Fresh Air</h3>
+      <p>Natural light and outdoor time boost mood. Even 15-20 minutes outside can help when sadness feels heavy.</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>🤗 Practice Self-Compassion</h3>
+      <p>Treat yourself kindly—sadness is normal and temporary. Rest, enjoy comfort activities, and be patient with yourself during difficult times.</p>
+    </div>
+  </div>
+
+  <div class="story-section">
+    <img src="images/The_Day_Destiny_Wanted_To_Quit.webp" alt="The Day Destiny Wanted To Quit — cover" style="max-width:220px;border-radius:10px;display:block;margin:0 auto 1rem;" />
+    <h2>📖 Related story: The Day Destiny Wanted To Quit</h2>
+    <p>Free interactive book about feelings, resilience, and small steps that help characters keep going.</p>
+    <a class="cta-button" href="https://heyzine.com/flip-book/8736fac672.html" target="_blank" rel="noopener noreferrer">Read for free</a>
+  </div>
+
+  <!-- 📖 INTERACTIVE STORY -->
+  <div class="story-section">
+    <h2>📖 Try an Interactive Story</h2>
+    <img src="images/destiny-sad.png" alt="Destiny's Story" style="max-width: 120px; border-radius: 10px; margin-bottom: 1rem;">
+    <p>Help Destiny work through sad feelings by choosing what he does next in this interactive story.</p>
+    <a href="story-sad.html" class="cta-button">Start Story: Feeling Sad</a>
+  </div>
+
+  <div style="text-align:center;">
+    <a href="home.html" class="back-btn">⬅ Back to Home</a>
+  </div>
+
+  <footer>
+    © 2026 Healthy Little Minds | <a href="more-feelings.html" style="color:#4B8FD4;">Explore More Emotions</a> | <a href="parents.html" style="color:#4B8FD4;">For Parents</a>
+  </footer>
+
+  <script defer src="shared-language-switcher.js?v=1"></script>
+</body>
+</html>

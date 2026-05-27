@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>场景一：贝拉的故事</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f0f8ff;
+      color: #254E70;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+    .scene-wrapper {
+      max-width: 700px;
+      margin: auto;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    }
+    .scene-wrapper img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+    }
+    .choice-button {
+      display: block;
+      background: #FF6B6B;
+      color: white;
+      font-weight: bold;
+      padding: 0.8rem 1.5rem;
+      margin: 1rem auto;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.3s;
+      max-width: 300px;
+    }
+    .choice-button:hover {
+      background: #e25555;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    .choice-note {
+      display: block;
+      font-size: 0.85rem;
+      color: #ffffffcc;
+    }
+  </style>
+</head>
+<body>
+<div style="
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  background: #FFE4F0;
+  border: 2px solid #F8CFE0;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+">
+  <a href="../home.html" style="
+    text-decoration: none;
+    color: #D6336C;
+    font-weight: bold;
+    font-size: 0.95rem;
+  ">
+    🏠 返回主页
+  </a>
+</div>
+
+  <div class="scene-wrapper">
+    <h1>📚 场景一：紧张的开始</h1>
+    <p>
+      贝拉站在教室外面，心砰砰跳。<br />
+      她小声说：“我不想做……”
+    </p>
+    <p>
+      里维拉老师请大家分享本周学到的东西。<br />
+      贝拉手心冒汗，腿在发抖。
+    </p>
+    <img src="../images/bella-scene1-refined.png" alt="紧张地站在教室前的贝拉" />
+    <p>
+      她要鼓起勇气走进去，还是继续躲在外面呢？
+    </p>
+
+    <a href="scene2-standup.html" class="choice-button" data-choice="standup">🗣️ 深呼吸，走进教室</a>
+    <a href="scene2-hide.html" class="choice-button" data-choice="hide">😔 留在走廊<br />
+<span class="choice-note">（可能会更紧张，但也许可以冷静一下）</span></a>
+    <a href="scene2-pretend.html" class="choice-button" data-choice="avoid">🤥 假装不舒服<br /><span class="choice-note">（暂时安心，但担心可能还在。)
+  <a href="../parents-tips.html#avoidance" style="color: #FF80AB; font-weight: bold; text-decoration: underline;">
+    (查看家长建议)
+  </a>
+</span>  
+</div>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <title>青少年 – 健康小心灵</title>
+  <meta name="description" content="一个面向青少年的文章、情绪检查和技能培养的入口。"/>
+  <meta name="keywords" content="青少年, 父母, 教育者, 心理健康, 情绪学习, 工作表"/>
+  <meta name="author" content="Godswill Ambrose"/>
+  <link rel="canonical" href="https://www.healthylittleminds.club/resources/youth-teens.html"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://www.healthylittleminds.club/resources/youth-teens.html"/>
+  <meta property="og:title" content="青少年 – 健康小心灵"/>
+  <meta property="og:description" content="一个面向青少年的文章、情绪检查和技能培养的入口。"/>
+  <meta property="og:image" content="https://www.healthylittleminds.club/images/social-preview.jpg"/>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="青少年 – 健康小心灵"/>
+  <meta name="twitter:description" content="一个面向青少年的文章、情绪检查和技能培养的入口。"/>
+  <meta name="twitter:image" content="https://www.healthylittleminds.club/images/social-preview.jpg"/>
+
+  <meta name="theme-color" content="#FFDD59"/>
+
+  <!-- Fonts & Site CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="../../style.css?v=96" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+
+  <style>
+ /* ========= Topic Layout (scoped) ========= */
+:root{
+  /* tweak if your sticky header height changes */
+  --header-offset-desktop: 96px;
+  --header-offset-mobile: 132px;
+
+  --ink: #254E70;
+  --ink-dim: #364c63;
+  --chip-bg: #FFF0B3;
+  --hero-bg: #FFF4E6;
+  --pill-bg: #ffffff;
+  --pill-shadow: 0 6px 16px rgba(0,0,0,.08);
+  --pill-shadow-hover: 0 10px 22px rgba(0,0,0,.12);
+}
+
+/* Smooth anchor scroll + offset so headings don't hide under header */
+html{ scroll-behavior:smooth; scroll-padding-top:var(--header-offset-desktop); }
+@media (max-width:820px){
+  html{ scroll-padding-top:var(--header-offset-mobile); }
+}
+
+.topic-wrap{max-width:1100px;margin:0 auto;padding:1rem;}
+.breadcrumb{font-size:.9rem;color:#476882;margin:.75rem 0 0;padding:0 1rem;}
+.breadcrumb a{color:var(--ink);text-decoration:none;}
+.breadcrumb span[aria-current]{color:#6b7a8e;}
+
+.topic-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 320px;
+  grid-template-areas:
+    "hero aside"
+    "main aside";
+  gap:24px;
+  margin:1rem; padding:0 1rem;
+}
+.topic-hero{grid-area:hero;}
+.topic-main{grid-area:main;}
+.topic-aside{grid-area:aside;}
+
+@media (max-width:980px){
+  .topic-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:"hero" "main" "aside";
+    margin:.75rem 0; padding:0 .75rem;
+  }
+}
+
+/* ========== HERO (split) ========== */
+.topic-hero{
+  background:var(--hero-bg);
+  border-radius:16px;
+  box-shadow:0 6px 18px rgba(0,0,0,.05);
+  padding:1rem 1rem 1.15rem;
+  position:relative;
+  overflow:hidden;
+}
+/* subtle dotted pattern */
+.topic-hero::after{
+  content:"";
+  position:absolute; inset:0;
+  background-image: radial-gradient(rgba(0,0,0,.06) 1px, transparent 1px);
+  background-size: 16px 16px;
+  opacity:.25; pointer-events:none;
+}
+
+.topic-hero--split .th-grid{
+  display:grid;
+  grid-template-columns:minmax(220px,1fr) minmax(320px,1.35fr);
+  gap:24px; align-items:center;
+}
+.topic-hero--split .th-title h1{
+  font-family:'Nunito',sans-serif;font-weight:800;
+  color:var(--ink); margin:0; line-height:1.05;
+  font-size:clamp(1.9rem,1.2vw + 1.4rem,2.6rem);
+}
+.topic-hero--split .th-copy .lead{
+  color:var(--ink-dim); line-height:1.7; margin:.1rem 0 .55rem; font-size:1.06rem;
+}
+
+@media (max-width:820px){
+  .topic-hero--split .th-grid{grid-template-columns:1fr; gap:10px;}
+}
+
+/* Audience chips */
+.aud-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:.2rem 0 .6rem;}
+.aud-chips span{
+  background:var(--chip-bg); color:var(--ink); font-weight:800;
+  padding:.4rem .7rem; border-radius:999px; font-size:.9rem; white-space:nowrap;
+}
+
+/* ========== Quick-nav pills ========== */
+.qrow{
+  display:flex; flex-wrap:wrap; gap:.6rem;
+  /* make pills scrollable on narrow screens */
+  overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:.25rem;
+}
+.qbtn{
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.55rem .9rem; border-radius:999px; background:var(--pill-bg); color:var(--ink);
+  font-weight:800; text-decoration:none; box-shadow:var(--pill-shadow);
+  transition:transform .12s ease, box-shadow .12s ease, background .12s ease, color .12s ease;
+  white-space:nowrap;
+}
+.qbtn::before{content:'•'; color:var(--ink); font-weight:900;}
+.qbtn:hover{ background:var(--ink); color:#fff; transform:translateY(-1px); box-shadow:var(--pill-shadow-hover); }
+.qbtn:hover::before{ color:#fff; }
+/* keyboard focus */
+.qbtn:focus-visible{ outline:3px solid #A7D3FF; outline-offset:2px; }
+
+/* ========== Cards + Aside ========== */
+.topic-main h2,.topic-main h3{font-family:'Nunito',sans-serif;color:var(--ink);}
+.topic-card{
+  background:#fff; border-radius:14px; box-shadow:0 8px 18px rgba(0,0,0,.06);
+  padding:1rem; margin-bottom:1rem;
+}
+/* ensure the first heading never hides when reached by other means */
+.topic-card{ scroll-margin-top:var(--header-offset-desktop); }
+@media (max-width:820px){ .topic-card{ scroll-margin-top:var(--header-offset-mobile); } }
+
+/* when navigated via anchor, give a gentle highlight */
+.topic-card:target{ box-shadow:0 10px 24px rgba(0,0,0,.12); outline:2px solid #FFDFA5; }
+
+.topic-main .topic-card:first-child{margin-top:.25rem;}
+
+.topic-aside{
+  background:#FFFFFF; border:1px solid #f0f0f0; border-radius:16px;
+  padding:1rem; box-shadow:0 8px 18px rgba(0,0,0,.05);
+}
+@media (min-width:981px){ .topic-aside{ position:sticky; top:88px; } }
+
+.disclaimer{font-size:.9rem;color:#6b7a8e;margin-top:.75rem;}
+.cta-btn{display:inline-block;background:#FF6B6B;color:#fff;text-decoration:none;padding:.65rem 1rem;border-radius:12px;font-weight:800;}
+
+/* Ticks list */
+ul.ticks{list-style:none;padding-left:0;margin:.25rem 0;}
+ul.ticks li{margin:.4rem 0;padding-left:1.25rem;position:relative;}
+ul.ticks li::before{content:'✔';position:absolute;left:0;top:0;color:#24b159;font-weight:900;}
+
+hr.soft{border:0;border-top:1px solid #eee;margin:1rem 0;}
+
+/* ===== Link states (scoped) ===== */
+/* Body + aside links: underline by default, color on hover (pills excluded) */
+.topic-wrap a:not(.qbtn){
+  text-decoration:underline;
+  text-decoration-thickness:.08em;
+  text-underline-offset:.18em;
+}
+.topic-wrap a:not(.qbtn):hover{ color:#0b5aa1; text-decoration:none; }
+.topic-aside a:not(.qbtn){ font-weight:700; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion:reduce){
+  .qbtn{ transition:none; }
+  html{ scroll-behavior:auto; }
+}
+</style>
+
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"青少年 – 健康小心灵","datePublished":"2025-09-02","dateModified":"2025-09-02","author":{"@type":"Person","name":"Godswill Ambrose"},"publisher":{"@type":"Organization","name":"Healthy Little Minds"},"inLanguage":"zh-cn","about":"青少年"}
+  </script>
+  <link href="../../resources/resource-polish.css?v=4" rel="stylesheet" />
+</head>
+<body class="topic-page topic-page--youth-teens">
+  <script defer src="../../resources/resource-language-switcher.js?v=1"></script>
+  <a class="topic-back-link" href="../home.html#topics">← 返回所有主题</a>
+<div class="topic-wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../home.html">首页</a> &raquo;
+      <a href="../home.html#hlm-topics-title">资源</a> &raquo;
+      <span aria-current="page">青少年</span>
+    </nav>
+
+    <!-- HERO -->
+    <header class="topic-hero topic-hero--split" role="banner">
+      <div class="th-grid">
+        <div class="th-title">
+          <h1>青少年</h1>
+        </div>
+        <div class="th-copy">
+          <p class="lead">
+            一个面向青少年的文章、情绪检查和技能培养的入口。
+          </p>
+
+          <div class="aud-chips" role="list" aria-label="受众">
+            <span role="listitem">青少年</span>
+            <span role="listitem">父母</span>
+            <span role="listitem">教育者</span>
+          </div>
+
+          <!-- Quick nav pills -->
+          <div class="qrow">
+            <a class="qbtn" href="#overview">概览</a>
+            <a class="qbtn" href="#try">立即尝试</a>
+            <a class="qbtn" href="#talk">对话引导</a>
+            <a class="qbtn" href="#download">下载与探索</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- GRID -->
+    <section class="topic-grid">
+      <article class="topic-main">
+        <div id="overview" class="topic-card">
+          <h2>概览</h2>
+          <p>
+            本页面为青少年（以及支持他们的成年人）提供简短而实用的技能——
+            情绪检查、界限设定、减压方法以及如何践行你的价值观。
+            取你所需，放下其余。
+          </p>
+        </div>
+
+        <div id="try" class="topic-card">
+          <h2>立即尝试</h2>
+          <ul class="ticks">
+            <li><strong>情绪检查：</strong> 打分 1–10，并写下一个影响你分数的原因。</li>
+            <li><strong>双栏计划：</strong> “我能控制的 / 我不能控制的。” 选择一个下一步行动。</li>
+            <li><strong>主动联系：</strong> 今天给一位信任的人发信息（朋友、成年人、辅导员）。</li>
+          </ul>
+        </div>
+
+        <div id="talk" class="topic-card">
+          <h3>对话引导</h3>
+          <ul>
+            <li>“当你感到压力时，你的身体首先会给出哪些提示？”</li>
+            <li>“什么能在当下帮到你一点点——即使它不能解决所有问题？”</li>
+            <li>“谁在你的支持名单上？你会如何联系他们？”</li>
+          </ul>
+        </div>
+
+        <div id="download" class="topic-card">
+          <h3>下载与探索</h3>
+          <p>
+            尝试我们的可打印工具和故事：
+            <a class="cta-btn" href="../home.html#worksheets">🎨 工作表</a>
+            &nbsp;&nbsp;
+            <a class="cta-btn" href="../inspire_page.html">🎬 短视频</a>
+          </p>
+          <p class="disclaimer">
+            仅供教育用途 — 并非医疗或治疗建议。若你担心安全或健康，请立即联系合格的专业人士或当地服务。
+          </p>
+        </div>
+      </article>
+
+      <aside class="topic-aside">
+        <h3>有用的链接</h3>
+        <ul>
+          <li><a href="../interactive-tools.html">互动工具</a></li>
+          <li><a href="../audiobook_section.html">有声书</a></li>
+          <li><a href="../parents.html">给父母</a></li>
+        </ul>
+        <hr class="soft">
+        <p class="disclaimer">如果你处于紧急危险中，请立即拨打当地的急救电话。</p>
+      </aside>
+    </section>
+  </div>
+
+  <footer style="text-align:center; padding:1rem; color:#6b7a8e;">
+    &copy; 2025 健康小心灵
+  </footer>
+</body>
+</html>

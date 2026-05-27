@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Core -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow" />
+
+  <title>Emotions – Healthy Little Minds</title>
+  <meta name="description" content="Simple ways to name feelings, notice body clues, and respond kindly to ourselves and others." />
+  <meta name="keywords" content="emotions, kids, teens, parents, educators, mental health, emotional learning, worksheets" />
+  <meta name="author" content="Godswill Ambrose" />
+  <link rel="canonical" href="https://www.healthylittleminds.club/resources/emotions.html" />
+
+  <!-- Favicons / PWA -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/icon-512.webp" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#FFDD59" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.healthylittleminds.club/resources/emotions.html" />
+  <meta property="og:title" content="Emotions – Healthy Little Minds" />
+  <meta property="og:description" content="Simple ways to name feelings, notice body clues, and respond kindly to ourselves and others." />
+  <meta property="og:image" content="https://www.healthylittleminds.club/images/og/resources-emotions.jpg" />
+  <meta property="og:image:alt" content="Healthy Little Minds — Emotions resources for kids, teens, and parents" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Healthy Little Minds" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.healthylittleminds.club/resources/emotions.html" />
+  <meta name="twitter:title" content="Emotions – Healthy Little Minds" />
+  <meta name="twitter:description" content="Simple ways to name feelings, notice body clues, and respond kindly to ourselves and others." />
+  <meta name="twitter:image" content="https://www.healthylittleminds.club/images/og/resources-emotions.jpg" />
+
+  <!-- Fonts & Site CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="../style.css?v=83" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Emotions – Healthy Little Minds",
+    "url": "https://www.healthylittleminds.club/resources/emotions.html",
+    "description": "Simple ways to name feelings, notice body clues, and respond kindly to ourselves and others.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Healthy Little Minds",
+      "url": "https://www.healthylittleminds.club"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.healthylittleminds.club/home.html"},
+      {"@type":"ListItem","position":2,"name":"Resources","item":"https://www.healthylittleminds.club/resources/index.html"},
+      {"@type":"ListItem","position":3,"name":"Emotions"}
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --navy:#254E70;
+      --coral:#FF6B6B;
+      --lemon:#FFDD59;
+      --butter:#FFF0B3;
+      --hero1:#FFF4E6;
+      --hero2:#FFE9C6;
+      --ink:#364c63;
+      --ink-2:#476882;
+      --bg:#fffdf9;
+      --card:#ffffff;
+      --ring: 0 0 0 4px rgba(37,78,112,.18);
+    }
+    html{ scroll-behavior:smooth; }
+    body{ background: linear-gradient(180deg,#fff 0%, var(--bg) 100%); }
+
+    /* Shell */
+    .topic-wrap{ max-width:1100px; margin:0 auto; padding:1rem; }
+
+    /* Breadcrumb */
+    .breadcrumb{ font-size:.9rem; color:var(--ink-2); margin:.75rem 0 0; padding:0 1rem; }
+    .breadcrumb a{ color:var(--navy); text-decoration:none; }
+    .breadcrumb a:hover{ text-decoration:underline; }
+
+    /* Grid */
+    .topic-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 320px;
+      grid-template-areas:
+        "hero aside"
+        "main aside";
+      gap:28px;
+      margin:1rem;
+      padding:0 1rem;
+    }
+    .topic-hero{ grid-area:hero; }
+    .topic-main{ grid-area:main; }
+    .topic-aside{ grid-area:aside; }
+
+    /* Sticky aside on desktop */
+    @media (min-width:981px){
+      .topic-aside{ position:sticky; top:86px; }
+    }
+
+    /* HERO — playful band */
+    .topic-hero{
+      background:
+        radial-gradient(12px 12px at 24px 24px, rgba(255,255,255,.45) 1px, transparent 1px),
+        linear-gradient(180deg,var(--hero2),var(--hero1));
+      background-size: 28px 28px, auto;
+      border-radius:18px;
+      box-shadow:0 14px 30px rgba(0,0,0,.08);
+      padding:1.1rem 1.25rem 1.2rem;
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+    }
+    /* little decorative blob (inline SVG accent) */
+    .topic-hero::after{
+      content:"";
+      position:absolute; right:-32px; bottom:-32px; width:160px; height:160px;
+      background: radial-gradient(closest-side, rgba(255,255,255,.55), rgba(255,255,255,0));
+      filter: blur(2px);
+      z-index:-1;
+      transform: rotate(8deg);
+    }
+
+    .topic-hero--split .th-grid{
+      display:grid;
+      grid-template-columns:minmax(220px,1fr) minmax(320px,1.35fr);
+      gap:24px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-block; font-weight:800; letter-spacing:.5px;
+      color:var(--navy); background:#ffffffb3; border-radius:999px;
+      padding:.22rem .6rem; font-size:.78rem; margin-bottom:.25rem;
+      box-shadow:0 2px 6px rgba(0,0,0,.06);
+    }
+
+    .topic-hero h1{
+      font-family:'Nunito',sans-serif;
+      font-weight:800; color:var(--navy);
+      margin:.1rem 0 0; line-height:1.05;
+      font-size:clamp(2rem,1.6vw + 1.5rem,2.8rem);
+    }
+    .topic-hero .lead{
+      color:var(--ink); line-height:1.75; margin:.1rem 0 .65rem; font-size:1.07rem;
+    }
+
+    /* audience chips */
+    .aud-chips{ display:flex; flex-wrap:wrap; gap:.55rem; }
+    .aud-chips span{
+      background:var(--butter); color:var(--navy); font-weight:800;
+      padding:.42rem .82rem; border-radius:999px; font-size:.92rem;
+      box-shadow:0 2px 8px rgba(0,0,0,.06);
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .aud-chips span:hover,
+    .aud-chips span:focus{ transform:translateY(-1px); box-shadow:0 6px 18px rgba(0,0,0,.12); outline:none; }
+    .aud-chips span:focus-visible{ box-shadow:var(--ring); }
+
+    /* Quick section nav under hero */
+    .quick-nav{
+      display:flex; gap:.5rem; margin:.6rem 0 0; flex-wrap:wrap;
+    }
+    .quick-nav a{
+      text-decoration:none; color:var(--navy); background:#fff;
+      border:1px solid #eef1f5; border-radius:999px;
+      padding:.45rem .9rem; font-weight:700; font-size:.9rem;
+      box-shadow:0 6px 16px rgba(0,0,0,.06);
+      transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    .quick-nav a:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.12); }
+    .quick-nav a:focus-visible{ box-shadow:var(--ring); outline:none; }
+
+    /* Cards */
+    .topic-main h2,.topic-main h3{ font-family:'Nunito',sans-serif; color:var(--navy); }
+    .topic-card{
+      background:var(--card);
+      border-radius:16px;
+      box-shadow:0 10px 24px rgba(0,0,0,.08);
+      padding:1.05rem 1.1rem 1.1rem;
+      margin-bottom:1.1rem;
+      border-left:6px solid var(--lemon);
+    }
+    .topic-card h2{ font-size:clamp(1.35rem, .6vw + 1.1rem, 1.8rem); margin:.15rem 0 .4rem; }
+    .topic-card h3{ margin:.1rem 0 .35rem; }
+    .topic-card p{ color:var(--ink); line-height:1.75; }
+
+    .cta-btn{
+      display:inline-block; background:var(--coral); color:#fff;
+      text-decoration:none; padding:.68rem 1.05rem; border-radius:12px;
+      font-weight:800; box-shadow:0 8px 18px rgba(255,107,107,.25);
+      transition:transform .1s ease, box-shadow .15s ease;
+    }
+    .cta-btn:hover{ transform:translateY(-1px); box-shadow:0 12px 26px rgba(255,107,107,.35); }
+
+    /* Ticks */
+    ul.ticks{ list-style:none; padding-left:0; margin:.35rem 0; }
+    ul.ticks li{ margin:.5rem 0; padding-left:1.4rem; position:relative; color:var(--ink);}
+    ul.ticks li::before{
+      content:'✔'; position:absolute; left:0; top:0; color:#24b159; font-weight:900;
+    }
+
+    /* Aside */
+    .topic-aside{
+      background:#ffffff;
+      border-radius:16px;
+      border:1px solid #eef1f5;
+      padding:1rem 1rem 1.1rem;
+      box-shadow:0 10px 24px rgba(0,0,0,.06);
+      height:fit-content;
+    }
+    .topic-aside h3{ color:var(--navy); font-family:'Nunito',sans-serif; margin:.1rem 0 .35rem; }
+    .topic-aside ul{ margin:.25rem 0 .6rem 1rem; }
+    .topic-aside a{ color:var(--coral); text-decoration:none; font-weight:700; }
+    .topic-aside a:hover{ text-decoration:underline; }
+    .disclaimer{ font-size:.9rem; color:#6b7a8e; margin-top:.75rem; }
+    hr.soft{ border:0; border-top:1px solid #eef1f5; margin:1rem 0; }
+
+    /* Mobile stacking */
+    @media (max-width:980px){
+      .topic-grid{
+        grid-template-columns:1fr;
+        grid-template-areas:
+          "hero"
+          "main"
+          "aside";
+        margin:.75rem 0; padding:0 .75rem;
+      }
+      .topic-hero--split .th-grid{ grid-template-columns:1fr; gap:10px; }
+    }
+    /* Emotion body clues grid */
+.emotion-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+  margin-top:1rem;
+}
+
+.emotion-box{
+  background:linear-gradient(180deg,#fff,#fff8ef);
+  border-radius:14px;
+  padding:1rem;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+  border:1px solid #f3e8c8;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+
+.emotion-box:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(0,0,0,.12);
+}
+
+.emotion-box h3{
+  margin:.1rem 0 .45rem;
+  color:var(--navy);
+  font-size:1.05rem;
+}
+
+.emotion-box p{
+  margin:0;
+  color:var(--ink);
+  line-height:1.6;
+  font-size:.96rem;
+}
+  </style>
+  <link href="resource-polish.css?v=4" rel="stylesheet" />
+</head>
+
+<body class="topic-page topic-page--emotions">
+  <script defer src="resource-language-switcher.js?v=1"></script>
+  <div class="topic-wrap">
+    <div class="resource-toolbar">
+      <a href="../home.html#resources" aria-label="Back to all mental health topics">&larr; All topics</a>
+      <span class="resource-reading">Practical guide &middot; 3 minute read</span>
+    </div>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../home.html">Home</a> &raquo;
+      <a href="../home.html#resources">Resources</a> &raquo;
+      <span aria-current="page">Emotions</span>
+    </nav>
+
+    <section class="topic-grid">
+      <!-- HERO -->
+      <header class="topic-hero topic-hero--split" role="banner">
+        <div class="th-grid">
+          <div class="th-title">
+            <span class="eyebrow">Topic</span>
+            <h1>Emotions</h1>
+          </div>
+          <div class="th-copy">
+            <p class="lead">
+              Simple ways to name feelings, notice body clues, and respond kindly
+              to ourselves and others.
+            </p>
+
+            <div class="aud-chips" role="list" aria-label="Audience">
+              <span role="listitem">Children</span>
+              <span role="listitem">Teens</span>
+              <span role="listitem">Parents</span>
+              <span role="listitem">Educators</span>
+            </div>
+
+            <!-- Quick section nav -->
+            <nav class="quick-nav" aria-label="On this page">
+              <a href="#overview">Overview</a>
+              <a href="#try">Try It Now</a>
+              <a href="#talk">Talk Starters</a>
+              <a href="#download">Download &amp; Explore</a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <!-- MAIN -->
+      <article class="topic-main">
+        <div id="overview" class="topic-card">
+          <h2>Overview</h2>
+          <p>
+            Simple ways to name feelings, notice body clues, and respond kindly to
+            ourselves and others. This page offers friendly ideas you can try at
+            home or school. Every child is different—take what helps and leave the rest.
+          </p>
+        </div>
+<!-- Add this to your topic-main section -->
+<div id="interactive-check-in" class="topic-card">
+  <h2>Interactive Mood Check-In</h2>
+  <p>Pick the face that best matches your mood right now:</p>
+  
+  <div id="emoji-container" class="mood-picker" aria-label="Choose a feeling">
+    <button class="mood-btn" type="button" data-mood="happy" aria-label="Happy">😊</button>
+    <button class="mood-btn" type="button" data-mood="sad" aria-label="Sad">😢</button>
+    <button class="mood-btn" type="button" data-mood="angry" aria-label="Angry">😡</button>
+    <button class="mood-btn" type="button" data-mood="worried" aria-label="Worried">😟</button>
+    <button class="mood-btn" type="button" data-mood="calm" aria-label="Calm">😌</button>
+  </div>
+  
+  <div id="mood-response" class="mood-response" role="status" aria-live="polite">Your feeling is welcome here.</div>
+  <p class="mood-prompt">Feelings give us clues about what support might help next.</p>
+</div>
+        <div id="try" class="topic-card">
+          <h2>Try It Now</h2>
+          <ul class="ticks">
+            <li>Name-it game: pick 3 feelings you noticed today and where you felt them in your body.</li>
+            <li>Feelings meter: point to a color/number from calm to intense and say why.</li>
+            <li>Kind action: choose one small way to care for yourself or a friend today.</li>
+          </ul>
+        </div>
+
+        <div id="talk" class="topic-card">
+          <h3>Talk Starters</h3>
+          <ul>
+            <li>“When you feel emotions, what does your body do to let you know?”</li>
+            <li>“What helps a little, even if it doesn’t fix everything?”</li>
+            <li>“Who could we ask for support if we need more help?”</li>
+          </ul>
+        </div>
+
+        <!-- HOW EMOTIONS FEEL IN THE BODY -->
+<div class="topic-card">
+  <h2>🌈 How Emotions Feel in the Body</h2>
+
+  <p>
+    Feelings do not only happen in our minds — our bodies can feel them too.
+    Learning body clues can help children understand emotions earlier and
+    respond with kindness and care.
+  </p>
+
+  <div class="emotion-grid">
+
+    <div class="emotion-box">
+      <h3>😟 Worried</h3>
+      <p>Butterflies in the stomach, shaky hands, fast heartbeat.</p>
+    </div>
+
+    <div class="emotion-box">
+      <h3>😠 Angry</h3>
+      <p>Hot face, tight fists, tense shoulders, loud voice.</p>
+    </div>
+
+    <div class="emotion-box">
+      <h3>😢 Sad</h3>
+      <p>Heavy chest, tears, low energy, wanting a hug or quiet time.</p>
+    </div>
+
+    <div class="emotion-box">
+      <h3>😊 Happy</h3>
+      <p>Warm smile, relaxed body, excited energy, wanting to laugh or play.</p>
+    </div>
+
+    <div class="emotion-box">
+      <h3>😨 Scared</h3>
+      <p>Fast breathing, goosebumps, frozen body, hiding behind someone safe.</p>
+    </div>
+
+    <div class="emotion-box">
+      <h3>😴 Tired</h3>
+      <p>Heavy eyes, slow movements, yawning, difficulty focusing.</p>
+    </div>
+
+  </div>
+
+  <p class="disclaimer">
+    Every child experiences emotions differently — all feelings are okay.
+  </p>
+</div>
+
+        <div class="topic-card">
+          <h2>From Feeling to Helpful Next Step</h2>
+          <p>A feeling is not a problem to hide. It can be a clue about what your body or heart needs.</p>
+          <div class="subtopic-grid">
+            <div class="subtopic">
+              <h3>Notice</h3>
+              <p>Name the feeling and one body clue: “I feel worried, and my tummy feels tight.”</p>
+            </div>
+            <div class="subtopic">
+              <h3>Choose</h3>
+              <p>Pick one gentle response: a slow breath, a movement break, water, quiet, or a hug.</p>
+            </div>
+            <div class="subtopic">
+              <h3>Connect</h3>
+              <p>When a feeling stays big, tell a trusted adult so you do not have to carry it alone.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="download" class="topic-card">
+          <h3>Download &amp; Explore</h3>
+          <p>
+            Try our printable tools and stories:
+            <a class="cta-btn" href="../home.html#worksheets">🎨 Worksheets</a>
+            &nbsp;&nbsp;
+            <a class="cta-btn" href="../inspire_page.html">🎬 Short Videos</a>
+          </p>
+          <p class="disclaimer">
+            Educational content only — not medical or therapy advice. If you’re
+            worried about safety or health, contact a qualified professional or
+            local services immediately.
+          </p>
+        </div>
+      </article>
+
+      <!-- ASIDE -->
+      <aside class="topic-aside">
+        <nav class="related-topics" aria-label="Related topics">
+          <h3>Continue Exploring</h3>
+          <a href="relaxation.html"><strong>Relaxation</strong><span>Calm tools for big feelings</span></a>
+          <a href="self-esteem.html"><strong>Self-Esteem</strong><span>Build a kinder inner voice</span></a>
+          <a href="mindfulness.html"><strong>Mindfulness</strong><span>Notice feelings gently</span></a>
+        </nav>
+        <hr class="soft" />
+        <h3>Helpful Links</h3>
+        <ul>
+          <li><a href="../interactive-tools.html">Interactive Tools</a></li>
+          <li><a href="../audiobook_section.html">Audiobooks</a></li>
+          <li><a href="../parents.html">For Parents</a></li>
+          <li><a href="../home.html#characters">Meet the Characters</a></li>
+        </ul>
+        <hr class="soft" />
+        <p class="disclaimer">If you’re in immediate danger, call local emergency services.</p>
+      </aside>
+    </section>
+  </div>
+
+  <footer class="topic-footer">
+    &copy; 2025 Healthy Little Minds
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.mood-btn');
+    const responseText = document.getElementById('mood-response');
+    const messages = {
+      'happy': "That's wonderful! Notice where you feel that happiness in your body right now.",
+      'sad': "It's okay to feel sad. Taking a slow, deep breath or asking for a hug can help.",
+      'angry': "I see you're feeling mad. That's a big feeling! Want to try shaking it out or counting to 10?",
+      'worried': "Worrying can make our tummies feel tight. Try the 5-4-3-2-1 grounding game!",
+      'calm': "It feels nice to be calm. This is a great time to read a book or do a puzzle."
+    };
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mood = btn.getAttribute('data-mood');
+        responseText.textContent = messages[mood];
+        buttons.forEach(button => button.classList.remove('is-selected'));
+        btn.classList.add('is-selected');
+      });
+    });
+  });
+</script>
+</body>
+</html>

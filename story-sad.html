@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>When Destiny Feels Sad</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Nunito:wght@800&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #DFF6FF;
+      padding: 2rem;
+      color: #254E70;
+      text-align: center;
+    }
+
+    .story-box {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      max-width: 600px;
+      margin: 2rem auto;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .story-text {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    button {
+      font-family: 'DM Sans', sans-serif;
+      background: #FFDD59;
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #ffeaa7;
+    }
+  </style>
+</head>
+<body>
+<script>
+  (function () {
+    const isMember = localStorage.getItem("isMember") === "true";
+    if (!isMember) {
+      alert("🔐 This page is for members only. Please log in first.");
+      const path = window.location.pathname;
+      const locale = path.split('/')[1];
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.href = redirectTo;
+    }
+  })();
+</script>
+
+  <div class="story-box" id="story">
+    <p class="story-text" id="storyText">
+      Destiny feels sad because his best friend didn’t want to play today. What should he do?
+    </p>
+    <div class="choices" id="choices">
+      <button onclick="nextStep('breathe')">🧘 Take deep breaths</button>
+      <button onclick="nextStep('talk')">🗣️ Talk to his teacher</button>
+    </div>
+  </div>
+
+  <script>
+    function nextStep(choice) {
+      const storyText = document.getElementById('storyText');
+      const choices = document.getElementById('choices');
+
+      if (choice === 'breathe') {
+        storyText.innerHTML = "Destiny closes his eyes and takes 3 slow breaths. He starts to feel a little better. What should he do next?";
+        choices.innerHTML = `
+          <button onclick="nextStep('draw')">🎨 Draw how he feels</button>
+          <button onclick="nextStep('tellMom')">💬 Tell Mom after school</button>
+        `;
+      }
+
+      else if (choice === 'talk') {
+        storyText.innerHTML = "Destiny talks to his teacher. She listens kindly and gives him a warm smile. He feels supported. What should he do next?";
+        choices.innerHTML = `
+          <button onclick="nextStep('write')">📝 Write in his journal</button>
+          <button onclick="nextStep('breatheAgain')">🧘 Try calm breathing</button>
+        `;
+      }
+
+      else {
+        // final endings
+        let message = "";
+        if (choice === 'draw') {
+          message = "He draws a picture of his feelings and feels proud. 🎨 That helped!";
+        } else if (choice === 'tellMom') {
+          message = "His mom gives him a big hug. ❤️ Destiny feels safe and loved.";
+        } else if (choice === 'write') {
+          message = "He writes in his journal and feels more in control. 📝";
+        } else if (choice === 'breatheAgain') {
+          message = "He breathes deeply again and feels calm like a floating cloud. ☁️";
+        }
+
+        storyText.innerHTML = message + "<br><br><strong>✨ You helped Destiny feel better!</strong>";
+        choices.innerHTML = `<a href="home.html"><button>🏠 Back to Home</button></a>`;
+      }
+    }
+  </script>
+
+  <script defer src="shared-language-switcher.js?v=1"></script>
+</body>
+</html>

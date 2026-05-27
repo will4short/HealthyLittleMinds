@@ -1,0 +1,24 @@
+{
+  "name": "Healthy Little Minds",
+  "short_name": "Little Minds",
+  "lang": "en",
+  "start_url": "/home.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#DFF6FF",
+  "theme_color": "#FF6B6B",
+  "orientation": "portrait",
+  "description": "A safe and playful space where kids learn to understand and manage emotions.",
+  "icons": [
+    {
+      "src": "icon-192.webp",
+      "type": "image/webp",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon-512.webp",
+      "type": "image/webp",
+      "sizes": "512x512"
+    }
+  ]
+}

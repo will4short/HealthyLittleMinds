@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scene 1 – Bella's Story</title>
+  <link rel="stylesheet" href="../style.css" />
+ <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f0f8ff;
+      color: #254E70;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+    .scene-wrapper {
+      max-width: 700px;
+      margin: auto;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    }
+    .scene-wrapper img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+    }
+    .choice-button {
+      display: block;
+      background: #FF6B6B;
+      color: white;
+      font-weight: bold;
+      padding: 0.8rem 1.5rem;
+      margin: 1rem auto;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.3s;
+      max-width: 300px;
+    }
+    .choice-button:hover {
+      background: #e25555;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    .choice-note {
+      display: block;
+      font-size: 0.85rem;
+      color: #ffffffcc;
+    }
+.center { text-align: center; }
+  @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+      .scene-wrapper {
+        padding: 1.5rem 1rem;
+      }
+    }
+.tip-link {
+  color: #74b9ff;
+}
+  </style>
+
+</head>
+<body>
+<script>
+  // 🔒 Redirect to login page if not logged in
+  (function () {
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo); // 👈 Smooth silent redirect
+    }
+  })();
+</script>
+
+<div style="
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  background: #E6E6FA;
+  border: 2px solid #D8BFD8;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+">
+  <a href="../home.html" style="
+    text-decoration: none;
+    color: #5A3E8A;
+    font-weight: bold;
+    font-size: 0.95rem;
+  ">
+    🏠 Go Home
+  </a>
+</div>
+
+  <div class="scene-wrapper">
+    <h1>📚 Scene 1: A Nervous Start</h1>
+    <p>
+      Bella stood just outside the classroom. Her heart was thumping like a drum.<br />
+      “I don’t want to do this…” she whispered.
+    </p>
+    <p>
+      Ms. Rivera had just asked everyone to come up and share something they learned this week.
+      Bella’s palms were sweaty. Her legs felt like jelly.
+    </p>
+    <img src="../images/bella-scene1-refined.png" alt="Bella, age 12, with short black hair and soft-colored clothes, looking shy and anxious outside her classroom with a gentle cartoon style" />
+    <p>
+      Should she be brave? Or should she run?
+    </p>
+
+    <a href="scene2-standup.html" class="choice-button" data-choice="standup">🗣️ Take a deep breath and walk in</a>
+    <a href="scene2-hide.html" class="choice-button" data-choice="hide">😔 Stay in the hallway a little longer<br /><span class="choice-note">(She might feel a little more nervous but have time to breathe)</span></a>
+    <a href="scene2-pretend.html" class="choice-button" data-choice="avoid">🤥 Say she’s not feeling well<br /><span class="choice-note">(Avoidance might feel safer now, but it could bring more worry later. <<a href="../parents-tips.html" style="color: #74b9ff;">(Tip for parents)</a>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🔍 シーン6 – 振り返る</title>
+   <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #fefcf8;
+      color: #254E70;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .scene-wrapper {
+      max-width: 720px;
+      margin: auto;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      color: #2C3E50;
+    }
+
+    p {
+      font-size: 1.1rem;
+      max-width: 680px;
+      margin: 0.8rem auto;
+      padding: 0 1rem;
+    }
+
+    .scene-image img {
+      width: 90%;
+      max-width: 480px;
+      border-radius: 16px;
+      margin: 2rem auto 1rem;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .quote {
+      background: #DFFFE2;
+      border-left: 5px solid #4CAF50;
+      padding: 1rem;
+      margin: 1.5rem auto;
+      font-style: italic;
+      font-size: 1rem;
+      max-width: 600px;
+      border-radius: 10px;
+    }
+
+    .tip {
+      background: #E0F2F1;
+      border-left: 5px solid #26A69A;
+      padding: 1rem;
+      margin: 1.5rem auto;
+      font-size: 1rem;
+      max-width: 600px;
+      border-radius: 10px;
+    }
+
+    .buttons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .buttons a {
+      background: #AED581;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #1B4332;
+      font-weight: bold;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.08);
+      transition: background 0.3s ease;
+    }
+
+    .buttons a:hover {
+      background: #9CCC65;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .quote, .tip {
+        font-size: 0.95rem;
+        padding: 0.8rem;
+      }
+
+      .buttons a {
+        font-size: 0.95rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<script>
+  // 🔒 Redirect to login page if not logged in
+  (function () {
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo); // 👈 Smooth silent redirect
+    }
+  })();
+</script>
+
+<div style="
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  background: #E6E6FA;
+  border: 2px solid #D8BFD8;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+">
+  <a href="../home.html" style="
+    text-decoration: none;
+    color: #5A3E8A;
+    font-weight: bold;
+    font-size: 0.95rem;
+  ">
+    🏠 ホームにもどる
+  </a>
+</div>
+
+  <div class="scene-wrapper">
+    <h1>🔍 シーン6 – 振り返る</h1>
+    <p>ベラは一本の木の下で静かにひとり座り、考え事をしています。</p>
+    <p>あの時、どれだけ緊張していたかを思い出します… それでも挑戦することを選んだのです。</p>
+    <p>今の彼女は、声を出すことが簡単ではないと知っています——でも、それだけの価値があると感じています。</p>
+
+    <div class="scene-image">
+      <img src="../images/scene6-reflection.png" alt="木の下で考え事をしているベラ" />
+    </div>
+
+    <div class="quote">「怖かったけど… 勇気を出してよかった。」</div>
+
+    <div class="tip">
+      🌱 <strong>保護者へのヒント：</strong> 振り返ることで、子どもは感情と行動を結びつけることができます。結果が完璧でなくても、小さな勇気の瞬間を一緒に喜びましょう。
+    </div>
+
+    <div class="buttons">
+      <a href="scene6-end.html">➡️ おしまい</a>
+    </div>
+  </div>
+</body>
+</html>

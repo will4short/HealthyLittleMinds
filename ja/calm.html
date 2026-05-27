@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>おちつく | こころのひろば</title>
+
+  <style>
+    .back-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 10px 20px;
+      background-color: #FF6B6B;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #e25555;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      text-align: center;
+      padding: 4rem 2rem;
+      color: #254E70;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+    a {
+      margin-top: 2rem;
+      display: inline-block;
+      color: #FF6B6B;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<script>
+  (function () {
+    const isLocal = location.protocol === 'file:';
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isLocal && !isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1];
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo);
+    }
+  })();
+</script>
+
+  <h1>🧠 おちつくためのリソース</h1>
+
+  <section style="margin-top: 3rem; text-align: center;">
+    <p>大きなきもちをしずめるやさしい方法が学べるおはなし。</p>
+    
+    <div style="background-color: white; padding: 2rem; border-radius: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); max-width: 320px; margin: 2rem auto;">
+      <h4>🪷 こころのあらしをしずめるおはなし</h4>
+      <p style="font-size: 0.95rem; color: #555;">
+        <em>『こころのあらしをしずめるには』</em>は、大きなきもちに気づいて、ゆっくり息をする・おえかきする・信頼できる人に話すなどの方法で落ちつく力を育てます。
+      </p>
+      <img src="../images/storm-book-cover.webp" alt="こころのあらしをしずめるには" style="width: 100%; border-radius: 12px; margin-top: 1rem;" />
+      <p><a href="https://heyzine.com/flip-book/3cf1027650.html" target="_blank">📖 『こころのあらしをしずめるには』を読む</a></p>
+    </div>
+  </section>
+
+  <a href="home.html" class="back-btn">← ホームにもどる</a>
+
+  <script defer src="../shared-language-switcher.js?v=1"></script>
+</body>
+</html>

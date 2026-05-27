@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- Core -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow" />
+
+  <title>情绪 – Healthy Little Minds</title>
+  <meta name="description" content="用简单的方法给情绪命名、留意身体线索，并温柔地对待自己和他人。" />
+  <meta name="keywords" content="情绪, 儿童, 青少年, 家长, 教育者, 心理健康, 情绪学习, 工作表" />
+  <meta name="author" content="Godswill Ambrose" />
+  <link rel="canonical" href="https://www.healthylittleminds.club/resources/emotions.html" />
+
+  <!-- Favicons / PWA -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/icon-512.webp" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#FFDD59" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.healthylittleminds.club/resources/emotions.html" />
+  <meta property="og:title" content="情绪 – Healthy Little Minds" />
+  <meta property="og:description" content="用简单的方法给情绪命名、留意身体线索，并温柔地对待自己和他人。" />
+  <meta property="og:image" content="https://www.healthylittleminds.club/images/og/resources-emotions.jpg" />
+  <meta property="og:image:alt" content="Healthy Little Minds — 情绪资源（适合儿童、青少年和家长）" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Healthy Little Minds" />
+  <meta property="og:locale" content="zh_CN" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.healthylittleminds.club/resources/emotions.html" />
+  <meta name="twitter:title" content="情绪 – Healthy Little Minds" />
+  <meta name="twitter:description" content="用简单的方法给情绪命名、留意身体线索，并温柔地对待自己和他人。" />
+  <meta name="twitter:image" content="https://www.healthylittleminds.club/images/og/resources-emotions.jpg" />
+
+  <!-- Fonts & Site CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="../../style.css?v=96" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "情绪 – Healthy Little Minds",
+    "url": "https://www.healthylittleminds.club/resources/emotions.html",
+    "description": "用简单的方法给情绪命名、留意身体线索，并温柔地对待自己和他人。",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Healthy Little Minds",
+      "url": "https://www.healthylittleminds.club"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"首页","item":"https://www.healthylittleminds.club/home.html"},
+      {"@type":"ListItem","position":2,"name":"资源","item":"https://www.healthylittleminds.club/resources/index.html"},
+      {"@type":"ListItem","position":3,"name":"情绪"}
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --navy:#254E70;
+      --coral:#FF6B6B;
+      --lemon:#FFDD59;
+      --butter:#FFF0B3;
+      --hero1:#FFF4E6;
+      --hero2:#FFE9C6;
+      --ink:#364c63;
+      --ink-2:#476882;
+      --bg:#fffdf9;
+      --card:#ffffff;
+      --ring: 0 0 0 4px rgba(37,78,112,.18);
+    }
+    html{ scroll-behavior:smooth; }
+    body{ background: linear-gradient(180deg,#fff 0%, var(--bg) 100%); }
+
+    .topic-wrap{ max-width:1100px; margin:0 auto; padding:1rem; }
+
+    .breadcrumb{ font-size:.9rem; color:var(--ink-2); margin:.75rem 0 0; padding:0 1rem; }
+    .breadcrumb a{ color:var(--navy); text-decoration:none; }
+    .breadcrumb a:hover{ text-decoration:underline; }
+
+    .topic-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 320px;
+      grid-template-areas:
+        "hero aside"
+        "main aside";
+      gap:28px;
+      margin:1rem;
+      padding:0 1rem;
+    }
+    .topic-hero{ grid-area:hero; }
+    .topic-main{ grid-area:main; }
+    .topic-aside{ grid-area:aside; }
+
+    @media (min-width:981px){
+      .topic-aside{ position:sticky; top:86px; }
+    }
+
+    .topic-hero{
+      background:
+        radial-gradient(12px 12px at 24px 24px, rgba(255,255,255,.45) 1px, transparent 1px),
+        linear-gradient(180deg,var(--hero2),var(--hero1));
+      background-size: 28px 28px, auto;
+      border-radius:18px;
+      box-shadow:0 14px 30px rgba(0,0,0,.08);
+      padding:1.1rem 1.25rem 1.2rem;
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+    }
+    .topic-hero::after{
+      content:"";
+      position:absolute; right:-32px; bottom:-32px; width:160px; height:160px;
+      background: radial-gradient(closest-side, rgba(255,255,255,.55), rgba(255,255,255,0));
+      filter: blur(2px);
+      z-index:-1;
+      transform: rotate(8deg);
+    }
+
+    .topic-hero--split .th-grid{
+      display:grid;
+      grid-template-columns:minmax(220px,1fr) minmax(320px,1.35fr);
+      gap:24px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-block; font-weight:800; letter-spacing:.5px;
+      color:var(--navy); background:#ffffffb3; border-radius:999px;
+      padding:.22rem .6rem; font-size:.78rem; margin-bottom:.25rem;
+      box-shadow:0 2px 6px rgba(0,0,0,.06);
+    }
+
+    .topic-hero h1{
+      font-family:'Nunito',sans-serif;
+      font-weight:800; color:var(--navy);
+      margin:.1rem 0 0; line-height:1.05;
+      font-size:clamp(2rem,1.6vw + 1.5rem,2.8rem);
+    }
+    .topic-hero .lead{
+      color:var(--ink); line-height:1.75; margin:.1rem 0 .65rem; font-size:1.07rem;
+    }
+
+    .aud-chips{ display:flex; flex-wrap:wrap; gap:.55rem; }
+    .aud-chips span{
+      background:var(--butter); color:var(--navy); font-weight:800;
+      padding:.42rem .82rem; border-radius:999px; font-size:.92rem;
+      box-shadow:0 2px 8px rgba(0,0,0,.06);
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .aud-chips span:hover,
+    .aud-chips span:focus{ transform:translateY(-1px); box-shadow:0 6px 18px rgba(0,0,0,.12); outline:none; }
+    .aud-chips span:focus-visible{ box-shadow:var(--ring); }
+
+    .quick-nav{
+      display:flex; gap:.5rem; margin:.6rem 0 0; flex-wrap:wrap;
+    }
+    .quick-nav a{
+      text-decoration:none; color:var(--navy); background:#fff;
+      border:1px solid #eef1f5; border-radius:999px;
+      padding:.45rem .9rem; font-weight:700; font-size:.9rem;
+      box-shadow:0 6px 16px rgba(0,0,0,.06);
+      transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    .quick-nav a:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.12); }
+    .quick-nav a:focus-visible{ box-shadow:var(--ring); outline:none; }
+
+    .topic-main h2,.topic-main h3{ font-family:'Nunito',sans-serif; color:var(--navy); }
+    .topic-card{
+      background:var(--card);
+      border-radius:16px;
+      box-shadow:0 10px 24px rgba(0,0,0,.08);
+      padding:1.05rem 1.1rem 1.1rem;
+      margin-bottom:1.1rem;
+      border-left:6px solid var(--lemon);
+    }
+    .topic-card h2{ font-size:clamp(1.35rem, .6vw + 1.1rem, 1.8rem); margin:.15rem 0 .4rem; }
+    .topic-card h3{ margin:.1rem 0 .35rem; }
+    .topic-card p{ color:var(--ink); line-height:1.75; }
+
+    .cta-btn{
+      display:inline-block; background:var(--coral); color:#fff;
+      text-decoration:none; padding:.68rem 1.05rem; border-radius:12px;
+      font-weight:800; box-shadow:0 8px 18px rgba(255,107,107,.25);
+      transition:transform .1s ease, box-shadow .15s ease;
+    }
+    .cta-btn:hover{ transform:translateY(-1px); box-shadow:0 12px 26px rgba(255,107,107,.35); }
+
+    ul.ticks{ list-style:none; padding-left:0; margin:.35rem 0; }
+    ul.ticks li{ margin:.5rem 0; padding-left:1.4rem; position:relative; color:var(--ink);}
+    ul.ticks li::before{
+      content:'✔'; position:absolute; left:0; top:0; color:#24b159; font-weight:900;
+    }
+
+    .topic-aside{
+      background:#ffffff;
+      border-radius:16px;
+      border:1px solid #eef1f5;
+      padding:1rem 1rem 1.1rem;
+      box-shadow:0 10px 24px rgba(0,0,0,.06);
+      height:fit-content;
+    }
+    .topic-aside h3{ color:var(--navy); font-family:'Nunito',sans-serif; margin:.1rem 0 .35rem; }
+    .topic-aside ul{ margin:.25rem 0 .6rem 1rem; }
+    .topic-aside a{ color:var(--coral); text-decoration:none; font-weight:700; }
+    .topic-aside a:hover{ text-decoration:underline; }
+    .disclaimer{ font-size:.9rem; color:#6b7a8e; margin-top:.75rem; }
+    hr.soft{ border:0; border-top:1px solid #eef1f5; margin:1rem 0; }
+
+    @media (max-width:980px){
+      .topic-grid{
+        grid-template-columns:1fr;
+        grid-template-areas:
+          "hero"
+          "main"
+          "aside";
+        margin:.75rem 0; padding:0 .75rem;
+      }
+      .topic-hero--split .th-grid{ grid-template-columns:1fr; gap:10px; }
+    }
+    /* Emotion body clues grid */
+.emotion-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+  margin-top:1rem;
+}
+
+.emotion-box{
+  background:linear-gradient(180deg,#fff,#fff8ef);
+  border-radius:14px;
+  padding:1rem;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+  border:1px solid #f3e8c8;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+
+.emotion-box:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(0,0,0,.12);
+}
+
+.emotion-box h3{
+  margin:.1rem 0 .45rem;
+  color:var(--navy);
+  font-size:1.05rem;
+  line-height:1.4;
+}
+
+.emotion-box p{
+  margin:0;
+  color:var(--ink);
+  line-height:1.7;
+  font-size:.96rem;
+}
+
+/* Better multilingual font rendering */
+html[lang="zh-TW"],
+html[lang="zh-Hant"]{
+  font-family:'Noto Sans TC','DM Sans',sans-serif;
+}
+
+html[lang="zh-CN"],
+html[lang="zh-Hans"]{
+  font-family:'Noto Sans SC','DM Sans',sans-serif;
+}
+
+html[lang="ja"]{
+  font-family:'Noto Sans JP','DM Sans',sans-serif;
+}
+
+html[lang="ko"]{
+  font-family:'Noto Sans KR','DM Sans',sans-serif;
+}
+  </style>
+  <link href="../../resources/resource-polish.css?v=4" rel="stylesheet" />
+</head>
+
+<body class="topic-page topic-page--emotions">
+  <script defer src="../../resources/resource-language-switcher.js?v=1"></script>
+  <a class="topic-back-link" href="../home.html#topics">← 返回所有主题</a>
+<div class="topic-wrap">
+    <nav class="breadcrumb" aria-label="面包屑导航">
+      <a href="../home.html">首页</a> &raquo;
+      <a href="../home.html#hlm-topics-title">资源</a> &raquo;
+      <span aria-current="page">情绪</span>
+    </nav>
+
+    <section class="topic-grid">
+      <!-- HERO -->
+      <header class="topic-hero topic-hero--split" role="banner">
+        <div class="th-grid">
+          <div class="th-title">
+            <span class="eyebrow">主题</span>
+            <h1>情绪</h1>
+          </div>
+          <div class="th-copy">
+            <p class="lead">
+              用简单的方法给情绪命名、留意身体线索，并温柔地对待
+              自己和他人。
+            </p>
+
+            <div class="aud-chips" role="list" aria-label="受众">
+              <span role="listitem">儿童</span>
+              <span role="listitem">青少年</span>
+              <span role="listitem">家长</span>
+              <span role="listitem">教育者</span>
+            </div>
+
+            <!-- Quick section nav -->
+            <nav class="quick-nav" aria-label="本页内容">
+              <a href="#overview">概览</a>
+              <a href="#try">立即练习</a>
+              <a href="#talk">交流引导</a>
+              <a href="#download">下载与探索</a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <!-- MAIN -->
+      <article class="topic-main">
+        <div id="overview" class="topic-card">
+          <h2>概览</h2>
+          <p>
+            用简单的方法给情绪命名、留意身体线索，并温柔地对待自己和他人。本页提供
+            亲切易行的点子，可在家里或学校尝试。每个孩子都不同——取其有用者即可。
+          </p>
+        </div>
+
+        <!-- Add this to your topic-main section in the Simplified Chinese file -->
+<div id="interactive-check-in" class="topic-card">
+  <h2>互动式心情检测</h2>
+  <p>选择最符合你现在心情的表情：</p>
+  
+  <div id="emoji-container" style="display: flex; gap: 15px; font-size: 2.5rem; margin-top: 1rem; flex-wrap: wrap;">
+    <button class="mood-btn" data-mood="happy" style="background:none; border:none; font-size:inherit; cursor:pointer; transition: transform 0.2s;">😊</button>
+    <button class="mood-btn" data-mood="sad" style="background:none; border:none; font-size:inherit; cursor:pointer; transition: transform 0.2s;">😢</button>
+    <button class="mood-btn" data-mood="angry" style="background:none; border:none; font-size:inherit; cursor:pointer; transition: transform 0.2s;">😡</button>
+    <button class="mood-btn" data-mood="worried" style="background:none; border:none; font-size:inherit; cursor:pointer; transition: transform 0.2s;">😟</button>
+    <button class="mood-btn" data-mood="calm" style="background:none; border:none; font-size:inherit; cursor:pointer; transition: transform 0.2s;">😌</button>
+  </div>
+  
+  <div id="mood-response" style="margin-top: 1rem; font-weight: 700; color: var(--coral); min-height: 1.5em;"></div>
+</div>
+
+        <div id="try" class="topic-card">
+          <h2>立即练习</h2>
+          <ul class="ticks">
+            <li>命名游戏：说出你今天感受到的 3 种情绪，以及它们在身体的哪个部位出现。</li>
+            <li>情绪刻度：从平静到强烈，指向一个颜色／数字，并说明原因。</li>
+            <li>温暖行动：选择一件小事，今天关爱自己或朋友。</li>
+          </ul>
+        </div>
+
+        <div id="talk" class="topic-card">
+          <h3>交流引导</h3>
+          <ul>
+            <li>“当你有情绪时，身体会发出什么信号提醒你？”</li>
+            <li>“有什么能稍微帮上一点忙，哪怕不能解决所有问题？”</li>
+            <li>“如果需要更多帮助，我们可以向谁求助？”</li>
+          </ul>
+        </div>
+
+        <!-- 情绪在身体中的感觉 -->
+<div class="topic-card">
+  <h2>🌈 情绪在身体中的感觉</h2>
+
+  <p>
+    情绪不只存在于心里，也会出现在身体里。
+    学会认识身体信号，可以帮助孩子更早了解自己的感受，
+    并温柔地照顾自己。
+  </p>
+
+  <div class="emotion-grid">
+
+    <div class="emotion-box">
+      <h3>😟 担心</h3>
+      <p>肚子像有蝴蝶飞舞、手发抖、心跳加快。</p>
+    </div>
+
+    <div class="emotion-box">
+      <h3>😠 生气</h3>
+      <p>脸发热、握紧拳头、肩膀紧绷、声音变大。</p>
+    </div>
+
+    <div class="emotion-box">
+      <h3>😢 难过</h3>
+      <p>胸口沉重、流眼泪、没有精神、想被抱抱或安静一下。</p>
+    </div>
+
+    <div class="emotion-box">
+      <h3>😊 开心</h3>
+      <p>露出笑容、身体放松、充满活力、想玩耍和大笑。</p>
+    </div>
+
+    <div class="emotion-box">
+      <h3>😨 害怕</h3>
+      <p>呼吸加快、起鸡皮疙瘩、身体僵住、想躲在安全的人身后。</p>
+    </div>
+
+    <div class="emotion-box">
+      <h3>😴 疲倦</h3>
+      <p>眼皮沉重、动作缓慢、一直打哈欠、难以专心。</p>
+    </div>
+
+  </div>
+
+  <p class="disclaimer" style="margin-top:1rem;">
+    每个孩子感受情绪的方式都不同——所有情绪都是正常的。
+  </p>
+</div>
+
+        <div id="download" class="topic-card">
+          <h3>下载与探索</h3>
+          <p>
+            试试我们的可打印工具与故事：
+            <a class="cta-btn" href="../home.html#worksheets">🎨 工作表</a>
+            &nbsp;&nbsp;
+            <a class="cta-btn" href="../inspire_page.html">🎬 短视频</a>
+          </p>
+          <p class="disclaimer">
+            仅用于教育目的——不构成医疗或治疗建议。若你对安全或健康感到担忧，请立即联系合格专业人员或当地服务机构。
+          </p>
+        </div>
+      </article>
+
+      <!-- ASIDE -->
+      <aside class="topic-aside">
+        <h3>实用链接</h3>
+        <ul>
+          <li><a href="../interactive-tools.html">互动工具</a></li>
+          <li><a href="../audiobook_section.html">有声书</a></li>
+          <li><a href="../parents.html">给家长</a></li>
+        </ul>
+        <hr class="soft" />
+        <p class="disclaimer">若有紧急危险，请立即拨打当地紧急服务电话。</p>
+      </aside>
+    </section>
+  </div>
+
+  <footer style="text-align:center; padding:1rem; color:#6b7a8e;">
+    &copy; 2025 Healthy Little Minds
+  </footer>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.mood-btn');
+    const responseText = document.getElementById('mood-response');
+    let messageTimer;
+
+    const messages = {
+      'happy': "太棒了！注意一下你现在身体的哪个部位感受到了这份快乐。",
+      'sad': "难过也没关系。慢慢做个深呼吸，或者要一个拥抱，都会有帮助的。",
+      'angry': "我看到你很生气。这是一种强烈的情绪！要不要试着抖一抖身体，或者数到 10？",
+      'worried': "担心可能会让我们的肚子感觉紧紧的。试试看 5-4-3-2-1 着陆游戏吧！",
+      'calm': "平静的感觉真好。现在是看书或玩拼图的绝佳时机。"
+    };
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mood = btn.getAttribute('data-mood');
+        responseText.textContent = messages[mood];
+        
+        clearTimeout(messageTimer);
+        messageTimer = setTimeout(() => {
+          responseText.textContent = "";
+        }, 5000);
+        
+        btn.style.transform = 'scale(1.2)';
+        setTimeout(() => {
+          btn.style.transform = 'scale(1)';
+        }, 200);
+      });
+    });
+  });
+</script>
+</body>
+</html>

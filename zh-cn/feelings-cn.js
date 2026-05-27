@@ -1,0 +1,57 @@
+(function () {
+  "use strict";
+  var preview = location.protocol === "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1";
+  if (!preview && localStorage.getItem("isMember") !== "true") { location.replace("index.html"); return; }
+
+  var books = {
+    yet: { title: "《当我还不会的时候》", image: "../images/when_i_cant_coverpage.webp", text: "在困难的时刻，练习再次尝试与向他人求助。", url: "https://heyzine.com/flip-book/1fb2ef8177.html" },
+    storm: { title: "《平息内心的风暴》", image: "../images/storm-book-cover.webp", text: "用呼吸和表达，慢慢照顾很大的情绪。", url: "https://heyzine.com/flip-book/3cf1027650.html" },
+    scared: { title: "《当我感到害怕》", image: "../images/when-i-feel-scared-bkcover.webp", text: "认识害怕，也找到让自己感到安全的小办法。", url: "https://heyzine.com/flip-book/1f4337da92.html" },
+    feelings: { title: "《当我的情绪变得太大的时候》", image: "../images/when-my-feelings-cover.webp", text: "停下来呼吸，听懂身体和心情的信号。", url: "https://heyzine.com/flip-book/5cbe03c993.html" },
+    princess: { title: "《Princess 的照片日惊喜》", image: "../images/princess-picture-day-cover.webp", text: "接纳自己，也勇敢面对被看见的时刻。", url: "https://heyzine.com/flip-book/a958329538.html" },
+    little: { title: "《小行动，大感受》", image: "../images/little-acts-book-cover.webp", text: "小小的善意，能够带来连接和温暖。", url: "https://heyzine.com/flip-book/034942038a.html" },
+    grey: { title: "《世界不只是黑与白》", image: "../images/grey-thinking.webp", text: "学习从不同角度理解事情与感受。", url: "https://heyzine.com/flip-book/d765b64bda.html" },
+    destiny: { title: "《德斯蒂尼想要放弃的一天》", image: "../images/The_Day_Destiny_Wanted_To_Quit.webp", text: "在很难的一天里，也能找到下一小步。", url: "https://heyzine.com/flip-book/8736fac672.html" }
+  };
+
+  var feelings = {
+    embarrassed: { emoji:"😳", title:"尴尬", lead:"当我们犯错或突然被大家注意时，可能会脸热、想躲起来。尴尬并不代表你不好，它只是提醒你这个时刻很在意。", say:"我有一点尴尬，但我仍然是安全的。我可以慢慢再试一次。", causes:[["在别人面前出错","答错题、跌倒或说错话，可能让目光显得特别大。"],["突然成为焦点","表演、介绍自己或被点名时，身体可能紧绷起来。"],["被取笑","别人笑的时候，即使不是故意，也可能让心里受伤。"]], steps:[["慢慢呼吸","吸气数到四，再轻轻呼气，让身体先缓下来。"],["说一句友善的话","告诉自己：每个人都会犯错，我还可以继续。"],["寻找可信任的人","把发生的事情告诉大人或朋友，不必独自承担。"]], adult:"先承认孩子觉得难堪，再称赞他们尝试或修复的勇气，不要用玩笑快速带过感受。", books:["princess","grey"] },
+    nervous: { emoji:"😬", title:"紧张", lead:"在新的或重要的事情之前，心跳加快、肚子发紧很常见。这是身体在准备行动，不是你做不到。", say:"我很紧张，但我可以从一小步开始。", causes:[["新环境","新班级、新老师或陌生场合会带来不确定感。"],["重要任务","表演、比赛或考试前，期待和担心可能一起出现。"],["身体信号","快速心跳或手心出汗，有时会被误以为危险正在发生。"]], steps:[["方形呼吸","吸气、暂停、呼气、暂停，各数到四。"],["只准备第一步","先练第一句话，或先完成最简单的一项。"],["动一动身体","散步、伸展或轻轻抖手，让紧张能量流动。"]], adult:"不要只说“别紧张”；可以说“紧张也没关系，我们一起准备第一步”。", books:["scared","destiny"] },
+    disappointed: { emoji:"😞", title:"失望", lead:"期待的事情没有发生时，心里会沉下来。失望说明这件事情对你真的很重要。", say:"我很失望。我可以休息一下，再决定下一步。", causes:[["结果不如愿","努力之后没有成功，可能特别难受。"],["计划改变","期待已久的活动取消，会让心情突然掉下来。"],["和别人比较","看到别人得到自己想要的东西，遗憾会变得更大。"]], steps:[["说出感受","清楚地说：我现在很失望。"],["允许暂停","喝水、安静坐一会儿，先照顾心情。"],["选择下一小步","决定再试一次、请求帮助，或今天先休息。"]], adult:"先接住期待落空的难受，再和孩子一起寻找可行的小选择。", books:["yet","destiny"] },
+    fear: { emoji:"😨", title:"害怕", lead:"害怕是身体保护我们的方式。当某件事看起来陌生、太大或不安全时，寻求帮助是勇敢的选择。", say:"我害怕。我需要安全和帮助。", causes:[["陌生的声音或地方","不知道会发生什么时，大脑会更加警觉。"],["担心受伤","真实或想象中的危险都可能让身体想躲开。"],["听见吓人的消息","故事、影像或别人的经历可能留在心里。"]], steps:[["找到安全的大人","靠近可以保护你、听你说话的人。"],["看看周围","说出五个看得到的东西，让心回到现在。"],["使用安抚工具","抱软垫、慢呼吸或握住熟悉的小物件。"]], adult:"确认安全、认真倾听，不强迫孩子立刻面对恐惧；把挑战拆成他们能掌控的小步。", books:["scared","feelings"] },
+    proud: { emoji:"🥹", title:"自豪", lead:"当你努力、学习或做了善意的事情，心里暖暖的力量就是自豪。它帮助我们记住自己的成长。", say:"我为自己的努力感到自豪，我可以分享这份喜悦。", causes:[["完成挑战","坚持做完困难的事，会感受到能力增长。"],["帮助别人","温柔的行动让我们看到自己的价值。"],["学会新事情","进步不一定很大，也值得庆祝。"]], steps:[["描述努力","说一说自己做了什么，而不只是结果。"],["记录这一刻","画下来、写下来，或告诉家人。"],["鼓励下一步","用这份信心开始新的小目标。"]], adult:"多赞赏策略、坚持和善意，而不是只称赞表现或天赋。", books:["yet","little"] },
+    confused: { emoji:"😕", title:"困惑", lead:"当信息太多、规则改变或我们还不明白时，困惑会出现。提问是学习的一部分。", say:"我还不明白。我可以问问题，也可以慢慢弄清楚。", causes:[["指示不清楚","不知道从哪里开始时，脑袋会像打结一样。"],["不同说法","听见不一样的答案，很难判断该相信什么。"],["新的感受","有时我们还不知道怎样为心情命名。"]], steps:[["停下来整理","先说出自己已经知道的一件事。"],["提出一个问题","问：请你再解释一次，或下一步是什么？"],["画出选择","用图画或列表看看不同可能。"]], adult:"欢迎问题，把说明拆成小步骤，并请孩子复述他们听懂的部分。", books:["grey","feelings"] },
+    love: { emoji:"💗", title:"爱与连接", lead:"爱可以是拥抱、帮助、倾听，也可以是尊重彼此的空间。感到被关心会让心更安全。", say:"我在乎你，也可以用温柔和尊重表达爱。", causes:[["有人照顾我","被帮助和安慰时，心会变暖。"],["想靠近家人朋友","一起玩、聊天或安静陪伴，都能带来连接。"],["给予善意","我们照顾别人时，也会感到有力量。"]], steps:[["表达感谢","用一句话、一幅画或一个友善行动表达心意。"],["询问同意","先问对方是否想拥抱或一起玩。"],["珍惜回忆","记下一个让你感到被爱的时刻。"]], adult:"示范有界限的温柔，尊重孩子选择拥抱、挥手或言语表达爱意。", books:["little","princess"] },
+    bored: { emoji:"😑", title:"无聊", lead:"无聊可能是在告诉我们，需要新的活动、自由创造的空间，或只是需要休息。", say:"我觉得无聊，我可以选择一种新的小活动。", causes:[["等待的时候","没有事情做，时间似乎会变慢。"],["一直重复","相同活动做很久，兴趣可能减少。"],["其实累了","身体疲惫时，喜欢的事也可能变得没意思。"]], steps:[["从三项里选一项","选择画画、阅读，或活动身体。"],["进行发现挑战","找出周围三样以前没注意过的东西。"],["检查是否需要休息","有时喝水和安静休息就是最好的选择。"]], adult:"提供几个简单选择并留出自主玩耍的时间，不必立刻用屏幕填满空白。", books:["little"] },
+    frustrated: { emoji:"😤", title:"挫折", lead:"已经很努力了却还做不到，可能会想哭、想放弃或发火。休息和求助都不是失败。", say:"这真的很难。我可以暂停、求助，再决定是否继续。", causes:[["任务太困难","反复尝试没有成功，会让耐心变少。"],["必须等待","想马上得到却需要等待时，挫折感会升高。"],["没有被理解","说不清楚或别人不听，会让情绪更大。"]], steps:[["先把手停下来","放下手上的东西，做三次慢呼吸。"],["安全释放力气","推墙、挤软垫或伸展身体。"],["用话语请求帮助","说：这一步我需要帮助。"]], adult:"守住安全界限，同时先承认事情很难，再提供适当支架。", books:["storm","yet"] },
+    anger: { emoji:"😡", title:"生气", lead:"生气可能是在告诉我们有事情不公平、令人受伤，或重要需要没有被满足。情绪可以被接纳，行为必须安全。", say:"我很生气，但我可以选择不伤害自己和别人。", causes:[["觉得不公平","被排除或规则不一致，会让火气上升。"],["身体需要未满足","饿了、累了或噪音太大，都可能更容易发火。"],["挫折累积","一次又一次遇到阻碍，可能最终爆发。"]], steps:[["先离开冲突","去安全的安静位置，让身体有空间降温。"],["安全地用力","推墙、捏软垫或进行大动作伸展。"],["使用表达句","说：我生气，因为……我需要……。"]], adult:"先确保安全，等身体平静后再谈修复与解决问题，不在情绪最高点讲道理。", books:["storm","feelings"] },
+    sadness: { emoji:"😢", title:"伤心", lead:"失去、想念、被拒绝或希望落空时，眼泪和安静都很自然。伤心需要温柔陪伴，而不是急着赶走。", say:"我可以伤心，也可以请一个人陪陪我。", causes:[["失去或离别","重要的人、宠物或物品不在了，心里会空空的。"],["被拒绝","不能加入游戏或没被选择，可能让人受伤。"],["愿望没有实现","特别期待的事情没有发生，会想哭。"]], steps:[["允许眼泪","哭泣或静静坐着，都是照顾自己的方式。"],["分享故事","告诉可信任的人发生了什么。"],["选择温柔行动","画画、抱住软物件，或请大人陪伴。"]], adult:"不要急着让孩子开心起来；先陪伴和倾听。若长期影响睡眠、进食或日常生活，请寻求专业支持。", books:["destiny","little"] },
+    lonely: { emoji:"😔", title:"孤单", lead:"当我们想和别人靠近，却觉得自己在外面，心会变得沉重。请求连接是健康且勇敢的。", say:"我觉得孤单。我可以向一个安全的人发出连接邀请。", causes:[["难以加入群体","不知道怎样加入游戏或谈话时，会感到被隔开。"],["想念某个人","在乎的人不在身边，会感觉少了重要的部分。"],["把感受藏起来","不敢说真实心情，会让自己更像独自一人。"]], steps:[["选择一个人","想一位可以说话的大人或朋友。"],["做一个小邀请","问：我可以加入吗？或你愿意陪我一下吗？"],["使用连接物件","看看照片、写张卡片，记住自己被爱着。"]], adult:"认真对待孤独，帮助孩子建立具体、安全、可重复的连接机会。", books:["little","destiny"] },
+    grateful: { emoji:"🙏", title:"感恩", lead:"当我们注意到帮助、陪伴或小小的美好，感恩会带来温暖。它不要求我们忽略困难的感受。", say:"我可以在今天找到一件让我感到温暖的小事。", causes:[["得到帮助","有人在困难时陪伴，会让我们记在心里。"],["共同的时间","一起游戏或谈话的时刻很珍贵。"],["日常的小美好","阳光、食物或完成一件事都值得注意。"]], steps:[["找出三件事","想一想今天让你舒服或开心的小事情。"],["表达感谢","用话语、图画或小卡片说谢谢。"],["传递善意","选择一个自己能做到的小帮助。"]], adult:"用日常示范感谢，不要求孩子在难过时立即变得积极。", books:["little"] },
+    curious: { emoji:"🧐", title:"好奇", lead:"想知道、想尝试、想问为什么，是学习的重要力量。问题会帮助我们发现新的世界。", say:"我可以提问，并安全地探索答案。", causes:[["看到新事物","第一次看见或听见的东西会引发问题。"],["想知道原因","了解事情为什么发生，会帮助我们理解世界。"],["想亲手尝试","动手探索能让学习更真实。"]], steps:[["写下一个问题","说出来、画下来或记录下来。"],["一起寻找答案","读书或向可信任的大人请教。"],["安全地试一试","尝试之后说说自己发现了什么。"]], adult:"欢迎孩子的提问，和他们一起查找或实验，而不是只提供答案。", books:["grey"] },
+    calm: { emoji:"🌿", title:"平静", lead:"平静并不是没有情绪，而是身体感到安全、有空间思考和休息。我们可以记住帮助自己平静的方法。", say:"我注意到此刻的平静，也可以记住让我安心的办法。", causes:[["安全的空间","熟悉和被支持的地方让身体放松。"],["被理解","有人认真听，情绪会慢慢变轻。"],["练习过调节","呼吸、运动或创作能帮助我们回到稳定。"]], steps:[["留意身体","注意呼吸、肩膀和心跳怎样变得舒服。"],["建立安静工具箱","写下三种让自己平静的方法。"],["把平静分享出去","用柔和的话语或友善行动照顾他人。"]], adult:"在孩子平静时练习调节工具，这样大情绪出现时更容易使用。", books:["storm","feelings"] },
+    joy: { emoji:"😊", title:"喜悦", lead:"开心和兴奋的时刻给我们能量，也能让我们与别人连接。发现并分享喜悦，会让好时光更有意义。", say:"我可以享受这份开心，也尊重身边人的空间。", causes:[["喜欢的活动","玩耍、创造和阅读都可能带来快乐。"],["完成一件事","努力得到成果，会产生亮亮的满足感。"],["和别人一起笑","共同的好时刻让连接更牢固。"]], steps:[["为喜悦命名","说说是什么让你感到开心。"],["向别人分享","感谢一起经历这个时刻的人。"],["记录美好记忆","用图片、绘画或文字保存它。"]], adult:"加入孩子的喜悦，同时温柔帮助他们留意场合和他人的界限。", books:["little","princess"] }
+  };
+
+  function esc(text) { return text.replace(/[&<>"]/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function cards(items) { return items.map(function (item) { return '<article class="insight-card"><h3>' + esc(item[0]) + '</h3><p>' + esc(item[1]) + '</p></article>'; }).join(""); }
+  function bookCards(keys) { return keys.map(function (key) { var book = books[key]; return '<article class="resource-card"><img src="' + book.image + '" alt="' + esc(book.title) + '封面"><h3>' + esc(book.title) + '</h3><p>' + esc(book.text) + '</p><a class="read-button" target="_blank" rel="noopener" href="' + book.url + '">阅读绘本</a></article>'; }).join(""); }
+  var app = document.getElementById("feelingApp");
+  if (!app) return;
+  var feeling = feelings[app.dataset.feeling];
+  if (!feeling) return;
+  document.title = feeling.title + " - Healthy Little Minds";
+  app.innerHTML = '<a class="breadcrumb" href="more-feelings.html">&larr; 查看更多情绪</a>' +
+    '<section class="feeling-hero"><div><span class="feeling-emoji">' + feeling.emoji + '</span><p class="kicker">理解我的感受</p><h1>' + esc(feeling.title) + '</h1><p class="feeling-lead">' + esc(feeling.lead) + '</p></div><aside class="hero-prompt"><h2>试着这样说</h2><p>“' + esc(feeling.say) + '”</p></aside></section>' +
+    '<section class="guide-section"><h2>这种感受可能在什么时候出现？</h2><div class="card-grid">' + cards(feeling.causes) + '</div></section>' +
+    '<div class="two-column"><section class="panel"><h2>现在可以试试看</h2><ol class="steps">' + feeling.steps.map(function (s) { return '<li><strong>' + esc(s[0]) + '</strong><br>' + esc(s[1]) + '</li>'; }).join("") + '</ol></section><aside class="support-card"><h2>给家长与老师</h2><p>' + esc(feeling.adult) + '</p></aside></div>' +
+    '<section class="resource-panel"><h2>适合一起阅读的绘本</h2><div class="resource-grid">' + bookCards(feeling.books) + '</div></section>' +
+    '<nav class="cn-resource-actions" aria-label="相关页面"><a href="home.html#feelings">首页情绪区</a><a href="interactive-tools.html">情绪工具</a><a href="parents.html">家长专区</a></nav>';
+})();
+
+(function loadLanguagePicker() {
+  var script = document.createElement("script");
+  script.src = "../shared-language-switcher.js?v=1";
+  script.defer = true;
+  document.body.appendChild(script);
+})();

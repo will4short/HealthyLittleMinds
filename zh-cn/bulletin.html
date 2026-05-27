@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>小小情绪俱乐部 | 公告栏</title>
+  <!-- 🌐 Multilingual SEO: Hreflang Tags for Parents Page -->
+  <link rel="alternate" href="https://www.healthylittleminds.club/parents.html" hreflang="en" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/zh-tw/parents.html" hreflang="zh-TW" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/zh-cn/parents.html" hreflang="zh-CN" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/ja/parents.html" hreflang="ja" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/ko/parents.html" hreflang="ko" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/parents.html" hreflang="x-default" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=DM+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #FFF2E5;
+      margin: 0;
+      padding: 0;
+      color: #254E70;
+    }
+    header {
+      padding: 1.5rem;
+      background: white;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    header h1 {
+      font-family: 'Comic Neue', sans-serif;
+      font-size: 2rem;
+      color: #FF6B6B;
+    }
+    .bulletin-section {
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .toggle-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .toggle-card {
+      background-color: #FFF2E5;
+      border: 2px solid #FFDD59;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .toggle-header {
+      background-color: #FFDD59;
+      padding: 1rem 1.2rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #254E70;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .toggle-content {
+      padding: 1rem 1.2rem;
+      display: none;
+      color: #333;
+      font-size: 0.95rem;
+      background-color: #fff;
+    }
+    .toggle-card.open .toggle-content {
+      display: block;
+    }
+    .toggle-card.open .toggle-header::after {
+      content: "▲";
+    }
+    .toggle-header::after {
+      content: "▼";
+      font-size: 1rem;
+      margin-left: 0.5rem;
+    }
+    @media (max-width: 600px) {
+      .toggle-header {
+        font-size: 1rem;
+      }
+      .toggle-content {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<script>
+  (function () {
+    const isLocal = location.protocol === 'file:';
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isLocal && !isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1];
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo);
+    }
+  })();
+</script>
+
+  <div style="position: fixed; top: 15px; right: 15px; z-index: 1000; background: #FFE4F0; border: 2px solid #F8CFE0; border-radius: 30px; padding: 0.5rem 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <a href="home.html" style="text-decoration: none; color: #D6336C; font-weight: bold; font-size: 0.95rem;">
+      🏠 返回主页
+    </a>
+  </div>
+
+  <header>
+    <h1>📌 公告栏</h1>
+    <p>欢迎查看最新动态～来自小小情绪俱乐部！</p>
+  </header>
+
+  <section class="bulletin-section">
+    <div class="toggle-wrapper">
+
+<div class="toggle-card">
+  <div class="toggle-header">📘 新书《我还不会》发布！</div>
+  <div class="toggle-content">
+    “我试过了……可还是做不到。”<br>
+    这本书帮助孩子理解：现在不会，不代表永远不会。一个关于努力、情绪和不放弃的温柔故事。<br>
+    <a href="https://heyzine.com/flip-book/1fb2ef8177.html" target="_blank">📖 点击阅读</a>
+  </div>
+</div>
+
+
+<div class="toggle-card">
+  <div class="toggle-header">❓ 新书《为什么，为什么，为什么？》发布！</div>
+  <div class="toggle-content">
+    一个温柔的故事，引导孩子通过提问「为什么」来探索情绪与学习的力量。<br>
+    <a href="https://online.fliphtml5.com/aogil/asyu/" target="_blank">📖 点击阅读</a>
+  </div>
+</div>
+
+      <div class="toggle-card">
+        <div class="toggle-header">👑 新故事《Princess and the Picture Day Surprise》上线啦！</div>
+        <div class="toggle-content">一位勇敢的小女孩学会了自信面对镜头，也学会了爱自己真实的模样。<br><a href="https://heyzine.com/flip-book/a958329538.html" target="_blank">📖 点击阅读</a></div>
+      </div>
+
+      <div class="toggle-card">
+        <div class="toggle-header">💖 新书《Little Acts, Big Feelings》上线啦！</div>
+        <div class="toggle-content">一本温馨绘本，讲述小小善意如何带来满满的情感温度。<br><a href="https://heyzine.com/flip-book/034942038a.html" target="_blank">📖 点击阅读</a></div>
+      </div>
+
+      <div class="toggle-card">
+        <div class="toggle-header">📘 新绘本《当我感到害怕时》发布！</div>
+        <div class="toggle-content">《When I Feel Scared – 一本关于大情绪的安慰故事》现已上线，可在线阅读。<br><a href="https://heyzine.com/flip-book/1f4337da92.html" target="_blank">📖 点击阅读</a></div>
+      </div>
+
+      <div class="toggle-card">
+        <div class="toggle-header">🌧️ 如何平静心中的风暴</div>
+        <div class="toggle-content">学会通过呼吸、绘画和信任的陪伴来安抚内心风暴。<br><a href="https://heyzine.com/flip-book/3cf1027650.html" target="_blank">📖 点击阅读</a></div>
+      </div>
+
+      <div class="toggle-card">
+        <div class="toggle-header">🎉 新工作纸上线！</div>
+        <div class="toggle-content">《平息心中的风暴：我的情绪工作纸》现在可下载！<br><a href="worksheets/Calm the Storm Inside - My Feelings Workbook.pdf" download>📄 点击下载</a></div>
+      </div>
+
+      <div class="toggle-card">
+        <div class="toggle-header">📱 关注我们的 Instagram</div>
+        <div class="toggle-content">查看幕后故事和新内容预告<br><a href="https://instagram.com/healthylittleminds" target="_blank">@heal.thylittleminds</a></div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('.toggle-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const card = header.parentElement;
+        card.classList.toggle('open');
+      });
+    });
+  </script>
+
+  <script defer src="../shared-language-switcher.js?v=1"></script>
+</body>
+</html>

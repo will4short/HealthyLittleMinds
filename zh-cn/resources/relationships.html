@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>人际关系 – 健康小心灵</title>
+  <meta name="description" content="倾听、设定界限和友善处理冲突的技巧——在家庭、学校和朋友之间。"/>
+  <meta name="keywords" content="人际关系, 儿童, 青少年, 家长, 教育者, 心理健康, 情绪学习, 工作纸"/>
+  <meta name="author" content="Godswill Ambrose"/>
+  <link rel="canonical" href="https://www.healthylittleminds.club/resources/relationships.html"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://www.healthylittleminds.club/resources/relationships.html"/>
+  <meta property="og:title" content="人际关系 – 健康小心灵"/>
+  <meta property="og:description" content="倾听、设定界限和友善处理冲突的技巧——在家庭、学校和朋友之间。"/>
+  <meta property="og:image" content="https://www.healthylittleminds.club/images/social-preview.jpg"/>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="人际关系 – 健康小心灵"/>
+  <meta name="twitter:description" content="倾听、设定界限和友善处理冲突的技巧——在家庭、学校和朋友之间。"/>
+  <meta name="twitter:image" content="https://www.healthylittleminds.club/images/social-preview.jpg"/>
+
+  <meta name="theme-color" content="#FFDD59"/>
+
+  <!-- Fonts & CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="../../style.css?v=96" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+
+  <!-- 保持原有样式 -->
+  <style>
+  /* ===== Layout container ===== */
+  .topic-wrap{max-width:1100px;margin:0 auto;padding:1rem;}
+  .breadcrumb{font-size:.9rem;color:#476882;margin:.75rem 0 0;padding:0 1rem}
+  .breadcrumb a{color:#254E70;text-decoration:none}
+
+  /* ===== Grid: hero + main + aside ===== */
+  .topic-grid{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 320px;
+    grid-template-areas:
+      "hero  aside"
+      "main  aside";
+    gap:24px;
+    margin:1rem;
+    padding:0 1rem;
+  }
+  .topic-hero{grid-area:hero}
+  .topic-main{grid-area:main}
+  .topic-aside{grid-area:aside}
+
+  /* Sticky aside on desktop */
+  @media (min-width:981px){ .topic-aside{position:sticky; top:88px} }
+
+  /* ===== Hero (split) ===== */
+  .topic-hero{
+    background:#FFF4E6;
+    border-radius:16px;
+    box-shadow:0 6px 18px rgba(0,0,0,.05);
+    padding:1rem 1rem 1.15rem;
+    position:relative;
+    overflow:hidden;
+  }
+  /* subtle dots */
+  .topic-hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(rgba(37,78,112,.07) 1px, transparent 1.5px) 0 0/14px 14px;
+    pointer-events:none;
+  }
+  .topic-hero--split .th-grid{
+    display:grid;
+    grid-template-columns:minmax(220px,1fr) minmax(320px,1.35fr);
+    gap:24px; align-items:center; position:relative; z-index:1;
+  }
+  .topic-hero h1{
+    font-family:'Nunito',sans-serif; font-weight:800; color:#254E70;
+    margin:0; line-height:1.05;
+    font-size:clamp(1.9rem,1.2vw + 1.4rem,2.6rem);
+  }
+  .topic-hero .lead{
+    color:#364c63; line-height:1.7; margin:.1rem 0 .55rem; font-size:1.06rem;
+  }
+
+  /* Audience chips */
+  .aud-chips{display:flex;flex-wrap:wrap;gap:.5rem}
+  .aud-chips span{
+    background:#FFF0B3; color:#254E70; font-weight:800;
+    padding:.4rem .7rem; border-radius:999px; font-size:.9rem; white-space:nowrap;
+    box-shadow:0 2px 6px rgba(0,0,0,.04);
+  }
+
+  /* Quick nav pills */
+  .quick-nav{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.35rem}
+  .qbtn{
+    display:inline-flex; align-items:center; gap:.5rem;
+    background:#fff; color:#254E70; font-weight:800;
+    padding:.55rem .9rem; border-radius:999px; text-decoration:none;
+    box-shadow:0 3px 10px rgba(0,0,0,.06); border:1px solid rgba(0,0,0,.06);
+    transition:transform .08s ease, box-shadow .12s ease;
+  }
+  .qbtn::before{content:"•"; font-weight:900; color:#254E70; opacity:.85}
+  .qbtn:hover{transform:translateY(-1px); box-shadow:0 6px 14px rgba(0,0,0,.1)}
+
+  /* Cards */
+  .topic-main h2,.topic-main h3{font-family:'Nunito',sans-serif;color:#254E70}
+  .topic-card{
+    background:#fff; border-radius:14px; box-shadow:0 8px 18px rgba(0,0,0,.06);
+    padding:1rem; margin-bottom:1rem;
+  }
+  .topic-main .topic-card:first-child{margin-top:.25rem}
+
+  .topic-aside{
+    background:#fff; border:1px solid #f0f0f0; border-radius:16px;
+    padding:1rem; box-shadow:0 8px 18px rgba(0,0,0,.05)
+  }
+
+  .disclaimer{font-size:.9rem; color:#6b7a8e; margin-top:.75rem}
+  .cta-btn{display:inline-block;background:#FF6B6B;color:#fff;text-decoration:none;
+    padding:.65rem 1rem;border-radius:12px;font-weight:800}
+
+  /* Tick list */
+  ul.ticks{list-style:none;padding-left:0;margin:.25rem 0}
+  ul.ticks li{margin:.45rem 0; padding-left:1.25rem; position:relative}
+  ul.ticks li::before{
+    content:'✔'; position:absolute; left:0; top:0; color:#24b159; font-weight:900
+  }
+  hr.soft{border:0;border-top:1px solid #eee;margin:1rem 0}
+
+  /* Link states (body + aside) */
+  .topic-wrap a{
+    text-decoration:underline;
+    text-decoration-thickness:.08em;
+    text-underline-offset:.18em;
+  }
+  .topic-wrap a:hover{
+    color:#0b5aa1;
+    text-decoration-thickness:.12em;
+  }
+  .topic-aside a{font-weight:700}
+
+  /* Anchor offsets for quick-nav */
+  [id]{scroll-margin-top:90px}
+
+  /* Mobile stack */
+  @media (max-width:980px){
+    .topic-grid{
+      grid-template-columns:1fr;
+      grid-template-areas: "hero" "main" "aside";
+      margin:.75rem 0; padding:0 .75rem;
+    }
+    .topic-hero--split .th-grid{grid-template-columns:1fr; gap:10px}
+  }
+  /* ===== Quick-nav pills: color swap on hover (no underline) ===== */
+.topic-wrap .qbtn{
+  text-decoration:none !important;     /* kill underline from global link rule */
+  color:#254E70;                        /* brand navy text */
+  background:#fff;
+}
+.topic-wrap .qbtn:hover{
+  background:#254E70;                  /* invert on hover */
+  color:#fff;
+  transform:translateY(-1px);
+  box-shadow:0 6px 14px rgba(0,0,0,.1);
+}
+.topic-wrap .qbtn:hover::before{ color:#fff; }
+
+/* ===== Link states for normal links ONLY (exclude quick-nav pills) ===== */
+.topic-wrap a:not(.qbtn){
+  text-decoration:underline;
+  text-decoration-thickness:.08em;
+  text-underline-offset:.18em;
+}
+.topic-wrap a:not(.qbtn):hover{
+  color:#0b5aa1;
+  text-decoration-thickness:.12em;
+}
+.topic-aside a:not(.qbtn){ font-weight:700; }
+
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"人际关系 – 健康小心灵",
+    "datePublished":"2025-09-02",
+    "dateModified":"2025-09-02",
+    "author":{"@type":"Person","name":"Godswill Ambrose"},
+    "publisher":{"@type":"Organization","name":"健康小心灵"},
+    "inLanguage":"zh-cn",
+    "about":"人际关系"
+  }
+  </script>
+  <link href="../../resources/resource-polish.css?v=4" rel="stylesheet" />
+</head>
+<body class="topic-page topic-page--relationships">
+  <script defer src="../../resources/resource-language-switcher.js?v=1"></script>
+  <a class="topic-back-link" href="../home.html#topics">← 返回所有主题</a>
+<div class="topic-wrap">
+    <nav class="breadcrumb" aria-label="导航路径">
+      <a href="../home.html">首页</a> &raquo;
+      <a href="../home.html#hlm-topics-title">资源</a> &raquo;
+      <span aria-current="page">人际关系</span>
+    </nav>
+
+    <!-- HERO -->
+    <header class="topic-hero topic-hero--split" role="banner">
+      <div class="th-grid">
+        <div class="th-title">
+          <h1>人际关系</h1>
+        </div>
+        <div class="th-copy">
+          <p class="lead">
+            倾听、设定界限和友善处理冲突的技巧——在家庭、学校和朋友之间。
+          </p>
+
+          <div class="aud-chips" role="list" aria-label="适用对象">
+            <span role="listitem">青少年</span>
+            <span role="listitem">家长</span>
+            <span role="listitem">教育者</span>
+          </div>
+
+          <nav class="quick-nav" aria-label="页面章节">
+            <a class="qbtn" href="#overview">概览</a>
+            <a class="qbtn" href="#try">立即尝试</a>
+            <a class="qbtn" href="#talk">对话引导</a>
+            <a class="qbtn" href="#download">下载与探索</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN + ASIDE -->
+    <section class="topic-grid" aria-label="内容">
+      <article class="topic-main">
+        <div class="topic-card" id="overview">
+          <h2>概览</h2>
+          <p>
+            通过清晰的倾听、表达需求和友善的界限，可以加强人际关系。  
+            这些点子是你可以在家庭或学校尝试的简单练习——取其有用的部分，其余的可以暂时放下。
+          </p>
+        </div>
+
+        <div class="topic-card" id="try">
+          <h2>立即尝试</h2>
+          <ul class="ticks">
+            <li><strong>说话者–倾听者：</strong> 一个人说话 60 秒，另一个人回应：“我听到的是……”</li>
+            <li><strong>感受 + 需求：</strong> “当___时我感到___；我需要___。”</li>
+            <li><strong>界限语句：</strong> 写下一句话，当你需要空间时可以友善地表达。</li>
+          </ul>
+        </div>
+
+        <div class="topic-card" id="talk">
+          <h3>对话引导</h3>
+          <ul>
+            <li>“当我们有分歧时，什么能让你感觉被倾听？”</li>
+            <li>“什么时候设定界限很难？哪些话能让它更友善？”</li>
+            <li>“如果朋友越界了，我们可以向谁寻求帮助？”</li>
+          </ul>
+        </div>
+
+        <div class="topic-card" id="download">
+          <h3>下载与探索</h3>
+          <p>
+            尝试我们的可打印工具和故事：  
+            <a class="cta-btn" href="../home.html#worksheets">🎨 工作纸</a>
+            &nbsp;&nbsp;
+            <a class="cta-btn" href="../inspire_page.html">🎬 短视频</a>
+          </p>
+          <p class="disclaimer">
+            本内容仅供教育用途，非医疗或治疗建议。  
+            如果您担心安全或健康，请立即联系合格的专业人士或当地服务机构。
+          </p>
+        </div>
+      </article>
+
+      <aside class="topic-aside">
+        <h3>实用链接</h3>
+        <ul>
+          <li><a href="../interactive-tools.html">互动工具</a></li>
+          <li><a href="../audiobook_section.html">有声书</a></li>
+          <li><a href="../parents.html">家长专区</a></li>
+        </ul>
+        <hr class="soft">
+        <p class="disclaimer">如果您处于紧急危险中，请立即拨打当地紧急服务电话。</p>
+      </aside>
+    </section>
+  </div>
+
+  <footer style="text-align:center; padding:1rem; color:#6b7a8e;">
+    &copy; 2025 健康小心灵
+  </footer>
+</body>
+</html>

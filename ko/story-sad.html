@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>데스티니가 슬플 때</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Nunito:wght@800&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #DFF6FF;
+      padding: 2rem;
+      color: #254E70;
+      text-align: center;
+    }
+
+    .story-box {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      max-width: 600px;
+      margin: 2rem auto;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .story-text {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    button {
+      font-family: 'DM Sans', sans-serif;
+      background: #FFDD59;
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #ffeaa7;
+    }
+  </style>
+</head>
+<body>
+<script>
+  (function () {
+    const isLocal = location.protocol === 'file:';
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isLocal && !isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1];
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo);
+    }
+  })();
+</script>
+
+  <div class="story-box" id="story">
+    <p class="story-text" id="storyText">
+      데스티니는 오늘 친구가 같이 놀고 싶지 않다고 해서 속상했어요.<br>어떻게 하면 좋을까요?
+    </p>
+    <div class="choices" id="choices">
+      <button onclick="nextStep('breathe')">🧘 깊게 숨쉬기</button>
+      <button onclick="nextStep('talk')">🗣️ 선생님께 이야기하기</button>
+    </div>
+  </div>
+
+  <script>
+    function nextStep(choice) {
+      const storyText = document.getElementById('storyText');
+      const choices = document.getElementById('choices');
+
+      if (choice === 'breathe') {
+        storyText.innerHTML = "데스티니는 눈을 감고 천천히 세 번 깊게 숨을 쉬었어요. 기분이 조금 나아졌어요. 이제 뭘 하면 좋을까요?";
+        choices.innerHTML = `
+          <button onclick="nextStep('draw')">🎨 감정을 그림으로 표현하기</button>
+          <button onclick="nextStep('tellMom')">💬 집에 가서 엄마에게 이야기하기</button>
+        `;
+      }
+
+      else if (choice === 'talk') {
+        storyText.innerHTML = "데스티니는 선생님께 자신의 기분을 말했어요. 선생님은 다정하게 들어주시고 미소를 지어 주셨어요. 기분이 나아졌어요. 이제 어떻게 할까요?";
+        choices.innerHTML = `
+          <button onclick="nextStep('write')">📝 일기 쓰기</button>
+          <button onclick="nextStep('breatheAgain')">🧘 다시 깊게 숨쉬기</button>
+        `;
+      }
+
+      else {
+        let message = "";
+        if (choice === 'draw') {
+          message = "감정을 그림으로 그리자 마음이 한결 편안해졌어요 🎨";
+        } else if (choice === 'tellMom') {
+          message = "엄마가 데스티니를 꼭 안아 주셨어요 ❤️ 데스티니는 안전하고 사랑받는다고 느꼈어요.";
+        } else if (choice === 'write') {
+          message = "일기에 기분을 써보니 훨씬 정리가 되고 마음이 차분해졌어요 📝";
+        } else if (choice === 'breatheAgain') {
+          message = "다시 숨을 깊게 쉬었더니 기분이 구름처럼 가벼워졌어요 ☁️";
+        }
+
+        storyText.innerHTML = message + "<br><br><strong>✨ 당신 덕분에 데스티니는 기분이 훨씬 좋아졌어요!</strong>";
+        choices.innerHTML = `<a href="../home.html"><button>🏠 홈으로 돌아가기</button></a>`;
+      }
+    }
+  </script>
+
+  <script defer src="../shared-language-switcher.js?v=1"></script>
+</body>
+</html>

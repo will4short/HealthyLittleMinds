@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>장면 1: 벨라의 이야기</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f0f8ff;
+      color: #254E70;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+    .scene-wrapper {
+      max-width: 700px;
+      margin: auto;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    }
+    .scene-wrapper img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+    }
+    .choice-button {
+      display: block;
+      background: #FF6B6B;
+      color: white;
+      font-weight: bold;
+      padding: 0.8rem 1.5rem;
+      margin: 1rem auto;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.3s;
+      max-width: 300px;
+    }
+    .choice-button:hover {
+      background: #e25555;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    .choice-note {
+      display: block;
+      font-size: 0.85rem;
+      color: #ffffffcc;
+    }
+  </style>
+</head>
+<body>
+
+<div style="
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  background: #E6E6FA;
+  border: 2px solid #D8BFD8;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+">
+  <a href="../home.html" style="
+    text-decoration: none;
+    color: #5A3E8A;
+    font-weight: bold;
+    font-size: 0.95rem;
+  ">
+    🏠 홈으로 돌아가기
+
+  </a>
+</div>
+
+  <div class="scene-wrapper">
+    <h1>📚 장면 1: 떨리는 시작</h1>
+    <p>
+      벨라는 교실 밖에 서 있습니다. 심장이 쿵쾅쿵쾅.<br />
+      작은 목소리로 "하기 싫어..."라고 속삭입니다.
+    </p>
+    <p>
+      리베라 선생님은 이번 주 배운 것을 모두가 나누도록 했습니다.<br />
+      벨라의 손에는 땀이 나고, 다리가 떨립니다.
+    </p>
+    <img src="../images/bella-scene1-refined.png" alt="교실 앞에서 긴장한 벨라" />
+    <p>
+      용기 내서 들어갈까요? 아니면 숨을까요?
+    </p>
+
+    <a href="scene2-standup.html" class="choice-button" data-choice="standup">🗣️ 심호흡하고 교실에 들어간다</a>
+    <a href="scene2-hide.html" class="choice-button" data-choice="hide">😔 복도에 잠시 머무르기<br /><span class="choice-note">(더 불안해질 수도 있지만, 진정할 시간일 수도 있어요)</span></a>
+   <a href="scene2-pretend.html" class="choice-button" data-choice="avoid">
+  🤥 몸이 안 좋다고 말하기<br />
+  <span class="choice-note">(잠시 안심되지만, 걱정이 남을 수 있어요.)</span>
+</a>
+<div style="text-align: center; margin-top: 0.3rem;">
+  <a href="../parents-tips.html#avoidance" style="color: #FF80AB; font-weight: bold; text-decoration: underline;">
+    (부모 팁 보기)
+  </a>
+</div>
+
+</body>
+</html>

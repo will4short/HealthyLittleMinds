@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Healthy Little Minds — Free social and emotional learning resources for children, teens and parents</title>
+<meta name="description" content="Explore friendly social and emotional learning resources for children, teens, parents and educators—flipbooks, printable worksheets, audiobooks, inspiring stories and parenting guides—to support conversations about feelings, stress management and confidence-building.">
+<meta name="keywords" content="social and emotional learning, children's mental health, printable worksheets, flipbooks, audiobooks, parenting tools, mindfulness for children, feelings activities, teens, educators">
+<meta name="author" content="Godswill Ambrose" />
+<link rel="canonical" href="https://www.healthylittleminds.club/home.html" />
+
+<!-- Open Graph (Social Sharing) -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.healthylittleminds.club/home.html" />
+<meta property="og:title" content="Healthy Little Minds — Free social and emotional learning resources for children, teens and parents" />
+<meta property="og:description" content="Guides, printables, audiobooks and tools for families and schools to help talk about feelings, manage stress and build confidence." />
+<meta property="og:image" content="https://www.healthylittleminds.club/images/social-preview.jpg" />
+<meta property="og:image:alt" content="Healthy Little Minds — free social and emotional learning resources" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Healthy Little Minds" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content="https://www.healthylittleminds.club/home.html" />
+<meta name="twitter:title" content="Healthy Little Minds — Free social and emotional learning resources for children, teens and parents" />
+<meta name="twitter:description" content="Friendly, practical resources that help children and teens talk about feelings, manage stress and build confidence—with support for parents and educators." />
+<meta name="twitter:image" content="https://www.healthylittleminds.club/images/social-preview.jpg" />
+  
+<!-- Fonts & Favicon -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Nunito:wght@600;800&amp;display=swap" rel="stylesheet"/>
+  <link href="style-index.css" rel="stylesheet"/>
+  <link href="images/favicon.webp" rel="icon" type="image/webp">
+   <link href="/manifest.json" rel="manifest"/>
+   <link href="/icon.webp" rel="apple-touch-icon"/>
+   <meta content="#FFDD59" name="theme-color"/>
+   <link href="images/favicon.ico" rel="icon" type="image/x-icon">
+   
+ <!-- Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-T2F8H8ZYBL">
+    </script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T2F8H8ZYBL');
+    </script>
+   </link>
+  </link>
+  <link as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Nunito:wght@600;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+  <noscript>
+   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Nunito:wght@600;800&amp;display=swap" rel="stylesheet"/>
+  </noscript>
+  <link as="image" href="images/amaka1_card.webp" rel="preload"/>
+  <script defer src="index.js?v=1"></script>
+ </head>
+ <body>
+
+  <div id="newYearBanner" class="newyear-banner" hidden>
+  <p>✨ Welcome to 2026! Let’s keep growing, feeling, and learning together 💛</p>
+  <button id="closeNewYear">Got it</button>
+</div>
+
+ <!-- ✅ START: page-container opens ONCE and closes ONCE (near the end) -->
+<div class="page-container">
+
+  <!-- 🔄 Branded Loading Screen -->
+  <div id="loading-screen" class="loading-screen" aria-live="polite">
+    <div class="spinner"></div>
+    <p>Preparing your library...</p>
+  </div>
+
+  <header class="site-header">
+    <div class="header-left">
+      <a class="brand-logo" href="home.html">
+        <img alt="Logo" class="logo" decoding="async" fetchpriority="high" src="images/logo-icon.webp"/>
+      </a>
+      <a class="brand-name-link" href="home.html">
+        <span class="site-title">Healthy <span>Little Minds</span></span>
+      </a>
+    </div>
+
+    <!-- Desktop nav (hidden on small screens) -->
+    <nav class="main-nav">
+      <a href="#login">Login</a>
+      <a class="about-btn" href="about_me.html">About Me</a>
+      <a href="social.html">🌐 Social Posts</a>
+      <a class="get-access-btn" href="https://payhip.com/b/j6uL8" target="_blank" rel="noopener">Get Access</a>
+    </nav>
+
+    <!-- Hamburger (shown on small screens) -->
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-controls="menuDropdown" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Canva-style dropdown panel -->
+    <div class="menu-dropdown" id="menuDropdown" role="menu" aria-hidden="true">
+      <a href="#login" role="menuitem">Login</a>
+      <a href="about_me.html" role="menuitem">About Me</a>
+      <a href="social.html" role="menuitem">🌐 Social Posts</a>
+      <a href="https://payhip.com/b/j6uL8" target="_blank" rel="noopener" role="menuitem">Get Access</a>
+    </div>
+  </header>
+
+  <!-- Backdrop -->
+  <div class="menu-backdrop" id="menuBackdrop" hidden></div>
+
+  <section class="access-hero" aria-labelledby="accessHeroTitle">
+    <div class="access-hero-copy">
+      <p class="eyebrow">Member library preview</p>
+      <h1 id="accessHeroTitle">Feelings resources for children, teens, parents, and classrooms.</h1>
+      <p>
+        Explore gentle stories, printable worksheets, audiobooks, calming tools, and guided activities
+        that make emotional learning easier to talk about at home or at school.
+      </p>
+      <div class="access-hero-actions">
+        <a class="hero-primary" href="#login">Enter Access Code</a>
+        <a class="hero-secondary" href="#free-library">Browse Free Resources</a>
+      </div>
+    </div>
+
+    <div class="access-hero-panel" aria-label="Library highlights">
+      <div>
+        <strong>Stories</strong>
+        <span>Character-led books about courage, patience, confidence, and kindness.</span>
+      </div>
+      <div>
+        <strong>Tools</strong>
+        <span>Audio, breathing practice, and activities children can revisit anytime.</span>
+      </div>
+      <div>
+        <strong>Support</strong>
+        <span>Practical prompts for families, teachers, and young people.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="pathways-section" aria-labelledby="pathwaysTitle">
+    <div class="landing-heading">
+      <p class="eyebrow">Choose your path</p>
+      <h2 id="pathwaysTitle">Support that meets you where you are</h2>
+      <p>Find a gentle starting point for a child, a family conversation, or a classroom moment.</p>
+    </div>
+
+    <div class="pathway-grid">
+      <article class="pathway-card pathway-card--children">
+        <span class="pathway-icon" aria-hidden="true">&#9825;</span>
+        <h3>For Children</h3>
+        <p>Stories, songs, and feelings activities that make it easier to name what is happening inside.</p>
+        <a href="#free-library">Try a free story &rarr;</a>
+      </article>
+      <article class="pathway-card pathway-card--parents">
+        <span class="pathway-icon" aria-hidden="true">&#9728;</span>
+        <h3>For Parents</h3>
+        <p>Conversation prompts, calming ideas, and guidance for supporting emotions at home.</p>
+        <a href="#member-benefits">See family resources &rarr;</a>
+      </article>
+      <article class="pathway-card pathway-card--teachers">
+        <span class="pathway-icon" aria-hidden="true">&#9998;</span>
+        <h3>For Teachers</h3>
+        <p>Child-friendly stories and activities that support emotional literacy in class.</p>
+        <a href="#member-benefits">See classroom support &rarr;</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="journey-section" aria-labelledby="journeyTitle">
+    <div class="landing-heading">
+      <p class="eyebrow">How it helps</p>
+      <h2 id="journeyTitle">A small path through big feelings</h2>
+    </div>
+    <div class="journey-steps">
+      <article class="journey-step">
+        <span>1</span>
+        <h3>Notice</h3>
+        <p>Start by naming a feeling or noticing what the body is saying.</p>
+      </article>
+      <article class="journey-step">
+        <span>2</span>
+        <h3>Explore</h3>
+        <p>Choose a story, song, activity, or calming tool that fits the moment.</p>
+      </article>
+      <article class="journey-step">
+        <span>3</span>
+        <h3>Grow</h3>
+        <p>Talk together, practise a helpful skill, and celebrate a small step forward.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="member-benefits" id="member-benefits" aria-labelledby="benefitsTitle">
+    <div class="landing-heading">
+      <p class="eyebrow">Library access</p>
+      <h2 id="benefitsTitle">Start free, then keep growing together</h2>
+      <p>Try open resources today or unlock the complete collection for home and classroom use.</p>
+    </div>
+    <div class="access-comparison">
+      <article class="access-card access-card--free">
+        <p class="access-label">Free to explore</p>
+        <h3>A gentle first step</h3>
+        <ul>
+          <li>Selected storybooks to read online</li>
+          <li>A free audiobook experience</li>
+          <li>A preview of characters and emotional themes</li>
+        </ul>
+        <a class="compare-link compare-link--quiet" href="#free-library">Browse free picks</a>
+      </article>
+      <article class="access-card access-card--full">
+        <p class="access-label">Full member library</p>
+        <h3>More ways to support feelings</h3>
+        <ul>
+          <li>Complete story and audiobook collection</li>
+          <li>Worksheets and interactive calming tools</li>
+          <li>Parent prompts and classroom-friendly support</li>
+        </ul>
+        <div class="access-card-actions">
+          <a class="compare-link" href="https://payhip.com/b/j6uL8" target="_blank" rel="noopener">Get full access</a>
+          <a class="member-login-link" href="#login">Already a member? Log in</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="welcome-banner">
+    <h2>🎉 Welcome! You're Almost In!</h2>
+    <p>
+      Sign in below to explore all the magic inside the
+      <strong>Healthy Little Minds Member's Library</strong>.
+    </p>
+    <p>
+      🧠 Full access includes: flipbooks, worksheets, audiobooks, inspiring video stories, calming tools, parenting tips &mdash; and more!
+    </p>
+  </div>
+
+  <div class="video-wrapper">
+    <h3>Fill Your Jar with Magic</h3>
+
+    <!-- ✅ Removed inline onclick (JS handles click) -->
+    <video autoplay muted loop playsinline preload="metadata" id="magicJarVideo">
+      <source src="video/Fill_your_jar.webm" type="video/webm">
+      <source src="video/Fill_your_jar.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <p class="video-caption">A gentle encouragement moment from the library.</p>
+  </div>
+
+  <section class="character-showcase fade-in" aria-labelledby="charactersTitle">
+  <div class="landing-heading">
+    <p class="eyebrow">Story companions</p>
+    <h2 id="charactersTitle">Meet the Healthy Little Minds Characters</h2>
+    <p>Each character helps children explore feelings through relatable stories.</p>
+  </div>
+
+  <div class="character-filters" aria-label="Choose a character">
+    <button class="filter-btn is-active" type="button" data-character-filter="all">All</button>
+    <button class="filter-btn" type="button" data-character-filter="amaka">Amaka</button>
+    <button class="filter-btn" type="button" data-character-filter="bella">Bella</button>
+    <button class="filter-btn" type="button" data-character-filter="goshen">Goshen</button>
+    <button class="filter-btn" type="button" data-character-filter="destiny">Destiny</button>
+    <button class="filter-btn" type="button" data-character-filter="princess">Princess</button>
+    <button class="filter-btn" type="button" data-character-filter="ella">Ella</button>
+  </div>
+
+  <div class="character-grid">
+
+    <!-- Amaka character card (visible on page load) -->
+    <article class="character-card" data-name="amaka">
+      <img alt="Amaka smiling" decoding="async" src="images/amaka1_card.webp"/>
+      <div class="character-name">Amaka</div>
+      <div class="character-info">
+        <p>Sweet, thoughtful, and emotionally smart. Amaka really cares about how others feel.</p>
+      </div>
+    </article>
+
+    <!-- Hidden Amaka cards -->
+    <article class="character-card" data-name="amaka">
+      <img alt="Amaka" decoding="async" loading="lazy" src="images/amaka2_card.webp"/>
+      <div class="character-name">Amaka</div>
+      <div class="character-info">
+        <p>Eager and mischievous, Amaka likes to joke and play, but her heart is full of kindness.</p>
+      </div>
+    </article>
+
+    <!-- Hidden Bella cards -->
+    <article class="character-card" data-name="bella">
+      <img alt="Bella" decoding="async" loading="lazy" src="images/bella1_card.webp"/>
+      <div class="character-name">Bella</div>
+      <div class="character-info">
+        <p>Bella is a little shy and feels nervous when everyone&rsquo;s watching. But she&rsquo;s brave, smart, and always looks out for others.</p>
+      </div>
+    </article>
+
+    <!-- Destiny Card -->
+    <article class="character-card" data-name="destiny">
+      <img alt="Destiny" decoding="async" loading="lazy" src="images/destiny_card.webp"/>
+      <div class="character-name">Destiny</div>
+      <div class="character-info">
+        <p>Destiny is wise and respectful. He's patient, kind, and loves to help &mdash; even though he sometimes plays too much!</p>
+      </div>
+    </article>
+
+    <!-- Goshen Card -->
+    <article class="character-card" data-name="goshen">
+      <img alt="Goshen" decoding="async" loading="lazy" src="images/goshen_card.webp"/>
+      <div class="character-name">Goshen</div>
+      <div class="character-info">
+        <p>Goshen is a brain box! Full of ideas, he&rsquo;s always thinking. But he&rsquo;s also sweet, loving, and protective of his friends.</p>
+      </div>
+    </article>
+
+    <!-- Princess Card -->
+    <article class="character-card" data-name="princess">
+      <img alt="Princess" decoding="async" loading="lazy" src="images/princess-character.webp"/>
+      <div class="character-name">Princess</div>
+      <div class="character-info">
+        <p>Princess is thoughtful and kind. Despite her ups and downs, she finds it important to help and understand others.</p>
+      </div>
+    </article>
+
+    <!-- Ella Card -->
+    <article class="character-card" data-name="ella">
+      <img alt="Ella" decoding="async" loading="lazy" src="images/ella-character.webp"/>
+      <div class="character-name">Ella</div>
+      <div class="character-info">
+        <p>
+          Ella is strong both in body and in spirit. She deeply cares about the people around her and the world at large.
+          A dedicated student, she believes that becoming a cheerleader one day will help her spread positivity and make
+          the world a happier place.
+        </p>
+      </div>
+    </article>
+
+  </div>
+  </section>
+
+<!-- 🎵 WELCOME SONG BAR -->
+<section class="welcome-audio" aria-label="Welcome Song">
+  <div class="welcome-audio-inner">
+
+    <div class="welcome-audio-left">
+      <div class="welcome-icon" aria-hidden="true">🎵</div>
+
+      <div class="welcome-audio-text">
+        <div class="welcome-title">Welcome Song</div>
+        <div class="welcome-subtitle">PAUSE. BREATHE. FEEL.</div>
+        <div class="welcome-helper">🎧 Gentle music to help you feel calm</div>
+      </div>
+    </div>
+
+    <div class="welcome-audio-right">
+      <button
+        id="soundToggle"
+        class="welcome-btn"
+        type="button"
+        aria-pressed="false"
+      >
+        🔇 Sound Off
+      </button>
+
+      <a class="welcome-link" href="songs.html">
+        Go to Songs →
+      </a>
+    </div>
+  </div>
+
+  <!-- 🎧 Local audio -->
+  <audio id="welcomeSong" preload="auto" loop playsinline muted>
+    <source src="audio/pause-breathe-feel.mp3" type="audio/mpeg" />
+  </audio>
+</section>
+
+  <section class="member-entry fade-in" id="login" aria-labelledby="memberEntryTitle">
+    <div class="landing-heading">
+      <p class="eyebrow">Open the library</p>
+      <h2 id="memberEntryTitle">Choose how you begin</h2>
+      <p>Members can enter directly, or families can start with a free listen.</p>
+    </div>
+    <div class="member-entry-grid">
+      <div class="login-box">
+      <p class="entry-card-label">Member access</p>
+      <h3>Enter Access Code</h3>
+      <p>If you're a member, type the password to enter.</p>
+      <input id="password-input" placeholder="Enter password..." type="password"/>
+      <button id="loginButton" type="button">Login</button>
+
+      <div class="login-actions">
+        <p class="access-note">When we understand our feelings, we create a kinder world.</p>
+
+        <a
+          class="get-access-btn newyear-highlight"
+          href="https://payhip.com/b/j6uL8"
+          target="_blank"
+          rel="noopener"
+          aria-label="Get full access to the Healthy Little Minds library for 2026"
+        >
+          Get Full Access
+        </a>
+      </div>
+
+      <div class="dark-mode-toggle-container">
+        <button class="dark-mode-toggle" id="themeToggle" type="button">Dark Mode</button>
+      </div>
+      </div>
+
+      <article class="audiobook-card">
+        <span class="audio-label">Free Audio</span>
+        <h3>Try a free audiobook</h3>
+        <img alt="When I Can&rsquo;t Do It Yet" decoding="async" loading="lazy" src="images/when_i_cant_coverpage.webp"/>
+        <p class="audio-title">When I Can&rsquo;t Do It Yet</p>
+        <p class="audio-description">A gentle story about patience, effort and growing confidence.</p>
+        <a class="btn" href="audiobook_section_index.html" target="_blank" rel="noopener">Listen Now</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="library-preview" id="free-library" aria-labelledby="libraryPreviewTitle">
+  <div class="library-heading">
+    <p class="eyebrow">Start with a free read</p>
+    <h2 id="libraryPreviewTitle">Featured Library Picks</h2>
+    <p>Try a few open resources first, then log in for the full member collection.</p>
+  </div>
+
+  <div class="grid">
+
+  <!-- ✅ NEW: FREE ACCESS -->
+  <div class="card free-access">
+    <span class="label-free">🎁 Free Access</span>
+    <img
+      alt="When My Feelings Get Too Big"
+      decoding="async"
+      loading="lazy"
+      src="images/when-my-feelings-cover.webp"
+    />
+    <p>When My Feelings Get Too Big</p>
+    <a
+      class="btn"
+      href="https://heyzine.com/flip-book/5cbe03c993.html"
+      target="_blank"
+      rel="noopener"
+    >
+      Read Now
+    </a>
+  </div>
+
+  <!-- FREE ACCESS -->
+  <div class="card free-access">
+    <span class="label-free">🎁 Free Access</span>
+    <img alt="Little Acts, Big Feelings" decoding="async" loading="lazy" src="images/little-acts-book-cover.webp"/>
+    <p>Little Acts, Big Feelings</p>
+    <a class="btn" href="https://heyzine.com/flip-book/034942038a.html" target="_blank" rel="noopener">Read Now</a>
+  </div>
+
+  <div class="card free-access">
+    <span class="label-free">🎁 Free Access</span>
+    <img alt="The World Isn&rsquo;t Just Black and White" decoding="async" loading="lazy" src="images/grey-thinking.webp"/>
+    <p>The World Isn&rsquo;t Just Black and White</p>
+    <a class="btn" href="https://heyzine.com/flip-book/d765b64bda.html" target="_blank" rel="noopener">Read Now</a>
+  </div>
+
+  <div class="card free-access">
+    <span class="label-free">🎁 Free Access</span>
+    <img alt="The Day Destiny Wanted To Quit" decoding="async" loading="lazy" src="images/The_Day_Destiny_Wanted_To_Quit.webp"/>
+    <p>The Day Destiny Wanted To Quit</p>
+    <a class="btn" href="https://heyzine.com/flip-book/8736fac672.html" target="_blank" rel="noopener">Read Now</a>
+  </div>
+
+  <!-- MEMBERS ONLY -->
+    <div class="card">
+    <img 
+      alt="The Day Goshen Learned to Guide the River" 
+      decoding="async" 
+      loading="lazy" 
+      src="images/The_Day_Goshen_Learned_coverpage.webp"
+    />
+    <p>The Day Goshen Learned to Guide the River</p>
+    <a class="btn" href="#login">Login to Access</a>
+  </div>
+
+  <div class="card">
+    <img alt="Sometimes Family Finds You!" decoding="async" loading="lazy" src="images/Family_Finds_You.webp"/>
+    <p>Sometimes Family Finds You!</p>
+    <a class="btn" href="#login">Login to Access</a>
+  </div>
+  
+  <div class="card">
+    <img alt="Why Why Why?" decoding="async" loading="lazy" src="images/why_why_why_cover.webp"/>
+    <p>Why Why Why?</p>
+    <a class="btn" href="#login">Login to Access</a>
+  </div>
+
+  <div class="card">
+    <img alt="Feelings Are My Superpower" decoding="async" loading="lazy" src="images/book1.webp"/>
+    <p>Feelings Are My Superpower</p>
+    <a class="btn" href="#login">Login to Access</a>
+  </div>
+
+  <div class="card">
+    <img alt="Calm the Storm Inside" decoding="async" loading="lazy" src="images/storm-book-cover.webp"/>
+    <p>Calm the Storm Inside</p>
+    <a class="btn" href="#login">Login to Access</a>
+  </div>
+
+  <div class="card">
+    <img alt="When I Feel Scared" decoding="async" loading="lazy" src="images/when-i-feel-scared-bkcover.webp"/>
+    <p>When I Feel Scared</p>
+    <a class="btn" href="#login">Login to Access</a>
+  </div>
+
+  <div class="card">
+    <img alt="Princess and the Picture Day Surprise" decoding="async" loading="lazy" src="images/princess-picture-day-cover.webp"/>
+    <p>Princess and the Picture Day Surprise</p>
+    <a class="btn" href="#login">Login to Access</a>
+  </div>
+
+  <div class="card">
+    <img alt="When I Can&rsquo;t Do It Yet" decoding="async" loading="lazy" src="images/when_i_cant_coverpage.webp"/>
+    <p>When I Can&rsquo;t Do It Yet</p>
+    <a class="btn" href="#login">Login to Access</a>
+  </div>
+
+  <div class="card">
+    <img alt="I Will Wait Till I Get Older" decoding="async" loading="lazy" src="images/i-will-wait-cover.webp"/>
+    <p>I Will Wait Till I Get Older</p>
+    <a class="btn" href="#login">Login to Access</a>
+  </div>
+
+  <div class="card" data-book="news-we-choose">
+    <img alt="The News We Choose" decoding="async" loading="lazy" src="images/the-news-we-choose.webp"/>
+    <p>The News We Choose</p>
+    <a class="btn" href="#login">Login to Access</a>
+  </div>
+
+</div>
+</section>
+
+  <!-- Language switcher -->
+  <div class="language-switcher">
+    <a href="zh-tw/index.html" title="繁體中文"><img alt="繁體中文" decoding="async" loading="lazy" src="images/flag-tw.webp" width="24"/></a>
+    <a href="zh-cn/index.html" title="简体中文"><img alt="简体中文" decoding="async" loading="lazy" src="images/flag-cn.webp" width="24"/></a>
+    <a href="ja/index.html" title="日本語"><img alt="日本語" decoding="async" loading="lazy" src="images/flag-jp.webp" width="24"/></a>
+    <a href="ko/index.html" title="한국어"><img alt="한국어" decoding="async" loading="lazy" src="images/flag-kr.webp" width="24"/></a>
+  </div>
+
+  <!-- ✅ FIXED: Interactive Tools section properly closed -->
+  <section class="section fade-in tools-preview" aria-labelledby="toolsTitle">
+    <h2 id="toolsTitle">Interactive Tools</h2>
+    <div class="grid">
+      <a class="card tool-card" href="#login">
+        <img alt="Breathing Tool Preview" decoding="async" loading="lazy" src="video/breathing-tool-preview.webp"/>
+        <p>Breathing animations, story paths, and more!</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="section fade-in locale-section" aria-labelledby="languagesTitle">
+    <h2 id="languagesTitle">Multilingual Access</h2>
+    <p class="locale-intro">Also available in:</p>
+    <div class="langs">
+  <img src="images/flag-tw.webp" alt="Traditional Chinese">
+  <img src="images/flag-cn.webp" alt="Simplified Chinese">
+  <img src="images/flag-jp.webp" alt="Japanese">
+  <img src="images/flag-kr.webp" alt="Korean">
+</div>
+<p class="locale-note">
+  <strong>Available in 5 languages</strong> &mdash; explore the version that feels most comfortable for your family.
+</p>
+</section>
+
+  <section class="testimonials fade-in" aria-labelledby="testimonialsTitle">
+    <div class="landing-heading">
+      <p class="eyebrow">Parent voices</p>
+      <h2 id="testimonialsTitle">What parents are saying</h2>
+    </div>
+    <div class="testimonial-grid">
+      <blockquote class="testimonial">&ldquo;My daughter now talks about her feelings every day. These books helped so much.&rdquo;</blockquote>
+      <blockquote class="testimonial">&ldquo;The worksheets and story paths are brilliant. Thank you!&rdquo;</blockquote>
+      <blockquote class="testimonial">&ldquo;I&rsquo;ve never seen my son so excited to draw emotions!&rdquo;</blockquote>
+    </div>
+  </section>
+
+  <section class="trust-note" aria-labelledby="trustTitle">
+    <div>
+      <p class="eyebrow">For caring adults</p>
+      <h2 id="trustTitle">Gentle support for real conversations</h2>
+      <p>
+        Healthy Little Minds is designed to help children talk about emotions with trusted adults
+        through stories and practical activities. It supports learning and connection, but it is
+        not a substitute for professional mental health care when a child needs additional help.
+      </p>
+    </div>
+    <a class="trust-link" href="#login">Explore member support</a>
+  </section>
+
+  <section class="faq-section" aria-labelledby="faqTitle">
+    <div class="landing-heading">
+      <p class="eyebrow">Questions</p>
+      <h2 id="faqTitle">Frequently asked questions</h2>
+    </div>
+    <div class="faq-grid">
+      <details>
+        <summary>Who are these resources for?</summary>
+        <p>The library supports children and teens, with prompts and tools that parents and teachers can use alongside them.</p>
+      </details>
+      <details>
+        <summary>What can I try for free?</summary>
+        <p>You can read selected featured books and try the free audiobook preview from this landing page.</p>
+      </details>
+      <details>
+        <summary>What is included with full access?</summary>
+        <p>Members can explore the full collection of stories, worksheets, audiobooks, interactive tools, and support resources.</p>
+      </details>
+      <details>
+        <summary>Can I use the library on a phone?</summary>
+        <p>Yes. The site is designed for mobile, tablet, and desktop viewing so resources can be used wherever conversations happen.</p>
+      </details>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p class="copyright">
+      &copy; <span data-year></span> <strong>Healthy Little Minds</strong>. All rights reserved.
+    </p>
+
+    <div class="social-icons" aria-label="Social pages">
+      <a class="social-icon" href="https://www.instagram.com/heal.thylittleminds" target="_blank" rel="noopener" aria-label="Instagram">
+        <img alt="Instagram" decoding="async" loading="lazy" src="images/instagram.webp"/>
+      </a>
+      <a class="social-icon" href="https://www.facebook.com/HealthyLittleMindsbyWill" target="_blank" rel="noopener" aria-label="Facebook">
+        <img alt="Facebook" decoding="async" loading="lazy" src="images/facebook.webp"/>
+      </a>
+    </div>
+
+  </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>📌 공지 게시판 – Healthy Little Minds</title>
+<!-- 🌐 Multilingual SEO: Hreflang Tags for Parents Page -->
+<link rel="alternate" href="https://www.healthylittleminds.club/parents.html" hreflang="en" />
+<link rel="alternate" href="https://www.healthylittleminds.club/zh-tw/parents.html" hreflang="zh-TW" />
+<link rel="alternate" href="https://www.healthylittleminds.club/zh-cn/parents.html" hreflang="zh-CN" />
+<link rel="alternate" href="https://www.healthylittleminds.club/ja/parents.html" hreflang="ja" />
+<link rel="alternate" href="https://www.healthylittleminds.club/ko/parents.html" hreflang="ko" />
+<link rel="alternate" href="https://www.healthylittleminds.club/parents.html" hreflang="x-default" />
+
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=DM+Sans&display=swap" rel="stylesheet">
+<style>
+  /* === Base Styles === */
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #FFF2E5;
+    margin: 0;
+    padding-top: 100px; /* Prevents content from being hidden under sticky header */
+    color: #254E70;
+    overflow-x: hidden;
+  }
+
+  /* === Header === */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .site-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #254E70;
+  }
+
+  .navbar-menu a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: #254E70;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .navbar-menu a:hover {
+    text-decoration: underline;
+    color: #FF6B6B;
+  }
+
+  /* === Toggle Section === */
+  .toggle-wrapper {
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    padding: 1rem;
+  }
+
+  .toggle-card {
+    background-color: #FFF2E5;
+    border: 2px solid #FFDD59;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .toggle-header {
+    background-color: #FFDD59;
+    padding: 1rem 1.2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #254E70;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .toggle-header::after {
+    content: "▼";
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  .toggle-card.open .toggle-header::after {
+    content: "▲";
+  }
+
+  .toggle-content {
+    padding: 1rem 1.2rem;
+    display: none;
+    color: #333;
+    font-size: 0.95rem;
+    background-color: #fff;
+  }
+
+  .toggle-card.open .toggle-content {
+    display: block;
+  }
+
+  /* === Footer === */
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+    color: #777;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggles = document.querySelectorAll('.toggle-card');
+    toggles.forEach(card => {
+      const header = card.querySelector('.toggle-header');
+      header.addEventListener('click', () => {
+        card.classList.toggle('open');
+      });
+    });
+  });
+</script>
+</head>
+<body>
+<script>
+  (function () {
+    const isLocal = location.protocol === 'file:';
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isLocal && !isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1];
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo);
+    }
+  })();
+</script>
+
+<div style="position: fixed; top: 15px; right: 15px; z-index: 1000; background: #E6E6FA; border: 2px solid #D8BFD8; border-radius: 30px; padding: 0.5rem 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <a href="home.html" style="text-decoration: none; color: #5A3E8A; font-weight: bold; font-size: 0.95rem;">🏠 홈으로 돌아가기</a>
+</div>
+
+<header>
+  <div class="navbar">
+    <div id="logo" class="navbar-brand">
+      <img src="../images/logo-icon.png" alt="Logo" style="height: 30px;" />
+      <h1 class="site-title"><span style="color:#254E70">Healthy</span> <span style="color:#FF6B6B">Little Minds</span></h1>
+    </div>
+    <nav class="navbar-menu">
+      <a href="home.html">홈</a>
+      <a href="dashboard.html">감정 대시보드</a>
+      <a href="interactive-tools.html">도구</a>
+      <a href="parents.html">부모님을 위한 안내</a>
+      <a href="bulletin.html" class="bulletin-link">📌 공지 게시판</a>
+    </nav>
+  </div>
+</header>
+
+<main class="toggle-wrapper">
+  <h2 style="text-align:center;">📢 최신 소식과 공지</h2>
+  <p style="text-align:center;">Healthy Little Minds의 새로운 소식을 확인하세요!</p>
+
+<div class="toggle-card">
+  <div class="toggle-header">📘 2025/08/06: 새로운 책 “아직 못 해요” 출시!</div>
+  <div class="toggle-content">
+    “계속 해봤는데도 안 돼요…”<br>
+    실패 속에서도 다시 시도할 수 있도록 용기와 성장의 메시지를 담은 이야기입니다.<br>
+    <a href="https://heyzine.com/flip-book/1fb2ef8177.html" target="_blank">지금 읽기</a>
+  </div>
+</div>
+
+
+<div class="toggle-card">
+  <div class="toggle-header">❓ 2025/07/20: 새로운 책 “왜, 왜, 왜?” 출간!</div>
+  <div class="toggle-content">
+    끊임없이 “왜?”라고 묻는 아이의 순수함과 감정 성장을 담은 이야기.<br>
+    <a href="https://online.fliphtml5.com/aogil/asyu/index.html" target="_blank">지금 읽기</a>
+  </div>
+</div>
+
+
+  <div class="toggle-card">
+    <div class="toggle-header">👑 2025/07/13: 새로운 이야기 “Princess and the Picture Day Surprise” 출시!</div>
+    <div class="toggle-content">
+      사진 찍는 날, 용기를 낸 프린세스의 자존감 이야기!<br>
+      <a href="https://heyzine.com/flip-book/a958329538.html" target="_blank">지금 읽기</a>
+    </div>
+  </div>
+
+  <div class="toggle-card">
+    <div class="toggle-header">💖 2025/07/10: “작은 행동, 큰 감정” 출간!</div>
+    <div class="toggle-content">
+      친절과 배려를 통해 아이들이 감정을 이해하고 표현하는 데 도움을 줍니다.<br>
+      <a href="https://heyzine.com/flip-book/034942038a.html" target="_blank">지금 읽기</a>
+    </div>
+  </div>
+
+  <div class="toggle-card">
+    <div class="toggle-header">📘 2025/06/29: “내가 무서울 때” 출간!</div>
+    <div class="toggle-content">
+      감정이 클 때를 위한 따뜻한 이야기. 불안과 두려움을 다루는 법을 배워요.<br>
+      <a href="https://heyzine.com/flip-book/1f4337da92.html" target="_blank">지금 읽기</a>
+    </div>
+  </div>
+
+  <div class="toggle-card">
+    <div class="toggle-header">🌀 2025/06/10: “내 마음의 폭풍을 진정시키는 방법” 출시</div>
+    <div class="toggle-content">
+      감정을 진정시키는 숨쉬기, 미술, 대화 방법을 담은 힐링 이야기.<br>
+      <a href="https://heyzine.com/flip-book/3cf1027650.html" target="_blank">지금 읽기</a>
+    </div>
+  </div>
+
+  <div class="toggle-card">
+    <div class="toggle-header">📄 2025/06/23: “감정 워크북” 다운로드 가능!</div>
+    <div class="toggle-content">
+      “내 마음의 폭풍을 진정시키는 감정 워크북” 지금 바로 인쇄하고 활동해보세요.<br>
+      <a href="worksheets/Calm the Storm Inside - My Feelings Workbook.pdf" download>지금 다운로드</a>
+    </div>
+  </div>
+
+  <div class="toggle-card">
+    <div class="toggle-header">📱 Instagram 소식</div>
+    <div class="toggle-content">
+      @heal.thylittleminds에서 비하인드, 예고편, 특별 콘텐츠를 만나보세요!<br>
+      <a href="https://instagram.com/healthylittleminds" target="_blank">Instagram 팔로우하기</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2025 건강한 작은 마음 | 모든 권리 보유 🌟
+</footer>
+
+  <script defer src="../shared-language-switcher.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>互動工具 | 小心靈小貓</title>
+<!-- 🌐 Multilingual SEO: Hreflang Tags for Parents Page -->
+<link rel="alternate" href="https://www.healthylittleminds.club/parents.html" hreflang="en" />
+<link rel="alternate" href="https://www.healthylittleminds.club/zh-tw/parents.html" hreflang="zh-TW" />
+<link rel="alternate" href="https://www.healthylittleminds.club/zh-cn/parents.html" hreflang="zh-CN" />
+<link rel="alternate" href="https://www.healthylittleminds.club/ja/parents.html" hreflang="ja" />
+<link rel="alternate" href="https://www.healthylittleminds.club/ko/parents.html" hreflang="ko" />
+<link rel="alternate" href="https://www.healthylittleminds.club/parents.html" hreflang="x-default" />
+
+  <style>
+     #nowPlayingLabel {
+      transition: opacity 0.3s ease-in-out;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      color: #254E70;
+      font-weight: 500;
+    }
+    .sound-btn {
+      background: #FF66B6;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      margin: 0.3rem;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .sound-btn:hover {
+      transform: scale(1.05);
+    }
+    @media (max-width: 600px) {
+      .sound-btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+      }
+      #nowPlayingLabel {
+        font-size: 1rem;
+      }
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #E3F2FD;
+      color: #254E70;
+    }
+    h2, h3 {
+      text-align: center;
+      color: #254E70;
+    }
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      margin-top: 2rem;
+    }
+    button {
+      background-color: #FF66B6;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.4rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 0.5rem;
+    }
+  #mood-story-builder button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #FF6B6B;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  #mood-story-builder button:hover {
+    background: #e15b5b;
+  }
+   .story-card {
+    background: #dff6ff;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    max-width: 320px;
+    text-align: center;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .story-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 12px;
+    margin: 1rem 0;
+  }
+
+  .story-card h4 {
+    font-size: 1.25rem;
+    color: #254e70;
+    margin-bottom: 0.5rem;
+  }
+
+  .story-card p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 1rem;
+  }
+
+  .story-card .btn {
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    background-color: #ff6b6b;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .story-card .btn:hover {
+    background-color: #e25555;
+  }
+  .story-card:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+.btn.bubble {
+  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.3);
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 107, 107, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 107, 107, 0.4);
+  }
+}
+
+</style>
+</head>
+<body>
+<script>
+  (function () {
+    const isLocal = location.protocol === 'file:';
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isLocal && !isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1];
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo);
+    }
+  })();
+</script>
+
+<div style="
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  background: #FFE4F0;
+  border: 2px solid #F8CFE0;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+">
+  <a href="home.html" style="
+    text-decoration: none;
+    color: #D6336C;
+    font-weight: bold;
+    font-size: 0.95rem;
+  ">
+    🏠 回首頁
+  </a>
+</div>
+
+
+<section id="calm-corner">
+  <h2>🧘‍♂️ 安靜解憂區</h2>
+  <p>來氛一口氣，選擇音樂來讓心情平靜下來吧。</p>
+  <div>
+    <button onclick="playSound('../audio/ocean.mp3', '海浪聲')" class="sound-btn">🌊 海浪聲</button>
+    <button onclick="playSound('../audio/piano.mp3', '輕音鋼琴')" class="sound-btn">🎹 輕音鋼琴</button>
+    <button onclick="playSound('../audio/forest.mp3', '森林聲音')" class="sound-btn">🌲 森林聲音</button>
+    <button onclick="stopMusic()" class="stop-btn">⏹️ 停止音樂</button>
+    <p id="nowPlayingLabel"></p>
+  </div>
+  <div id="breathing-circle" style="width: 150px; height: 150px; margin: 2rem auto; border-radius: 50%; background: #A7E5F3; transition: all 4s ease-in-out;"></div>
+  <p id="breathing-text" style="text-align:center; font-size: 1.4rem;">準備好了...</p>
+  <div style="text-align: center;">
+    <button onclick="startBreathing()">🌬️ 開始呼吸</button>
+  </div>
+</section>
+
+<section>
+  <h2>🎨 畫出你的感覺</h2>
+  <p style="text-align:center;">選擇顏色，開始在底下畫出你的情緒。</p>
+  <div style="text-align:center; margin: 1rem 0;">
+    🖍️ 顏色：<input type="color" id="inkColor" value="#254E70" />
+    <button id="saveBtn">📀 儲存畫畫</button>
+  </div>
+  <p style="font-size: 0.9rem; color: #555; margin-top: 0.5rem;">
+    🎨 儲存畫畫後，請請成人幫忙附件電子郵件傳送。
+  </p>
+  <div style="text-align: center; margin-top: 1.5rem;">
+    <p style="font-size: 0.9rem; color: #555; max-width: 320px; margin: 0 auto 1rem;">
+      儲存後，按下鍵來傳送給成人。
+    </p>
+    <button id="send-email" style="background:#FF6086; color:white; padding:0.6rem 1.2rem; border-radius:20px; font-weight:bold; border:none; cursor:pointer;">
+      📩 傳送給我的成人
+    </button>
+    <p style="font-size: 0.8rem; color: #999; margin-top: 0.5rem;">
+      📌 請自動附件。在「下載」資料夾中找到你的畫畫。
+    </p>
+  </div>
+  <canvas id="drawingCanvas" style="display:block; margin:auto; border:1px solid #ccc; border-radius: 12px; background:#fffbea;" width="300" height="300"></canvas>
+  <div style="text-align:center; margin-top:1rem;">
+    <button id="eraserBtn">🪝 清除</button>
+    <label for="eraserSize">清除粗細：</label>
+    <input type="range" id="eraserSize" min="5" max="40" value="10" />
+    <button id="clearBtn">💖 全部清除</button>
+  </div>
+</section>
+
+<section id="mood-story-builder" style="text-align:center; padding: 2rem; background:#fffbea;">
+  <h2 style="color:#254E70;">📖 建立你的情緒故事</h2>
+  <p>選擇你今天的感覺，我們將幫你導向平靜的活動。</p>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin: 1.5rem 0;">
+    <button onclick="showMoodStory('happy')">😊 開心</button>
+    <button onclick="showMoodStory('angry')">😡 生氣</button>
+    <button onclick="showMoodStory('sad')">😢 難過</button>
+    <button onclick="showMoodStory('scared')">😨 害怕</button>
+    <button onclick="showMoodStory('calm')">😌 平靜</button>
+    <button onclick="showMoodStory('unsure')">😕 不確定</button>
+  </div>
+  <div id="storyOutput" style="max-width: 600px; margin: auto; background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); display:none;">
+    <h3 id="moodTitle"></h3>
+    <p id="moodMessage"></p>
+    <button onclick="resetStory()" style="margin-top:1rem;">🔁 重新選擇</button>
+  </div>
+</section>
+
+<div class="story-card">
+  <img src="images/destiny-sad.png" alt="Destiny feeling sad" />
+  <h4>😢 悲傷</h4>
+  <p>幫助德斯蒂選擇他下一步要做什麼，讓心情好起來吧！</p>
+  <a href="story-sad.html" class="btn">📖 開始故事</a>
+</div>
+
+<div class="story-card">
+  <img src="images/bella_interactive_story.png" alt="貝拉的互動故事" />
+  <h4>🌈 選擇與感受</h4>
+  <p>一起看看貝拉如何做選擇，這些選擇又如何影響她的情緒與友情。</p>
+  <a href="interactive-stories/scene_1_bella_story.html" class="btn bubble">📖 開始貝拉的故事</a>
+</div>
+
+
+<script>
+const moodResponses = {
+  happy: {
+    title: "你感覺很開心！😊",
+    message: "太好了！尝試畫一下什麼使你笑的事，分享開心也會讓它繼續伸展。"
+  },
+  angry: {
+    title: "你感到生氣😡",
+    message: "感到生氣是正常的，一起做 3 次深呼吸。畫畫或握緊枕頭也是好方法。"
+  },
+  sad: {
+    title: "你有點難過😢",
+    message: "當你難過時，一個安全的空間是很重要的。嘗試畫出你的悲傷，或寫一封給情緒的信。"
+  },
+  scared: {
+    title: "你有點害怕😨",
+    message: "害怕表示你在之事。抱一下柔軟的東西，畫一個安全的地方，你不是一個人。"
+  },
+  calm: {
+    title: "你感到平靜😌",
+    message: "好安靜啊！來畫個花園，雲多或動物來保持這分平靜。"
+  },
+  unsure: {
+    title: "你有點不確定😕",
+    message: "沒關係，嘗試畫出階段或形狀，看看有沒有情緒會顯現出來。"
+  }
+};
+    function showMoodStory(mood) {
+    const output = document.getElementById('storyOutput');
+    document.getElementById('moodTitle').textContent = moodResponses[mood].title;
+    document.getElementById('moodMessage').textContent = moodResponses[mood].message;
+    output.style.display = 'block';
+  }
+
+  function resetStory() {
+    document.getElementById('storyOutput').style.display = 'none';
+  }
+</script>
+
+<script>
+const canvas = document.getElementById('drawingCanvas');
+const ctx = canvas.getContext('2d');
+const colorPicker = document.getElementById('inkColor');
+const eraserBtn = document.getElementById('eraserBtn');
+const clearBtn = document.getElementById('clearBtn');
+const saveBtn = document.getElementById('saveBtn');
+const eraserSize = document.getElementById('eraserSize');
+
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetHeight;
+ctx.fillStyle = '#fffbea';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+let drawing = false;
+let erasing = false;
+let lastX = 0;
+let lastY = 0;
+
+function getXY(e) {
+  const rect = canvas.getBoundingClientRect();
+  return {
+    x: (e.touches ? e.touches[0].clientX : e.clientX) - rect.left,
+    y: (e.touches ? e.touches[0].clientY : e.clientY) - rect.top
+  };
+}
+
+function startDrawing(e) {
+  drawing = true;
+  const pos = getXY(e);
+  lastX = pos.x;
+  lastY = pos.y;
+}
+
+function draw(e) {
+  if (!drawing) return;
+  e.preventDefault();
+  const pos = getXY(e);
+  ctx.strokeStyle = erasing ? '#fffbea' : colorPicker.value;
+  ctx.lineWidth = erasing ? parseInt(eraserSize.value) : 3;
+  ctx.lineCap = 'round';
+
+  ctx.beginPath();
+  ctx.moveTo(lastX, lastY);
+  ctx.lineTo(pos.x, pos.y);
+  ctx.stroke();
+
+  lastX = pos.x;
+  lastY = pos.y;
+}
+
+function stopDrawing() {
+  drawing = false;
+}
+
+canvas.addEventListener('mousedown', startDrawing);
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseup', stopDrawing);
+canvas.addEventListener('mouseout', stopDrawing);
+canvas.addEventListener('touchstart', startDrawing);
+canvas.addEventListener('touchmove', draw);
+canvas.addEventListener('touchend', stopDrawing);
+
+eraserBtn.addEventListener('click', () => {
+  erasing = !erasing;
+  eraserBtn.textContent = erasing ? '🧽 Erasing...' : '🧽 Eraser';
+});
+
+clearBtn.addEventListener('click', () => {
+  ctx.fillStyle = '#fffbea';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+});
+
+saveBtn.addEventListener('click', () => {
+  const image = canvas.toDataURL("image/png");
+  const link = document.createElement('a');
+  link.href = image;
+  link.download = "my_drawing.png";
+  link.click();
+});
+
+function startBreathing() {
+  const circle = document.getElementById('breathing-circle');
+  const text = document.getElementById('breathing-text');
+  let state = 'breathe in';
+
+  text.textContent = 'Breathe in...';
+  circle.style.transform = 'scale(1.4)';
+
+  if (window.breathingInterval) clearInterval(window.breathingInterval);
+
+  window.breathingInterval = setInterval(() => {
+    if (state === 'breathe in') {
+      state = 'hold';
+      text.textContent = 'Hold...';
+      circle.style.transform = 'scale(1.4)';
+    } else if (state === 'hold') {
+      state = 'breathe out';
+      text.textContent = 'Breathe out...';
+      circle.style.transform = 'scale(1)';
+    } else {
+      state = 'breathe in';
+      text.textContent = 'Breathe in...';
+      circle.style.transform = 'scale(1.4)';
+    }
+  }, 4000);
+}
+
+let audioPlayer = new Audio();
+
+function playSound(src, label = "") {
+  audioPlayer.pause();
+  audioPlayer = new Audio(src);
+  audioPlayer.loop = true;
+  audioPlayer.play();
+  document.getElementById('nowPlayingLabel').textContent = `🎵 Now Playing: ${label}`;
+}
+
+function stopMusic() {
+  audioPlayer.pause();
+  audioPlayer.currentTime = 0;
+  document.getElementById('nowPlayingLabel').textContent = "";
+}
+
+document.getElementById("send-email").addEventListener("click", function () {
+  const subject = encodeURIComponent("My Drawing from Healthy Little Minds");
+  const body = encodeURIComponent("Hi Mom/Dad! I've drawn how I feel today. Please help me send it. You can find the file I just saved in the Downloads folder and attach it to this message. ❤️");
+  window.location.href = `mailto:?subject=${subject}&body=${body}`;
+});
+</script>
+<footer>
+© 2025 健康小小心靈 | 保留所有權利 🌟
+</footer>
+
+  <script defer src="../shared-language-switcher.js?v=1"></script>
+</body>
+</html>

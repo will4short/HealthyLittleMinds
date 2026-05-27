@@ -1,0 +1,112 @@
+body.feeling-page,
+body.feelings-hub {
+  font-family: "Noto Sans KR", "DM Sans", Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+.ko-feeling-header {
+  background: #fff;
+  border-bottom: 1px solid #e9e2da;
+}
+
+.ko-feeling-header__inner {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 15px 16px;
+}
+
+.ko-feeling-brand {
+  align-items: center;
+  color: #193f5c;
+  display: inline-flex;
+  font-family: "Nunito", "Noto Sans KR", sans-serif;
+  font-size: 1.18rem;
+  font-weight: 800;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.ko-feeling-brand img { height: 38px; width: 38px; }
+.ko-feeling-nav { display: flex; gap: 8px; }
+.ko-feeling-nav a {
+  border-radius: 999px;
+  color: #31566f;
+  font-size: .92rem;
+  font-weight: 700;
+  padding: 8px 13px;
+  text-decoration: none;
+}
+.ko-feeling-nav a:hover,
+.ko-feeling-nav a:focus-visible { background: #f1f7fa; }
+.feelings-shell { padding-top: 22px; }
+.feeling-emoji {
+  display: block;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  margin-bottom: 8px;
+}
+.ko-feelings-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 30px;
+}
+.ko-feelings-actions .button--secondary {
+  background: #fff;
+  border: 1px solid #c9dce5;
+  color: #193f5c;
+}
+.ko-feelings-actions .button--secondary:hover,
+.ko-feelings-actions .button--secondary:focus-visible { background: #edf6fa; }
+
+.feeling-page--embarrassed { --highlight: #fff0eb; --accent: #d56d62; --accent-dark: #ac433a; }
+.feeling-page--nervous { --highlight: #eaf4fb; --accent: #467d9d; --accent-dark: #27566f; }
+.feeling-page--disappointed { --highlight: #e7f5f5; --accent: #397f83; --accent-dark: #20585c; }
+.feeling-page--fear { --highlight: #e9f0fc; --accent: #5271b1; --accent-dark: #334f89; }
+.feeling-page--lonely { --highlight: #f0ebf8; --accent: #7564a5; --accent-dark: #55437f; }
+.feeling-page--sadness { --highlight: #e8f2fb; --accent: #47799a; --accent-dark: #28526d; }
+.feeling-page--anger { --highlight: #ffe7df; --accent: #dc624d; --accent-dark: #a63b2d; }
+.feeling-page--calm { --highlight: #def4ed; --accent: #3d846f; --accent-dark: #225b49; }
+.feeling-page--joy { --highlight: #fff3cf; --accent: #d48633; --accent-dark: #a45917; }
+.tile--fear { --tile-accent: #e9f0fc; }
+.tile--anger { --tile-accent: #ffe2da; }
+.tile--sadness { --tile-accent: #e1effa; }
+.tile--calm { --tile-accent: #ddf4eb; }
+.tile--joy { --tile-accent: #fff1bf; }
+
+.feeling-page .guide-section .insight-card { min-height: 138px; }
+.ko-resource-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+.ko-resource-actions a {
+  background: #fff;
+  border: 1px solid #dbe6ea;
+  border-radius: 999px;
+  color: #254e70;
+  font-weight: 700;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+.ko-resource-actions a:hover,
+.ko-resource-actions a:focus-visible { background: #edf6fa; }
+.ko-feeling-footer {
+  color: #62798a;
+  font-size: .92rem;
+  padding: 0 16px 34px;
+  text-align: center;
+}
+
+@media (max-width: 620px) {
+  .ko-feeling-header__inner { gap: 10px; padding: 13px 12px; }
+  .ko-feeling-brand { font-size: 1.02rem; }
+  .ko-feeling-nav a { font-size: .88rem; padding: 7px 9px; }
+  .feeling-hero { border-radius: 20px; }
+  .ko-feelings-actions .button { width: 100%; }
+}

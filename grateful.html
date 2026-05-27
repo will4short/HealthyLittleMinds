@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feeling Grateful - Healthy Little Minds</title>
+  <meta name="description" content="Simple gratitude ideas and a story for helping children notice kindness and hopeful moments.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="feelings-guide.css">
+</head>
+<body class="feeling-page feeling-page--grateful">
+  <script>
+    (function () {
+      if (localStorage.getItem("isMember") !== "true") {
+        const local = window.location.protocol === "file:";
+        const path = window.location.pathname;
+        const locale = path.split("/")[1];
+        window.location.replace(local ? "index.html" : (locale && path.includes("/" + locale + "/") ? "/" + locale + "/index.html" : "/index.html"));
+      }
+    })();
+  </script>
+  <main class="feelings-shell">
+    <a class="breadcrumb" href="more-feelings.html">&larr; Explore more feelings</a>
+    <section class="feeling-hero">
+      <div>
+        <p class="kicker">Explore a feeling</p>
+        <h1>Feeling Grateful</h1>
+        <p class="feeling-lead">Gratitude is noticing something good, kind, or helpful. It does not mean pretending hard feelings are gone; we can feel thankful and still have a difficult day.</p>
+      </div>
+      <aside class="hero-prompt"><h2>Try saying</h2><p>"Something that helped me today was..."</p></aside>
+    </section>
+    <section class="guide-section">
+      <h2>Things we can notice</h2>
+      <div class="card-grid">
+        <article class="insight-card"><h3>People</h3><p>A person who listened, helped, played, or made you feel cared for.</p></article>
+        <article class="insight-card"><h3>Moments</h3><p>A laugh, a meal, a sunny walk, a rest, or something you learned.</p></article>
+        <article class="insight-card"><h3>Yourself</h3><p>Your own effort, bravery, patience, or kindness today.</p></article>
+      </div>
+    </section>
+    <div class="two-column">
+      <section class="panel">
+        <h2>Try this now</h2>
+        <ol class="steps">
+          <li><strong>Name three small goods.</strong> Draw or share three things you noticed today.</li>
+          <li><strong>Thank someone clearly.</strong> Explain what they did and why it mattered.</li>
+          <li><strong>Pass kindness on.</strong> Choose one thoughtful action for another person.</li>
+        </ol>
+      </section>
+      <aside class="support-card">
+        <h2>For grown-ups</h2>
+        <p>Model gratitude without forcing it. Acknowledge difficult moments first, then gently invite children to notice support or small bright spots.</p>
+      </aside>
+    </div>
+    <section class="resource-panel">
+      <h2>Read together</h2>
+      <div class="resource-grid">
+        <article class="resource-card">
+          <img src="images/the-news-we-choose.webp" alt="The News We Choose book cover">
+          <h3>The News We Choose</h3>
+          <p>A hopeful story about noticing and sharing positive moments with others.</p>
+          <a class="read-button" href="https://heyzine.com/flip-book/ed1606de6d.html" target="_blank" rel="noopener">Read the book</a>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script defer src="shared-language-switcher.js?v=1"></script>
+</body>
+</html>

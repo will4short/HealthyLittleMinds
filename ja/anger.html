@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>😡「おこり」のきもちをしろう | こころのひろば</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=DM+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      background-color: #FFF2E5;
+      color: #254E70;
+      padding: 2rem;
+    }
+
+    h1, h2 {
+      font-family: 'Baloo 2', cursive;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .book img {
+      max-width: 200px;
+      border-radius: 10px;
+      margin: 1rem 0;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 10px 20px;
+      background-color: #FF6B6B;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #e25555;
+    }
+
+    .subtopic-header {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 15px;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      margin: 1rem auto;
+      max-width: 800px;
+      transition: background-color 0.3s ease;
+    }
+
+    .subtopic-header:hover {
+      background-color: #FFF7F0;
+    }
+
+    .subtopic-header h2 {
+      margin: 0;
+      color: #FF6B6B;
+      font-size: 1.3rem;
+    }
+
+    .toggle-icon {
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .subtopic-content {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1rem 2rem 1rem;
+    }
+
+    .subtopic-content.active {
+      display: grid;
+    }
+
+    .subtopic-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .subtopic-card h3 {
+      color: #FF6B6B;
+      margin-top: 0;
+    }
+
+    .subtopic-card p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .subtopic-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<script>
+  function toggleSection(sectionId) {
+    const content = document.getElementById(sectionId);
+    const icon = document.getElementById(sectionId + '-icon');
+    
+    content.classList.toggle('active');
+    icon.textContent = content.classList.contains('active') ? '➖' : '➕';
+  }
+
+  (function () {
+    const isLocal = location.protocol === 'file:';
+    const isMember = localStorage.getItem("isMember") === "true";
+
+    if (!isLocal && !isMember) {
+      const path = window.location.pathname;
+      const locale = path.split('/')[1];
+      const redirectTo = locale && path.includes(`/${locale}/`) 
+        ? `/${locale}/index.html` 
+        : "/index.html";
+      window.location.replace(redirectTo);
+    }
+  })();
+</script>
+
+<div class="container">
+  <h1>😡「おこり」のきもちをしろう</h1>
+  <p style="text-align:center; font-size: 1.1rem; max-width: 600px; margin: auto;">
+    このページでは、「おこり」のきもちがどんなものか、そしてそのきもちをやさしく伝えたり、こころを落ち着ける方法を学べます。
+  </p>
+
+  <!-- 🎯 CAUSES OF ANGER -->
+  <div class="subtopic-header" onclick="toggleSection('causes')">
+    <h2>🎯 若い人がおこる理由は？</h2>
+    <span class="toggle-icon" id="causes-icon">➕</span>
+  </div>
+  <div class="subtopic-content" id="causes">
+    <div class="subtopic-card">
+      <h3>🧠 きもちや要求が聞いてもらえない</h3>
+      <p>おなかが空いていたり、疲れていたり、自分の気持ちを聞いてもらえないと、おこりが生まれます。子どもたちは、自分のきもちをうまく言葉で伝えられないことが多いです。</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>😤 コントロールを失う感覚</h3>
+      <p>無力感を感じたり、急に計画が変わったりすると、ルーティンを必要とする若い人はイライラします。</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>💔 心が傷つく</h3>
+      <p>仲間はずれにされたり、馬鹿にされたり、尊重されないと感じます。おこりは、実は悲しみや恥ずかしさを隠しているときもあります。</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>⚡ 脳の発達</h3>
+      <p>脳の「思考脳」（衝動をコントロールする部分）はまだ発達途上です。すぐに反応するのは、反抗的だからではなく、脳の成長段階による自然なことです。</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>🧬 ストレスと疲れ</h3>
+      <p>学校の勉強、友だち関係の心配、やることが多すぎるなど。疲れた体と心は、より早くおこりで反応してしまいます。</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>🏠 家庭環境と見本</h3>
+      <p>子どもたちは、周りの大人たちの行動をまねします。家庭での争い、大きな声、乱暴な行動がおこりの表現方法に影響を与えます。</p>
+    </div>
+  </div>
+
+  <!-- 💪 WAYS TO MANAGE ANGER -->
+  <div class="subtopic-header" onclick="toggleSection('management')">
+    <h2>💪 おこりを落ち着かせる方法</h2>
+    <span class="toggle-icon" id="management-icon">➕</span>
+  </div>
+  <div class="subtopic-content" id="management">
+    <div class="subtopic-card">
+      <h3>🌬️ いきをするテクニック</h3>
+      <p><strong>4-7-8 いき：</strong>4つ数えながら息を吸って、7つ数えながら止めて、8つ数えながら吐きます。すぐに心と体が落ち着きます。</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>🚶 いったん立ち止まる</h3>
+      <p>その場から離れてみましょう。10分の休み時間は、脳の「感情脳」が落ち着き、「思考脳」が働くようになるのを助けます。</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>🎨 創造的な表現</h3>
+      <p>絵を描いたり、色ぬりをしたり、音楽を聴いたり、作ったり。きもちを創造を通してあらわすことは、言葉や行動より安全です。</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>🏃 からだを動かす</h3>
+      <p>走ったり、跳んだり、ダンスしたり、まくらを思いきり握ったり。からだを動かすことは、おこりの時に出ているストレスホルモンを減らします。</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>💭 きもちに名前をつける</h3>
+      <p>「私はおこっているのは、〇〇だから」と言ってみましょう。きもちに名前をつけることで、そのはんのうが弱くなり、ほんとうの理由が見えてきます。</p>
+    </div>
+
+    <div class="subtopic-card">
+      <h3>🤝 誰かに相談する</h3>
+      <p>信頼できる大人、友だち、スクールカウンセラーに話しましょう。聞いてもらえることで、おこりに反応するのではなく、きもちを処理することができます。</p>
+    </div>
+  </div>
+
+  <!-- Book 1 -->
+  <div class="card">
+    <h2>🌧️ おおきなきもちをしずめるおはなし</h2>
+    <p>
+      『<em>こころのなかのあらしをしずめるほうほう</em>』は、
+      こどもたちが「おこり」などのつよいきもちに出会ったとき、
+      いきをととのえたり、えをかいたり、しんらいできるおとなと
+      おはなしすることで、こころをしずめる方法をやさしく教えてくれます。
+    </p>
+    <div class="book">
+      <a href="https://heyzine.com/flip-book/3cf1027650.html" target="_blank" rel="noopener">
+        <img src="../images/storm-book-cover.webp" alt="こころのなかのあらしをしずめるほうほう">
+      </a>
+    </div>
+  </div>
+
+  <!-- Book 2 (NEW: Princess) -->
+  <div class="card">
+    <h2>👑 きもちがとてもおおきくなったとき</h2>
+    <p>
+      『<em>きもちがとてもおおきくなったとき</em>』は、
+      プリンセスが「おこり」や「かなしい」きもちと向き合いながら、
+      いちど立ち止まり、いきをして、
+      自分のきもちに気づくおはなしです。
+      <br><br>
+      きもちはわるいものではなく、
+      たいせつなメッセージだということを
+      やさしく教えてくれます。
+    </p>
+    <div class="book">
+      <a href="https://heyzine.com/flip-book/5cbe03c993.html" target="_blank" rel="noopener">
+        <img src="../images/when-my-feelings-cover.webp" alt="きもちがとてもおおきくなったとき">
+      </a>
+    </div>
+  </div>
+
+  <div style="text-align: center;">
+    <a href="home.html" class="back-btn">⬅ ホームにもどる</a>
+  </div>
+</div>
+
+  <script defer src="../shared-language-switcher.js?v=1"></script>
+</body>
+</html>

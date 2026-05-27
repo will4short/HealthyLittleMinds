@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>マインドフルネス – ヘルシー・リトル・マインズ</title>
+  <meta name="description" content="判断せずに、今この瞬間の思考、感情、感覚にやさしく注意を向けること。"/>
+  <meta name="keywords" content="マインドフルネス, 子ども, ティーン, 保護者, 教育者, メンタルヘルス, 感情教育, ワークシート"/>
+  <meta name="author" content="ゴッズウィル・アンブローズ"/>
+  <link rel="canonical" href="https://www.healthylittleminds.club/ja/resources/mindfulness.html"/>
+  <meta name="robots" content="index,follow"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://www.healthylittleminds.club/ja/resources/mindfulness.html"/>
+  <meta property="og:title" content="マインドフルネス – ヘルシー・リトル・マインズ"/>
+  <meta property="og:description" content="判断せずに、今この瞬間の思考、感情、感覚にやさしく注意を向けること。"/>
+  <meta property="og:image" content="https://www.healthylittleminds.club/images/og/resources-mindfulness.jpg"/>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="マインドフルネス – ヘルシー・リトル・マインズ"/>
+  <meta name="twitter:description" content="判断せずに、今この瞬間の思考、感情、感覚にやさしく注意を向けること。"/>
+  <meta name="twitter:image" content="https://www.healthylittleminds.club/images/og/resources-mindfulness.jpg"/>
+
+  <meta name="theme-color" content="#FFDD59"/>
+
+  <!-- Fonts & CSS (unchanged) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="../../style.css?v=96" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet">  <link href="../../resources/resource-polish.css?v=7" rel="stylesheet" />
+  <!-- Inline styles (unchanged) -->
+    <style>
+/* ===== Page frame (works alongside your main style.css) ===== */
+html{scroll-behavior:smooth;}
+.topic-wrap{max-width:1100px;margin:0 auto;padding:1rem;}
+.breadcrumb{font-size:.9rem;color:#476882;margin:.75rem 0 0;padding:0 1rem;}
+.breadcrumb a{color:#254E70;text-decoration:none;}
+
+/* ===== Grid: hero + main + aside ===== */
+.topic-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 320px;
+  grid-template-areas:
+    "hero  aside"
+    "main  aside";
+  gap:24px;
+  margin:1rem;
+  padding:0 1rem;
+}
+.topic-hero{ grid-area:hero; }
+.topic-main{ grid-area:main; }
+.topic-aside{ grid-area:aside; }
+
+@media (max-width:980px){
+  .topic-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "hero"
+      "main"
+      "aside";
+    margin:.75rem 0;
+    padding:0 .75rem;
+  }
+}
+
+/* ===== Hero (split + compact + calm palette) ===== */
+.topic-hero{
+  background:#F7FFF8; /* base */
+  border-radius:16px;
+  box-shadow:0 6px 18px rgba(0,0,0,.05);
+  padding:1rem 1rem 1.15rem;
+  position:relative;
+  overflow:hidden;
+}
+
+/* gentle pattern + subtle gradient tint */
+.topic-hero.topic-hero--calm{
+  background: radial-gradient(900px 500px at -10% -20%, rgba(37,78,112,.06) 0%, transparent 70%),
+              linear-gradient(180deg, #F4FFF8 0%, #F1FAFF 100%);
+}
+
+/* Split layout inside hero */
+.topic-hero--split .th-grid{
+  display:grid;
+  grid-template-columns:minmax(220px,1fr) minmax(320px,1.35fr);
+  gap:24px;
+  align-items:center;
+  max-width:100%;
+}
+
+/* Compact tweaks */
+.topic-hero--compact{ padding:.9rem 1rem 1rem; border-radius:14px; }
+.topic-hero--compact .th-grid{ gap:16px; }
+
+/* Title */
+.topic-hero--split .th-title h1{
+  font-family:'Nunito',sans-serif;
+  font-weight:800;
+  color:#254E70;
+  margin:0;
+  line-height:1.05;
+  font-size:clamp(1.9rem,1.2vw + 1.4rem,2.6rem);
+}
+
+/* Lead */
+.topic-hero--split .th-copy .lead{
+  color:#364c63;
+  line-height:1.7;
+  margin:.1rem 0 .55rem;
+  font-size:1.06rem;
+  max-width:60ch;
+}
+.topic-hero--compact .th-copy .lead{ font-size:1rem; line-height:1.6; }
+
+/* Audience chips */
+.aud-chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
+.aud-chips span{
+  background:#EAF7D6;
+  color:#254E70;
+  font-weight:800;
+  padding:.38rem .72rem;
+  border-radius:999px;
+  font-size:.9rem;
+  white-space:nowrap;
+  box-shadow:0 2px 6px rgba(0,0,0,.04);
+}
+.topic-hero--compact .aud-chips{ gap:.4rem; }
+.topic-hero--compact .aud-chips span{ padding:.3rem .6rem; font-size:.85rem; }
+
+/* Quick nav pills */
+.quick-nav{ display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.45rem; }
+.quick-nav a{
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:#fff; color:#254E70; text-decoration:none;
+  font-weight:700; font-size:.9rem;
+  padding:.38rem .72rem; border-radius:999px;
+  box-shadow:0 4px 12px rgba(0,0,0,.06), inset 0 0 0 1px rgba(37,78,112,.06);
+}
+.quick-nav a::before{
+  content:'•'; color:#7aa3b8; font-size:1rem; line-height:1;
+}
+.topic-hero--compact .quick-nav a{ padding:.34rem .66rem; font-size:.86rem; }
+
+/* Cards + aside */
+.topic-main h2,.topic-main h3{font-family:'Nunito',sans-serif;color:#254E70}
+.topic-card{
+  background:#fff;border-radius:14px;
+  box-shadow:0 8px 18px rgba(0,0,0,.06);
+  padding:1rem;margin-bottom:1rem;
+  scroll-margin-top:90px; /* anchor targets */
+}
+.topic-main .topic-card:first-child{ margin-top:.35rem; }
+
+.topic-aside{
+  background:#FFFFFF;border:1px solid #f0f0f0;border-radius:16px;
+  padding:1rem;box-shadow:0 8px 18px rgba(0,0,0,.05)
+}
+@media (min-width:981px){ .topic-aside{ position:sticky; top:88px; } }
+
+.topic-aside a{color:#FF6B6B;text-decoration:none;font-weight:700}
+.disclaimer{font-size:.9rem;color:#6b7a8e;margin-top:.75rem}
+.cta-btn{display:inline-block;background:#FF6B6B;color:#fff;text-decoration:none;padding:.65rem 1rem;border-radius:12px;font-weight:800}
+
+/* Ticks list */
+ul.ticks{list-style:none;padding-left:0;margin:.25rem 0}
+ul.ticks li{margin:.4rem 0;padding-left:1.25rem;position:relative}
+ul.ticks li::before{content:'✔';position:absolute;left:0;top:0;color:#24b159;font-weight:900}
+hr.soft{border:0;border-top:1px solid #eee;margin:1rem 0}
+
+/* Mobile: stack hero sections */
+@media (max-width:820px){
+  .topic-hero--split .th-grid{ grid-template-columns:1fr; gap:10px; }
+  .topic-hero--split .th-title h1{ font-size:1.8rem; }
+}
+/* ===== Link states (scoped to the topic page) ===== */
+
+/* Body + aside links: visible underline + hover color */
+.topic-main a,
+.topic-aside a {
+  color:#254E70;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  transition: color .15s ease, text-decoration-color .15s ease, box-shadow .15s ease;
+}
+
+.topic-main a:hover,
+.topic-aside a:hover {
+  color:#163652;
+  text-decoration-color:#FF6B6B; /* underline tint on hover */
+}
+
+.topic-main a:focus-visible,
+.topic-aside a:focus-visible {
+  outline:3px solid #FFDD59;       /* keyboard focus ring */
+  outline-offset:2px;
+  border-radius:6px;
+  text-decoration: none;            /* ring is enough when focused */
+}
+
+/* Quick-nav pills: clear hover + focus feedback */
+.quick-nav a{
+  cursor:pointer;
+  background:#fff;
+  color:#254E70;
+  border:1px solid rgba(37,78,112,.12);
+  box-shadow:0 2px 6px rgba(0,0,0,.06);
+  text-decoration:none;             /* pills don’t use underline */
+  transition:transform .12s ease, background .12s ease, color .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+
+.quick-nav a:hover{
+  background:#254E70;
+  color:#fff;
+  border-color:#254E70;
+  transform:translateY(-1px);
+  box-shadow:0 6px 14px rgba(37,78,112,.25);
+}
+
+.quick-nav a:active{
+  transform:translateY(0);
+}
+
+.quick-nav a:focus-visible{
+  outline:3px solid #FFDD59;
+  outline-offset:2px;
+  box-shadow:0 0 0 3px rgba(255,221,89,.35);
+}
+
+/* Make the bullet dot flip to white on hover for contrast */
+.quick-nav a:hover::before{ color:#fff; }
+
+  </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Mindfulness – Healthy Little Minds",
+    "datePublished": "2025-09-02",
+    "dateModified": "2025-09-02",
+    "author": {"@type": "Person", "name": "Godswill Ambrose"},
+    "publisher": {"@type": "Organization", "name": "Healthy Little Minds"},
+    "inLanguage": "en",
+    "about": "Mindfulness"
+  }
+  </script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "マインドフルネス – ヘルシー・リトル・マインズ",
+    "datePublished": "2025-09-02",
+    "dateModified": "2025-09-02",
+    "author": {"@type": "Person", "name": "ゴッズウィル・アンブローズ"},
+    "publisher": {"@type": "Organization", "name": "ヘルシー・リトル・マインズ"},
+    "inLanguage": "ja",
+    "about": "マインドフルネス"
+  }
+  </script>
+</head>
+<body class="topic-page topic-page--mindfulness">
+  <script defer src="../../resources/resource-language-switcher.js?v=1"></script>
+  <div class="topic-wrap">
+    <div class="resource-toolbar">
+      <a class="topic-back-link" href="../home.html#topics">← すべてのトピック</a>
+      <span class="resource-reading">実用ガイド・3分で読めます</span>
+    </div>
+      <a href="../home.html">ホーム</a> &raquo;
+      <a href="../home.html#hlm-topics-title">リソース</a> &raquo;
+      <span aria-current="page">マインドフルネス</span>
+    </nav>
+
+    <!-- HEROセクション -->
+    <header class="topic-hero topic-hero--split topic-hero--compact topic-hero--calm" role="banner">
+      <div class="th-grid">
+        <div class="th-title">
+          <h1>マインドフルネス</h1>
+        </div>
+
+        <div class="th-copy">
+          <p class="lead">
+            判断せずに、今この瞬間の思考、感情、感覚にやさしく注意を向けること。
+          </p>
+
+          <div class="aud-chips" role="list" aria-label="対象者">
+            <span role="listitem">子ども</span>
+            <span role="listitem">ティーン</span>
+            <span role="listitem">保護者</span>
+            <span role="listitem">教育者</span>
+          </div>
+
+          <!-- クイックナビ -->
+          <nav class="quick-nav" aria-label="ページ内リンク">
+            <a href="#overview">概要</a>
+            <a href="#try">今すぐやってみよう</a>
+            <a href="#talk">会話のきっかけ</a>
+            <a href="#download">ダウンロード＆探索</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- メインとサイド -->
+    <section class="topic-grid">
+      <article class="topic-main">
+        <div id="overview" class="topic-card">
+          <h2>概要</h2>
+          <p>
+            マインドフルネスとは、「今この瞬間」に起きている内面や周囲の出来事に、
+            やさしさを持って気づくことです。家庭や学校で手軽に試すことができます。
+            子どもは一人ひとり異なるため、役に立つものを選んで取り入れましょう。
+          </p>
+        </div>
+
+        <div id="try" class="topic-card">
+          <h2>今すぐやってみよう</h2>
+          <ul class="ticks">
+            <li><strong>1分間のマインドフルネス：</strong> 足の感覚に気づき、呼吸を意識し、3つの音を聞いてみましょう。</li>
+            <li><strong>小石の練習：</strong> 小さなものを手に取り、五感すべてを使って観察しましょう。</li>
+            <li><strong>気づきウォーク：</strong> ゆっくり5分間歩きながら、10まで数えてまた戻ることを繰り返します。</li>
+          </ul>
+        </div>
+
+        <div id="talk" class="topic-card">
+          <h3>会話のきっかけ</h3>
+          <ul>
+            <li>「今、体のどこにどんな感覚がある？落ち着いている部分や緊張している部分は？」</li>
+            <li>「ストレスを感じたとき、少し気分が楽になる方法はある？」</li>
+            <li>「もっと助けが必要なとき、誰に頼れそう？」</li>
+          </ul>
+        </div>
+
+        <div id="download" class="topic-card">
+          <h3>ダウンロード＆探索</h3>
+          <p>
+            印刷して使えるツールやストーリーをチェックしよう：
+            <a class="cta-btn" href="../home.html#worksheets">🎨 ワークシート</a>
+            &nbsp;&nbsp;
+            <a class="cta-btn" href="../inspire_page.html">🎬 ショートビデオ</a>
+          </p>
+          <p class="disclaimer">
+            本コンテンツは教育目的のみであり、医療または治療の助言ではありません。
+            安全や健康に関して心配がある場合は、専門家または地域の支援機関に速やかに相談してください。
+          </p>
+        </div>
+      </article>
+
+      <aside class="topic-aside">
+        <h3>役立つリンク</h3>
+        <ul>
+          <li><a href="../interactive-tools.html">インタラクティブツール</a></li>
+          <li><a href="../audiobook_section.html">オーディオブック</a></li>
+          <li><a href="../parents.html">保護者向けページ</a></li>
+         </ul>
+        <hr class="soft">
+        <p class="disclaimer">緊急の場合は、地域の緊急サービスに連絡してください。</p>
+      </aside>
+    </section>
+  </div>
+
+  <footer style="text-align:center; padding:1rem; color:#6b7a8e;">
+    &copy; 2025 ヘルシー・リトル・マインズ
+  </footer>
+</body>
+</html>
