@@ -1,0 +1,592 @@
+:root {
+  --tools-ink: #254e70;
+  --tools-text: #496270;
+  --tools-coral: #FF66B6;
+  --tools-coral-dark: #e54da6;
+  --tools-accent: #FF6B6B;
+  --tools-accent-dark: #e15b5b;
+  --tools-mint: #eaf6f2;
+  --tools-sky: #E3F2FD;
+  --tools-blush: #fff0f6;
+  --tools-paper: #ffffff;
+  --tools-border: #dce7eb;
+  --tools-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  --tools-shadow-lg: 0 12px 28px rgba(37, 78, 112, 0.09);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.tools-page {
+  margin: 0;
+  padding: 0;
+  background: var(--tools-sky);
+  color: var(--tools-text);
+  font-family: "DM Sans", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+body.tools-page--ja {
+  font-family: "Noto Sans JP", "DM Sans", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+  line-height: 1.72;
+}
+
+body.tools-page--ko {
+  font-family: "Noto Sans KR", "DM Sans", "Malgun Gothic", Arial, sans-serif;
+  line-height: 1.68;
+}
+
+body.tools-page--tw {
+  font-family: "Noto Sans TC", "DM Sans", "Microsoft JhengHei", Arial, sans-serif;
+  line-height: 1.72;
+}
+
+body.tools-page--cn {
+  font-family: "Noto Sans SC", "DM Sans", "Microsoft YaHei", Arial, sans-serif;
+  line-height: 1.72;
+}
+
+.tools-page h1,
+.tools-page h2,
+.tools-page h3 {
+  margin: 0;
+  color: var(--tools-ink);
+  font-family: "Nunito", Arial, sans-serif;
+  line-height: 1.18;
+}
+
+.tools-page--ja h1,
+.tools-page--ja h2,
+.tools-page--ja h3 {
+  font-family: "Noto Sans JP", "Nunito", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+  letter-spacing: 0;
+}
+
+.tools-page--ko h1,
+.tools-page--ko h2,
+.tools-page--ko h3 {
+  font-family: "Noto Sans KR", "Nunito", "Malgun Gothic", Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+.tools-page--tw h1,
+.tools-page--tw h2,
+.tools-page--tw h3 {
+  font-family: "Noto Sans TC", "Nunito", "Microsoft JhengHei", Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+.tools-page--cn h1,
+.tools-page--cn h2,
+.tools-page--cn h3 {
+  font-family: "Noto Sans SC", "Nunito", "Microsoft YaHei", Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+.tools-page a {
+  color: var(--tools-ink);
+}
+
+.tools-shell {
+  width: min(1160px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+/* Header & Navigation */
+.tools-header {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  background: #E6E6FA;
+  border: 2px solid #D8BFD8;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tools-header a {
+  text-decoration: none;
+  color: #5A3E8A;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.tools-header a:hover {
+  opacity: 0.8;
+}
+
+/* Main Content */
+.tools-main {
+  padding: clamp(1.5rem, 4vw, 3rem) 0;
+}
+
+/* Quick Start Guide */
+.tools-quick-start {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  box-shadow: var(--tools-shadow-lg);
+  text-align: center;
+}
+
+.tools-quick-start h2,
+.tools-quick-start p {
+  margin: 0.2rem 0;
+  color: var(--tools-text);
+}
+
+.tools-quick-start p {
+  line-height: 1.45;
+}
+
+.tools-quick-start .flow {
+  margin-top: 0.6rem;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: var(--tools-ink);
+  font-weight: 600;
+}
+
+.tools-quick-start .tiny-note {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 1.2rem;
+}
+
+/* Section Container */
+.tools-section {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  max-width: 600px;
+  margin: 2rem auto;
+  background: var(--tools-paper);
+  border-radius: 20px;
+  box-shadow: var(--tools-shadow-lg);
+}
+
+.tools-section h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+}
+
+.tools-section h3 {
+  text-align: center;
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+}
+
+.tools-section > p {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--tools-text);
+}
+
+/* Button Styles */
+button,
+.tools-btn {
+  background-color: var(--tools-coral);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin: 0.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:hover,
+.tools-btn:hover {
+  background-color: var(--tools-coral-dark);
+  transform: translateY(-2px);
+}
+
+.sound-btn {
+  background: var(--tools-coral);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  margin: 0.3rem;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.sound-btn:hover {
+  transform: scale(1.05);
+  background-color: var(--tools-coral-dark);
+}
+
+/* Mood Story Builder Buttons */
+#mood-story-builder button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--tools-accent);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#mood-story-builder button:hover {
+  background: var(--tools-accent-dark);
+}
+
+/* Parent Tip Bubble */
+.bubble-box {
+  background: var(--tools-blush);
+  border: 2px dashed var(--tools-accent);
+  padding: 1rem;
+  border-radius: 20px;
+  margin-top: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.bubble-box:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.15);
+}
+
+.bubble-box strong {
+  color: var(--tools-ink);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.bubble-box p {
+  margin: 0.5rem 0 0;
+  color: var(--tools-text);
+  font-size: 0.95rem;
+}
+
+/* Now Playing Label */
+#nowPlayingLabel {
+  transition: opacity 0.3s ease-in-out;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  color: var(--tools-ink);
+  font-weight: 500;
+  min-height: 1.4em;
+}
+
+/* Breathing Circle */
+#breathing-circle {
+  width: 150px;
+  height: 150px;
+  margin: 2rem auto;
+  border-radius: 50%;
+  background: #A7E5F3;
+  transition: all 4s ease-in-out;
+}
+
+#breathing-text {
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--tools-ink);
+  margin: 1rem 0;
+}
+
+/* Drawing Canvas Section */
+.tools-canvas-controls {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.tools-canvas-controls > div {
+  margin: 1rem 0;
+}
+
+#drawingCanvas {
+  display: block;
+  margin: 1.5rem auto;
+  border: 1px solid var(--tools-border);
+  border-radius: 12px;
+  background: #fffbea;
+  max-width: 100%;
+  height: auto;
+}
+
+.tools-color-picker {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.tools-color-picker input[type="color"] {
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+
+.tools-eraser-controls {
+  text-align: center;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tools-eraser-controls label {
+  color: var(--tools-ink);
+  font-weight: 600;
+}
+
+.tools-eraser-controls input[type="range"] {
+  cursor: pointer;
+}
+
+/* Email Section */
+.tools-email-section {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--tools-blush);
+  border-radius: 12px;
+}
+
+.tools-email-section p {
+  font-size: 0.9rem;
+  color: var(--tools-text);
+  max-width: 320px;
+  margin: 0 auto 1rem;
+}
+
+#send-email {
+  background: #FF6086;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+}
+
+#send-email:hover {
+  background: #e54da6;
+}
+
+.tools-email-section .tiny-note {
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: 0.5rem;
+}
+
+/* Story Output */
+#storyOutput {
+  max-width: 600px;
+  margin: 1.5rem auto;
+  background: var(--tools-paper);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#storyOutput h3 {
+  color: var(--tools-ink);
+  margin-bottom: 1rem;
+}
+
+#storyOutput p {
+  color: var(--tools-text);
+  margin-bottom: 1.5rem;
+}
+
+/* Story Cards */
+.story-card {
+  max-width: 320px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #e0f7ff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.story-card:hover {
+  transform: scale(1.02);
+}
+
+.story-card img {
+  width: 100%;
+  max-width: 180px;
+  border-radius: 12px;
+  margin: 0 auto;
+}
+
+.story-card h4 {
+  margin: 1rem 0 0.5rem;
+  color: var(--tools-ink);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+}
+
+.story-card p {
+  font-size: 0.95rem;
+  color: var(--tools-text);
+  margin-bottom: 1rem;
+}
+
+.story-card a {
+  display: inline-block;
+  margin-top: 0.8rem;
+  background: var(--tools-accent);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.story-card a:hover {
+  background: var(--tools-accent-dark);
+}
+
+.story-card:nth-child(2) {
+  background: #ffe4f0;
+}
+
+/* Responsive Design */
+@media (max-width: 920px) {
+  .tools-shell {
+    width: min(100% - 1.5rem, 600px);
+  }
+
+  .tools-section {
+    margin: 1.5rem auto;
+  }
+
+  #drawingCanvas {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .tools-shell {
+    width: min(100% - 1.25rem, 460px);
+  }
+
+  .tools-header {
+    top: 10px;
+    right: 10px;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .tools-header a {
+    font-size: 0.85rem;
+  }
+
+  .tools-main {
+    padding: 1rem 0;
+  }
+
+  .tools-section {
+    padding: 1.25rem 1rem;
+    margin: 1rem auto;
+  }
+
+  .tools-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .tools-section h3 {
+    font-size: 1.1rem;
+  }
+
+  button,
+  .tools-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    margin: 0.35rem;
+  }
+
+  .sound-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+
+  #nowPlayingLabel {
+    font-size: 1rem;
+  }
+
+  #breathing-circle {
+    width: 120px;
+    height: 120px;
+  }
+
+  #breathing-text {
+    font-size: 1.2rem;
+  }
+
+  #drawingCanvas {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .tools-canvas-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .tools-eraser-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .tools-eraser-controls input[type="range"] {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .tools-email-section {
+    padding: 0.75rem;
+  }
+
+  .tools-email-section p {
+    font-size: 0.85rem;
+  }
+
+  #storyOutput {
+    padding: 1rem;
+  }
+
+  .story-card {
+    max-width: 100%;
+    margin: 1rem auto;
+  }
+
+  .tools-quick-start {
+    margin: 0 auto 1.5rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .tools-shell {
+    width: 100% - 0.5rem;
+  }
+
+  button,
+  .tools-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .tools-section {
+    padding: 1rem;
+    margin: 0.75rem auto;
+  }
+}
