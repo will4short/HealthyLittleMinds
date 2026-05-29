@@ -43,6 +43,11 @@
         font-size: 1rem;
       }
     }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 110px;
+      min-height: 100%;
+    }
     body {
       margin: 0;
       padding: 0;
@@ -50,18 +55,80 @@
       background: #E3F2FD;
       color: #254E70;
     }
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      width: min(100%, 1280px);
+      margin: 0 auto;
+      padding: 1rem clamp(1.25rem, 3vw, 2rem);
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(37,78,112,.1);
+      box-shadow: 0 18px 40px rgba(37,78,112,.09);
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+    .site-branding {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      color: #254E70;
+    }
+    .site-branding img {
+      width: 48px;
+      height: auto;
+    }
+    .site-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: flex-end;
+      flex: 1;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+    .nav-links a {
+      color: #254E70;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color .2s ease, transform .2s ease;
+      white-space: nowrap;
+    }
+    .nav-links a:hover {
+      color: #FF6B6B;
+      transform: translateY(-1px);
+    }
     h2, h3 {
       text-align: center;
       color: #254E70;
     }
     section {
-      padding: 3rem 1.5rem;
-      max-width: 600px;
+      padding: 3rem 2rem;
+      max-width: 760px;
       margin: auto;
       background: #fff;
       border-radius: 20px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.05);
       margin-top: 2rem;
+    }
+    @media (max-width: 780px) {
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      section {
+        padding: 2rem 1.25rem;
+      }
     }
     button {
       background-color: #FF66B6;
@@ -182,27 +249,15 @@
   })();
 </script>
 
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #FFE4F0;
-  border: 2px solid #F8CFE0;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="home.html" style="
-    text-decoration: none;
-    color: #D6336C;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 返回主页
+<header class="site-header">
+  <a href="home.html" class="site-branding">
+    <img src="images/logo-icon.png" alt="Healthy Little Minds Logo" />
+    <div class="site-title">小小情绪俱乐部</div>
   </a>
-</div>
-
+  <nav class="nav-links">
+    <a href="home.html">🏠 首页</a>
+  </nav>
+</header>
 
 <section id="calm-corner">
   <h2>🧘‍♂️ 平静角落</h2>

@@ -5,31 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>心が動くビデオ | 健康小さな心</title>
 
-<!-- Meta Tags -->
-<meta name="description" content="Watch inspiring animated videos that nurture emotional growth and spark creativity in children.">
-<meta name="keywords" content="children's mental health, emotional learning, inspirational videos, animated stories, positivity">
-<meta name="author" content="Healthy Little Minds">
+  <meta name="description" content="Watch inspiring animated videos that nurture emotional growth and spark creativity in children.">
+  <meta name="keywords" content="children's mental health, emotional learning, inspirational videos, animated stories, positivity">
+  <meta name="author" content="Healthy Little Minds">
 
-<!-- Open Graph for Facebook and others -->
-<meta property="og:title" content="Be Inspired | Healthy Little Minds">
-<meta property="og:description" content="Inspiring animations for children to support their emotional and mental well-being.">
-<meta property="og:image" content="https://www.healthylittleminds.club/assets/fill_your_jar.png">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.healthylittleminds.club/inspire_page.html">
+  <meta property="og:title" content="Be Inspired | Healthy Little Minds">
+  <meta property="og:description" content="Inspiring animations for children to support their emotional and mental well-being.">
+  <meta property="og:image" content="https://www.healthylittleminds.club/assets/fill_your_jar.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.healthylittleminds.club/inspire_page.html">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Be Inspired | Healthy Little Minds">
-<meta name="twitter:description" content="Discover uplifting videos for children that spark imagination and promote emotional intelligence.">
-<meta name="twitter:image" content="https://www.healthylittleminds.club/assets/fill_your_jar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Be Inspired | Healthy Little Minds">
+  <meta name="twitter:description" content="Discover uplifting videos for children that spark imagination and promote emotional intelligence.">
+  <meta name="twitter:image" content="https://www.healthylittleminds.club/assets/fill_your_jar.png">
 
-  <!-- Fonts & Favicon -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="manifest" href="/manifest.json">
   <link rel="apple-touch-icon" href="/icon.png">
   <meta name="theme-color" content="#FFDD59">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-T2F8H8ZYBL"></script>
@@ -41,297 +40,599 @@
   </script>
 
   <link rel="stylesheet" href="../style.css">
+
   <style>
-    body {
-      margin: 0;
-      font-family: 'DM Sans', sans-serif;
-      background: #E6F4FA;
-      color: #254E70;
+    /* ── Reset & tokens ───────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { margin-top: 0 !important; padding-top: 0 !important; }
+
+    :root {
+      --navy:   #254E70;
+      --coral:  #FF6B6B;
+      --sky:    #E6F4FA;
+      --white:  #ffffff;
+      --mist:   #F0F8FD;
+      --gold:   #FFDD59;
+      --ink:    #1a3348;
+      --mid:    #5a7a94;
+      --radius: 20px;
+      --shadow: 0 8px 32px rgba(37,78,112,.10);
     }
 
+    body {
+      font-family: 'DM Sans', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+      background: var(--sky);
+      color: var(--navy);
+      min-height: 100vh;
+    }
+
+    /* ── Header ───────────────────────────────── */
     header {
-      background: white;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      background: var(--white);
+      padding: 0.9rem 2rem;
+      box-shadow: 0 2px 12px rgba(37,78,112,.07);
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
     }
 
-    .site-title h1 {
-      margin: 0;
-      font-size: 1.5rem;
-    }
-    .site-title span:first-child { color: #254E70; }
-    .site-title span:last-child { color: #FF6B6B; }
-
-    nav a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: #254E70;
-      font-weight: bold;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 3rem 1rem 2rem;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      color: #FF6B6B;
-      margin-bottom: 0.5rem;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      color: #444;
-    }
-
-    .scroll-container {
+    .site-branding {
       display: flex;
-      overflow-x: auto;
-      gap: 1.5rem;
-      padding: 1rem 2rem;
-      scroll-snap-type: x mandatory;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .site-branding img { height: 44px; width: auto; }
+
+    .site-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .site-title .t-navy  { color: var(--navy); }
+    .site-title .t-coral { color: var(--coral); }
+
+    nav#nav-menu a {
+      margin-left: 1.2rem;
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color .2s;
+    }
+    nav#nav-menu a:hover { color: var(--coral); }
+
+    /* ── Hero ─────────────────────────────────── */
+    .inspire-hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--navy);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
     }
 
+    .inspire-hero::before,
+    .inspire-hero::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      opacity: .18;
+      pointer-events: none;
+    }
+    .inspire-hero::before {
+      width: 420px; height: 420px;
+      background: var(--coral);
+      top: -120px; left: -100px;
+    }
+    .inspire-hero::after {
+      width: 320px; height: 320px;
+      background: var(--gold);
+      bottom: -80px; right: -60px;
+    }
+
+    .inspire-hero__kicker {
+      display: inline-block;
+      background: rgba(255,221,89,.15);
+      border: 1px solid rgba(255,221,89,.4);
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .35rem 1rem;
+      border-radius: 99px;
+      margin-bottom: 1.2rem;
+    }
+
+    .inspire-hero h1 {
+      font-family: 'Fraunces', 'Hiragino Sans', serif;
+      font-size: clamp(2rem, 6vw, 3.6rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .inspire-hero h1 em {
+      font-style: italic;
+      color: var(--coral);
+    }
+
+    .inspire-hero__lead {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.75);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── Main content shell ───────────────────── */
+    .inspire-shell {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── Section heading ──────────────────────── */
+    .section-head {
+      padding: 3.5rem 0 2rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+    .section-head h2 {
+      font-family: 'Fraunces', 'Hiragino Sans', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .section-head .count-badge {
+      background: var(--coral);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: .2rem .65rem;
+      border-radius: 99px;
+    }
+
+    /* ── Video grid ───────────────────────────── */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      padding-bottom: 4rem;
+    }
+
+    @media (max-width: 680px) {
+      .video-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Video card ───────────────────────────── */
     .video-card {
-      flex: 0 0 80%;
-      max-width: 480px;
-      background: #fff;
-      border-radius: 16px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      text-align: center;
-      scroll-snap-align: center;
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform .25s ease, box-shadow .25s ease;
+      animation: fadeUp .5s ease both;
+    }
+    .video-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(37,78,112,.14);
+    }
+
+    .video-card::before {
+      content: '';
+      display: block;
+      height: 4px;
+      background: var(--card-accent, var(--coral));
+    }
+    .video-card:nth-child(1) { --card-accent: var(--coral); animation-delay: .05s; }
+    .video-card:nth-child(2) { --card-accent: #5BC8AF;      animation-delay: .15s; }
+    .video-card:nth-child(3) { --card-accent: #7B6CF6;      animation-delay: .25s; }
+    .video-card:nth-child(4) { --card-accent: var(--gold);  animation-delay: .35s; }
+
+    .video-card__media {
+      position: relative;
+      background: var(--ink);
+      overflow: hidden;
+    }
+
+    .video-card__media video,
+    .video-card__media .preview-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: pointer;
+    }
+
+    /* ── Video controls ───────────────────────── */
+    .video-controls {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: .5rem;
+    }
+
+    .vid-btn {
+      background: rgba(0,0,0,.55);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: .3rem .8rem;
+      border-radius: 99px;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      backdrop-filter: blur(6px);
+      transition: background .2s;
+      font-family: 'DM Sans', 'Hiragino Sans', sans-serif;
+    }
+    .vid-btn:hover { background: rgba(0,0,0,.8); }
+
+    /* ── Card body ────────────────────────────── */
+    .video-card__body {
+      padding: 1.4rem 1.6rem 1.2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .video-card__label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--card-accent, var(--coral));
     }
 
     .video-card h3 {
-      margin-bottom: 1rem;
-      font-size: 1.4rem;
+      font-family: 'Fraunces', 'Hiragino Sans', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
     }
-    .video-description {
-      font-size: 1rem;
-      color: #555;
-      margin-top: 1rem;
-    }
-    video {
-      width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      cursor: pointer;
-    }
-.video-card video,
-.video-card .preview-img {
-  width: 90%;
-  max-width: 300px;
-  margin: 0 auto;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  display: block;
-  cursor: pointer;
-}
 
-    .replay-note {
-      font-size: 0.9rem;
-      color: #777;
-      margin-top: 0.5rem;
+    .video-card p {
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.65;
+      flex: 1;
     }
-    .share-section {
-      margin-top: 1.2rem;
-    }
-    .share-section img {
-      width: 32px;
-      height: 32px;
-      transition: transform 0.2s;
-    }
-    .share-section img:hover {
-      transform: scale(1.2);
-    }
-    .share-icons {
+
+    /* ── Share row ────────────────────────────── */
+    .share-row {
       display: flex;
-      justify-content: center;
-      gap: 1rem;
+      align-items: center;
+      gap: 0.6rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--sky);
       flex-wrap: wrap;
     }
 
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 2rem; }
-      .video-card { flex: 0 0 90%; }
+    .share-row__label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--mid);
+      margin-right: .2rem;
     }
-.share-section {
-  margin-top: 1.2rem;
-  text-align: center;
-}
 
-.share-text {
-  font-weight: 600;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
+    .share-row a,
+    .share-row button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: var(--sky);
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+      text-decoration: none;
+    }
+    .share-row a:hover,
+    .share-row button:hover {
+      background: #d4ecf7;
+      transform: scale(1.12);
+    }
+    .share-row img { width: 18px; height: 18px; }
 
-.share-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
+    /* ── Coming Soon card ─────────────────────── */
+    .coming-soon-card {
+      background: linear-gradient(135deg, #f8fbff 0%, var(--mist) 100%);
+      border: 2px dashed #cce3ef;
+    }
+    .coming-soon-card::before { background: var(--gold); }
 
-.share-icons a img,
-.share-icons button img {
-  width: 32px;
-  height: 32px;
-  transition: transform 0.2s ease;
-}
+    .coming-soon-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      min-height: 280px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      gap: 1rem;
+    }
 
-.share-icons button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
+    .coming-soon-icon { font-size: 3rem; line-height: 1; }
 
-.share-icons img:hover {
-  transform: scale(1.15);
-}
+    .coming-soon-inner h3 {
+      font-family: 'Fraunces', 'Hiragino Sans', serif;
+      font-size: 1.4rem;
+      color: var(--ink);
+    }
 
+    .coming-soon-inner p {
+      color: var(--mid);
+      font-size: 0.95rem;
+      max-width: 220px;
+    }
+
+    .notify-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: .6rem 1.3rem;
+      border-radius: 99px;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+      border: none;
+      cursor: pointer;
+    }
+    .notify-btn:hover { background: var(--coral); transform: translateY(-1px); }
+
+    /* ── Footer ───────────────────────────────── */
+    .inspire-footer {
+      background: var(--navy);
+      color: rgba(255,255,255,.5);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    /* ── Animation ────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
+
+  <!-- ── Header ── -->
   <header>
-    <div class="site-title">
-      <h1><span>健康</span> <span>小さな心</span></h1>
-    </div>
-    <nav id="nav-menu">
-      <!-- Links will be inserted by script -->
-    </nav>
+    <a href="home.html" class="site-branding">
+      <picture>
+        <source srcset="../images/logo-icon.webp" type="image/webp">
+        <img src="../images/logo-icon.png" alt="Healthy Little Minds Logo">
+      </picture>
+      <div class="site-title">
+        <span class="t-navy">健康</span><span class="t-coral">小さな心</span>
+      </div>
+    </a>
+    <nav id="nav-menu"></nav>
   </header>
 
-<section class="hero fade-in">
-  <h1>🎬 心が動くビデオ</h1>
-  <p>心が温かくなるような感動的なアニメーションを見てみよう。</p>
-</section>
+  <!-- ── Hero ── -->
+  <section class="inspire-hero">
+    <div class="inspire-hero__kicker">アニメーションストーリー</div>
+    <h1>心が動く<br><em>感動のビデオ</em></h1>
+    <p class="inspire-hero__lead">子どもたちの大きな気持ちを、美しく、わかりやすく伝えるやさしいアニメーション。</p>
+  </section>
 
-<div class="scroll-container">
-  <!-- 1st Video -->
-  <div class="video-card">
-    <h3>✨ 魔法のビンを満たそう</h3>
-    <video autoplay muted playsinline loop onclick="this.muted = false; this.currentTime = 0; this.play();">
-      <source src="../video/Fill_your_jar.mp4" type="video/mp4">
-      お使いのブラウザはビデオタグをサポートしていません。
-    </video>
-    <p class="replay-note">🔊 タップして音声付きで再生</p>
-    <p class="video-description">色とりどりのポジティブな気持ちをビンに詰める旅。</p>
+  <!-- ── Video grid ── -->
+  <div class="inspire-shell">
 
-    <div class="share-section">
-      <p class="share-text">💌 このビデオが気に入ったら、シェアしよう！</p>
-      <div class="share-icons">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.healthylittleminds.club/ja/inspire_page" target="_blank">
-          <img src="../images/facebook.webp" alt="Facebook">
-        </a>
-        <a href="https://twitter.com/intent/tweet?url=https://www.healthylittleminds.club/ja/inspire_page" target="_blank">
-          <img src="../images/twitter.png" alt="Twitter">
-        </a>
-        <a href="https://wa.me/?text=✨ このストーリーを見てね: https://www.healthylittleminds.club/ja/inspire_page" target="_blank">
-          <img src="../images/whatsapp.png" alt="WhatsApp">
-        </a>
-        <a href="https://www.instagram.com/heal.thylittleminds/" target="_blank">
-          <img src="../images/instagram.webp" alt="Instagram">
-        </a>
-        <button onclick="navigator.clipboard.writeText('https://www.healthylittleminds.club/ja/inspire_page'); alert('🔗 リンクをコピーしました！');"
-          title="リンクをコピー">
-          <img src="../images/link.png" alt="リンクをコピー">
-        </button>
+    <div class="section-head">
+      <h2>見て・感じよう</h2>
+      <span class="count-badge">3本</span>
+    </div>
+
+    <div class="video-grid">
+
+      <!-- 1 · Fill Your Jar -->
+      <div class="video-card">
+        <div class="video-card__media">
+          <video autoplay muted playsinline loop preload="metadata"
+            poster="../images/video-poster-placeholder.jpg">
+            <source src="../video/fill_your_jar.webm" type="video/webm">
+            <source src="../video/Fill_your_jar.mp4" type="video/mp4">
+            お使いのブラウザはビデオタグをサポートしていません。
+          </video>
+          <div class="video-controls">
+            <button class="vid-btn btn-playpause" onclick="togglePlay(this)">⏸ 一時停止</button>
+            <button class="vid-btn btn-mute" onclick="toggleMute(this)">🔇 音声オン</button>
+          </div>
+        </div>
+        <div class="video-card__body">
+          <span class="video-card__label">やさしさ・おだやかさ</span>
+          <h3>✨ 魔法のビンを満たそう</h3>
+          <p>色とりどりのポジティブな気持ちをビンに詰める旅。やさしさ・安らぎ・喜びを、一層ずつ重ねていこう。</p>
+          <div class="share-row">
+            <span class="share-row__label">シェア</span>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.healthylittleminds.club/ja/inspire_page" target="_blank" rel="noopener" aria-label="Facebookでシェア">
+              <img src="../images/facebook.webp" alt="Facebook" loading="lazy">
+            </a>
+            <a href="https://twitter.com/intent/tweet?url=https://www.healthylittleminds.club/ja/inspire_page" target="_blank" rel="noopener" aria-label="Twitterでシェア">
+              <img src="../images/twitter.png" alt="Twitter" loading="lazy">
+            </a>
+            <a href="https://wa.me/?text=✨ このストーリーを見てね: https://www.healthylittleminds.club/ja/inspire_page" target="_blank" rel="noopener" aria-label="WhatsAppでシェア">
+              <img src="../images/whatsapp.png" alt="WhatsApp" loading="lazy">
+            </a>
+            <a href="https://www.instagram.com/heal.thylittleminds/" target="_blank" rel="noopener" aria-label="Instagram">
+              <img src="../images/instagram.webp" alt="Instagram" loading="lazy">
+            </a>
+            <button onclick="navigator.clipboard.writeText('https://www.healthylittleminds.club/ja/inspire_page'); alert('🔗 リンクをコピーしました！');" aria-label="リンクをコピー">
+              <img src="../images/link.png" alt="リンクをコピー" loading="lazy">
+            </button>
+          </div>
+        </div>
       </div>
+
+      <!-- 2 · Not Yet -->
+      <div class="video-card">
+        <div class="video-card__media">
+          <video autoplay muted playsinline loop preload="metadata"
+            poster="../images/video-poster-placeholder.jpg">
+            <source src="../video/when_i_cant_do_it.webm" type="video/webm">
+            <source src="../video/when_i_can't_do_it.mp4" type="video/mp4">
+            お使いのブラウザはビデオタグをサポートしていません。
+          </video>
+          <div class="video-controls">
+            <button class="vid-btn btn-playpause" onclick="togglePlay(this)">⏸ 一時停止</button>
+            <button class="vid-btn btn-mute" onclick="toggleMute(this)">🔇 音声オン</button>
+          </div>
+        </div>
+        <div class="video-card__body">
+          <span class="video-card__label">成長マインドセット</span>
+          <h3>💪 「まだできない」って、永遠じゃない</h3>
+          <p>今はうまくできなくても、あきらめる必要はありません。「まだできない」だけなんです。成長には時間がかかる、それでいい。</p>
+          <div class="share-row">
+            <span class="share-row__label">シェア</span>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.healthylittleminds.club/ja/inspire_page" target="_blank" rel="noopener" aria-label="Facebookでシェア">
+              <img src="../images/facebook.webp" alt="Facebook" loading="lazy">
+            </a>
+            <a href="https://twitter.com/intent/tweet?url=https://www.healthylittleminds.club/ja/inspire_page" target="_blank" rel="noopener" aria-label="Twitterでシェア">
+              <img src="../images/twitter.png" alt="Twitter" loading="lazy">
+            </a>
+            <a href="https://wa.me/?text=💪 この感動ストーリーを見てみて: https://www.healthylittleminds.club/ja/inspire_page" target="_blank" rel="noopener" aria-label="WhatsAppでシェア">
+              <img src="../images/whatsapp.png" alt="WhatsApp" loading="lazy">
+            </a>
+            <a href="https://www.instagram.com/heal.thylittleminds/" target="_blank" rel="noopener" aria-label="Instagram">
+              <img src="../images/instagram.webp" alt="Instagram" loading="lazy">
+            </a>
+            <button onclick="navigator.clipboard.writeText('https://www.healthylittleminds.club/ja/inspire_page'); alert('🔗 リンクをコピーしました！');" aria-label="リンクをコピー">
+              <img src="../images/link.png" alt="リンクをコピー" loading="lazy">
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 · External Video -->
+      <div class="video-card" id="external-video-card">
+        <div class="video-card__media">
+          <img id="external-preview" class="preview-img" src="../images/theday_destinywanted_to_quit.webp" alt="デスティニーがあきらめたくなった日" loading="lazy">
+          <div class="video-controls">
+            <button class="vid-btn" id="external-play" onclick="openExternalChooser(event)">▶ 見る</button>
+          </div>
+          <div style="position:absolute; top:10px; right:10px;">
+            <button class="vid-btn" onclick="editExternalVideo()">✎ 編集</button>
+          </div>
+        </div>
+        <div class="video-card__body">
+          <span class="video-card__label">デスティニーがあきらめたくなった日</span>
+          <h3 id="external-title">コミュニティシェア</h3>
+          <p id="external-desc">Instagram・Facebook・TikTokでこのビデオを見よう。「編集」ボタンからリンクとカバー画像を設定できます。</p>
+          <div class="share-row">
+            <span class="share-row__label">開く</span>
+            <a id="open-fb" href="https://web.facebook.com/share/v/1JPZormyaM/" target="_blank" rel="noopener" style="display:flex;">
+              <img src="../images/facebook.webp" alt="Facebook" loading="lazy">
+            </a>
+            <a id="open-ig" href="https://www.instagram.com/reel/DY3YwoiIOkr/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" style="display:flex;">
+              <img src="../images/instagram.webp" alt="Instagram" loading="lazy">
+            </a>
+            <a id="open-tt" href="https://www.tiktok.com/@a.healthy.mind4/video/7644767932727217428?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" style="display:flex;">
+              <img src="../images/tiktok.png" alt="TikTok" loading="lazy">
+            </a>
+            <button onclick="copyExternalLink()" aria-label="リンクをコピー">
+              <img src="../images/link.png" alt="リンクをコピー" loading="lazy">
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 · Coming Soon -->
+      <div class="video-card coming-soon-card">
+        <div class="coming-soon-inner">
+          <div class="coming-soon-icon">🌟</div>
+          <h3>次のストーリーは近日公開</h3>
+          <p>もっとたくさんのアニメーションがまもなく登場します。お楽しみに！</p>
+          <a class="notify-btn" href="../parents.html#parent-updates">
+            🔔 お知らせを受け取る
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- 2nd Video -->
-  <div class="video-card">
-    <h3>💪 「まだできない」って、永遠じゃない</h3>
-    <video autoplay muted playsinline loop onclick="this.muted = false; this.currentTime = 0; this.play();">
-      <source src="../video/when_i_can't_do_it.mp4" type="video/mp4">
-      お使いのブラウザはビデオタグをサポートしていません。
-    </video>
-    <p class="replay-note">🔊 タップして音声付きで再生</p>
-    <p class="video-description">今はうまくできなくても、あきらめる必要はありません。「まだできない」だけなんです。</p>
+  <footer class="inspire-footer">
+    &copy; 2026 Healthy Little Minds · 子どもたちの心を育む教育コンテンツ
+  </footer>
 
-    <div class="share-section">
-      <p class="share-text">💌 このビデオが響いたら、シェアしてみよう！</p>
-      <div class="share-icons">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.healthylittleminds.club/ja/inspire_page" target="_blank">
-          <img src="../images/facebook.webp" alt="Facebook">
-        </a>
-        <a href="https://twitter.com/intent/tweet?url=https://www.healthylittleminds.club/ja/inspire_page" target="_blank">
-          <img src="../images/twitter.png" alt="Twitter">
-        </a>
-        <a href="https://wa.me/?text=💪 この感動ストーリーを見てみて: https://www.healthylittleminds.club/ja/inspire_page" target="_blank">
-          <img src="../images/whatsapp.png" alt="WhatsApp">
-        </a>
-        <a href="https://www.instagram.com/heal.thylittleminds/" target="_blank">
-          <img src="../images/instagram.webp" alt="Instagram">
-        </a>
-        <button onclick="navigator.clipboard.writeText('https://www.healthylittleminds.club/ja/inspire_page'); alert('🔗 リンクをコピーしました！');"
-          title="リンクをコピー">
-          <img src="../images/link.png" alt="リンクをコピー">
-        </button>
-      </div>
-    </div>
-  </div>
+  <!-- Video controls JS -->
+  <script>
+    function togglePlay(btn) {
+      const video = btn.closest('.video-card__media').querySelector('video');
+      if (video.paused) {
+        video.play();
+        btn.textContent = '⏸ 一時停止';
+      } else {
+        video.pause();
+        btn.textContent = '▶ 再生';
+      }
+    }
 
-  <!-- Coming Soon -->
-  <div class="video-card">
-    <h3>🌟 次のストーリーは近日公開</h3>
-    <img src="../images/coming-soon.png" alt="近日公開" class="preview-img">
-    <p class="video-description">もっとたくさんのアニメーションがまもなく登場します。お楽しみに！</p>
-  </div>
-</div>
+    function toggleMute(btn) {
+      const video = btn.closest('.video-card__media').querySelector('video');
+      video.muted = !video.muted;
+      btn.textContent = video.muted ? '🔇 音声オン' : '🔊 ミュート';
+    }
+  </script>
 
-  <!-- ✅ Secure Navigation Script -->
+  <!-- Nav Script -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const nav = document.getElementById("nav-menu");
       const isMember = localStorage.getItem("isMember");
-
-      console.log("isMember:", isMember); // Optional
-
       if (isMember === "true") {
         nav.innerHTML = `
-          <a href="home.html">🏠 ホーム</a>
-          <a href="dashboard.html">📋 ダッシュボード</a>
+          <a href="../home.html">🏠 ホーム</a>
+          <a href="../dashboard.html">📋 ダッシュボード</a>
         `;
         document.querySelectorAll('.guest-only').forEach(el => el.style.display = 'none');
       } else {
-        nav.innerHTML = `<a href="index.html">🔐 ログインしてもっと見る</a>`;
+        nav.innerHTML = `<a href="../index.html">🔐 ログインしてもっと見る</a>`;
       }
     });
   </script>
 
-<script>
-(function(){
-  const opts = { root: null, rootMargin: '200px 0px', threshold: 0.01 };
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        const v = entry.target;
-        if(!v.dataset.loaded){
-          v.querySelectorAll('source[data-src]').forEach(s=>{
-            s.src = s.dataset.src;
-          });
-          v.load();
-          v.dataset.loaded = '1';
+  <!-- Lazy load videos -->
+  <script>
+  (function(){
+    const opts = { root: null, rootMargin: '200px 0px', threshold: 0.01 };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const v = entry.target;
+          if (!v.dataset.loaded) {
+            v.querySelectorAll('source[data-src]').forEach(s => { s.src = s.dataset.src; });
+            v.load();
+            v.dataset.loaded = '1';
+          }
+          io.unobserve(v);
         }
-        io.unobserve(v);
-      }
-    });
-  }, opts);
+      });
+    }, opts);
+    document.querySelectorAll('.video-card video').forEach(v => io.observe(v));
+  })();
+  </script>
 
-  document.querySelectorAll('.video-card video').forEach(v=>io.observe(v));
-})();
-</script>
   <script defer src="../shared-language-switcher.js?v=1"></script>
 </body>
 </html>
