@@ -12,366 +12,156 @@
   <link rel="alternate" href="https://www.healthylittleminds.club/ko/interactive-tools.html" hreflang="ko" />
   <link rel="alternate" href="https://www.healthylittleminds.club/interactive-tools.html" hreflang="x-default" />
 
-  <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="manifest" href="/manifest.json" />
-  <link rel="apple-touch-icon" href="/icon.png" />
-  <meta name="theme-color" content="#FFDD59" />
-
-  <link rel="stylesheet" href="style.css" />
   <style>
-    :root {
-      --navy: #254E70;
-      --coral: #FF6B6B;
-      --sky: #E6F4FA;
-      --white: #ffffff;
-      --mist: #F0F8FD;
-      --gold: #FFDD59;
-      --ink: #1a3348;
-      --mid: #5a7a94;
-      --radius: 20px;
-      --shadow: 0 8px 32px rgba(37,78,112,.10);
+    #nowPlayingLabel {
+      transition: opacity 0.3s ease-in-out;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      color: #254E70;
+      font-weight: 500;
+      min-height: 1.4em; /* keeps layout stable */
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    .sound-btn {
+      background: #FF66B6;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      margin: 0.3rem;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s;
     }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 110px;
-      min-height: 100%;
-    }
+    .sound-btn:hover { transform: scale(1.05); }
 
     body {
       margin: 0;
       padding: 0;
-      min-height: 100vh;
-      font-family: 'DM Sans', sans-serif;
-      background: var(--sky);
-      color: var(--navy);
+      font-family: 'Segoe UI', sans-serif;
+      background: #E3F2FD;
+      color: #254E70;
     }
+    h2, h3 { text-align: center; color: #254E70; }
 
-    .site-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      width: min(100%, 1280px);
-      margin: 0 auto;
-      padding: 1rem clamp(1.25rem, 3vw, 2rem);
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(37,78,112,.1);
-      box-shadow: 0 18px 40px rgba(37,78,112,.09);
-      position: sticky;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-    }
-
-    .site-branding {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      text-decoration: none;
-      color: var(--navy);
-    }
-
-    .site-branding img {
-      width: 48px;
-      height: auto;
-    }
-
-    .site-title {
-      font-family: 'Fraunces', serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-    }
-
-    .site-title .t-navy {
-      color: var(--navy);
-    }
-
-    .site-title .t-coral {
-      color: var(--coral);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-      justify-content: flex-end;
-      flex: 1;
-      flex-wrap: nowrap;
-      min-width: 0;
-    }
-
-    .nav-links a {
-      color: var(--navy);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color .2s ease, transform .2s ease;
-      white-space: nowrap;
-    }
-
-    .nav-links a:hover {
-      color: var(--coral);
-      transform: translateY(-1px);
-    }
-
-    .nav-links a:hover {
-      color: var(--coral);
-    }
-
-    .hero-section {
-      background: linear-gradient(135deg, #fff8fb 0%, #f4f8ff 100%);
-      padding: 4rem 1.5rem 3rem;
-      text-align: center;
-    }
-
-    .hero-section h1 {
-      font-family: 'Fraunces', serif;
-      font-size: clamp(2.4rem, 6vw, 3.6rem);
-      line-height: 1;
-      margin-bottom: 1rem;
-      color: var(--navy);
-    }
-
-    .hero-section p {
-      max-width: 700px;
-      margin: 0 auto;
-      color: rgba(37,78,112,.78);
-      font-size: 1.05rem;
-      line-height: 1.75;
-    }
-
-    .page-shell {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 1.5rem 3rem;
-    }
-
-    .quick-start {
-      max-width: 640px;
-      margin: -2.5rem auto 0;
-      background: rgba(255,255,255,.95);
-      border: 1px solid #f2d6df;
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
       border-radius: 20px;
-      padding: 1.2rem 1.4rem;
-      box-shadow: 0 20px 40px rgba(37,78,112,.08);
-      text-align: center;
-      position: relative;
-      z-index: 10;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      margin-top: 2rem;
     }
 
-    .quick-start p {
-      color: rgba(37,78,112,.75);
-      margin: 0.3rem 0;
-      line-height: 1.6;
-    }
-
-    .quick-start .flow {
-      margin-top: 0.75rem;
-      font-weight: 700;
-      color: var(--navy);
-    }
-
-    .section-head {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 1rem;
-      margin: 3rem 0 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .section-head h2 {
-      font-family: 'Fraunces', serif;
-      font-size: 1.8rem;
-      color: var(--ink);
-    }
-
-    .section-head .label-pill {
-      background: var(--coral);
-      color: var(--white);
-      padding: 0.4rem 0.85rem;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-
-    section.card-section {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 2rem;
-      box-shadow: var(--shadow);
-      margin-bottom: 1.5rem;
-    }
-
-    section.card-section p {
-      color: var(--mid);
-      line-height: 1.7;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
-
-    .tool-panel {
-      background: var(--mist);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      border: 1px solid rgba(37,78,112,.08);
-    }
-
-    .tool-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-
-    .card-block {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .breathing-circle {
-      width: 180px;
-      height: 180px;
-      margin: 1.5rem auto 0;
-      border-radius: 50%;
-      background: #A7E5F3;
-      transition: transform 4s ease-in-out;
-    }
-
-    .breathing-text {
-      text-align: center;
-      font-size: 1.25rem;
-      margin-top: 0.9rem;
-      color: var(--ink);
-    }
-
-    .story-card {
-      background: var(--white);
+    /* ✅ NEW: Quick start guide */
+    .quick-start {
+      max-width: 600px;
+      margin: 5.5rem auto 0; /* leave space under fixed button */
+      padding: 1.2rem 1.2rem;
+      background: rgba(255,255,255,0.9);
       border-radius: 18px;
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.06);
       text-align: center;
     }
-
-    .story-card img {
-      width: 100%;
-      border-radius: 16px;
-      max-width: 260px;
-      margin: 0 auto;
+    .quick-start p {
+      margin: 0.2rem 0;
+      color: #555;
+      line-height: 1.45;
+    }
+    .quick-start .flow {
+      margin-top: 0.6rem;
+      font-size: 1.02rem;
+      color: #254E70;
+      font-weight: 600;
     }
 
-    .story-card h4 {
-      margin-top: 1rem;
-      color: var(--ink);
+    /* default buttons */
+    button {
+      background-color: #FF66B6;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.4rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 0.5rem;
     }
 
-    .story-card p {
-      color: var(--mid);
-      line-height: 1.7;
-      margin: 0.8rem 0;
+    #mood-story-builder button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #FF6B6B;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    #mood-story-builder button:hover { background: #e15b5b; }
+
+    .story-card:hover {
+      transform: scale(1.02);
+      transition: transform 0.3s ease;
     }
 
-    .story-cta,
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      background: var(--coral);
-      color: var(--white);
-      padding: 0.75rem 1.25rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .story-cta:hover,
-    .btn-secondary:hover {
-      transform: translateY(-1px);
-      background: #e15b5b;
-    }
-
+    /* ✅ Parent tip bubble */
     .bubble-box {
       background: #fff0f6;
       border: 2px dashed #ff6b6b;
       padding: 1rem;
       border-radius: 20px;
+      margin-top: 1rem;
       transition: transform 0.3s ease;
       text-align: left;
     }
-
     .bubble-box:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.15);
     }
 
-    .hidden {
-      display: none !important;
-    }
-
-    .tool-footer {
-      margin-top: 2rem;
+    /* ✅ NEW: soft tiny affirmation text */
+    .tiny-note {
+      font-size: 0.85rem;
+      color: #888;
       text-align: center;
-      color: var(--mid);
-      font-size: 0.95rem;
+      margin-top: 1.2rem;
     }
 
-    button,
-    input[type="range"],
-    input[type="color"] {
-      font: inherit;
-    }
-
-    @media (max-width: 780px) {
-      .site-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
+    @media (max-width: 600px) {
+      .sound-btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
       }
-
-      .card-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .quick-start {
-        margin-top: 1rem;
-      }
+      #nowPlayingLabel { font-size: 1rem; }
+      .quick-start { margin-top: 5.8rem; }
     }
   </style>
 </head>
 
 <body>
-  <header class="site-header">
-    <a href="home.html" class="site-branding">
-      <img src="images/logo-icon.png" alt="Healthy Little Minds Logo" />
-      <div class="site-title"><span class="t-navy">Healthy</span> <span class="t-coral">Little Minds</span></div>
+  <div style="
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
+    background: #E6E6FA;
+    border: 2px solid #D8BFD8;
+    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  ">
+    <a href="home.html" style="
+      text-decoration: none;
+      color: #5A3E8A;
+      font-weight: bold;
+      font-size: 0.95rem;
+    ">
+      🏠 Go Home
     </a>
-    <nav class="nav-links" id="nav-menu"></nav>
-  </header>
+  </div>
 
-  <section class="hero-section">
-    <h1>Interactive Tools to Help Kids Calm Down</h1>
-    <p>Explore breathing, drawing, mood stories, and quiet activities designed to help children understand their feelings and find calm.</p>
-  </section>
-
+  <!-- ✅ NEW: “What should I do first?” guide -->
   <div class="quick-start" aria-label="Quick start guide">
     <p><strong>Not sure where to start?</strong></p>
     <p>Try this gentle flow:</p>
@@ -379,117 +169,175 @@
     <p class="tiny-note">Every feeling you explore helps your brain grow stronger 💛</p>
   </div>
 
-  <div class="page-shell">
-    <div id="memberBanner" class="tool-banner hidden" role="status" aria-live="polite">
-      🔐 These tools are for members only. If you are not a member yet, please return to the dashboard to sign in or learn about membership.
-      <div style="justify-content:center; margin-top:0.8rem; display:flex;">
-        <a class="btn-secondary" href="dashboard.html">Go to Dashboard</a>
-      </div>
+  <section id="calm-corner">
+    <h2>🧘‍♂️ Calm Down Corner</h2>
+    <p>Take a deep breath and pick a sound to feel calm and peaceful.</p>
+
+    <div>
+      <button onclick="playSound('audio/ocean.mp3', 'Ocean Waves')" class="sound-btn">🌊 Ocean Waves</button>
+      <button onclick="playSound('audio/gentle-piano.mp3', 'Gentle Piano')" class="sound-btn">🎹 Gentle Piano</button>
+      <button onclick="playSound('audio/forest-sound.mp3', 'Forest Sounds')" class="sound-btn">🌲 Forest Sounds</button>
+      <button onclick="stopMusic()" class="sound-btn">⏹️ Stop Music</button>
+      <p id="nowPlayingLabel"></p>
     </div>
 
-    <div id="toolContent">
-      <section class="card-section" aria-labelledby="calmHeader">
-        <div class="section-head">
-          <h2 id="calmHeader">🧘‍♂️ Calm Down Corner</h2>
-          <span class="label-pill">Quiet Space</span>
-        </div>
-        <p>Take a deep breath and choose a soft sound to help your heart feel calm.</p>
-        <div class="tool-panel">
-          <div class="tool-row">
-            <button onclick="playSound('audio/ocean.mp3', 'Ocean Waves')" class="sound-btn">🌊 Ocean Waves</button>
-            <button onclick="playSound('audio/gentle-piano.mp3', 'Gentle Piano')" class="sound-btn">🎹 Gentle Piano</button>
-            <button onclick="playSound('audio/forest-sound.mp3', 'Forest Sounds')" class="sound-btn">🌲 Forest Sounds</button>
-            <button onclick="stopMusic()" class="sound-btn">⏹️ Stop Music</button>
-          </div>
-          <p id="nowPlayingLabel"></p>
-        </div>
-        <div class="bubble-box" aria-label="Parent tip">
-          <strong>👪 Parent Tip</strong>
-          <p style="margin:0.5rem 0 0;">Sit nearby. Breathe together. No fixing needed — just presence.</p>
-        </div>
-        <div class="breathing-circle" id="breathing-circle"></div>
-        <p class="breathing-text" id="breathing-text">Get Ready...</p>
-        <div class="tool-row" style="justify-content:center;">
-          <button onclick="startBreathing()">🌬️ Start Breathing</button>
-        </div>
-      </section>
-
-      <section class="card-section" aria-labelledby="drawHeader">
-        <div class="section-head">
-          <h2 id="drawHeader">🎨 Draw How You Feel</h2>
-          <span class="label-pill">Creative Play</span>
-        </div>
-        <p>Select a color and draw to show how your feelings look today.</p>
-        <div class="tool-panel">
-          <div class="tool-row">
-            🖍️ Ink Color: <input type="color" id="inkColor" value="#254E70" />
-            <button id="saveBtn">💾 Save Drawing</button>
-          </div>
-          <canvas id="drawingCanvas" class="drawing-canvas" width="300" height="300"></canvas>
-          <div class="tool-row">
-            <button id="eraserBtn">🧽 Eraser</button>
-            <label for="eraserSize">Eraser Size:</label>
-            <input type="range" id="eraserSize" min="5" max="40" value="10" />
-            <button id="clearBtn">💖 Clear Drawing</button>
-          </div>
-          <div class="tool-row">
-            <button id="send-email" class="story-cta">📩 Send to My Grown-Up</button>
-          </div>
-          <p style="font-size:0.9rem; color:#555; margin-top:0.5rem;">After saving your drawing, ask an adult to help you attach it to an email.</p>
-        </div>
-        <div class="bubble-box" aria-label="Parent tip">
-          <strong>👪 Parent Tip</strong>
-          <p style="margin:0.5rem 0 0;">Ask: “What does your drawing want to say?” (No judging, just listening.)</p>
-        </div>
-      </section>
-
-      <section class="card-section" aria-labelledby="moodHeader">
-        <div class="section-head">
-          <h2 id="moodHeader">📖 Build Your Mood Story</h2>
-          <span class="label-pill">Mood Guide</span>
-        </div>
-        <p>Choose how you're feeling and we'll share a calming idea to help you move forward.</p>
-        <div class="tool-row">
-          <button onclick="showMoodStory('happy')">😊 Happy</button>
-          <button onclick="showMoodStory('angry')">😡 Angry</button>
-          <button onclick="showMoodStory('sad')">😢 Sad</button>
-          <button onclick="showMoodStory('scared')">😨 Scared</button>
-          <button onclick="showMoodStory('calm')">😌 Calm</button>
-          <button onclick="showMoodStory('unsure')">😕 Unsure</button>
-        </div>
-        <div id="storyOutput" class="bubble-box hidden" style="max-width:600px; margin:auto; display:none;">
-          <h3 id="moodTitle"></h3>
-          <p id="moodMessage"></p>
-          <div class="tool-row" style="justify-content:center;">
-            <button onclick="resetStory()">🔁 Choose Another Mood</button>
-            <button onclick="startBreathing()">🌬️ Breathe Again</button>
-          </div>
-        </div>
-        <div class="bubble-box" aria-label="Parent tip">
-          <strong>👪 Parent Tip</strong>
-          <p style="margin:0.5rem 0 0;">Mirror first: “You’re feeling ___.” Then ask: “What would help your body feel safer?”</p>
-        </div>
-      </section>
-
-      <div class="card-grid">
-        <article class="story-card">
-          <img src="images/destiny-sad.png" alt="Destiny feeling sad" class="story-thumb" />
-          <h4>😢 Feeling Sad</h4>
-          <p>Help Destiny feel better by choosing what he does next in this interactive story.</p>
-          <a href="story-sad.html" class="story-cta">📖 Start Story</a>
-        </article>
-        <article class="story-card">
-          <img src="images/bella_interactive_story.png" alt="Bella's interactive story" class="story-thumb" />
-          <h4>🌈 Choices & Feelings</h4>
-          <p>Join Bella’s journey as she faces new situations and learns how her choices shape her feelings and friendships.</p>
-          <a href="interactive-stories/scene_1_bella_story.html" class="story-cta">📖 Start Bella’s Story</a>
-        </article>
-      </div>
-
-      <p class="tool-footer">If you want more ideas, return to the dashboard for extra resources and stories.</p>
+    <!-- ✅ NEW: Parent Tip bubble -->
+    <div class="bubble-box" aria-label="Parent tip">
+      <strong>👪 Parent Tip</strong>
+      <p style="margin:0.5rem 0 0;">
+        Sit nearby. Breathe together. No fixing needed — just presence.
+      </p>
     </div>
+
+    <div id="breathing-circle" style="width: 150px; height: 150px; margin: 2rem auto; border-radius: 50%; background: #A7E5F3; transition: all 4s ease-in-out;"></div>
+    <p id="breathing-text" style="text-align:center; font-size: 1.4rem;">Get Ready...</p>
+    <div style="text-align: center;">
+      <button onclick="startBreathing()">🌬️ Start Breathing</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>🎨 Draw How You Feel</h2>
+    <p style="text-align:center;">Choose a color and start drawing your feelings below.</p>
+
+    <div style="text-align:center; margin: 1rem 0;">
+      🖍️ Ink Color: <input type="color" id="inkColor" value="#254E70" />
+      <button id="saveBtn">💾 Save Drawing</button>
+    </div>
+
+    <p style="font-size: 0.9rem; color: #555; margin-top: 0.5rem;">
+      🎨 After saving your drawing, ask an adult to help you send it in an email with the picture attached.
+    </p>
+
+    <div style="text-align: center; margin-top: 1.5rem;">
+      <p style="font-size: 0.9rem; color: #555; max-width: 320px; margin: 0 auto 1rem;">
+        After saving your drawing, tap the button below to send it by email.
+      </p>
+
+      <button id="send-email" style="background:#FF6086; color:white; padding:0.6rem 1.2rem; border-radius:20px; font-weight:bold; border:none; cursor:pointer;">
+        📩 Send to My Grown-Up
+      </button>
+
+      <p style="font-size: 0.8rem; color: #999; margin-top: 0.5rem;">
+        📎 Find your drawing in Downloads and attach it before sending.
+      </p>
+    </div>
+
+    <canvas id="drawingCanvas" style="display:block; margin:auto; border:1px solid #ccc; border-radius: 12px; background:#fffbea;" width="300" height="300"></canvas>
+
+    <div style="text-align:center; margin-top:1rem;">
+      <button id="eraserBtn">🧽 Eraser</button>
+      <label for="eraserSize">Eraser Size:</label>
+      <input type="range" id="eraserSize" min="5" max="40" value="10" />
+      <button id="clearBtn">💖 Clear Drawing</button>
+    </div>
+
+    <!-- ✅ NEW: Parent tip under drawing -->
+    <div class="bubble-box" aria-label="Parent tip">
+      <strong>👪 Parent Tip</strong>
+      <p style="margin:0.5rem 0 0;">
+        Ask: “What does your drawing want to say?” (No judging, just listening.)
+      </p>
+    </div>
+  </section>
+
+  <section id="mood-story-builder" style="text-align:center; padding: 2rem; background:#fffbea;">
+    <h2 style="color:#254E70;">📖 Build Your Mood Story</h2>
+    <p>Select how you're feeling today and we'll guide you through a calming activity.</p>
+
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin: 1.5rem 0;">
+      <button onclick="showMoodStory('happy')">😊 Happy</button>
+      <button onclick="showMoodStory('angry')">😡 Angry</button>
+      <button onclick="showMoodStory('sad')">😢 Sad</button>
+      <button onclick="showMoodStory('scared')">😨 Scared</button>
+      <button onclick="showMoodStory('calm')">😌 Calm</button>
+      <button onclick="showMoodStory('unsure')">😕 Unsure</button>
+    </div>
+
+    <div id="storyOutput" style="max-width: 600px; margin: auto; background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); display:none;">
+      <h3 id="moodTitle"></h3>
+      <p id="moodMessage"></p>
+
+      <button onclick="resetStory()" style="margin-top:1rem;">🔁 Choose Another Mood</button>
+
+      <!-- ✅ NEW: Return to calm -->
+      <button onclick="startBreathing()" style="margin-top:0.5rem;">🌬️ Breathe Again</button>
+    </div>
+
+    <!-- ✅ NEW: Parent tip for the story builder -->
+    <div class="bubble-box" aria-label="Parent tip">
+      <strong>👪 Parent Tip</strong>
+      <p style="margin:0.5rem 0 0;">
+        Mirror first: “You’re feeling ___.” Then ask: “What would help your body feel safer?”
+      </p>
+    </div>
+  </section>
+
+  <!-- Linked Interactive Story -->
+  <div class="story-card" style="
+    max-width: 320px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #e0f7ff;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+  ">
+    <img src="images/destiny-sad.png" alt="Destiny feeling sad" style="width: 100%; max-width: 180px; border-radius: 12px;" />
+    <h4 style="margin-top: 1rem; color: #254E70;">😢 Feeling Sad</h4>
+    <p style="font-size: 0.95rem; color: #555;">
+      Help Destiny feel better by choosing what he does next in this interactive story.
+    </p>
+    <a href="story-sad.html" style="
+      display: inline-block;
+      margin-top: 0.8rem;
+      background: #FF6B6B;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 20px;
+      font-weight: bold;
+      text-decoration: none;
+    ">
+      📖 Start Story
+    </a>
   </div>
 
+  <!-- Linked Interactive Story – Bella's Journey -->
+  <div class="story-card" style="
+    max-width: 320px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #ffe4f0;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+  ">
+    <img src="images/bella_interactive_story.png" alt="Bella's interactive story" style="width: 100%; max-width: 180px; border-radius: 12px;" />
+    <h4 style="margin-top: 1rem; color: #254E70;">🌈 Choices & Feelings</h4>
+    <p style="font-size: 0.95rem; color: #555;">
+      Join Bella’s journey as she faces new situations and learns how her choices shape her feelings and friendships.
+    </p>
+    <a href="interactive-stories/scene_1_bella_story.html" style="
+      display: inline-block;
+      margin-top: 0.8rem;
+      background: #FF6B6B;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 20px;
+      font-weight: bold;
+      text-decoration: none;
+    ">📖 Start Bella’s Story</a>
+  </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tools-footer">
+    © 2026 Healthy Little Minds. Educational resources for supportive conversations.
+  </footer>
+
+  <!-- Authentication Check -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const nav = document.getElementById('nav-menu');
@@ -503,16 +351,18 @@
       if (memberBanner && isMember !== 'true') {
         memberBanner.classList.remove('hidden');
       }
-    });
+    })();
+  </script>
 
+  <script>
     const moodResponses = {
       happy: {
         title: "You're feeling Happy! 😊",
-        message: "That’s wonderful! Take a moment to draw or write about something that made you smile today. Sharing happy moments helps them grow."
+        message: "That's wonderful! Take a moment to draw or write about something that made you smile today. Sharing happy moments helps them grow."
       },
       angry: {
         title: "You're feeling Angry 😡",
-        message: "It's okay to feel angry sometimes. Let’s take 3 deep breaths together. Then, try drawing your feelings or squeezing a pillow to release the tension."
+        message: "It's okay to feel angry sometimes. Let's take 3 deep breaths together. Then, try drawing your feelings or squeezing a pillow to release the tension."
       },
       sad: {
         title: "You're feeling Sad 😢",
@@ -528,7 +378,7 @@
       },
       unsure: {
         title: "You're feeling Unsure 😕",
-        message: "It’s okay to not know exactly what you're feeling. Try a mood doodle: draw random shapes and see if any feelings show up."
+        message: "It's okay to not know exactly what you're feeling. Try a mood doodle: draw random shapes and see if any feelings show up."
       }
     };
 
@@ -537,7 +387,6 @@
       document.getElementById('moodTitle').textContent = moodResponses[mood].title;
       document.getElementById('moodMessage').textContent = moodResponses[mood].message;
       output.style.display = 'block';
-      output.classList.remove('hidden');
     }
 
     function resetStory() {
@@ -546,6 +395,7 @@
       output.classList.add('hidden');
     }
 
+  <script>
     const canvas = document.getElementById('drawingCanvas');
     const ctx = canvas.getContext('2d');
     const colorPicker = document.getElementById('inkColor');
@@ -554,14 +404,10 @@
     const saveBtn = document.getElementById('saveBtn');
     const eraserSize = document.getElementById('eraserSize');
 
-    function resizeCanvas() {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-      ctx.fillStyle = '#fffbea';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+    ctx.fillStyle = '#fffbea';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     let drawing = false;
     let erasing = false;
@@ -590,6 +436,7 @@
       ctx.strokeStyle = erasing ? '#fffbea' : colorPicker.value;
       ctx.lineWidth = erasing ? parseInt(eraserSize.value) : 3;
       ctx.lineCap = 'round';
+
       ctx.beginPath();
       ctx.moveTo(lastX, lastY);
       ctx.lineTo(pos.x, pos.y);
@@ -624,10 +471,15 @@
       link.href = image;
       link.download = 'my_drawing.png';
       link.click();
-      saveBtn.textContent = '✅ Saved!';
-      setTimeout(() => saveBtn.textContent = '💾 Save Drawing', 2000);
-    });
 
+      /* ✅ NEW: friendly feedback */
+      saveBtn.textContent = "✅ Saved!";
+      setTimeout(() => saveBtn.textContent = "💾 Save Drawing", 2000);
+    });
+  </script>
+
+  <!-- Breathing Animation -->
+  <script>
     function startBreathing() {
       const circle = document.getElementById('breathing-circle');
       const text = document.getElementById('breathing-text');
@@ -651,7 +503,10 @@
         }
       }, 4000);
     }
+  </script>
 
+  <!-- Audio Control -->
+  <script>
     let audioPlayer = new Audio();
     function playSound(src, label = '') {
       audioPlayer.pause();
@@ -665,13 +520,16 @@
       audioPlayer.currentTime = 0;
       document.getElementById('nowPlayingLabel').textContent = '';
     }
+  </script>
 
-    document.getElementById('send-email').addEventListener('click', function () {
-      const subject = encodeURIComponent('My Drawing from Healthy Little Minds');
-      const body = encodeURIComponent('Hi Mom/Dad! I\'ve drawn how I feel today. Please help me send it. You can find the file I just saved in the Downloads folder and attach it to this message. ❤️');
+    document.getElementById("send-email").addEventListener("click", function () {
+      const subject = encodeURIComponent("My Drawing from Healthy Little Minds");
+      const body = encodeURIComponent("Hi Mom/Dad! I've drawn how I feel today. Please help me send it. You can find the file I just saved in the Downloads folder and attach it to this message. ❤️");
       window.location.href = `mailto:?subject=${subject}&body=${body}`;
     });
   </script>
+
+  <!-- Language Switcher -->
   <script defer src="shared-language-switcher.js?v=1"></script>
 </body>
 </html>
