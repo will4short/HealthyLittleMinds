@@ -386,6 +386,12 @@ a {
 
   .feeling-tile {
     min-height: 106px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .feelings-grid {
+    overflow: hidden;
   }
 
   .tool-link {
@@ -400,11 +406,22 @@ a {
 
 @media (max-width: 520px) {
   .feelings-shell {
-    width: min(100% - 24px, 1120px);
-    padding-top: 16px;
+    width: 100%;
+    padding: 16px 14px 48px;
   }
 
   .feelings-grid {
     gap: 11px;
+  }
+
+  .feeling-tile {
+    min-height: 96px;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .feelings-hub__hero {
+    padding: clamp(22px, 5vw, 36px) clamp(18px, 5vw, 32px);
+    border-radius: 22px;
   }
 }
