@@ -74,6 +74,26 @@ a {
   border-radius: 50%;
   background: #ffe0bf;
   content: "";
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .feelings-hub__hero::after {
+    width: 120px;
+    height: 120px;
+    right: -40px;
+    bottom: -44px;
+  }
+
+  .feelings-hub__hero {
+    padding-right: clamp(18px, 5vw, 32px);
+  }
+
+  .feelings-hub__intro,
+  .feelings-hub h1 {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .kicker {
