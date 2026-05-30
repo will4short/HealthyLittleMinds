@@ -200,6 +200,105 @@ body.tools-page--cn {
   color: var(--tools-text);
 }
 
+/* Moved from inline <style> in interactive-tools.html */
+/* Scoped to pages using the tools stylesheet */
+.tools-page #nowPlayingLabel {
+  transition: opacity 0.3s ease-in-out;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  color: #254E70;
+  font-weight: 500;
+  min-height: 1.4em;
+}
+
+.tools-page .sound-btn {
+  background: var(--tools-coral);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  margin: 0.3rem;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.tools-page .sound-btn:hover { transform: scale(1.05); }
+
+.tools-page {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--tools-sky);
+  color: #254E70;
+}
+.tools-page h2, .tools-page h3 { text-align: center; color: #254E70; }
+
+.tools-page section {
+  padding: 3rem 1.5rem;
+  max-width: 600px;
+  margin: auto;
+  background: var(--tools-paper);
+  border-radius: 20px;
+  box-shadow: var(--tools-shadow);
+  margin-top: 2rem;
+}
+
+.tools-page .quick-start {
+  max-width: 600px;
+  margin: 5.5rem auto 0;
+  padding: 1.2rem 1.2rem;
+  background: rgba(255,255,255,0.9);
+  border-radius: 18px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+  text-align: center;
+}
+.tools-page .quick-start p { margin: 0.2rem 0; color: #555; line-height: 1.45; }
+.tools-page .quick-start .flow { margin-top: 0.6rem; font-size: 1.02rem; color: #254E70; font-weight: 600; }
+
+.tools-page button {
+  background-color: var(--tools-coral);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0.5rem;
+}
+
+.tools-page #mood-story-builder button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--tools-accent);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.tools-page #mood-story-builder button:hover { background: var(--tools-accent-dark); }
+
+.tools-page .story-card:hover { transform: scale(1.02); transition: transform 0.3s ease; }
+
+.tools-page .bubble-box {
+  background: var(--tools-blush);
+  border: 2px dashed var(--tools-accent);
+  padding: 1rem;
+  border-radius: 20px;
+  margin-top: 1rem;
+  transition: transform 0.3s ease;
+  text-align: left;
+}
+.tools-page .bubble-box:hover { transform: scale(1.03); box-shadow: 0 4px 15px rgba(255, 107, 107, 0.15); }
+
+.tools-page .tiny-note { font-size: 0.85rem; color: #888; text-align: center; margin-top: 1.2rem; }
+
+@media (max-width: 600px) {
+  .tools-page .sound-btn { font-size: 0.9rem; padding: 0.6rem 1rem; }
+  .tools-page #nowPlayingLabel { font-size: 1rem; }
+  .tools-page .quick-start { margin-top: 5.8rem; }
+}
+
 .tools-quick-start p {
   line-height: 1.45;
 }
@@ -699,6 +798,33 @@ button:active,
     font-size: 0.85rem;
   }
 
+
+/* Utilities added for interactive-tools.html adjustments */
+.tools-top-link {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  background: #E6E6FA;
+  border: 2px solid #D8BFD8;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.tools-top-link__home {
+  text-decoration: none;
+  color: #5A3E8A;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+.text-center { text-align: center; }
+.center-gap { margin: 1rem 0; }
+.muted { color: #999; font-size: 0.9rem; }
+.help-text { font-size: 0.9rem; color: #555; margin-top: 0.5rem; }
+.send-email-btn { background: #FF6086; color: white; padding: 0.6rem 1.2rem; border-radius:20px; font-weight:bold; border:none; cursor:pointer; }
+
+.mood-options { display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin: 1.5rem 0; }
+.story-output { max-width: 600px; margin: auto; background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); display:none; }
   .tools-section {
     padding: 1rem;
     margin: 0.75rem auto;
