@@ -4256,8 +4256,13 @@ body.announcement-dismissed {
 }
 
 .site-header {
+  position: fixed;
   height: 72px;
   top: var(--announcement-height);
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1100;
   padding: 0;
   border-bottom: 1px solid #e7eef3;
   box-shadow: 0 4px 16px rgba(37, 78, 112, 0.06);
