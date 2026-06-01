@@ -4258,11 +4258,11 @@ body.announcement-dismissed {
 .site-header {
   position: fixed;
   height: 72px;
-  top: var(--announcement-height);
+  top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 1100;
+  z-index: 1200;
   padding: 0;
   border-bottom: 1px solid #e7eef3;
   box-shadow: 0 4px 16px rgba(37, 78, 112, 0.06);
@@ -4412,11 +4412,11 @@ nav a.bulletin-link {
 
 .announcement-bar {
   position: fixed;
-  top: 0;
+  top: 72px;
   left: 0;
   right: 0;
   transform: none;
-  z-index: 1200;
+  z-index: 1100;
   width: 100%;
   height: var(--announcement-height);
   min-height: var(--announcement-height);
@@ -4625,7 +4625,7 @@ nav a.bulletin-link {
   }
 
   .announcement-bar {
-    top: 0;
+    top: 64px;
     width: 100%;
     margin: 0 !important;
     padding: 0.4rem 0.55rem !important;
