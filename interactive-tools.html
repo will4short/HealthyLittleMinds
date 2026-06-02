@@ -12,14 +12,13 @@
   <link rel="alternate" href="https://www.healthylittleminds.club/ko/interactive-tools.html" hreflang="ko" />
   <link rel="alternate" href="https://www.healthylittleminds.club/interactive-tools.html" hreflang="x-default" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="interactive-tools.css">
 </head>
 
 <body class="tools-page">
-  <div class="tools-top-link">
-    <a href="home.html" class="tools-top-link__home">
-  </div>
-
   <header class="tools-header">
     <div class="tools-header__inner tools-shell">
       <a href="home.html" class="tools-brand">
@@ -32,124 +31,151 @@
     </div>
   </header>
 
-  <!-- ✅ NEW: “What should I do first?” guide -->
-  <div class="quick-start" aria-label="Quick start guide">
-    <p><strong>Not sure where to start?</strong></p>
-    <p>Try this gentle flow:</p>
-    <div class="flow">🌬️ Breathe → 🎨 Draw → 📖 Story</div>
-    <p class="tiny-note">Every feeling you explore helps your brain grow stronger 💛</p>
-  </div>
+  <main class="tools-main">
+    <section class="tools-hero tools-shell" aria-labelledby="toolsTitle">
+      <div class="tools-hero__copy">
+        <p class="tools-kicker">Interactive calm kit</p>
+        <h1 id="toolsTitle">Choose one small tool for the feeling in front of you.</h1>
+        <p>
+          Listen, breathe, draw, or build a tiny mood story. Each activity is short enough for
+          a classroom pause, a family check-in, or a quiet reset.
+        </p>
+        <div class="tools-hero__actions" aria-label="Jump to a tool">
+          <a href="#calm-corner">Start calm</a>
+          <a href="#drawing-tool">Draw it out</a>
+          <a href="#mood-story-builder">Name a mood</a>
+        </div>
+      </div>
+      <aside class="tools-hero__panel" aria-label="Suggested flow">
+        <span>2 minute reset</span>
+        <ol>
+          <li>Breathe with the circle</li>
+          <li>Pick one background sound</li>
+          <li>Draw what your feeling needs</li>
+        </ol>
+      </aside>
+    </section>
 
-  <main>
-    <section id="calm-corner">
-      <h2>🧘‍♂️ Calm Down Corner</h2>
-    <p>Take a deep breath and pick a sound to feel calm and peaceful.</p>
+    <section class="tools-workspace tools-shell" aria-label="Interactive activities">
+      <article id="calm-corner" class="tool-card tool-card--calm">
+        <div class="tool-card__header">
+          <p class="tools-kicker">Calm corner</p>
+          <h2>Sound and breathing</h2>
+          <p>Use a gentle sound, then follow the circle to settle your body.</p>
+        </div>
 
-    <div>
-      <button onclick="playSound('audio/ocean.mp3', 'Ocean Waves')" class="sound-btn">🌊 Ocean Waves</button>
-      <button onclick="playSound('audio/gentle-piano.mp3', 'Gentle Piano')" class="sound-btn">🎹 Gentle Piano</button>
-      <button onclick="playSound('audio/forest-sound.mp3', 'Forest Sounds')" class="sound-btn">🌲 Forest Sounds</button>
-      <button onclick="stopMusic()" class="sound-btn">⏹️ Stop Music</button>
-      <p id="nowPlayingLabel"></p>
-    </div>
+        <div class="sound-grid" aria-label="Calming sounds">
+          <button onclick="playSound('audio/ocean.mp3', 'Ocean Waves')" class="sound-btn">Ocean Waves</button>
+          <button onclick="playSound('audio/gentle-piano.mp3', 'Gentle Piano')" class="sound-btn">Gentle Piano</button>
+          <button onclick="playSound('audio/forest-sound.mp3', 'Forest Sounds')" class="sound-btn">Forest Sounds</button>
+          <button onclick="stopMusic()" class="sound-btn sound-btn--quiet">Stop Music</button>
+        </div>
+        <p id="nowPlayingLabel" aria-live="polite"></p>
 
-    <!-- ✅ NEW: Parent Tip bubble -->
-    <div class="bubble-box" aria-label="Parent tip">
-      <strong>👪 Parent Tip</strong>
-      <p>
-        Sit nearby. Breathe together. No fixing needed — just presence.
-      </p>
-    </div>
+        <div class="breathing-stage">
+          <div id="breathing-circle" aria-hidden="true"></div>
+          <p id="breathing-text">Get ready...</p>
+          <button onclick="startBreathing()" class="tools-btn">Start breathing</button>
+        </div>
 
-    <div id="breathing-circle"></div>
-    <p id="breathing-text">Get Ready...</p>
-    <div class="text-center">
-      <button onclick="startBreathing()">🌬️ Start Breathing</button>
-    </div>
-  </section>
+        <div class="bubble-box" aria-label="Parent tip">
+          <strong>Grown-up note</strong>
+          <p>Sit nearby. Breathe together. No fixing needed, just presence.</p>
+        </div>
+      </article>
 
-  <section>
-    <h2>🎨 Draw How You Feel</h2>
-    <p style="text-align:center;">Choose a color and start drawing your feelings below.</p>
+      <article id="drawing-tool" class="tool-card tool-card--draw">
+        <div class="tool-card__header">
+          <p class="tools-kicker">Drawing tool</p>
+          <h2>Draw how it feels</h2>
+          <p>Pick a color and let the feeling become lines, shapes, weather, or a place.</p>
+        </div>
 
-    <div class="text-center center-gap">
-      🖍️ Ink Color: <input type="color" id="inkColor" value="#254E70" />
-      <button id="saveBtn">💾 Save Drawing</button>
-    </div>
+        <div class="drawing-layout">
+          <div class="drawing-panel">
+            <canvas id="drawingCanvas" width="720" height="520"></canvas>
+          </div>
+          <div class="drawing-controls" aria-label="Drawing controls">
+            <label class="color-control" for="inkColor">
+              <span>Ink color</span>
+              <input type="color" id="inkColor" value="#254E70" />
+            </label>
+            <button id="eraserBtn" class="tools-btn tools-btn--secondary">Eraser</button>
+            <label class="range-control" for="eraserSize">
+              <span>Eraser size</span>
+              <input type="range" id="eraserSize" min="5" max="40" value="10" />
+            </label>
+            <button id="clearBtn" class="tools-btn tools-btn--secondary">Clear drawing</button>
+            <button id="saveBtn" class="tools-btn">Save drawing</button>
+            <button id="send-email" class="tools-btn tools-btn--mail">Send to my grown-up</button>
+            <p class="tools-note">After saving, find the drawing in Downloads and attach it to the email.</p>
+          </div>
+        </div>
 
-    <p class="muted help-text">
-      🎨 After saving your drawing, ask an adult to help you send it in an email with the picture attached.
-    </p>
+        <div class="bubble-box" aria-label="Parent tip">
+          <strong>Grown-up note</strong>
+          <p>Ask: “What does your drawing want to say?” No judging, just listening.</p>
+        </div>
+      </article>
 
-    <div class="text-center" style="margin-top: 1.5rem;">
-      <p class="help-text" style="max-width: 320px; margin: 0 auto 1rem;">
-        After saving your drawing, tap the button below to send it by email.
-      </p>
+      <article id="mood-story-builder" class="tool-card tool-card--story">
+        <div class="tool-card__header">
+          <p class="tools-kicker">Mood story</p>
+          <h2>Choose a feeling</h2>
+          <p>Select the closest mood and get one gentle next step.</p>
+        </div>
 
-      <button id="send-email" class="send-email-btn">📩 Send to My Grown-Up</button>
+        <div class="mood-options" role="list" aria-label="Choose a mood">
+          <button onclick="showMoodStory('happy')" data-mood="happy">😊<span>Happy</span></button>
+          <button onclick="showMoodStory('angry')" data-mood="angry">😡<span>Angry</span></button>
+          <button onclick="showMoodStory('sad')" data-mood="sad">😢<span>Sad</span></button>
+          <button onclick="showMoodStory('scared')" data-mood="scared">😨<span>Scared</span></button>
+          <button onclick="showMoodStory('calm')" data-mood="calm">😌<span>Calm</span></button>
+          <button onclick="showMoodStory('unsure')" data-mood="unsure">😕<span>Unsure</span></button>
+        </div>
 
-      <p class="muted" style="margin-top: 0.5rem;">📎 Find your drawing in Downloads and attach it before sending.</p>
-    </div>
+        <div id="storyOutput" class="story-output" aria-live="polite">
+          <h3 id="moodTitle"></h3>
+          <p id="moodMessage"></p>
+          <div class="story-output__actions">
+            <button onclick="resetStory()" class="tools-btn tools-btn--secondary">Choose another mood</button>
+            <button onclick="startBreathing()" class="tools-btn">Breathe again</button>
+          </div>
+        </div>
 
-    <canvas id="drawingCanvas" width="300" height="300"></canvas>
+        <div class="bubble-box" aria-label="Parent tip">
+          <strong>Grown-up note</strong>
+          <p>Mirror first: “You’re feeling ___.” Then ask: “What would help your body feel safer?”</p>
+        </div>
+      </article>
+    </section>
 
-    <div class="text-center" style="margin-top:1rem;">
-      <button id="eraserBtn">🧽 Eraser</button>
-      <label for="eraserSize">Eraser Size:</label>
-      <input type="range" id="eraserSize" min="5" max="40" value="10" />
-      <button id="clearBtn">💖 Clear Drawing</button>
-    </div>
+    <section class="story-library tools-shell" aria-labelledby="storiesTitle">
+      <div class="story-library__head">
+        <p class="tools-kicker">Interactive stories</p>
+        <h2 id="storiesTitle">Practice choices inside a story</h2>
+      </div>
 
-    <!-- ✅ NEW: Parent tip under drawing -->
-    <div class="bubble-box" aria-label="Parent tip">
-      <strong>👪 Parent Tip</strong>
-      <p>
-        Ask: “What does your drawing want to say?” (No judging, just listening.)
-      </p>
-    </div>
-  </section>
+      <div class="story-grid">
+        <article class="story-card story-card--sky">
+          <img src="images/destiny-sad.png" alt="Destiny feeling sad" />
+          <div>
+            <h3>Feeling Sad</h3>
+            <p>Help Destiny feel better by choosing what he does next.</p>
+            <a href="story-sad.html" class="tools-btn">Start story</a>
+          </div>
+        </article>
 
-  <section id="mood-story-builder" class="mood-story-builder">
-    <h2>📖 Build Your Mood Story</h2>
-    <p>Select how you're feeling today and we'll guide you through a calming activity.</p>
-
-    <div class="mood-options">
-      <button onclick="showMoodStory('happy')">😊 Happy</button>
-      <button onclick="showMoodStory('angry')">😡 Angry</button>
-      <button onclick="showMoodStory('sad')">😢 Sad</button>
-      <button onclick="showMoodStory('scared')">😨 Scared</button>
-      <button onclick="showMoodStory('calm')">😌 Calm</button>
-      <button onclick="showMoodStory('unsure')">😕 Unsure</button>
-    </div>
-
-    <div id="storyOutput" class="story-output">
-      <h3 id="moodTitle"></h3>
-      <p id="moodMessage"></p>
-      <button onclick="resetStory()">🔁 Choose Another Mood</button>
-      <button onclick="startBreathing()">🌬️ Breathe Again</button>
-    </div>
-
-    <div class="bubble-box" aria-label="Parent tip">
-      <strong>👪 Parent Tip</strong>
-      <p>Mirror first: “You’re feeling ___.” Then ask: “What would help your body feel safer?”</p>
-    </div>
-  </section>
-
-  <!-- Linked Interactive Story -->
-  <div class="story-card story-card--sky">
-    <img src="images/destiny-sad.png" alt="Destiny feeling sad" />
-    <h4>😢 Feeling Sad</h4>
-    <p>Help Destiny feel better by choosing what he does next in this interactive story.</p>
-    <a href="story-sad.html" class="btn">📖 Start Story</a>
-  </div>
-
-  <div class="story-card story-card--blush">
-    <img src="images/bella_interactive_story.png" alt="Bella's interactive story" />
-    <h4>🌈 Choices & Feelings</h4>
-    <p>Join Bella’s journey as she faces new situations and learns how her choices shape her feelings and friendships.</p>
-    <a href="interactive-stories/scene_1_bella_story.html" class="btn">📖 Start Bella’s Story</a>
-  </div>
-
+        <article class="story-card story-card--blush">
+          <img src="images/bella_interactive_story.png" alt="Bella's interactive story" />
+          <div>
+            <h3>Choices & Feelings</h3>
+            <p>Join Bella as she learns how choices shape feelings and friendships.</p>
+            <a href="interactive-stories/scene_1_bella_story.html" class="tools-btn">Start Bella’s story</a>
+          </div>
+        </article>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -163,10 +189,13 @@
       const nav = document.getElementById('nav-menu');
       const isMember = localStorage.getItem('isMember');
       if (nav) {
+        const memberLink = isMember === 'true'
+          ? '<a href="dashboard.html">Dashboard</a>'
+          : '<a href="index.html">Login</a>';
         if (isMember === 'true') {
-          nav.innerHTML = `<a href="home.html">🏠 Home</a><a href="dashboard.html">📋 Dashboard</a>`;
+          nav.innerHTML = `<a href="home.html">Home</a><a href="#calm-corner">Calm</a><a href="#drawing-tool">Draw</a><a href="#mood-story-builder">Mood</a>${memberLink}`;
         } else {
-          nav.innerHTML = `<a href="index.html">🔐 Login to View More</a>`;
+          nav.innerHTML = `<a href="home.html">Home</a><a href="#calm-corner">Calm</a><a href="#drawing-tool">Draw</a><a href="#mood-story-builder">Mood</a>${memberLink}`;
         }
       }
       const memberBanner = document.getElementById('memberBanner');
@@ -206,15 +235,25 @@
 
     function showMoodStory(mood) {
       const output = document.getElementById('storyOutput');
+      document.querySelectorAll('.mood-options button').forEach((button) => {
+        const isSelected = button.dataset.mood === mood;
+        button.classList.toggle('is-selected', isSelected);
+        button.setAttribute('aria-pressed', String(isSelected));
+      });
       document.getElementById('moodTitle').textContent = moodResponses[mood].title;
       document.getElementById('moodMessage').textContent = moodResponses[mood].message;
       output.style.display = 'block';
+      output.classList.remove('hidden');
     }
 
     function resetStory() {
       const output = document.getElementById('storyOutput');
       output.style.display = 'none';
       output.classList.add('hidden');
+      document.querySelectorAll('.mood-options button').forEach((button) => {
+        button.classList.remove('is-selected');
+        button.setAttribute('aria-pressed', 'false');
+      });
     }
   </script>
 
@@ -227,10 +266,19 @@
     const saveBtn = document.getElementById('saveBtn');
     const eraserSize = document.getElementById('eraserSize');
 
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
+    function sizeCanvas() {
+      const rect = canvas.getBoundingClientRect();
+      const scale = window.devicePixelRatio || 1;
+      canvas.width = Math.max(1, Math.floor(rect.width * scale));
+      canvas.height = Math.max(1, Math.floor(rect.height * scale));
+      ctx.setTransform(scale, 0, 0, scale, 0, 0);
+      ctx.fillStyle = '#fffbea';
+      ctx.fillRect(0, 0, rect.width, rect.height);
+    }
+
+    sizeCanvas();
     ctx.fillStyle = '#fffbea';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillRect(0, 0, canvas.getBoundingClientRect().width, canvas.getBoundingClientRect().height);
 
     let drawing = false;
     let erasing = false;
@@ -274,8 +322,8 @@
     canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('mouseup', stopDrawing);
     canvas.addEventListener('mouseout', stopDrawing);
-    canvas.addEventListener('touchstart', startDrawing);
-    canvas.addEventListener('touchmove', draw);
+    canvas.addEventListener('touchstart', startDrawing, { passive: false });
+    canvas.addEventListener('touchmove', draw, { passive: false });
     canvas.addEventListener('touchend', stopDrawing);
 
     eraserBtn.addEventListener('click', () => {
@@ -285,7 +333,7 @@
 
     clearBtn.addEventListener('click', () => {
       ctx.fillStyle = '#fffbea';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect(0, 0, canvas.getBoundingClientRect().width, canvas.getBoundingClientRect().height);
     });
 
     saveBtn.addEventListener('click', () => {
@@ -335,8 +383,13 @@
       audioPlayer.pause();
       audioPlayer = new Audio(src);
       audioPlayer.loop = true;
-      audioPlayer.play();
-      document.getElementById('nowPlayingLabel').textContent = `🎵 Now Playing: ${label}`;
+      audioPlayer.play()
+        .then(() => {
+          document.getElementById('nowPlayingLabel').textContent = `🎵 Now Playing: ${label}`;
+        })
+        .catch(() => {
+          document.getElementById('nowPlayingLabel').textContent = 'Tap again to start audio.';
+        });
     }
     function stopMusic() {
       audioPlayer.pause();
