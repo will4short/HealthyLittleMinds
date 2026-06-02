@@ -4,7 +4,11 @@
   --topic-tint: #fff8ea;
   --topic-border: #e2ebef;
   --topic-text: #40596a;
-  background: #f8fbfc;
+  --topic-page-gradient: linear-gradient(180deg, #f8fbfc 0%, #ffffff 100%);
+  background-color: #ffffff;
+  background-image: var(--topic-page-gradient);
+  background-attachment: fixed;
+  background-size: 100% 100%;
   color: var(--topic-text);
   padding-top: 0;
 }
@@ -49,6 +53,48 @@
 .topic-page--youth-teens { --topic-accent: #4d99a6; --topic-tint: #edf8fa; }
 .topic-page--bullying { --topic-accent: #d06e73; --topic-tint: #fff2f3; }
 .topic-page--school-transitions { --topic-accent: #438da6; --topic-tint: #eef8fb; }
+
+.topic-page--emotions,
+.topic-page--relationships,
+.topic-page--parents,
+.topic-page--self-esteem,
+.topic-page--bullying {
+  --topic-page-gradient:
+    radial-gradient(125% 125% at 50% 90%, #ffffff 40%, #ec4899 100%);
+}
+
+.topic-page--worry-anxiety,
+.topic-page--stress,
+.topic-page--sleep,
+.topic-page--trauma,
+.topic-page--substance-use {
+  --topic-page-gradient:
+    radial-gradient(circle at 50% 30%, #fbf7ff 0%, #eadcff 25%, #d8c8ff 50%, #b79cf4 75%, #9473e8 100%);
+}
+
+.topic-page--relaxation,
+.topic-page--mindfulness,
+.topic-page--values,
+.topic-page--positive-psychology {
+  --topic-page-gradient:
+    radial-gradient(125% 125% at 50% 10%, #ffffff 40%, #14b8a6 100%);
+}
+
+.topic-page--goals,
+.topic-page--youth-teens,
+.topic-page--school-transitions {
+  --topic-page-gradient:
+    radial-gradient(125% 125% at 50% 90%, #ffffff 40%, #10b981 100%);
+}
+
+.topic-page--grief {
+  --topic-page-gradient:
+    radial-gradient(ellipse 80% 60% at 5% 40%, rgba(175, 109, 255, 0.48), transparent 67%),
+    radial-gradient(ellipse 70% 60% at 45% 45%, rgba(255, 100, 180, 0.41), transparent 67%),
+    radial-gradient(ellipse 62% 52% at 83% 76%, rgba(255, 235, 170, 0.44), transparent 63%),
+    radial-gradient(ellipse 60% 48% at 75% 20%, rgba(120, 190, 255, 0.36), transparent 66%),
+    linear-gradient(45deg, #f7eaff 0%, #fde2ea 100%);
+}
 
 .topic-page .topic-wrap {
   max-width: 1140px;
