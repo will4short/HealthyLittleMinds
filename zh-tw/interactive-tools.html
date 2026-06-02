@@ -226,7 +226,7 @@
 
 </style>
 </head>
-<body class="tools-page">
+<body class="tools-page tools-page--localized tools-page--tw">
 <script>
   (function () {
     const isLocal = location.protocol === 'file:';
@@ -249,9 +249,24 @@
     <div class="site-title">小小心靈俱樂部</div>
   </a>
   <nav class="nav-links">
-    <a href="home.html">🏠 回到主頁</a>
+    <a href="home.html">首頁</a>
+    <a href="#calm-corner">平靜</a>
+    <a href="#drawingCanvas">畫畫</a>
+    <a href="#mood-story-builder">心情</a>
   </nav>
 </header>
+
+<section class="localized-tools-hero" aria-labelledby="toolsTitle">
+  <div class="localized-tools-hero__copy">
+    <p class="tools-kicker">互動平靜工具箱</p>
+    <h1 id="toolsTitle">為眼前的感受選一個小工具。</h1>
+    <p>聽一段聲音、跟著圓圈呼吸、畫出心情，或建立一個小小的情緒故事。每個活動都可以短短停一下，照顧自己。</p>
+  </div>
+  <aside class="localized-tools-hero__panel" aria-label="建議流程">
+    <span>2 分鐘重置</span>
+    <p>先呼吸，選一種聲音，再畫出此刻的感受。</p>
+  </aside>
+</section>
 
 <section id="calm-corner">
   <h2>🧘‍♂️ 安靜解憂區</h2>
@@ -505,6 +520,36 @@ document.getElementById("send-email").addEventListener("click", function () {
 <footer>
 © 2025 健康小小心靈 | 保留所有權利 🌟
 </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const moodButtons = document.querySelectorAll('#mood-story-builder button[onclick^="showMoodStory"]');
+
+      moodButtons.forEach((button) => {
+        button.setAttribute('aria-pressed', 'false');
+        button.addEventListener('click', () => {
+          moodButtons.forEach((item) => {
+            item.classList.remove('is-selected');
+            item.setAttribute('aria-pressed', 'false');
+          });
+          button.classList.add('is-selected');
+          button.setAttribute('aria-pressed', 'true');
+        });
+      });
+
+      const originalResetStory = window.resetStory;
+      if (typeof originalResetStory === 'function') {
+        window.resetStory = function (...args) {
+          const result = originalResetStory.apply(this, args);
+          moodButtons.forEach((button) => {
+            button.classList.remove('is-selected');
+            button.setAttribute('aria-pressed', 'false');
+          });
+          return result;
+        };
+      }
+    });
+  </script>
 
   <script defer src="../shared-language-switcher.js?v=1"></script>
 </body>

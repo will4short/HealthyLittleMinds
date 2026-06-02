@@ -233,7 +233,7 @@
   }
 </style>
 </head>
-<body class="tools-page">
+<body class="tools-page tools-page--localized tools-page--cn">
 <script>
   (function () {
     const isLocal = location.protocol === 'file:';
@@ -256,9 +256,24 @@
     <div class="site-title">小小情绪俱乐部</div>
   </a>
   <nav class="nav-links">
-    <a href="home.html">🏠 首页</a>
+    <a href="home.html">首页</a>
+    <a href="#calm-corner">平静</a>
+    <a href="#drawingCanvas">画画</a>
+    <a href="#mood-story-builder">心情</a>
   </nav>
 </header>
+
+<section class="localized-tools-hero" aria-labelledby="toolsTitle">
+  <div class="localized-tools-hero__copy">
+    <p class="tools-kicker">互动平静工具箱</p>
+    <h1 id="toolsTitle">为眼前的感受选择一个小工具。</h1>
+    <p>听声音、跟着圆圈呼吸、画出心情，或建立一个小小的心情故事。每个活动都适合短暂停下来照顾自己。</p>
+  </div>
+  <aside class="localized-tools-hero__panel" aria-label="建议流程">
+    <span>2 分钟重置</span>
+    <p>呼吸一下，选择一种声音，再画出此刻的感受。</p>
+  </aside>
+</section>
 
 <section id="calm-corner">
   <h2>🧘‍♂️ 平静角落</h2>
@@ -513,6 +528,36 @@ document.getElementById("send-email").addEventListener("click", function () {
   window.location.href = `mailto:?subject=${subject}&body=${body}`;
 });
 </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const moodButtons = document.querySelectorAll('#mood-story-builder button[onclick^="showMoodStory"]');
+
+      moodButtons.forEach((button) => {
+        button.setAttribute('aria-pressed', 'false');
+        button.addEventListener('click', () => {
+          moodButtons.forEach((item) => {
+            item.classList.remove('is-selected');
+            item.setAttribute('aria-pressed', 'false');
+          });
+          button.classList.add('is-selected');
+          button.setAttribute('aria-pressed', 'true');
+        });
+      });
+
+      const originalResetStory = window.resetStory;
+      if (typeof originalResetStory === 'function') {
+        window.resetStory = function (...args) {
+          const result = originalResetStory.apply(this, args);
+          moodButtons.forEach((button) => {
+            button.classList.remove('is-selected');
+            button.setAttribute('aria-pressed', 'false');
+          });
+          return result;
+        };
+      }
+    });
+  </script>
 
   <script defer src="../shared-language-switcher.js?v=1"></script>
 </body>

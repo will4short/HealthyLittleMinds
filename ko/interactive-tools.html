@@ -209,7 +209,7 @@
   }
 </style>
 </head>
-<body class="tools-page">
+<body class="tools-page tools-page--localized tools-page--ko">
 <script>
   (function () {
     const isLocal = location.protocol === 'file:';
@@ -232,9 +232,24 @@
     <div class="site-title">건강한 작은 마음</div>
   </a>
   <nav class="nav-links">
-    <a href="home.html">🏠 홈으로</a>
+    <a href="home.html">홈</a>
+    <a href="#calm-corner">진정</a>
+    <a href="#drawingCanvas">그리기</a>
+    <a href="#mood-story-builder">감정</a>
   </nav>
 </header>
+
+<section class="localized-tools-hero" aria-labelledby="toolsTitle">
+  <div class="localized-tools-hero__copy">
+    <p class="tools-kicker">인터랙티브 진정 도구</p>
+    <h1 id="toolsTitle">지금 느끼는 마음에 맞는 작은 도구를 하나 골라요.</h1>
+    <p>소리를 듣고, 원을 따라 숨 쉬고, 마음을 그림으로 표현하거나 짧은 감정 이야기를 만들어 보세요. 잠깐 멈춰 돌보는 활동입니다.</p>
+  </div>
+  <aside class="localized-tools-hero__panel" aria-label="추천 흐름">
+    <span>2분 리셋</span>
+    <p>숨을 쉬고, 소리를 고른 뒤, 지금의 마음을 그려 보세요.</p>
+  </aside>
+</section>
 
 <section id="calm-corner">
   <h2>🧘‍♂️ 마음을 진정시키는 공간</h2>
@@ -476,6 +491,36 @@ document.getElementById("send-email").addEventListener("click", function () {
 <footer>
     © 2025 건강한 작은 마음 | 모든 권리 보유 🌟
  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const moodButtons = document.querySelectorAll('#mood-story-builder button[onclick^="showMoodStory"]');
+
+      moodButtons.forEach((button) => {
+        button.setAttribute('aria-pressed', 'false');
+        button.addEventListener('click', () => {
+          moodButtons.forEach((item) => {
+            item.classList.remove('is-selected');
+            item.setAttribute('aria-pressed', 'false');
+          });
+          button.classList.add('is-selected');
+          button.setAttribute('aria-pressed', 'true');
+        });
+      });
+
+      const originalResetStory = window.resetStory;
+      if (typeof originalResetStory === 'function') {
+        window.resetStory = function (...args) {
+          const result = originalResetStory.apply(this, args);
+          moodButtons.forEach((button) => {
+            button.classList.remove('is-selected');
+            button.setAttribute('aria-pressed', 'false');
+          });
+          return result;
+        };
+      }
+    });
+  </script>
 
   <script defer src="../shared-language-switcher.js?v=1"></script>
 </body>

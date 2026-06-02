@@ -209,7 +209,7 @@
 }
 </style>
 </head>
-<body class="tools-page">
+<body class="tools-page tools-page--localized tools-page--ja">
 
 <header class="site-header">
   <a href="home.html" class="site-branding">
@@ -217,10 +217,24 @@
     <div class="site-title">こころのひろば</div>
   </a>
   <nav class="nav-links">
-    <a href="home.html">🏠 ホーム</a>
-    <a href="dashboard.html">📋 ダッシュボード</a>
+    <a href="home.html">ホーム</a>
+    <a href="#calm-corner">落ち着く</a>
+    <a href="#drawingCanvas">描く</a>
+    <a href="#mood-story-builder">気持ち</a>
   </nav>
 </header>
+
+<section class="localized-tools-hero" aria-labelledby="toolsTitle">
+  <div class="localized-tools-hero__copy">
+    <p class="tools-kicker">インタラクティブな落ち着きツール</p>
+    <h1 id="toolsTitle">いま目の前にある気持ちに、小さな道具をひとつ選ぼう。</h1>
+    <p>音を聴く、円に合わせて呼吸する、気持ちを描く、短い気持ちのストーリーを作る。どれも少し立ち止まるための活動です。</p>
+  </div>
+  <aside class="localized-tools-hero__panel" aria-label="おすすめの流れ">
+    <span>2 分のリセット</span>
+    <p>呼吸して、音を選んで、いまの気持ちを描いてみよう。</p>
+  </aside>
+</section>
 
 <section id="calm-corner">
   <h2>🧘‍♂️ オチツキコーナー</h2>
@@ -507,6 +521,36 @@ document.getElementById("send-email").addEventListener("click", function () {
   window.location.href = `mailto:?subject=${subject}&body=${body}`;
 });
 </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const moodButtons = document.querySelectorAll('#mood-story-builder button[onclick^="showMoodStory"]');
+
+      moodButtons.forEach((button) => {
+        button.setAttribute('aria-pressed', 'false');
+        button.addEventListener('click', () => {
+          moodButtons.forEach((item) => {
+            item.classList.remove('is-selected');
+            item.setAttribute('aria-pressed', 'false');
+          });
+          button.classList.add('is-selected');
+          button.setAttribute('aria-pressed', 'true');
+        });
+      });
+
+      const originalResetStory = window.resetStory;
+      if (typeof originalResetStory === 'function') {
+        window.resetStory = function (...args) {
+          const result = originalResetStory.apply(this, args);
+          moodButtons.forEach((button) => {
+            button.classList.remove('is-selected');
+            button.setAttribute('aria-pressed', 'false');
+          });
+          return result;
+        };
+      }
+    });
+  </script>
 
   <script defer src="../shared-language-switcher.js?v=1"></script>
 </body>
