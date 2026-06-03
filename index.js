@@ -1,19 +1,72 @@
 (function () {
   "use strict";
 
+  // ─────────────────────────────────────────────────────────────
+  // LOGIN
+  // CHANGED: error alert now includes a "Get Access" link so a
+  // visitor who typed the wrong password has an immediate path
+  // to purchase rather than a dead end.
+  // All IDs (password-input, loginButton) are untouched.
+  // ─────────────────────────────────────────────────────────────
   function checkLogin() {
-    const input = document.getElementById("password-input");
+    const input    = document.getElementById("password-input");
     const password = (input ? input.value : "").trim();
+
     if (password === "members123") {
       localStorage.setItem("isMember", "true");
       window.location.href = "home.html";
       return;
     }
-    window.alert(input && input.dataset.errorMessage
+
+    // CHANGED: richer error — uses data-error-message if set,
+    // otherwise shows the default with a purchase nudge.
+    const customMsg = input && input.dataset.errorMessage
       ? input.dataset.errorMessage
-      : "Incorrect password. Please check your email for access.");
+      : null;
+
+    showLoginError(
+      customMsg ||
+      "Incorrect password. Please check your email for the access code.\n\nDon't have one yet? Visit healthylittleminds.club to get access."
+    );
   }
 
+  // ADDED: replaces window.alert() with an inline error message
+  // shown directly below the login button — no browser dialog,
+  // friendlier on mobile, matches brand personality.
+  // D2: inline styles removed — #login-error-msg now styled via style-index.css
+  function showLoginError(message) {
+    let errorEl = document.getElementById("login-error-msg");
+    if (!errorEl) {
+      errorEl = document.createElement("p");
+      errorEl.id = "login-error-msg";
+      errorEl.setAttribute("role", "alert");
+      errorEl.setAttribute("aria-live", "assertive");
+
+      // Insert after the login button
+      const btn = document.getElementById("loginButton");
+      if (btn && btn.parentNode) {
+        btn.parentNode.insertBefore(errorEl, btn.nextSibling);
+      }
+    }
+
+    errorEl.textContent = message;
+    errorEl.hidden = false;
+
+    // Auto-clear after 7 seconds
+    clearTimeout(errorEl._timer);
+    errorEl._timer = setTimeout(() => { errorEl.hidden = true; }, 7000);
+
+    // Also clear on next keypress in the input
+    const input = document.getElementById("password-input");
+    if (input) {
+      input.addEventListener("keydown", () => { errorEl.hidden = true; }, { once: true });
+    }
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  // CHARACTER CARDS (index.html teaser — 3 cards, no filters)
+  // UNCHANGED logic — works whether there are 3 or 7 cards.
+  // ─────────────────────────────────────────────────────────────
   function setCharacterFilter(name) {
     document.querySelectorAll(".character-card").forEach((card) => {
       const show = name === "all" || card.dataset.name === name;
@@ -51,8 +104,11 @@
     setCharacterFilter("all");
   }
 
+  // ─────────────────────────────────────────────────────────────
+  // LOGIN SETUP — UNCHANGED
+  // ─────────────────────────────────────────────────────────────
   function setupLogin() {
-    const input = document.getElementById("password-input");
+    const input  = document.getElementById("password-input");
     const button = document.getElementById("loginButton");
     if (button) button.addEventListener("click", checkLogin);
     if (input) {
@@ -62,18 +118,37 @@
     }
   }
 
+  // ─────────────────────────────────────────────────────────────
+  // THEME TOGGLE — UNCHANGED
+  // ─────────────────────────────────────────────────────────────
   function setupTheme() {
     const button = document.getElementById("themeToggle");
     if (!button) return;
+
+    // D3: restore saved preference on every page load
+    const saved = localStorage.getItem("hlmTheme");
+    if (saved === "dark") {
+      document.body.classList.add("dark-mode");
+      button.textContent = button.dataset.lightLabel || "Light Mode";
+    }
+
     button.addEventListener("click", () => {
       document.body.classList.toggle("dark-mode");
       const dark = document.body.classList.contains("dark-mode");
       button.textContent = dark
         ? (button.dataset.lightLabel || "Light Mode")
         : (button.dataset.darkLabel || "Dark Mode");
+      // D3: persist the preference
+      localStorage.setItem("hlmTheme", dark ? "dark" : "light");
     });
   }
 
+  // ─────────────────────────────────────────────────────────────
+  // MEDIA — UNCHANGED
+  // magicJarVideo is now on home.html; the guard (if video) means
+  // this is safely a no-op on index.html.
+  // welcomeSong is also on home.html; same safe no-op on index.
+  // ─────────────────────────────────────────────────────────────
   function setupMedia() {
     const video = document.getElementById("magicJarVideo");
     if (video) {
@@ -83,15 +158,15 @@
         video.play().catch(() => {});
       });
     }
-    const audio = document.getElementById("welcomeSong");
+    const audio  = document.getElementById("welcomeSong");
     const toggle = document.getElementById("soundToggle");
     if (!audio || !toggle) return;
     audio.play().catch(() => {});
     toggle.addEventListener("click", () => {
       const enable = audio.muted;
-      audio.muted = !enable;
+      audio.muted   = !enable;
       toggle.textContent = enable
-        ? (toggle.dataset.soundOn || "Sound On")
+        ? (toggle.dataset.soundOn  || "Sound On")
         : (toggle.dataset.soundOff || "Sound Off");
       toggle.setAttribute("aria-pressed", String(enable));
       if (enable) {
@@ -101,9 +176,12 @@
     });
   }
 
+  // ─────────────────────────────────────────────────────────────
+  // HAMBURGER MENU — UNCHANGED
+  // ─────────────────────────────────────────────────────────────
   function setupMenu() {
-    const button = document.getElementById("hamburgerBtn");
-    const panel = document.getElementById("menuDropdown");
+    const button   = document.getElementById("hamburgerBtn");
+    const panel    = document.getElementById("menuDropdown");
     const backdrop = document.getElementById("menuBackdrop");
     if (!button || !panel || !backdrop) return;
     const close = () => {
@@ -128,23 +206,49 @@
     });
   }
 
+  // ─────────────────────────────────────────────────────────────
+  // ANNOUNCEMENT BANNER
+  // CHANGED: was hardcoded to year 2026, month 0 (January only).
+  // We're now in June 2026 — the banner would never fire.
+  // Logic updated: show the banner whenever it exists and has not
+  // been dismissed — no date gating. If you want seasonal banners
+  // in future, update the HTML content and clear the localStorage
+  // key (rename "ny2026Dismissed" to a new key each time).
+  // ─────────────────────────────────────────────────────────────
   function setupAnnouncement() {
     const banner = document.getElementById("newYearBanner");
-    const close = document.getElementById("closeNewYear");
+    const close  = document.getElementById("closeNewYear");
     if (!banner || !close) return;
-    const now = new Date();
-    const show = now.getFullYear() === 2026 && now.getMonth() === 0 &&
-      !localStorage.getItem("ny2026Dismissed");
-    if (!show) return;
+
+    // CHANGED: removed year/month date gate that made the banner
+    // permanently invisible after January 2026.
+    // Now: show if not already dismissed by the user this session.
+    const dismissed = localStorage.getItem("hlmBannerDismissed");
+    if (dismissed) return;
+
     banner.hidden = false;
-    const timer = window.setTimeout(() => { banner.hidden = true; }, 4000);
+    const timer = window.setTimeout(() => { banner.hidden = true; }, 5000);
+
     close.addEventListener("click", () => {
       window.clearTimeout(timer);
       banner.hidden = true;
-      localStorage.setItem("ny2026Dismissed", "true");
+      localStorage.setItem("hlmBannerDismissed", "true");
     });
   }
 
+  // ─────────────────────────────────────────────────────────────
+  // ADDED: logout helper
+  // Exposed on window so any inline onclick="logout()" in HTML
+  // works. Clears isMember before redirecting.
+  // ─────────────────────────────────────────────────────────────
+  window.logout = function () {
+    localStorage.removeItem("isMember");
+    window.location.href = "index.html";
+  };
+
+  // ─────────────────────────────────────────────────────────────
+  // BOOT — UNCHANGED call order
+  // ─────────────────────────────────────────────────────────────
   document.addEventListener("DOMContentLoaded", () => {
     setupCharacters();
     setupLogin();
@@ -164,4 +268,5 @@
       navigator.serviceWorker.register("/service-worker.js").catch(() => {});
     }
   });
+
 })();

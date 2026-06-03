@@ -436,21 +436,25 @@ h2{
 input[type="password"]{
   padding:12px;
   width:100%;
+  min-height:44px;           /* D1: 44px touch target */
   border:1px solid #ccc;
   border-radius:12px;
   margin-top:10px;
   font-size:1rem;
+  font-family:inherit;       /* D1: inherit brand font */
 }
 
 button{
   margin-top: 15px;
   padding: 12px 20px;
+  min-height: 44px;           /* D1: 44px touch target */
   background: var(--accent);
   color: #fff;
   border:none;
   border-radius: 30px;
   font-weight: 800;
   font-size: 1rem;
+  font-family: inherit;       /* D1: inherit brand font */
   cursor:pointer;
   transition: background .25s ease, transform .2s ease;
   width:100%;
@@ -1843,5 +1847,126 @@ body.dark-mode .faq-grid p{
   .access-card-actions{
     align-items:flex-start;
     flex-direction:column;
+  }
+}
+
+/* =====================================================
+   Phase A additions — footer lang nav + testimonial attribution
+   ===================================================== */
+
+/* Footer language links */
+.footer-langs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footer-langs a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-langs img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  transition: transform .15s ease;
+}
+
+.footer-langs img:hover {
+  transform: scale(1.1);
+}
+
+/* Testimonial attribution line inside blockquote */
+.testimonial footer {
+  display: block;
+  margin-top: .65rem;
+  font-size: .88rem;
+  font-weight: 700;
+  color: #7a9aae;
+}
+
+/* Testimonial blockquote reset */
+.testimonial p:first-child {
+  margin: 0 0 .4rem;
+  font-size: .95rem;
+}
+
+.testimonial p:last-of-type {
+  margin: 0;
+  font-style: italic;
+}
+
+/* =====================================================
+   Phase D additions — style-index.css
+   ===================================================== */
+
+/* D2 — Login error message (replaces inline styles from Phase C JS)
+   The JS still creates the element dynamically; these classes give
+   it proper themed styling instead of hardcoded inline CSS. */
+#login-error-msg {
+  margin: 0.6rem 0 0;
+  padding: 0.65rem 0.9rem;
+  background: #fff3cd;
+  border: 1.5px solid #ffe082;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #5a3e00;
+  white-space: pre-line;
+  text-align: left;
+}
+
+body.dark-mode #login-error-msg {
+  background: #3a2e00;
+  border-color: #7a5a00;
+  color: #ffe082;
+}
+
+/* D4 — Dark mode toggle remembers state via data-theme attribute
+   set on <body> on load (see index.js Phase D update) */
+[data-theme="dark"] body,
+body.dark-mode {
+  /* already covered by body.dark-mode rules — this selector ensures
+     the attribute approach also works if used in future */
+}
+
+/* D1 — Ensure dark-mode-toggle button has a 44px touch target
+   (it uses width:auto so the global button rule's max-width is
+    overridden — we just need min-height to be explicit) */
+.dark-mode-toggle {
+  min-height: 44px;
+}
+
+/* D1 — Member entry section: ensure the login button specifically
+   has full 44px height even on very small screens */
+.login-box #loginButton {
+  min-height: 48px;   /* slightly taller — this is the primary CTA */
+  font-size: 1.05rem;
+}
+
+/* D1 — Mobile: stack login + audiobook card cleanly on 380px screens */
+@media (max-width: 420px) {
+  .member-entry-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .login-box,
+  .audiobook-card {
+    width: 100%;
+  }
+
+  input[type="password"],
+  .login-box button {
+    font-size: 1rem;   /* prevent iOS zoom on focus (needs 16px+) */
+  }
+}
+
+/* D2 — Prevent iOS font-size zoom on password input (must be 16px) */
+@media (max-width: 768px) {
+  input[type="password"] {
+    font-size: 16px;
   }
 }

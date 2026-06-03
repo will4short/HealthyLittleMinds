@@ -4071,54 +4071,6 @@ html {
   color: #555;
 }
 
-.u-style-077 {
-  max-width: 480px;
-  margin: auto;
-}
-
-.u-style-078 {
-  width: 100%;
-  padding: 11px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.u-style-079 {
-  width: 100%;
-  padding: 11px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.u-style-080 {
-  width: 100%;
-  padding: 11px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.u-style-081 {
-  margin-top: 12px;
-  background: #5833a9;
-  color: white;
-  padding: 11px 26px;
-  border: none;
-  border-radius: 999px;
-  font-weight: 700;
-  cursor: pointer;
-  transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease;
-}
-
-.u-style-082 {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #777;
-}
-
 .u-style-083 {
   margin-top: 0.35rem;
   font-size: 0.85rem;
@@ -4241,11 +4193,6 @@ html {
   transform: translateY(-1px);
   background: rgba(0, 128, 96, 0.14);
   border-color: rgba(0, 128, 96, 0.28);
-}
-
-.u-style-081:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(88, 51, 169, 0.25);
 }
 
 .u-style-085:hover {
@@ -6409,4 +6356,185 @@ nav a.bulletin-link {
   .localized-home .tw-subscribe button {
     width: min(100%, 330px);
   }
+}
+
+/* =====================================================
+   Phase B additions — home.html
+   ===================================================== */
+
+/* --- Welcome greeting banner --- */
+.member-welcome-greeting {
+  background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+  border-bottom: 2px solid #ffe082;
+  padding: 1rem 1.25rem;
+}
+
+.member-welcome-greeting__inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.member-welcome-greeting__badge {
+  font-size: 2rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.member-welcome-greeting__title {
+  margin: 0 0 0.2rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #5a3e00;
+}
+
+.member-welcome-greeting__sub {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #7a5a00;
+  line-height: 1.45;
+}
+
+@media (max-width: 480px) {
+  .member-welcome-greeting {
+    padding: 0.85rem 1rem;
+  }
+  .member-welcome-greeting__title {
+    font-size: 0.97rem;
+  }
+}
+
+/* --- Nav logout button (desktop) --- */
+.nav-logout-btn {
+  background: none;
+  border: 1.5px solid var(--accent-dark, #e7a800);
+  border-radius: 999px;
+  color: var(--accent-dark, #e7a800);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.35rem 0.9rem;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.nav-logout-btn:hover,
+.nav-logout-btn:focus-visible {
+  background: var(--accent-dark, #e7a800);
+  color: #fff;
+  outline: none;
+}
+
+/* --- Mobile nav logout button --- */
+.mobile-nav-logout-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-top: 1px solid rgba(0,0,0,.07);
+  color: #c0392b;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.85rem 1.25rem;
+  margin-top: 0.25rem;
+}
+
+.mobile-nav-logout-btn:hover,
+.mobile-nav-logout-btn:focus-visible {
+  background: #fff5f5;
+  outline: none;
+}
+
+/* --- Quick logout button (bottom of page) --- */
+button.quick-logout {
+  display: inline-block;
+  background: none;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0.4rem 1.1rem;
+  transition: background 0.15s, color 0.15s;
+}
+
+button.quick-logout:hover,
+button.quick-logout:focus-visible {
+  background: rgba(0,0,0,.06);
+  outline: none;
+}
+
+/* --- Magic Jar video section --- */
+.magic-jar-section {
+  background: linear-gradient(135deg, #e8f4fd 0%, #d6eaf8 100%);
+  padding: 3rem 1.25rem;
+  text-align: center;
+}
+
+.magic-jar-section__inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.magic-jar-section h2 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #1a4a6e;
+  margin: 0.4rem 0 0.6rem;
+}
+
+.magic-jar-section__sub {
+  font-size: 0.93rem;
+  color: #3a6a8e;
+  margin: 0 0 1.4rem;
+}
+
+.magic-jar-section video {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.12);
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .magic-jar-section {
+    padding: 2rem 1rem;
+  }
+  .magic-jar-section h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* --- Contact CTA link (replacing the form) --- */
+.contact-cta-link {
+  display: inline-block;
+  margin: 1rem 0 0.75rem;
+  background: var(--accent, #FFDD59);
+  color: #3a2e00;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.1s;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+
+.contact-cta-link:hover,
+.contact-cta-link:focus-visible {
+  background: var(--accent-dark, #e7c200);
+  transform: translateY(-1px);
+  outline: none;
 }
