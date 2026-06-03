@@ -58,6 +58,13 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Nunito:wght@600;800&amp;display=swap" rel="stylesheet">
    <!-- Structured Data -->
 <link as="image" href="images/logo-icon.webp" rel="preload"/>
+
+  <!-- Dark mode: apply saved preference before first paint (no flash) -->
+  <script>
+    if (localStorage.getItem('hlmTheme') === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+    }
+  </script>
 </head>
  <body>
   <!-- 🔄 Branded Loading Screen -->
@@ -2324,8 +2331,10 @@ startAutoSlide();
 </script>
  
 <script>
-/* ── Home page dark mode — reads/writes hlmTheme in localStorage ──
-   Syncs both the desktop pill button and the mobile nav button.    */
+/* ── Home page dark mode — button wiring ──
+   Theme is already applied in <head> before first paint.
+   This script just wires up the toggle buttons and keeps
+   them in sync with each other.                          */
 (function () {
   const STORAGE_KEY = 'hlmTheme';
   const DARK_CLASS  = 'dark-mode';
@@ -2333,20 +2342,21 @@ startAutoSlide();
   const desktopBtn = document.getElementById('homeThemeToggle');
   const mobileBtn  = document.getElementById('homeThemeToggleMob');
 
-  function applyTheme(dark) {
-    document.body.classList.toggle(DARK_CLASS, dark);
+  function syncButtons(dark) {
     if (desktopBtn) desktopBtn.textContent = dark ? '☀️' : '🌙';
     if (mobileBtn)  mobileBtn.textContent  = dark ? '☀️ Light Mode' : '🌙 Dark Mode';
   }
 
   function toggleTheme() {
-    const dark = !document.body.classList.contains(DARK_CLASS);
-    applyTheme(dark);
+    const dark = !document.documentElement.classList.contains(DARK_CLASS);
+    document.documentElement.classList.toggle(DARK_CLASS, dark);
+    document.body.classList.toggle(DARK_CLASS, dark);
+    syncButtons(dark);
     localStorage.setItem(STORAGE_KEY, dark ? 'dark' : 'light');
   }
 
-  // Restore saved preference immediately
-  applyTheme(localStorage.getItem(STORAGE_KEY) === 'dark');
+  // Sync button labels to whatever state <head> script set
+  syncButtons(localStorage.getItem(STORAGE_KEY) === 'dark');
 
   if (desktopBtn) desktopBtn.addEventListener('click', toggleTheme);
   if (mobileBtn)  mobileBtn.addEventListener('click', toggleTheme);

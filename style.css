@@ -6603,3 +6603,193 @@ body.dark-mode .mobile-nav-theme-btn {
   color: #f5f5f5;
   border-bottom-color: rgba(255,255,255,.08);
 }
+
+/* =====================================================
+   Dark mode — full ruleset for home.html
+   (style-index.css carried these for index.html;
+    home.html loads style.css so they must live here)
+   ===================================================== */
+
+html.dark-mode {
+  background: #121212 !important;
+  color: #f5f5f5 !important;
+}
+body.dark-mode {
+  background: #121212 !important;
+  color: #f5f5f5 !important;
+}
+
+/* Header / nav */
+html.dark-mode .site-header,
+html.dark-mode .navbar {
+  background: #1e1e1e !important;
+  border-bottom-color: #2a2a2a !important;
+  box-shadow: none !important;
+}
+body.dark-mode .site-header,
+body.dark-mode .navbar {
+  background: #1e1e1e !important;
+  border-bottom-color: #2a2a2a !important;
+  box-shadow: none !important;
+}
+
+html.dark-mode .navbar-menu a,
+html.dark-mode .site-title,
+html.dark-mode .site-title span {
+  color: #f5f5f5 !important;
+}
+body.dark-mode .navbar-menu a,
+body.dark-mode .site-title,
+body.dark-mode .site-title span {
+  color: #f5f5f5 !important;
+}
+
+html.dark-mode .nav-more summary,
+html.dark-mode .nav-more__panel {
+  background: #1e1e1e;
+  color: #f5f5f5;
+}
+body.dark-mode .nav-more summary,
+body.dark-mode .nav-more__panel {
+  background: #1e1e1e;
+  color: #f5f5f5;
+}
+
+html.dark-mode .nav-more__panel a {
+  color: #f5f5f5;
+}
+body.dark-mode .nav-more__panel a {
+  color: #f5f5f5;
+}
+
+/* Mobile nav */
+html.dark-mode .mobile-nav {
+  background: #1a1a1a;
+  color: #f5f5f5;
+}
+body.dark-mode .mobile-nav {
+  background: #1a1a1a;
+  color: #f5f5f5;
+}
+
+html.dark-mode .mobile-nav a,
+html.dark-mode .mobile-nav__label {
+  color: #ccc;
+}
+body.dark-mode .mobile-nav a,
+body.dark-mode .mobile-nav__label {
+  color: #ccc;
+}
+
+/* Cards, sections, panels */
+html.dark-mode .u-style-010,
+html.dark-mode .carousel-slide,
+html.dark-mode .home-start__card,
+html.dark-mode .next-step__card,
+html.dark-mode .topic-card,
+html.dark-mode .hlm-res,
+html.dark-mode .hlm-res__intro,
+html.dark-mode .book-card,
+html.dark-mode .worksheet-card,
+html.dark-mode .trust-section,
+html.dark-mode .creator-card,
+html.dark-mode .subscribe-section,
+html.dark-mode .contact-section,
+html.dark-mode .magic-jar-section {
+  background: #1f1f1f !important;
+  color: #f5f5f5 !important;
+  border-color: #2a2a2a !important;
+}
+body.dark-mode .u-style-010,
+body.dark-mode .carousel-slide,
+body.dark-mode .home-start__card,
+body.dark-mode .next-step__card,
+body.dark-mode .topic-card,
+body.dark-mode .hlm-res,
+body.dark-mode .hlm-res__intro,
+body.dark-mode .book-card,
+body.dark-mode .worksheet-card,
+body.dark-mode .trust-section,
+body.dark-mode .creator-card,
+body.dark-mode .subscribe-section,
+body.dark-mode .contact-section,
+body.dark-mode .magic-jar-section {
+  background: #1f1f1f !important;
+  color: #f5f5f5 !important;
+  border-color: #2a2a2a !important;
+}
+
+/* Welcome greeting */
+html.dark-mode .member-welcome-greeting {
+  background: #2a2200 !important;
+  border-bottom-color: #5a4500 !important;
+}
+body.dark-mode .member-welcome-greeting {
+  background: #2a2200 !important;
+  border-bottom-color: #5a4500 !important;
+}
+
+html.dark-mode .member-welcome-greeting__title {
+  color: #ffe082 !important;
+}
+body.dark-mode .member-welcome-greeting__title {
+  color: #ffe082 !important;
+}
+
+html.dark-mode .member-welcome-greeting__sub {
+  color: #c8a050 !important;
+}
+body.dark-mode .member-welcome-greeting__sub {
+  color: #c8a050 !important;
+}
+
+/* Mood check-in */
+html.dark-mode .mood-section,
+html.dark-mode .mood-check {
+  background: #1f1f1f !important;
+  color: #f5f5f5 !important;
+}
+body.dark-mode .mood-section,
+body.dark-mode .mood-check {
+  background: #1f1f1f !important;
+  color: #f5f5f5 !important;
+}
+
+/* Footer */
+html.dark-mode .site-footer,
+html.dark-mode footer {
+  background: #1a1a1a !important;
+  color: #aaa !important;
+  border-top-color: #2a2a2a !important;
+}
+body.dark-mode .site-footer,
+body.dark-mode footer {
+  background: #1a1a1a !important;
+  color: #aaa !important;
+  border-top-color: #2a2a2a !important;
+}
+
+/* Inputs and textareas */
+html.dark-mode input,
+html.dark-mode textarea,
+html.dark-mode select {
+  background: #2c2c2c !important;
+  border-color: #555 !important;
+  color: #f5f5f5 !important;
+}
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background: #2c2c2c !important;
+  border-color: #555 !important;
+  color: #f5f5f5 !important;
+}
+
+/* Smooth transitions */
+body,
+.site-header,
+.navbar,
+.mobile-nav,
+.member-welcome-greeting {
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
