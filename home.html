@@ -15,6 +15,8 @@
 <meta name="keywords" content="children's books, emotions, mental health, worksheets, free printables, preschool, feelings activities, social and emotional learning, mindfulness, parenting resources, classroom resources">
 <meta name="author" content="Godswill Ambrose" />
 <link rel="canonical" href="https://www.healthylittleminds.club/home.html" />
+<!-- Prevent search engines indexing the gated member library -->
+<meta name="robots" content="noindex, nofollow" />
 
 <!-- Multilingual -->
 <link rel="alternate" href="https://www.healthylittleminds.club/home.html" hreflang="en" />
@@ -102,6 +104,11 @@
               aria-label="Log out">
         Log out
       </button>
+      <!-- ADDED: dark mode toggle — reads hlmTheme from localStorage on load -->
+      <button class="nav-theme-btn" id="homeThemeToggle" type="button"
+              aria-label="Toggle dark mode">
+        🌙
+      </button>
     </nav>
 
     <!-- Hamburger -->
@@ -136,6 +143,11 @@
     <a href="audiobook_section.html">Audiobooks</a>
     <a href="social.html">Social Posts</a>
     <p class="mobile-nav__label">Account</p>
+    <!-- ADDED: dark mode toggle in mobile nav -->
+    <button class="mobile-nav-theme-btn" id="homeThemeToggleMob" type="button"
+            aria-label="Toggle dark mode">
+      🌙 Dark Mode
+    </button>
     <!-- ADDED: logout in mobile nav -->
     <button class="mobile-nav-logout-btn" type="button"
             onclick="localStorage.removeItem('isMember'); window.location.href='index.html';"
@@ -2310,5 +2322,36 @@ startAutoSlide();
   document.getElementById("lastUpdated").textContent =
     new Date().toLocaleString("en-US", { month: "long", year: "numeric" });
 </script>
- </body>
+ 
+<script>
+/* ── Home page dark mode — reads/writes hlmTheme in localStorage ──
+   Syncs both the desktop pill button and the mobile nav button.    */
+(function () {
+  const STORAGE_KEY = 'hlmTheme';
+  const DARK_CLASS  = 'dark-mode';
+
+  const desktopBtn = document.getElementById('homeThemeToggle');
+  const mobileBtn  = document.getElementById('homeThemeToggleMob');
+
+  function applyTheme(dark) {
+    document.body.classList.toggle(DARK_CLASS, dark);
+    if (desktopBtn) desktopBtn.textContent = dark ? '☀️' : '🌙';
+    if (mobileBtn)  mobileBtn.textContent  = dark ? '☀️ Light Mode' : '🌙 Dark Mode';
+  }
+
+  function toggleTheme() {
+    const dark = !document.body.classList.contains(DARK_CLASS);
+    applyTheme(dark);
+    localStorage.setItem(STORAGE_KEY, dark ? 'dark' : 'light');
+  }
+
+  // Restore saved preference immediately
+  applyTheme(localStorage.getItem(STORAGE_KEY) === 'dark');
+
+  if (desktopBtn) desktopBtn.addEventListener('click', toggleTheme);
+  if (mobileBtn)  mobileBtn.addEventListener('click', toggleTheme);
+})();
+</script>
+
+</body>
 </html>

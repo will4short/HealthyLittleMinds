@@ -6538,3 +6538,68 @@ button.quick-logout:focus-visible {
   transform: translateY(-1px);
   outline: none;
 }
+
+/* =====================================================
+   Phase E — home.html dark mode toggle buttons
+   ===================================================== */
+
+/* Desktop nav pill */
+.nav-theme-btn {
+  background: none;
+  border: 1.5px solid rgba(37,78,112,.25);
+  border-radius: 999px;
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  min-height: 44px;
+  padding: 0 .75rem;
+  transition: background .15s, border-color .15s;
+  white-space: nowrap;
+}
+
+.nav-theme-btn:hover,
+.nav-theme-btn:focus-visible {
+  background: rgba(37,78,112,.07);
+  border-color: rgba(37,78,112,.5);
+  outline: none;
+}
+
+body.dark-mode .nav-theme-btn {
+  border-color: rgba(255,255,255,.25);
+  color: #f5f5f5;
+}
+
+body.dark-mode .nav-theme-btn:hover {
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.5);
+}
+
+/* Mobile nav row */
+.mobile-nav-theme-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  color: #254E70;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  min-height: 44px;
+  padding: .75rem 1.25rem;
+}
+
+.mobile-nav-theme-btn:hover,
+.mobile-nav-theme-btn:focus-visible {
+  background: rgba(37,78,112,.05);
+  outline: none;
+}
+
+body.dark-mode .mobile-nav-theme-btn {
+  color: #f5f5f5;
+  border-bottom-color: rgba(255,255,255,.08);
+}
