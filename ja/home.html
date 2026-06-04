@@ -18,6 +18,8 @@
   <meta name="keywords" content="感情学習, 子どものメンタルヘルス, プリントワークシート, フリップブック, オーディオブック, 保護者ガイド, マインドフルネス, 社会情動学習, SEL, ティーン, 教育者">
   <meta name="author" content="Godswill Ambrose" />
   <link rel="canonical" href="https://www.healthylittleminds.club/ja/home.html" />
+  <!-- Prevent search engines indexing the gated member library -->
+  <meta name="robots" content="noindex, nofollow" />
 
   <!-- Multilingual SEO -->
   <link rel="alternate" href="https://www.healthylittleminds.club/home.html" hreflang="en" />
@@ -77,11 +79,8 @@
     "@type": "WebSite",
     "name": "Healthy Little Minds",
     "url": "https://www.healthylittleminds.club",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.healthylittleminds.club/search?q={query}",
-      "query-input": "required name=query"
-    }
+    "description": "子ども・ティーン・保護者・教育者のための感情学習リソース。",
+    "inLanguage": "ja"
   }
   </script>
 
@@ -624,6 +623,13 @@
       .ny-sub{ font-size: 0.85rem; }
     }
   </style>
+
+  <!-- Dark mode: apply saved preference before first paint (no flash) -->
+  <script>
+    if (localStorage.getItem('hlmTheme') === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+    }
+  </script>
 </head>
 
 <body class="localized-home">
@@ -678,7 +684,7 @@
 <header class="main-header">
   <div class="header-container">
     <a href="home.html" class="header-brand">
-      <img src="images/logo-icon.png" alt="Logo" class="logo" />
+      <img src="../images/logo-icon.webp" alt="Healthy Little Minds ロゴ" class="logo" loading="eager" />
       <div class="brand-text">
         <h1 class="site-title">
           <span style="color:#254E70">Healthy</span>
@@ -709,6 +715,12 @@
   <a href="audiobook_section.html">🎧 オーディオブック</a>
   <a href="social.html">🌐 ソーシャル投稿</a>
   <a href="#subscribe" class="subscribe-btn">📬 購読する</a>
+  <!-- Dark mode toggle -->
+  <button class="mobile-nav-theme-btn" id="homeThemeToggleMob" type="button" aria-label="ダークモード切替">🌙 ダークモード</button>
+  <!-- Logout -->
+  <button class="mobile-nav-logout-btn" type="button"
+          onclick="localStorage.removeItem('isMember'); window.location.href='index.html';"
+          aria-label="ログアウト">ログアウト</button>
 </nav>
 
 <!-- ✅ Sticky nav for desktop -->
@@ -732,6 +744,12 @@
       </div>
     </details>
     <a href="#subscribe" class="subscribe-btn">購読する</a>
+    <!-- Dark mode toggle -->
+    <button class="nav-theme-btn" id="homeThemeToggle" type="button" aria-label="ダークモード切替">🌙</button>
+    <!-- Logout -->
+    <button class="nav-logout-btn" type="button"
+            onclick="localStorage.removeItem('isMember'); window.location.href='index.html';"
+            aria-label="ログアウト">ログアウト</button>
   </div>
 </nav>
 
@@ -768,6 +786,19 @@
       </div>
     </div>
     <a href="inspire_page.html" class="ny-banner__action">動画を見る</a>
+  </div>
+</section>
+
+<!-- Welcome greeting — first thing a member sees after the banner -->
+<section class="member-welcome-greeting" aria-label="ようこそメッセージ">
+  <div class="member-welcome-greeting__inner">
+    <span class="member-welcome-greeting__badge" aria-hidden="true">💛</span>
+    <div>
+      <p class="member-welcome-greeting__title">ライブラリーへようこそ</p>
+      <p class="member-welcome-greeting__sub">
+        物語、ワークシート、感情ツールをぞんぶんにお楽しみください。育ちゆく心のために、すべてが揃っています。
+      </p>
+    </div>
   </div>
 </section>
 
@@ -1138,15 +1169,20 @@
 
 <!-- Footer -->
 <footer class="site-footer ja-footer">
-  <span>© 2026 Healthy Little Minds · 無断転載を禁じます</span>
+  <span>© <span id="ja-copy-year"></span> Healthy Little Minds · 無断転載を禁じます</span>
   <button class="ja-logout" type="button" onclick="logout()">ログアウト</button>
 </footer>
+
+<!-- Copyright year -->
+<script>
+  (function(){ var el = document.getElementById('ja-copy-year'); if(el) el.textContent = new Date().getFullYear(); })();
+</script>
 
 <!-- Logout -->
 <script>
   function logout() {
     localStorage.removeItem("isMember");
-    window.location.href = "../ja/index.html";
+    window.location.href = "index.html";
   }
 </script>
 
@@ -1460,5 +1496,32 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 </script>
 
+
+<script>
+/* ── Dark mode button wiring for ja/home.html ── */
+(function () {
+  const STORAGE_KEY = 'hlmTheme';
+  const DARK_CLASS  = 'dark-mode';
+  const desktopBtn  = document.getElementById('homeThemeToggle');
+  const mobileBtn   = document.getElementById('homeThemeToggleMob');
+
+  function syncButtons(dark) {
+    if (desktopBtn) desktopBtn.textContent = dark ? '☀️' : '🌙';
+    if (mobileBtn)  mobileBtn.textContent  = dark ? '☀️ ライトモード' : '🌙 ダークモード';
+  }
+
+  function toggleTheme() {
+    const dark = !document.documentElement.classList.contains(DARK_CLASS);
+    document.documentElement.classList.toggle(DARK_CLASS, dark);
+    document.body.classList.toggle(DARK_CLASS, dark);
+    syncButtons(dark);
+    localStorage.setItem(STORAGE_KEY, dark ? 'dark' : 'light');
+  }
+
+  syncButtons(localStorage.getItem(STORAGE_KEY) === 'dark');
+  if (desktopBtn) desktopBtn.addEventListener('click', toggleTheme);
+  if (mobileBtn)  mobileBtn.addEventListener('click', toggleTheme);
+})();
+</script>
 </body>
 </html>

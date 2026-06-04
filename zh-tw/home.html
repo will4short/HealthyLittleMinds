@@ -17,6 +17,7 @@
 <meta name="description" content="提供孩子、青少年、家長與教育者的友善情緒學習資源：短篇指南、可列印學習單與工具。幫助談論感受、紓壓、建立自信，支持情緒與心理健康。">
 <meta name="author" content="Godswill Ambrose" />
 <link rel="canonical" href="https://www.healthylittleminds.club/zh-tw/home.html" />
+  <meta name="robots" content="noindex, nofollow" />
 
 <!-- 多語系 Hreflang -->
 <link rel="alternate" hreflang="en"    href="https://www.healthylittleminds.club/home.html" />
@@ -77,11 +78,8 @@
     "@type": "WebSite",
     "name": "Healthy Little Minds",
     "url": "https://www.healthylittleminds.club",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.healthylittleminds.club/search?q={query}",
-      "query-input": "required name=query"
-    }
+    "description": "兒童、青少年、家長與教師的情緒學習資源。",
+    "inLanguage": "zh-TW"
   }
   </script>
 
@@ -693,6 +691,13 @@ html[lang="zh-TW"] .hlm-res{
   .ny-sub{ font-size:0.85rem; }
 }
 </style>
+
+  <!-- Dark mode: apply saved preference before first paint -->
+  <script>
+    if (localStorage.getItem('hlmTheme') === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+    }
+  </script>
 </head>
 <body class="localized-home">
 <script>
@@ -728,7 +733,7 @@ html[lang="zh-TW"] .hlm-res{
   <div class="header-container">
     <!-- ✅ Logo + Brand clickable link -->
     <a href="home.html" class="header-brand" style="text-decoration:none; color:inherit;">
-      <img src="images/logo-icon.png" alt="Logo" class="logo" />
+      <img src="../images/logo-icon.webp" alt="Healthy Little Minds" class="logo" />
       <div class="brand-text">
         <h1 class="site-title">
           <span>Healthy</span> <span>Little Minds</span>
@@ -761,6 +766,10 @@ html[lang="zh-TW"] .hlm-res{
   <a href="audiobook_section.html">🎧 有聲書</a>
   <a href="social.html">🌐 社交貼文</a>
   <a href="#subscribe" class="subscribe-btn">📬 訂閱</a>
+  <button class="mobile-nav-theme-btn" id="homeThemeToggleMob" type="button" aria-label="深色/淺色模式">🌙 深色模式</button>
+  <button class="mobile-nav-logout-btn" type="button"
+          onclick="localStorage.removeItem('isMember'); window.location.href='index.html';"
+          aria-label="登出">登出</button>
 </nav>
 
 <nav class="sticky-nav" id="navMenu" aria-label="主要導覽">
@@ -783,6 +792,10 @@ html[lang="zh-TW"] .hlm-res{
       </div>
     </details>
     <a href="#subscribe" class="subscribe-btn">訂閱</a>
+    <button class="nav-theme-btn" id="homeThemeToggle" type="button" aria-label="深色/淺色模式切換">🌙</button>
+    <button class="nav-logout-btn" type="button"
+            onclick="localStorage.removeItem('isMember'); window.location.href='index.html';"
+            aria-label="登出">登出</button>
   </div>
 </nav>
 
@@ -1249,7 +1262,7 @@ html[lang="zh-TW"] .hlm-res{
 
 <!-- 🌈 Taiwanese Footer -->
 <footer class="site-footer tw-footer">
-  <span>© 2026 Healthy Little Minds · 保留所有權利</span>
+  <span>© <span id="tw-copy-year"></span> Healthy Little Minds · 保留所有權利</span>
   <button class="tw-logout" type="button" onclick="logout()">登出</button>
 </footer>
 
@@ -1340,7 +1353,7 @@ html[lang="zh-TW"] .hlm-res{
 <script>
   function logout() {
     try { localStorage.removeItem('isMember'); } catch (e) {}
-    window.location.href = '../zh-tw/index.html';
+    window.location.href = 'index.html';
   }
 </script>
 
@@ -1616,6 +1629,38 @@ html[lang="zh-TW"] .hlm-res{
   if (list.dataset.empty === 'true') {
     list.setAttribute('aria-label', EMPTY_TEXT);
   }
+})();
+</script>
+
+<script>
+/* ── Dark mode + copyright year for zh-tw/home.html ── */
+(function () {
+  // Copyright year
+  var yrEl = document.getElementById('tw-copy-year');
+  if (yrEl) yrEl.textContent = new Date().getFullYear();
+
+  // Dark mode button wiring
+  var STORAGE_KEY = 'hlmTheme';
+  var DARK_CLASS  = 'dark-mode';
+  var desktopBtn  = document.getElementById('homeThemeToggle');
+  var mobileBtn   = document.getElementById('homeThemeToggleMob');
+
+  function syncButtons(dark) {
+    if (desktopBtn) desktopBtn.textContent = dark ? '☀️' : '🌙';
+    if (mobileBtn)  mobileBtn.textContent  = dark ? '☀️ 淺色模式' : '🌙 深色模式';
+  }
+
+  function toggleTheme() {
+    var dark = !document.documentElement.classList.contains(DARK_CLASS);
+    document.documentElement.classList.toggle(DARK_CLASS, dark);
+    document.body.classList.toggle(DARK_CLASS, dark);
+    syncButtons(dark);
+    localStorage.setItem(STORAGE_KEY, dark ? 'dark' : 'light');
+  }
+
+  syncButtons(localStorage.getItem(STORAGE_KEY) === 'dark');
+  if (desktopBtn) desktopBtn.addEventListener('click', toggleTheme);
+  if (mobileBtn)  mobileBtn.addEventListener('click', toggleTheme);
 })();
 </script>
 </body>
