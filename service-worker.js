@@ -42,11 +42,10 @@ const ASSETS_TO_PRECACHE = [
   '/localized-home-polish.js',
   '/manifest.json',
   '/icon-192.webp', '/icon-512.webp', '/favicon.ico',
-  '/fonts/Nunito.woff2',
 
   // ✅ Logo (tiny, critical for UI)
-  '/logo-icon.webp',
-  '/logo-icon.png'
+  '/images/logo-icon.webp',
+  '/images/logo-icon.png'
   // ❌ deliberately NOT precaching large images/characters/videos/PDFs
 ];
 
