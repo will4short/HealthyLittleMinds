@@ -25,7 +25,7 @@
 
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="/favicon.png">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="canonical" href="https://www.healthylittleminds.club/songs.html" />
   <link rel="alternate" hreflang="ja" href="https://www.healthylittleminds.club/ja/songs.html" />
   <link rel="manifest" href="/manifest.json">
@@ -43,14 +43,13 @@
   <!-- 🔒 Member Guard (MUST be in head, early) -->
   <script>
     (function () {
+      const isLocal = location.protocol === "file:";
       const isMember = localStorage.getItem("isMember");
-      if (isMember !== "true") {
+      if (!isLocal && isMember !== "true") {
         window.location.replace("/index.html");
       }
     })();
   </script>
-
-</head>
 
   <style>
     :root{
@@ -391,6 +390,22 @@
       color:var(--navy);
     }
     .song-btn:hover{ filter: brightness(1.04); }
+    .song-btn.is-disabled,
+    .song-btn:disabled{
+      cursor:not-allowed;
+      opacity:.68;
+      filter:none;
+    }
+
+    .song-placeholder{
+      display:grid;
+      place-items:center;
+      min-height:120px;
+      padding:1rem;
+      color:var(--muted);
+      font-weight:900;
+      text-align:center;
+    }
 
     .yt-lite{
       margin-top:.85rem;
@@ -575,7 +590,7 @@
 
   <!-- 🎨 Song Cover -->
   <div class="song-cover"
-       style="background-image:url('../images/keep-trying-ella-song.webp');">
+       style="background-image:url('images/keep-trying-ella-song.webp');">
   </div>
 
   <div class="song-top">
@@ -620,7 +635,7 @@
 
       <div class="song-actions">
         <button class="song-btn ghost yt-open" type="button" data-youtube-id="VIDEO_ID_1">▶️ Play here</button>
-        <a class="song-btn" href="https://www.youtube.com/watch?v=VIDEO_ID_1" target="_blank" rel="noopener">🔗 Open on YouTube</a>
+        <span class="song-btn is-disabled" aria-disabled="true">Coming soon</span>
       </div>
 
       <div class="yt-lite" aria-label="YouTube player"></div>
@@ -638,7 +653,7 @@
 
       <div class="song-actions">
         <button class="song-btn ghost yt-open" type="button" data-youtube-id="VIDEO_ID_2">▶️ Play here</button>
-        <a class="song-btn" href="https://www.youtube.com/watch?v=VIDEO_ID_2" target="_blank" rel="noopener">🔗 Open on YouTube</a>
+        <span class="song-btn is-disabled" aria-disabled="true">Coming soon</span>
       </div>
 
       <div class="yt-lite" aria-label="YouTube player"></div>
@@ -686,6 +701,12 @@
         const id = btn.dataset.youtubeId;
         const card = btn.closest(".song-card");
         const box = card.querySelector(".yt-lite");
+
+        if (!id || id.startsWith("VIDEO_ID_")) {
+          box.classList.add("is-open");
+          box.innerHTML = '<div class="song-placeholder">This song is coming soon.</div>';
+          return;
+        }
 
         // Close other open embeds
         document.querySelectorAll(".yt-lite.is-open").forEach(other => {
