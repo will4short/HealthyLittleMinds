@@ -7014,3 +7014,139 @@ body,
     top: 0.82rem;
   }
 }
+
+/* =====================================================
+   Gentle motion layer
+   ===================================================== */
+@keyframes hlm-soft-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hlm-calm-glow {
+  0%,
+  100% {
+    box-shadow: 0 14px 34px rgba(37, 78, 112, 0.1);
+  }
+
+  50% {
+    box-shadow: 0 18px 42px rgba(20, 184, 166, 0.18);
+  }
+}
+
+@keyframes hlm-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.035);
+  }
+}
+
+main > section,
+.hero,
+.section,
+.topic-library,
+.worksheet-section,
+.resource-page,
+.feelings-guide,
+.book-section,
+.song-section {
+  animation: hlm-soft-rise 0.56s ease-out both;
+}
+
+.character-card,
+.book-card,
+.worksheet-card,
+.topic-card,
+.resource-card,
+.next-step__card,
+.video-card,
+.song-card,
+.tool-card,
+.audiobook-card,
+.login-box {
+  will-change: transform;
+}
+
+.character-card:hover,
+.book-card:hover,
+.worksheet-card:hover,
+.topic-card:hover,
+.resource-card:hover,
+.next-step__card:hover,
+.video-card:hover,
+.song-card:hover,
+.tool-card:hover,
+.audiobook-card:hover {
+  transform: translateY(-4px);
+}
+
+.character-card:focus-within,
+.book-card:focus-within,
+.worksheet-card:focus-within,
+.topic-card:focus-within,
+.resource-card:focus-within,
+.next-step__card:focus-within,
+.video-card:focus-within,
+.song-card:focus-within,
+.tool-card:focus-within,
+.audiobook-card:focus-within {
+  transform: translateY(-3px);
+}
+
+.btn,
+.next-step__card,
+.vid-btn,
+.share-row button,
+.mobile-nav-toggle,
+.dark-mode-toggle {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.24s ease,
+    background-color 0.24s ease,
+    border-color 0.24s ease,
+    color 0.24s ease;
+}
+
+.btn:active,
+.vid-btn:active,
+.share-row button:active,
+.mobile-nav-toggle:active,
+.dark-mode-toggle:active {
+  transform: scale(0.98);
+}
+
+.featured,
+.featured-card,
+.announcement-card,
+.topic-card--primary,
+.newyear-banner:not([hidden]) {
+  animation: hlm-calm-glow 4.8s ease-in-out infinite;
+}
+
+.breathing-circle,
+.breathing-orb,
+.calm-circle {
+  animation: hlm-breathe 4.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

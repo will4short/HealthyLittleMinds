@@ -1486,3 +1486,71 @@ body.localized-home.body-lock {
     transition-duration: .01ms !important;
   }
 }
+
+/* =====================================================
+   Gentle localized home motion
+   ===================================================== */
+@keyframes hlm-local-soft-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hlm-local-glow {
+  0%,
+  100% {
+    box-shadow: 0 18px 42px rgba(37, 78, 112, .16) !important;
+  }
+
+  50% {
+    box-shadow: 0 22px 52px rgba(20, 184, 166, .22) !important;
+  }
+}
+
+.localized-home main > section,
+.localized-home .hlm-topic-panel,
+.localized-home .character-card,
+.localized-home .book-card,
+.localized-home .worksheet-card {
+  animation: hlm-local-soft-rise .56s ease-out both;
+}
+
+.localized-home .character-card,
+.localized-home .book-card,
+.localized-home .worksheet-card,
+.localized-home .hlm-tp__list a {
+  transition:
+    transform .22s ease,
+    box-shadow .24s ease,
+    background-color .24s ease,
+    border-color .24s ease !important;
+  will-change: transform;
+}
+
+.localized-home .character-card:hover,
+.localized-home .book-card:hover,
+.localized-home .worksheet-card:hover,
+.localized-home .hlm-tp__list a:hover {
+  transform: translateY(-4px);
+}
+
+.localized-home .hlm-topic-panel {
+  animation:
+    hlm-local-soft-rise .56s ease-out both,
+    hlm-local-glow 5.4s ease-in-out infinite .9s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .localized-home *,
+  .localized-home *::before,
+  .localized-home *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

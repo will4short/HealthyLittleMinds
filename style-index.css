@@ -1970,3 +1970,96 @@ body.dark-mode {
     font-size: 16px;
   }
 }
+
+/* =====================================================
+   Gentle motion layer
+   ===================================================== */
+@keyframes hlm-index-soft-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hlm-index-glow {
+  0%,
+  100% {
+    box-shadow: 0 14px 34px rgba(37, 78, 112, 0.1);
+  }
+
+  50% {
+    box-shadow: 0 18px 42px rgba(20, 184, 166, 0.18);
+  }
+}
+
+main > section,
+.hero,
+.section,
+.member-entry,
+.testimonial,
+.audiobook-card,
+.login-box {
+  animation: hlm-index-soft-rise 0.56s ease-out both;
+}
+
+.audiobook-card,
+.login-box,
+.testimonial,
+.resource-card,
+.story-card,
+.book-card {
+  transition:
+    transform 0.24s ease,
+    box-shadow 0.24s ease,
+    border-color 0.24s ease;
+  will-change: transform;
+}
+
+.audiobook-card:hover,
+.login-box:hover,
+.testimonial:hover,
+.resource-card:hover,
+.story-card:hover,
+.book-card:hover {
+  transform: translateY(-4px);
+}
+
+.btn,
+.login-box button,
+.dark-mode-toggle {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.24s ease,
+    background-color 0.24s ease,
+    border-color 0.24s ease,
+    color 0.24s ease;
+}
+
+.btn:active,
+.login-box button:active,
+.dark-mode-toggle:active {
+  transform: scale(0.98);
+}
+
+.audiobook-card,
+.newyear-banner:not([hidden]) {
+  animation:
+    hlm-index-soft-rise 0.56s ease-out both,
+    hlm-index-glow 5s ease-in-out infinite 0.8s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
