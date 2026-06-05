@@ -7017,6 +7017,7 @@ body,
 
 /* =====================================================
    Gentle motion layer
+   Order: entrance, card lift, button feedback, selective glow.
    ===================================================== */
 @keyframes hlm-soft-rise {
   from {
@@ -7041,17 +7042,7 @@ body,
   }
 }
 
-@keyframes hlm-breathe {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.035);
-  }
-}
-
+/* 1. Page and section entrance */
 main > section,
 .hero,
 .section,
@@ -7064,6 +7055,7 @@ main > section,
   animation: hlm-soft-rise 0.56s ease-out both;
 }
 
+/* 2. Card hover lift */
 .character-card,
 .book-card,
 .worksheet-card,
@@ -7104,6 +7096,7 @@ main > section,
   transform: translateY(-3px);
 }
 
+/* 3. Button press feedback */
 .btn,
 .next-step__card,
 .vid-btn,
@@ -7126,18 +7119,11 @@ main > section,
   transform: scale(0.98);
 }
 
-.featured,
-.featured-card,
+/* 4. Selective glow for genuinely featured moments */
 .announcement-card,
 .topic-card--primary,
 .newyear-banner:not([hidden]) {
   animation: hlm-calm-glow 4.8s ease-in-out infinite;
-}
-
-.breathing-circle,
-.breathing-orb,
-.calm-circle {
-  animation: hlm-breathe 4.2s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

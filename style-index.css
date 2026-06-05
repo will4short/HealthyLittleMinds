@@ -1973,6 +1973,7 @@ body.dark-mode {
 
 /* =====================================================
    Gentle motion layer
+   Order: entrance, card lift, button feedback, selective glow.
    ===================================================== */
 @keyframes hlm-index-soft-rise {
   from {
@@ -1997,6 +1998,7 @@ body.dark-mode {
   }
 }
 
+/* 1. Page and section entrance */
 main > section,
 .hero,
 .section,
@@ -2007,6 +2009,7 @@ main > section,
   animation: hlm-index-soft-rise 0.56s ease-out both;
 }
 
+/* 2. Card hover lift */
 .audiobook-card,
 .login-box,
 .testimonial,
@@ -2029,6 +2032,7 @@ main > section,
   transform: translateY(-4px);
 }
 
+/* 3. Button press feedback */
 .btn,
 .login-box button,
 .dark-mode-toggle {
@@ -2046,6 +2050,7 @@ main > section,
   transform: scale(0.98);
 }
 
+/* 4. Selective glow for featured entry points */
 .audiobook-card,
 .newyear-banner:not([hidden]) {
   animation:
