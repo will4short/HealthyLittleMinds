@@ -91,6 +91,7 @@
     <!-- DESKTOP NAV -->
     <nav class="navbar-menu" aria-label="Primary navigation">
       <a href="#explore-feelings">Feelings</a>
+      <a href="#support-guide">Help Me Choose</a>
       <a href="#emotional-literacy">Stories</a>
       <a href="#worksheets">Worksheets</a>
       <a href="parents.html">For Parents</a>
@@ -139,6 +140,7 @@
     </div>
     <p class="mobile-nav__label">Explore</p>
     <a href="#explore-feelings">Feelings</a>
+    <a href="#support-guide">Help Me Choose</a>
     <a href="#emotional-literacy">Stories</a>
     <a href="#worksheets">Worksheets</a>
     <a href="parents.html">For Parents</a>
@@ -292,9 +294,65 @@
     </div>
     <div class="home-start__actions" aria-label="Quick links">
       <a href="#explore-feelings">Feelings</a>
+      <a href="#support-guide">Help Me Choose</a>
       <a href="#emotional-literacy">Books</a>
       <a href="#worksheets">Worksheets</a>
       <a href="#resources">Topics</a>
+    </div>
+  </section>
+
+  <section class="support-guide" id="support-guide" aria-labelledby="supportGuideTitle">
+    <div class="support-guide__intro">
+      <p class="eyebrow">Help me choose</p>
+      <h2 id="supportGuideTitle">Find the right support in three taps.</h2>
+      <p>
+        Choose who needs support, what is happening, and the kind of help you want.
+        Then jump straight to a useful story, tool, printable, or guide.
+      </p>
+    </div>
+
+    <div class="support-guide__panel">
+      <div class="support-guide__step" aria-labelledby="supportAudienceTitle">
+        <h3 id="supportAudienceTitle">1. Who is this for?</h3>
+        <div class="support-guide__choices" data-guide-group="audience">
+          <button type="button" data-guide-value="child" aria-pressed="true">Child</button>
+          <button type="button" data-guide-value="teen" aria-pressed="false">Teen</button>
+          <button type="button" data-guide-value="parent" aria-pressed="false">Parent</button>
+          <button type="button" data-guide-value="teacher" aria-pressed="false">Teacher</button>
+        </div>
+      </div>
+
+      <div class="support-guide__step" aria-labelledby="supportMomentTitle">
+        <h3 id="supportMomentTitle">2. What is happening?</h3>
+        <div class="support-guide__choices" data-guide-group="moment">
+          <button type="button" data-guide-value="big-feelings" aria-pressed="true">Big feelings</button>
+          <button type="button" data-guide-value="worry" aria-pressed="false">Worry</button>
+          <button type="button" data-guide-value="confidence" aria-pressed="false">Confidence</button>
+          <button type="button" data-guide-value="friendship" aria-pressed="false">Friendship</button>
+        </div>
+      </div>
+
+      <div class="support-guide__step" aria-labelledby="supportHelpTitle">
+        <h3 id="supportHelpTitle">3. What would help most?</h3>
+        <div class="support-guide__choices" data-guide-group="help">
+          <button type="button" data-guide-value="calm" aria-pressed="true">Calm now</button>
+          <button type="button" data-guide-value="story" aria-pressed="false">Read a story</button>
+          <button type="button" data-guide-value="printable" aria-pressed="false">Use a printable</button>
+          <button type="button" data-guide-value="grownup" aria-pressed="false">Grown-up guidance</button>
+        </div>
+      </div>
+
+      <article class="support-guide__result" aria-live="polite">
+        <p class="support-guide__kicker" id="guideResultKicker">Good first step</p>
+        <h3 id="guideResultTitle">Try the calming tools</h3>
+        <p id="guideResultText">
+          Start with breathing, gentle sounds, or drawing before choosing a longer activity.
+        </p>
+        <div class="support-guide__actions">
+          <a class="support-guide__primary" id="guideResultLink" href="interactive-tools.html">Open recommendation</a>
+          <a class="support-guide__secondary" href="#resources">Browse all topics</a>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -1984,6 +2042,107 @@ startAutoSlide();
   </script>
 <script>
 /* Healthy Little Minds - resource topic search */
+(function () {
+  const guide = document.querySelector('#support-guide');
+  if (!guide) return;
+
+  const choices = Array.from(guide.querySelectorAll('[data-guide-group] button'));
+  const kicker = guide.querySelector('#guideResultKicker');
+  const title = guide.querySelector('#guideResultTitle');
+  const text = guide.querySelector('#guideResultText');
+  const link = guide.querySelector('#guideResultLink');
+
+  const recommendations = {
+    calm: {
+      kicker: 'Good first step',
+      title: 'Try the calming tools',
+      text: 'Start with breathing, gentle sounds, or drawing before choosing a longer activity.',
+      href: 'interactive-tools.html'
+    },
+    story: {
+      kicker: 'Story support',
+      title: 'Read a feelings story',
+      text: 'Stories give children language for big moments and make the next conversation easier.',
+      href: '#emotional-literacy'
+    },
+    printable: {
+      kicker: 'Hands-on support',
+      title: 'Use a printable together',
+      text: 'Worksheets help turn a feeling into something a child can name, color, write, or share.',
+      href: '#worksheets'
+    },
+    grownup: {
+      kicker: 'Grown-up support',
+      title: 'Open the caregiver guide',
+      text: 'Use short scripts and practical ideas for responding gently when feelings get loud.',
+      href: 'parents.html'
+    },
+    worry: {
+      kicker: 'Worry support',
+      title: 'Explore worry and anxiety',
+      text: 'Try a calm tool first, then use the worry guide for thoughts that keep looping.',
+      href: 'resources/worry-anxiety.html'
+    },
+    confidence: {
+      kicker: 'Confidence support',
+      title: 'Build a kinder inner voice',
+      text: 'Use self-esteem resources when a child feels stuck, not good enough, or afraid to try.',
+      href: 'resources/self-esteem.html'
+    },
+    friendship: {
+      kicker: 'Connection support',
+      title: 'Practice friendship moments',
+      text: 'Use stories and relationship resources to talk through sharing, repair, and belonging.',
+      href: 'resources/relationships.html'
+    },
+    teacher: {
+      kicker: 'Classroom support',
+      title: 'Open classroom-friendly resources',
+      text: 'Start with topics and printables that turn emotional learning into small class routines.',
+      href: 'resources/emotions.html'
+    }
+  };
+
+  const getValue = (group) => {
+    const active = guide.querySelector(`[data-guide-group="${group}"] button[aria-pressed="true"]`);
+    return active ? active.dataset.guideValue : '';
+  };
+
+  function pickRecommendation() {
+    const audience = getValue('audience');
+    const moment = getValue('moment');
+    const help = getValue('help');
+
+    if (audience === 'teacher') return recommendations.teacher;
+    if (help === 'grownup' || audience === 'parent') return recommendations.grownup;
+    if (help !== 'calm') return recommendations[help];
+    if (moment !== 'big-feelings') return recommendations[moment];
+    return recommendations.calm;
+  }
+
+  function renderRecommendation() {
+    const next = pickRecommendation();
+    if (!next || !kicker || !title || !text || !link) return;
+    kicker.textContent = next.kicker;
+    title.textContent = next.title;
+    text.textContent = next.text;
+    link.href = next.href;
+  }
+
+  choices.forEach((button) => {
+    button.addEventListener('click', () => {
+      const group = button.closest('[data-guide-group]');
+      if (!group) return;
+      group.querySelectorAll('button').forEach((item) => {
+        item.setAttribute('aria-pressed', String(item === button));
+      });
+      renderRecommendation();
+    });
+  });
+
+  renderRecommendation();
+})();
+
 (function () {
   const root = document.querySelector('#resources');
   if (!root) return;
