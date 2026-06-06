@@ -6,6 +6,7 @@
   <title>오디오북 - 아직 못 해도 괜찮아</title>
   <meta name="description" content="아이들을 위한 감정 교육 오디오북. 좌절을 이겨내고 성장 마인드셋과 회복탄력성을 길러요." />
   <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../localized-audiobook.css" />
   <style>
     body {
       font-family: 'Nunito', sans-serif;
@@ -152,13 +153,32 @@
 </header>
 
 <main class="audiobook-section">
+  <section class="listening-hero">
+    <div>
+      <p class="listening-kicker">Listening Library</p>
+      <h2>듣고, 멈추고, 다시 돌아올 수 있는 이야기.</h2>
+      <p>아이들이 큰 감정을 알아차리고, 용기와 인내를 연습할 수 있도록 따뜻한 오디오와 비디오 이야기를 담았습니다.</p>
+      <div class="listening-stats" aria-label="오디오북 구성">
+        <span>추천 이야기 2개</span>
+        <span>성장 마인드셋</span>
+        <span>비디오 오디오북</span>
+      </div>
+    </div>
+    <div class="sound-wave" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </section>
   <section class="audiobook-container">
     <div class="book-cover">
       <img src="../images/when_i_cant_coverpage.webp" alt="표지 - 아직 못 해도 괜찮아">
     </div>
     <div class="book-info">
+      <span class="story-chip">오디오 이야기</span>
       <h2>아직 못 해도 괜찮아</h2>
       <p><strong>Healthy Little Minds ® 그림책</strong><br>글: Godswill Ambrose</p>
+      <div class="audio-card-wave" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
     </div>
 
     <div class="audio-player">
@@ -222,8 +242,12 @@
       <img src="../images/princess_has_something_to_say_cover.webp" alt="공주가 하고 싶은 말 – 표지" class="audiobook-cover">
     </div>
     <div class="book-info">
+      <span class="story-chip">비디오 오디오북</span>
       <h2>공주가 하고 싶은 말</h2>
       <p><strong>형식:</strong> 비디오 오디오북 (정지 이미지 + 내레이션)</p>
+      <div class="audio-card-wave" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
     </div>
 
     <div class="audio-player">
@@ -299,6 +323,15 @@
       el.addEventListener('ended', () => { clearInterval(tick); localStorage.removeItem(KEY); });
     });
   })();
+</script>
+
+<script>
+  document.querySelectorAll('video[data-resume-key], audio[data-resume-key]').forEach((el) => {
+    const card = el.closest('.audiobook-container, .audiobook-wrapper');
+    el.addEventListener('play', () => card?.classList.add('is-playing'));
+    el.addEventListener('pause', () => card?.classList.remove('is-playing'));
+    el.addEventListener('ended', () => card?.classList.remove('is-playing'));
+  });
 </script>
 
   <script defer src="../shared-language-switcher.js?v=1"></script>

@@ -13,8 +13,11 @@
     body {
       margin: 0;
       font-family: 'Nunito', sans-serif;
-      background: #FFFBEF;
-      color: #333;
+      background:
+        radial-gradient(120% 90% at 12% 0%, rgba(255, 221, 89, .26), transparent 48%),
+        radial-gradient(100% 85% at 90% 10%, rgba(20, 184, 166, .18), transparent 46%),
+        #fff9ef;
+      color: #254E70;
     }
     header.sticky-header {
       background: #fff;
@@ -47,18 +50,161 @@
       margin-right: 10px;
     }
     .audiobook-section {
-      padding: 3rem 1.5rem;
-      max-width: 900px;
+      padding: 2rem 1.5rem 3.5rem;
+      max-width: 1120px;
       margin: auto;
     }
-    .audiobook-wrapper {
-      background: #fff;
+    .audiobook-hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1.5rem;
+      align-items: end;
+      margin-bottom: 1.35rem;
+      padding: clamp(1.25rem, 4vw, 2.25rem);
+      overflow: hidden;
+      border: 1px solid rgba(37, 78, 112, .1);
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, .96), rgba(255, 253, 243, .9)),
+        radial-gradient(80% 120% at 96% 0%, rgba(236, 72, 153, .18), transparent 52%);
+      box-shadow: 0 18px 44px rgba(37, 78, 112, .12);
+      isolation: isolate;
+    }
+    .audiobook-hero::before {
+      position: absolute;
+      inset: auto -8% -44% 42%;
+      height: 180px;
+      border-radius: 999px;
+      background: rgba(20, 184, 166, .12);
+      filter: blur(8px);
+      content: "";
+      z-index: -1;
+    }
+    .audiobook-kicker {
+      margin: 0 0 .45rem;
+      color: #E76F51;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .audiobook-hero h2 {
+      max-width: 760px;
+      margin: 0;
+      color: #254E70;
+      font-size: clamp(2rem, 6vw, 4.25rem);
+      line-height: .95;
+      letter-spacing: 0;
+    }
+    .audiobook-hero p {
+      max-width: 620px;
+      margin: .85rem 0 0;
+      color: #486a7d;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.04rem;
+      line-height: 1.7;
+    }
+    .sound-wave {
+      display: inline-flex;
+      align-items: end;
+      gap: .32rem;
+      min-width: 118px;
+      min-height: 70px;
+      padding: .9rem;
+      border: 1px solid rgba(37, 78, 112, .08);
       border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      background: rgba(255, 255, 255, .78);
+      box-shadow: 0 12px 30px rgba(37, 78, 112, .1);
+    }
+    .sound-wave span {
+      display: block;
+      width: .55rem;
+      height: 1.2rem;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #14b8a6, #ff6b6b);
+      animation: audio-wave 1.2s ease-in-out infinite;
+      transform-origin: bottom;
+    }
+    .sound-wave span:nth-child(2) { animation-delay: .12s; }
+    .sound-wave span:nth-child(3) { animation-delay: .24s; }
+    .sound-wave span:nth-child(4) { animation-delay: .36s; }
+    .sound-wave span:nth-child(5) { animation-delay: .48s; }
+    .audiobook-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .65rem;
+      margin-top: 1.1rem;
+    }
+    .audiobook-stats span,
+    .story-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: .38rem .72rem;
+      border: 1px solid rgba(37, 78, 112, .1);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .78);
+      color: #254E70;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .86rem;
+      font-weight: 700;
+    }
+    @keyframes audio-wave {
+      0%,
+      100% {
+        transform: scaleY(.55);
+      }
+
+      50% {
+        transform: scaleY(1.9);
+      }
+    }
+    @keyframes audio-progress-sheen {
+      from {
+        background-position: 0 0;
+      }
+
+      to {
+        background-position: 180% 0;
+      }
+    }
+    .audiobook-wrapper {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(37, 78, 112, .1);
+      border-radius: 18px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .96), rgba(255, 253, 243, .92));
+      box-shadow: 0 14px 34px rgba(37, 78, 112, .1);
       display: flex;
       flex-direction: column;
       align-items: center;
+      transition:
+        transform .24s ease,
+        box-shadow .24s ease,
+        border-color .24s ease;
+    }
+    .audiobook-wrapper::before {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 7px;
+      background: linear-gradient(90deg, #14b8a6, #ffdd59, #ff6b6b);
+      content: "";
+    }
+    .audiobook-wrapper:hover {
+      border-color: rgba(20, 184, 166, .24);
+      box-shadow: 0 20px 48px rgba(37, 78, 112, .15);
+      transform: translateY(-4px);
+    }
+    .audiobook-wrapper.is-playing {
+      border-color: rgba(20, 184, 166, .36);
+      box-shadow: 0 22px 54px rgba(20, 184, 166, .18);
+    }
+    .audiobook-wrapper.is-playing::before {
+      background: linear-gradient(90deg, #14b8a6, #ec4899, #ffdd59, #14b8a6);
+      background-size: 180% 100%;
+      animation: audio-progress-sheen 2.4s linear infinite;
     }
     .audiobook-header {
       display: flex;
@@ -69,7 +215,13 @@
     }
     .audiobook-cover {
       width: 160px;
-      border-radius: 12px;
+      border-radius: 14px;
+      box-shadow: 0 16px 28px rgba(37, 78, 112, .18);
+      transform: rotate(-1deg);
+      transition: transform .3s ease;
+    }
+    .audiobook-wrapper:hover .audiobook-cover {
+      transform: rotate(0deg) scale(1.025);
     }
     .audiobook-info h2 {
       margin: 0 0 0.5rem;
@@ -83,6 +235,25 @@
       margin-top: 1.5rem;
       width: 100%;
     }
+    .audio-card-wave {
+      display: flex;
+      align-items: center;
+      gap: .24rem;
+      margin: .9rem 0 .75rem;
+    }
+    .audio-card-wave span {
+      width: .38rem;
+      height: .75rem;
+      border-radius: 999px;
+      background: #14b8a6;
+      opacity: .74;
+      animation: audio-wave 1.35s ease-in-out infinite;
+      transform-origin: bottom;
+    }
+    .audio-card-wave span:nth-child(2) { animation-delay: .12s; background: #ffdd59; }
+    .audio-card-wave span:nth-child(3) { animation-delay: .24s; background: #ff6b6b; }
+    .audio-card-wave span:nth-child(4) { animation-delay: .36s; background: #14b8a6; }
+    .audio-card-wave span:nth-child(5) { animation-delay: .48s; background: #ec4899; }
     .scrolling-transcript {
       margin-top: 2rem;
       width: 100%;
@@ -92,14 +263,16 @@
       color: #E76F51;
     }
     .lyrics-box {
-      background: #FFFDF3;
-      border: 1px solid #FFDD59;
-      border-radius: 10px;
+      background:
+        linear-gradient(180deg, #fffdf3, #fffaf0);
+      border: 1px solid rgba(255, 221, 89, .85);
+      border-radius: 14px;
       max-height: 300px;
       overflow-y: auto;
-      padding: 1rem;
+      padding: 1.1rem;
       font-size: 1rem;
       line-height: 1.6;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8);
     }
     .lyrics-box p {
       margin-bottom: 1rem;
@@ -112,6 +285,16 @@
       border-radius: 6px;
     }
     @media (max-width: 600px) {
+      .audiobook-section {
+        padding-inline: 1rem;
+      }
+      .audiobook-hero {
+        grid-template-columns: 1fr;
+      }
+      .sound-wave {
+        min-width: 100%;
+        justify-content: center;
+      }
       .audiobook-header {
         flex-direction: column;
         align-items: flex-start;
@@ -219,6 +402,20 @@
   height: auto;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .sound-wave span,
+  .audio-card-wave span,
+  .audiobook-wrapper.is-playing::before {
+    animation: none;
+    transform: none;
+  }
+
+  .audiobook-wrapper,
+  .audiobook-cover {
+    transition-duration: .01ms;
+  }
+}
+
 
   </style>
 </head>
@@ -244,6 +441,25 @@
   </header>
   <main>
   <section class="audiobook-section">
+    <div class="audiobook-hero">
+      <div>
+        <p class="audiobook-kicker">Listening Library</p>
+        <h2>Stories you can hear, pause, and come back to.</h2>
+        <p>Warm audio and video stories for children who are learning patience, courage, confidence, and how to name big feelings.</p>
+        <div class="audiobook-stats" aria-label="Audiobook collection highlights">
+          <span>2 featured stories</span>
+          <span>Growth mindset</span>
+          <span>Video audiobook</span>
+        </div>
+      </div>
+      <div class="sound-wave" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
     <div class="audiobook-grid">
 
       <!-- 🎧 Audiobook #1 -->
@@ -254,9 +470,17 @@
                alt="When I Can’t Do It Yet Book Cover"
                class="audiobook-cover">
           <div class="audiobook-info">
+            <span class="story-chip">Audio story</span>
             <h2>🎧 When I Can’t Do It Yet</h2>
             <p><strong>Author:</strong> Godswill Ambrose</p>
             <p><strong>Series:</strong> Healthy Little Minds<sup>®</sup></p>
+            <div class="audio-card-wave" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
         </div>
 
@@ -320,8 +544,16 @@
                alt="Princess Has Something to Say – Cover"
                class="audiobook-cover">
           <div class="audiobook-info">
+            <span class="story-chip">Video audiobook</span>
             <h2>🎧 Princess Has Something to Say</h2>
             <p><strong>Format:</strong> Video Audiobook</p>
+            <div class="audio-card-wave" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
         </div>
 
@@ -379,6 +611,7 @@
   const els = document.querySelectorAll('video[data-resume-key], audio[data-resume-key]');
   els.forEach(el => {
     const KEY = el.getAttribute('data-resume-key');
+    const card = el.closest('.audiobook-wrapper');
     if (!KEY) return;
 
     el.addEventListener('loadedmetadata', () => {
@@ -388,11 +621,20 @@
 
     let tick;
     el.addEventListener('play', () => {
+      card?.classList.add('is-playing');
       tick = setInterval(() => localStorage.setItem(KEY, String(el.currentTime || 0)), 1000);
     });
-    const save = () => { clearInterval(tick); localStorage.setItem(KEY, String(el.currentTime || 0)); };
+    const save = () => {
+      card?.classList.remove('is-playing');
+      clearInterval(tick);
+      localStorage.setItem(KEY, String(el.currentTime || 0));
+    };
     el.addEventListener('pause', save);
-    el.addEventListener('ended', () => { clearInterval(tick); localStorage.removeItem(KEY); });
+    el.addEventListener('ended', () => {
+      card?.classList.remove('is-playing');
+      clearInterval(tick);
+      localStorage.removeItem(KEY);
+    });
   });
 })();
 </script>

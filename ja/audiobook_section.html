@@ -6,6 +6,7 @@
   <title>オーディオブック - できなくてもまだ大丈夫</title>
   <meta name="description" content="子ども向け感情教育のオーディオブック。挫折を乗り越える心の強さを育てます。">
   <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../localized-audiobook.css" />
   <style>
     body {
       font-family: 'Nunito', sans-serif;
@@ -203,13 +204,32 @@
 
 
   <main class="audiobook-section">
+    <section class="listening-hero">
+      <div>
+        <p class="listening-kicker">Listening Library</p>
+        <h2>耳で楽しめる、やさしいお話。</h2>
+        <p>気持ちを言葉にする練習、もう一度やってみる勇気、落ち着くための小さな一歩を、音声で届けます。</p>
+        <div class="listening-stats" aria-label="オーディオブックの内容">
+          <span>2つのお話</span>
+          <span>成長マインドセット</span>
+          <span>動画オーディオブック</span>
+        </div>
+      </div>
+      <div class="sound-wave" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </section>
     <section class="audiobook-container">
       <div class="book-cover">
         <img src="../images/when_i_cant_coverpage.webp" alt="表紙 - できなくてもまだ大丈夫">
       </div>
       <div class="book-info">
+        <span class="story-chip">音声のお話</span>
         <h2>できなくてもまだ大丈夫</h2>
         <p><strong>Healthy Little Minds ® の絵本</strong><br>著者: Godswill Ambrose</p>
+        <div class="audio-card-wave" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
       </div>
 
       <div class="audio-player">
@@ -270,8 +290,12 @@
   </div>
 
   <div class="book-info">
+    <span class="story-chip">動画オーディオブック</span>
     <h2>プリンセスには言いたいことがある</h2>
     <p><strong>形式：</strong> ビデオ・オーディオブック（静止画像＋ナレーション）</p>
+    <div class="audio-card-wave" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
   </div>
 
   <div class="audio-player">
@@ -336,6 +360,15 @@ window.addEventListener('resize', () => { if(window.innerWidth > 768) toggleMobi
       window.location.replace(redirectTo);
     }
   })();
+</script>
+
+<script>
+  document.querySelectorAll('video[data-resume-key], audio[data-resume-key]').forEach((el) => {
+    const card = el.closest('.audiobook-container, .audiobook-wrapper');
+    el.addEventListener('play', () => card?.classList.add('is-playing'));
+    el.addEventListener('pause', () => card?.classList.remove('is-playing'));
+    el.addEventListener('ended', () => card?.classList.remove('is-playing'));
+  });
 </script>
 
   <script defer src="../shared-language-switcher.js?v=1"></script>

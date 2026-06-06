@@ -16,6 +16,7 @@
 <meta property="og:type" content="website" />
 
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="../localized-audiobook.css" />
 </head>
 <style>
   :root{
@@ -277,13 +278,32 @@
 </header>
 
   <main class="audiobook-section">
+    <section class="listening-hero">
+      <div>
+        <p class="listening-kicker">Listening Library</p>
+        <h2>可以聆聽、暫停，也能再回來的故事。</h2>
+        <p>溫暖的有聲與影片故事，陪孩子練習耐心、勇氣、自信，也學會說出自己的大感受。</p>
+        <div class="listening-stats" aria-label="有聲書內容">
+          <span>2 個精選故事</span>
+          <span>成長型思維</span>
+          <span>影片有聲書</span>
+        </div>
+      </div>
+      <div class="sound-wave" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </section>
     <section class="audiobook-container">
       <div class="book-cover">
         <img src="../images/when_i_cant_coverpage.webp" alt="封面 - 我還不會，沒關係">
       </div>
       <div class="book-info">
+        <span class="story-chip">有聲故事</span>
         <h2>我還不會，沒關係</h2>
         <p><strong>Healthy Little Minds ® 情緒繪本</strong><br>作者：Godswill Ambrose</p>
+        <div class="audio-card-wave" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
       </div>
 
       <div class="audio-player">
@@ -346,8 +366,12 @@
          class="audiobook-cover">
 
     <div class="audiobook-info">
+      <span class="story-chip">影片有聲書</span>
       <h2>🎧 小公主有話要說</h2>
       <p><strong>格式：</strong> 視訊有聲書</p>
+      <div class="audio-card-wave" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
     </div>
   </div>
 
@@ -451,6 +475,15 @@
   })();
 </script>
 
+
+<script>
+  document.querySelectorAll('video[data-resume-key], audio[data-resume-key]').forEach((el) => {
+    const card = el.closest('.audiobook-container, .audiobook-wrapper');
+    el.addEventListener('play', () => card?.classList.add('is-playing'));
+    el.addEventListener('pause', () => card?.classList.remove('is-playing'));
+    el.addEventListener('ended', () => card?.classList.remove('is-playing'));
+  });
+</script>
 
   <script defer src="../shared-language-switcher.js?v=1"></script>
 </body>
