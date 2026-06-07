@@ -56,9 +56,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="../style.css?v=97">
-<link rel="stylesheet" href="../localized-home.css?v=16">
+<link rel="stylesheet" href="../localized-home.css?v=17">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
-  <script defer src="../localized-home-polish.js"></script>
+  <script defer src="../localized-home-polish.js?v=2"></script>
 
   <!-- 结构化数据 -->
   <script type="application/ld+json">
@@ -963,6 +963,7 @@ html, body { overflow-x: hidden; }
 <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
   <a href="dashboard.html">🧠 探索情绪</a>
   <a href="#feelings">📖 情绪故事</a>
+  <a href="#support-guide">帮我选择</a>
   <a href="#books">📚 情绪绘本</a>
   <a href="#worksheets">📝 学习单</a>
   <a href="parents.html">👪 给家长的建议</a>
@@ -984,6 +985,7 @@ html, body { overflow-x: hidden; }
 <nav class="sticky-nav" id="navMenu" aria-label="主要导航">
   <div class="quick-links">
     <a href="#feelings">情绪故事</a>
+    <a href="#support-guide">帮我选择</a>
     <a href="#books">情绪绘本</a>
     <a href="#worksheets">学习单</a>
     <a href="parents.html">家长专区</a>
@@ -1076,10 +1078,58 @@ html, body { overflow-x: hidden; }
   </div>
   <nav class="tw-home-start__actions" aria-label="快速前往">
     <a href="#feelings">情绪</a>
+    <a href="#support-guide">帮我选择</a>
     <a href="#books">绘本</a>
     <a href="#worksheets">练习单</a>
     <a href="#topics">主题资源</a>
   </nav>
+</section>
+
+<section class="localized-support-guide" id="support-guide" aria-labelledby="supportGuideTitle">
+  <div class="localized-support-guide__intro">
+    <p class="tw-eyebrow">帮我选择</p>
+    <h2 id="supportGuideTitle">三步找到合适的支持。</h2>
+    <p>选择对象、当前情况和最需要的帮助，然后直接前往故事、工具、练习单或家长指南。</p>
+  </div>
+
+  <div class="localized-support-guide__panel">
+    <div class="localized-support-guide__step">
+      <h3>1. 这是给谁的？</h3>
+      <div class="localized-support-guide__choices" data-guide-group="audience">
+        <button type="button" data-guide-value="child" aria-pressed="true">孩子</button>
+        <button type="button" data-guide-value="teen" aria-pressed="false">青少年</button>
+        <button type="button" data-guide-value="parent" aria-pressed="false">家长</button>
+        <button type="button" data-guide-value="teacher" aria-pressed="false">老师</button>
+      </div>
+    </div>
+    <div class="localized-support-guide__step">
+      <h3>2. 现在发生了什么？</h3>
+      <div class="localized-support-guide__choices" data-guide-group="moment">
+        <button type="button" data-guide-value="big-feelings" aria-pressed="true">强烈情绪</button>
+        <button type="button" data-guide-value="worry" aria-pressed="false">担心</button>
+        <button type="button" data-guide-value="confidence" aria-pressed="false">自信</button>
+        <button type="button" data-guide-value="friendship" aria-pressed="false">朋友关系</button>
+      </div>
+    </div>
+    <div class="localized-support-guide__step">
+      <h3>3. 最需要哪种帮助？</h3>
+      <div class="localized-support-guide__choices" data-guide-group="help">
+        <button type="button" data-guide-value="calm" aria-pressed="true">现在平静</button>
+        <button type="button" data-guide-value="story" aria-pressed="false">读故事</button>
+        <button type="button" data-guide-value="printable" aria-pressed="false">用练习单</button>
+        <button type="button" data-guide-value="grownup" aria-pressed="false">给大人的指南</button>
+      </div>
+    </div>
+    <article class="localized-support-guide__result" aria-live="polite">
+      <p class="localized-support-guide__kicker" id="guideResultKicker">合适的第一步</p>
+      <h3 id="guideResultTitle">试试平静工具</h3>
+      <p id="guideResultText">先用呼吸、轻柔声音或画画帮助身体慢下来，再选择更长的活动。</p>
+      <div class="localized-support-guide__actions">
+        <a class="localized-support-guide__primary" id="guideResultLink" href="interactive-tools.html">打开推荐</a>
+        <a class="localized-support-guide__secondary" href="#topics">浏览所有主题</a>
+      </div>
+    </article>
+  </div>
 </section>
 
 <section id="feelings" class="feelings-section cn-feelings">

@@ -56,9 +56,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="../style.css?v=97">
-<link rel="stylesheet" href="../localized-home.css?v=16">
+<link rel="stylesheet" href="../localized-home.css?v=17">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
-  <script defer src="../localized-home-polish.js"></script>
+  <script defer src="../localized-home-polish.js?v=2"></script>
 
   <!-- 구조화 데이터 -->
   <script type="application/ld+json">
@@ -778,6 +778,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
 <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
   <a href="dashboard.html">🧠 감정 탐색</a>
   <a href="#feelings">📖 감정 이야기</a>
+  <a href="#support-guide">선택 도우미</a>
   <a href="#books">📚 감정 책들</a>
   <a href="#worksheets">📝 워크시트</a>
   <a href="parents.html">👪 부모를 위한 공간</a>
@@ -799,6 +800,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
 <nav class="sticky-nav" id="navMenu" aria-label="주요 메뉴">
   <div class="quick-links">
     <a href="#feelings">감정 이야기</a>
+    <a href="#support-guide">선택 도우미</a>
     <a href="#books">그림책</a>
     <a href="#worksheets">워크시트</a>
     <a href="parents.html">부모를 위한 공간</a>
@@ -891,6 +893,53 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
     <a href="#worksheets">워크시트</a>
     <a href="#topics">주제별 자료</a>
   </nav>
+</section>
+
+<section class="localized-support-guide" id="support-guide" aria-labelledby="supportGuideTitle">
+  <div class="localized-support-guide__intro">
+    <p class="ko-eyebrow">선택 도우미</p>
+    <h2 id="supportGuideTitle">세 번의 선택으로 알맞은 도움을 찾아요.</h2>
+    <p>누구를 위한 것인지, 지금 어떤 일이 있는지, 어떤 도움이 필요한지 고르면 이야기, 도구, 활동지, 보호자 가이드로 바로 이동합니다.</p>
+  </div>
+
+  <div class="localized-support-guide__panel">
+    <div class="localized-support-guide__step">
+      <h3>1. 누구를 위한 도움인가요?</h3>
+      <div class="localized-support-guide__choices" data-guide-group="audience">
+        <button type="button" data-guide-value="child" aria-pressed="true">아이</button>
+        <button type="button" data-guide-value="teen" aria-pressed="false">청소년</button>
+        <button type="button" data-guide-value="parent" aria-pressed="false">보호자</button>
+        <button type="button" data-guide-value="teacher" aria-pressed="false">선생님</button>
+      </div>
+    </div>
+    <div class="localized-support-guide__step">
+      <h3>2. 지금 어떤 일이 있나요?</h3>
+      <div class="localized-support-guide__choices" data-guide-group="moment">
+        <button type="button" data-guide-value="big-feelings" aria-pressed="true">큰 감정</button>
+        <button type="button" data-guide-value="worry" aria-pressed="false">걱정</button>
+        <button type="button" data-guide-value="confidence" aria-pressed="false">자신감</button>
+        <button type="button" data-guide-value="friendship" aria-pressed="false">친구 관계</button>
+      </div>
+    </div>
+    <div class="localized-support-guide__step">
+      <h3>3. 어떤 도움이 가장 필요할까요?</h3>
+      <div class="localized-support-guide__choices" data-guide-group="help">
+        <button type="button" data-guide-value="calm" aria-pressed="true">지금 진정하기</button>
+        <button type="button" data-guide-value="story" aria-pressed="false">이야기 읽기</button>
+        <button type="button" data-guide-value="printable" aria-pressed="false">활동지 사용</button>
+        <button type="button" data-guide-value="grownup" aria-pressed="false">어른 가이드</button>
+      </div>
+    </div>
+    <article class="localized-support-guide__result" aria-live="polite">
+      <p class="localized-support-guide__kicker" id="guideResultKicker">좋은 첫걸음</p>
+      <h3 id="guideResultTitle">진정 도구를 사용해 보세요</h3>
+      <p id="guideResultText">호흡, 부드러운 소리, 그림 그리기로 몸과 마음을 먼저 천천히 가라앉혀 보세요.</p>
+      <div class="localized-support-guide__actions">
+        <a class="localized-support-guide__primary" id="guideResultLink" href="interactive-tools.html">추천 열기</a>
+        <a class="localized-support-guide__secondary" href="#topics">모든 주제 보기</a>
+      </div>
+    </article>
+  </div>
 </section>
 
 <section id="feelings" class="feelings-section ko-feelings">

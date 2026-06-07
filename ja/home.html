@@ -59,8 +59,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../style.css?v=97">
-<link rel="stylesheet" href="../localized-home.css?v=16">
-  <script defer src="../localized-home-polish.js"></script>
+<link rel="stylesheet" href="../localized-home.css?v=17">
+  <script defer src="../localized-home-polish.js?v=2"></script>
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -706,6 +706,7 @@
 <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
   <a href="dashboard.html">🧠 気持ちを探る</a>
   <a href="#feelings">📖 感情ストーリー</a>
+  <a href="#support-guide">選び方ガイド</a>
   <a href="#books">📚 絵本</a>
   <a href="#worksheets">📝 ワークシート</a>
   <a href="parents.html">👪 保護者向け</a>
@@ -727,6 +728,7 @@
 <nav id="navLinks" aria-label="メインナビゲーション">
   <div class="nav-inner">
     <a href="#feelings">感情のお話</a>
+    <a href="#support-guide">選び方ガイド</a>
     <a href="#books">絵本</a>
     <a href="#worksheets">ワークシート</a>
     <a href="parents.html">保護者向け</a>
@@ -814,6 +816,53 @@
     <a href="#worksheets">ワークシート</a>
     <a href="#topics">テーマ別ガイド</a>
   </nav>
+</section>
+
+<section class="localized-support-guide" id="support-guide" aria-labelledby="supportGuideTitle">
+  <div class="localized-support-guide__intro">
+    <p class="ja-eyebrow">選び方ガイド</p>
+    <h2 id="supportGuideTitle">3ステップで、今に合うサポートへ。</h2>
+    <p>だれのためか、今起きていること、必要な助けを選ぶと、お話・ツール・ワークシート・保護者向けガイドへ進めます。</p>
+  </div>
+
+  <div class="localized-support-guide__panel">
+    <div class="localized-support-guide__step">
+      <h3>1. だれのためですか？</h3>
+      <div class="localized-support-guide__choices" data-guide-group="audience">
+        <button type="button" data-guide-value="child" aria-pressed="true">子ども</button>
+        <button type="button" data-guide-value="teen" aria-pressed="false">ティーン</button>
+        <button type="button" data-guide-value="parent" aria-pressed="false">保護者</button>
+        <button type="button" data-guide-value="teacher" aria-pressed="false">先生</button>
+      </div>
+    </div>
+    <div class="localized-support-guide__step">
+      <h3>2. 何が起きていますか？</h3>
+      <div class="localized-support-guide__choices" data-guide-group="moment">
+        <button type="button" data-guide-value="big-feelings" aria-pressed="true">大きな気持ち</button>
+        <button type="button" data-guide-value="worry" aria-pressed="false">心配</button>
+        <button type="button" data-guide-value="confidence" aria-pressed="false">自信</button>
+        <button type="button" data-guide-value="friendship" aria-pressed="false">友だち関係</button>
+      </div>
+    </div>
+    <div class="localized-support-guide__step">
+      <h3>3. どんな助けがよさそうですか？</h3>
+      <div class="localized-support-guide__choices" data-guide-group="help">
+        <button type="button" data-guide-value="calm" aria-pressed="true">今落ち着く</button>
+        <button type="button" data-guide-value="story" aria-pressed="false">お話を読む</button>
+        <button type="button" data-guide-value="printable" aria-pressed="false">ワークシート</button>
+        <button type="button" data-guide-value="grownup" aria-pressed="false">大人向けガイド</button>
+      </div>
+    </div>
+    <article class="localized-support-guide__result" aria-live="polite">
+      <p class="localized-support-guide__kicker" id="guideResultKicker">はじめの一歩</p>
+      <h3 id="guideResultTitle">落ち着くツールを試す</h3>
+      <p id="guideResultText">呼吸、やさしい音、または描く活動で体をゆっくり落ち着かせてから、次の活動を選びましょう。</p>
+      <div class="localized-support-guide__actions">
+        <a class="localized-support-guide__primary" id="guideResultLink" href="interactive-tools.html">おすすめを開く</a>
+        <a class="localized-support-guide__secondary" href="#topics">すべてのテーマを見る</a>
+      </div>
+    </article>
+  </div>
 </section>
 
 <section id="feelings" class="feelings-section ja-feelings">

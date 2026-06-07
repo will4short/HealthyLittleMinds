@@ -58,8 +58,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../style.css?v=97">
-<link rel="stylesheet" href="../localized-home.css?v=16">
-  <script defer src="../localized-home-polish.js"></script>
+<link rel="stylesheet" href="../localized-home.css?v=17">
+  <script defer src="../localized-home-polish.js?v=2"></script>
 
   <!-- 結構化資料 -->
   <script type="application/ld+json">
@@ -754,6 +754,7 @@ html[lang="zh-TW"] .hlm-res{
 <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
   <a href="dashboard.html">🧠 探索情緒</a>
   <a href="#feelings">📖 情緒故事</a>
+  <a href="#support-guide">幫我選擇</a>
   <a href="#books">📚 情緒繪本</a>
   <a href="#worksheets">📝學習單</a>
   <a href="parents.html">👪 家長專區</a>
@@ -775,6 +776,7 @@ html[lang="zh-TW"] .hlm-res{
 <nav class="sticky-nav" id="navMenu" aria-label="主要導覽">
   <div class="quick-links">
     <a href="#feelings">情緒故事</a>
+    <a href="#support-guide">幫我選擇</a>
     <a href="#books">情緒繪本</a>
     <a href="#worksheets">學習單</a>
     <a href="parents.html">家長專區</a>
@@ -867,10 +869,58 @@ html[lang="zh-TW"] .hlm-res{
   </div>
   <nav class="tw-home-start__actions" aria-label="快速前往">
     <a href="#feelings">情緒</a>
+    <a href="#support-guide">幫我選擇</a>
     <a href="#books">繪本</a>
     <a href="#worksheets">學習單</a>
     <a href="#topics">主題資源</a>
   </nav>
+</section>
+
+<section class="localized-support-guide" id="support-guide" aria-labelledby="supportGuideTitle">
+  <div class="localized-support-guide__intro">
+    <p class="tw-eyebrow">幫我選擇</p>
+    <h2 id="supportGuideTitle">三步找到適合今天的支持。</h2>
+    <p>選擇對象、正在發生的事，以及最需要的幫助，然後直接前往故事、工具、學習單或家長指南。</p>
+  </div>
+
+  <div class="localized-support-guide__panel">
+    <div class="localized-support-guide__step">
+      <h3>1. 這是給誰的？</h3>
+      <div class="localized-support-guide__choices" data-guide-group="audience">
+        <button type="button" data-guide-value="child" aria-pressed="true">孩子</button>
+        <button type="button" data-guide-value="teen" aria-pressed="false">青少年</button>
+        <button type="button" data-guide-value="parent" aria-pressed="false">家長</button>
+        <button type="button" data-guide-value="teacher" aria-pressed="false">老師</button>
+      </div>
+    </div>
+    <div class="localized-support-guide__step">
+      <h3>2. 現在發生了什麼？</h3>
+      <div class="localized-support-guide__choices" data-guide-group="moment">
+        <button type="button" data-guide-value="big-feelings" aria-pressed="true">強烈情緒</button>
+        <button type="button" data-guide-value="worry" aria-pressed="false">擔心</button>
+        <button type="button" data-guide-value="confidence" aria-pressed="false">自信</button>
+        <button type="button" data-guide-value="friendship" aria-pressed="false">朋友關係</button>
+      </div>
+    </div>
+    <div class="localized-support-guide__step">
+      <h3>3. 最需要哪種幫助？</h3>
+      <div class="localized-support-guide__choices" data-guide-group="help">
+        <button type="button" data-guide-value="calm" aria-pressed="true">現在平靜</button>
+        <button type="button" data-guide-value="story" aria-pressed="false">讀故事</button>
+        <button type="button" data-guide-value="printable" aria-pressed="false">用學習單</button>
+        <button type="button" data-guide-value="grownup" aria-pressed="false">給大人的指南</button>
+      </div>
+    </div>
+    <article class="localized-support-guide__result" aria-live="polite">
+      <p class="localized-support-guide__kicker" id="guideResultKicker">合適的第一步</p>
+      <h3 id="guideResultTitle">試試平靜工具</h3>
+      <p id="guideResultText">先用呼吸、輕柔聲音或畫畫幫助身體慢下來，再選擇更長的活動。</p>
+      <div class="localized-support-guide__actions">
+        <a class="localized-support-guide__primary" id="guideResultLink" href="interactive-tools.html">打開推薦</a>
+        <a class="localized-support-guide__secondary" href="#topics">瀏覽所有主題</a>
+      </div>
+    </article>
+  </div>
 </section>
 
 <section id="feelings" class="feelings-section tw-feelings">
