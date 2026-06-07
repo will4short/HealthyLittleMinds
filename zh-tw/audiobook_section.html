@@ -288,11 +288,19 @@
           <span>影片有聲書</span>
         </div>
       </div>
-      <div class="sound-wave" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span>
-      </div>
+      <a class="interactive-reader-card" href="../audiobook.html?book=audiobooks/ella/book.json" aria-label="Open One More Kick, Ella! interactive audiobook reader">
+        <img src="../audiobooks/ella/coverpage.jpg" alt="One More Kick, Ella! cover" loading="lazy" decoding="async">
+        <span class="interactive-reader-card__label">Interactive audiobook</span>
+        <strong>One More Kick, Ella!</strong>
+        <span class="interactive-reader-card__hint">Illustrations, narration, page controls, and read-along captions.</span>
+        <span class="interactive-reader-card__cta">Open interactive reader</span>
+      </a>
     </section>
-    <section class="audiobook-container">
+
+    <details class="legacy-audiobook-archive">
+      <summary class="legacy-audiobook-archive__summary">View older audio and video stories</summary>
+
+    <section class="audiobook-container audiobook-container--secondary">
       <div class="book-cover">
         <img src="../images/when_i_cant_coverpage.webp" alt="封面 - 我還不會，沒關係">
       </div>
@@ -358,7 +366,7 @@
 </div>
 
  <!-- 🎧 有聲書 #2 (Princess MP4) -->
-<div class="audiobook-wrapper compact">
+<div class="audiobook-wrapper audiobook-wrapper--secondary compact">
   <div class="audiobook-header">
     <img src="../images/princess_has_something_to_say_cover.webp"
          alt="《小公主有話要說》封面"
@@ -391,9 +399,8 @@
     </p>
   </div>
 </div>
-
-
     </div>
+    </details>
   </section>
   </main>
 

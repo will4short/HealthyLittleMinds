@@ -6,6 +6,7 @@
   <title>오디오북 - 아직 못 해도 괜찮아</title>
   <meta name="description" content="아이들을 위한 감정 교육 오디오북. 좌절을 극복하고 마음의 회복력을 기릅니다.">
   <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../localized-audiobook.css" />
   <style>
     body {
       font-family: 'Nunito', sans-serif;
@@ -130,7 +131,30 @@
   </header>
 
   <main class="audiobook-section">
-    <section class="audiobook-container">
+    <section class="listening-hero">
+      <div>
+        <p class="listening-kicker">Listening Library</p>
+        <h2>Stories you can hear, pause, and come back to.</h2>
+        <p>Start with the new interactive audiobook experience, then explore the older audio player below.</p>
+        <div class="listening-stats" aria-label="Audiobook collection highlights">
+          <span>Main: interactive reader</span>
+          <span>16 illustrated pages</span>
+          <span>Read-along captions</span>
+        </div>
+      </div>
+      <a class="interactive-reader-card" href="../audiobook.html?book=audiobooks/ella/book.json" aria-label="Open One More Kick, Ella! interactive audiobook reader">
+        <img src="../audiobooks/ella/coverpage.jpg" alt="One More Kick, Ella! cover" loading="lazy" decoding="async">
+        <span class="interactive-reader-card__label">Interactive audiobook</span>
+        <strong>One More Kick, Ella!</strong>
+        <span class="interactive-reader-card__hint">Illustrations, narration, page controls, and read-along captions.</span>
+        <span class="interactive-reader-card__cta">Open interactive reader</span>
+      </a>
+    </section>
+
+    <details class="legacy-audiobook-archive">
+      <summary class="legacy-audiobook-archive__summary">View older audio story</summary>
+
+    <section class="audiobook-container audiobook-container--secondary">
       <div class="book-cover">
         <img src="../images/when_i_cant_coverpage.webp" alt="표지 - 아직 못 해도 괜찮아">
       </div>
@@ -187,6 +211,7 @@
 </div>
 
     </section>
+    </details>
   </main>
 
   <footer class="site-footer">

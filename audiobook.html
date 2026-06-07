@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Audiobook Reader | Healthy Little Minds</title>
+  <meta name="description" content="A child-friendly audiobook reader for Healthy Little Minds stories, with illustrations, narration, and read-along text." />
+  <link rel="icon" href="images/favicon.webp" type="image/webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="audiobook.css" />
+</head>
+<body>
+  <a class="skip-link" href="#storyText">Skip to story text</a>
+
+  <main class="reader-shell" data-state="loading">
+    <header class="reader-header">
+      <a class="reader-brand" href="home.html" aria-label="Healthy Little Minds home">
+        <img src="images/logo-icon.webp" alt="" width="42" height="42" />
+        <span>Healthy Little Minds</span>
+      </a>
+
+      <div class="reader-header__actions">
+        <a class="reader-library-link" href="audiobook_section.html">Library</a>
+        <button class="reader-icon-btn" id="fullscreenBtn" type="button" aria-label="Enter full screen">
+          <span aria-hidden="true">[]</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="reader-loading" id="readerLoading" role="status" aria-live="polite">
+      <div class="reader-spinner" aria-hidden="true"></div>
+      <p>Opening your story...</p>
+    </section>
+
+    <section class="reader-error" id="readerError" role="alert" hidden>
+      <h1>We could not open this audiobook.</h1>
+      <p id="readerErrorText">Please check the book JSON path and try again.</p>
+      <a href="audiobook.html" class="reader-primary-link">Try sample book</a>
+    </section>
+
+    <section class="reader-layout" id="readerLayout" aria-labelledby="bookTitle" hidden>
+      <div class="reader-art-panel">
+        <div class="reader-progress-row">
+          <span id="pageCounter">Page 1 of 16</span>
+          <div class="reader-progress-bar" aria-hidden="true">
+            <span id="progressFill"></span>
+          </div>
+        </div>
+
+        <figure class="reader-figure" id="figureWrap">
+          <img id="pageImage" alt="" decoding="async" />
+          <figcaption id="imageCaption">Story illustration</figcaption>
+          <div class="reader-image-state" id="imageState" hidden>
+            Illustration missing. The story can still be read and heard.
+          </div>
+        </figure>
+      </div>
+
+      <aside class="reader-story-panel">
+        <div class="reader-book-meta">
+          <p class="reader-eyebrow" id="bookSeries">Audiobook</p>
+          <h1 id="bookTitle">Audiobook title</h1>
+          <p id="bookDescription"></p>
+        </div>
+
+        <div class="reader-text-card">
+          <p class="reader-text-label">Story text</p>
+          <div class="reader-story-text" id="storyText" tabindex="0" aria-live="polite"></div>
+        </div>
+
+        <div class="reader-audio-card">
+          <audio id="audioPlayer" preload="metadata"></audio>
+          <div class="reader-time-row">
+            <span id="currentTime">0:00</span>
+            <input id="seekBar" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek narration" />
+            <span id="durationTime">0:00</span>
+          </div>
+          <p class="reader-audio-error" id="audioError" role="status" hidden>
+            Narration is missing for this page. You can keep reading or go to the next page.
+          </p>
+        </div>
+
+        <nav class="reader-controls" aria-label="Audiobook controls">
+          <button class="reader-control-btn reader-control-btn--secondary" id="prevBtn" type="button">
+            <span aria-hidden="true">&lsaquo;</span>
+            Previous
+          </button>
+          <button class="reader-play-btn" id="playPauseBtn" type="button" aria-label="Play narration">
+            <span id="playPauseIcon" aria-hidden="true">&gt;</span>
+            <span id="playPauseText">Play</span>
+          </button>
+          <button class="reader-control-btn reader-control-btn--secondary" id="nextBtn" type="button">
+            Next
+            <span aria-hidden="true">&rsaquo;</span>
+          </button>
+        </nav>
+
+        <div class="reader-options">
+          <label class="reader-toggle">
+            <input id="autoPlayToggle" type="checkbox" checked />
+            <span>Auto-play next page</span>
+          </label>
+          <label class="reader-toggle">
+            <input id="musicToggle" type="checkbox" />
+            <span>Background music ready</span>
+          </label>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="audiobook.js" defer></script>
+</body>
+</html>

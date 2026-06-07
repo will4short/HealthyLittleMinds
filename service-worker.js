@@ -3,7 +3,7 @@
 // Lean precache (no big media) + runtime image cache
 // ===============================
 
-const PRECACHE_NAME = 'hlm-precache-v97'; // bump here for new release
+const PRECACHE_NAME = 'hlm-precache-v110'; // bump here for new release/update toast
 const RUNTIME_NAME  = 'hlm-runtime-v22';   // leave if strategy unchanged
 const IMAGE_CACHE   = 'hlm-img-v16';       // leave if image rules unchanged
 
@@ -14,6 +14,7 @@ const IMAGE_MAX_AGE_MS  = 1000 * 60 * 60 * 24 * 30; // ~30 days
 const ASSETS_TO_PRECACHE = [
   // Shell & core pages
   '/', '/index.html', '/home.html', '/dashboard.html', '/interactive-tools.html',
+  '/audiobook.html',
   '/bulletin.html', '/inspire_page.html', '/offline.html', '/more-feelings.html',
   '/teacher-life.html', '/about_me.html',
 
@@ -28,6 +29,10 @@ const ASSETS_TO_PRECACHE = [
 
   // Audiobook section (HTML only)
   '/audiobook_section.html', '/audiobook_section_index.html',
+  '/ko/audiobook_section.html', '/ja/audiobook_section.html',
+  '/zh-cn/audiobook_section.html', '/zh-tw/audiobook_section.html',
+  '/ko/audiobook_section_index.html', '/ja/audiobook_section_index.html',
+  '/zh-cn/audiobook_section_index.html', '/zh-tw/audiobook_section_index.html',
 
   // Localized pages (HTML only)
   '/zh-tw/home.html', '/zh-cn/home.html', '/ja/home.html', '/ko/home.html',
@@ -39,6 +44,10 @@ const ASSETS_TO_PRECACHE = [
 
   // Static assets (small)
   '/style.css', '/style-index.css', '/feelings-guide.css',
+  '/audiobook.css',
+  '/audiobook.js',
+  '/localized-home.css',
+  '/localized-audiobook.css',
   '/localized-home-polish.js',
   '/manifest.json',
   '/icon-192.webp', '/icon-512.webp', '/favicon.ico',

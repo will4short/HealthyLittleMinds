@@ -215,11 +215,19 @@
           <span>動画オーディオブック</span>
         </div>
       </div>
-      <div class="sound-wave" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span>
-      </div>
+      <a class="interactive-reader-card" href="../audiobook.html?book=audiobooks/ella/book.json" aria-label="Open One More Kick, Ella! interactive audiobook reader">
+        <img src="../audiobooks/ella/coverpage.jpg" alt="One More Kick, Ella! cover" loading="lazy" decoding="async">
+        <span class="interactive-reader-card__label">Interactive audiobook</span>
+        <strong>One More Kick, Ella!</strong>
+        <span class="interactive-reader-card__hint">Illustrations, narration, page controls, and read-along captions.</span>
+        <span class="interactive-reader-card__cta">Open interactive reader</span>
+      </a>
     </section>
-    <section class="audiobook-container">
+
+    <details class="legacy-audiobook-archive">
+      <summary class="legacy-audiobook-archive__summary">View older audio story</summary>
+
+    <section class="audiobook-container audiobook-container--secondary">
       <div class="book-cover">
         <img src="../images/when_i_cant_coverpage.webp" alt="表紙 - できなくてもまだ大丈夫">
       </div>
@@ -279,10 +287,13 @@
 </div>
 
     </section>
+    </details>
   </main>
 
 <!-- 🎧 オーディオブック #2（Princess MP4） -->
-<section class="audiobook-container" style="margin-top:28px;">
+<details class="legacy-audiobook-archive">
+  <summary class="legacy-audiobook-archive__summary">View older video audiobook</summary>
+<section class="audiobook-container audiobook-container--secondary" style="margin-top:28px;">
   <div class="book-cover">
     <img src="../images/princess_has_something_to_say_cover.webp"
          alt="『プリンセスには言いたいことがある』表紙"
@@ -311,6 +322,7 @@
     </p>
   </div>
 </section>
+</details>
 
 
   <footer class="site-footer">

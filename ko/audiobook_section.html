@@ -164,11 +164,19 @@
         <span>비디오 오디오북</span>
       </div>
     </div>
-    <div class="sound-wave" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span>
-    </div>
+    <a class="interactive-reader-card" href="../audiobook.html?book=audiobooks/ella/book.json" aria-label="Open One More Kick, Ella! interactive audiobook reader">
+      <img src="../audiobooks/ella/coverpage.jpg" alt="One More Kick, Ella! cover" loading="lazy" decoding="async">
+      <span class="interactive-reader-card__label">Interactive audiobook</span>
+      <strong>One More Kick, Ella!</strong>
+      <span class="interactive-reader-card__hint">Illustrations, narration, page controls, and read-along captions.</span>
+      <span class="interactive-reader-card__cta">Open interactive reader</span>
+    </a>
   </section>
-  <section class="audiobook-container">
+
+  <details class="legacy-audiobook-archive">
+    <summary class="legacy-audiobook-archive__summary">View older audio and video stories</summary>
+
+  <section class="audiobook-container audiobook-container--secondary">
     <div class="book-cover">
       <img src="../images/when_i_cant_coverpage.webp" alt="표지 - 아직 못 해도 괜찮아">
     </div>
@@ -237,7 +245,7 @@
     </section>
 
   <!-- 🎧 오디오북 #2 (Princess MP4) -->
-  <section class="audiobook-container" style="margin-top:28px;">
+  <section class="audiobook-container audiobook-container--secondary" style="margin-top:28px;">
     <div class="book-cover">
       <img src="../images/princess_has_something_to_say_cover.webp" alt="공주가 하고 싶은 말 – 표지" class="audiobook-cover">
     </div>
@@ -261,6 +269,7 @@
       <p class="download-link"><a href="../audio-books/princess_has_something_to_say.mp4" target="_blank">📥 MP4 다운로드</a></p>
     </div>
   </section>
+  </details>
 
 <footer class="site-footer">
   <p>📚 다른 무료 자료는 <a href="https://www.healthylittleminds.club/ko/home.html">Healthy Little Minds</a> 웹사이트에서 확인하세요.</p>
