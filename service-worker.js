@@ -3,7 +3,7 @@
 // Lean precache (no big media) + runtime image cache
 // ===============================
 
-const PRECACHE_NAME = 'hlm-precache-v110'; // bump here for new release/update toast
+const PRECACHE_NAME = 'hlm-precache-v116'; // bump here for new release/update toast
 const RUNTIME_NAME  = 'hlm-runtime-v22';   // leave if strategy unchanged
 const IMAGE_CACHE   = 'hlm-img-v16';       // leave if image rules unchanged
 
@@ -49,6 +49,8 @@ const ASSETS_TO_PRECACHE = [
   '/localized-home.css',
   '/localized-audiobook.css',
   '/localized-home-polish.js',
+  '/shared-language-switcher.css',
+  '/shared-language-switcher.js',
   '/manifest.json',
   '/icon-192.webp', '/icon-512.webp', '/favicon.ico',
 

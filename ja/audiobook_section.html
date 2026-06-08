@@ -206,7 +206,7 @@
   <main class="audiobook-section">
     <section class="listening-hero">
       <div>
-        <p class="listening-kicker">Listening Library</p>
+        <p class="listening-kicker">リスニングライブラリー</p>
         <h2>耳で楽しめる、やさしいお話。</h2>
         <p>気持ちを言葉にする練習、もう一度やってみる勇気、落ち着くための小さな一歩を、音声で届けます。</p>
         <div class="listening-stats" aria-label="オーディオブックの内容">
@@ -215,17 +215,47 @@
           <span>動画オーディオブック</span>
         </div>
       </div>
-      <a class="interactive-reader-card" href="../audiobook.html?book=audiobooks/ella/book.json" aria-label="Open One More Kick, Ella! interactive audiobook reader">
-        <img src="../audiobooks/ella/coverpage.jpg" alt="One More Kick, Ella! cover" loading="lazy" decoding="async">
-        <span class="interactive-reader-card__label">Interactive audiobook</span>
-        <strong>One More Kick, Ella!</strong>
-        <span class="interactive-reader-card__hint">Illustrations, narration, page controls, and read-along captions.</span>
-        <span class="interactive-reader-card__cta">Open interactive reader</span>
+      <a class="interactive-reader-card" href="../audiobook.html?book=audiobooks/ella/book.json" aria-label="もう一回キック、エラ！ インタラクティブオーディオブックを開く">
+        <img src="../audiobooks/ella/coverpage.jpg" alt="もう一回キック、エラ！ 表紙" loading="lazy" decoding="async">
+        <span class="interactive-reader-card__label">インタラクティブオーディオブック</span>
+        <strong>もう一回キック、エラ！</strong>
+        <span class="interactive-reader-card__hint">イラスト、ナレーション、ページ操作、読み聞かせ字幕付き。</span>
+        <span class="interactive-reader-card__cta">インタラクティブリーダーを開く</span>
       </a>
     </section>
 
+    <section class="related-resources" aria-labelledby="ellaRelatedTitle">
+      <div class="related-resources__head">
+        <p class="listening-kicker">お話のあとに</p>
+        <h3 id="ellaRelatedTitle">勇気、練習、もう一度やってみることを話し続けましょう。</h3>
+        <p class="related-resources__intro">エラのお話を聞いたあとに、不安、くやしさ、誇らしさ、希望を子どもが言葉にするための関連ページです。</p>
+      </div>
+      <div class="related-resources__grid">
+        <div class="related-resources__group">
+          <h4>気持ちの絵本ページ</h4>
+          <a href="../nervous.html">不安な気持ち</a>
+          <a href="../frustrated.html">くやしい気持ち</a>
+          <a href="../proud.html">誇らしい気持ち</a>
+          <a href="../hopeful.html">希望を感じるとき</a>
+        </div>
+        <div class="related-resources__group">
+          <h4>感情のヒントページ</h4>
+          <a href="resources/worry-anxiety.html">心配と不安</a>
+          <a href="resources/self-esteem.html">自己肯定感</a>
+          <a href="resources/goals.html">目標と小さな一歩</a>
+          <a href="resources/positive-psychology.html">強みと希望</a>
+        </div>
+        <div class="related-resources__group">
+          <h4>保護者向けサポート</h4>
+          <a href="parents.html">保護者ページ</a>
+          <a href="resources/parents.html">つながりを大切にする子育て</a>
+          <a href="../parents-tips.html">保護者向けヒント</a>
+        </div>
+      </div>
+    </section>
+
     <details class="legacy-audiobook-archive">
-      <summary class="legacy-audiobook-archive__summary">View older audio story</summary>
+      <summary class="legacy-audiobook-archive__summary">以前の音声ストーリーを見る</summary>
 
     <section class="audiobook-container audiobook-container--secondary">
       <div class="book-cover">
@@ -292,7 +322,7 @@
 
 <!-- 🎧 オーディオブック #2（Princess MP4） -->
 <details class="legacy-audiobook-archive">
-  <summary class="legacy-audiobook-archive__summary">View older video audiobook</summary>
+  <summary class="legacy-audiobook-archive__summary">以前の動画オーディオブックを見る</summary>
 <section class="audiobook-container audiobook-container--secondary" style="margin-top:28px;">
   <div class="book-cover">
     <img src="../images/princess_has_something_to_say_cover.webp"
@@ -383,6 +413,6 @@ window.addEventListener('resize', () => { if(window.innerWidth > 768) toggleMobi
   });
 </script>
 
-  <script defer src="../shared-language-switcher.js?v=1"></script>
+  <script defer src="../shared-language-switcher.js?v=2"></script>
 </body>
 </html>

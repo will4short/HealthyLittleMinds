@@ -168,7 +168,7 @@
   <main class="audiobook-section">
     <section class="listening-hero">
       <div>
-        <p class="listening-kicker">Listening Library</p>
+        <p class="listening-kicker">听读资源库</p>
         <h2>可以聆听、暂停，也可以再回来继续的故事。</h2>
         <p>温暖的音频与视频故事，陪孩子练习耐心、勇气、自信，也学习说出自己的大感受。</p>
         <div class="listening-stats" aria-label="音频书内容">
@@ -177,17 +177,47 @@
           <span>视频音频书</span>
         </div>
       </div>
-      <a class="interactive-reader-card" href="../audiobook.html?book=audiobooks/ella/book.json" aria-label="Open One More Kick, Ella! interactive audiobook reader">
-        <img src="../audiobooks/ella/coverpage.jpg" alt="One More Kick, Ella! cover" loading="lazy" decoding="async">
-        <span class="interactive-reader-card__label">Interactive audiobook</span>
-        <strong>One More Kick, Ella!</strong>
-        <span class="interactive-reader-card__hint">Illustrations, narration, page controls, and read-along captions.</span>
-        <span class="interactive-reader-card__cta">Open interactive reader</span>
+      <a class="interactive-reader-card" href="../audiobook.html?book=audiobooks/ella/book.json" aria-label="打开《再踢一次，Ella！》互动有声书阅读器">
+        <img src="../audiobooks/ella/coverpage.jpg" alt="《再踢一次，Ella！》封面" loading="lazy" decoding="async">
+        <span class="interactive-reader-card__label">互动有声书</span>
+        <strong>再踢一次，Ella！</strong>
+        <span class="interactive-reader-card__hint">包含插图、旁白、翻页控制和跟读字幕。</span>
+        <span class="interactive-reader-card__cta">打开互动阅读器</span>
       </a>
     </section>
 
+    <section class="related-resources" aria-labelledby="ellaRelatedTitle">
+      <div class="related-resources__head">
+        <p class="listening-kicker">故事之后</p>
+        <h3 id="ellaRelatedTitle">继续聊聊勇气、练习和再试一次。</h3>
+        <p class="related-resources__intro">听完 Ella 的故事后，可以用这些页面帮助孩子说出紧张、挫败、自豪和希望，也帮助家长继续引导对话。</p>
+      </div>
+      <div class="related-resources__grid">
+        <div class="related-resources__group">
+          <h4>情绪绘本页面</h4>
+          <a href="../nervous.html">感到紧张</a>
+          <a href="../frustrated.html">感到挫败</a>
+          <a href="../proud.html">感到自豪</a>
+          <a href="../hopeful.html">感到有希望</a>
+        </div>
+        <div class="related-resources__group">
+          <h4>情绪提示页面</h4>
+          <a href="resources/worry-anxiety.html">担心与焦虑</a>
+          <a href="resources/self-esteem.html">自尊与自信</a>
+          <a href="resources/goals.html">目标和小步骤</a>
+          <a href="resources/positive-psychology.html">优势和希望</a>
+        </div>
+        <div class="related-resources__group">
+          <h4>家长支持</h4>
+          <a href="parents.html">家长中心</a>
+          <a href="resources/parents.html">以连接为先的养育</a>
+          <a href="../parents-tips.html">家长提示</a>
+        </div>
+      </div>
+    </section>
+
     <details class="legacy-audiobook-archive">
-      <summary class="legacy-audiobook-archive__summary">View older audio and video stories</summary>
+      <summary class="legacy-audiobook-archive__summary">查看旧版音频和视频故事</summary>
 
     <section class="audiobook-container audiobook-container--secondary">
       <div class="book-cover">
@@ -353,6 +383,6 @@ window.addEventListener('resize', ()=>{ if(window.innerWidth>768) toggleMobileMe
   });
 </script>
 
-  <script defer src="../shared-language-switcher.js?v=1"></script>
+  <script defer src="../shared-language-switcher.js?v=2"></script>
 </body>
 </html>

@@ -28,7 +28,7 @@
 
   var style = document.createElement("link");
   style.rel = "stylesheet";
-  style.href = prefix + "shared-language-switcher.css?v=1";
+  style.href = prefix + "shared-language-switcher.css?v=2";
   document.head.appendChild(style);
 
   var wrapper = document.createElement("div");

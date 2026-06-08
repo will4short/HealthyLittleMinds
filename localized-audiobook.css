@@ -178,6 +178,90 @@ body {
   text-align: center;
 }
 
+.related-resources {
+  margin: 0 0 1.35rem;
+  padding: clamp(1rem, 3vw, 1.35rem);
+  border: 1px solid rgba(37, 78, 112, .08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .74);
+  box-shadow: 0 14px 34px rgba(37, 78, 112, .08);
+}
+
+.related-resources__head {
+  max-width: 760px;
+  margin-bottom: 1rem;
+}
+
+.related-resources h3 {
+  margin: 0;
+  color: #254E70;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1.15;
+}
+
+.related-resources__intro {
+  margin: .45rem 0 0;
+  color: #486a7d;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.related-resources__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .85rem;
+}
+
+.related-resources__group {
+  padding: .85rem;
+  border: 1px solid rgba(37, 78, 112, .08);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .9), rgba(255, 248, 237, .64));
+}
+
+.related-resources__group h4 {
+  margin: 0 0 .65rem;
+  color: #254E70;
+  font-size: 1rem;
+}
+
+.related-resources__group a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  min-height: 42px;
+  margin-top: .5rem;
+  padding: .62rem .72rem;
+  border-radius: 12px;
+  background: rgba(232, 248, 246, .78);
+  color: #254E70;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform .18s ease, background .18s ease, color .18s ease;
+}
+
+.related-resources__group a::after {
+  content: ">";
+  color: #14b8a6;
+  font-weight: 900;
+}
+
+.related-resources__group a:hover,
+.related-resources__group a:focus-visible {
+  transform: translateY(-2px);
+  background: #14b8a6;
+  color: #fff;
+  outline: none;
+}
+
+.related-resources__group a:hover::after,
+.related-resources__group a:focus-visible::after {
+  color: #fff;
+}
+
 .listening-stats span,
 .story-chip {
   display: inline-flex;
@@ -374,6 +458,10 @@ body {
 
   .legacy-audiobook-archive {
     margin-right: 0;
+  }
+
+  .related-resources__grid {
+    grid-template-columns: 1fr;
   }
 }
 

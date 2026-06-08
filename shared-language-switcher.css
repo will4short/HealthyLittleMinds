@@ -57,9 +57,13 @@
   right: 0;
   bottom: calc(100% + 0.5rem);
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.18rem;
-  padding: 0.34rem;
+  justify-content: flex-end;
+  gap: 0.32rem;
+  width: max-content;
+  max-width: min(22rem, calc(100vw - 2rem));
+  padding: 0.42rem;
   border: 1px solid #d5e5e8;
   border-radius: 8px;
   background: #fff;
@@ -71,9 +75,9 @@
   align-items: center;
   justify-content: center;
   gap: 0.22rem;
-  min-width: 45px;
+  min-width: 56px;
   min-height: 42px;
-  padding: 0.26rem 0.34rem;
+  padding: 0.28rem 0.42rem;
   border-radius: 7px;
   color: #254e70;
   font-size: 0.76rem;
@@ -123,10 +127,11 @@
 
   .site-language-picker__menu {
     max-width: calc(100vw - 1.24rem);
+    gap: 0.28rem;
   }
 
   .site-language-picker__menu a {
-    min-width: 42px;
+    min-width: 52px;
     min-height: 40px;
     padding: 0.22rem 0.26rem;
   }
