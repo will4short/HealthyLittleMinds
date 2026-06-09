@@ -3,7 +3,7 @@
 // Lean precache (no big media) + runtime image cache
 // ===============================
 
-const PRECACHE_NAME = 'hlm-precache-v116'; // bump here for new release/update toast
+const PRECACHE_NAME = 'hlm-precache-v117'; // bump here for new release/update toast
 const RUNTIME_NAME  = 'hlm-runtime-v22';   // leave if strategy unchanged
 const IMAGE_CACHE   = 'hlm-img-v16';       // leave if image rules unchanged
 
