@@ -1900,6 +1900,16 @@ body.dark-mode .faq-grid p{
   font-style: italic;
 }
 
+.pathway-card--growth {
+  border-color: rgba(20, 184, 166, 0.28);
+  background: linear-gradient(135deg, #ffffff 0%, #edfffb 100%);
+}
+
+.journey-action {
+  margin-top: 1.4rem;
+  text-align: center;
+}
+
 /* =====================================================
    Phase D additions — style-index.css
    ===================================================== */

@@ -476,13 +476,21 @@ button {
     align-items: flex-start;
   }
 
+  .reader-header__actions {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
   .reader-brand span {
     max-width: 9rem;
     line-height: 1.05;
   }
 
   .reader-library-link {
-    display: none;
+    display: inline-flex;
+    min-height: 38px;
+    padding: 0.45rem 0.62rem;
+    font-size: 0.86rem;
   }
 
   .reader-progress-row,

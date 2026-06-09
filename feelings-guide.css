@@ -214,6 +214,17 @@ a {
   transform: translateY(-1px);
 }
 
+.button--soft {
+  margin-left: 0.55rem;
+  background: #e9fbf7;
+  color: #087c72;
+}
+
+.button--soft:hover,
+.button--soft:focus-visible {
+  background: #d9f7ef;
+}
+
 .feeling-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(220px, 0.72fr);

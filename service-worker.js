@@ -3,7 +3,7 @@
 // Lean precache (no big media) + runtime image cache
 // ===============================
 
-const PRECACHE_NAME = 'hlm-precache-v120'; // bump here for new release/update toast
+const PRECACHE_NAME = 'hlm-precache-v122'; // bump here for new release/update toast
 const RUNTIME_NAME  = 'hlm-runtime-v22';   // leave if strategy unchanged
 const IMAGE_CACHE   = 'hlm-img-v16';       // leave if image rules unchanged
 
@@ -14,6 +14,7 @@ const IMAGE_MAX_AGE_MS  = 1000 * 60 * 60 * 24 * 30; // ~30 days
 const ASSETS_TO_PRECACHE = [
   // Shell & core pages
   '/', '/index.html', '/home.html', '/dashboard.html', '/interactive-tools.html',
+  '/growth-plan.html',
   '/audiobook.html',
   '/bulletin.html', '/inspire_page.html', '/offline.html', '/more-feelings.html',
   '/teacher-life.html', '/about_me.html',
@@ -37,6 +38,7 @@ const ASSETS_TO_PRECACHE = [
   // Localized pages (HTML only)
   '/zh-tw/home.html', '/zh-cn/home.html', '/ja/home.html', '/ko/home.html',
   '/ja/index.html', '/ko/index.html', '/zh-tw/index.html', '/zh-cn/index.html',
+  '/ja/growth-plan.html', '/ko/growth-plan.html', '/zh-tw/growth-plan.html', '/zh-cn/growth-plan.html',
   '/zh-tw/dashboard.html', '/zh-tw/interactive-tools.html', '/zh-tw/parents.html',
   '/zh-cn/dashboard.html', '/zh-cn/interactive-tools.html', '/zh-cn/parents.html',
   '/ko/dashboard.html', '/ko/interactive-tools.html', '/ko/parents.html',
@@ -44,6 +46,10 @@ const ASSETS_TO_PRECACHE = [
 
   // Static assets (small)
   '/style.css', '/style-index.css', '/feelings-guide.css',
+  '/growth-plan.css',
+  '/growth-plan.js',
+  '/feeling-support.css',
+  '/feeling-support.js',
   '/audiobook.css',
   '/audiobook.js',
   '/localized-home.css',
