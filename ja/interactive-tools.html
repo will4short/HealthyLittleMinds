@@ -218,12 +218,14 @@
   </a>
   <nav class="nav-links">
     <a href="home.html">ホーム</a>
+    <a href="#ella-reflection">エラ</a>
     <a href="#calm-corner">落ち着く</a>
     <a href="#drawingCanvas">描く</a>
     <a href="#mood-story-builder">気持ち</a>
   </nav>
 </header>
 
+<main class="localized-tools-main">
 <section class="localized-tools-hero" aria-labelledby="toolsTitle">
   <div class="localized-tools-hero__copy">
     <p class="tools-kicker">インタラクティブな落ち着きツール</p>
@@ -300,6 +302,69 @@
   </div>
 </section>
 
+<section id="ella-reflection" class="tool-card tool-card--reflection">
+  <div class="tool-card__header">
+    <p class="tools-kicker">オーディオブックのあとに</p>
+    <h2>もう一回キック、エラ！ふりかえり</h2>
+    <p>お話を聞いたあとに、エラの気持ち、勇気、そして小さな練習の一歩を見つけましょう。</p>
+  </div>
+
+  <div class="reflection-layout">
+    <aside class="reflection-book">
+      <img src="../audiobooks/ella/coverpage.jpg" alt="もう一回キック、エラ！ 表紙" loading="lazy" decoding="async">
+      <a class="tools-btn tools-btn--secondary" href="../audiobook.html?book=audiobooks/ella/book.json">もう一度聞く</a>
+    </aside>
+
+    <div class="reflection-steps">
+      <fieldset class="reflection-step">
+        <legend>1. パターンが難しかったとき、エラはどんな気持ちだった？</legend>
+        <div class="reflection-choice-grid" role="group" aria-label="エラの気持ちを選ぶ">
+          <button type="button" data-reflection-group="feeling" data-reflection-value="不安">不安</button>
+          <button type="button" data-reflection-group="feeling" data-reflection-value="くやしい">くやしい</button>
+          <button type="button" data-reflection-group="feeling" data-reflection-value="落ちこんだ">落ちこんだ</button>
+          <button type="button" data-reflection-group="feeling" data-reflection-value="希望">希望</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="reflection-step">
+        <legend>2. エラが続ける助けになったことは？</legend>
+        <div class="reflection-choice-grid reflection-choice-grid--wide" role="group" aria-label="エラを助けたことを選ぶ">
+          <button type="button" data-reflection-group="help" data-reflection-value="エラは、自分がもう成長していたことを思い出しました。">成長を思い出す</button>
+          <button type="button" data-reflection-group="help" data-reflection-value="エラは比べることを減らし、学ぶことに集中しました。">比べすぎない</button>
+          <button type="button" data-reflection-group="help" data-reflection-value="エラは一歩ずつ練習しました。">小さな一歩</button>
+          <button type="button" data-reflection-group="help" data-reflection-value="エラはまちがえたあとも、もう一度やってみました。">もう一度やる</button>
+        </div>
+      </fieldset>
+
+      <label class="reflection-step reflection-prompt" for="practiceStep">
+        <span>3. あなたが練習し続けたいことを一つ書こう。</span>
+        <textarea id="practiceStep" rows="3" placeholder="例：読むこと、キック、絵を描くこと、学校で勇気を出すこと..."></textarea>
+      </label>
+
+      <div class="reflection-actions">
+        <button type="button" class="tools-btn" id="buildReflectionBtn">ふりかえりを作る</button>
+        <button type="button" class="tools-btn tools-btn--secondary" id="resetReflectionBtn">はじめから</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="reflectionResult" class="reflection-result" aria-live="polite">
+    <h3>あなたのふりかえり</h3>
+    <p id="reflectionSummary">気持ち、助けになったこと、練習したい一歩を選んで書きましょう。</p>
+    <div class="reflection-links" aria-label="関連ページ">
+      <a href="../frustrated.html">くやしい気持ち</a>
+      <a href="../nervous.html">不安な気持ち</a>
+      <a href="../proud.html">誇らしい気持ち</a>
+      <a href="resources/goals.html">目標と小さな一歩</a>
+    </div>
+  </div>
+
+  <div class="bubble-box" aria-label="保護者向け会話のヒント">
+    <strong>保護者メモ</strong>
+    <p>聞いてみましょう：「エラはいつ自分を比べ始めたかな？」「もう一度やってみる助けになったことは？」「今週の小さな一歩は何にする？」</p>
+  </div>
+</section>
+
 <div class="story-card">
   <img src="images/destiny-sad.png" alt="Destiny feeling sad" />
   <h4>😢 悲しみ</h4>
@@ -334,6 +399,8 @@
     ">📖 ベラの物語を始める</a>
   </div>
 </div>
+
+</main>
 
 <script>
   // 🔒 Redirect to login page if not logged in
@@ -389,6 +456,53 @@
   function resetStory() {
     document.getElementById('storyOutput').style.display = 'none';
   }
+</script>
+
+<script>
+const reflectionState = {
+  feeling: '',
+  help: ''
+};
+
+function updateReflectionChoice(button) {
+  const group = button.dataset.reflectionGroup;
+  reflectionState[group] = button.dataset.reflectionValue;
+  document.querySelectorAll(`[data-reflection-group="${group}"]`).forEach((choice) => {
+    const isSelected = choice === button;
+    choice.classList.toggle('is-selected', isSelected);
+    choice.setAttribute('aria-pressed', String(isSelected));
+  });
+}
+
+function buildReflection() {
+  const practice = document.getElementById('practiceStep').value.trim();
+  const feeling = reflectionState.feeling || 'まだはっきりしない気持ち';
+  const helped = reflectionState.help || 'エラは小さな方法を見つけて続けました。';
+  const practiceText = practice || '自分が大切にしたい小さなこと';
+  document.getElementById('reflectionSummary').textContent = `エラは${feeling}を感じました。${helped} わたしも「${practiceText}」を一歩ずつ練習できます。`;
+  const result = document.getElementById('reflectionResult');
+  result.classList.add('is-visible');
+  result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function resetReflection() {
+  reflectionState.feeling = '';
+  reflectionState.help = '';
+  document.getElementById('practiceStep').value = '';
+  document.getElementById('reflectionSummary').textContent = '気持ち、助けになったこと、練習したい一歩を選んで書きましょう。';
+  document.getElementById('reflectionResult').classList.remove('is-visible');
+  document.querySelectorAll('[data-reflection-group]').forEach((choice) => {
+    choice.classList.remove('is-selected');
+    choice.setAttribute('aria-pressed', 'false');
+  });
+}
+
+document.querySelectorAll('[data-reflection-group]').forEach((button) => {
+  button.setAttribute('aria-pressed', 'false');
+  button.addEventListener('click', () => updateReflectionChoice(button));
+});
+document.getElementById('buildReflectionBtn').addEventListener('click', buildReflection);
+document.getElementById('resetReflectionBtn').addEventListener('click', resetReflection);
 </script>
 
 <script>

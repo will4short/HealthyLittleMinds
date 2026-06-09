@@ -233,12 +233,14 @@
   </a>
   <nav class="nav-links">
     <a href="home.html">홈</a>
+    <a href="#ella-reflection">엘라</a>
     <a href="#calm-corner">진정</a>
     <a href="#drawingCanvas">그리기</a>
     <a href="#mood-story-builder">감정</a>
   </nav>
 </header>
 
+<main class="localized-tools-main">
 <section class="localized-tools-hero" aria-labelledby="toolsTitle">
   <div class="localized-tools-hero__copy">
     <p class="tools-kicker">인터랙티브 진정 도구</p>
@@ -311,6 +313,69 @@
   </div>
 </section>
 
+<section id="ella-reflection" class="tool-card tool-card--reflection">
+  <div class="tool-card__header">
+    <p class="tools-kicker">오디오북 후 활동</p>
+    <h2>한 번 더 발차기, 엘라! 되돌아보기</h2>
+    <p>이야기를 들은 뒤, 엘라의 감정을 떠올리고 용기와 작은 연습 단계를 찾아보세요.</p>
+  </div>
+
+  <div class="reflection-layout">
+    <aside class="reflection-book">
+      <img src="../audiobooks/ella/coverpage.jpg" alt="한 번 더 발차기, 엘라! 표지" loading="lazy" decoding="async">
+      <a class="tools-btn tools-btn--secondary" href="../audiobook.html?book=audiobooks/ella/book.json">다시 듣기</a>
+    </aside>
+
+    <div class="reflection-steps">
+      <fieldset class="reflection-step">
+        <legend>1. 어려웠을 때 엘라는 어떤 마음이었을까요?</legend>
+        <div class="reflection-choice-grid" role="group" aria-label="엘라의 감정 선택">
+          <button type="button" data-reflection-group="feeling" data-reflection-value="긴장">긴장</button>
+          <button type="button" data-reflection-group="feeling" data-reflection-value="답답함">답답함</button>
+          <button type="button" data-reflection-group="feeling" data-reflection-value="낙담">낙담</button>
+          <button type="button" data-reflection-group="feeling" data-reflection-value="희망">희망</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="reflection-step">
+        <legend>2. 엘라가 계속할 수 있게 도와준 것은 무엇이었나요?</legend>
+        <div class="reflection-choice-grid reflection-choice-grid--wide" role="group" aria-label="엘라에게 도움이 된 것 선택">
+          <button type="button" data-reflection-group="help" data-reflection-value="엘라는 자신이 이미 얼마나 자랐는지 떠올렸어요.">성장 떠올리기</button>
+          <button type="button" data-reflection-group="help" data-reflection-value="엘라는 비교를 줄이고 배우는 데 집중했어요.">비교 줄이기</button>
+          <button type="button" data-reflection-group="help" data-reflection-value="엘라는 한 단계씩 연습했어요.">작은 단계</button>
+          <button type="button" data-reflection-group="help" data-reflection-value="엘라는 실수 후에 다시 시도했어요.">다시 시도</button>
+        </div>
+      </fieldset>
+
+      <label class="reflection-step reflection-prompt" for="practiceStep">
+        <span>3. 내가 계속 연습하고 싶은 한 가지는?</span>
+        <textarea id="practiceStep" rows="3" placeholder="예: 읽기, 발차기, 그림 그리기, 학교에서 용기 내기..."></textarea>
+      </label>
+
+      <div class="reflection-actions">
+        <button type="button" class="tools-btn" id="buildReflectionBtn">나의 되돌아보기 만들기</button>
+        <button type="button" class="tools-btn tools-btn--secondary" id="resetReflectionBtn">처음부터</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="reflectionResult" class="reflection-result" aria-live="polite">
+    <h3>나의 되돌아보기</h3>
+    <p id="reflectionSummary">감정과 도움이 된 것을 고르고, 연습하고 싶은 한 가지를 적어 보세요.</p>
+    <div class="reflection-links" aria-label="관련 페이지">
+      <a href="../frustrated.html">답답할 때</a>
+      <a href="../nervous.html">긴장될 때</a>
+      <a href="../proud.html">자랑스러울 때</a>
+      <a href="resources/goals.html">목표와 작은 단계</a>
+    </div>
+  </div>
+
+  <div class="bubble-box" aria-label="부모 대화 질문">
+    <strong>부모님 메모</strong>
+    <p>물어보세요: “엘라는 언제 자신을 비교하기 시작했을까?” “다시 해 보게 도와준 것은 무엇이었을까?” “이번 주에 연습할 작은 한 걸음은 무엇일까?”</p>
+  </div>
+</section>
+
 <div class="story-card">
   <img src="images/destiny-sad.png" alt="Destiny feeling sad" />
   <h4>슬픔</h4>
@@ -325,6 +390,7 @@
   <a href="interactive-stories/scene_1_bella_story.html" class="btn bubble">📖 벨라의 이야기 시작하기</a>
 </div>
 
+</main>
 
 <script>
 const moodResponses = {
@@ -362,6 +428,53 @@ function showMoodStory(mood) {
 function resetStory() {
   document.getElementById('storyOutput').style.display = 'none';
 }
+</script>
+
+<script>
+const reflectionState = {
+  feeling: '',
+  help: ''
+};
+
+function updateReflectionChoice(button) {
+  const group = button.dataset.reflectionGroup;
+  reflectionState[group] = button.dataset.reflectionValue;
+  document.querySelectorAll(`[data-reflection-group="${group}"]`).forEach((choice) => {
+    const isSelected = choice === button;
+    choice.classList.toggle('is-selected', isSelected);
+    choice.setAttribute('aria-pressed', String(isSelected));
+  });
+}
+
+function buildReflection() {
+  const practice = document.getElementById('practiceStep').value.trim();
+  const feeling = reflectionState.feeling || '잘 모르겠는 마음';
+  const helped = reflectionState.help || '엘라는 작은 방법을 찾아 계속해 보았어요.';
+  const practiceText = practice || '내가 소중하게 생각하는 작은 일';
+  document.getElementById('reflectionSummary').textContent = `엘라는 ${feeling}을 느꼈어요. ${helped} 나도 ${practiceText}을/를 한 걸음씩 연습할 수 있어요.`;
+  const result = document.getElementById('reflectionResult');
+  result.classList.add('is-visible');
+  result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function resetReflection() {
+  reflectionState.feeling = '';
+  reflectionState.help = '';
+  document.getElementById('practiceStep').value = '';
+  document.getElementById('reflectionSummary').textContent = '감정과 도움이 된 것을 고르고, 연습하고 싶은 한 가지를 적어 보세요.';
+  document.getElementById('reflectionResult').classList.remove('is-visible');
+  document.querySelectorAll('[data-reflection-group]').forEach((choice) => {
+    choice.classList.remove('is-selected');
+    choice.setAttribute('aria-pressed', 'false');
+  });
+}
+
+document.querySelectorAll('[data-reflection-group]').forEach((button) => {
+  button.setAttribute('aria-pressed', 'false');
+  button.addEventListener('click', () => updateReflectionChoice(button));
+});
+document.getElementById('buildReflectionBtn').addEventListener('click', buildReflection);
+document.getElementById('resetReflectionBtn').addEventListener('click', resetReflection);
 </script>
 
 <script>

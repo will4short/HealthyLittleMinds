@@ -41,6 +41,7 @@
           a classroom pause, a family check-in, or a quiet reset.
         </p>
         <div class="tools-hero__actions" aria-label="Jump to a tool">
+          <a href="#ella-reflection">Ella reflection</a>
           <a href="#calm-corner">Start calm</a>
           <a href="#drawing-tool">Draw it out</a>
           <a href="#mood-story-builder">Name a mood</a>
@@ -148,6 +149,69 @@
           <p>Mirror first: “You’re feeling ___.” Then ask: “What would help your body feel safer?”</p>
         </div>
       </article>
+
+      <article id="ella-reflection" class="tool-card tool-card--reflection">
+        <div class="tool-card__header">
+          <p class="tools-kicker">After the audiobook</p>
+          <h2>One More Kick, Ella! reflection</h2>
+          <p>Use this after listening to help children name feelings, notice courage, and choose one small practice step.</p>
+        </div>
+
+        <div class="reflection-layout">
+          <aside class="reflection-book">
+            <img src="audiobooks/ella/coverpage.jpg" alt="One More Kick, Ella! cover" loading="lazy" decoding="async">
+            <a class="tools-btn tools-btn--secondary" href="audiobook.html?book=audiobooks/ella/book.json">Listen again</a>
+          </aside>
+
+          <div class="reflection-steps">
+            <fieldset class="reflection-step">
+              <legend>1. How did Ella feel when the pattern was hard?</legend>
+              <div class="reflection-choice-grid" role="group" aria-label="Choose Ella's feeling">
+                <button type="button" data-reflection-group="feeling" data-reflection-value="nervous">Nervous</button>
+                <button type="button" data-reflection-group="feeling" data-reflection-value="frustrated">Frustrated</button>
+                <button type="button" data-reflection-group="feeling" data-reflection-value="discouraged">Discouraged</button>
+                <button type="button" data-reflection-group="feeling" data-reflection-value="hopeful">Hopeful</button>
+              </div>
+            </fieldset>
+
+            <fieldset class="reflection-step">
+              <legend>2. What helped Ella keep going?</legend>
+              <div class="reflection-choice-grid reflection-choice-grid--wide" role="group" aria-label="Choose what helped Ella">
+                <button type="button" data-reflection-group="help" data-reflection-value="She remembered how much she had already grown.">Remembering progress</button>
+                <button type="button" data-reflection-group="help" data-reflection-value="She stopped comparing and focused on learning.">Comparing less</button>
+                <button type="button" data-reflection-group="help" data-reflection-value="She practised one step at a time.">Small steps</button>
+                <button type="button" data-reflection-group="help" data-reflection-value="She tried again after mistakes.">Trying again</button>
+              </div>
+            </fieldset>
+
+            <label class="reflection-step reflection-prompt" for="practiceStep">
+              <span>3. What is one thing you want to keep practising?</span>
+              <textarea id="practiceStep" rows="3" placeholder="Example: reading, kicking, drawing, being brave at school..."></textarea>
+            </label>
+
+            <div class="reflection-actions">
+              <button type="button" class="tools-btn" id="buildReflectionBtn">Make my reflection</button>
+              <button type="button" class="tools-btn tools-btn--secondary" id="resetReflectionBtn">Start over</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="reflectionResult" class="reflection-result" aria-live="polite">
+          <h3>Your reflection</h3>
+          <p id="reflectionSummary">Choose a feeling, choose what helped Ella, and write one practice step.</p>
+          <div class="reflection-links" aria-label="Related pages">
+            <a href="frustrated.html">Feeling Frustrated</a>
+            <a href="nervous.html">Feeling Nervous</a>
+            <a href="proud.html">Feeling Proud</a>
+            <a href="resources/goals.html">Goals and Small Steps</a>
+          </div>
+        </div>
+
+        <div class="bubble-box" aria-label="Parent conversation starters">
+          <strong>Grown-up note</strong>
+          <p>Ask: “When did Ella start comparing herself?” “What helped her try again?” “What is one small step we can practise this week?”</p>
+        </div>
+      </article>
     </section>
 
     <section class="story-library tools-shell" aria-labelledby="storiesTitle">
@@ -193,9 +257,9 @@
           ? '<a href="dashboard.html">Dashboard</a>'
           : '<a href="index.html">Login</a>';
         if (isMember === 'true') {
-          nav.innerHTML = `<a href="home.html">Home</a><a href="#calm-corner">Calm</a><a href="#drawing-tool">Draw</a><a href="#mood-story-builder">Mood</a>${memberLink}`;
+          nav.innerHTML = `<a href="home.html">Home</a><a href="#ella-reflection">Ella</a><a href="#calm-corner">Calm</a><a href="#drawing-tool">Draw</a><a href="#mood-story-builder">Mood</a>${memberLink}`;
         } else {
-          nav.innerHTML = `<a href="home.html">Home</a><a href="#calm-corner">Calm</a><a href="#drawing-tool">Draw</a><a href="#mood-story-builder">Mood</a>${memberLink}`;
+          nav.innerHTML = `<a href="home.html">Home</a><a href="#ella-reflection">Ella</a><a href="#calm-corner">Calm</a><a href="#drawing-tool">Draw</a><a href="#mood-story-builder">Mood</a>${memberLink}`;
         }
       }
       const memberBanner = document.getElementById('memberBanner');
@@ -255,6 +319,57 @@
         button.setAttribute('aria-pressed', 'false');
       });
     }
+  </script>
+
+  <script>
+    const reflectionState = {
+      feeling: '',
+      help: ''
+    };
+
+    function updateReflectionChoice(button) {
+      const group = button.dataset.reflectionGroup;
+      reflectionState[group] = button.dataset.reflectionValue;
+      document
+        .querySelectorAll(`[data-reflection-group="${group}"]`)
+        .forEach((choice) => {
+          const isSelected = choice === button;
+          choice.classList.toggle('is-selected', isSelected);
+          choice.setAttribute('aria-pressed', String(isSelected));
+        });
+    }
+
+    function buildReflection() {
+      const summary = document.getElementById('reflectionSummary');
+      const result = document.getElementById('reflectionResult');
+      const practice = document.getElementById('practiceStep').value.trim();
+      const feeling = reflectionState.feeling || 'unsure';
+      const helped = reflectionState.help || 'She found one small way to keep going.';
+      const practiceText = practice || 'one small thing I care about';
+
+      summary.textContent = `Ella felt ${feeling}. ${helped} I can practise ${practiceText}, one small step at a time.`;
+      result.classList.add('is-visible');
+      result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function resetReflection() {
+      reflectionState.feeling = '';
+      reflectionState.help = '';
+      document.getElementById('practiceStep').value = '';
+      document.getElementById('reflectionSummary').textContent = 'Choose a feeling, choose what helped Ella, and write one practice step.';
+      document.getElementById('reflectionResult').classList.remove('is-visible');
+      document.querySelectorAll('[data-reflection-group]').forEach((choice) => {
+        choice.classList.remove('is-selected');
+        choice.setAttribute('aria-pressed', 'false');
+      });
+    }
+
+    document.querySelectorAll('[data-reflection-group]').forEach((button) => {
+      button.setAttribute('aria-pressed', 'false');
+      button.addEventListener('click', () => updateReflectionChoice(button));
+    });
+    document.getElementById('buildReflectionBtn').addEventListener('click', buildReflection);
+    document.getElementById('resetReflectionBtn').addEventListener('click', resetReflection);
   </script>
 
   <script>

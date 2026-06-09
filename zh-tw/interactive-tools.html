@@ -250,12 +250,14 @@
   </a>
   <nav class="nav-links">
     <a href="home.html">首頁</a>
+    <a href="#ella-reflection">Ella</a>
     <a href="#calm-corner">平靜</a>
     <a href="#drawingCanvas">畫畫</a>
     <a href="#mood-story-builder">心情</a>
   </nav>
 </header>
 
+<main class="localized-tools-main">
 <section class="localized-tools-hero" aria-labelledby="toolsTitle">
   <div class="localized-tools-hero__copy">
     <p class="tools-kicker">互動平靜工具箱</p>
@@ -333,6 +335,69 @@
   </div>
 </section>
 
+<section id="ella-reflection" class="tool-card tool-card--reflection">
+  <div class="tool-card__header">
+    <p class="tools-kicker">聽完有聲書後</p>
+    <h2>再踢一次，Ella！故事反思</h2>
+    <p>聽完故事後，幫助孩子說出 Ella 的感受，發現勇氣，並選擇一個可以練習的小步驟。</p>
+  </div>
+
+  <div class="reflection-layout">
+    <aside class="reflection-book">
+      <img src="../audiobooks/ella/coverpage.jpg" alt="《再踢一次，Ella！》封面" loading="lazy" decoding="async">
+      <a class="tools-btn tools-btn--secondary" href="../audiobook.html?book=audiobooks/ella/book.json">再聽一次</a>
+    </aside>
+
+    <div class="reflection-steps">
+      <fieldset class="reflection-step">
+        <legend>1. 動作很難的時候，Ella 可能有什麼感受？</legend>
+        <div class="reflection-choice-grid" role="group" aria-label="選擇 Ella 的感受">
+          <button type="button" data-reflection-group="feeling" data-reflection-value="緊張">緊張</button>
+          <button type="button" data-reflection-group="feeling" data-reflection-value="挫敗">挫敗</button>
+          <button type="button" data-reflection-group="feeling" data-reflection-value="灰心">灰心</button>
+          <button type="button" data-reflection-group="feeling" data-reflection-value="有希望">有希望</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="reflection-step">
+        <legend>2. 什麼幫助 Ella 繼續練習？</legend>
+        <div class="reflection-choice-grid reflection-choice-grid--wide" role="group" aria-label="選擇幫助 Ella 的事情">
+          <button type="button" data-reflection-group="help" data-reflection-value="Ella 想起自己已經進步了很多。">想起進步</button>
+          <button type="button" data-reflection-group="help" data-reflection-value="Ella 少一點比較，多一點專注學習。">少比較</button>
+          <button type="button" data-reflection-group="help" data-reflection-value="Ella 一步一步練習。">小步驟</button>
+          <button type="button" data-reflection-group="help" data-reflection-value="Ella 犯錯後又試了一次。">再試一次</button>
+        </div>
+      </fieldset>
+
+      <label class="reflection-step reflection-prompt" for="practiceStep">
+        <span>3. 你想繼續練習的一件事是什麼？</span>
+        <textarea id="practiceStep" rows="3" placeholder="例如：閱讀、踢腿、畫畫、在學校勇敢一點..."></textarea>
+      </label>
+
+      <div class="reflection-actions">
+        <button type="button" class="tools-btn" id="buildReflectionBtn">產生我的反思</button>
+        <button type="button" class="tools-btn tools-btn--secondary" id="resetReflectionBtn">重新開始</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="reflectionResult" class="reflection-result" aria-live="polite">
+    <h3>我的反思</h3>
+    <p id="reflectionSummary">選擇一種感受、一件幫助 Ella 的事，再寫下一個練習步驟。</p>
+    <div class="reflection-links" aria-label="相關頁面">
+      <a href="../frustrated.html">感到挫敗</a>
+      <a href="../nervous.html">感到緊張</a>
+      <a href="../proud.html">感到驕傲</a>
+      <a href="resources/goals.html">目標和小步驟</a>
+    </div>
+  </div>
+
+  <div class="bubble-box" aria-label="家長對話提示">
+    <strong>家長提示</strong>
+    <p>可以問：「Ella 什麼時候開始和別人比較？」「什麼幫助她再試一次？」「這週我們可以練習哪一個小步驟？」</p>
+  </div>
+</section>
+
 <div class="story-card">
   <img src="images/destiny-sad.png" alt="Destiny feeling sad" />
   <h4>😢 悲傷</h4>
@@ -346,6 +411,8 @@
   <p>一起看看貝拉如何做選擇，這些選擇又如何影響她的情緒與友情。</p>
   <a href="interactive-stories/scene_1_bella_story.html" class="btn bubble">📖 開始貝拉的故事</a>
 </div>
+
+</main>
 
 
 <script>
@@ -385,6 +452,53 @@ const moodResponses = {
   function resetStory() {
     document.getElementById('storyOutput').style.display = 'none';
   }
+</script>
+
+<script>
+const reflectionState = {
+  feeling: '',
+  help: ''
+};
+
+function updateReflectionChoice(button) {
+  const group = button.dataset.reflectionGroup;
+  reflectionState[group] = button.dataset.reflectionValue;
+  document.querySelectorAll(`[data-reflection-group="${group}"]`).forEach((choice) => {
+    const isSelected = choice === button;
+    choice.classList.toggle('is-selected', isSelected);
+    choice.setAttribute('aria-pressed', String(isSelected));
+  });
+}
+
+function buildReflection() {
+  const practice = document.getElementById('practiceStep').value.trim();
+  const feeling = reflectionState.feeling || '還不確定的感受';
+  const helped = reflectionState.help || 'Ella 找到一個小方法繼續前進。';
+  const practiceText = practice || '我在意的一件小事';
+  document.getElementById('reflectionSummary').textContent = `Ella 感到${feeling}。${helped} 我也可以一步一步練習：${practiceText}。`;
+  const result = document.getElementById('reflectionResult');
+  result.classList.add('is-visible');
+  result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function resetReflection() {
+  reflectionState.feeling = '';
+  reflectionState.help = '';
+  document.getElementById('practiceStep').value = '';
+  document.getElementById('reflectionSummary').textContent = '選擇一種感受、一件幫助 Ella 的事，再寫下一個練習步驟。';
+  document.getElementById('reflectionResult').classList.remove('is-visible');
+  document.querySelectorAll('[data-reflection-group]').forEach((choice) => {
+    choice.classList.remove('is-selected');
+    choice.setAttribute('aria-pressed', 'false');
+  });
+}
+
+document.querySelectorAll('[data-reflection-group]').forEach((button) => {
+  button.setAttribute('aria-pressed', 'false');
+  button.addEventListener('click', () => updateReflectionChoice(button));
+});
+document.getElementById('buildReflectionBtn').addEventListener('click', buildReflection);
+document.getElementById('resetReflectionBtn').addEventListener('click', resetReflection);
 </script>
 
 <script>
