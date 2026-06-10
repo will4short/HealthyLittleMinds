@@ -55,6 +55,7 @@
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link href="style.css?v=97" rel="stylesheet"/>
+  <script src="member-preview.js?v=1"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Nunito:wght@600;800&amp;display=swap" rel="stylesheet">
    <!-- Structured Data -->
 <link as="image" href="images/logo-icon.webp" rel="preload"/>
@@ -1289,8 +1290,9 @@
    // 🔒 Redirect to login page if not logged in
   (function () {
     const isMember = localStorage.getItem("isMember") === "true";
+    const hasPreview = window.HLMPreview && window.HLMPreview.isActive();
 
-    if (!isMember) {
+    if (!isMember && !hasPreview) {
       const isLocal = window.location.protocol === "file:";
       const path = window.location.pathname;
       const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
@@ -1307,6 +1309,11 @@
       }
 
       window.location.replace(redirectTo);
+      return;
+    }
+
+    if (!isMember && hasPreview) {
+      window.HLMPreview.scheduleExpiryRedirect();
     }
   })();
   </script>

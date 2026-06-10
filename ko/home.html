@@ -56,6 +56,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="../style.css?v=97">
+<script src="../member-preview.js?v=1"></script>
 <link rel="stylesheet" href="../localized-home.css?v=17">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
   <script defer src="../localized-home-polish.js?v=2"></script>
@@ -734,14 +735,20 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
         location.hostname === 'localhost' ||
         location.hostname === '127.0.0.1';
       const isMember = localStorage.getItem("isMember") === "true";
+      const hasPreview = window.HLMPreview && window.HLMPreview.isActive();
 
-      if (!isLocal && !isMember) {
+      if (!isLocal && !isMember && !hasPreview) {
         const path = window.location.pathname;
         const locale = path.split('/')[1];
         const redirectTo = locale && path.includes(`/${locale}/`) 
           ? `/${locale}/index.html` 
           : "/index.html";
         window.location.replace(redirectTo);
+        return;
+      }
+
+      if (!isMember && hasPreview) {
+        window.HLMPreview.scheduleExpiryRedirect();
       }
     })();
   </script>

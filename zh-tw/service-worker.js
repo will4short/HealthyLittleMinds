@@ -3,7 +3,7 @@
 // Lean precache (no big media) + runtime image cache
 // ===============================
 
-const PRECACHE_NAME = 'hlm-precache-v77'; // bump here for new release
+const PRECACHE_NAME = 'hlm-precache-v78'; // bump here for new release
 const RUNTIME_NAME  = 'hlm-runtime-v19';   // leave if strategy unchanged
 const IMAGE_CACHE   = 'hlm-img-v14';       // leave if image rules unchanged
 
@@ -37,7 +37,7 @@ const ASSETS_TO_PRECACHE = [
   '/ja/dashboard.html', '/ja/interactive-tools.html', '/ja/parents.html',
 
   // Static assets (small)
-  '/style.css', '/style-index.css',
+  '/style.css', '/style-index.css', '/member-preview.js',
   '/manifest.json',
   '/icon-192.webp', '/icon-512.webp', '/favicon.ico',
   '/fonts/Nunito.woff2',

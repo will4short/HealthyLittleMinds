@@ -433,6 +433,30 @@ h2{
   color:#526878;
 }
 
+button.preview-pass-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 270px);
+  min-height: 46px;
+  margin: 0.7rem auto 0;
+  padding: 0.72rem 1rem;
+  border: 1px solid rgba(37, 78, 112, 0.16);
+  border-radius: 999px;
+  background: #e9fbf7;
+  color: #087c72;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+button.preview-pass-btn:hover,
+button.preview-pass-btn:focus-visible {
+  background: #d9f7f1;
+  transform: translateY(-1px);
+}
+
 input[type="password"]{
   padding:12px;
   width:100%;

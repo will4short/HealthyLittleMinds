@@ -64,6 +64,40 @@
     });
   }
 
+  function setupWeekCards() {
+    const cards = Array.from(document.querySelectorAll(".week-card"));
+    if (!cards.length) return;
+
+    function expandCard(card) {
+      cards.forEach((item) => {
+        const isExpanded = item === card;
+        item.classList.toggle("is-expanded", isExpanded);
+        item.setAttribute("aria-expanded", String(isExpanded));
+      });
+    }
+
+    cards.forEach((card) => {
+      card.tabIndex = 0;
+      card.setAttribute("aria-expanded", "false");
+
+      card.addEventListener("click", (event) => {
+        if (event.target.closest("a")) return;
+        expandCard(card);
+      });
+
+      card.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        expandCard(card);
+      });
+    });
+
+    if (window.matchMedia("(max-width: 640px)").matches) {
+      const firstOpenCard = cards.find((card) => !card.querySelector("input")?.checked) || cards[0];
+      if (firstOpenCard) expandCard(firstOpenCard);
+    }
+  }
+
   const recommendations = {
     worry: {
       story: ["Listen to Ella, then talk about brave small steps.", "audiobook.html?book=audiobooks/ella/book.json"],
@@ -161,6 +195,7 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     setupChecks();
+    setupWeekCards();
     setupFinder();
   });
 })();

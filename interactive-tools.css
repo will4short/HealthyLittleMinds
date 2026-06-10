@@ -1236,7 +1236,7 @@ body.tools-page {
 
 .reflection-layout {
   display: grid;
-  grid-template-columns: minmax(180px, 0.34fr) minmax(0, 1fr);
+  grid-template-columns: minmax(180px, 280px) minmax(0, 1fr);
   gap: clamp(1rem, 3vw, 1.4rem);
   align-items: start;
 }
@@ -1244,6 +1244,7 @@ body.tools-page {
 .reflection-book {
   display: grid;
   gap: 0.85rem;
+  width: min(100%, 280px);
   padding: 0.85rem;
   border: 1px solid rgba(37, 78, 112, 0.1);
   border-radius: 18px;
@@ -1460,6 +1461,11 @@ body.tools-page {
   .reflection-layout,
   .story-card {
     grid-template-columns: 1fr;
+  }
+
+  .reflection-book {
+    width: min(100%, 420px);
+    margin-inline: auto;
   }
 
   .sound-grid,
@@ -1866,5 +1872,101 @@ body.tools-page--localized .story-card .choice-btn {
   body.tools-page--localized .localized-tools-main > section:not(.localized-tools-hero),
   body.tools-page--localized .story-card {
     width: min(100% - 1rem, 460px) !important;
+  }
+}
+
+/* Localized page polish: override older inline section caps and keep the layout close to English. */
+body.tools-page--localized .localized-tools-main {
+  width: min(1160px, calc(100% - 2rem)) !important;
+  max-width: none !important;
+  margin: clamp(1.25rem, 3vw, 2.25rem) auto 0 !important;
+  padding: 0 !important;
+}
+
+body.tools-page--localized .localized-tools-main .localized-tools-hero {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 300px) !important;
+  gap: clamp(1rem, 2.5vw, 1.5rem) !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+body.tools-page--localized .localized-tools-hero__copy,
+body.tools-page--localized .localized-tools-hero__panel {
+  min-width: 0 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 14px 34px rgba(37, 78, 112, 0.1) !important;
+}
+
+body.tools-page--localized .localized-tools-hero__copy {
+  padding: clamp(1.25rem, 3vw, 2.1rem) !important;
+}
+
+body.tools-page--localized .localized-tools-hero__copy .tools-kicker {
+  margin-bottom: 0.55rem !important;
+  letter-spacing: 0.08em !important;
+}
+
+body.tools-page--localized .localized-tools-hero__copy h1 {
+  max-width: 720px !important;
+  margin: 0 !important;
+  font-size: clamp(2rem, 3.1vw, 3.2rem) !important;
+  line-height: 1.12 !important;
+  letter-spacing: 0 !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+}
+
+body.tools-page--localized .localized-tools-hero__copy p {
+  max-width: 56ch !important;
+  margin-top: 0.85rem !important;
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem) !important;
+  line-height: 1.7 !important;
+}
+
+body.tools-page--localized .localized-tools-hero__panel {
+  align-content: end !important;
+  min-height: 240px !important;
+  padding: clamp(1rem, 2.4vw, 1.55rem) !important;
+}
+
+body.tools-page--localized .localized-tools-hero__panel p {
+  margin: 0 !important;
+  font-size: 0.98rem !important;
+  line-height: 1.65 !important;
+}
+
+@media (max-width: 900px) {
+  body.tools-page--localized .localized-tools-main .localized-tools-hero {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.tools-page--localized .localized-tools-hero__copy h1 {
+    max-width: 720px !important;
+  }
+
+  body.tools-page--localized .localized-tools-hero__panel {
+    min-height: 160px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  body.tools-page--localized .localized-tools-main {
+    width: min(100% - 1rem, 460px) !important;
+  }
+
+  body.tools-page--localized .localized-tools-hero__copy h1 {
+    max-width: 100% !important;
+    font-size: clamp(1.8rem, 10vw, 2.45rem) !important;
   }
 }
