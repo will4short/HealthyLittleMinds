@@ -205,7 +205,7 @@
 
       @media (max-width: 560px) {
         .hlm-worldcup {
-          inset: auto 0.7rem max(0.7rem, env(safe-area-inset-bottom)) 0.7rem;
+          inset: auto 0.7rem calc(max(0.7rem, env(safe-area-inset-bottom)) + 4.9rem) 0.7rem;
           width: auto;
         }
 
