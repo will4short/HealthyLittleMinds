@@ -3,9 +3,9 @@
 // Lean precache (no big media) + runtime image cache
 // ===============================
 
-const PRECACHE_NAME = 'hlm-precache-v129'; // bump here for new release/update toast
-const RUNTIME_NAME  = 'hlm-runtime-v22';   // leave if strategy unchanged
-const IMAGE_CACHE   = 'hlm-img-v16';       // leave if image rules unchanged
+const PRECACHE_NAME = 'hlm-precache-v132'; // bump here for new release/update toast
+const RUNTIME_NAME  = 'hlm-runtime-v23';   // leave if strategy unchanged
+const IMAGE_CACHE   = 'hlm-img-v17';       // leave if image rules unchanged
 
 const IMAGE_MAX_ENTRIES = 60;                   // limit image count
 const IMAGE_MAX_AGE_MS  = 1000 * 60 * 60 * 24 * 30; // ~30 days

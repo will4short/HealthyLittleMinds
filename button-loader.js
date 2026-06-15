@@ -5,6 +5,7 @@
   const SPINNER_CLASS = "hlm-button-spinner";
   const LABEL_CLASS = "hlm-button-label";
   const RESET_DELAY = 1200;
+  const WORLD_CUP_THEME_ENABLED = true;
 
   function injectStyles() {
     if (document.getElementById("hlm-button-loader-styles")) return;
@@ -124,6 +125,7 @@
   }
 
   function loadWorldCupTheme() {
+    if (!WORLD_CUP_THEME_ENABLED) return;
     if (document.querySelector("script[src*='worldcup-theme.js']")) return;
 
     const current = document.currentScript || Array.from(document.scripts).find((script) => /button-loader\.js/i.test(script.src));
