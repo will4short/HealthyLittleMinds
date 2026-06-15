@@ -181,7 +181,7 @@
   // ─────────────────────────────────────────────────────────────
   function setupMenu() {
     const button   = document.getElementById("hamburgerBtn");
-    const panel    = document.getElementById("menuDropdown");
+    const panel    = document.getElementById("mobileNav") || document.getElementById("menuDropdown");
     const backdrop = document.getElementById("menuBackdrop");
     if (!button || !panel || !backdrop) return;
     const close = () => {
@@ -189,6 +189,8 @@
       panel.setAttribute("aria-hidden", "true");
       button.setAttribute("aria-expanded", "false");
       backdrop.hidden = true;
+      backdrop.classList.remove("show");
+      document.body.classList.remove("body-lock");
     };
     button.addEventListener("click", () => {
       const open = !panel.classList.contains("open");
@@ -196,8 +198,11 @@
       panel.setAttribute("aria-hidden", String(!open));
       button.setAttribute("aria-expanded", String(open));
       backdrop.hidden = !open;
+      backdrop.classList.toggle("show", open);
+      document.body.classList.toggle("body-lock", open);
     });
     backdrop.addEventListener("click", close);
+    panel.querySelector(".mobile-nav__close")?.addEventListener("click", close);
     panel.addEventListener("click", (event) => {
       if (event.target.closest("a")) close();
     });

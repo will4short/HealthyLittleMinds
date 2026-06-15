@@ -113,22 +113,28 @@
         <a class="get-access-btn" href="https://payhip.com/b/j6uL8" target="_blank" rel="noopener">Get Access</a>
       </nav>
 
-      <!-- Hamburger (mobile) — unchanged structure and JS hooks -->
-      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-controls="menuDropdown" aria-expanded="false">
-        <span></span><span></span><span></span>
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false">
+        ☰
       </button>
-
-      <!-- Mobile dropdown — unchanged structure -->
-      <div class="menu-dropdown" id="menuDropdown" role="menu" aria-hidden="true">
-        <a href="#login" role="menuitem">Login</a>
-        <a href="about_me.html" role="menuitem">About Me</a>
-        <a href="social.html" role="menuitem">🌐 Social Posts</a>
-        <a href="https://payhip.com/b/j6uL8" target="_blank" rel="noopener" role="menuitem">Get Access</a>
-      </div>
     </header>
 
     <!-- Backdrop for mobile menu -->
-    <div class="menu-backdrop" id="menuBackdrop" hidden></div>
+    <div class="nav-backdrop" id="menuBackdrop" hidden></div>
+
+    <!-- Mobile nav -->
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <div class="mobile-nav__head">
+        <strong>Menu</strong>
+        <button type="button" class="mobile-nav__close no-loader" aria-label="Close menu">×</button>
+      </div>
+      <p class="mobile-nav__label">Explore</p>
+      <a href="#login">Login</a>
+      <a href="about_me.html">About Me</a>
+      <a href="social.html">🌐 Social Posts</a>
+      <p class="mobile-nav__label">Access</p>
+      <a class="mobile-nav__access" href="https://payhip.com/b/j6uL8" target="_blank" rel="noopener">Get Access</a>
+    </div>
 
 
     <!-- =====================================================
