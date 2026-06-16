@@ -54,7 +54,7 @@
   <!-- Fonts & Styles -->
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link href="style.css?v=97" rel="stylesheet"/>
+  <link href="style.css?v=99" rel="stylesheet"/>
   <script src="member-preview.js?v=2"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Nunito:wght@600;800&amp;display=swap" rel="stylesheet">
    <!-- Structured Data -->
@@ -972,22 +972,6 @@
       </div>
     </div>
 
-    <!-- Book 7 (FOUNDATIONAL) -->
-    <div class="book-card">
-      <img alt="Feelings Are My Superpower" decoding="async" loading="lazy" src="images/book1.webp" />
-      <div class="book-info">
-        <h4>🌟 Feelings Are My Superpower</h4>
-        <p>
-          <em>"Feelings Are My Superpower"</em>
-          introduces children to different emotions and helps them see
-          that every feeling has meaning and strength.
-        </p>
-        <a href="https://heyzine.com/flip-book/1d58a25aee.html" target="_blank" rel="noopener">
-          📘 Read Feelings Are My Superpower
-        </a>
-      </div>
-    </div>
-
   </div>
   </div>
 </section>
@@ -1367,7 +1351,10 @@
     document.querySelectorAll('.character-card.expanded')
       .forEach(el => {
         el.classList.remove('expanded');
+        el.classList.remove('library-open');
         el.setAttribute('aria-expanded', 'false');
+        const libraryButton = el.querySelector('.character-library-toggle');
+        if (libraryButton) libraryButton.setAttribute('aria-expanded', 'false');
       });
 
     // if it wasn’t already open, expand it
@@ -1376,6 +1363,151 @@
       card.setAttribute('aria-expanded', 'true');
     }
   }
+</script>
+
+<script>
+(function () {
+  const characterLibraries = {
+    amaka: {
+      name: "Amaka",
+      subtitle: "Calm, kindness, and feelings resources featuring Amaka",
+      items: [
+        { title: "Little Acts, Big Feelings", type: "Book", href: "https://heyzine.com/flip-book/034942038a.html", external: true },
+        { title: "How to Calm the Storm Inside", type: "Book", href: "https://heyzine.com/flip-book/3cf1027650.html", external: true },
+        { title: "Little Acts, Big Feelings Worksheet", type: "Activity", href: "worksheets/Little-Acts-Big-Feelings-Worksheet.pdf", download: true }
+      ]
+    },
+    bella: {
+      name: "Bella",
+      subtitle: "Stories and activities featuring Bella",
+      items: [
+        { title: "Sometimes Family Finds You", type: "Book", href: "https://heyzine.com/flip-book/e9a223a23a.html", external: true },
+        { title: "Bella's Interactive Story", type: "Interactive Story", href: "interactive-stories/scene_1_bella_story.html" },
+        { title: "Little Acts, Big Feelings", type: "Book", href: "https://heyzine.com/flip-book/034942038a.html", external: true },
+        { title: "The World Isn't Just Black and White", type: "Book", href: "https://heyzine.com/flip-book/d765b64bda.html", external: true }
+      ]
+    },
+    goshen: {
+      name: "Goshen",
+      subtitle: "Books featuring Goshen and thoughtful problem-solving",
+      items: [
+        { title: "The Day Goshen Learned to Guide the River", type: "Book", href: "https://heyzine.com/flip-book/f930d8ddcc.html", external: true },
+        { title: "I Will Wait Till I Get Older", type: "Book", href: "https://heyzine.com/flip-book/81bf5a9f97.html", external: true }
+      ]
+    },
+    destiny: {
+      name: "Destiny",
+      subtitle: "Books and interactive stories featuring Destiny",
+      items: [
+        { title: "The Day Destiny Wanted To Quit", type: "Book", href: "https://heyzine.com/flip-book/8736fac672.html", external: true },
+        { title: "When I Can't Do It Yet", type: "Book", href: "https://heyzine.com/flip-book/1fb2ef8177.html", external: true },
+        { title: "When Destiny Feels Sad", type: "Interactive Story", href: "story-sad.html" },
+        { title: "When I Feel Scared", type: "Book", href: "https://heyzine.com/flip-book/1f4337da92.html", external: true }
+      ]
+    },
+    princess: {
+      name: "Princess",
+      subtitle: "Books and audiobooks featuring Princess",
+      items: [
+        { title: "When My Feelings Get Too Big", type: "Book", href: "https://heyzine.com/flip-book/5cbe03c993.html", external: true },
+        { title: "Princess and the Picture Day Surprise", type: "Book", href: "https://heyzine.com/flip-book/a958329538.html", external: true },
+        { title: "Princess Has Something to Say", type: "Video Audiobook", href: "audio-books/princess_has_something_to_say.mp4", external: true }
+      ]
+    },
+    ella: {
+      name: "Ella",
+      subtitle: "Books, audiobooks, songs, and activities featuring Ella",
+      items: [
+        { title: "One More Kick, Ella!", type: "Audiobook", href: "audiobook.html?book=audiobooks/ella/book.json" },
+        { title: "Ella and the Promise She Keeps Trying", type: "Book", href: "https://heyzine.com/flip-book/684fc1bda8.html", external: true },
+        { title: "Ella Reflection Activity", type: "Activity", href: "interactive-tools.html#ella-reflection" },
+        { title: "Keep Trying, Ella", type: "Song", href: "songs.html" }
+      ]
+    }
+  };
+
+  const iconForType = {
+    Book: "Book",
+    Activity: "Activity",
+    Audiobook: "Audio",
+    "Interactive Story": "Story",
+    "Video Audiobook": "Video",
+    Song: "Song"
+  };
+
+  function libraryItemAttributes(item, index) {
+    const attrs = [
+      'class="character-book-card"',
+      `style="--book-index:${index}"`,
+      `href="${item.href}"`
+    ];
+    if (item.external) attrs.push('target="_blank"', 'rel="noopener"');
+    if (item.download) attrs.push('download');
+    return attrs.join(" ");
+  }
+
+  function createLibrary(card, data) {
+    const info = card.querySelector(".character-info");
+    if (!info || info.querySelector(".character-library")) return;
+
+    const panelId = `character-library-${data.name.toLowerCase()}-${Math.random().toString(36).slice(2, 8)}`;
+    const library = document.createElement("div");
+    library.className = "character-library";
+    library.innerHTML = `
+      <button class="character-library-toggle no-loader" type="button" aria-expanded="false" aria-controls="${panelId}">
+        <span class="character-library-preview" aria-hidden="true">
+          <span class="character-library-tab character-library-tab--one"></span>
+          <span class="character-library-tab character-library-tab--two"></span>
+          <span class="character-library-tab character-library-tab--three"></span>
+          <span class="character-library-pocket"></span>
+        </span>
+        <span class="character-library-toggle-text">View ${data.name}'s Library</span>
+      </button>
+      <div class="character-library-panel" id="${panelId}" aria-label="${data.name}'s Character Library">
+        <div class="character-library-heading">
+          <span class="character-library-folder" aria-hidden="true"></span>
+          <div>
+            <h3>${data.name}'s Library</h3>
+            <p>${data.subtitle}</p>
+          </div>
+        </div>
+        <div class="character-library-books">
+          ${data.items.map((item, index) => `
+            <a ${libraryItemAttributes(item, index)}>
+              <span class="character-book-type">${iconForType[item.type] || item.type}</span>
+              <strong>${item.title}</strong>
+              <small>${item.type}</small>
+            </a>
+          `).join("")}
+        </div>
+      </div>
+    `;
+    library.querySelector(".character-library-panel")?.addEventListener("click", event => {
+      event.stopPropagation();
+    });
+    library.querySelector(".character-library-toggle")?.addEventListener("click", event => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      document.querySelectorAll(".character-card.library-open").forEach(openCard => {
+        if (openCard === card) return;
+        openCard.classList.remove("library-open");
+        openCard.querySelector(".character-library-toggle")?.setAttribute("aria-expanded", "false");
+      });
+
+      const willOpen = !card.classList.contains("library-open");
+      card.classList.toggle("library-open", willOpen);
+      event.currentTarget.setAttribute("aria-expanded", String(willOpen));
+    });
+    info.appendChild(library);
+  }
+
+  document.querySelectorAll(".character-card").forEach(card => {
+    const data = characterLibraries[String(card.dataset.name || "").toLowerCase()];
+    if (data) createLibrary(card, data);
+  });
+
+})();
 </script>
 
   <script>
@@ -1789,7 +1921,9 @@ document.getElementById('mobileNav')?.addEventListener('click', e => {
   const hide = el => {
     el.style.display = 'none';
     el.classList.remove('expanded');
+    el.classList.remove('library-open');
     el.setAttribute('aria-expanded', 'false');
+    el.querySelector('.character-library-toggle')?.setAttribute('aria-expanded', 'false');
   };
 
   const normalize = v => String(v || '').trim().toLowerCase();
@@ -1811,7 +1945,9 @@ document.getElementById('mobileNav')?.addEventListener('click', e => {
     if (key === 'all') {
       cards.forEach(card => {
         card.classList.remove('expanded');
+        card.classList.remove('library-open');
         card.setAttribute('aria-expanded', 'false');
+        card.querySelector('.character-library-toggle')?.setAttribute('aria-expanded', 'false');
         card.dataset.featured === 'true' ? show(card) : hide(card);
       });
       setActiveButton('all');
@@ -1820,6 +1956,8 @@ document.getElementById('mobileNav')?.addEventListener('click', e => {
     cards.forEach(card => {
       const who = normalize(card.dataset.name);
       card.classList.remove('expanded');
+      card.classList.remove('library-open');
+      card.querySelector('.character-library-toggle')?.setAttribute('aria-expanded', 'false');
       who === key ? show(card) : hide(card);
     });
     setActiveButton(key);
