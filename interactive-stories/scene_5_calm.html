@@ -1,147 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scene 5 – I Feel Calm Now</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #FFFDF6;
-      color: #333;
-      margin: 0;
-      padding: 2rem;
-      text-align: center;
-      line-height: 1.6;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0.5rem auto;
-    }
-
-    img {
-      width: 90%;
-      max-width: 500px;
-      height: auto;
-      border-radius: 12px;
-      margin: 1.5rem auto;
-      display: block;
-    }
-
-    .quote {
-      background: #FEF3C7;
-      border-left: 5px solid #FBBF24;
-      padding: 1rem;
-      margin: 1.5rem auto;
-      font-style: italic;
-      max-width: 600px;
-      border-radius: 8px;
-    }
-
-    .tip {
-      background: #E0F2F1;
-      border-left: 5px solid #26A69A;
-      padding: 1rem;
-      max-width: 600px;
-      margin: 1.5rem auto;
-      font-size: 1rem;
-      border-radius: 8px;
-    }
-
-    .buttons {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .buttons a {
-      background: #FFDE59;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      text-decoration: none;
-      color: #000;
-      font-weight: bold;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-      transition: background 0.3s ease;
-    }
-
-    .buttons a:hover {
-      background: #FFD000;
-    }
-  @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-      .scene-wrapper {
-        padding: 1.5rem 1rem;
-      }
-    }
-  </style>
+  <title>The Calm-Down Compass | Healthy Little Minds</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="bella-story.css?v=2" />
 </head>
-<body>
-<script>
-  // 🔒 Redirect to login page if not logged in
-  (function () {
-    const isMember = localStorage.getItem("isMember") === "true";
-
-    if (!isMember) {
-      const path = window.location.pathname;
-      const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
-      const redirectTo = locale && path.includes(`/${locale}/`) 
-        ? `/${locale}/index.html` 
-        : "/index.html";
-      window.location.replace(redirectTo); // 👈 Smooth silent redirect
-    }
-  })();
-</script>
-
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #E6E6FA;
-  border: 2px solid #D8BFD8;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #5A3E8A;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 Go Home
-  </a>
-</div>
-
-  <h1>🌈 Scene 5 – I Feel Calm Now</h1>
-
-  <p>Bella walks out of the classroom with a light heart.</p>
-  <p>She smiles gently to herself — she’s glad she spoke up.</p>
-  <p>The scary feeling isn’t gone forever, but now it doesn’t feel so big.</p>
-
-  <img src="../images/scene5-calm.png" alt="Bella walking calmly with a soft smile" />
-
-  <div class="quote">“It’s okay to be nervous… I’m still proud I said something.”</div>
-
-  <div class="tip">
-    🧠 <strong>Tip for Parents:</strong> When children share, they don’t need perfect words — they need presence. Thank them for opening up and remind them it’s brave to speak, even in small ways.
-  </div>
-
-  <div class="buttons">
-        <a href="scene6-end.html" class="btn pink">💡 What Did We Learn?</a>
-  </div>
+<body class="bella-story-page" data-scene="scene_5_calm.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="bella-story-locales.js?v=1"></script>
+  <script defer src="bella-story.js?v=2"></script>
   <script defer src="../button-loader.js?v=1"></script>
+  <script defer src="../shared-language-switcher.js?v=3"></script>
 </body>
 </html>

@@ -1,119 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>シーン1：ベラのストーリー</title>
+  <title>Bella no Sentaku Story | Healthy Little Minds</title>
   <link rel="stylesheet" href="../../style.css" />
-  <style>
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #f0f8ff;
-      color: #254E70;
-      margin: 0;
-      padding: 2rem;
-      text-align: center;
-    }
-    .scene-wrapper {
-      max-width: 700px;
-      margin: auto;
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-    }
-    .scene-wrapper img {
-      width: 100%;
-      max-width: 320px;
-      border-radius: 12px;
-      margin: 1.5rem 0;
-    }
-    .choice-button {
-      display: block;
-      background: #FF6B6B;
-      color: white;
-      font-weight: bold;
-      padding: 0.8rem 1.5rem;
-      margin: 1rem auto;
-      border-radius: 12px;
-      text-decoration: none;
-      transition: background 0.3s;
-      max-width: 300px;
-    }
-    .choice-button:hover {
-      background: #e25555;
-    }
-    h1 {
-      font-size: 2rem;
-    }
-    .choice-note {
-      display: block;
-      font-size: 0.85rem;
-      color: #ffffffcc;
-    }
-  </style>
+  <link rel="stylesheet" href="../../interactive-stories/bella-story.css?v=2" />
 </head>
-<body>
-<script>
-  // 🔒 Redirect to login page if not logged in
-  (function () {
-    const isMember = localStorage.getItem("isMember") === "true";
-
-    if (!isMember) {
-      const path = window.location.pathname;
-      const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
-      const redirectTo = locale && path.includes(`/${locale}/`) 
-        ? `/${locale}/index.html` 
-        : "/index.html";
-      window.location.replace(redirectTo); // 👈 Smooth silent redirect
-    }
-  })();
-</script>
-
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #E6E6FA;
-  border: 2px solid #D8BFD8;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #5A3E8A;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 ホームにもどる
-  </a>
-</div>
-
-  <div class="scene-wrapper">
-    <h1>📚 シーン1：緊張の始まり</h1>
-    <p>
-      ベラは教室の外に立っています。心臓はドキドキ。<br />
-      小さな声で「やりたくないよ……」とつぶやきます。
-    </p>
-    <p>
-      リヴェラ先生が、みんなに今週学んだことを話すように言いました。<br />
-      ベラの手のひらは汗ばんで、脚がふるえています。
-    </p>
-    <img src="../images/bella-scene1-refined.png" alt="教室の前で緊張するベラ" />
-    <p>
-      勇気を出して中に入る？それとも隠れる？
-    </p>
-
-    <a href="scene2-standup.html" class="choice-button" data-choice="standup">🗣️ 深呼吸して教室に入る</a>
-    <a href="scene2-hide.html" class="choice-button" data-choice="hide">😔 廊下にとどまる<br /><span class="choice-note">（もっと緊張するかもしれないけど、落ち着く時間になるかも）</span></a>
-    <a href="scene2-pretend.html" class="choice-button" data-choice="avoid">🤥 具合が悪いと伝える<br /><span class="choice-note">（一時的に安心できるけど、不安が残るかも。)
-<a href="../parents-tips.html#avoidance" style="color: #FF80AB; font-weight: bold; text-decoration: underline;">
-  （保護者向けアドバイス）
-</a>
-
-  </div>
+<body class="bella-story-page" data-scene="scene_1_bella_story.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/ja/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="../../interactive-stories/bella-story-locales.js?v=1"></script>
+  <script defer src="../../interactive-stories/bella-story.js?v=2"></script>
   <script defer src="../../button-loader.js?v=1"></script>
+  <script defer src="../../shared-language-switcher.js?v=3"></script>
 </body>
 </html>

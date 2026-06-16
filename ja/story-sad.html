@@ -1,122 +1,272 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>デスティニーが悲しいとき</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Nunito:wght@800&display=swap" rel="stylesheet"/>
-  <style>
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #DFF6FF;
-      padding: 2rem;
-      color: #254E70;
-      text-align: center;
-    }
-
-    .story-box {
-      background: #fff;
-      border-radius: 16px;
-      padding: 1.5rem;
-      max-width: 600px;
-      margin: 2rem auto;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-    }
-
-    .story-text {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .choices {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    button {
-      font-family: 'DM Sans', sans-serif;
-      background: #FFDD59;
-      border: none;
-      padding: 0.8rem 1.2rem;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    button:hover {
-      background: #ffeaa7;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>デスティニーが悲しいとき - Healthy Little Minds</title>
+  <meta name="description" content="悲しさ、友だちとのすれ違い、落ち着く選択を学べる、デスティニーのインタラクティブストーリー。" />
+  <link rel="canonical" href="https://www.healthylittleminds.club/ja/story-sad.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="デスティニーが悲しいとき - Healthy Little Minds" />
+  <meta property="og:description" content="デスティニーが悲しさに気づき、助けを求め、友だちとのつながりを取り戻す物語。" />
+  <meta property="og:image" content="https://www.healthylittleminds.club/images/destiny-sad.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="../images/favicon.webp" type="image/webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&amp;family=Nunito:wght@700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;800&amp;display=swap" rel="stylesheet" />
+  <link href="../story-sad.css?v=1" rel="stylesheet" />
 </head>
-<body>
-<script>
-  (function () {
-    const isLocal = location.protocol === 'file:';
-    const isMember = localStorage.getItem("isMember") === "true";
-
-    if (!isLocal && !isMember) {
-      const path = window.location.pathname;
-      const locale = path.split('/')[1];
-      const redirectTo = locale && path.includes(`/${locale}/`) 
-        ? `/${locale}/index.html` 
-        : "/index.html";
-      window.location.replace(redirectTo);
-    }
-  })();
-</script>
-
-  <div class="story-box" id="story">
-    <p class="story-text" id="storyText">
-      デスティニーは悲しんでいます。今日、親友が一緒に遊んでくれなかったのです。<br>どうしたらいいでしょうか？
-    </p>
-    <div class="choices" id="choices">
-      <button onclick="nextStep('breathe')">🧘 深呼吸をする</button>
-      <button onclick="nextStep('talk')">🗣️ 先生に話す</button>
-    </div>
-  </div>
-
+<body class="story-locale-ja">
   <script>
-    function nextStep(choice) {
-      const storyText = document.getElementById('storyText');
-      const choices = document.getElementById('choices');
-
-      if (choice === 'breathe') {
-        storyText.innerHTML = "デスティニーは目を閉じて、ゆっくりと3回深呼吸をします。少し気持ちが落ち着いてきました。次はどうしましょうか？";
-        choices.innerHTML = `
-          <button onclick="nextStep('draw')">🎨 気持ちを絵に描く</button>
-          <button onclick="nextStep('tellMom')">💬 学校のあとでママに話す</button>
-        `;
-      }
-
-      else if (choice === 'talk') {
-        storyText.innerHTML = "デスティニーは先生に悲しい気持ちを話しました。先生は優しく聞いてくれて、笑顔をくれました。次はどうしましょうか？";
-        choices.innerHTML = `
-          <button onclick="nextStep('write')">📝 日記に書く</button>
-          <button onclick="nextStep('breatheAgain')">🧘 もう一度深呼吸する</button>
-        `;
-      }
-
-      else {
-        let message = "";
-        if (choice === 'draw') {
-          message = "気持ちを絵に描いて、スッキリしました 🎨";
-        } else if (choice === 'tellMom') {
-          message = "ママがハグしてくれました ❤️ デスティニーは安心しました。";
-        } else if (choice === 'write') {
-          message = "日記に書いたことで、気持ちが整理されて落ち着きました 📝";
-        } else if (choice === 'breatheAgain') {
-          message = "もう一度深呼吸して、気持ちがふわふわの雲のように軽くなりました ☁️";
-        }
-
-        storyText.innerHTML = message + "<br><br><strong>✨ あなたのおかげで、デスティニーは元気を取り戻しました！</strong>";
-        choices.innerHTML = `<a href="../home.html"><button>🏠 ホームに戻る</button></a>`;
-      }
-    }
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      const localPreview = window.location.protocol === "file:" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname === "localhost";
+      if (!isMember && !localPreview) window.location.href = "/ja/index.html";
+    })();
   </script>
 
+  <header class="story-header">
+    <div class="story-shell story-header__inner">
+      <a class="brand" href="home.html">
+        <img src="../images/logo-icon.webp" alt="" width="38" height="38" />
+        <span id="brandText">Healthy Little Minds</span>
+      </a>
+      <nav aria-label="ストーリーナビゲーション">
+        <a id="charactersLink" href="home.html#characters">キャラクター</a>
+        <a id="parentGuideLink" href="parents-guides.html#big-feelings">保護者ガイド</a>
+        <a id="activitiesLink" href="interactive-tools.html">アクティビティ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="story-shell story-main">
+    <section class="story-hero">
+      <div>
+        <p class="kicker" id="kickerHero">インタラクティブストーリー</p>
+        <h1 id="heroTitle">デスティニーが悲しいとき</h1>
+        <p class="hero-lead" id="heroLead"></p>
+        <div class="story-actions">
+          <a class="story-btn" id="startStory" href="#story-player">はじめる</a>
+          <a class="story-btn story-btn--secondary" id="secondaryStory" href="https://heyzine.com/flip-book/1f4337da92.html" target="_blank" rel="noopener">こわい気持ちの物語</a>
+        </div>
+      </div>
+      <figure class="hero-card">
+        <img src="../images/destiny-sad.png" alt="悲しそうに座っているデスティニー" width="900" height="1125" />
+        <figcaption class="hero-card__note" id="heroNote"></figcaption>
+      </figure>
+    </section>
+
+    <section class="story-stage" id="story-player" aria-label="インタラクティブストーリー">
+      <article class="story-panel">
+        <div class="scene-top">
+          <div class="progress-label">
+            <span id="progressText">1 / 5</span>
+            <span id="feelingText"></span>
+          </div>
+          <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+        <div class="scene-body">
+          <h2 class="scene-title" id="sceneTitle"></h2>
+          <p class="scene-text" id="sceneText"></p>
+          <p class="destiny-thought" id="destinyThought"></p>
+          <div class="choices" id="choices"></div>
+          <div class="completion-card" id="completionCard">
+            <h3 id="completeTitle"></h3>
+            <p id="completeText"></p>
+            <div class="tool-links">
+              <a id="completeDestiny" href="home.html#characters">デスティニーを見る</a>
+              <a id="completeTips" href="parents-tips.html#big-feelings">ヒントを見る</a>
+              <a id="completePrintables" href="parents-downloads.html">教材を見る</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <aside class="story-side" aria-label="ふり返りとサポート">
+        <section class="reflection-panel">
+          <p class="kicker" id="meterKicker"></p>
+          <h2 id="meterTitle"></h2>
+          <p id="meterNote"></p>
+          <div class="feeling-meter" aria-hidden="true">
+            <span class="feeling-dot is-filled"></span><span class="feeling-dot is-filled"></span><span class="feeling-dot is-filled"></span><span class="feeling-dot is-filled"></span><span class="feeling-dot"></span>
+          </div>
+        </section>
+        <section class="reflection-panel">
+          <p class="kicker" id="talkKicker"></p>
+          <h2 id="talkTitle"></h2>
+          <ul class="reflection-list" id="reflectionList"></ul>
+        </section>
+        <section class="tool-card">
+          <p class="kicker" id="grownupKicker"></p>
+          <h2 id="grownupTitle"></h2>
+          <p id="grownupText"></p>
+          <div class="tool-links">
+            <a id="parentGuideButton" href="parents-guides.html#big-feelings">保護者ガイド</a>
+            <a id="destinyResourceButton" href="https://heyzine.com/flip-book/8736fac672.html" target="_blank" rel="noopener">デスティニーの本</a>
+          </div>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    window.storySadContent = {
+      brand: "Healthy Little Minds",
+      progress: "場面 {step} / {total}",
+      nav: { characters: "キャラクター", parentGuide: "保護者ガイド", activities: "アクティビティ" },
+      hero: {
+        kicker: "インタラクティブストーリー",
+        title: "デスティニーが悲しいとき",
+        lead: "学校で友だちとのつらい出来事がありました。デスティニーが悲しさに気づき、安全な一歩を選び、「ひとりぼっちではない」と思い出せるように手伝いましょう。",
+        start: "物語をはじめる",
+        secondary: "こわい気持ちの物語を読む",
+        note: "悲しさ、仲間はずれ、助けを求めることについて話せる、やさしい選択式ストーリーです。"
+      },
+      side: {
+        meterKicker: "気持ちメーター",
+        meterTitle: "デスティニーの悲しさはどれくらい？",
+        talkKicker: "話してみよう",
+        talkTitle: "立ち止まって考える質問",
+        grownupKicker: "大人の方へ",
+        grownupTitle: "急がずに使う",
+        grownupText: "正しい答えを急がせず、選んだあとに「体の感じ」「考え」「次の一歩」がどう変わったかを聞いてみてください。",
+        parentGuideButton: "保護者ガイド",
+        destinyResourceButton: "デスティニーの本"
+      },
+      complete: {
+        title: "デスティニーは、気持ちを助ける方法を見つけました。",
+        text: "悲しさが一度で消えたわけではありません。でも、気づくこと、話すこと、支えてもらうことができるとわかりました。",
+        destiny: "デスティニーを見る",
+        tips: "大きな気持ちのヒント",
+        printables: "教材を見る"
+      },
+      totalScenes: 5,
+      scenes: {
+        start: {
+          step: 1, feeling: 4, feelingText: "気持ち：重たい", meterNote: "最初は、胸の中がとても重く感じます。",
+          title: "いつもと違う校庭",
+          text: "休み時間、デスティニーは友だちのところへ行きました。でも友だちは「今日は別の子と遊びたい」と言いました。デスティニーの笑顔が小さくなります。",
+          thought: "「もうぼくのこと、好きじゃないのかな」とデスティニーは思います。",
+          choices: [
+            { label: "立ち止まって呼吸する", helper: "体の中の嵐を少しゆっくりにします。", next: "breathe" },
+            { label: "安心できる大人を探す", helper: "ひとりで抱えず、気持ちを伝えます。", next: "teacher" }
+          ],
+          questions: ["今のデスティニーの顔はどんな顔かな？", "体はどんなサインを出しているかな？", "少し仲間はずれに感じたことはある？"]
+        },
+        breathe: {
+          step: 2, feeling: 3, feelingText: "気持ち：まだ悲しいけれど少し安定", meterNote: "呼吸は悲しさを消さないけれど、考える余白を作ります。",
+          title: "ゆっくり三回",
+          text: "デスティニーはベンチに座り、お腹に手を置きました。温かいスープの香りをかぐように吸って、冷ますように長く吐きます。",
+          thought: "「悲しさはまだある。でも、さっきより強く押してこない。」",
+          choices: [
+            { label: "気持ちを絵にする", helper: "大きな気持ちを色や形にします。", next: "draw" },
+            { label: "やさしい言葉を試す", helper: "頭の中のつらい考えに、やさしく答えます。", next: "selfTalk" }
+          ],
+          questions: ["呼吸のあと、何が少し変わった？", "気持ちは残っていても少し安全に感じられる？", "悲しさに色をつけるなら何色？"]
+        },
+        teacher: {
+          step: 2, feeling: 3, feelingText: "気持ち：悲しいけれど支えられている", meterNote: "聞いてもらうと、悲しさは少しひとりぼっちではなくなります。",
+          title: "先生が聞いてくれる",
+          text: "デスティニーは先生に「悲しいです。友だちと遊べると思っていました」と小さな声で言いました。先生は目の高さを合わせて聞いてくれます。",
+          thought: "先生は「話してくれてありがとう。助けを求められたのは勇気だよ」と言いました。",
+          choices: [
+            { label: "小さな計画を作る", helper: "休み時間の残りをどう過ごすか考えます。", next: "plan" },
+            { label: "ノートに書く", helper: "気持ちを言葉にして整理します。", next: "journal" }
+          ],
+          questions: ["安心できる大人に話すと何が助けになる？", "先生はどんな聞き方をしてくれた？", "学校で話せる人は誰？"]
+        },
+        draw: {
+          step: 3, feeling: 2, feelingText: "気持ち：少しやわらかい", meterNote: "絵にすると、悲しさの置き場所ができます。",
+          title: "青い雲と黄色い点",
+          text: "デスティニーは青い雲と、小さな黄色い点を描きました。題名は「悲しい、でもずっとじゃない」。黄色い点は、一日の中の小さな希望です。",
+          thought: "「悲しくても、ぼくは大丈夫でいられる。」",
+          choices: [
+            { label: "やさしく誘ってみる", helper: "無理にではなく、新しいつながりを試します。", next: "invite" },
+            { label: "家で話すために絵をしまう", helper: "あとで大切な人に見せます。", next: "home" }
+          ],
+          questions: ["なぜ黄色い点を描いたのかな？", "あなたならどんな悲しさの絵を描く？", "その絵に題名をつけるなら？"]
+        },
+        selfTalk: {
+          step: 3, feeling: 2, feelingText: "気持ち：少しやわらかい", meterNote: "やさしい考えは、自分を責める気持ちを弱めます。",
+          title: "やさしい考え",
+          text: "デスティニーは「もう好きじゃないのかも」という考えに気づきます。そして「今日は別の遊びを選んだだけかもしれない。ぼくが大切じゃないという意味ではない」と言ってみます。",
+          thought: "「一つの出来事が、友情の全部ではない。」",
+          choices: [
+            { label: "やさしく誘ってみる", helper: "友情の小さな一歩を試します。", next: "invite" },
+            { label: "静かな活動を選ぶ", helper: "体を休ませてからまた考えます。", next: "calm" }
+          ],
+          questions: ["最初のつらい考えは何だった？", "どんなやさしい考えに変えた？", "自分に何と言ってあげたい？"]
+        },
+        plan: {
+          step: 3, feeling: 2, feelingText: "気持ち：支えられて考えやすい", meterNote: "小さな計画があると、次の数分が過ごしやすくなります。",
+          title: "一つの小さな計画",
+          text: "先生とデスティニーは、まず水を飲み、それから絵を描くか、別の友だちに声をかけるか選ぶことにしました。",
+          thought: "「一日全部を直さなくていい。次の一歩だけでいい。」",
+          choices: [
+            { label: "別の子に声をかける", helper: "新しいつながりを試します。", next: "invite" },
+            { label: "静かなリセットをする", helper: "落ち着いてからまた考えます。", next: "calm" }
+          ],
+          questions: ["小さな計画はなぜ助けになる？", "最初の一歩にするなら何？", "水や歩くことはどう助けになる？"]
+        },
+        journal: {
+          step: 3, feeling: 2, feelingText: "気持ち：少しはっきり", meterNote: "書くことで、事実と心配を分けやすくなります。",
+          title: "事実と心配",
+          text: "デスティニーは二つの欄を書きます。事実：「友だちは別の子と遊んだ」。心配：「ずっとひとりかも」。心配は大きな声でも、事実とは限りません。",
+          thought: "「心配は大きく聞こえても、本当とは限らない。」",
+          choices: [
+            { label: "あとで話す約束をする", helper: "気持ちが落ち着いた時に話します。", next: "checkIn" },
+            { label: "静かな活動を選ぶ", helper: "友情を直す前に気持ちをケアします。", next: "calm" }
+          ],
+          questions: ["事実と心配はどう違う？", "どの心配が大きく聞こえた？", "どんな事実が助けになる？"]
+        },
+        invite: {
+          step: 4, feeling: 1, feelingText: "気持ち：少し希望", meterNote: "やさしい一歩が、希望を少し戻します。",
+          title: "やさしい誘い方",
+          text: "デスティニーは別の友だちが棒で橋を作っているのを見ます。「橋を作るのを手伝ってもいい？」と聞くと、友だちはうなずきました。",
+          thought: "「悲しさのそばに、新しい始まりも座れる。」",
+          choices: [{ label: "最後に覚えておくことを選ぶ", helper: "デスティニーの道具箱をまとめます。", next: "finish" }],
+          questions: ["悲しさは完全になくなった？", "悲しさの横にどんな気持ちが来た？", "やさしく誘うのはなぜ助けになる？"]
+        },
+        home: {
+          step: 4, feeling: 1, feelingText: "気持ち：安心", meterNote: "あとで話すことで、気持ちは支えられます。",
+          title: "かばんの中の絵",
+          text: "デスティニーは絵をかばんに入れます。家で「これが今日の悲しい雲」と見せると、家族はゆっくり聞いてくれました。",
+          thought: "「大切な人に、気持ちを持っていける。」",
+          choices: [{ label: "家族の計画で終わる", helper: "支えてくれる人を思い出します。", next: "finish" }],
+          questions: ["なぜ絵を持ち帰ったのかな？", "家族は急いで直そうとした？", "あなたの支えになる人は誰？"]
+        },
+        calm: {
+          step: 4, feeling: 1, feelingText: "気持ち：落ち着けるくらい", meterNote: "静かな活動は、体が落ち着くのを助けます。",
+          title: "静かなリセット",
+          text: "デスティニーは水を飲み、少し歩き、砂に線を描きました。平気なふりではありません。気持ちが小さくなるまでケアしています。",
+          thought: "「自分を大切にするのは、強い選択。」",
+          choices: [{ label: "落ち着く計画で終わる", helper: "次に覚えておくことを選びます。", next: "finish" }],
+          questions: ["体のために何をした？", "平気なふりと落ち着くことはどう違う？", "あなたの落ち着く活動は？"]
+        },
+        checkIn: {
+          step: 4, feeling: 1, feelingText: "気持ち：勇気があり落ち着いている", meterNote: "あとで話す計画は、急なけんかを防ぎます。",
+          title: "あとで話す",
+          text: "デスティニーは、気持ちが大きい今すぐではなく、あとで「休み時間、悲しかった。明日は遊べる？」と聞くことにしました。",
+          thought: "「傷ついたことを、けんかにしないで話せる。」",
+          choices: [{ label: "修復の計画で終わる", helper: "覚えておくことを選びます。", next: "finish" }],
+          questions: ["なぜあとで話す方がいい時がある？", "どんな言葉が使えそう？", "正直さをやさしく保つには？"]
+        },
+        finish: {
+          step: 5, feeling: 1, feelingText: "気持ち：支えられている", meterNote: "つらい出来事は覚えていても、道具も覚えています。",
+          title: "デスティニーの悲しさ道具箱",
+          text: "呼吸する、安心できる人に話す、描く・書く、やさしい考えを試す、一つの小さな次の一歩を選ぶ。これがデスティニーの道具箱です。",
+          thought: "「悲しい一場面が、ぼくの物語の全部ではない。」",
+          choices: [{ label: "もう一度遊ぶ", helper: "別の道を選んで物語を進めます。", next: "start" }],
+          questions: ["どの道具がいちばん助けになった？", "どれを練習してみたい？", "デスティニーは自分について何を覚えておくといい？"],
+          complete: true
+        }
+      }
+    };
+  </script>
+  <script defer src="../story-sad-player.js?v=1"></script>
   <script defer src="../shared-language-switcher.js?v=1"></script>
   <script defer src="../button-loader.js?v=1"></script>
 </body>

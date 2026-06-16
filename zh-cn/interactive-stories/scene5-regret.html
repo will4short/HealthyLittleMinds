@@ -1,105 +1,23 @@
-<!-- 🇨🇳 简体中文版本 – 场景 5：我默默走开 -->
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>😔 场景 5 – 我默默走开</title>
-    <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #FFF8F0;
-      color: #333;
-      padding: 2rem;
-      line-height: 1.6;
-      text-align: center;
-    }
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-    img {
-      width: 50%;
-      max-width: 600px;
-      margin: 2rem auto;
-      border-radius: 12px;
-      display: block;
-    }
-    .quote {
-      background: #FFE0E0;
-      padding: 1rem;
-      border-left: 5px solid #E57373;
-      font-style: italic;
-      margin: 1rem auto;
-      max-width: 600px;
-    }
-    .buttons {
-      margin-top: 2.5rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .buttons a {
-      background: #FFCDD2;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      text-decoration: none;
-      color: #000;
-      font-weight: bold;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-      transition: background 0.3s ease;
-    }
-    .buttons a:hover {
-      background: #FF8A80;
-    }
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-      .scene-wrapper {
-        padding: 1.5rem 1rem;
-      }
-    }
-  </style>
+  <title>Bella Choice Story | Healthy Little Minds</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../interactive-stories/bella-story.css?v=2" />
 </head>
-<body>
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #FFE4F0;
-  border: 2px solid #F8CFE0;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #D6336C;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 返回主页
-  </a>
-</div>
-
-  <h1>😔 场景 5 – 我默默走开</h1>
-  <p>贝拉默默地走开了，心情沉重。</p>
-  <p>她本来想开口，但时机已经过去——现在机会似乎也没了。</p>
-  <p>她的脚步轻轻的，她的声音也一样……因为她从未说出口。</p>
-
-  <img src="../images/scene5-regret.png" alt="贝拉感到后悔地走开" />
-
- <div class="quote">“我希望我能说点什么……也许下次我会。”</div>
-
-<div class="buttons">
-  <a href="scene_1_bella_story.html">🔁 再试一次</a>
-  <a href="scene4-share.html">💬 返回去分享</a>
-  <a href="scene6-end.html" class="btn pink">💭 反思你的选择</a>
-</div>
+<body class="bella-story-page" data-scene="scene5-regret.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/zh-cn/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="../../interactive-stories/bella-story-locales.js?v=1"></script>
+  <script defer src="../../interactive-stories/bella-story.js?v=2"></script>
   <script defer src="../../button-loader.js?v=1"></script>
+  <script defer src="../../shared-language-switcher.js?v=3"></script>
 </body>
 </html>
-

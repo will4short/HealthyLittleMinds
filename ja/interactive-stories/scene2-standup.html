@@ -1,109 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🎤 シーン2 – ベラ、前に立つ</title>
-  <style>
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #f0f8ff;
-      color: #254E70;
-      margin: 0;
-      padding: 2rem;
-      text-align: center;
-    }
-    .scene-wrapper {
-      max-width: 700px;
-      margin: auto;
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-    }
-    .scene-wrapper img {
-      width: 100%;
-      max-width: 320px;
-      border-radius: 12px;
-      margin: 1.5rem 0;
-    }
-    .choice-button {
-      display: block;
-      background: #FF6B6B;
-      color: white;
-      font-weight: bold;
-      padding: 0.8rem 1.5rem;
-      margin: 1rem auto;
-      border-radius: 12px;
-      text-decoration: none;
-      max-width: 300px;
-      transition: background 0.3s;
-    }
-    .choice-button:hover {
-      background: #e25555;
-    }
-    h1 {
-      font-size: 2rem;
-    }
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-      .scene-wrapper {
-        padding: 1.5rem 1rem;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bella no Sentaku Story | Healthy Little Minds</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../interactive-stories/bella-story.css?v=2" />
 </head>
-<body>
-<script>
-  // 🔒 Redirect to login page if not logged in
-  (function () {
-    const isMember = localStorage.getItem("isMember") === "true";
-
-    if (!isMember) {
-      const path = window.location.pathname;
-      const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
-      const redirectTo = locale && path.includes(`/${locale}/`) 
-        ? `/${locale}/index.html` 
-        : "/index.html";
-      window.location.replace(redirectTo); // 👈 Smooth silent redirect
-    }
-  })();
-</script>
-
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #E6E6FA;
-  border: 2px solid #D8BFD8;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #5A3E8A;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 ホームにもどる
-  </a>
-</div>
-
-<div class="scene-wrapper">
-  <h1>🎤 シーン2：前へ歩くベラ</h1>
-  <p>ベラは深呼吸をしました。<br/>足取りは重かったけど、教室に向かって歩き出しました。</p>
-  <p>みんなが彼女を見ました。顔が熱くなりました。<br/>リベラ先生が優しく微笑みました。「どうぞ、ベラ。」</p>
-  <p>ベラはノートを見て話し始めました。<br/>声は最初ふるえていましたが、だんだんしっかりしてきました。<br/>何人かの子がうなずき、一人が笑ってくれました。</p>
-  <img src="../images/bella-scene2-speaking.png" alt="ベラが勇気を出して話している" />
-  <p>次に何が起こるでしょう？</p>
-  <a class="choice-button" href="scene_3_proud.html">😊 最後まで話して笑顔に</a>
-  <a class="choice-button" href="scene3-runout.html">😢 緊張して逃げ出す</a>
-  <a class="choice-button" href="scene3-joke.html">😅 緊張を隠して冗談を言う</a>
-</div>
+<body class="bella-story-page" data-scene="scene2-standup.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/ja/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="../../interactive-stories/bella-story-locales.js?v=1"></script>
+  <script defer src="../../interactive-stories/bella-story.js?v=2"></script>
   <script defer src="../../button-loader.js?v=1"></script>
+  <script defer src="../../shared-language-switcher.js?v=3"></script>
 </body>
 </html>

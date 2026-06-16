@@ -1,97 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>장면 2 – 벨라는 숨는다</title>
-  <style>
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #fffbea;
-      color: #254E70;
-      margin: 0;
-      padding: 2rem;
-    }
-    .scene-wrapper {
-      max-width: 700px;
-      margin: auto;
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-      text-align: center;
-      padding-bottom: 3rem;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1.2rem;
-    }
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    .scene-wrapper img {
-      max-width: 50%;
-      border-radius: 12px;
-      margin: 1.2rem 0;
-    }
-    .choice-button {
-      display: block;
-      margin: 1.5rem auto;
-      padding: 0.9rem 1.4rem;
-      background: #ffdd59;
-      color: #254E70;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 12px;
-      max-width: 320px;
-      transition: background 0.3s ease;
-    }
-    .choice-button:hover {
-      background: #ffeaa7;
-    }
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-      .scene-wrapper {
-        padding: 1.5rem 1rem;
-      }
-    }
-  </style>
+  <title>Bella Choice Story | Healthy Little Minds</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../interactive-stories/bella-story.css?v=2" />
 </head>
-<body>
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #E6E6FA;
-  border: 2px solid #D8BFD8;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #5A3E8A;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 홈으로 돌아가기
-
-  </a>
-</div>
-
-  <div class="scene-wrapper">
-    <h1>😟 장면 2 – 벨라는 숨는다</h1>
-    <p>벨라는 복도에 앉아 무릎을 안았습니다.</p>
-    <p>교실에서 목소리가 울렸고 그녀의 심장은 여전히 뛰고 있었습니다.</p>
-    <p>그녀는 스스로에게 말했어요. “조금만 기다리면 모두 잊어버릴지도 몰라.”</p>
-    <img src="images/bella-hide-hallway.png" alt="복도에서 긴장하며 숨어있는 벨라" />
-    <p>다음에는 어떤 일이 일어날까요?</p>
-    <a href="scene3-missed.html" class="choice-button">😞 기회를 놓치고 후회한다</a>
-  </div>
+<body class="bella-story-page" data-scene="scene2-hide.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/ko/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="../../interactive-stories/bella-story-locales.js?v=1"></script>
+  <script defer src="../../interactive-stories/bella-story.js?v=2"></script>
   <script defer src="../../button-loader.js?v=1"></script>
+  <script defer src="../../shared-language-switcher.js?v=3"></script>
 </body>
 </html>

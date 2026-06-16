@@ -1,104 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>场景 3：错过的时刻</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bella Choice Story | Healthy Little Minds</title>
   <link rel="stylesheet" href="../../style.css" />
-   <style>
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #fff2e5;
-      color: #254E70;
-      margin: 0;
-      padding: 2rem;
-    }
-    .scene-wrapper {
-      max-width: 700px;
-      margin: auto;
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-      text-align: center;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1.2rem;
-    }
-    .reflection {
-      background: #ffe3e3;
-      border-radius: 12px;
-      padding: 1rem;
-      margin: 2rem 0;
-      font-weight: bold;
-      color: #254E70;
-    }
-    .scene-image img {
-      width: 100%;
-      max-width: 320px;
-      border-radius: 12px;
-      margin-top: 1rem;
-    }
-    .btn-end {
-      display: inline-block;
-      background: #ff6b6b;
-      color: white;
-      font-weight: bold;
-      padding: 0.8rem 1.5rem;
-      border-radius: 12px;
-      text-decoration: none;
-      margin-top: 1.5rem;
-    }
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-      .scene-wrapper {
-        padding: 1.5rem 1rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../../interactive-stories/bella-story.css?v=2" />
 </head>
-<body>
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #FFE4F0;
-  border: 2px solid #F8CFE0;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #D6336C;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 返回主页
-  </a>
-</div>
-
-  <div class="scene-wrapper">
-    <h1>😞 场景 3：错过的时刻</h1>
-    <p>贝拉仍然待在教室外面。她的心还在怦怦跳。</p>
-    <p>她错过了发言的机会。已经有人站到了前面。</p>
-    <p>瑞维拉老师看了看门口，但什么也没说。</p>
-
-    <div class="scene-image">
-      <img src="images/bella-scene_3_missed.png" alt="贝拉坐在走廊上，神情失落" />
-    </div>
-
-    <div class="reflection">💭 贝拉想：“也许我下次会试试看。”</div>
-
-    <div class="buttons" style="text-align: center; margin-top: 2rem;">
-      <a href="scene_1_bella_story.html" class="btn-end">🔁 从头再试一次</a>
-      <a href="scene4-share.html" class="btn-end" style="margin-left: 1rem;">🧑‍🏫 跟老师聊聊</a>
-    </div>
-  </div>
+<body class="bella-story-page" data-scene="scene3-missed.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/zh-cn/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="../../interactive-stories/bella-story-locales.js?v=1"></script>
+  <script defer src="../../interactive-stories/bella-story.js?v=2"></script>
   <script defer src="../../button-loader.js?v=1"></script>
+  <script defer src="../../shared-language-switcher.js?v=3"></script>
 </body>
 </html>

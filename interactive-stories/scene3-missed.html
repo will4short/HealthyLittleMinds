@@ -1,119 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Scene 3: Missed Moment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Turn That Passed By | Healthy Little Minds</title>
   <link rel="stylesheet" href="../style.css" />
-  <style>
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #fff2e5;
-      color: #254E70;
-      margin: 0;
-      padding: 2rem;
-    }
-    .scene-wrapper {
-      max-width: 700px;
-      margin: auto;
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-      text-align: center;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1.2rem;
-    }
-    .reflection {
-      background: #ffe3e3;
-      border-radius: 12px;
-      padding: 1rem;
-      margin: 2rem 0;
-      font-weight: bold;
-      color: #254E70;
-    }
-    .scene-image img {
-      width: 100%;
-      max-width: 320px;
-      border-radius: 12px;
-      margin-top: 1rem;
-    }
-    .btn-end {
-      display: inline-block;
-      background: #ff6b6b;
-      color: white;
-      font-weight: bold;
-      padding: 0.8rem 1.5rem;
-      border-radius: 12px;
-      text-decoration: none;
-      margin-top: 1.5rem;
-    }
-  @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-      .scene-wrapper {
-        padding: 1.5rem 1rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="bella-story.css?v=2" />
 </head>
-<body>
-<script>
-  // 🔒 Redirect to login page if not logged in
-  (function () {
-    const isMember = localStorage.getItem("isMember") === "true";
-
-    if (!isMember) {
-      const path = window.location.pathname;
-      const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
-      const redirectTo = locale && path.includes(`/${locale}/`) 
-        ? `/${locale}/index.html` 
-        : "/index.html";
-      window.location.replace(redirectTo); // 👈 Smooth silent redirect
-    }
-  })();
-</script>
-
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #E6E6FA;
-  border: 2px solid #D8BFD8;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #5A3E8A;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 Go Home
-  </a>
-</div>
-
-  <div class="scene-wrapper">
-    <h1>😞 Scene 3: Missed Moment</h1>
-    <p>Bella stayed outside the classroom. Her heart was still thumping.</p>
-    <p>She missed her turn to speak. Someone else was already up front.</p>
-    <p>Ms. Rivera looked toward the door but didn’t say anything.</p>
-
-    <div class="scene-image">
-      <img src="images/bella-scene_3_missed.png" alt="Bella sitting in the hallway, looking disappointed" />
-    </div>
-
-   <div class="reflection">💭 Bella thought: “Maybe I’ll try next time.”</div>
-
-<div class="buttons" style="text-align: center; margin-top: 2rem;">
-  <a href="scene_1_bella_story.html" class="btn-end">🔁 Try Again from the Beginning</a>
-  <a href="scene4-share.html" class="btn-end" style="margin-left: 1rem;">🧑‍🏫 Talk to a Teacher</a>
-</div>
+<body class="bella-story-page" data-scene="scene3-missed.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="bella-story-locales.js?v=1"></script>
+  <script defer src="bella-story.js?v=2"></script>
   <script defer src="../button-loader.js?v=1"></script>
+  <script defer src="../shared-language-switcher.js?v=3"></script>
 </body>
 </html>

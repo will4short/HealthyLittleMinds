@@ -1,120 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Scene 2 – Bella Speaks Up</title>
-<link href="../style.css" rel="stylesheet"/>
-<style>
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #f0f8ff;
-      color: #254E70;
-      margin: 0;
-      padding: 2rem;
-      text-align: center;
-    }
-    .scene-wrapper {
-      max-width: 700px;
-      margin: auto;
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-    }
-    .scene-wrapper img {
-      width: 100%;
-      max-width: 320px;
-      border-radius: 12px;
-      margin: 1.5rem 0;
-    }
-    .choice-button {
-      display: block;
-      background: #FF6B6B;
-      color: white;
-      font-weight: bold;
-      padding: 0.8rem 1.5rem;
-      margin: 1rem auto;
-      border-radius: 12px;
-      text-decoration: none;
-      max-width: 300px;
-      transition: background 0.3s;
-    }
-    .choice-button:hover {
-      background: #e25555;
-    }
-    h1 {
-      font-size: 2rem;
-    }
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-      .scene-wrapper {
-        padding: 1.5rem 1rem;
-      }
-    }
-  </style>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Walk to the Front | Healthy Little Minds</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="bella-story.css?v=2" />
 </head>
-<body>
-<script>
-  // 🔒 Redirect to login page if not logged in
-  (function () {
-    const isMember = localStorage.getItem("isMember") === "true";
-
-    if (!isMember) {
-      const path = window.location.pathname;
-      const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
-      const redirectTo = locale && path.includes(`/${locale}/`) 
-        ? `/${locale}/index.html` 
-        : "/index.html";
-      window.location.replace(redirectTo); // 👈 Smooth silent redirect
-    }
-  })();
-</script>
-
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #E6E6FA;
-  border: 2px solid #D8BFD8;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #5A3E8A;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 Go Home
-  </a>
-</div>
-
-<div class="scene-wrapper">
-<h1>🎤 Scene 2: The Walk to the Front</h1>
-<p>
-      Bella took a deep breath.<br/>
-      Her feet were heavy, but she walked into the classroom.
-    </p>
-<p>
-      Everyone turned to look. Her cheeks turned warm.
-      Ms. Rivera gave her a gentle smile. “Go ahead, Bella.”
-    </p>
-<p>
-      She looked at her notes and began to speak. Her voice wobbled at first—but it got stronger.<br/>
-      A few kids nodded. One even smiled.
-    </p>
-<img alt="Bella speaking nervously but bravely in front of the class" src="../images/bella-scene2-speaking.png"/>
-<p>What happens next?</p>
-<a class="choice-button" data-choice="proud" href="scene_3_proud.html">😊 She finishes and smiles back</a>
-<a class="choice-button" data-choice="runout" href="scene3-runout.html">😢 She gets nervous again and runs out</a>
-<a class="choice-button" data-choice="joke" href="scene3-joke.html">😅 She makes a joke to hide her nerves</a>
-</div>
+<body class="bella-story-page" data-scene="scene2-standup.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="bella-story-locales.js?v=1"></script>
+  <script defer src="bella-story.js?v=2"></script>
   <script defer src="../button-loader.js?v=1"></script>
+  <script defer src="../shared-language-switcher.js?v=3"></script>
 </body>
 </html>

@@ -1,151 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🌟 场景 6 – 你选择的故事</title>
- <style>
-    body {
-      background-color: #fdf6e3;
-      font-family: "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    .scene-wrapper {
-      max-width: 800px;
-      margin: 2rem auto;
-      background-color: #ffffff;
-      border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      text-align: center;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #3b3b3b;
-    }
-    .story-text {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-    .scene-img {
-      max-width: 70%;
-      height: auto;
-      border-radius: 12px;
-      margin: 1.5rem 0;
-    }
-    .parent-tip {
-      background-color: #fff9e6;
-      border-left: 5px solid #ffc107;
-      padding: 1rem;
-      font-size: 1rem;
-      border-radius: 8px;
-      margin-bottom: 2rem;
-      text-align: left;
-    }
-    .nav-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .choice-btn {
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-    .choice-btn.green {
-      background-color: #e0f8e9;
-      color: #226f3c;
-      border: 1px solid #b2e5c7;
-    }
-    .choice-btn.gray {
-      background-color: #f2f2f2;
-      color: #444;
-      border: 1px solid #ccc;
-    }
-    .choice-btn:hover {
-      opacity: 0.85;
-    }
-    @media (max-width: 600px) {
-      body { padding: 1rem; }
-      .scene-wrapper { padding: 1.5rem 1rem; }
-    }
-  .nav-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 2rem;
-      }
-
-      .choice-btn {
-        padding: 0.6rem 1.2rem;
-        border-radius: 10px;
-        border: none;
-        cursor: pointer;
-        font-weight: bold;
-        text-decoration: none;
-        display: inline-block;
-        white-space: nowrap;
-      }
-
-      .choice-btn.green { background-color: #d1f7d6; color: #1b5e20; }
-      .choice-btn.blue { background-color: #e0f0ff; color: #0d47a1; }
-      .choice-btn.purple { background-color: #f3e5f5; color: #6a1b9a; }
-  </style>
+  <title>Bella Choice Story | Healthy Little Minds</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../interactive-stories/bella-story.css?v=2" />
 </head>
-<body>
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #FFE4F0;
-  border: 2px solid #F8CFE0;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #D6336C;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 返回主页
-  </a>
-</div>
-
-  <div class="scene-wrapper">
-    <h1>🌟 场景 6 – 你选择的故事</h1>
-    <p class="story-text">
-      贝拉今天学到了一个重要的道理：<br>
-      她做出的每一个选择，都通向不同的道路。<br><br>
-      害怕、沉默、说出来——每一种反应都有意义。<br>
-      即使事情很难，她也一直在努力尝试。<br><br>
-      🌈 <strong>你的选择也很重要。</strong><br>
-      它们可以帮助你变得更勇敢、更坚强、更有爱心。
-    </p>
-
-    <img src="images/scene6-end.png" alt="自信前行的贝拉" class="scene-img" />
-
-    <div class="parent-tip">
-      🧠 <strong>给家长的小贴士：</strong> 孩子的每一个选择——无论大胆还是安静——都在塑造他们的成长之路。<br>
-      帮助他们反思，而不是追求完美。鼓励他们为自己的成长感到自豪。
-    </div>
-
-    <div class="nav-buttons">
-      <a href="scene_1_bella_story.html" class="choice-btn green">🔁 重新开始</a>
-      <a href="../parents-tips.html" class="choice-btn blue">👪 家长贴士</a>
-      <a href="../interactive-tools.html" class="choice-btn purple">🧰 探索工具</a>
-  </div>
+<body class="bella-story-page" data-scene="scene6-end.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/zh-cn/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="../../interactive-stories/bella-story-locales.js?v=1"></script>
+  <script defer src="../../interactive-stories/bella-story.js?v=2"></script>
   <script defer src="../../button-loader.js?v=1"></script>
+  <script defer src="../../shared-language-switcher.js?v=3"></script>
 </body>
 </html>

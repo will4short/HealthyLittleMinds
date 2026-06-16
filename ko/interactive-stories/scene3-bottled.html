@@ -1,164 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>😶 장면 3 – 벨라는 마음을 숨긴다</title>
-  <style>
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #FFF7F3;
-    color: #333;
-    margin: 0;
-    padding: 2rem;
-    text-align: center;
-    line-height: 1.6;
-  }
-
-  .scene-wrapper {
-    max-width: 720px;
-    margin: auto;
-    background: #ffffff;
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-  }
-
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    font-size: 1.1rem;
-    max-width: 680px;
-    margin: 0.8rem auto;
-    padding: 0 1rem;
-  }
-
-  .image-container img {
-    width: 90%;
-    max-width: 480px;
-    border-radius: 12px;
-    margin: 2rem auto 1rem;
-    display: block;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  }
-
-  .thought {
-    font-style: italic;
-    font-size: 1rem;
-    margin: 1rem auto 2rem;
-    max-width: 600px;
-    color: #555;
-  }
-
-  .tip {
-    background: #E1F5FE;
-    border-left: 5px solid #0288D1;
-    padding: 1rem;
-    border-radius: 10px;
-    max-width: 600px;
-    margin: 1.5rem auto;
-    font-size: 1rem;
-    text-align: left;
-  }
-
-  .buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 2rem;
-    padding: 0 1rem;
-  }
-
-  .buttons a {
-    background: #FFCA28;
-    padding: 0.75rem 1.5rem;
-    border-radius: 10px;
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s ease;
-  }
-
-  .buttons a:hover {
-    background: #F4B400;
-  }
-
-  @media (max-width: 600px) {
-    body {
-      padding: 1rem;
-    }
-
-    h1 {
-      font-size: 1.6rem;
-    }
-
-    p, .thought {
-      font-size: 1rem;
-    }
-
-    .tip {
-      font-size: 0.95rem;
-      padding: 0.8rem;
-    }
-
-    .buttons a {
-      font-size: 0.95rem;
-      padding: 0.6rem 1.2rem;
-    }
-  }
-</style>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bella Choice Story | Healthy Little Minds</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../interactive-stories/bella-story.css?v=2" />
 </head>
-<body>
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #E6E6FA;
-  border: 2px solid #D8BFD8;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #5A3E8A;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 홈으로 돌아가기
-
-  </a>
-</div>
-
-  <div class="scene-wrapper">
-    <h1>😶 장면 3 – 벨라는 마음을 숨긴다</h1>
-
-    <p>그날 오후, 벨라는 혼자 앉아 있었습니다. 배가 꽉 조이는 느낌이었어요。</p>
-    <p>하루 종일 웃었지만, 마음속의 감정은 사라지지 않았습니다。</p>
-    <p>감정을 숨기고 웃는 것이 오히려 더 피곤하게 만들었습니다。</p>
-
-    <div class="image-container">
-      <img src="images/scene3-bottled.png" alt="감정을 숨기고 지친 벨라" />
-    </div>
-
-    <div class="thought">“왜 지금 울고 싶은 걸까… 난 괜찮은 줄 알았는데。”</div>
-
-    <div class="tip">
-      🧠 <strong>부모님을 위한 팁:</strong> 아이는 겉으론 멀쩡해 보여도 속마음을 숨기고 있을 수 있어요. 복통, 눈물, 말이 없다는 신호로 드러날 수 있습니다. 조심스럽게 마음을 물어봐 주세요.
-    </div>
-
-    <div class="buttons">
-      <a href="scene3-missed.html">😶 속에 담아두기</a>
-      <a href="scene4-share.html">🗣️ 누군가에게 말하기</a>
-    </div>
-  </div>
+<body class="bella-story-page" data-scene="scene3-bottled.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/ko/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="../../interactive-stories/bella-story-locales.js?v=1"></script>
+  <script defer src="../../interactive-stories/bella-story.js?v=2"></script>
   <script defer src="../../button-loader.js?v=1"></script>
+  <script defer src="../../shared-language-switcher.js?v=3"></script>
 </body>
 </html>

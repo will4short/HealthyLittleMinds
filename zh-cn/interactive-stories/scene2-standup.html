@@ -1,90 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
-<head> 
- <style>
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #f0f8ff;
-      color: #254E70;
-      margin: 0;
-      padding: 2rem;
-      text-align: center;
-    }
-    .scene-wrapper {
-      max-width: 700px;
-      margin: auto;
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-    }
-    .scene-wrapper img {
-      width: 100%;
-      max-width: 320px;
-      border-radius: 12px;
-      margin: 1.5rem 0;
-    }
-    .choice-button {
-      display: block;
-      background: #FF6B6B;
-      color: white;
-      font-weight: bold;
-      padding: 0.8rem 1.5rem;
-      margin: 1rem auto;
-      border-radius: 12px;
-      text-decoration: none;
-      max-width: 300px;
-      transition: background 0.3s;
-    }
-    .choice-button:hover {
-      background: #e25555;
-    }
-    h1 {
-      font-size: 2rem;
-    }
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-      .scene-wrapper {
-        padding: 1.5rem 1rem;
-      }
-    }
-  </style>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bella Choice Story | Healthy Little Minds</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../interactive-stories/bella-story.css?v=2" />
 </head>
-<body>
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #FFE4F0;
-  border: 2px solid #F8CFE0;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #D6336C;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 返回主页
-  </a>
-</div>
-
-<div class="scene-wrapper">
-  <h1>🎤 场景 2：走到讲台前</h1>
-  <p>贝拉深呼吸了一下。<br/>她的脚很沉重，但她还是走进了教室。</p>
-  <p>所有人都看着她。她的脸开始发烫。<br/>李老师微笑着说：“来吧，贝拉。”</p>
-  <p>她看着笔记，开始说话。<br/>一开始声音颤抖，但越来越坚定。<br/>有几个同学点了点头，有人还微笑了。</p>
-  <img src="../images/bella-scene2-speaking.png" alt="贝拉勇敢地在班上讲话" />
-  <p>接下来会发生什么？</p>
-  <a class="choice-button" href="scene_3_proud.html">😊 她完成后微笑回应</a>
-  <a class="choice-button" href="scene3-runout.html">😢 她又紧张地跑走了</a>
-  <a class="choice-button" href="scene3-joke.html">😅 她讲了个笑话掩饰紧张</a>
-</div>
+<body class="bella-story-page" data-scene="scene2-standup.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/zh-cn/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="../../interactive-stories/bella-story-locales.js?v=1"></script>
+  <script defer src="../../interactive-stories/bella-story.js?v=2"></script>
   <script defer src="../../button-loader.js?v=1"></script>
+  <script defer src="../../shared-language-switcher.js?v=3"></script>
 </body>
 </html>

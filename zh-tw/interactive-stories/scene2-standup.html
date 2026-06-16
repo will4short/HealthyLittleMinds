@@ -1,89 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-TW">
-<head> 
- <style>
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #f0f8ff;
-      color: #254E70;
-      margin: 0;
-      padding: 2rem;
-      text-align: center;
-    }
-    .scene-wrapper {
-      max-width: 700px;
-      margin: auto;
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-    }
-    .scene-wrapper img {
-      width: 100%;
-      max-width: 320px;
-      border-radius: 12px;
-      margin: 1.5rem 0;
-    }
-    .choice-button {
-      display: block;
-      background: #FF6B6B;
-      color: white;
-      font-weight: bold;
-      padding: 0.8rem 1.5rem;
-      margin: 1rem auto;
-      border-radius: 12px;
-      text-decoration: none;
-      max-width: 300px;
-      transition: background 0.3s;
-    }
-    .choice-button:hover {
-      background: #e25555;
-    }
-    h1 {
-      font-size: 2rem;
-    }
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-      .scene-wrapper {
-        padding: 1.5rem 1rem;
-      }
-    }
-  </style>
- </head>
-<body>
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #FFE4F0;
-  border: 2px solid #F8CFE0;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #D6336C;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 回首頁
-  </a>
-</div>
-<div class="scene-wrapper">
-  <h1>🎤 場景 2：走向前方的貝拉</h1>
-  <p>貝拉深吸一口氣。<br/>她的腳步沉重，但她還是走進了教室。</p>
-  <p>所有人都看著她。她的臉開始發燙。<br/>瑞貝拉老師給了她一個溫柔的微笑。「開始吧，貝拉。」</p>
-  <p>她看著筆記開始說話。<br/>一開始聲音顫抖，但後來越來越堅定。<br/>幾位同學點頭，有人對她微笑。</p>
-  <img src="../images/bella-scene2-speaking.png" alt="貝拉勇敢地在班上發言" />
-  <p>接下來會發生什麼呢？</p>
-  <a class="choice-button" href="scene_3_proud.html">😊 她完成並微笑回應</a>
-  <a class="choice-button" href="scene3-runout.html">😢 她再次緊張地跑出去</a>
-  <a class="choice-button" href="scene3-joke.html">😅 她說了個笑話來掩飾緊張</a>
-</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bella Choice Story | Healthy Little Minds</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../interactive-stories/bella-story.css?v=2" />
+</head>
+<body class="bella-story-page" data-scene="scene2-standup.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/zh-tw/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="../../interactive-stories/bella-story-locales.js?v=1"></script>
+  <script defer src="../../interactive-stories/bella-story.js?v=2"></script>
   <script defer src="../../button-loader.js?v=1"></script>
+  <script defer src="../../shared-language-switcher.js?v=3"></script>
 </body>
 </html>

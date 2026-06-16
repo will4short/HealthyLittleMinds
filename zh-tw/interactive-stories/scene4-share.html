@@ -1,62 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🗣️ 場景 4 – 分享讓人感覺更輕鬆</title>
-<style>
-    body { background-color: #f0fbf8; font-family: "Segoe UI", sans-serif; margin: 0; padding: 0; color: #2e2e2e; }
-    .scene-wrapper { max-width: 800px; margin: 2rem auto; background-color: #ffffff; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); text-align: center; }
-    h1 { font-size: 2rem; margin-bottom: 1rem; color: #333; }
-    .story-text { font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.6; }
-    .scene-img { max-width: 70%; height: auto; border-radius: 12px; margin: 1.5rem 0; }
-    .thought-bubble { background-color: #e1f9ed; border-left: 5px solid #5dd39e; padding: 1rem; font-style: italic; border-radius: 8px; margin: 1.5rem 0; }
-    .parent-tip { background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 1rem; font-size: 1rem; border-radius: 8px; margin-bottom: 2rem; text-align: left; }
-    .nav-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-    .choice-btn { padding: 0.8rem 1.5rem; border-radius: 8px; font-size: 1rem; font-weight: bold; text-decoration: none; transition: background-color 0.3s ease; }
-    .choice-btn.blue { background-color: #e0f0ff; color: #0056b3; border: 1px solid #b3d9ff; }
-    .choice-btn.red { background-color: #ffeaea; color: #b30000; border: 1px solid #ffcccc; }
-    .choice-btn:hover { opacity: 0.85; }
-    @media (max-width: 600px) { body { padding: 1rem; } .scene-wrapper { padding: 1.5rem 1rem; } }
-  </style></head>
-<body>
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #FFE4F0;
-  border: 2px solid #F8CFE0;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #D6336C;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 回首頁
-  </a>
-</div>
-
-  <div class="scene-wrapper">
-    <h1>🗣️ 場景 4 – 分享讓人感覺更輕鬆</h1>
-   <p class="story-text">
-  貝拉深深吸了一口氣，然後對老師說話。<br>
-  她告訴老師自己的感受，胸口感覺輕鬆了些，眼神也亮了起來。
-</p>
-    <img src="images/scene4-share.png" alt="貝拉在分享感受" class="scene-img" />
-    <div class="thought-bubble">「說出來真的不容易……但我感覺好多了。」</div>
-    <div class="parent-tip">
-      🧠 <strong>給家長的小提醒：</strong> 當孩子可以安心表達情緒時，他們會覺得被理解與支持。<br>請讚美他們的勇氣並鼓勵他們繼續分享。
-    </div>
-    <div class="nav-buttons">
-      <a href="scene_5_calm.html" class="choice-btn blue">🌈 她冷靜下來了</a>
-      <a href="scene5-regret.html" class="choice-btn red">🙈 她後悔說出口</a>
-    </div>
-  </div>
+  <title>Bella Choice Story | Healthy Little Minds</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../interactive-stories/bella-story.css?v=2" />
+</head>
+<body class="bella-story-page" data-scene="scene4-share.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/zh-tw/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="../../interactive-stories/bella-story-locales.js?v=1"></script>
+  <script defer src="../../interactive-stories/bella-story.js?v=2"></script>
   <script defer src="../../button-loader.js?v=1"></script>
+  <script defer src="../../shared-language-switcher.js?v=3"></script>
 </body>
 </html>

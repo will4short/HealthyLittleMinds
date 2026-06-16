@@ -1,165 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🌟 Scene 3 – Feeling Proud</title>
-  <style>
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #fffdf6;
-      color: #254E70;
-      margin: 0;
-      padding: 2rem;
-      text-align: center;
-      line-height: 1.6;
-    }
-
-    .scene-wrapper {
-      max-width: 720px;
-      margin: auto;
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1.2rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-      max-width: 680px;
-      margin: 0.6rem auto;
-      padding: 0 1rem;
-    }
-
-    .reflection {
-      background: #DFFFE2;
-      border-left: 5px solid #4CAF50;
-      padding: 1rem;
-      margin: 1.5rem auto;
-      font-style: italic;
-      font-size: 1rem;
-      max-width: 600px;
-      border-radius: 10px;
-    }
-
-    .scene-image img {
-      width: 90%;
-      max-width: 400px;
-      border-radius: 16px;
-      margin: 1.5rem auto 0.5rem;
-      display: block;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-
-    .thought {
-      font-size: 1.1rem;
-      margin: 1rem 0;
-      color: #2c3e50;
-    }
-
-    .btn-end {
-      display: inline-block;
-      background: #ffde59;
-      color: #000;
-      font-weight: bold;
-      padding: 0.8rem 1.5rem;
-      border-radius: 10px;
-      text-decoration: none;
-      margin-top: 2rem;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.08);
-      transition: background 0.3s ease;
-    }
-
-    .btn-end:hover {
-      background: #ffd000;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-
-      h1 {
-        font-size: 1.6rem;
-      }
-
-      p {
-        font-size: 1rem;
-      }
-
-      .reflection, .thought {
-        font-size: 0.95rem;
-      }
-
-      .btn-end {
-        font-size: 0.95rem;
-        padding: 0.6rem 1.2rem;
-      }
-    }
-  </style>
+  <title>The Glow After Trying | Healthy Little Minds</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="bella-story.css?v=2" />
 </head>
-<body>
-<script>
-  // 🔒 Redirect to login page if not logged in
-  (function () {
-    const isMember = localStorage.getItem("isMember") === "true";
-
-    if (!isMember) {
-      const path = window.location.pathname;
-      const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
-      const redirectTo = locale && path.includes(`/${locale}/`) 
-        ? `/${locale}/index.html` 
-        : "/index.html";
-      window.location.replace(redirectTo); // 👈 Smooth silent redirect
-    }
-  })();
-</script>
-
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #E6E6FA;
-  border: 2px solid #D8BFD8;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #5A3E8A;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 Go Home
-  </a>
-</div>
-
-  <div class="scene-wrapper">
-    <h1>🌟 Scene 3 – Feeling Proud</h1>
-    <p>Bella finished her presentation with a small smile.</p>
-    <p>Her classmates clapped. Not loud. But real.</p>
-    <p>Her chest felt warm, like a little sun had turned on inside.</p>
-
-   <div class="reflection">
-  💡 Bella learned: <q><strong>Doing something hard can feel really good afterward.</strong></q>
-</div>
-
-<div class="scene-image">
-  <img src="../images/bella-proud.png" alt="Bella looking proud after presenting" />
-  <div class="thought">😊 I feel proud.</div>
-</div>
-
-<div class="buttons" style="text-align: center; margin-top: 2rem;">
-  <a href="scene_1_bella_story.html" class="btn-end">🔁 Try Again from the Beginning</a>
-  <a href="scene6-end.html" class="btn-end" style="margin-left: 1rem;">💭 Reflect on Your Choices</a>
-</div>
+<body class="bella-story-page" data-scene="scene_3_proud.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="bella-story-locales.js?v=1"></script>
+  <script defer src="bella-story.js?v=2"></script>
   <script defer src="../button-loader.js?v=1"></script>
+  <script defer src="../shared-language-switcher.js?v=3"></script>
 </body>
 </html>

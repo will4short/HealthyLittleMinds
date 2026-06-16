@@ -1,121 +1,23 @@
-<!-- 🇯🇵 Japanese Version – シーン5：静かに立ち去る -->
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>😔 シーン5 – 静かに立ち去る</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #FFF8F0;
-      color: #333;
-      padding: 2rem;
-      line-height: 1.6;
-      text-align: center;
-    }
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-    img {
-      width: 50%;
-      max-width: 600px;
-      margin: 2rem auto;
-      border-radius: 12px;
-      display: block;
-    }
-    .quote {
-      background: #FFE0E0;
-      padding: 1rem;
-      border-left: 5px solid #E57373;
-      font-style: italic;
-      margin: 1rem auto;
-      max-width: 600px;
-    }
-    .buttons {
-      margin-top: 2.5rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .buttons a {
-      background: #FFCDD2;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      text-decoration: none;
-      color: #000;
-      font-weight: bold;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-      transition: background 0.3s ease;
-    }
-    .buttons a:hover {
-      background: #FF8A80;
-    }
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-      .scene-wrapper {
-        padding: 1.5rem 1rem;
-      }
-    }
-  </style>
+  <title>Bella no Sentaku Story | Healthy Little Minds</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../interactive-stories/bella-story.css?v=2" />
 </head>
-<body>
-<script>
-  // 🔒 Redirect to login page if not logged in
-  (function () {
-    const isMember = localStorage.getItem("isMember") === "true";
-
-    if (!isMember) {
-      const path = window.location.pathname;
-      const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
-      const redirectTo = locale && path.includes(`/${locale}/`) 
-        ? `/${locale}/index.html` 
-        : "/index.html";
-      window.location.replace(redirectTo); // 👈 Smooth silent redirect
-    }
-  })();
-</script>
-
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #E6E6FA;
-  border: 2px solid #D8BFD8;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #5A3E8A;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 ホームにもどる
-  </a>
-</div>
-
-  <h1>😔 シーン5 – 静かに立ち去る</h1>
-  <p>ベラは教室から静かに立ち去ります。胸が重く感じます。</p>
-  <p>話したかったけれど、その瞬間は過ぎ去ってしまい、今はもう遅い気がします。</p>
-  <p>彼女の足音も声も静かです…なぜなら、声を出すことができなかったから。</p>
-
-  <img src="../images/scene5-regret.png" alt="後悔しながら立ち去るベラ" />
-
- <div class="quote">「何か言えばよかったな… 次こそは言えるかも。」</div>
-
-<div class="buttons">
-  <a href="scene_1_bella_story.html">🔁 最初からやり直す</a>
-  <a href="scene4-share.html">💬 シェアしに戻る</a>
-  <a href="scene6-end.html" class="btn pink">💭 自分の選択を振り返る</a>
-</div>
+<body class="bella-story-page" data-scene="scene5-regret.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/ja/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="../../interactive-stories/bella-story-locales.js?v=1"></script>
+  <script defer src="../../interactive-stories/bella-story.js?v=2"></script>
   <script defer src="../../button-loader.js?v=1"></script>
+  <script defer src="../../shared-language-switcher.js?v=3"></script>
 </body>
 </html>
-

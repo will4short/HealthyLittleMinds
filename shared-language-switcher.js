@@ -7,10 +7,14 @@
   }
 
   var path = window.location.pathname.replace(/\\/g, "/");
-  var file = path.slice(path.lastIndexOf("/") + 1);
-  var languageMatch = path.match(/\/(ja|ko|zh-tw|zh-cn)\/[^/]+$/i);
-  var currentLanguage = languageMatch ? languageMatch[1].toLowerCase() : "en";
-  var prefix = languageMatch ? "../" : "";
+  var parts = path.split("/").filter(Boolean);
+  var languageCodes = ["ja", "ko", "zh-tw", "zh-cn"];
+  var firstPart = (parts[0] || "").toLowerCase();
+  var currentLanguage = languageCodes.indexOf(firstPart) !== -1 ? firstPart : "en";
+  var relativeParts = currentLanguage === "en" ? parts : parts.slice(1);
+  var file = relativeParts.join("/") || "index.html";
+  var folderDepth = Math.max(0, parts.length - 1);
+  var prefix = folderDepth ? "../".repeat(folderDepth) : "";
   var text = {
     en: { choose: "Choose language", button: "Language" },
     ja: { choose: "言語を選択", button: "言語" },

@@ -1,105 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>장면 3: 놓친 순간</title>
-  <link rel="stylesheet" href="../style.css" />
-   <style>
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #fff2e5;
-      color: #254E70;
-      margin: 0;
-      padding: 2rem;
-    }
-    .scene-wrapper {
-      max-width: 700px;
-      margin: auto;
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-      text-align: center;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1.2rem;
-    }
-    .reflection {
-      background: #ffe3e3;
-      border-radius: 12px;
-      padding: 1rem;
-      margin: 2rem 0;
-      font-weight: bold;
-      color: #254E70;
-    }
-    .scene-image img {
-      width: 100%;
-      max-width: 320px;
-      border-radius: 12px;
-      margin-top: 1rem;
-    }
-    .btn-end {
-      display: inline-block;
-      background: #ff6b6b;
-      color: white;
-      font-weight: bold;
-      padding: 0.8rem 1.5rem;
-      border-radius: 12px;
-      text-decoration: none;
-      margin-top: 1.5rem;
-    }
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-      .scene-wrapper {
-        padding: 1.5rem 1rem;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bella Choice Story | Healthy Little Minds</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../interactive-stories/bella-story.css?v=2" />
 </head>
-<body>
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #E6E6FA;
-  border: 2px solid #D8BFD8;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #5A3E8A;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 홈으로 돌아가기
-
-  </a>
-</div>
-
-  <div class="scene-wrapper">
-    <h1>😞 장면 3: 놓친 순간</h1>
-    <p>벨라는 교실 밖에 그대로 있었습니다. 그녀의 심장은 아직도 두근거렸습니다.</p>
-    <p>그녀는 발표할 차례를 놓쳤고, 이미 다른 학생이 앞에 서 있었습니다.</p>
-    <p>리베라 선생님은 문 쪽을 바라보았지만 아무 말도 하지 않았습니다.</p>
-
-    <div class="scene-image">
-      <img src="images/bella-scene_3_missed.png" alt="복도에서 실망한 표정으로 앉아 있는 벨라" />
-    </div>
-
-    <div class="reflection">💭 벨라의 생각: “다음엔 해볼 수 있을지도 몰라.”</div>
-
-  <div class="buttons" style="text-align: center; margin-top: 2rem;">
-      <a href="scene_1_bella_story.html" class="btn-end">🔁 처음부터 다시 시도하기</a>
-      <a href="scene4-share.html" class="btn-end" style="margin-left: 1rem;">🧑‍🏫 선생님과 이야기하기</a>
-    </div>
-  </div>
+<body class="bella-story-page" data-scene="scene3-missed.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/ko/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="../../interactive-stories/bella-story-locales.js?v=1"></script>
+  <script defer src="../../interactive-stories/bella-story.js?v=2"></script>
   <script defer src="../../button-loader.js?v=1"></script>
+  <script defer src="../../shared-language-switcher.js?v=3"></script>
 </body>
 </html>

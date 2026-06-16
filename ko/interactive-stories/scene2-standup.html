@@ -1,91 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
- <style>
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #f0f8ff;
-      color: #254E70;
-      margin: 0;
-      padding: 2rem;
-      text-align: center;
-    }
-    .scene-wrapper {
-      max-width: 700px;
-      margin: auto;
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-    }
-    .scene-wrapper img {
-      width: 100%;
-      max-width: 320px;
-      border-radius: 12px;
-      margin: 1.5rem 0;
-    }
-    .choice-button {
-      display: block;
-      background: #FF6B6B;
-      color: white;
-      font-weight: bold;
-      padding: 0.8rem 1.5rem;
-      margin: 1rem auto;
-      border-radius: 12px;
-      text-decoration: none;
-      max-width: 300px;
-      transition: background 0.3s;
-    }
-    .choice-button:hover {
-      background: #e25555;
-    }
-    h1 {
-      font-size: 2rem;
-    }
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-      .scene-wrapper {
-        padding: 1.5rem 1rem;
-      }
-    }
-  </style>
- </head>
-<body>
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #E6E6FA;
-  border: 2px solid #D8BFD8;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #5A3E8A;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 홈으로 돌아가기
-
-  </a>
-</div>
-
-<div class="scene-wrapper">
-  <h1>🎤 장면 2: 앞에 나선 벨라</h1>
-  <p>벨라는 깊게 숨을 들이쉬었습니다.<br/>발걸음은 무거웠지만, 교실 앞으로 걸어갔어요。</p>
-  <p>모두가 그녀를 바라보았습니다. 얼굴이 뜨거워졌습니다。<br/>리베라 선생님이 부드럽게 웃으며 말했어요。「벨라, 시작해 볼까？」</p>
-  <p>벨라는 메모를 보고 발표를 시작했습니다。<br/>처음엔 목소리가 떨렸지만, 점점 더 자신감이 생겼어요。<br/>몇몇 친구들이 고개를 끄덕이고, 한 친구는 미소를 지었습니다。</p>
-  <img src="../images/bella-scene2-speaking.png" alt="용기 내서 발표하는 벨라" />
-  <p>이후 어떻게 될까요?</p>
-  <a class="choice-button" href="scene_3_proud.html">😊 끝까지 하고 미소 짓기</a>
-  <a class="choice-button" href="scene3-runout.html">😢 긴장해서 도망치기</a>
-  <a class="choice-button" href="scene3-joke.html">😅 농담으로 긴장을 감추기</a>
-</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bella Choice Story | Healthy Little Minds</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../interactive-stories/bella-story.css?v=2" />
+</head>
+<body class="bella-story-page" data-scene="scene2-standup.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/ko/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="../../interactive-stories/bella-story-locales.js?v=1"></script>
+  <script defer src="../../interactive-stories/bella-story.js?v=2"></script>
   <script defer src="../../button-loader.js?v=1"></script>
+  <script defer src="../../shared-language-switcher.js?v=3"></script>
 </body>
 </html>

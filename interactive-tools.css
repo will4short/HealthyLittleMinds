@@ -1821,6 +1821,14 @@ body.tools-page--localized .story-card:nth-of-type(even) {
     radial-gradient(125% 125% at 50% 90%, #ffffff 40%, rgba(236, 72, 153, 0.18) 100%) !important;
 }
 
+body.tools-page--localized .story-card--bella {
+  border-color: rgba(246, 106, 162, 0.24) !important;
+  background:
+    radial-gradient(120% 120% at 12% 10%, rgba(246, 106, 162, 0.18), transparent 38%),
+    radial-gradient(120% 120% at 100% 80%, rgba(116, 185, 255, 0.22), transparent 42%),
+    #ffffff !important;
+}
+
 body.tools-page--localized .story-card img {
   width: 100% !important;
   max-width: 142px !important;

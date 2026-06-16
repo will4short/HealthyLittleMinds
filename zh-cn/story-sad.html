@@ -1,122 +1,269 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>当迪斯尼感到伤心时</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Nunito:wght@800&display=swap" rel="stylesheet"/>
-  <style>
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #DFF6FF;
-      padding: 2rem;
-      color: #254E70;
-      text-align: center;
-    }
-
-    .story-box {
-      background: #fff;
-      border-radius: 16px;
-      padding: 1.5rem;
-      max-width: 600px;
-      margin: 2rem auto;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-    }
-
-    .story-text {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .choices {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    button {
-      font-family: 'DM Sans', sans-serif;
-      background: #FFDD59;
-      border: none;
-      padding: 0.8rem 1.2rem;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    button:hover {
-      background: #ffeaa7;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>当 Destiny 感到伤心时 - Healthy Little Minds</title>
+  <meta name="description" content="一个帮助孩子理解伤心、朋友关系和冷静选择的 Destiny 互动故事。" />
+  <link rel="canonical" href="https://www.healthylittleminds.club/zh-cn/story-sad.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="当 Destiny 感到伤心时 - Healthy Little Minds" />
+  <meta property="og:description" content="帮助 Destiny 说出伤心、寻求支持，并在困难的朋友时刻找到下一步。" />
+  <meta property="og:image" content="https://www.healthylittleminds.club/images/destiny-sad.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="../images/favicon.webp" type="image/webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&amp;family=Nunito:wght@700;800;900&amp;family=Noto+Sans+SC:wght@400;500;700;800&amp;display=swap" rel="stylesheet" />
+  <link href="../story-sad.css?v=1" rel="stylesheet" />
 </head>
-<body>
-<script>
-  (function () {
-    const isLocal = location.protocol === 'file:';
-    const isMember = localStorage.getItem("isMember") === "true";
-
-    if (!isLocal && !isMember) {
-      const path = window.location.pathname;
-      const locale = path.split('/')[1];
-      const redirectTo = locale && path.includes(`/${locale}/`) 
-        ? `/${locale}/index.html` 
-        : "/index.html";
-      window.location.replace(redirectTo);
-    }
-  })();
-</script>
-
-  <div class="story-box" id="story">
-    <p class="story-text" id="storyText">
-      迪斯尼感到伤心，因为他最好的朋友今天不想一起玩。他应该怎么办？
-    </p>
-    <div class="choices" id="choices">
-      <button onclick="nextStep('breathe')">🧘 深呼吸三次</button>
-      <button onclick="nextStep('talk')">🗣️ 和老师谈一谈</button>
-    </div>
-  </div>
-
+<body class="story-locale-cn">
   <script>
-    function nextStep(choice) {
-      const storyText = document.getElementById('storyText');
-      const choices = document.getElementById('choices');
-
-      if (choice === 'breathe') {
-        storyText.innerHTML = "迪斯尼闭上眼睛，慢慢做了三次深呼吸。他开始感觉好一些了。接下来他可以做什么？";
-        choices.innerHTML = `
-          <button onclick="nextStep('draw')">🎨 画出他的感受</button>
-          <button onclick="nextStep('tellMom')">💬 放学后告诉妈妈</button>
-        `;
-      }
-
-      else if (choice === 'talk') {
-        storyText.innerHTML = "迪斯尼跟老师谈了他的难过。老师认真地听，并给了他一个温柔的微笑。他感觉好多了。接下来他可以怎么做？";
-        choices.innerHTML = `
-          <button onclick="nextStep('write')">📝 写在日记里</button>
-          <button onclick="nextStep('breatheAgain')">🧘 再做一次深呼吸</button>
-        `;
-      }
-
-      else {
-        let message = "";
-        if (choice === 'draw') {
-          message = "他画了一幅表达感受的画，感觉很有成就感 🎨";
-        } else if (choice === 'tellMom') {
-          message = "妈妈给了他一个大大的拥抱 ❤️ 他觉得安全又被爱着。";
-        } else if (choice === 'write') {
-          message = "他把自己的感受写在日记里，感觉更加平静 📝";
-        } else if (choice === 'breatheAgain') {
-          message = "他再次深呼吸，感觉自己像一朵轻轻飘着的云 ☁️";
-        }
-
-        storyText.innerHTML = message + "<br><br><strong>✨ 你帮迪斯尼感觉好多了！</strong>";
-        choices.innerHTML = `<a href="../home.html"><button>🏠 回到首页</button></a>`;
-      }
-    }
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      const localPreview = window.location.protocol === "file:" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname === "localhost";
+      if (!isMember && !localPreview) window.location.href = "/zh-cn/index.html";
+    })();
   </script>
 
+  <header class="story-header">
+    <div class="story-shell story-header__inner">
+      <a class="brand" href="home.html">
+        <img src="../images/logo-icon.webp" alt="" width="38" height="38" />
+        <span id="brandText">Healthy Little Minds</span>
+      </a>
+      <nav aria-label="故事导航">
+        <a id="charactersLink" href="home.html#characters">角色</a>
+        <a id="parentGuideLink" href="parents-guides.html#big-feelings">家长指南</a>
+        <a id="activitiesLink" href="interactive-tools.html">活动</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="story-shell story-main">
+    <section class="story-hero">
+      <div>
+        <p class="kicker" id="kickerHero">互动故事</p>
+        <h1 id="heroTitle">当 Destiny 感到伤心时</h1>
+        <p class="hero-lead" id="heroLead"></p>
+        <div class="story-actions">
+          <a class="story-btn" id="startStory" href="#story-player">开始故事</a>
+          <a class="story-btn story-btn--secondary" id="secondaryStory" href="https://heyzine.com/flip-book/1f4337da92.html" target="_blank" rel="noopener">阅读害怕的故事</a>
+        </div>
+      </div>
+      <figure class="hero-card">
+        <img src="../images/destiny-sad.png" alt="Destiny 安静地坐着，看起来很伤心" width="900" height="1125" />
+        <figcaption class="hero-card__note" id="heroNote"></figcaption>
+      </figure>
+    </section>
+
+    <section class="story-stage" id="story-player" aria-label="互动故事">
+      <article class="story-panel">
+        <div class="scene-top">
+          <div class="progress-label"><span id="progressText"></span><span id="feelingText"></span></div>
+          <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+        <div class="scene-body">
+          <h2 class="scene-title" id="sceneTitle"></h2>
+          <p class="scene-text" id="sceneText"></p>
+          <p class="destiny-thought" id="destinyThought"></p>
+          <div class="choices" id="choices"></div>
+          <div class="completion-card" id="completionCard">
+            <h3 id="completeTitle"></h3>
+            <p id="completeText"></p>
+            <div class="tool-links">
+              <a id="completeDestiny" href="home.html#characters">认识 Destiny</a>
+              <a id="completeTips" href="parents-tips.html#big-feelings">查看提示</a>
+              <a id="completePrintables" href="parents-downloads.html">查看材料</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <aside class="story-side" aria-label="反思与支持">
+        <section class="reflection-panel">
+          <p class="kicker" id="meterKicker"></p>
+          <h2 id="meterTitle"></h2>
+          <p id="meterNote"></p>
+          <div class="feeling-meter" aria-hidden="true">
+            <span class="feeling-dot is-filled"></span><span class="feeling-dot is-filled"></span><span class="feeling-dot is-filled"></span><span class="feeling-dot is-filled"></span><span class="feeling-dot"></span>
+          </div>
+        </section>
+        <section class="reflection-panel">
+          <p class="kicker" id="talkKicker"></p>
+          <h2 id="talkTitle"></h2>
+          <ul class="reflection-list" id="reflectionList"></ul>
+        </section>
+        <section class="tool-card">
+          <p class="kicker" id="grownupKicker"></p>
+          <h2 id="grownupTitle"></h2>
+          <p id="grownupText"></p>
+          <div class="tool-links">
+            <a id="parentGuideButton" href="parents-guides.html#big-feelings">家长指南</a>
+            <a id="destinyResourceButton" href="https://heyzine.com/flip-book/8736fac672.html" target="_blank" rel="noopener">Destiny 的书</a>
+          </div>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    window.storySadContent = {
+      brand: "Healthy Little Minds",
+      progress: "场景 {step} / {total}",
+      nav: { characters: "角色", parentGuide: "家长指南", activities: "活动" },
+      hero: {
+        kicker: "互动故事",
+        title: "当 Destiny 感到伤心时",
+        lead: "在学校里，Destiny 遇到了一个难过的朋友时刻。帮助他注意伤心，选择安全的下一步，并记得自己并不孤单。",
+        start: "开始故事",
+        secondary: "阅读害怕的故事",
+        note: "一个适合谈论伤心、被冷落和寻求支持的温柔选择故事。"
+      },
+      side: {
+        meterKicker: "感受计量表",
+        meterTitle: "Destiny 的伤心有多大？",
+        talkKicker: "聊一聊",
+        talkTitle: "暂停思考的问题",
+        grownupKicker: "给大人",
+        grownupTitle: "温柔地使用这个故事",
+        grownupText: "不要急着让孩子选“正确答案”。每次选择后，可以问问他的身体、想法或下一步有什么变化。",
+        parentGuideButton: "家长指南",
+        destinyResourceButton: "Destiny 的书"
+      },
+      complete: {
+        title: "你帮助 Destiny 找到了照顾心情的方法。",
+        text: "伤心没有一下子消失，但 Destiny 学会了：感受可以被看见、说出来，也可以得到支持。",
+        destiny: "认识 Destiny",
+        tips: "大情绪提示",
+        printables: "查看材料"
+      },
+      totalScenes: 5,
+      scenes: {
+        start: {
+          step: 1, feeling: 4, feelingText: "感受：很沉重", meterNote: "一开始，他觉得胸口很沉。",
+          title: "操场变得不一样",
+          text: "课间时，Destiny 带着一个游戏点子走向朋友。可是朋友耸耸肩说：“我今天想和别人玩。” Destiny 停住了，笑容慢慢收起来。",
+          thought: "“也许他不喜欢我了。” Destiny 想。",
+          choices: [
+            { label: "暂停，慢慢呼吸", helper: "帮助 Destiny 让身体里的风暴慢下来。", next: "breathe" },
+            { label: "找一个安全的大人", helper: "帮助 Destiny 不把难过独自藏起来。", next: "teacher" }
+          ],
+          questions: ["你觉得 Destiny 现在脸上是什么表情？", "他的身体可能在告诉他什么？", "你有没有过被冷落的感觉？"]
+        },
+        breathe: {
+          step: 2, feeling: 3, feelingText: "感受：仍然伤心，但稳一点", meterNote: "呼吸不会让伤心消失，但能给他一点思考空间。",
+          title: "三次慢慢的呼吸",
+          text: "Destiny 坐在安静的长椅上，把手放在肚子上。他像闻热汤一样吸气，再像把汤吹凉一样慢慢呼气。",
+          thought: "“伤心还在，但没有刚才那么用力推着我。”",
+          choices: [
+            { label: "画出这个感受", helper: "把大大的感受变成颜色和形状。", next: "draw" },
+            { label: "试一句温柔的自我对话", helper: "回应脑海里那个让人难受的想法。", next: "selfTalk" }
+          ],
+          questions: ["呼吸后有什么变了一点？", "感受还在，也可以稍微安全一点吗？", "如果伤心有颜色，会是什么颜色？"]
+        },
+        teacher: {
+          step: 2, feeling: 3, feelingText: "感受：伤心，但有人支持", meterNote: "被认真听见时，伤心会少一点孤单。",
+          title: "老师认真地听",
+          text: "Destiny 走到老师身边，小声说：“我很伤心。我以为朋友会和我玩。” 老师蹲下来，让眼睛和他一样高。",
+          thought: "老师说：“谢谢你告诉我。愿意寻求帮助，是很勇敢的。”",
+          choices: [
+            { label: "做一个小计划", helper: "想想接下来的课间可以怎么过。", next: "plan" },
+            { label: "写下来", helper: "用文字把感受理清楚。", next: "journal" }
+          ],
+          questions: ["告诉安全的大人为什么会有帮助？", "老师做了什么让 Destiny 感到被听见？", "你在学校可以找谁说？"]
+        },
+        draw: {
+          step: 3, feeling: 2, feelingText: "感受：柔和一点", meterNote: "画出来，能给伤心一个出口。",
+          title: "蓝色云朵",
+          text: "Destiny 画了一朵蓝色的云，里面有一个小小的黄色点。他给画起名叫：“伤心，但不会永远这样。”",
+          thought: "“我可以伤心，也可以慢慢好起来。”",
+          choices: [
+            { label: "温柔地邀请别人", helper: "尝试一个不勉强的友谊小步骤。", next: "invite" },
+            { label: "把画带回家说", helper: "把感受带给爱自己的人。", next: "home" }
+          ],
+          questions: ["黄色小点代表什么？", "你的伤心画会是什么样？", "你会给它起什么名字？"]
+        },
+        selfTalk: {
+          step: 3, feeling: 2, feelingText: "感受：柔和一点", meterNote: "更温柔的想法能减少自责。",
+          title: "一个更温柔的想法",
+          text: "Destiny 注意到“他不喜欢我了”这个想法。然后他试着说：“他今天选择了别的游戏。这很难过，但不代表我不可爱。”",
+          thought: "“一次选择不是整段友谊。”",
+          choices: [
+            { label: "温柔地邀请别人", helper: "尝试一个友谊小步骤。", next: "invite" },
+            { label: "选择一个安静活动", helper: "先照顾身体，再想下一步。", next: "calm" }
+          ],
+          questions: ["原来的难受想法是什么？", "Destiny 换成了什么温柔想法？", "你可以对自己说什么？"]
+        },
+        plan: {
+          step: 3, feeling: 2, feelingText: "感受：有人支持，也更清楚", meterNote: "一个小计划能让接下来的几分钟变得可行。",
+          title: "一个小计划",
+          text: "Destiny 和老师一起想：先喝水，然后选择画画，或者问另一个同学要不要一起玩。",
+          thought: "“我不用修好整天。我只需要一个下一步。”",
+          choices: [
+            { label: "问另一个同学", helper: "尝试新的连接。", next: "invite" },
+            { label: "安静地重置一下", helper: "先冷静，再继续。", next: "calm" }
+          ],
+          questions: ["为什么一个小计划会更容易？", "你的第一个小步骤会是什么？", "喝水或走一走怎样帮助情绪？"]
+        },
+        journal: {
+          step: 3, feeling: 2, feelingText: "感受：更清楚", meterNote: "写下来能帮助分清事实和担心。",
+          title: "事实和担心",
+          text: "Destiny 写了两栏。事实：“朋友和别人玩了。” 担心：“也许我会一直一个人。” 他看着担心，知道它是一种感受，不一定是事实。",
+          thought: "“担心可以很大声，但不一定是真的。”",
+          choices: [
+            { label: "晚一点再谈", helper: "等大家都准备好时再说。", next: "checkIn" },
+            { label: "选择一个安静活动", helper: "先照顾心情，再修复友谊。", next: "calm" }
+          ],
+          questions: ["事实和担心有什么不同？", "哪个担心听起来很大声？", "哪个事实能帮助他？"]
+        },
+        invite: {
+          step: 4, feeling: 1, feelingText: "感受：有一点希望", meterNote: "一个温柔的小步骤让希望回来一点。",
+          title: "温柔的邀请",
+          text: "Destiny 看见另一个同学正在用树枝搭桥。他问：“我可以帮忙搭桥吗？” 同学点了点头。",
+          thought: "“伤心旁边，也可以坐着一个新的开始。”",
+          choices: [{ label: "整理友谊计划", helper: "帮助 Destiny 记住重要的事。", next: "finish" }],
+          questions: ["伤心完全消失了吗？", "伤心旁边出现了什么新感受？", "为什么温柔地问会有帮助？"]
+        },
+        home: {
+          step: 4, feeling: 1, feelingText: "感受：安全", meterNote: "晚一点分享，也能让 Destiny 感到被接住。",
+          title: "书包里的画",
+          text: "Destiny 把画放进书包。回家后，他说：“这是我今天的伤心云。” 家人认真听他说。",
+          thought: "“我可以把感受带给爱我的人。”",
+          choices: [{ label: "做一个家庭支持计划", helper: "想起自己的支持圈。", next: "finish" }],
+          questions: ["为什么 Destiny 把画带回家？", "家人有没有急着修好一切？", "谁在你的支持圈里？"]
+        },
+        calm: {
+          step: 4, feeling: 1, feelingText: "感受：足够平静", meterNote: "安静活动帮助身体慢慢安定。",
+          title: "安静重置",
+          text: "Destiny 喝水，慢慢走了一会儿，又在沙地上画线。他不是假装没事，而是在照顾这个感受，直到它变小一点。",
+          thought: "“照顾自己是一个有力量的选择。”",
+          choices: [{ label: "整理平静计划", helper: "选择下次要记住的事。", next: "finish" }],
+          questions: ["Destiny 为身体做了什么？", "假装没事和平静下来有什么不同？", "什么活动能帮助你平静？"]
+        },
+        checkIn: {
+          step: 4, feeling: 1, feelingText: "感受：勇敢而稳定", meterNote: "计划晚一点谈，能避免急急地吵起来。",
+          title: "晚一点再确认",
+          text: "Destiny 决定不在感受很大的时候马上问。他可以晚一点说：“课间时我很伤心。明天我们可以一起玩吗？”",
+          thought: "“我可以说出受伤，而不把它变成争吵。”",
+          choices: [{ label: "整理修复计划", helper: "选择要记住的事。", next: "finish" }],
+          questions: ["为什么有时晚一点谈更好？", "Destiny 可以用什么话？", "诚实怎样保持温柔？"]
+        },
+        finish: {
+          step: 5, feeling: 1, feelingText: "感受：被照顾", meterNote: "他记得那个难过时刻，也记得自己的工具。",
+          title: "Destiny 的伤心工具箱",
+          text: "呼吸、告诉安全的人、画出来或写下来、试一个温柔想法、选择一个小小的下一步。这就是 Destiny 的工具箱。",
+          thought: "“一个伤心时刻，不是我的整个故事。”",
+          choices: [{ label: "再玩一次", helper: "选择不同路径，重新走一遍故事。", next: "start" }],
+          questions: ["哪个工具最帮助 Destiny？", "你想练习哪个工具？", "Destiny 应该记住自己什么？"],
+          complete: true
+        }
+      }
+    };
+  </script>
+  <script defer src="../story-sad-player.js?v=1"></script>
   <script defer src="../shared-language-switcher.js?v=1"></script>
   <script defer src="../button-loader.js?v=1"></script>
 </body>

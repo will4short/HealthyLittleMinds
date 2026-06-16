@@ -1,168 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <style>
-    body {
-      background-color: #fdf6e3;
-      font-family: "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    .scene-wrapper {
-      max-width: 800px;
-      margin: 2rem auto;
-      background-color: #ffffff;
-      border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      text-align: center;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #3b3b3b;
-    }
-    .story-text {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-    .scene-img {
-      max-width: 70%;
-      height: auto;
-      border-radius: 12px;
-      margin: 1.5rem 0;
-    }
-    .parent-tip {
-      background-color: #fff9e6;
-      border-left: 5px solid #ffc107;
-      padding: 1rem;
-      font-size: 1rem;
-      border-radius: 8px;
-      margin-bottom: 2rem;
-      text-align: left;
-    }
-    .nav-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .choice-btn {
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-    .choice-btn.green {
-      background-color: #e0f8e9;
-      color: #226f3c;
-      border: 1px solid #b2e5c7;
-    }
-    .choice-btn.gray {
-      background-color: #f2f2f2;
-      color: #444;
-      border: 1px solid #ccc;
-    }
-    .choice-btn:hover {
-      opacity: 0.85;
-    }
-    @media (max-width: 600px) {
-      body { padding: 1rem; }
-      .scene-wrapper { padding: 1.5rem 1rem; }
-    }
- .nav-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 2rem;
-      }
-
-      .choice-btn {
-        padding: 0.6rem 1.2rem;
-        border-radius: 10px;
-        border: none;
-        cursor: pointer;
-        font-weight: bold;
-        text-decoration: none;
-        display: inline-block;
-        white-space: nowrap;
-      }
-
-      .choice-btn.green { background-color: #d1f7d6; color: #1b5e20; }
-      .choice-btn.blue { background-color: #e0f0ff; color: #0d47a1; }
-      .choice-btn.purple { background-color: #f3e5f5; color: #6a1b9a; }
-  </style>
-
-  </head>
-<body>
-<script>
-  // 🔒 Redirect to login page if not logged in
-  (function () {
-    const isMember = localStorage.getItem("isMember") === "true";
-
-    if (!isMember) {
-      const path = window.location.pathname;
-      const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
-      const redirectTo = locale && path.includes(`/${locale}/`) 
-        ? `/${locale}/index.html` 
-        : "/index.html";
-      window.location.replace(redirectTo); // 👈 Smooth silent redirect
-    }
-  })();
-</script>
-
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #E6E6FA;
-  border: 2px solid #D8BFD8;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #5A3E8A;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 ホームにもどる
-  </a>
-</div>
-
-  <div class="scene-wrapper">
-    <h1>🌟 シーン 6 – 自分で選ぶ物語</h1>
-    <p class="story-text">
-      ベラは今日、大切なことを学びました：<br>
-      自分の選択が、それぞれ違う道につながっていたこと。<br><br>
-      怖がったこと、黙っていたこと、勇気を出して話したこと——全部が意味のある行動でした。<br>
-      そして、どんなときも諦めずに挑戦を続けました。<br><br>
-      🌈 <strong>あなたの選択も大切です。</strong><br>
-      毎日、少しずつ勇敢で優しい自分に成長していけます。
-    </p>
-
-    <img src="images/scene6-end.png" alt="自信を持って歩くベラ" class="scene-img" />
-
-    <div class="parent-tip">
-      🧠 <strong>保護者へのヒント：</strong> 子どもがするすべての選択——大きなことも小さなことも——は、その子の成長の一部です。<br>
-      完璧を求めるのではなく、「振り返る力」を育ててあげましょう。
-    </div>
-
-   <div class="nav-buttons">
-      <a href="scene_1_bella_story.html" class="choice-btn green">🔁 もう一度はじめる</a>
-      <a href="../parents-tips.html" class="choice-btn blue">👪 保護者向けヒント</a>
-      <a href="../interactive-tools.html" class="choice-btn purple">🧰 ツールを使ってみる</a>
-    </div>
-  </div>
+  <title>Bella no Sentaku Story | Healthy Little Minds</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../interactive-stories/bella-story.css?v=2" />
+</head>
+<body class="bella-story-page" data-scene="scene6-end.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/ja/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="../../interactive-stories/bella-story-locales.js?v=1"></script>
+  <script defer src="../../interactive-stories/bella-story.js?v=2"></script>
   <script defer src="../../button-loader.js?v=1"></script>
+  <script defer src="../../shared-language-switcher.js?v=3"></script>
 </body>
 </html>

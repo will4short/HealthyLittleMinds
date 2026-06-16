@@ -1,63 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>😐 场景 2 – 贝拉假装没事</title>
-  <style>
-    body { background-color: #fff8ec; font-family: "Segoe UI", sans-serif; margin: 0; padding: 0; color: #2e2e2e; }
-    .scene-wrapper { max-width: 800px; margin: 2rem auto; background-color: #ffffff; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); }
-    h1 { font-size: 1.8rem; text-align: center; margin-bottom: 1rem; }
-    .story-text { font-size: 1.1rem; line-height: 1.7; text-align: center; margin-bottom: 1.5rem; }
-    .scene-img { max-width: 50%; height: auto; border-radius: 12px; display: block; margin: 1rem auto 2rem; }
-    .thought-bubble { background-color: #fff3cd; border-left: 5px solid #f0ad4e; padding: 1rem; font-style: italic; margin-bottom: 1.5rem; border-radius: 12px; font-size: 1.05rem; }
-    .parent-tip { background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 1rem; font-size: 1rem; border-radius: 12px; margin-bottom: 2rem; }
-    .nav-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
-    .choice-btn { background-color: #ffd76a; color: #444; padding: 0.9rem 1.4rem; border-radius: 32px; font-size: 1rem; font-weight: bold; text-decoration: none; border: none; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-    .choice-btn:hover { background-color: #ffc048; transform: translateY(-2px); color: #000; }
-    @media (max-width: 600px) { body { padding: 1rem; } .scene-wrapper { padding: 1.5rem 1rem; } }
-  </style>
+  <title>Bella Choice Story | Healthy Little Minds</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../interactive-stories/bella-story.css?v=2" />
 </head>
-<body>
-<div style="
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: #FFE4F0;
-  border: 2px solid #F8CFE0;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <a href="../home.html" style="
-    text-decoration: none;
-    color: #D6336C;
-    font-weight: bold;
-    font-size: 0.95rem;
-  ">
-    🏠 返回主页
-  </a>
-</div>
-
-  <div class="scene-wrapper">
-    <h1>😐 场景 2 – 贝拉假装没事</h1>
-    <p class="story-text">
-      贝拉深呼吸，然后勉强微笑了一下。<br>
-      但她内心仍然很紧张，很害怕。<br>
-      她没有告诉任何人，只是装作一切都好。
-    </p>
-    <img src="../images/bella-pretend.png" alt="假装笑着的贝拉" class="scene-img" />
-    <div class="thought-bubble">“没人需要知道…我可以装作不害怕。”</div>
-    <div class="parent-tip">
-      <strong>👪 给家长的小贴士：</strong> 孩子有时会通过假装没事来隐藏情绪。<br>
-      请鼓励他们在安全的环境中表达真实的感受。
-    </div>
-    <div class="nav-buttons">
-      <a href="scene_5_calm.html" class="choice-btn">✨ 她试试看</a>
-      <a href="scene5-regret.html" class="choice-btn">😞 她错过了机会</a>
-    </div>
-  </div>
+<body class="bella-story-page" data-scene="scene2-pretend.html">
+  <script>
+    (function () {
+      const isMember = localStorage.getItem("isMember") === "true";
+      if (!isMember) window.location.replace("/zh-cn/index.html");
+    })();
+  </script>
+  <div id="bellaStoryApp"></div>
+  <script defer src="../../interactive-stories/bella-story-locales.js?v=1"></script>
+  <script defer src="../../interactive-stories/bella-story.js?v=2"></script>
   <script defer src="../../button-loader.js?v=1"></script>
+  <script defer src="../../shared-language-switcher.js?v=3"></script>
 </body>
 </html>
