@@ -1403,6 +1403,7 @@ body {
 #emotional-literacy .book-grid.book-rail-track {
   display: flex !important;
   flex-wrap: nowrap !important;
+  flex-direction: row !important;
   justify-content: flex-start !important;
   gap: 1rem !important;
   max-width: none !important;
@@ -4851,6 +4852,7 @@ nav a.bulletin-link {
   display: flex !important;
   grid-template-columns: none !important;
   flex-wrap: nowrap !important;
+  flex-direction: row !important;
   justify-content: flex-start !important;
   gap: 1rem !important;
   width: max-content !important;
