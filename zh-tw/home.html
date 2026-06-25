@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <!-- Google Analytics -->
@@ -57,10 +57,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../style.css?v=97">
+<link rel="stylesheet" href="../style.css?v=102">
 <script src="../member-preview.js?v=2"></script>
-<link rel="stylesheet" href="../localized-home.css?v=18">
-  <script defer src="../localized-home-polish.js?v=2"></script>
+<link rel="stylesheet" href="../localized-home.css?v=20">
+  <script defer src="../localized-home-polish.js?v=3"></script>
 
   <!-- 結構化資料 -->
   <script type="application/ld+json">
@@ -962,7 +962,7 @@ html[lang="zh-TW"] .hlm-res{
 <!-- 📚 情緒繪本區 Section -->
 <section id="books" class="localized-book-shelf">
   <h2 style="text-align:center; color:#254E70;">📚 情緒繪本區</h2>
-  <p style="text-align: center; color: #888; font-size: 0.95rem; margin-bottom: 0.5rem;">
+  <p class="scroll-hint-text">
     👉 向右滑動或左右滑動即可查看更多繪本
   </p>
   <div class="localized-rail-controls" aria-label="移動情緒繪本">
@@ -1486,16 +1486,25 @@ html[lang="zh-TW"] .hlm-res{
         left: '50%',
         transform: 'translateX(-50%)',
         bottom: 'calc(16px + env(safe-area-inset-bottom, 0px))',
-        padding: '12px 16px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '8px',
+        width: 'min(92vw, 460px)',
+        minHeight: '48px',
+        padding: '13px 18px',
         background: bg,
         color: '#fff',
+        border: '1px solid rgba(255,255,255,.35)',
         borderRadius: '999px',
-        boxShadow: '0 6px 20px rgba(0,0,0,.25)',
+        boxShadow: '0 12px 30px rgba(37,78,112,.28)',
         zIndex: 2147483647,
         cursor: 'pointer',
         fontFamily: 'system-ui, sans-serif',
-        fontWeight: '600',
-        lineHeight: '1'
+        fontSize: '0.95rem',
+        fontWeight: '800',
+        lineHeight: '1.2',
+        textAlign: 'center'
       });
       document.body.appendChild(el);
       updateToastEl = el;

@@ -54,7 +54,7 @@
   <!-- Fonts & Styles -->
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link href="style.css?v=101" rel="stylesheet"/>
+  <link href="style.css?v=102" rel="stylesheet"/>
   <script src="member-preview.js?v=2"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Nunito:wght@600;800&amp;display=swap" rel="stylesheet">
    <!-- Structured Data -->
@@ -783,6 +783,7 @@
     <div>
       <p class="eyebrow">Read and grow</p>
       <p class="book-rail-subtitle">Swipe, scroll, or let the shelf glide through stories that help children name and understand feelings.</p>
+      <p class="book-rail-mobile-hint" aria-hidden="true">Swipe the story shelf</p>
     </div>
     <div class="book-rail-controls" aria-label="Book carousel controls">
       <button class="book-rail-btn" type="button" data-book-scroll="prev" aria-label="Previous books">‹</button>
@@ -2049,16 +2050,25 @@ document.getElementById('mobileNav')?.addEventListener('click', e => {
         left: '50%',
         transform: 'translateX(-50%)',
         bottom: 'calc(16px + env(safe-area-inset-bottom, 0px))',
-        padding: '12px 16px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '8px',
+        width: 'min(92vw, 460px)',
+        minHeight: '48px',
+        padding: '13px 18px',
         background: bg,
         color: '#fff',
+        border: '1px solid rgba(255,255,255,.35)',
         borderRadius: '999px',
-        boxShadow: '0 6px 20px rgba(0,0,0,.25)',
+        boxShadow: '0 12px 30px rgba(37,78,112,.28)',
         zIndex: 2147483647,
         cursor: 'pointer',
         fontFamily: 'system-ui, sans-serif',
-        fontWeight: '600',
-        lineHeight: '1'
+        fontSize: '0.95rem',
+        fontWeight: '800',
+        lineHeight: '1.2',
+        textAlign: 'center'
       });
       document.body.appendChild(el);
       updateToastEl = el;
@@ -2510,7 +2520,7 @@ startAutoSlide();
     let isTouching = false;
     let touchSettleTimer = 0;
     const compactRail = window.matchMedia("(max-width: 720px)");
-    const getGlideSpeed = () => compactRail.matches ? 0.018 : 0.032;
+    const getGlideSpeed = () => compactRail.matches ? 0.024 : 0.032;
 
     const pauseTemporarily = (duration = 1300) => {
       resumeAt = Math.max(resumeAt, performance.now() + duration);

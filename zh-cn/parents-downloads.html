@@ -26,8 +26,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Nunito:wght@600;700;800&amp;family=Noto+Sans+SC:wght@400;500;700;800&amp;display=swap" rel="stylesheet" />
-  <link href="../parents-hub.css?v=6" rel="stylesheet" />
-  <script defer src="../parents-hub.js?v=1"></script>
+  <link href="../parents-hub.css?v=8" rel="stylesheet" />
+  <script defer src="../parents-hub.js?v=2"></script>
 </head>
 <body class="parent-page parent-page--cn parent-page--downloads">
   <header class="parent-header">
@@ -56,12 +56,40 @@
       <p class="parent-kicker">亲子一起使用的活动</p>
       <h1>可打印材料</h1>
       <p>选一个平静的时间，和孩子一起画画、谈谈感受，也练习让自己安定的方法。在困难情绪涌上来之前熟悉这些工具，会更容易使用。</p>
-      <nav class="parent-jump-nav" aria-label="材料内容">
+      <nav class="parent-jump-nav" aria-label="Printable sections">
+        <a href="#choose">按需要选择</a>
         <a href="#featured">精选活动册</a>
         <a href="#library">材料一览</a>
         <a href="#use-together">使用方法</a>
       </nav>
     </header>
+
+    <section class="parent-section" id="choose" aria-labelledby="cn-choose-printable">
+      <div class="parent-section__head">
+        <h2 id="cn-choose-printable">选择今天最合适的材料</h2>
+        <p>从你现在看到的情境开始，而不是从完美的课程计划开始。</p>
+      </div>
+      <div class="download-chooser">
+        <article>
+          <span class="download-tag">大情绪</span>
+          <h3>当情绪太响亮时</h3>
+          <p>使用<strong>平息心中的风暴</strong>，帮助孩子说出身体里正在发生什么。</p>
+          <a href="#featured">前往活动册</a>
+        </article>
+        <article>
+          <span class="download-tag">害怕和担心</span>
+          <h3>当孩子需要勇气时</h3>
+          <p>使用<strong>当我感到害怕</strong>，谈谈安全的大人、小小勇敢步骤，以及让身体更安心的方法。</p>
+          <a href="#scared-printable">前往害怕材料</a>
+        </article>
+        <article>
+          <span class="download-tag">善意</span>
+          <h3>当连接需要练习时</h3>
+          <p>使用<strong>小小行动，大大感受</strong>，帮助孩子看到关心的行动如何改变一个空间里的感受。</p>
+          <a href="#kindness-printable">前往善意材料</a>
+        </article>
+      </div>
+    </section>
 
     <section class="parent-section" id="featured" aria-labelledby="cn-featured-download">
       <div class="download-feature">
@@ -83,15 +111,15 @@
       </div>
       <div class="download-library">
         <article class="download-card">
-          <img src="../images/worksheet1.webp" alt="我的情绪是超能力练习单封面" width="340" height="255" />
-          <span class="download-tag">认识情绪</span>
+          <img src="../images/calm-the-storm-workbook-cover.webp" alt="平息心中的风暴活动册封面" width="340" height="255" />
+          <span class="download-tag">平静练习</span>
           <div>
-            <h3>我的情绪是超能力</h3>
-            <p>通过绘画与反思提示，帮助孩子觉察并表达自己的感受。</p>
+            <h3>平息心中的风暴</h3>
+            <p>帮助孩子为大情绪命名、注意身体信号，并选择一个能让自己平静下来的下一步。</p>
           </div>
-          <a class="parent-btn parent-btn--secondary" href="../worksheets/worksheet1.pdf" download>下载 PDF</a>
+          <a class="parent-btn parent-btn--secondary" href="../worksheets/Calm the Storm Inside - My Feelings Workbook.pdf" download>下载 PDF</a>
         </article>
-        <article class="download-card">
+        <article class="download-card" id="scared-printable">
           <img src="../images/when-i-feel-scared-bkcover.webp" alt="当我感到害怕活动单封面" width="340" height="255" />
           <span class="download-tag">勇气与担心</span>
           <div>
@@ -100,7 +128,7 @@
           </div>
           <a class="parent-btn parent-btn--secondary" href="../worksheets/When-I-Feel-Scared.pdf" download>下载 PDF</a>
         </article>
-        <article class="download-card">
+        <article class="download-card" id="kindness-printable">
           <img src="../images/Little-Acts-Big-Feelings-Worksheet-Cover.webp" alt="小小行动，大大感受活动单封面" width="340" height="255" />
           <span class="download-tag">温柔与联结</span>
           <div>

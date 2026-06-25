@@ -26,8 +26,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Nunito:wght@600;700;800&amp;family=Noto+Sans+JP:wght@400;500;700;800&amp;display=swap" rel="stylesheet" />
-  <link href="../parents-hub.css?v=6" rel="stylesheet" />
-  <script defer src="../parents-hub.js?v=1"></script>
+  <link href="../parents-hub.css?v=8" rel="stylesheet" />
+  <script defer src="../parents-hub.js?v=2"></script>
 </head>
 <body class="parent-page parent-page--ja parent-page--downloads">
   <header class="parent-header">
@@ -56,12 +56,40 @@
       <p class="parent-kicker">親子で取り組む活動</p>
       <h1>印刷教材</h1>
       <p>落ち着いた時間に、絵を描いたり、話したり、気持ちへの対処法を一緒に練習してみましょう。難しい気持ちがあふれる前に親しんでおくと役立ちます。</p>
-      <nav class="parent-jump-nav" aria-label="教材の内容">
+      <nav class="parent-jump-nav" aria-label="Printable sections">
+        <a href="#choose">必要に合わせて選ぶ</a>
         <a href="#featured">おすすめ教材</a>
         <a href="#library">教材一覧</a>
         <a href="#use-together">使い方</a>
       </nav>
     </header>
+
+    <section class="parent-section" id="choose" aria-labelledby="ja-choose-printable">
+      <div class="parent-section__head">
+        <h2 id="ja-choose-printable">今日に合う教材を選ぶ</h2>
+        <p>完璧なレッスン計画ではなく、今見えている場面から始めましょう。</p>
+      </div>
+      <div class="download-chooser">
+        <article>
+          <span class="download-tag">大きな気持ち</span>
+          <h3>感情が大きくなりすぎるとき</h3>
+          <p><strong>心の嵐をしずめる</strong>を使って、体の中で何が起きているかを子どもが言葉にできるよう支えます。</p>
+          <a href="#featured">ワークブックへ</a>
+        </article>
+        <article>
+          <span class="download-tag">こわさと不安</span>
+          <h3>勇気が必要なとき</h3>
+          <p><strong>こわい気持ちのとき</strong>を使って、安全な大人、小さな勇気の一歩、体が安心する方法を話せます。</p>
+          <a href="#scared-printable">こわさの教材へ</a>
+        </article>
+        <article>
+          <span class="download-tag">やさしさ</span>
+          <h3>つながりを練習したいとき</h3>
+          <p><strong>小さな行動、大きな気持ち</strong>を使って、思いやりのある行動が場の気持ちを変えることに気づけます。</p>
+          <a href="#kindness-printable">やさしさの教材へ</a>
+        </article>
+      </div>
+    </section>
 
     <section class="parent-section" id="featured" aria-labelledby="ja-featured-download">
       <div class="download-feature">
@@ -83,15 +111,15 @@
       </div>
       <div class="download-library">
         <article class="download-card">
-          <img src="../images/worksheet1.webp" alt="気持ちはわたしのスーパーパワー教材の表紙" width="340" height="255" />
-          <span class="download-tag">気持ちに名前をつける</span>
+          <img src="../images/calm-the-storm-workbook-cover.webp" alt="心の嵐をしずめるワークブックの表紙" width="340" height="255" />
+          <span class="download-tag">落ち着く練習</span>
           <div>
-            <h3>気持ちはわたしのスーパーパワー</h3>
-            <p>描いたり振り返ったりしながら、子どもが自分の感情を見つけ、伝える練習をします。</p>
+            <h3>心の嵐をしずめる</h3>
+            <p>大きな気持ちに名前をつけ、体のサインに気づき、落ち着くための次の一歩を選ぶためのワークブックです。</p>
           </div>
-          <a class="parent-btn parent-btn--secondary" href="../worksheets/worksheet1.pdf" download>PDFをダウンロード</a>
+          <a class="parent-btn parent-btn--secondary" href="../worksheets/Calm the Storm Inside - My Feelings Workbook.pdf" download>PDFをダウンロード</a>
         </article>
-        <article class="download-card">
+        <article class="download-card" id="scared-printable">
           <img src="../images/when-i-feel-scared-bkcover.webp" alt="こわい気持ちのとき教材の表紙" width="340" height="255" />
           <span class="download-tag">勇気と不安</span>
           <div>
@@ -100,7 +128,7 @@
           </div>
           <a class="parent-btn parent-btn--secondary" href="../worksheets/When-I-Feel-Scared.pdf" download>PDFをダウンロード</a>
         </article>
-        <article class="download-card">
+        <article class="download-card" id="kindness-printable">
           <img src="../images/Little-Acts-Big-Feelings-Worksheet-Cover.webp" alt="小さな行動、大きな気持ち教材の表紙" width="340" height="255" />
           <span class="download-tag">やさしさとつながり</span>
           <div>

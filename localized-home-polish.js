@@ -149,7 +149,7 @@
       var elapsed = Math.min(time - previousTime, 40);
       previousTime = time;
       if (!reduceMotion.matches && !dragging && Date.now() > pausedUntil) {
-        rail.scrollLeft += elapsed * (compact.matches ? 0.018 : 0.032);
+        rail.scrollLeft += elapsed * (compact.matches ? 0.024 : 0.032);
         normalizeScroll();
       }
       window.requestAnimationFrame(frame);

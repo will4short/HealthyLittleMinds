@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <!-- Google Analytics -->
@@ -55,11 +55,11 @@
   <!-- Fonts & Styles -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="../style.css?v=97">
+<link rel="stylesheet" href="../style.css?v=102">
 <script src="../member-preview.js?v=2"></script>
-<link rel="stylesheet" href="../localized-home.css?v=18">
+<link rel="stylesheet" href="../localized-home.css?v=20">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
-  <script defer src="../localized-home-polish.js?v=2"></script>
+  <script defer src="../localized-home-polish.js?v=3"></script>
 
   <!-- 结构化数据 -->
   <script type="application/ld+json">
@@ -1171,7 +1171,7 @@ html, body { overflow-x: hidden; }
 <!-- 📚 情绪绘本区块（修复手机端封面变小） -->
 <section id="books" class="localized-book-shelf">
   <h2 style="color:#254E70; text-align:center;">📚 情绪绘本</h2>
-  <p style="text-align:center; color:#888; font-size:0.95rem; margin:0 0 .75rem;">
+  <p class="scroll-hint-text">
     👉 向右滑动查看更多绘本
   </p>
   <div class="localized-rail-controls" aria-label="移动情绪绘本">
@@ -1677,16 +1677,25 @@ document.addEventListener('DOMContentLoaded', () => {
         left: '50%',
         transform: 'translateX(-50%)',
         bottom: 'calc(16px + env(safe-area-inset-bottom, 0px))',
-        padding: '12px 16px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '8px',
+        width: 'min(92vw, 460px)',
+        minHeight: '48px',
+        padding: '13px 18px',
         background: bg,
         color: '#fff',
+        border: '1px solid rgba(255,255,255,.35)',
         borderRadius: '999px',
-        boxShadow: '0 6px 20px rgba(0,0,0,.25)',
+        boxShadow: '0 12px 30px rgba(37,78,112,.28)',
         zIndex: 2147483647,
         cursor: 'pointer',
         fontFamily: 'system-ui, sans-serif',
-        fontWeight: '600',
-        lineHeight: '1'
+        fontSize: '0.95rem',
+        fontWeight: '800',
+        lineHeight: '1.2',
+        textAlign: 'center'
       });
       document.body.appendChild(el);
       updateToastEl = el;

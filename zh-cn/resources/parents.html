@@ -1,360 +1,208 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>育儿与行为引导 – 健康小脑袋</title>
-  <meta name="description" content="温柔实用的方法，帮助引导孩子行为、建立规律并在家庭中培养连接感。"/>
-  <meta name="keywords" content="育儿, 行为, 规律, 亲子连接, 儿童, 青少年, 家长, 看护人, 教育者, 心理健康, 情绪教育, 工作纸"/>
-  <meta name="author" content="Godswill Ambrose"/>
-  <link rel="canonical" href="https://www.healthylittleminds.club/parents.html"/>
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="article"/>
-  <meta property="og:url" content="https://www.healthylittleminds.club/parents.html"/>
-  <meta property="og:title" content="育儿与行为引导 – 健康小脑袋"/>
-  <meta property="og:description" content="温柔实用的方法，帮助引导孩子行为、建立规律并在家庭中培养连接感。"/>
-  <meta property="og:image" content="https://www.healthylittleminds.club/images/social-preview.jpg"/>
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="育儿与行为引导 – 健康小脑袋"/>
-  <meta name="twitter:description" content="温柔实用的方法，帮助引导孩子行为、建立规律并在家庭中培养连接感。"/>
-  <meta name="twitter:image" content="https://www.healthylittleminds.club/images/social-preview.jpg"/>
-
-  <meta name="theme-color" content="#FFDD59"/>
-
-  <!-- Fonts & CSS -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="../../style.css?v=97" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
-
-   <style>
-  /* ===== Container & grid ===== */
-  .topic-wrap{ max-width:1100px; margin:0 auto; padding:1rem; }
-  .breadcrumb{ font-size:.9rem; color:#476882; margin:.75rem 0 0; padding:0 1rem; }
-  .breadcrumb a{ color:#254E70; text-decoration:none; }
-  .topic-grid{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) 320px;
-    grid-template-areas:
-      "hero  aside"
-      "main  aside";
-    gap:24px;
-    margin:1rem;
-    padding:0 1rem;
-  }
-  .topic-hero{ grid-area:hero; }
-  .topic-main{ grid-area:main; }
-  .topic-aside{ grid-area:aside; }
-
-  @media (max-width:980px){
-    .topic-grid{
-      grid-template-columns:1fr;
-      grid-template-areas:"hero""main""aside";
-      margin:.75rem 0; padding:0 .75rem;
-    }
-  }
-
-  /* ===== Hero (split layout) ===== */
-  .topic-hero{
-    background:#FFF4E6;
-    border-radius:16px;
-    box-shadow:0 6px 18px rgba(0,0,0,.05);
-    padding:1rem 1rem 1.15rem;
-  }
-  .topic-hero .th-grid{
-    display:grid;
-    grid-template-columns:minmax(220px,1fr) minmax(320px,1.35fr);
-    gap:24px;
-    align-items:center;
-  }
-  .topic-hero h1{
-    font-family:'Nunito',sans-serif;
-    font-weight:800; color:#254E70;
-    margin:0; line-height:1.05;
-    font-size:clamp(1.9rem,1.2vw + 1.4rem,2.6rem);
-  }
-  .topic-hero .lead{
-    color:#364c63; line-height:1.7; margin:.1rem 0 .55rem; font-size:1.06rem;
-  }
-  .aud-chips{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.25rem; }
-  .aud-chips span{
-    background:#FFF0B3; color:#254E70; font-weight:800;
-    padding:.4rem .7rem; border-radius:999px; font-size:.9rem; white-space:nowrap;
-  }
-
-  /* Quick nav (hero pills) */
-  .quick-nav{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.7rem; }
-  .quick-nav a{
-    display:inline-flex; align-items:center; gap:.5rem;
-    background:#fff; color:#254E70;
-    border:1px solid rgba(37,78,112,.12);
-    box-shadow:0 2px 6px rgba(0,0,0,.06);
-    padding:.55rem .9rem; border-radius:12px; font-weight:700; text-decoration:none;
-    transition:transform .12s ease, background .12s ease, color .12s ease, box-shadow .12s ease, border-color .12s ease;
-  }
-  .quick-nav a::before{ content:"•"; color:#254E70; font-weight:900; }
-  .quick-nav a:hover{
-    background:#254E70; color:#fff; border-color:#254E70;
-    transform:translateY(-1px); box-shadow:0 6px 14px rgba(37,78,112,.25);
-  }
-  .quick-nav a:hover::before{ color:#fff; }
-  .quick-nav a:focus-visible{
-    outline:3px solid #FFDD59; outline-offset:2px; box-shadow:0 0 0 3px rgba(255,221,89,.35);
-  }
-
-  /* Callout to Parents Hub */
-  .hub-callout{
-    margin-top:.9rem;
-    background:#fff; border:1px dashed rgba(37,78,112,.2);
-    border-radius:14px; padding:.8rem .9rem;
-    display:flex; flex-wrap:wrap; gap:.75rem; align-items:center;
-  }
-  .hub-callout strong{ color:#254E70; }
-  .hub-callout a{
-    display:inline-block; background:#FF6B6B; color:#fff; text-decoration:none;
-    padding:.6rem .9rem; border-radius:12px; font-weight:800; white-space:nowrap;
-    box-shadow:0 6px 16px rgba(255,107,107,.22);
-  }
-  .hub-callout a:hover{ filter:brightness(.95); transform:translateY(-1px); }
-
-  /* ===== Cards & headings ===== */
-  .topic-main h2,.topic-main h3{ font-family:'Nunito',sans-serif; color:#254E70; }
-  .topic-card{
-    background:#fff; border-radius:14px; box-shadow:0 8px 18px rgba(0,0,0,.06);
-    padding:1rem; margin-bottom:1rem;
-  }
-  .topic-main .topic-card:first-child{ margin-top:.25rem; }
-
-  /* Ticks list */
-  ul.ticks{ list-style:none; padding-left:0; margin:.25rem 0; }
-  ul.ticks li{ margin:.4rem 0; padding-left:1.25rem; position:relative; }
-  ul.ticks li::before{ content:'✔'; position:absolute; left:0; top:0; color:#24b159; font-weight:900; }
-
-  /* Aside (sticky on desktop) */
-  .topic-aside{
-    background:#FFFFFF; border:1px solid #f0f0f0; border-radius:16px;
-    padding:1rem; box-shadow:0 8px 18px rgba(0,0,0,.05);
-  }
-  @media (min-width:981px){ .topic-aside{ position:sticky; top:88px; } }
-
-  /* CTA buttons inside content */
-  .cta-btn{
-    display:inline-block; background:#FF6B6B; color:#fff; text-decoration:none;
-    padding:.65rem 1rem; border-radius:12px; font-weight:800;
-    box-shadow:0 6px 16px rgba(255,107,107,.22);
-  }
-
-  /* ===== Link states (scoped to topic page) ===== */
-  .topic-main a, .topic-aside a{
-    color:#254E70;
-    text-decoration:underline;
-    text-decoration-thickness:2px;
-    text-underline-offset:2px;
-    transition:color .15s ease, text-decoration-color .15s ease, box-shadow .15s ease;
-  }
-  .topic-main a:hover, .topic-aside a:hover{
-    color:#163652; text-decoration-color:#FF6B6B;
-  }
-  .topic-main a:focus-visible, .topic-aside a:focus-visible{
-    outline:3px solid #FFDD59; outline-offset:2px; border-radius:6px; text-decoration:none;
-  }
-  /* ===== Parenting & Behavior: small-screen fixes (also fine for all topic pages) ===== */
-@media (max-width: 720px){
-  /* overall padding a bit tighter */
-  .topic-wrap{ padding-inline: .5rem; }
-
-  /* hero stacks title + copy nicely */
-  .topic-hero{
-    padding: .9rem .85rem;
-    border-radius: 14px;
-  }
-  .topic-hero .th-grid{
-    grid-template-columns: 1fr;   /* stack */
-    gap: 8px;
-  }
-  .topic-hero h1{
-    font-size: clamp(1.5rem, 4.5vw + .6rem, 1.9rem);
-    line-height: 1.1;
-    margin: 0;
-  }
-  .topic-hero .lead{
-    margin: .1rem 0 .5rem;
-    font-size: 1rem;
-  }
-
-  /* audience chips: smaller + tighter */
-  .aud-chips{ gap: .4rem .45rem; }
-  .aud-chips span{
-    padding: .34rem .6rem;
-    font-size: .85rem;
-  }
-
-  /* quick nav: 2-column grid buttons */
-  .quick-nav{
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: .5rem;
-    margin-top: .5rem;
-  }
-  .quick-nav a{
-    justify-content: center;
-    padding: .55rem .65rem;
-    font-size: .95rem;
-    border-radius: 10px;
-    /* prevent chip text overflow */
-    overflow-wrap: anywhere;
-    white-space: nowrap;
-  }
-
-  /* hub callout: stack + make CTA full width */
-  .hub-callout{
-    padding: .75rem .8rem;
-    display: grid;
-    gap: .6rem;
-    border-radius: 12px;
-  }
-  .hub-callout a{
-    width: 100%;
-    text-align: center;
-  }
-
-  /* cards breathe but don’t waste space */
-  .topic-card{ padding: .9rem; }
-}
-
-/* Micro phones */
-@media (max-width: 360px){
-  .quick-nav{ grid-template-columns: 1fr; } /* 1 per row if super narrow */
-}
-  </style>
-
-  <!-- Structured Data -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow" />
+  <title>育儿与行为引导 - Healthy Little Minds</title>
+  <meta name="description" content="以连接为先的育儿工具，帮助家庭建立平静界限、日常规律、合作与关系修复。" />
+  <link rel="canonical" href="https://www.healthylittleminds.club/zh-cn/resources/parents.html" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/icon-512.webp" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#F08C72" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.healthylittleminds.club/zh-cn/resources/parents.html" />
+  <meta property="og:title" content="育儿与行为引导 - Healthy Little Minds" />
+  <meta property="og:description" content="以连接为先的育儿工具，帮助家庭建立平静界限、日常规律、合作与关系修复。" />
+  <meta property="og:image" content="https://www.healthylittleminds.club/images/social-preview.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="育儿与行为引导 - Healthy Little Minds" />
+  <meta name="twitter:description" content="以连接为先的育儿工具，帮助家庭建立平静界限、日常规律、合作与关系修复。" />
+  <meta name="twitter:image" content="https://www.healthylittleminds.club/images/social-preview.jpg" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="../../style.css?v=102" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link href="../../resources/resource-polish.css?v=8" rel="stylesheet" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "育儿与行为引导 – 健康小脑袋",
-    "datePublished": "2025-09-02",
-    "dateModified": "2025-09-02",
-    "author": { "@type": "Person", "name": "Godswill Ambrose" },
-    "publisher": { "@type": "Organization", "name": "健康小脑袋" },
-    "inLanguage": "zh-cn",
-    "about": "育儿与行为引导"
+    "headline": "育儿与行为引导 - Healthy Little Minds",
+    "dateModified": "2026-06-24",
+    "publisher": { "@type": "Organization", "name": "Healthy Little Minds" },
+    "inLanguage": "zh-CN",
+    "about": "育儿与儿童行为支持"
   }
   </script>
-  <link href="../../resources/resource-polish.css?v=8" rel="stylesheet" />
 </head>
 <body class="topic-page topic-page--parents">
   <script defer src="../../resources/resource-language-switcher.js?v=1"></script>
-  <a class="topic-back-link" href="../home.html#topics">← 返回所有主题</a>
-<div class="topic-wrap">
-    <nav class="breadcrumb" aria-label="面包屑导航">
+  <div class="topic-wrap">
+    <div class="resource-toolbar">
+      <a href="../home.html#resources">← 返回资源库</a>
+      <span class="resource-reading">家长指南 · 约7分钟</span>
+    </div>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="../home.html">首页</a> &raquo;
-      <a href="../home.html#hlm-topics-title">资源区</a> &raquo;
+      <a href="../home.html#resources">资源</a> &raquo;
       <span aria-current="page">育儿与行为引导</span>
     </nav>
 
-    <section class="topic-grid">
-      <!-- HERO -->
-      <header class="topic-hero" role="banner">
-        <div class="th-grid">
-          <div class="th-title">
-            <h1>育儿与行为引导</h1>
-          </div>
-
-          <div class="th-copy">
-            <p class="lead">
-              温柔实用的方法，帮助引导孩子行为、建立规律并在家庭中培养连接感。
-            </p>
-
-            <div class="aud-chips" role="list" aria-label="适用人群">
-              <span role="listitem">家长</span>
-              <span role="listitem">看护人</span>
-              <span role="listitem">教育者</span>
-            </div>
-
-            <!-- 快速导航 -->
-            <nav class="quick-nav" aria-label="本页内容">
-              <a href="#overview">概述</a>
-              <a href="#try">立即尝试</a>
-              <a href="#talk">对话引导</a>
-              <a href="#downloads">下载与探索</a>
-            </nav>
-
-            <!-- 家长中心提示 -->
-            <div class="hub-callout" role="note" aria-label="家长中心">
-              <strong>想要查看详细步骤与日常引导计划？</strong>
-              <a href="../parents.html">前往家长中心 →</a>
-            </div>
-          </div>
+    <header class="topic-hero parenting-hero" role="banner">
+      <div class="parenting-hero__copy">
+        <p class="eyebrow">给家长和照顾者</p>
+        <h1>育儿与行为引导</h1>
+        <p class="lead">当行为显得很强烈、令人困惑或让人疲惫时，先从连接开始，再走向清楚、可教的界限。</p>
+        <div class="aud-chips" role="list" aria-label="适合人群">
+          <span role="listitem">家长</span>
+          <span role="listitem">照顾者</span>
+          <span role="listitem">教育者</span>
         </div>
-      </header>
+        <nav class="quick-nav" aria-label="本页内容">
+          <a href="#understand">理解</a>
+          <a href="#moment">当下应对</a>
+          <a href="#routines">规律</a>
+          <a href="#repair">修复</a>
+          <a href="#support">支持</a>
+        </nav>
+      </div>
+      <div class="parenting-hero__path" aria-label="温和育儿路径">
+        <div><strong>1</strong><span>连接</span><small>帮助身体安定下来</small></div>
+        <div><strong>2</strong><span>引导</span><small>说出安全的下一步</small></div>
+        <div><strong>3</strong><span>修复</span><small>重新连接并练习</small></div>
+      </div>
+    </header>
 
-      <!-- MAIN -->
+    <section class="topic-grid parenting-layout">
       <article class="topic-main">
-        <div class="topic-card" id="overview">
-          <h2>概述</h2>
-          <p>
-            提供温柔且实用的方法，用于引导孩子行为、建立家庭规律并增强亲子关系。
-            每个孩子与家庭都是独特的——请选择适合您情况的方法。
-          </p>
+        <div class="topic-card parenting-start" id="understand">
+          <div class="parenting-card-heading">
+            <p class="parenting-kicker">从这里开始</p>
+            <h2>行为会提供线索</h2>
+          </div>
+          <p>困难时刻可能是在告诉我们：孩子的身体已经超负荷、某个需要没有被满足、某项技能还在发展，或某条界限需要成人稳定地引导。先看见线索，再选择回应。</p>
+          <div class="parenting-signal-grid">
+            <div><strong>身体</strong><span>疲倦、饥饿、刺激过多、身体不舒服</span></div>
+            <div><strong>感受</strong><span>失望、担心、嫉妒、生气</span></div>
+            <div><strong>技能</strong><span>等待、分享、转换任务、用语言表达</span></div>
+            <div><strong>界限</strong><span>清楚的规则需要平静地坚持</span></div>
+          </div>
         </div>
 
-        <div class="topic-card" id="try">
-          <h2>立即尝试</h2>
-          <ul class="ticks">
-            <li><strong>先建立连接：</strong> 给孩子 5 分钟不被打扰的专注时间——一起玩耍、聊天或吃点东西。</li>
-            <li><strong>提供选择：</strong> 给出两个合理选项，鼓励合作。</li>
-            <li><strong>表达需求：</strong> “你是累了、饿了，还是需要独处？” 一起解决问题。</li>
-          </ul>
+        <div class="topic-card" id="moment">
+          <div class="parenting-card-heading">
+            <p class="parenting-kicker">困难时刻</p>
+            <h2>平静的四步回应</h2>
+          </div>
+          <ol class="parenting-steps">
+            <li><strong>暂停并靠近</strong><span>降低声音，减少语言，先确认眼前的安全。</span></li>
+            <li><strong>说出你看见的</strong><span>“游戏结束了，你很难过。我在这里。”</span></li>
+            <li><strong>说出界限和行动</strong><span>“我不会让你打人。你可以捏这个靠垫，或坐在我旁边。”</span></li>
+            <li><strong>之后重新连接</strong><span>平静后简短倾听，并一起练习下次可以怎么做。</span></li>
+          </ol>
         </div>
 
-        <div class="topic-card" id="talk">
-          <h3>对话引导</h3>
-          <ul>
-            <li>“当你感到难受时，你的身体会发出什么信号？”</li>
-            <li>“虽然不能完全解决问题，但什么事情能让你稍微好一些？”</li>
-            <li>“如果我们需要更多支持，可以找谁帮忙？”</li>
-          </ul>
+        <div class="topic-card parenting-scripts">
+          <div class="parenting-card-heading">
+            <p class="parenting-kicker">引导性的语言</p>
+            <h2>把模糊命令换成清楚指令</h2>
+          </div>
+          <div class="parenting-script-row">
+            <span class="parenting-script-situation">准备出门</span>
+            <p>不要说：“快点！” 试试：“现在穿鞋。红鞋还是蓝鞋？”</p>
+          </div>
+          <div class="parenting-script-row">
+            <span class="parenting-script-situation">危险玩法</span>
+            <p>不要说：“停下！” 试试：“积木放在地上。你可以继续搭，也可以收起来。”</p>
+          </div>
+          <div class="parenting-script-row">
+            <span class="parenting-script-situation">大怒气</span>
+            <p>不要说：“冷静点！” 试试：“你的身体很生气。我会在旁边，帮助大家保持安全。”</p>
+          </div>
         </div>
 
-        <div class="topic-card" id="downloads">
-          <h3>下载与探索</h3>
-          <p>
-            尝试我们的可打印工具与亲子故事：
-            <a class="cta-btn" href="../home.html#worksheets">🎨 工作纸</a>
-            &nbsp;&nbsp;
-            <a class="cta-btn" href="../inspire_page.html">🎬 精选视频</a>
-            &nbsp;&nbsp;
-            <a class="cta-btn" href="../parents.html">👪 家长中心</a>
-          </p>
-          <p class="disclaimer">
-            本内容仅用于教育目的，不能替代医疗或心理治疗建议。
-            如有健康或安全方面的担忧，请立即联系专业人员或本地服务机构。
-          </p>
+        <div class="topic-card" id="routines">
+          <div class="parenting-card-heading">
+            <p class="parenting-kicker">让合作更容易</p>
+            <h2>建立可预测的规律</h2>
+          </div>
+          <div class="routine-grid">
+            <section>
+              <h3>早晨</h3>
+              <p>选择三个看得见的步骤：穿衣、吃饭、拿书包。先肯定开始行动，而不是等到完美。</p>
+            </section>
+            <section>
+              <h3>转换</h3>
+              <p>提前简短提醒，说出接下来是什么，并让孩子完成一个小小的收尾动作。</p>
+            </section>
+            <section>
+              <h3>睡前</h3>
+              <p>保持顺序稳定：洗漱、故事、连接、关灯。把选择提前给，可以减少睡前拉扯。</p>
+            </section>
+          </div>
+          <p class="support-note"><strong>保持现实:</strong> 一个能反复练习的规律，比谁都维持不了的完美计划更有用。</p>
+        </div>
+
+        <div class="topic-card" id="repair">
+          <div class="parenting-card-heading">
+            <p class="parenting-kicker">冲突之后</p>
+            <h2>修复会建立信任</h2>
+          </div>
+          <div class="repair-panel">
+            <p><strong>成人可以说:</strong> 刚才我喊了你。对不起。我想用更平静的声音重新试一次。</p>
+            <p><strong>孩子可以练习:</strong> 说出发生了什么，帮助修补问题，或练习更安全的语言和行动。</p>
+          </div>
+          <p>修复不是取消界限，而是让孩子看见：边界和爱的连接可以同时存在。</p>
+        </div>
+
+        <div class="topic-card" id="support">
+          <div class="parenting-card-heading">
+            <p class="parenting-kicker">不要独自承受</p>
+            <h2>什么时候需要寻求支持</h2>
+          </div>
+          <p class="support-note"><strong>请咨询合适的专业人士</strong> 如果行为变化持续存在、影响学校或家庭生活、涉及严重攻击或自伤相关言语，或让任何人感到不安全。若有即时危险，请寻求当地紧急帮助。</p>
+          <div class="parenting-actions">
+            <a class="cta-btn" href="../parents.html">前往家长中心</a>
+            <a class="cta-btn cta-btn--quiet" href="../home.html#worksheets">寻找练习单</a>
+            <a class="cta-btn cta-btn--quiet" href="../audiobook.html?book=audiobooks/ella/book.json">听 One More Kick, Ella!</a>
+            <a class="cta-btn cta-btn--quiet" href="worry-anxiety.html">查看焦虑支持</a>
+          </div>
+        </div>
+
+        <div class="topic-return-panel">
+          <p>继续建立你们家的情绪工具箱。</p>
+          <a href="../home.html#resources">浏览所有资源</a>
         </div>
       </article>
 
-      <!-- ASIDE -->
-      <aside class="topic-aside">
-        <h3>实用链接</h3>
-        <ul>
-          <li><a href="../interactive-tools.html">互动工具</a></li>
-          <li><a href="../audiobook_section.html">有声读物</a></li>
-          <li><a href="../parents.html">家长专区（主页）</a></li>
+      <aside class="topic-aside parenting-aside">
+        <section class="parenting-toolbox" aria-label="快速提醒">
+          <h2>今天只试一件事</h2>
+          <p>选择一个反复出现的困难时刻，写下你想教给孩子的安全行动。</p>
+          <p class="parenting-example"><strong>例子:</strong> 吃饭时双脚放在地上。</p>
+        </section>
+
+        <nav class="related-topics" aria-label="相关主题">
+          <h3>继续探索</h3>
+          <a href="emotions.html"><strong>情绪</strong><span>找到感受的词语</span></a>
+          <a href="sleep.html"><strong>睡眠</strong><span>加强晚间规律</span></a>
+          <a href="school-transitions.html"><strong>入学与转换</strong><span>支持新的开始</span></a>
+        </nav>
+
+        <hr class="soft" />
+        <h3>可信的起点</h3>
+        <ul class="parenting-links">
+          <li><a href="https://www.cdc.gov/child-development/positive-parenting-tips/index.html" rel="noopener noreferrer" target="_blank">CDC positive parenting tips</a></li>
+          <li><a href="https://www.healthychildren.org/English/family-life/family-dynamics/communication-discipline/Pages/Disciplining-Your-Child.aspx" rel="noopener noreferrer" target="_blank">HealthyChildren discipline guidance</a></li>
         </ul>
-        <hr class="soft">
-        <p class="disclaimer">如果您正处于紧急危险中，请立即拨打当地紧急电话。</p>
+        <p class="disclaimer">本页仅供教育参考，不等同于诊断、治疗或个别化育儿建议。</p>
       </aside>
     </section>
   </div>
-
-  <footer style="text-align:center; padding:1rem; color:#6b7a8e;">
-    &copy; 2025 健康小脑袋
-  </footer>
+  <footer class="topic-footer">&copy; 2026 Healthy Little Minds</footer>
   <script defer src="../../button-loader.js?v=1"></script>
 </body>
 </html>

@@ -26,8 +26,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Nunito:wght@600;700;800&amp;family=Noto+Sans+KR:wght@400;500;700;800&amp;display=swap" rel="stylesheet" />
-  <link href="../parents-hub.css?v=6" rel="stylesheet" />
-  <script defer src="../parents-hub.js?v=1"></script>
+  <link href="../parents-hub.css?v=8" rel="stylesheet" />
+  <script defer src="../parents-hub.js?v=2"></script>
 </head>
 <body class="parent-page parent-page--ko parent-page--downloads">
   <header class="parent-header">
@@ -56,12 +56,40 @@
       <p class="parent-kicker">함께 해보는 활동</p>
       <h1>인쇄 자료</h1>
       <p>편안한 시간에 그림을 그리고 대화하며 감정을 다루는 방법을 함께 연습해 보세요. 감정이 크게 올라오기 전에 익숙해질수록 더 도움이 됩니다.</p>
-      <nav class="parent-jump-nav" aria-label="인쇄 자료 내용">
+      <nav class="parent-jump-nav" aria-label="Printable sections">
+        <a href="#choose">필요에 맞게 고르기</a>
         <a href="#featured">추천 워크북</a>
         <a href="#library">전체 자료</a>
         <a href="#use-together">활용 방법</a>
       </nav>
     </header>
+
+    <section class="parent-section" id="choose" aria-labelledby="ko-choose-printable">
+      <div class="parent-section__head">
+        <h2 id="ko-choose-printable">오늘에 맞는 자료 고르기</h2>
+        <p>완벽한 수업 계획보다 지금 보이는 순간에서 시작하세요.</p>
+      </div>
+      <div class="download-chooser">
+        <article>
+          <span class="download-tag">큰 감정</span>
+          <h3>감정이 너무 크게 느껴질 때</h3>
+          <p><strong>마음속 폭풍 잠재우기</strong>로 아이가 몸 안에서 일어나는 일을 알아차리고 말로 표현하도록 도와주세요.</p>
+          <a href="#featured">워크북으로 이동</a>
+        </article>
+        <article>
+          <span class="download-tag">두려움과 걱정</span>
+          <h3>아이가 용기가 필요할 때</h3>
+          <p><strong>무서울 때</strong>로 안전한 어른, 작은 용기, 몸이 더 안전하게 느끼는 방법을 이야기해 보세요.</p>
+          <a href="#scared-printable">두려움 자료로 이동</a>
+        </article>
+        <article>
+          <span class="download-tag">친절</span>
+          <h3>연결을 연습하고 싶을 때</h3>
+          <p><strong>작은 행동, 큰 마음</strong>으로 배려하는 행동이 방 안의 감정을 어떻게 바꾸는지 알아차려 보세요.</p>
+          <a href="#kindness-printable">친절 자료로 이동</a>
+        </article>
+      </div>
+    </section>
 
     <section class="parent-section" id="featured" aria-labelledby="ko-featured-download">
       <div class="download-feature">
@@ -83,15 +111,15 @@
       </div>
       <div class="download-library">
         <article class="download-card">
-          <img src="../images/worksheet1.webp" alt="감정은 나의 슈퍼파워 워크시트 표지" width="340" height="255" />
-          <span class="download-tag">감정 이름 붙이기</span>
+          <img src="../images/calm-the-storm-workbook-cover.webp" alt="마음속 폭풍 잠재우기 워크북 표지" width="340" height="255" />
+          <span class="download-tag">진정 연습</span>
           <div>
-            <h3>감정은 나의 슈퍼파워</h3>
-            <p>그림과 돌아보기 질문을 통해 아이가 감정을 알아차리고 표현하도록 돕습니다.</p>
+            <h3>마음속 폭풍 잠재우기</h3>
+            <p>큰 감정에 이름을 붙이고, 몸의 신호를 알아차리고, 차분해지는 다음 행동을 선택하는 워크북입니다.</p>
           </div>
-          <a class="parent-btn parent-btn--secondary" href="../worksheets/worksheet1.pdf" download>PDF 다운로드</a>
+          <a class="parent-btn parent-btn--secondary" href="../worksheets/Calm the Storm Inside - My Feelings Workbook.pdf" download>PDF 다운로드</a>
         </article>
-        <article class="download-card">
+        <article class="download-card" id="scared-printable">
           <img src="../images/when-i-feel-scared-bkcover.webp" alt="무서울 때 활동지 표지" width="340" height="255" />
           <span class="download-tag">용기와 걱정</span>
           <div>
@@ -100,7 +128,7 @@
           </div>
           <a class="parent-btn parent-btn--secondary" href="../worksheets/When-I-Feel-Scared.pdf" download>PDF 다운로드</a>
         </article>
-        <article class="download-card">
+        <article class="download-card" id="kindness-printable">
           <img src="../images/Little-Acts-Big-Feelings-Worksheet-Cover.webp" alt="작은 행동, 큰 마음 활동지 표지" width="340" height="255" />
           <span class="download-tag">친절과 연결</span>
           <div>

@@ -1346,6 +1346,15 @@ body {
   line-height: 1.55;
 }
 
+.book-rail-mobile-hint {
+  display: none;
+  margin: 0.55rem 0 0;
+  color: #254e70;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
 .book-rail-controls {
   display: flex;
   gap: 0.5rem;
@@ -4899,6 +4908,23 @@ nav a.bulletin-link {
     line-height: 1.42;
   }
 
+  .book-rail-mobile-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.34rem 0.64rem;
+    border: 1px solid rgba(37, 78, 112, 0.12);
+    border-radius: 999px;
+    background: #fff7e6;
+    box-shadow: 0 8px 18px rgba(37, 78, 112, 0.08);
+  }
+
+  .book-rail-mobile-hint::after {
+    content: "->";
+    color: #ff6b6b;
+    font-size: 0.9rem;
+  }
+
   .book-rail-controls {
     align-self: center;
     gap: 0.35rem;
@@ -4925,6 +4951,8 @@ nav a.bulletin-link {
     scroll-padding-left: 1rem;
     -webkit-overflow-scrolling: touch;
     contain: layout paint;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 1rem, #000 calc(100% - 2.6rem), transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 1rem, #000 calc(100% - 2.6rem), transparent 100%);
   }
 
   #emotional-literacy .book-grid.book-rail-track {
