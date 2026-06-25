@@ -3,86 +3,765 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lonely – Healthy Little Minds</title>
-  <meta name="description" content="Explore loneliness in children and teens: causes, practical steps to build connection, and supportive resources." />
-  <meta name="keywords" content="loneliness, connection, friendships, children, teens, belonging" />
+  <title>Loneliness & Belonging - Healthy Little Minds</title>
+  <meta name="description" content="A gentle, interactive guide that helps children name loneliness, understand belonging, and take small connection steps." />
+  <meta name="keywords" content="loneliness, belonging, connection, friendship, children, emotional wellbeing" />
+  <link rel="canonical" href="https://www.healthylittleminds.com/lonely.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=102" />
   <style>
-    body{ font-family:'Poppins',sans-serif; background:radial-gradient(circle at 50% 30%, #fbf7ff 0%, #eadcff 25%, #d8c8ff 50%, #b79cf4 75%, #9473e8 100%); background-attachment:fixed; background-size:100% 100%; color:#333; margin:0; padding:2rem }
-    h1{ text-align:center; font-size:2rem }
-    .intro-text{ max-width:700px; margin:0 auto 1.5rem; text-align:center }
-    .breadcrumb{ text-align:center; margin-bottom:1rem }
-    .breadcrumb a{ color:#6C5CE7; text-decoration:none }
-    .subtopic-header{ background:#fff; padding:1.2rem; border-radius:12px; max-width:900px; margin:1rem auto; display:flex; justify-content:space-between; align-items:center; cursor:pointer }
-    .subtopic-header h2{ margin:0; color:#6C5CE7 }
-    .toggle-icon{ font-size:1.4rem }
-    .subtopic-content{ display:none; max-width:900px; margin:1rem auto; gap:1rem; grid-template-columns:1fr 1fr }
-    .subtopic-content.active{ display:grid }
-    .subtopic-card{ background:white; padding:1rem; border-radius:12px }
-    .book-section{ max-width:520px; margin:2rem auto; text-align:center }
-    footer{ text-align:center; margin-top:2rem; color:#777 }
-    @media (max-width:768px){ .subtopic-content{ grid-template-columns:1fr } }
+    :root {
+      --lonely-navy: #234f73;
+      --lonely-blue: #dff2ff;
+      --lonely-sky: #f4fbff;
+      --lonely-coral: #f46b93;
+      --lonely-cream: #fff8ec;
+      --lonely-mint: #e8f8ef;
+      --lonely-ink: #27384a;
+      --lonely-soft: rgba(35, 79, 115, .12);
+    }
+
+    body {
+      margin: 0;
+      font-family: "DM Sans", system-ui, sans-serif;
+      color: var(--lonely-ink);
+      background:
+        radial-gradient(circle at top left, rgba(244, 107, 147, .18), transparent 32rem),
+        radial-gradient(circle at 88% 8%, rgba(116, 199, 255, .28), transparent 28rem),
+        linear-gradient(180deg, #f8fdff 0%, #fff 48%, #f7fbff 100%);
+    }
+
+    .lonely-page {
+      overflow-x: hidden;
+    }
+
+    .lonely-shell {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .lonely-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .lonely-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .65rem;
+      color: var(--lonely-navy);
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    .lonely-brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      box-shadow: 0 10px 24px rgba(35, 79, 115, .12);
+    }
+
+    .lonely-links {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .lonely-links a,
+    .lonely-button {
+      border: 0;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--lonely-navy);
+      box-shadow: 0 10px 24px rgba(35, 79, 115, .1);
+      font: 800 .95rem/1 "DM Sans", system-ui, sans-serif;
+      padding: .75rem 1rem;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .lonely-button--primary {
+      background: var(--lonely-coral);
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(244, 107, 147, .25);
+    }
+
+    .lonely-hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(280px, .88fr);
+      gap: clamp(1.5rem, 4vw, 4rem);
+      align-items: center;
+      padding: clamp(2.4rem, 7vw, 5.5rem) 0 3rem;
+    }
+
+    .lonely-kicker {
+      width: fit-content;
+      margin: 0 0 1rem;
+      border-radius: 999px;
+      background: var(--lonely-blue);
+      color: var(--lonely-navy);
+      font-weight: 900;
+      padding: .55rem .85rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      font-size: .78rem;
+    }
+
+    .lonely-hero h1 {
+      margin: 0;
+      color: var(--lonely-navy);
+      font-family: "Nunito", "DM Sans", sans-serif;
+      font-size: clamp(2.5rem, 7vw, 5.4rem);
+      line-height: .94;
+      letter-spacing: 0;
+    }
+
+    .lonely-hero p {
+      max-width: 62ch;
+      color: #42576a;
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      line-height: 1.7;
+    }
+
+    .lonely-actions {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .connection-orbit {
+      position: relative;
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .connection-orbit::before {
+      content: "";
+      position: absolute;
+      width: min(92%, 360px);
+      aspect-ratio: 1;
+      border: 3px dashed rgba(35, 79, 115, .16);
+      border-radius: 50%;
+      animation: lonely-spin 26s linear infinite;
+    }
+
+    .connection-heart {
+      position: relative;
+      z-index: 2;
+      width: min(78vw, 240px);
+      border-radius: 34px;
+      background: linear-gradient(145deg, #fff, #f1fbff);
+      box-shadow: 0 24px 60px rgba(35, 79, 115, .16);
+      padding: 1.25rem;
+      text-align: center;
+      transform: rotate(-2deg);
+    }
+
+    .connection-heart strong {
+      display: block;
+      color: var(--lonely-navy);
+      font-family: "Nunito", sans-serif;
+      font-size: 1.35rem;
+      margin-bottom: .45rem;
+    }
+
+    .connection-heart span {
+      color: #597083;
+      line-height: 1.45;
+    }
+
+    .orbit-note {
+      position: absolute;
+      z-index: 3;
+      max-width: 148px;
+      border-radius: 22px;
+      background: #fff;
+      color: var(--lonely-navy);
+      box-shadow: 0 16px 36px rgba(35, 79, 115, .14);
+      padding: .85rem .95rem;
+      font-weight: 800;
+    }
+
+    .orbit-note:nth-child(2) { top: 3%; left: 8%; background: #fff4f8; }
+    .orbit-note:nth-child(3) { top: 13%; right: 2%; background: #eff9ff; }
+    .orbit-note:nth-child(4) { bottom: 9%; left: 0; background: var(--lonely-mint); }
+    .orbit-note:nth-child(5) { bottom: 4%; right: 9%; background: var(--lonely-cream); }
+
+    .lonely-section {
+      padding: clamp(2.5rem, 7vw, 5rem) 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 1.35rem;
+    }
+
+    .section-head h2 {
+      margin: 0 0 .65rem;
+      color: var(--lonely-navy);
+      font-family: "Nunito", sans-serif;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1.05;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: #587084;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .signal-grid,
+    .script-grid,
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .soft-card {
+      border: 1px solid rgba(35, 79, 115, .1);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, .88);
+      box-shadow: 0 18px 44px rgba(35, 79, 115, .08);
+      padding: 1.15rem;
+    }
+
+    .soft-card h3 {
+      margin: 0 0 .55rem;
+      color: var(--lonely-navy);
+      font-family: "Nunito", sans-serif;
+      font-size: 1.18rem;
+    }
+
+    .soft-card p {
+      margin: 0;
+      color: #4d6274;
+      line-height: 1.58;
+    }
+
+    .map-panel {
+      display: grid;
+      grid-template-columns: minmax(230px, .72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      border: 1px solid rgba(35, 79, 115, .1);
+      border-radius: 30px;
+      background: linear-gradient(135deg, #fff 0%, #f1fbff 100%);
+      box-shadow: 0 24px 70px rgba(35, 79, 115, .12);
+      padding: 1rem;
+    }
+
+    .map-tabs {
+      display: grid;
+      gap: .75rem;
+      align-content: start;
+    }
+
+    .map-tab {
+      border: 1px solid rgba(35, 79, 115, .13);
+      border-radius: 18px;
+      background: #fff;
+      color: var(--lonely-navy);
+      cursor: pointer;
+      font: 900 1rem/1.15 "DM Sans", system-ui, sans-serif;
+      padding: 1rem;
+      text-align: left;
+      transition: transform .22s ease, background .22s ease, color .22s ease, box-shadow .22s ease;
+    }
+
+    .map-tab[aria-selected="true"] {
+      background: var(--lonely-navy);
+      color: #fff;
+      box-shadow: 0 16px 34px rgba(35, 79, 115, .22);
+      transform: translateY(-2px);
+    }
+
+    .map-story {
+      position: relative;
+      min-height: 320px;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(244, 107, 147, .16), transparent 12rem),
+        #fff;
+      padding: clamp(1.25rem, 4vw, 2rem);
+      overflow: hidden;
+    }
+
+    .map-story::after {
+      content: "";
+      position: absolute;
+      right: -54px;
+      bottom: -64px;
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      background: rgba(223, 242, 255, .85);
+    }
+
+    .map-story-inner {
+      position: relative;
+      z-index: 2;
+      animation: soft-rise .34s ease;
+    }
+
+    .map-story h3 {
+      margin: 0 0 .5rem;
+      color: var(--lonely-navy);
+      font-family: "Nunito", sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.35rem);
+    }
+
+    .map-story p {
+      max-width: 58ch;
+      color: #42576a;
+      line-height: 1.72;
+    }
+
+    .connection-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      counter-reset: step;
+      margin: 1.5rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .connection-steps li {
+      position: relative;
+      border-radius: 22px;
+      background: #f7fcff;
+      padding: 1rem 1rem 1rem 3.15rem;
+      color: #42576a;
+      line-height: 1.55;
+    }
+
+    .connection-steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      display: grid;
+      place-items: center;
+      width: 1.6rem;
+      height: 1.6rem;
+      border-radius: 50%;
+      background: var(--lonely-coral);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .script-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .script-card {
+      background: #fff;
+    }
+
+    .script-card p {
+      font-weight: 800;
+      color: var(--lonely-navy);
+    }
+
+    .book-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .book-card {
+      display: grid;
+      grid-template-columns: 132px minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      background: #fff;
+    }
+
+    .book-card img {
+      width: 132px;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 12px 28px rgba(35, 79, 115, .12);
+    }
+
+    .book-card a {
+      display: inline-flex;
+      width: fit-content;
+      margin-top: .85rem;
+      border-radius: 999px;
+      background: var(--lonely-navy);
+      color: #fff;
+      padding: .72rem 1rem;
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    .closing-card {
+      border-radius: 30px;
+      background: linear-gradient(135deg, var(--lonely-navy), #2c6d98);
+      color: #fff;
+      padding: clamp(1.4rem, 4vw, 2.4rem);
+      box-shadow: 0 24px 70px rgba(35, 79, 115, .22);
+    }
+
+    .closing-card h2 {
+      margin: 0 0 .5rem;
+      color: #fff;
+      font-family: "Nunito", sans-serif;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+    }
+
+    .closing-card p {
+      max-width: 72ch;
+      margin: 0;
+      line-height: 1.7;
+      color: rgba(255,255,255,.88);
+    }
+
+    .lonely-footer {
+      padding: 2rem 0 3rem;
+      color: #5d7182;
+      text-align: center;
+    }
+
+    .lonely-footer a {
+      color: var(--lonely-navy);
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    @keyframes lonely-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes soft-rise {
+      0% { opacity: 0; transform: translateY(12px) scale(.98); }
+      70% { transform: translateY(-2px) scale(1.01); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @media (max-width: 900px) {
+      .lonely-hero,
+      .map-panel,
+      .book-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .signal-grid,
+      .script-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .connection-orbit {
+        min-height: 310px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .lonely-shell {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .lonely-nav {
+        align-items: flex-start;
+      }
+
+      .lonely-links {
+        gap: .45rem;
+      }
+
+      .lonely-links a {
+        padding: .65rem .78rem;
+        font-size: .86rem;
+      }
+
+      .lonely-hero {
+        padding-top: 1.5rem;
+      }
+
+      .orbit-note {
+        position: static;
+        max-width: none;
+      }
+
+      .connection-orbit {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: .75rem;
+        min-height: auto;
+      }
+
+      .connection-orbit::before {
+        display: none;
+      }
+
+      .connection-heart {
+        grid-column: 1 / -1;
+        width: auto;
+        transform: none;
+      }
+
+      .signal-grid,
+      .script-grid,
+      .connection-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .map-panel {
+        padding: .75rem;
+        border-radius: 24px;
+      }
+
+      .map-story {
+        min-height: 0;
+      }
+
+      .book-card {
+        grid-template-columns: 92px minmax(0, 1fr);
+      }
+
+      .book-card img {
+        width: 92px;
+        border-radius: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
   </style>
 </head>
-<body>
+<body class="lonely-page">
   <script>
-    (function(){ const isMember=localStorage.getItem('isMember')==='true'; if(!isMember){ const p=window.location.pathname; const l=p.split('/')[1]; const r=l&&p.includes('/'+l+'/')?'/'+l+'/index.html':'/index.html'; window.location.replace(r); }})();
-    function toggleSection(id){ const el=document.getElementById(id); const ic=document.getElementById(id+'-icon'); el.classList.toggle('active'); ic.textContent = el.classList.contains('active') ? '➖' : '➕'; }
+    (() => {
+      const isMember = localStorage.getItem("isMember") === "true";
+      const localPreview = window.location.protocol === "file:" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname === "localhost";
+      if (!isMember && !localPreview) window.location.replace("/index.html");
+    })();
   </script>
 
-  <div class="breadcrumb"><a href="home.html">Home</a> &gt; <span>Lonely</span></div>
-  <h1>🌱 Feeling Lonely</h1>
-  <p class="intro-text">Loneliness can feel heavy, but small changes and supportive steps can help children and teens grow connections and feel less alone.</p>
+  <header class="lonely-shell lonely-nav">
+    <a class="lonely-brand" href="home.html" aria-label="Healthy Little Minds home">
+      <img src="images/logo-icon.webp" alt="" />
+      <span>Healthy Little Minds</span>
+    </a>
+    <nav class="lonely-links" aria-label="Page links">
+      <a href="home.html">Home</a>
+      <a href="more-feelings.html">Feelings</a>
+      <a href="parents.html">Parents</a>
+    </nav>
+  </header>
 
-  <div class="subtopic-header" onclick="toggleSection('causes')">
-    <h2>What can cause loneliness</h2>
-    <span id="causes-icon" class="toggle-icon">➕</span>
-  </div>
-  <div id="causes" class="subtopic-content">
-    <div class="subtopic-card"><h3>Moving or Changing Schools</h3><p>Leaving familiar friends and places can make it hard to feel connected.</p></div>
-    <div class="subtopic-card"><h3>Different Interests</h3><p>Not sharing hobbies or language with peers can feel isolating.</p></div>
-    <div class="subtopic-card"><h3>Family Changes</h3><p>Separation, loss, or shifts at home can reduce feelings of safety and belonging.</p></div>
-    <div class="subtopic-card"><h3>Social Anxiety</h3><p>Feeling worried in social situations can make reaching out harder.</p></div>
-    <div class="subtopic-card"><h3>Exclusion</h3><p>Being left out, even sometimes, can create a sense of loneliness.</p></div>
-    <div class="subtopic-card"><h3>Online vs Real Life</h3><p>Online connections sometimes feel less deep than face-to-face ones.</p></div>
-  </div>
+  <main>
+    <section class="lonely-shell lonely-hero" aria-labelledby="lonelyTitle">
+      <div>
+        <p class="lonely-kicker">Feeling lonely</p>
+        <h1 id="lonelyTitle">Loneliness is a signal, not a sentence.</h1>
+        <p>
+          Sometimes your heart is simply saying, "I need connection." This page helps children
+          notice that message, choose one gentle step, and remember that belonging can grow slowly.
+        </p>
+        <div class="lonely-actions">
+          <a class="lonely-button lonely-button--primary" href="#connection-map">Try the connection map</a>
+          <a class="lonely-button" href="#helpful-reads">Find a story</a>
+        </div>
+      </div>
 
-  <div class="subtopic-header" onclick="toggleSection('management')">
-    <h2>Ways to feel more connected</h2>
-    <span id="management-icon" class="toggle-icon">➕</span>
-  </div>
-  <div id="management" class="subtopic-content">
-    <div class="subtopic-card"><h3>Join Small Groups</h3><p>Clubs or activities give gentle chances to meet people who like the same things.</p></div>
-    <div class="subtopic-card"><h3>Reach Out</h3><p>Send a message or invite someone for a short activity — small steps add up.</p></div>
-    <div class="subtopic-card"><h3>Volunteer</h3><p>Helping others creates natural connections and purpose.</p></div>
-    <div class="subtopic-card"><h3>Talk with a Trusted Adult</h3><p>Share how you feel — they can help with next steps and support.</p></div>
-    <div class="subtopic-card"><h3>Practice Conversation</h3><p>Try simple questions or shared activities to make starting easier.</p></div>
-    <div class="subtopic-card"><h3>Be Patient</h3><p>Friendships take time — keep showing up and small bonds will grow.</p></div>
-  </div>
+      <div class="connection-orbit" aria-label="Small reminders about belonging">
+        <div class="connection-heart">
+          <strong>You are still wanted.</strong>
+          <span>A quiet moment does not mean you are forgotten.</span>
+        </div>
+        <div class="orbit-note">Ask one safe person</div>
+        <div class="orbit-note">Make one tiny invite</div>
+        <div class="orbit-note">Name what you miss</div>
+        <div class="orbit-note">Try again tomorrow</div>
+      </div>
+    </section>
 
-  <div class="book-section">
-    <h2>📚 Helpful Reads</h2>
-    <div class="book-card" style="background:#fff;padding:1.25rem;border-radius:16px;box-shadow:0 10px 24px rgba(0,0,0,.06);margin:1.25rem auto;max-width:420px;text-align:center;">
-      <img src="images/The_Day_Destiny_Wanted_To_Quit.webp" alt="The Day Destiny Wanted To Quit — cover" style="max-width:220px;border-radius:10px;display:block;margin:0 auto 1rem;" />
-      <h3 style="margin:0 0 .75rem;font-size:1.1rem;color:#6C5CE7;">📗 The Day Destiny Wanted To Quit</h3>
-      <p style="margin:0 0 1rem;color:#555;line-height:1.5;">Free interactive story about resilience, feelings, and keeping going when things feel hard.</p>
-      <a class="book-link" href="https://heyzine.com/flip-book/8736fac672.html" target="_blank" rel="noopener noreferrer">Read for free</a>
-    </div>
-    <div class="book-card" style="background:#fff;padding:1.25rem;border-radius:16px;box-shadow:0 10px 24px rgba(0,0,0,.06);margin:1.25rem auto;max-width:420px;text-align:center;">
-      <img src="images/little-acts-book-cover.webp" alt="Little Acts — cover" style="max-width:220px;border-radius:10px;display:block;margin:0 auto 1rem;" />
-      <h3 style="margin:0 0 .75rem;font-size:1.1rem;color:#6C5CE7;">📘 Little Acts, Big Feelings</h3>
-      <p style="margin:0 0 1rem;color:#555;line-height:1.5;">Helpful story for young readers about connection, kindness, and small steps when feeling alone.</p>
-      <a class="book-link" href="https://heyzine.com/flip-book/034942038a.html" target="_blank">Read the book</a>
-    </div>
-  </div>
+    <section class="lonely-shell lonely-section" aria-labelledby="signalTitle">
+      <div class="section-head">
+        <h2 id="signalTitle">What loneliness might be telling you</h2>
+        <p>Loneliness can arrive for many reasons. Naming the reason makes the next step feel smaller.</p>
+      </div>
+      <div class="signal-grid">
+        <article class="soft-card">
+          <h3>I miss someone</h3>
+          <p>You may be longing for a person, place, routine, or version of life that felt familiar.</p>
+        </article>
+        <article class="soft-card">
+          <h3>I want to join in</h3>
+          <p>Watching others connect can sting when you are not sure how to step into the group.</p>
+        </article>
+        <article class="soft-card">
+          <h3>I feel different</h3>
+          <p>Different interests, language, culture, or needs can make a child feel far away from others.</p>
+        </article>
+        <article class="soft-card">
+          <h3>I need a safe person</h3>
+          <p>Sometimes the first connection is not a friend. It is a trusted adult who listens well.</p>
+        </article>
+      </div>
+    </section>
 
-  <footer>© 2026 Healthy Little Minds • <a href="index.html">Home</a> • <a href="parents.html">Parents</a></footer>
+    <section class="lonely-shell lonely-section" id="connection-map" aria-labelledby="mapTitle">
+      <div class="section-head">
+        <h2 id="mapTitle">Choose where the lonely feeling shows up</h2>
+        <p>Tap a scene and try one small connection move. The goal is not to fix everything today. The goal is one brave bridge.</p>
+      </div>
+      <div class="map-panel">
+        <div class="map-tabs" role="tablist" aria-label="Loneliness situations">
+          <button class="map-tab" type="button" role="tab" aria-selected="true" data-scene="school">At school</button>
+          <button class="map-tab" type="button" role="tab" aria-selected="false" data-scene="home">At home</button>
+          <button class="map-tab" type="button" role="tab" aria-selected="false" data-scene="online">Online</button>
+          <button class="map-tab" type="button" role="tab" aria-selected="false" data-scene="new">Somewhere new</button>
+        </div>
+        <article class="map-story" aria-live="polite">
+          <div class="map-story-inner" id="mapStory">
+            <h3>At school</h3>
+            <p>If recess or lunch feels lonely, choose one child or adult and use a tiny sentence: "Can I sit here?" or "Can I join for one round?"</p>
+            <ol class="connection-steps">
+              <li>Look for one calm face.</li>
+              <li>Ask one simple question.</li>
+              <li>Tell a trusted adult what happened after.</li>
+            </ol>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="lonely-shell lonely-section" aria-labelledby="scriptsTitle">
+      <div class="section-head">
+        <h2 id="scriptsTitle">Words that make connection easier</h2>
+        <p>Children do not always need a big speech. Often they need a small sentence they can borrow.</p>
+      </div>
+      <div class="script-grid">
+        <article class="soft-card script-card">
+          <h3>When I want to join</h3>
+          <p>"Can I play too? I can wait for the next turn."</p>
+        </article>
+        <article class="soft-card script-card">
+          <h3>When I miss someone</h3>
+          <p>"I miss them today. Can we look at a photo or send a message?"</p>
+        </article>
+        <article class="soft-card script-card">
+          <h3>When I need help</h3>
+          <p>"I feel left out. Can you help me think of what to do next?"</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lonely-shell lonely-section" id="helpful-reads" aria-labelledby="readsTitle">
+      <div class="section-head">
+        <h2 id="readsTitle">Helpful stories for belonging</h2>
+        <p>Real Healthy Little Minds books that fit this feeling.</p>
+      </div>
+      <div class="book-grid">
+        <article class="soft-card book-card">
+          <img src="images/little-acts-book-cover.webp" alt="Little Acts, Big Feelings book cover" loading="lazy" decoding="async" />
+          <div>
+            <h3>Little Acts, Big Feelings</h3>
+            <p>A gentle story about connection, kindness, and the small ways children can help one another feel seen.</p>
+            <a href="https://heyzine.com/flip-book/034942038a.html" target="_blank" rel="noopener">Read the book</a>
+          </div>
+        </article>
+        <article class="soft-card book-card">
+          <img src="images/Family_Finds_You.webp" alt="Sometimes Family Finds You book cover" loading="lazy" decoding="async" />
+          <div>
+            <h3>Sometimes Family Finds You</h3>
+            <p>A quiet, heartfelt story about belonging, patience, and finding connection in unexpected places.</p>
+            <a href="https://heyzine.com/flip-book/e9a223a23a.html" target="_blank" rel="noopener">Read the book</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="lonely-shell lonely-section">
+      <div class="closing-card">
+        <h2>For grown-ups nearby</h2>
+        <p>
+          Loneliness is not always solved by telling a child to "go make friends." Start by believing the feeling.
+          Then help them find one repeatable connection: a lunchtime buddy, a club, a trusted adult check-in,
+          a short message to someone they miss, or a weekly family ritual that says, "You belong here."
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="lonely-shell lonely-footer">
+    <p>Healthy Little Minds - <a href="home.html">Home</a> - <a href="more-feelings.html">More feelings</a> - <a href="parents.html">Parent resources</a></p>
+  </footer>
 
   <script>
-    function toggleSection(id){ const el=document.getElementById(id); const ic=document.getElementById(id+'-icon'); el.classList.toggle('active'); ic.textContent = el.classList.contains('active') ? '➖' : '➕'; }
-    (function(){ const isMember=localStorage.getItem('isMember')==='true'; if(!isMember){ const p=window.location.pathname; const l=p.split('/')[1]; const r=l&&p.includes('/'+l+'/')?'/'+l+'/index.html':'/index.html'; window.location.replace(r); }})();
+    (() => {
+      const scenes = {
+        school: {
+          title: "At school",
+          text: "If recess or lunch feels lonely, choose one child or adult and use a tiny sentence: \"Can I sit here?\" or \"Can I join for one round?\"",
+          steps: ["Look for one calm face.", "Ask one simple question.", "Tell a trusted adult what happened after."]
+        },
+        home: {
+          title: "At home",
+          text: "If everyone seems busy, connection can begin with a clear request. Try: \"Can we have ten minutes together after dinner?\"",
+          steps: ["Name the person you want.", "Ask for a short, specific time.", "Choose one shared thing: reading, drawing, walking, or tea."]
+        },
+        online: {
+          title: "Online",
+          text: "Lots of scrolling can still feel lonely. Your body may be asking for a real voice, a real laugh, or a real safe person.",
+          steps: ["Pause and notice your body.", "Message someone kind, not just available.", "Balance it with one offline connection."]
+        },
+        new: {
+          title: "Somewhere new",
+          text: "New places can make everyone feel like an outsider at first. Belonging often starts with becoming familiar, one small return at a time.",
+          steps: ["Learn one name.", "Return to one same place or activity.", "Celebrate the smallest moment that felt easier."]
+        }
+      };
+
+      const tabs = document.querySelectorAll(".map-tab");
+      const story = document.getElementById("mapStory");
+      if (!tabs.length || !story) return;
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((item) => item.setAttribute("aria-selected", "false"));
+          tab.setAttribute("aria-selected", "true");
+          const scene = scenes[tab.dataset.scene] || scenes.school;
+          story.style.animation = "none";
+          story.offsetHeight;
+          story.innerHTML = `
+            <h3>${scene.title}</h3>
+            <p>${scene.text}</p>
+            <ol class="connection-steps">
+              ${scene.steps.map((step) => `<li>${step}</li>`).join("")}
+            </ol>
+          `;
+          story.style.animation = "";
+        });
+      });
+    })();
   </script>
   <script defer src="shared-language-switcher.js?v=1"></script>
-  <script defer src="feeling-support.js?v=1"></script>
   <script defer src="button-loader.js?v=1"></script>
 </body>
 </html>

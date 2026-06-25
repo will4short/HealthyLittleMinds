@@ -70,7 +70,10 @@
   }
 
   navigator.serviceWorker.register("/service-worker.js").then((registration) => {
-    try { registration.update(); } catch {}
+    const checkForUpdate = () => {
+      try { registration.update(); } catch {}
+    };
+    checkForUpdate();
     if (registration.waiting && navigator.serviceWorker.controller) {
       showUpdate(registration.waiting);
     }
@@ -85,6 +88,10 @@
     });
     navigator.serviceWorker.addEventListener("controllerchange", () => {
       window.location.reload();
+    });
+    window.addEventListener("focus", checkForUpdate);
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") checkForUpdate();
     });
   }).catch(() => {});
 })();
