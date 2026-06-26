@@ -90,6 +90,9 @@
     <section class="dash-section dash-panel dash-contact" id="support" aria-labelledby="ko-support-title">
       <div><p class="dash-kicker">지원</p><h2 id="ko-support-title">질문이나 제안이 있으신가요?</h2><p>가정이나 교실에서 자료를 더 쉽게 사용할 수 있도록 의견을 들려주세요.</p><a href="parents.html">부모 가이드 살펴보기 &rarr;</a></div>
       <form action="https://formspree.io/f/mrbkpepy" method="post">
+        <input type="hidden" name="form_type" value="contact_support" />
+        <input type="hidden" name="source_page" value="ko/dashboard.html" />
+        <input type="hidden" name="language" value="ko" />
         <label for="ko-name">이름</label><input id="ko-name" type="text" name="name" autocomplete="name" required />
         <label for="ko-email">이메일</label><input id="ko-email" type="email" name="_replyto" autocomplete="email" required />
         <label for="ko-message">메시지</label><textarea id="ko-message" name="message" rows="4" required></textarea>

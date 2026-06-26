@@ -1231,6 +1231,9 @@
   <h2 id="jaSubscribeTitle">📬 新しいリソースのお知らせ</h2>
   <p>新しい絵本、ワークシート、保護者向けのサポート資料が公開されたら、メールでお知らせします。</p>
   <form action="https://formspree.io/f/mkgbvboj" method="POST">
+        <input type="hidden" name="form_type" value="newsletter" />
+        <input type="hidden" name="source_page" value="ja/home.html" />
+        <input type="hidden" name="language" value="ja" />
     <label class="sr-only" for="ja-subscribe-email">メールアドレス</label>
     <input id="ja-subscribe-email" type="email" name="email" placeholder="メールアドレス" required>
     <button type="submit">購読する</button>

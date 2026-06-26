@@ -197,6 +197,9 @@
         <p>새로운 이야기, 활동, 인쇄 자료가 올라오면 가끔 알려드립니다.</p>
       </div>
       <form action="https://formspree.io/f/mkgbvboj" method="post">
+        <input type="hidden" name="form_type" value="newsletter" />
+        <input type="hidden" name="source_page" value="ko/parents.html" />
+        <input type="hidden" name="language" value="ko" />
         <label for="ko-parent-email" hidden>이메일 주소</label>
         <input id="ko-parent-email" type="email" name="email" autocomplete="email" placeholder="이메일 주소" required />
         <button type="submit">구독하기</button>

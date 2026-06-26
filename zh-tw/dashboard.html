@@ -96,6 +96,9 @@
     <section class="dash-section dash-panel dash-contact" id="support" aria-labelledby="tw-support-title">
       <div><p class="dash-kicker">支援</p><h2 id="tw-support-title">有問題或建議嗎？</h2><p>告訴我們，哪些資源能讓家庭或課堂使用起來更容易。</p><a href="parents.html">探索家長指引 &rarr;</a></div>
       <form action="https://formspree.io/f/mrbkpepy" method="post">
+        <input type="hidden" name="form_type" value="contact_support" />
+        <input type="hidden" name="source_page" value="zh-tw/dashboard.html" />
+        <input type="hidden" name="language" value="zh-tw" />
         <label for="tw-name">您的姓名</label><input id="tw-name" type="text" name="name" autocomplete="name" required />
         <label for="tw-email">電子郵件</label><input id="tw-email" type="email" name="_replyto" autocomplete="email" required />
         <label for="tw-message">您的訊息</label><textarea id="tw-message" name="message" rows="4" required></textarea>

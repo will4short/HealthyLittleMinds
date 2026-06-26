@@ -90,6 +90,9 @@
     <section class="dash-section dash-panel dash-contact" id="support" aria-labelledby="ja-support-title">
       <div><p class="dash-kicker">サポート</p><h2 id="ja-support-title">ご質問やご提案はありますか？</h2><p>ご家庭や教室で、もっと使いやすくなる資源についてお聞かせください。</p><a href="parents.html">保護者向けガイドを見る &rarr;</a></div>
       <form action="https://formspree.io/f/mrbkpepy" method="post">
+        <input type="hidden" name="form_type" value="contact_support" />
+        <input type="hidden" name="source_page" value="ja/dashboard.html" />
+        <input type="hidden" name="language" value="ja" />
         <label for="ja-name">お名前</label><input id="ja-name" type="text" name="name" autocomplete="name" required />
         <label for="ja-email">メールアドレス</label><input id="ja-email" type="email" name="_replyto" autocomplete="email" required />
         <label for="ja-message">メッセージ</label><textarea id="ja-message" name="message" rows="4" required></textarea>

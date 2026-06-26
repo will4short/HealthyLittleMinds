@@ -90,6 +90,9 @@
     <section class="dash-section dash-panel dash-contact" id="support" aria-labelledby="cn-support-title">
       <div><p class="dash-kicker">支持</p><h2 id="cn-support-title">有问题或建议吗？</h2><p>告诉我们，哪些资源能让家庭或课堂使用起来更容易。</p><a href="parents.html">探索家长指引 &rarr;</a></div>
       <form action="https://formspree.io/f/mrbkpepy" method="post">
+        <input type="hidden" name="form_type" value="contact_support" />
+        <input type="hidden" name="source_page" value="zh-cn/dashboard.html" />
+        <input type="hidden" name="language" value="zh-cn" />
         <label for="cn-name">您的姓名</label><input id="cn-name" type="text" name="name" autocomplete="name" required />
         <label for="cn-email">电子邮箱</label><input id="cn-email" type="email" name="_replyto" autocomplete="email" required />
         <label for="cn-message">您的留言</label><textarea id="cn-message" name="message" rows="4" required></textarea>

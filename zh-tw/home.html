@@ -1325,6 +1325,9 @@ html[lang="zh-TW"] .hlm-res{
   <h2 id="twSubscribeTitle">📬 接收新資源通知</h2>
   <p>新的繪本、學習單和家長支持資料上線時，我們會透過電子郵件通知您。</p>
   <form action="https://formspree.io/f/mkgbvboj" method="POST">
+        <input type="hidden" name="form_type" value="newsletter" />
+        <input type="hidden" name="source_page" value="zh-tw/home.html" />
+        <input type="hidden" name="language" value="zh-tw" />
     <label class="sr-only" for="tw-subscribe-email">電子郵件地址</label>
     <input id="tw-subscribe-email" type="email" name="email" placeholder="電子郵件地址" required>
     <button type="submit">訂閱</button>

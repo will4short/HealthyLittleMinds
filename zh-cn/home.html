@@ -1524,6 +1524,9 @@ html, body { overflow-x: hidden; }
       输入您的邮箱地址以订阅。
     </p>
     <form action="https://formspree.io/f/mkgbvboj" method="POST" style="margin-top: 1rem;">
+        <input type="hidden" name="form_type" value="newsletter" />
+        <input type="hidden" name="source_page" value="zh-cn/home.html" />
+        <input type="hidden" name="language" value="zh-cn" />
       <input type="email" name="email" placeholder="请输入您的邮箱地址" required
         style="padding: 0.6rem 1rem; width: 280px; max-width: 90%; border-radius: 30px; border: 1px solid #ccc; font-size: 1rem;">
       <br><br>

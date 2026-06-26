@@ -1356,6 +1356,9 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
   <h2 id="koSubscribeTitle">📬 새로운 자료 소식 받기</h2>
   <p>새로운 그림책, 워크시트, 부모님을 위한 도움 자료가 올라오면 이메일로 알려드릴게요.</p>
   <form action="https://formspree.io/f/mkgbvboj" method="POST">
+        <input type="hidden" name="form_type" value="newsletter" />
+        <input type="hidden" name="source_page" value="ko/home.html" />
+        <input type="hidden" name="language" value="ko" />
     <label class="sr-only" for="ko-subscribe-email">이메일 주소</label>
     <input id="ko-subscribe-email" type="email" name="email" placeholder="이메일 주소" required>
     <button type="submit">구독하기</button>

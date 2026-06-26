@@ -197,6 +197,9 @@
         <p>新しい絵本、活動、印刷ツールのお知らせを時々お届けします。</p>
       </div>
       <form action="https://formspree.io/f/mkgbvboj" method="post">
+        <input type="hidden" name="form_type" value="newsletter" />
+        <input type="hidden" name="source_page" value="ja/parents.html" />
+        <input type="hidden" name="language" value="ja" />
         <label for="ja-parent-email" hidden>メールアドレス</label>
         <input id="ja-parent-email" type="email" name="email" autocomplete="email" placeholder="メールアドレス" required />
         <button type="submit">登録する</button>
