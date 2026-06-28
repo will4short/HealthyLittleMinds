@@ -62,6 +62,9 @@ web_modules/
 # Output of 'npm pack'
 *.tgz
 
+# Local installer packages do not belong in site assets
+*.msi
+
 # Yarn Integrity file
 .yarn-integrity
 

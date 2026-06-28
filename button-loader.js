@@ -7,6 +7,27 @@
   const RESET_DELAY = 1200;
   const WORLD_CUP_THEME_ENABLED = true;
 
+  function loadingMessage() {
+    const lang = (document.documentElement.lang || "en").toLowerCase();
+    if (lang.startsWith("ja")) return "読み込み中";
+    if (lang.startsWith("ko")) return "불러오는 중";
+    if (lang.startsWith("zh-hant") || lang.startsWith("zh-tw")) return "載入中";
+    if (lang.startsWith("zh")) return "加载中";
+    return "Loading";
+  }
+
+  function statusRegion() {
+    let region = document.getElementById("hlm-loading-status");
+    if (region) return region;
+    region = document.createElement("span");
+    region.id = "hlm-loading-status";
+    region.className = "hlm-visually-hidden";
+    region.setAttribute("role", "status");
+    region.setAttribute("aria-live", "polite");
+    document.body.appendChild(region);
+    return region;
+  }
+
   function injectStyles() {
     if (document.getElementById("hlm-button-loader-styles")) return;
 
@@ -46,6 +67,18 @@
         .${LOADING_CLASS} .${SPINNER_CLASS} {
           animation-duration: 1.4s;
         }
+      }
+
+      .hlm-visually-hidden {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
       }
     `;
     document.head.appendChild(style);
@@ -89,11 +122,13 @@
     element.classList.add(LOADING_CLASS);
     element.setAttribute("aria-busy", "true");
     element.prepend(spinner);
+    statusRegion().textContent = loadingMessage();
 
     window.setTimeout(() => {
       spinner.remove();
       element.classList.remove(LOADING_CLASS);
       element.removeAttribute("aria-busy");
+      statusRegion().textContent = "";
     }, RESET_DELAY);
   }
 

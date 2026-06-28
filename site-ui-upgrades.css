@@ -1,0 +1,274 @@
+:root {
+  --hlm-navy: #254e70;
+  --hlm-coral: #ff6b6b;
+  --hlm-sky: #eaf7ff;
+  --hlm-mint: #e9fbf5;
+  --hlm-border: #dce8ee;
+  --hlm-shadow: 0 12px 28px rgba(37, 78, 112, 0.11);
+  --hlm-focus: 3px solid #285c7e;
+}
+
+/* Consistent cards across books, stories, resources, and parent pathways. */
+.ui-upgraded .book-card,
+.ui-upgraded .resource-card,
+.ui-upgraded .tool-card,
+.ui-upgraded .parent-path,
+.ui-upgraded .parent-situation,
+.ui-upgraded .parent-story-card,
+.ui-upgraded .parent-printable {
+  border: 1px solid var(--hlm-border) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 5px 16px rgba(37, 78, 112, 0.07) !important;
+  overflow: hidden;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.ui-upgraded .book-card:hover,
+.ui-upgraded .resource-card:hover,
+.ui-upgraded .tool-card:hover,
+.ui-upgraded .parent-path:hover,
+.ui-upgraded .parent-story-card:hover,
+.ui-upgraded .parent-printable:hover {
+  border-color: #a9c7d4 !important;
+  box-shadow: var(--hlm-shadow) !important;
+  transform: translateY(-2px);
+}
+
+.ui-upgraded .book-card img,
+.ui-upgraded .parent-story-card img,
+.ui-upgraded .parent-printable img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.ui-upgraded .book-card a,
+.ui-upgraded .parent-path,
+.ui-upgraded .parent-story-card a,
+.ui-upgraded .parent-printable a {
+  text-underline-offset: 0.18em;
+}
+
+/* Quick journey selector: a short front door to the deeper support guide. */
+.hlm-journey {
+  width: min(1120px, calc(100% - 2rem));
+  margin: clamp(1.2rem, 3vw, 2.25rem) auto;
+  padding: clamp(1rem, 2vw, 1.35rem);
+  border: 1px solid var(--hlm-border);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(37, 78, 112, 0.08);
+}
+
+.hlm-journey__head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.hlm-journey__eyebrow {
+  margin: 0 0 0.2rem;
+  color: var(--hlm-coral);
+  font-size: 0.74rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.hlm-journey h2 {
+  margin: 0;
+  color: var(--hlm-navy);
+  font: 900 clamp(1.35rem, 2.6vw, 1.85rem)/1.15 "Nunito", sans-serif;
+}
+
+.hlm-journey__more {
+  flex: 0 0 auto;
+  color: var(--hlm-navy);
+  font-weight: 800;
+}
+
+.hlm-journey__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.hlm-journey__item {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 72px;
+  padding: 0.72rem;
+  border: 1px solid var(--hlm-border);
+  border-radius: 8px;
+  background: var(--journey-bg, #f7fbfd);
+  color: var(--hlm-navy);
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.hlm-journey__item:hover,
+.hlm-journey__item:focus-visible {
+  border-color: #9bbfce;
+  box-shadow: 0 8px 18px rgba(37, 78, 112, 0.1);
+  transform: translateY(-1px);
+}
+
+.hlm-journey__mark {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgba(37, 78, 112, 0.08);
+  font-size: 0.77rem;
+}
+
+/* Make the character libraries discoverable before a character is opened. */
+.character-library-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto 0.9rem;
+  padding: 0.72rem 0.85rem;
+  border: 1px solid #d8e8f1;
+  border-radius: 8px;
+  background: var(--hlm-sky);
+  color: var(--hlm-navy);
+}
+
+.character-library-intro strong,
+.character-library-intro span {
+  display: block;
+}
+
+.character-library-intro span {
+  margin-top: 0.14rem;
+  color: #587083;
+  font-size: 0.84rem;
+}
+
+.character-library-intro__count {
+  flex: 0 0 auto;
+  padding: 0.35rem 0.58rem;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--hlm-navy) !important;
+  font-size: 0.76rem !important;
+  font-weight: 900;
+}
+
+#characters .character-card--featured .character-name::after {
+  content: "Library";
+  display: inline-flex;
+  margin-left: 0.4rem;
+  padding: 0.18rem 0.4rem;
+  border-radius: 999px;
+  background: #eaf7ff;
+  color: #285c7e;
+  font-size: 0.62rem;
+  font-weight: 900;
+  vertical-align: middle;
+}
+
+#characters .character-book-card {
+  position: relative;
+  padding-left: 1rem !important;
+}
+
+#characters .character-book-card::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0.34rem;
+  border-radius: 8px 0 0 8px;
+  background: var(--book-accent, #5aa9df);
+  content: "";
+}
+
+#characters .character-book-card--audiobook { --book-accent: #9b72cf; }
+#characters .character-book-card--activity { --book-accent: #14a58b; }
+#characters .character-book-card--book { --book-accent: #ff6b6b; }
+
+/* Shared feedback surfaces. */
+#toast-banner,
+.hlm-feedback,
+.contact-success,
+.contact-error {
+  border: 1px solid currentColor !important;
+  border-radius: 8px !important;
+  box-shadow: 0 12px 28px rgba(37, 78, 112, 0.16) !important;
+  font-weight: 800;
+}
+
+#loading-screen {
+  background: #f5fbff !important;
+  color: var(--hlm-navy) !important;
+}
+
+#loading-screen .spinner {
+  border-color: #d8e8f1 !important;
+  border-top-color: var(--hlm-coral) !important;
+}
+
+/* Visual accessibility baseline. */
+.ui-upgraded :where(a, button, input, select, textarea, [role="button"]):focus-visible {
+  outline: var(--hlm-focus) !important;
+  outline-offset: 3px !important;
+}
+
+.ui-upgraded :where(button, input, select) {
+  min-height: 42px;
+}
+
+.ui-upgraded :where(p, li) {
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 760px) {
+  .hlm-journey__head {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .hlm-journey__grid {
+    display: flex;
+    gap: 0.65rem;
+    overflow-x: auto;
+    padding-bottom: 0.35rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .hlm-journey__item {
+    flex: 0 0 min(78vw, 260px);
+    scroll-snap-align: start;
+  }
+
+  .character-library-intro {
+    align-items: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-upgraded *,
+  .ui-upgraded *::before,
+  .ui-upgraded *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .hlm-journey,
+  .hlm-journey__item,
+  .character-library-intro,
+  .ui-upgraded .book-card {
+    border: 1px solid CanvasText !important;
+  }
+}

@@ -909,8 +909,10 @@ html, body { overflow-x: hidden; }
       document.documentElement.classList.add('dark-mode');
     }
   </script>
+  <link href="../home-mobile-ui.css?v=1" rel="stylesheet" />
+  <link href="../site-ui-upgrades.css?v=1" rel="stylesheet" />
 </head>
-<body class="localized-home">
+<body class="localized-home home-mobile-ui ui-upgraded">
 
 <script>
   (function () {
@@ -1018,14 +1020,14 @@ html, body { overflow-x: hidden; }
 </nav>
 
 <!-- 🌍 Floating Language Switcher -->
-<div class="language-switcher">
+<nav class="language-switcher" aria-label="选择语言">
  <a href="../home.html" title="English">
     <img src="../images/flag-en.webp" alt="English" width="24">
   </a>
     <a href="../zh-tw/home.html" title="繁體中文">
     <img src="../images/flag-tw.webp" alt="繁體中文" width="24">
   </a>
-  <a href="../zh-cn/home.html" title="简体中文">
+  <a href="../zh-cn/home.html" title="简体中文" aria-current="page">
     <img src="../images/flag-cn.webp" alt="简体中文" width="24">
   </a>
   <a href="../ja/home.html" title="日本語">
@@ -1034,7 +1036,7 @@ html, body { overflow-x: hidden; }
   <a href="../ko/home.html" title="한국어">
     <img src="../images/flag-kr.webp" alt="한국어" width="24">
   </a>
-</div>
+</nav>
   
 <!-- Announcement Bar (ZH-CN) -->
 <div id="announcementBar" class="announcement-bar">
@@ -1933,5 +1935,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 </script>
   <script defer src="../button-loader.js?v=1"></script>
+  <script src="../site-ui-upgrades.js?v=1"></script>
+  <script src="../home-mobile-ui.js?v=1"></script>
 </body>
 </html>

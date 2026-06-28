@@ -66,8 +66,10 @@
       document.documentElement.classList.add('dark-mode');
     }
   </script>
+  <link href="home-mobile-ui.css?v=1" rel="stylesheet" />
+  <link href="site-ui-upgrades.css?v=1" rel="stylesheet" />
 </head>
- <body>
+ <body class="home-mobile-ui ui-upgraded">
   <!-- 🔄 Branded Loading Screen -->
   <div class="u-style-001" id="loading-screen">
    <div class="spinner u-style-002">
@@ -121,7 +123,7 @@
     </nav>
 
     <!-- Hamburger -->
-    <button class="hamburger"
+    <button class="hamburger" type="button" aria-label="Open menu"
             aria-controls="mobileNav"
             aria-expanded="false"
             onclick="toggleMobileMenu()">
@@ -1441,7 +1443,7 @@
 
   function libraryItemAttributes(item, index) {
     const attrs = [
-      'class="character-book-card"',
+      `class="character-book-card character-book-card--${String(item.type || "book").toLowerCase()}"`,
       `style="--book-index:${index}"`,
       `href="${item.href}"`
     ];
@@ -2661,5 +2663,7 @@ startAutoSlide();
 })();
 </script>
   <script defer src="button-loader.js?v=1"></script>
+  <script src="site-ui-upgrades.js?v=1"></script>
+  <script src="home-mobile-ui.js?v=1"></script>
 </body>
 </html>

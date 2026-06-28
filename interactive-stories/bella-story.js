@@ -326,6 +326,7 @@
     parentTips: "Parent tips",
     storyPath: "Story path",
     progressLabel: "Story progress",
+    back: "Back one step",
     endingTitle: "Bella's take-away cards",
     endCards: [
       ["Breathe", "Give the body a safe signal before choosing."],
@@ -407,7 +408,7 @@
     return `
       <div class="story-side-card">
         <h2 class="side-title"><span>${ui.storyPath}</span><span>${scenes[currentKey].step}/7</span></h2>
-        <div class="progress-track" aria-label="${ui.progressLabel}">
+        <div class="progress-track" role="progressbar" aria-label="${ui.progressLabel}" aria-valuemin="1" aria-valuemax="7" aria-valuenow="${scenes[currentKey].step}">
           <div class="progress-fill" style="--progress:${percent}%"></div>
         </div>
         <ul class="progress-list">
@@ -453,6 +454,11 @@
             <a href="../parents-tips.html">${ui.parentTips}</a>
           </div>
         </nav>
+
+        <div class="story-history-controls">
+          <button class="story-back no-loader" type="button"${scene.step === 1 ? " disabled" : ""}>${ui.back}</button>
+          <span aria-live="polite">${ui.progressLabel}: ${scene.step}/7</span>
+        </div>
 
         <main class="story-hero">
           <article class="scene-card" aria-labelledby="sceneTitle">
@@ -524,6 +530,14 @@
   }
 
   function wireInteractions(scene) {
+    const back = document.querySelector(".story-back");
+    if (back) {
+      back.addEventListener("click", () => {
+        if (window.history.length > 1) window.history.back();
+        else window.location.href = "scene_1_bella_story.html";
+      });
+    }
+
     document.querySelectorAll(".feeling-chip").forEach((button) => {
       button.addEventListener("click", () => {
         document.querySelectorAll(".feeling-chip").forEach((chip) => chip.classList.remove("is-active"));

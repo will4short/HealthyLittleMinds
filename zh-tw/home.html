@@ -699,8 +699,10 @@ html[lang="zh-TW"] .hlm-res{
       document.documentElement.classList.add('dark-mode');
     }
   </script>
+  <link href="../home-mobile-ui.css?v=1" rel="stylesheet" />
+  <link href="../site-ui-upgrades.css?v=1" rel="stylesheet" />
 </head>
-<body class="localized-home">
+<body class="localized-home home-mobile-ui ui-upgraded">
 <script>
   (function () {
     const isLocal = location.protocol === 'file:' ||
@@ -809,11 +811,11 @@ html[lang="zh-TW"] .hlm-res{
 </nav>
 
 <!-- 🌍 Floating Language Switcher -->
-<div class="language-switcher">
+<nav class="language-switcher" aria-label="選擇語言">
  <a href="../home.html" title="English">
     <img src="../images/flag-en.webp" alt="English" width="24">
   </a>
-    <a href="../zh-tw/home.html" title="繁體中文">
+    <a href="../zh-tw/home.html" title="繁體中文" aria-current="page">
     <img src="images/flag-tw.webp" alt="繁體中文" width="24">
   </a>
   <a href="../zh-cn/home.html" title="简体中文">
@@ -825,7 +827,7 @@ html[lang="zh-TW"] .hlm-res{
   <a href="../ko/home.html" title="한국어">
     <img src="../images/flag-kr.webp" alt="한국어" width="24">
   </a>
-</div>
+</nav>
 
 <!-- Announcement Bar -->
 <div id="announcementBar" class="announcement-bar">
@@ -1747,5 +1749,7 @@ html[lang="zh-TW"] .hlm-res{
 })();
 </script>
   <script defer src="../button-loader.js?v=1"></script>
+  <script src="../site-ui-upgrades.js?v=1"></script>
+  <script src="../home-mobile-ui.js?v=1"></script>
 </body>
 </html>

@@ -631,9 +631,11 @@
       document.documentElement.classList.add('dark-mode');
     }
   </script>
+  <link href="../home-mobile-ui.css?v=1" rel="stylesheet" />
+  <link href="../site-ui-upgrades.css?v=1" rel="stylesheet" />
 </head>
 
-<body class="localized-home">
+<body class="localized-home home-mobile-ui ui-upgraded">
 
 <!-- 🔄 Branded Loading Screen -->
 <div id="loading-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -680,13 +682,13 @@
 </script>
 
 <!-- 🌍 Floating Language Switcher -->
-<div class="language-switcher">
+<nav class="language-switcher" aria-label="言語を選択">
   <a href="../home.html" title="English"><img src="../images/flag-en.webp" alt="English"></a>
   <a href="../zh-tw/home.html" title="繁體中文"><img src="../images/flag-tw.webp" alt="繁體中文"></a>
   <a href="../zh-cn/home.html" title="简体中文"><img src="../images/flag-cn.webp" alt="简体中文"></a>
-  <a href="../ja/home.html" title="日本語"><img src="../images/flag-jp.webp" alt="日本語"></a>
+  <a href="../ja/home.html" title="日本語" aria-current="page"><img src="../images/flag-jp.webp" alt="日本語"></a>
   <a href="../ko/home.html" title="한국어"><img src="../images/flag-kr.webp" alt="한국어"></a>
-</div>
+</nav>
 
 <header class="main-header">
   <div class="header-container">
@@ -1605,5 +1607,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 </script>
   <script defer src="../button-loader.js?v=1"></script>
+  <script src="../site-ui-upgrades.js?v=1"></script>
+  <script src="../home-mobile-ui.js?v=1"></script>
 </body>
 </html>
