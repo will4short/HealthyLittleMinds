@@ -20,6 +20,11 @@
     <loc>https://healthy-little-minds-members-library.netlify.app/parents.html</loc>
     <priority>0.7</priority>
   </url>
+  <url><loc>https://healthy-little-minds-members-library.netlify.app/teachers.html</loc><priority>0.8</priority></url>
+  <url><loc>https://healthy-little-minds-members-library.netlify.app/zh-tw/teachers.html</loc><priority>0.7</priority></url>
+  <url><loc>https://healthy-little-minds-members-library.netlify.app/zh-cn/teachers.html</loc><priority>0.7</priority></url>
+  <url><loc>https://healthy-little-minds-members-library.netlify.app/ja/teachers.html</loc><priority>0.7</priority></url>
+  <url><loc>https://healthy-little-minds-members-library.netlify.app/ko/teachers.html</loc><priority>0.7</priority></url>
   <url>
     <loc>https://healthy-little-minds-members-library.netlify.app/growth-plan.html</loc>
     <priority>0.8</priority>

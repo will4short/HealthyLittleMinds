@@ -3,7 +3,7 @@
 // Lean precache (no big media) + runtime image cache
 // ===============================
 
-const PRECACHE_NAME = 'hlm-precache-v158'; // bump here for new release/update toast
+const PRECACHE_NAME = 'hlm-precache-v164'; // bump here for new release/update toast
 const RUNTIME_NAME  = 'hlm-runtime-v24';   // leave if strategy unchanged
 const IMAGE_CACHE   = 'hlm-img-v18';       // leave if image rules unchanged
 
@@ -27,6 +27,9 @@ const ASSETS_TO_PRECACHE = [
 
   // Parents section (HTML only)
   '/parents.html', '/parents-tips.html', '/parents-guides.html', '/parents-downloads.html',
+
+  // Teachers Hub (HTML only)
+  '/teachers.html', '/zh-tw/teachers.html', '/zh-cn/teachers.html', '/ja/teachers.html', '/ko/teachers.html',
 
   // Audiobook section (HTML only)
   '/audiobook_section.html', '/audiobook_section_index.html',
@@ -131,6 +134,8 @@ const ASSETS_TO_PRECACHE = [
   '/interactive-stories/bella-story-locales.js',
   '/parents-hub.css',
   '/parents-hub.js',
+  '/teachers-hub.css',
+  '/teachers-hub.js',
   '/growth-plan.css',
   '/growth-plan.js',
   '/button-loader.js',
