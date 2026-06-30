@@ -3,7 +3,7 @@
 // Lean precache (no big media) + runtime image cache
 // ===============================
 
-const PRECACHE_NAME = 'hlm-precache-v164'; // bump here for new release/update toast
+const PRECACHE_NAME = 'hlm-precache-v167'; // bump here for new release/update toast
 const RUNTIME_NAME  = 'hlm-runtime-v24';   // leave if strategy unchanged
 const IMAGE_CACHE   = 'hlm-img-v18';       // leave if image rules unchanged
 
@@ -127,6 +127,8 @@ const ASSETS_TO_PRECACHE = [
   // Static assets (small)
   '/style.css', '/style-index.css', '/feelings-guide.css',
   '/interactive-tools.css',
+  '/feelings-checkin.css',
+  '/feelings-checkin.js',
   '/story-sad.css',
   '/story-sad-player.js',
   '/interactive-stories/bella-story.css',
