@@ -1087,10 +1087,9 @@
     '">' +
     c.nav
       .map(function (n, i) {
+        var href = i === 3 ? prefix + "will-talks.html" : "#" + ["categories", "strategies", "toolbox"][i];
         return (
-          '<a href="#' +
-          ["categories", "strategies", "toolbox", "talks"][i] +
-          '">' +
+          '<a href="' + href + '">' +
           n +
           "</a>"
         );
