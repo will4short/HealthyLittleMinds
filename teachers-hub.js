@@ -907,7 +907,8 @@
     ko: { descriptions: ["아동 친화적 가이드로 감정을 탐색합니다.", "감정 이름, 강도, 조절을 연습합니다.", "호흡과 주의력 재정비를 연습합니다.", "감정, 촉발 요인, 대처를 위한 인쇄 자료.", "감정과 친절을 연결하는 인쇄 활동."], actions: ["감정 가이드 열기", "도구 열기", "활동 열기", "워크북 열기", "인쇄 자료 열기"] }
   }[code];
   function toolboxCards() {
-    var links = ["resources/emotions.html", "interactive-tools.html", "calm.html", prefix + "worksheets/Calm the Storm Inside - My Feelings Workbook.pdf", prefix + "worksheets/Little-Acts-Big-Feelings-Worksheet.pdf"];
+    var toolboxPath=prefix+"worksheets/teacher-toolbox/"+(code==="en"?"":code+"/");
+    var links = [toolboxPath + "emotion-cards.pdf", toolboxPath + "feelings-scale.pdf", toolboxPath + "calm-corner-posters.pdf", toolboxPath + "behavior-reflection-sheet.pdf", toolboxPath + "classroom-routine-cards.pdf"];
     return c.tools.map(function (tool, i) {
       var target = links[i].slice(-4) === ".pdf" ? ' target="_blank" rel="noopener"' : "";
       return '<article class="tool-card"><span aria-hidden="true">' + tool[0] + '</span><h3>' + tool[1] + '</h3><p>' + toolboxDetails.descriptions[i] + '</p><a href="' + links[i] + '"' + target + '>' + toolboxDetails.actions[i] + ' →</a></article>';
@@ -1161,10 +1162,12 @@
     c.image +
     '" width="1200" height="800" fetchpriority="high" onerror="this.parentElement.classList.add(\'is-missing\');this.remove()">';
   document.querySelector(".tool-grid").innerHTML = toolboxCards();
+  ["emotion-cards.jpg","feelings-scale.jpg","calm-corner-posters.jpg","behavior-reflection-sheet.jpg","classroom-routine-cards.jpg"].forEach(function(name,i){var img=document.createElement("img");img.className="tool-card__cover";img.src=prefix+"images/teacher-toolbox/"+name;img.alt="";img.loading="lazy";img.width=210;img.height=297;document.querySelectorAll(".tool-card")[i].prepend(img)});
   document
     .getElementById("strategies")
     .insertAdjacentHTML(
       "beforeend",
       regulationFeature() + feature() + everydayFeature(),
     );
+  var socialMeta=document.createElement("meta");socialMeta.setAttribute("property","og:image");socialMeta.content=new URL(prefix+"images/teachers-hub-social.webp",window.location.href).href;document.head.appendChild(socialMeta);
 })();

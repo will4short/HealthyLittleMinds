@@ -3,8 +3,8 @@
 // Lean precache (no big media) + runtime image cache
 // ===============================
 
-const PRECACHE_NAME = 'hlm-precache-v173'; // bump here for new release/update toast
-const RUNTIME_NAME  = 'hlm-runtime-v26';   // bump to refresh updated versioned page assets
+const PRECACHE_NAME = 'hlm-precache-v176'; // bump here for new release/update toast
+const RUNTIME_NAME  = 'hlm-runtime-v29';   // bump to refresh updated versioned page assets
 const IMAGE_CACHE   = 'hlm-img-v18';       // leave if image rules unchanged
 
 const IMAGE_MAX_ENTRIES = 60;                   // limit image count
@@ -143,6 +143,28 @@ const ASSETS_TO_PRECACHE = [
   '/teachers-hub.js',
   '/will-talks.css',
   '/will-talks.js',
+  '/images/will-talks.webp',
+  '/images/will-talks-brain-lies-thumbnail.jpg',
+  '/images/will-talks-social.webp',
+  '/images/teachers-hub-social.webp',
+  '/data/will-talks-episodes.json',
+  '/worksheets/teacher-toolbox/emotion-cards.pdf',
+  '/worksheets/teacher-toolbox/feelings-scale.pdf',
+  '/worksheets/teacher-toolbox/calm-corner-posters.pdf',
+  '/worksheets/teacher-toolbox/behavior-reflection-sheet.pdf',
+  '/worksheets/teacher-toolbox/classroom-routine-cards.pdf',
+  ...['zh-tw', 'zh-cn', 'ja', 'ko'].flatMap((locale) => [
+    `/worksheets/teacher-toolbox/${locale}/emotion-cards.pdf`,
+    `/worksheets/teacher-toolbox/${locale}/feelings-scale.pdf`,
+    `/worksheets/teacher-toolbox/${locale}/calm-corner-posters.pdf`,
+    `/worksheets/teacher-toolbox/${locale}/behavior-reflection-sheet.pdf`,
+    `/worksheets/teacher-toolbox/${locale}/classroom-routine-cards.pdf`
+  ]),
+  '/images/teacher-toolbox/emotion-cards.jpg',
+  '/images/teacher-toolbox/feelings-scale.jpg',
+  '/images/teacher-toolbox/calm-corner-posters.jpg',
+  '/images/teacher-toolbox/behavior-reflection-sheet.jpg',
+  '/images/teacher-toolbox/classroom-routine-cards.jpg',
   '/growth-plan.css',
   '/growth-plan.js',
   '/button-loader.js',

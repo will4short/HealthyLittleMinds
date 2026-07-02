@@ -1,0 +1,15 @@
+{
+  "instructions": "Add new episodes to the top of this array. Keep image paths relative to the website root.",
+  "episodes": [
+    {
+      "slug": "your-brain-lies-to-you-sometimes",
+      "title": "Your Brain Lies To You Sometimes",
+      "category": "Cognitive Distortions",
+      "image": "images/will-talks-brain-lies-thumbnail.jpg",
+      "spotify": "https://open.spotify.com/episode/4PNHEiwusoYZKG572kMxDa?si=c3h1-zlASP6-n1MJ5Z6Izw",
+      "youtube": "https://youtu.be/_5vzBYbVh3s?si=nSQ8ATWAbdMRHP5D",
+      "youtube_embed": "https://www.youtube-nocookie.com/embed/_5vzBYbVh3s",
+      "spotify_embed": "https://open.spotify.com/embed/episode/4PNHEiwusoYZKG572kMxDa?utm_source=generator&theme=0"
+    }
+  ]
+}
