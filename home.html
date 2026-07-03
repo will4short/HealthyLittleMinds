@@ -68,8 +68,10 @@
   </script>
   <link href="home-mobile-ui.css?v=1" rel="stylesheet" />
   <link href="site-ui-upgrades.css?v=1" rel="stylesheet" />
+  <link href="home-experience.css?v=1" rel="stylesheet" />
 </head>
- <body class="home-mobile-ui ui-upgraded">
+ <body class="home-mobile-ui ui-upgraded home-experience">
+  <a class="home-skip-link" href="#support-guide">Skip to main support</a>
   <!-- 🔄 Branded Loading Screen -->
   <div class="u-style-001" id="loading-screen">
    <div class="spinner u-style-002">
@@ -2482,7 +2484,8 @@ startAutoSlide();
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const originalCards = Array.from(track.querySelectorAll(".book-card"));
 
-    if (!reduceMotion) {
+    // Home shelves are user-controlled. Do not clone or autoplay content.
+    if (false && !reduceMotion) {
       originalCards.forEach(card => {
         const clone = card.cloneNode(true);
         clone.dataset.bookClone = "true";
@@ -2593,7 +2596,7 @@ startAutoSlide();
       window.requestAnimationFrame(glide);
     };
 
-    if (!reduceMotion && track.scrollWidth > rail.clientWidth) {
+    if (false && !reduceMotion && track.scrollWidth > rail.clientWidth) {
       window.requestAnimationFrame(glide);
     }
 
