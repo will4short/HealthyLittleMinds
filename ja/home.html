@@ -637,16 +637,13 @@
 </head>
 
 <body class="localized-home home-mobile-ui ui-upgraded home-experience">
-<a class="home-skip-link" href="#support-guide">メインサポートへ移動</a>
+<a class="home-skip-link" href="#main-content">メインコンテンツへ移動</a>
 
 <!-- 🔄 Branded Loading Screen -->
-<div id="loading-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-     background-color: #FFF2E5; display: flex; flex-direction: column; justify-content: center; align-items: center;
-     font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: #254E70; z-index: 9999;">
-  <div class="spinner" style="border: 6px solid #FFDD59; border-top: 6px solid #FF6B6B;
-       border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; margin-bottom: 1rem;">
+<div id="loading-screen" class="localized-loading" aria-live="polite">
+  <div class="spinner localized-loading__spinner" aria-hidden="true">
   </div>
-  <p style="margin: 0;">小さな心をあたためています…</p>
+  <p>小さな心をあたためています…</p>
 </div>
 
 <script>
@@ -697,10 +694,10 @@
     <a href="home.html" class="header-brand">
       <img src="../images/logo-icon.webp" alt="Healthy Little Minds ロゴ" class="logo" loading="eager" />
       <div class="brand-text">
-        <h1 class="site-title">
-          <span style="color:#254E70">Healthy</span>
-          <span style="color:#FF6B6B">Little Minds</span>
-        </h1>
+        <div class="site-title" aria-label="Healthy Little Minds">
+          <span class="brand-word">Healthy</span>
+          <span class="brand-word brand-word--accent">Little Minds</span>
+        </div>
         <p class="subtitle">感情を理解し、優しく育てる子どもたちのための場所</p>
       </div>
     </a>
@@ -793,6 +790,7 @@
   </button>
 </div>
 
+<main id="main-content">
 <section class="ny-banner" id="nyBanner" aria-label="ウェルカムメッセージ">
   <div class="ny-banner-inner">
     <span class="ny-emoji">💛</span>
@@ -822,7 +820,7 @@
 <section class="ja-home-start" aria-labelledby="jaStartTitle">
   <div class="ja-home-start__copy">
     <p class="ja-eyebrow">Healthy Little Minds を始める</p>
-    <h2 id="jaStartTitle">今日の気持ちに合う場所から始めましょう。</h2>
+    <h1 id="jaStartTitle">今日の気持ちに合う場所から始めましょう。</h1>
     <p>感情を選んでお話を読んだり、ワークシートを印刷したり、子どもを支えるテーマ別ガイドを探したりできます。</p>
   </div>
   <nav class="ja-home-start__actions" aria-label="すぐに移動">
@@ -1064,7 +1062,7 @@
 </section>
 
 <!-- ✅ Topics -->
-<section id="topics" aria-labelledby="hlm-topics-title" style="background:#fff;">
+<section id="topics" class="localized-topics" aria-labelledby="hlm-topics-title">
   <div class="hlm-res">
     <div class="hlm-res__grid">
       <div class="hlm-res__intro">
@@ -1131,17 +1129,17 @@
       <p>気持ちの練習から家庭や教室でのサポートまで、今日必要な場所へ進めます。</p>
     </div>
     <div class="localized-pathways__grid">
-      <a class="localized-pathways__card" href="dashboard.html"><span class="localized-pathways__icon">🧠</span><strong>気持ちを探る</strong><small>感情を見つけ、言葉にする練習。</small></a>
-      <a class="localized-pathways__card" href="parents.html"><span class="localized-pathways__icon">👪</span><strong>保護者向け</strong><small>毎日の子育てと行動のヒント。</small></a>
-      <a class="localized-pathways__card" href="teacher-life.html"><span class="localized-pathways__icon">🍎</span><strong>先生向け</strong><small>教室で使える温かな支援。</small></a>
-      <a class="localized-pathways__card" href="about_me.html"><span class="localized-pathways__icon">💛</span><strong>私たちについて</strong><small>Healthy Little Minds の物語。</small></a>
+      <a class="localized-pathways__card" href="dashboard.html"><span class="localized-pathways__icon" aria-hidden="true">🧠</span><strong>気持ちを探る</strong><small>感情を見つけ、言葉にする練習。</small></a>
+      <a class="localized-pathways__card" href="parents.html"><span class="localized-pathways__icon" aria-hidden="true">👪</span><strong>保護者向け</strong><small>毎日の子育てと行動のヒント。</small></a>
+      <a class="localized-pathways__card" href="teacher-life.html"><span class="localized-pathways__icon" aria-hidden="true">🍎</span><strong>先生向け</strong><small>教室で使える温かな支援。</small></a>
+      <a class="localized-pathways__card" href="about_me.html"><span class="localized-pathways__icon" aria-hidden="true">💛</span><strong>私たちについて</strong><small>Healthy Little Minds の物語。</small></a>
     </div>
   </div>
 </section>
 
 <!-- ✅ About (Refined: no-squeeze avatar + 2026-style pills) -->
-<section style="background-color:#DFF5FF; text-align:center; font-family:'DM Sans', sans-serif; padding:1.75rem 0;">
-  <div class="container">
+<section class="localized-about" aria-labelledby="jaAboutTitle">
+  <div class="localized-about__inner">
 
     <!-- ✅ Profile Photo (sharp + correct crop + no squeeze) -->
     <img
@@ -1150,82 +1148,32 @@
       loading="lazy"
       decoding="async"
       fetchpriority="high"
-      onmouseover="this.style.transform='scale(1.06)'"
-      onmouseout="this.style.transform='scale(1)'"
-      style="
-        width:130px;
-        height:130px;
-        border-radius:50%;
-        object-fit:cover;
-        object-position:center 12%;
-        display:block;
-        margin:0 auto 1.05rem;
-        border:5px solid rgba(255,255,255,0.95);
-        box-shadow:0 12px 26px rgba(0,0,0,0.12);
-        outline:1px solid rgba(37,78,112,0.14);
-        outline-offset:6px;
-        background:#fff;
-        transition:transform .25s ease;
-      "
+      class="localized-about__portrait"
     />
 
     <!-- ✅ Micro badge (premium) -->
-    <div style="
-      display:inline-flex;
-      align-items:center;
-      gap:.5rem;
-      padding:.42rem .85rem;
-      border-radius:999px;
-      background:rgba(255,255,255,0.7);
-      border:1px solid rgba(37,78,112,0.14);
-      color:#254E70;
-      font-weight:900;
-      font-size:.9rem;
-      margin:0 auto .85rem;
-    ">
+    <div class="localized-about__badge">
       <span aria-hidden="true">🧠</span>
       <span>Healthy Little Minds Creator</span>
     </div>
 
-    <h2 style="color:#254E70; font-size:1.85rem; font-weight:900; margin:0 0 .75rem; letter-spacing:-0.2px;">
+    <h2 id="jaAboutTitle" class="localized-about__title">
       紹介
     </h2>
 
-    <p style="max-width:700px; margin:0 auto 1.35rem; font-size:1.05rem; color:#444; line-height:1.75;">
+    <p class="localized-about__copy">
       私の歩み、研究、そして
-      <strong style="color:#254E70;">Healthy Little Minds®</strong>
+      <strong>Healthy Little Minds®</strong>
       の裏にあるストーリーをご覧ください。
     </p>
 
     <!-- ✅ CTAs (2026 pill buttons) -->
-    <div style="display:flex; gap:.85rem; justify-content:center; flex-wrap:wrap;">
-      <a href="about_me.html"
-         style="
-           display:inline-flex; align-items:center; gap:.5rem;
-           background:linear-gradient(135deg,#254E70,#2E6FA0);
-           color:#fff; padding:.78rem 1.55rem;
-           font-weight:900; border-radius:999px;
-           text-decoration:none; font-size:1rem;
-           box-shadow:0 10px 22px rgba(37,78,112,0.22);
-           transition:transform .2s ease, box-shadow .2s ease;
-         "
-         onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 14px 28px rgba(37,78,112,0.28)';"
-         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 22px rgba(37,78,112,0.22)';">
+    <div class="localized-about__actions">
+      <a class="localized-about__primary" href="about_me.html">
         <span>プロフィールを見る</span><span aria-hidden="true">→</span>
       </a>
 
-      <a href="https://instagram.com/heal.thylittleminds" target="_blank" rel="noopener"
-         style="
-           display:inline-flex; align-items:center; gap:.5rem;
-           background:rgba(0,128,96,0.12);
-           color:#0B5B4A; padding:.78rem 1.55rem;
-           font-weight:900; border-radius:999px;
-           text-decoration:none; font-size:1rem;
-           border:1px solid rgba(0,128,96,0.22);
-           transition:transform .2s ease, background .2s ease, border-color .2s ease;
-         "
-         onmouseover="this.style.transform='translateY(-1px)'; this.style.background='rgba(0,128,96,0.16)'; this.style.borderColor='rgba(0,128,96,0.28)';"
-         onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(0,128,96,0.12)'; this.style.borderColor='rgba(0,128,96,0.22)';">
+      <a class="localized-about__secondary" href="https://instagram.com/heal.thylittleminds" target="_blank" rel="noopener">
         <span aria-hidden="true">＋</span><span>フォロー</span>
       </a>
     </div>
@@ -1236,7 +1184,7 @@
 
 <!-- Subscribe -->
 <section id="subscribe" class="ja-subscribe" aria-labelledby="jaSubscribeTitle">
-  <h2 id="jaSubscribeTitle">📬 新しいリソースのお知らせ</h2>
+  <h2 id="jaSubscribeTitle"><span aria-hidden="true">📬</span> 新しいリソースのお知らせ</h2>
   <p>新しい絵本、ワークシート、保護者向けのサポート資料が公開されたら、メールでお知らせします。</p>
   <form action="https://formspree.io/f/mkgbvboj" method="POST">
         <input type="hidden" name="form_type" value="newsletter" />
@@ -1248,8 +1196,9 @@
   </form>
 </section>
 
+</main>
 <!-- Footer -->
-<footer class="site-footer ja-footer">
+<footer class="site-footer localized-footer ja-footer">
   <span>© <span id="ja-copy-year"></span> Healthy Little Minds · 無断転載を禁じます</span>
   <button class="ja-logout" type="button" onclick="logout()">ログアウト</button>
 </footer>

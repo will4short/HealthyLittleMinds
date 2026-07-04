@@ -704,7 +704,7 @@ html[lang="zh-TW"] .hlm-res{
   <link href="../home-experience.css?v=1" rel="stylesheet" />
 </head>
 <body class="localized-home home-mobile-ui ui-upgraded home-experience">
-<a class="home-skip-link" href="#support-guide">跳到主要支援內容</a>
+<a class="home-skip-link" href="#main-content">跳到主要內容</a>
 <script>
   (function () {
     const isLocal = location.protocol === 'file:' ||
@@ -730,25 +730,22 @@ html[lang="zh-TW"] .hlm-res{
 </script>
 
 <!-- 🔄 Branded Loading Screen -->
-<div id="loading-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-     background-color: #FFF2E5; display: flex; flex-direction: column; justify-content: center; align-items: center;
-     font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: #254E70; z-index: 9999;">
-  <div class="spinner" style="border: 6px solid #FFDD59; border-top: 6px solid #FF6B6B;
-       border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; margin-bottom: 1rem;">
+<div id="loading-screen" class="localized-loading" aria-live="polite">
+  <div class="spinner localized-loading__spinner" aria-hidden="true">
   </div>
-  <p style="margin: 0;">正在溫暖你的小小心靈…</p>
+  <p>正在溫暖你的小小心靈…</p>
 </div>
 
 
 <header class="sticky-header">
   <div class="header-container">
     <!-- ✅ Logo + Brand clickable link -->
-    <a href="home.html" class="header-brand" style="text-decoration:none; color:inherit;">
+      <a href="home.html" class="header-brand">
       <img src="../images/logo-icon.webp" alt="Healthy Little Minds" class="logo" />
       <div class="brand-text">
-        <h1 class="site-title">
+        <div class="site-title" aria-label="Healthy Little Minds">
           <span>Healthy</span> <span>Little Minds</span>
-        </h1>
+        </div>
         <p class="subtitle">小小心靈俱樂部</p>
       </div>
     </a>
@@ -863,6 +860,7 @@ html[lang="zh-TW"] .hlm-res{
 </div>
 
 <!-- 💛Welcome -->
+<main id="main-content">
 <section class="ny-banner" id="nyBanner" aria-label="歡迎訊息">
   <div class="ny-banner-inner">
     <span class="ny-emoji">💛</span>
@@ -879,7 +877,7 @@ html[lang="zh-TW"] .hlm-res{
 <section class="tw-home-start" aria-labelledby="twStartTitle">
   <div class="tw-home-start__copy">
     <p class="tw-eyebrow">開始使用 Healthy Little Minds</p>
-    <h2 id="twStartTitle">從最適合今天心情的地方開始。</h2>
+    <h1 id="twStartTitle">從最適合今天心情的地方開始。</h1>
     <p>選一種情緒閱讀故事、下載學習單，或查看幫助孩子與家長的主題資源。</p>
   </div>
   <nav class="tw-home-start__actions" aria-label="快速前往">
@@ -969,7 +967,7 @@ html[lang="zh-TW"] .hlm-res{
 
 <!-- 📚 情緒繪本區 Section -->
 <section id="books" class="localized-book-shelf">
-  <h2 style="text-align:center; color:#254E70;">📚 情緒繪本區</h2>
+  <h2 class="localized-section-title"><span aria-hidden="true">📚</span> 情緒繪本區</h2>
   <p class="scroll-hint-text">
     👉 向右滑動或左右滑動即可查看更多繪本
   </p>
@@ -1225,20 +1223,15 @@ html[lang="zh-TW"] .hlm-res{
       <p>從練習情緒到陪伴孩子成長，找到最符合你今天需要的資源。</p>
     </div>
     <div class="localized-pathways__grid">
-      <a class="localized-pathways__card" href="dashboard.html"><span class="localized-pathways__icon">🧠</span><strong>情緒探索</strong><small>開始認識與表達感受。</small></a>
-      <a class="localized-pathways__card" href="parents.html"><span class="localized-pathways__icon">👪</span><strong>家長專區</strong><small>日常陪伴與行為支持指南。</small></a>
-      <a class="localized-pathways__card" href="teacher-life.html"><span class="localized-pathways__icon">🍎</span><strong>教師專區</strong><small>適合教室使用的溫暖方法。</small></a>
-      <a class="localized-pathways__card" href="about_me.html"><span class="localized-pathways__icon">💛</span><strong>認識我們</strong><small>了解 Healthy Little Minds 的故事。</small></a>
+      <a class="localized-pathways__card" href="dashboard.html"><span class="localized-pathways__icon" aria-hidden="true">🧠</span><strong>情緒探索</strong><small>開始認識與表達感受。</small></a>
+      <a class="localized-pathways__card" href="parents.html"><span class="localized-pathways__icon" aria-hidden="true">👪</span><strong>家長專區</strong><small>日常陪伴與行為支持指南。</small></a>
+      <a class="localized-pathways__card" href="teacher-life.html"><span class="localized-pathways__icon" aria-hidden="true">🍎</span><strong>教師專區</strong><small>適合教室使用的溫暖方法。</small></a>
+      <a class="localized-pathways__card" href="about_me.html"><span class="localized-pathways__icon" aria-hidden="true">💛</span><strong>認識我們</strong><small>了解 Healthy Little Minds 的故事。</small></a>
     </div>
   </div>
 </section>
 
-<section style="
-  background-color:#DFF5FF;
-  padding:3rem 1rem;
-  text-align:center;
-  font-family:'DM Sans', sans-serif;
-">
+<section class="localized-about" aria-labelledby="twAboutTitle">
 
   <!-- Profile Image (fixed crop + sharp) -->
   <img
@@ -1247,82 +1240,29 @@ html[lang="zh-TW"] .hlm-res{
     loading="lazy"
     decoding="async"
     fetchpriority="high"
-    onmouseover="this.style.transform='scale(1.05)'"
-    onmouseout="this.style.transform='scale(1)'"
-    style="
-      width:130px;
-      height:130px;
-      border-radius:50%;
-      object-fit:cover;
-      object-position:center 12%;
-      display:block;
-      margin:0 auto 1.5rem;
-      border:4px solid #fff;
-      box-shadow:0 10px 24px rgba(0,0,0,0.12);
-      background:#fff;
-      transition:transform .25s ease;
-      will-change:transform;
-    "
+    class="localized-about__portrait"
   />
 
   <!-- Title -->
-  <h2 style="
-    color:#254E70;
-    font-size:1.8rem;
-    font-weight:900;
-    margin-bottom:1.2rem;
-    letter-spacing:-0.2px;
-  ">
+  <h2 id="twAboutTitle" class="localized-about__title">
     關於我
   </h2>
 
   <!-- Short Description -->
-  <p style="
-    max-width:700px;
-    margin:0 auto 2rem;
-    font-size:1.05rem;
-    color:#444;
-    line-height:1.7;
-  ">
+  <p class="localized-about__copy">
     了解我的旅程、研究，以及
-    <strong style="color:#254E70;">Healthy Little Minds®</strong>
+    <strong>Healthy Little Minds®</strong>
     背後的故事。
   </p>
 
   <!-- Buttons -->
-  <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+  <div class="localized-about__actions">
 
-    <a href="about_me.html"
-       style="
-         background:#254E70;
-         color:#fff;
-         padding:.75rem 1.6rem;
-         font-weight:900;
-         border-radius:999px;
-         text-decoration:none;
-         font-size:1rem;
-         box-shadow:0 8px 18px rgba(37,78,112,0.25);
-         transition:transform .2s ease, box-shadow .2s ease;
-       "
-       onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 12px 26px rgba(37,78,112,0.3)';"
-       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 18px rgba(37,78,112,0.25)';">
+    <a class="localized-about__primary" href="about_me.html">
       查看完整簡介 →
     </a>
 
-    <a href="https://instagram.com/heal.thylittleminds" target="_blank" rel="noopener"
-       style="
-         background:rgba(0,128,96,0.12);
-         color:#0B5B4A;
-         padding:.75rem 1.6rem;
-         font-weight:900;
-         border-radius:999px;
-         text-decoration:none;
-         font-size:1rem;
-         border:1px solid rgba(0,128,96,0.25);
-         transition:transform .2s ease, background .2s ease;
-       "
-       onmouseover="this.style.transform='translateY(-1px)'; this.style.background='rgba(0,128,96,0.18)';"
-       onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(0,128,96,0.12)';">
+    <a class="localized-about__secondary" href="https://instagram.com/heal.thylittleminds" target="_blank" rel="noopener">
       + 追蹤
     </a>
 
@@ -1330,7 +1270,7 @@ html[lang="zh-TW"] .hlm-res{
 </section>
 
 <section id="subscribe" class="tw-subscribe" aria-labelledby="twSubscribeTitle">
-  <h2 id="twSubscribeTitle">📬 接收新資源通知</h2>
+  <h2 id="twSubscribeTitle"><span aria-hidden="true">📬</span> 接收新資源通知</h2>
   <p>新的繪本、學習單和家長支持資料上線時，我們會透過電子郵件通知您。</p>
   <form action="https://formspree.io/f/mkgbvboj" method="POST">
         <input type="hidden" name="form_type" value="newsletter" />
@@ -1343,7 +1283,8 @@ html[lang="zh-TW"] .hlm-res{
 </section>
 
 <!-- 🌈 Taiwanese Footer -->
-<footer class="site-footer tw-footer">
+</main>
+<footer class="site-footer localized-footer tw-footer">
   <span>© <span id="tw-copy-year"></span> Healthy Little Minds · 保留所有權利</span>
   <button class="tw-logout" type="button" onclick="logout()">登出</button>
 </footer>

@@ -71,7 +71,7 @@
   <link href="home-experience.css?v=1" rel="stylesheet" />
 </head>
  <body class="home-mobile-ui ui-upgraded home-experience">
-  <a class="home-skip-link" href="#support-guide">Skip to main support</a>
+  <a class="home-skip-link" href="#main-content">Skip to main content</a>
   <!-- 🔄 Branded Loading Screen -->
   <div class="u-style-001" id="loading-screen">
    <div class="spinner u-style-002">
@@ -86,10 +86,10 @@
       <div class="navbar-brand" id="logo">
         <img class="u-style-005" alt="Logo" decoding="async" fetchpriority="high"
              src="images/logo-icon.webp" />
-        <h1 class="site-title">
+        <div class="site-title" aria-label="Healthy Little Minds">
           <span class="u-style-006">Healthy</span>
           <span class="u-style-007">Little Minds</span>
-        </h1>
+        </div>
       </div>
     </a>
 
@@ -233,6 +233,7 @@
 </div>
 
   <!-- 🔄 Sliding Banner Section with Canva Banners (Extended to 6 Slides) -->
+  <main id="main-content">
   <section class="carousel-container" aria-label="Featured stories and activities">
    <div class="carousel" aria-live="off">
     <!-- Slide 1 -->
@@ -295,7 +296,7 @@
   <section class="home-start" aria-labelledby="homeStartTitle">
     <div class="home-start__copy">
       <p class="eyebrow">Welcome to Healthy Little Minds</p>
-      <h2 id="homeStartTitle">Choose a calm, helpful place to begin.</h2>
+      <h1 id="homeStartTitle">Choose a calm, helpful place to begin.</h1>
       <p>
         Pick a feeling, read a short story, print an activity, or explore support topics for
         parents, classrooms, and young people.
@@ -372,21 +373,21 @@
 <h2 class="mood-heading" id="moodCheckTitle">How are you feeling today?</h2>
 <p class="mood-helper">Tap a face for a small reminder you can carry into the next activity.</p>
 <div class="mood-row">
-  <span class="mood" data-message="😲 You’re surprised! Sometimes things pop up out of nowhere, and that’s okay.">
+  <button class="mood" type="button" aria-pressed="false" data-message="😲 You’re surprised! Sometimes things pop up out of nowhere, and that’s okay.">
     <img alt="Surprised" class="mood-img" decoding="async" loading="lazy" src="images/surprised.webp"/>
-  </span>
-  <span class="mood" data-message="😊 Yay! You’re happy today — let that smile shine bright!">
+  </button>
+  <button class="mood" type="button" aria-pressed="false" data-message="😊 Yay! You’re happy today — let that smile shine bright!">
     <img alt="Happy" class="mood-img" decoding="async" loading="lazy" src="images/happy.webp"/>
-  </span>
-  <span class="mood" data-message="😐 Feeling unsure? That happens sometimes. Let’s slow down and notice what’s inside.">
+  </button>
+  <button class="mood" type="button" aria-pressed="false" data-message="😐 Feeling unsure? That happens sometimes. Let’s slow down and notice what’s inside.">
     <img alt="Unsure" class="mood-img" decoding="async" loading="lazy" src="images/unsure.webp"/>
-  </span>
-  <span class="mood" data-message="😡 Feeling angry? It’s okay to feel mad. Take a deep breath and let it pass.">
+  </button>
+  <button class="mood" type="button" aria-pressed="false" data-message="😡 Feeling angry? It’s okay to feel mad. Take a deep breath and let it pass.">
     <img alt="Angry" class="mood-img" decoding="async" loading="lazy" src="images/angry.webp"/>
-  </span>
-  <span class="mood" data-message="🤩 Woohoo! You’re excited — that energy is awesome, let’s use it in a fun way!">
+  </button>
+  <button class="mood" type="button" aria-pressed="false" data-message="🤩 Woohoo! You’re excited — that energy is awesome, let’s use it in a fun way!">
     <img alt="Excited" class="mood-img" decoding="async" loading="lazy" src="images/excited.webp"/>
-  </span>
+  </button>
 </div>
 
   <div class="u-style-014" id="mood-response-wrapper">
@@ -1246,6 +1247,7 @@
 >
   Quick Log Out
 </button>
+</main>
 
 <!-- ================= FOOTER ================= -->
 <footer class="site-footer u-style-086">
@@ -1841,8 +1843,12 @@ document.addEventListener("DOMContentLoaded", () => {
       message.style.display = 'block';
       clearBtn.style.display = 'inline-block';
 
-      moods.forEach(m => m.classList.remove('active'));
+      moods.forEach(m => {
+        m.classList.remove('active');
+        m.setAttribute('aria-pressed', 'false');
+      });
       mood.classList.add('active');
+      mood.setAttribute('aria-pressed', 'true');
     });
   });
 
@@ -1850,7 +1856,10 @@ document.addEventListener("DOMContentLoaded", () => {
     message.textContent = '';
     message.style.display = 'none';
     clearBtn.style.display = 'none';
-    moods.forEach(m => m.classList.remove('active'));
+    moods.forEach(m => {
+      m.classList.remove('active');
+      m.setAttribute('aria-pressed', 'false');
+    });
   }
 });
   </script>
@@ -2484,8 +2493,8 @@ startAutoSlide();
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const originalCards = Array.from(track.querySelectorAll(".book-card"));
 
-    // Home shelves are user-controlled. Do not clone or autoplay content.
-    if (false && !reduceMotion) {
+    // Keep automatic rotation for users who have not requested reduced motion.
+    if (!reduceMotion) {
       originalCards.forEach(card => {
         const clone = card.cloneNode(true);
         clone.dataset.bookClone = "true";
@@ -2596,7 +2605,7 @@ startAutoSlide();
       window.requestAnimationFrame(glide);
     };
 
-    if (false && !reduceMotion && track.scrollWidth > rail.clientWidth) {
+    if (!reduceMotion && track.scrollWidth > rail.clientWidth) {
       window.requestAnimationFrame(glide);
     }
 

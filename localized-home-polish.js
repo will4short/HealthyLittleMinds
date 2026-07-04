@@ -119,8 +119,8 @@
     var loopWidth = 0;
     var previousTime = 0;
 
-    // Localized shelves are user-controlled. Do not clone or autoplay content.
-    if (false && !reduceMotion.matches) {
+    // Keep automatic rotation for users who have not requested reduced motion.
+    if (!reduceMotion.matches) {
       originalCards.forEach(function (card) {
         var clone = card.cloneNode(true);
         clone.setAttribute("aria-hidden", "true");
@@ -189,7 +189,7 @@
     rail.addEventListener("touchcancel", finishTouch, { passive: true });
     window.addEventListener("resize", measureLoop);
     measureLoop();
-    // Intentionally no autoplay: arrows, keyboard focus, and touch remain available.
+    window.requestAnimationFrame(frame);
   }
 
   if (document.readyState === "loading") {

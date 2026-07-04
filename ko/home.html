@@ -731,7 +731,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
   <link href="../home-experience.css?v=1" rel="stylesheet" />
 </head>
 <body class="localized-home home-mobile-ui ui-upgraded home-experience">
-<a class="home-skip-link" href="#support-guide">주요 지원으로 건너뛰기</a>
+<a class="home-skip-link" href="#main-content">주요 콘텐츠로 건너뛰기</a>
  <script>
     // 🔒 Protect home.html from unauthorized access
     (function () {
@@ -758,23 +758,20 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
   </script>
 
 <!-- 🔄 Branded Loading Screen -->
-<div id="loading-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-     background-color: #FFF2E5; display: flex; flex-direction: column; justify-content: center; align-items: center;
-     font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: #254E70; z-index: 9999;">
-  <div class="spinner" style="border: 6px solid #FFDD59; border-top: 6px solid #FF6B6B;
-       border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; margin-bottom: 1rem;">
+<div id="loading-screen" class="localized-loading" aria-live="polite">
+  <div class="spinner localized-loading__spinner" aria-hidden="true">
   </div>
-  <p style="margin: 0;">작은 마음을 따뜻하게 준비 중입니다…</p>
+  <p>작은 마음을 따뜻하게 준비 중입니다…</p>
 </div>
 
 <header class="sticky-header">
   <div class="header-container">
-    <a href="home.html" class="header-brand" style="text-decoration:none; color:inherit;">
+      <a href="home.html" class="header-brand">
       <img src="../images/logo-icon.webp" alt="Healthy Little Minds" class="logo" />
       <div class="brand-text">
-        <h1 class="site-title">
+        <div class="site-title" aria-label="Healthy Little Minds">
           <span>Healthy</span> <span>Little Minds</span>
-        </h1>
+        </div>
         <p class="subtitle">작은 마음 클럽</p>
       </div>
     </a>
@@ -883,6 +880,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
 </div>
 
 <!-- Welcome Banner -->
+<main id="main-content">
 <section class="ny-banner" id="nyBanner" aria-label="환영 메시지">
   <div class="ny-banner-inner">
     <span class="ny-emoji">💛</span>
@@ -899,7 +897,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
 <section class="ko-home-start" aria-labelledby="koStartTitle">
   <div class="ko-home-start__copy">
     <p class="ko-eyebrow">Healthy Little Minds 시작하기</p>
-    <h2 id="koStartTitle">오늘 마음에 맞는 곳에서 시작해 보세요.</h2>
+    <h1 id="koStartTitle">오늘 마음에 맞는 곳에서 시작해 보세요.</h1>
     <p>감정을 골라 이야기를 읽거나, 활동지를 내려받거나, 아이를 돕는 주제별 자료를 찾아볼 수 있어요.</p>
   </div>
   <nav class="ko-home-start__actions" aria-label="빠른 이동">
@@ -988,7 +986,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
 
 <!-- 📚 그림책 시리즈 Section (mobile cover-size fix) -->
 <section id="books" class="localized-book-shelf">
-  <h2 style="color:#254E70; text-align:center;">📚 그림책 시리즈</h2>
+  <h2 class="localized-section-title"><span aria-hidden="true">📚</span> 그림책 시리즈</h2>
 
   <p class="scroll-hint-text">
     👉 옆으로 스크롤하거나 오른쪽으로 넘겨서 더 많은 책을 살펴보세요
@@ -1252,20 +1250,15 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
       <p>감정 연습에서 가정과 교실 지원까지, 오늘 필요한 길을 선택해 보세요.</p>
     </div>
     <div class="localized-pathways__grid">
-      <a class="localized-pathways__card" href="dashboard.html"><span class="localized-pathways__icon">🧠</span><strong>감정 탐색</strong><small>감정을 알아차리고 표현하는 연습.</small></a>
-      <a class="localized-pathways__card" href="parents.html"><span class="localized-pathways__icon">👪</span><strong>부모를 위한 공간</strong><small>일상 양육과 행동 지원 안내.</small></a>
-      <a class="localized-pathways__card" href="teacher-life.html"><span class="localized-pathways__icon">🍎</span><strong>교사를 위한 공간</strong><small>교실에서 쓸 수 있는 따뜻한 지원.</small></a>
-      <a class="localized-pathways__card" href="about_me.html"><span class="localized-pathways__icon">💛</span><strong>우리를 소개합니다</strong><small>Healthy Little Minds의 이야기.</small></a>
+      <a class="localized-pathways__card" href="dashboard.html"><span class="localized-pathways__icon" aria-hidden="true">🧠</span><strong>감정 탐색</strong><small>감정을 알아차리고 표현하는 연습.</small></a>
+      <a class="localized-pathways__card" href="parents.html"><span class="localized-pathways__icon" aria-hidden="true">👪</span><strong>부모를 위한 공간</strong><small>일상 양육과 행동 지원 안내.</small></a>
+      <a class="localized-pathways__card" href="teacher-life.html"><span class="localized-pathways__icon" aria-hidden="true">🍎</span><strong>교사를 위한 공간</strong><small>교실에서 쓸 수 있는 따뜻한 지원.</small></a>
+      <a class="localized-pathways__card" href="about_me.html"><span class="localized-pathways__icon" aria-hidden="true">💛</span><strong>우리를 소개합니다</strong><small>Healthy Little Minds의 이야기.</small></a>
     </div>
   </div>
 </section>
 
-<section style="
-  background-color:#DFF5FF;
-  padding:3rem 1rem;
-  text-align:center;
-  font-family:'DM Sans', sans-serif;
-">
+<section class="localized-about" aria-labelledby="koAboutTitle">
 
   <!-- Profile Image (fixed crop + sharp) -->
   <img
@@ -1274,86 +1267,28 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
     loading="lazy"
     decoding="async"
     fetchpriority="high"
-    onmouseover="this.style.transform='scale(1.05)'"
-    onmouseout="this.style.transform='scale(1)'"
-    style="
-      width:130px;
-      height:130px;
-      border-radius:50%;
-      object-fit:cover;
-      object-position:center 12%;
-      display:block;
-      margin:0 auto 1.5rem;
-      border:4px solid #fff;
-      box-shadow:0 10px 24px rgba(0,0,0,0.12);
-      background:#fff;
-      transition:transform .25s ease;
-      will-change:transform;
-    "
+    class="localized-about__portrait"
   />
 
   <!-- Heading -->
-  <h2 style="
-    color:#254E70;
-    font-size:1.8rem;
-    font-weight:900;
-    margin-bottom:1rem;
-    letter-spacing:-0.2px;
-  ">
+  <h2 id="koAboutTitle" class="localized-about__title">
     소개
   </h2>
 
   <!-- Description -->
-  <p style="
-    max-width:700px;
-    margin:0 auto 2rem;
-    font-size:1.05rem;
-    color:#444;
-    line-height:1.7;
-  ">
+  <p class="localized-about__copy">
     저의 여정, 연구, 그리고
-    <strong style="color:#254E70;">Healthy Little Minds®</strong>
+    <strong>Healthy Little Minds®</strong>
     뒤에 있는 이야기를 알아보세요.
   </p>
 
   <!-- Buttons -->
-  <div style="
-    display:flex;
-    gap:1rem;
-    justify-content:center;
-    flex-wrap:wrap;
-  ">
-    <a href="about_me.html"
-       style="
-         background:#254E70;
-         color:#fff;
-         padding:.75rem 1.6rem;
-         font-weight:900;
-         border-radius:999px;
-         text-decoration:none;
-         font-size:1rem;
-         box-shadow:0 8px 18px rgba(37,78,112,0.25);
-         transition:transform .2s ease, box-shadow .2s ease;
-       "
-       onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 12px 26px rgba(37,78,112,0.3)';"
-       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 18px rgba(37,78,112,0.25)';">
+  <div class="localized-about__actions">
+    <a class="localized-about__primary" href="about_me.html">
       전체 프로필 보기 →
     </a>
 
-    <a href="https://instagram.com/heal.thylittleminds" target="_blank" rel="noopener"
-       style="
-         background:rgba(0,128,96,0.12);
-         color:#0B5B4A;
-         padding:.75rem 1.6rem;
-         font-weight:900;
-         border-radius:999px;
-         text-decoration:none;
-         font-size:1rem;
-         border:1px solid rgba(0,128,96,0.25);
-         transition:transform .2s ease, background .2s ease;
-       "
-       onmouseover="this.style.transform='translateY(-1px)'; this.style.background='rgba(0,128,96,0.18)';"
-       onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(0,128,96,0.12)';">
+    <a class="localized-about__secondary" href="https://instagram.com/heal.thylittleminds" target="_blank" rel="noopener">
       + 팔로우
     </a>
   </div>
@@ -1361,7 +1296,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
 </section>
 
 <section id="subscribe" class="ko-subscribe" aria-labelledby="koSubscribeTitle">
-  <h2 id="koSubscribeTitle">📬 새로운 자료 소식 받기</h2>
+  <h2 id="koSubscribeTitle"><span aria-hidden="true">📬</span> 새로운 자료 소식 받기</h2>
   <p>새로운 그림책, 워크시트, 부모님을 위한 도움 자료가 올라오면 이메일로 알려드릴게요.</p>
   <form action="https://formspree.io/f/mkgbvboj" method="POST">
         <input type="hidden" name="form_type" value="newsletter" />
@@ -1374,12 +1309,14 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
 </section>
 
 <!-- 🌈 Footer -->
-<footer class="site-footer ko-footer">
-  <span>© 2026 Healthy Little Minds · 모든 권리 보유</span>
+</main>
+<footer class="site-footer localized-footer ko-footer">
+  <span>© <span id="ko-copy-year"></span> Healthy Little Minds · 모든 권리 보유</span>
   <button class="ko-logout" type="button" onclick="logout()">로그아웃</button>
 </footer>
 
 <script>
+  (function(){ var el = document.getElementById('ko-copy-year'); if(el) el.textContent = new Date().getFullYear(); })();
   function logout() {
     localStorage.removeItem("isMember");
     window.location.href = "index.html";

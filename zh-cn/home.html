@@ -914,7 +914,7 @@ html, body { overflow-x: hidden; }
   <link href="../home-experience.css?v=1" rel="stylesheet" />
 </head>
 <body class="localized-home home-mobile-ui ui-upgraded home-experience">
-<a class="home-skip-link" href="#support-guide">跳到主要支持内容</a>
+<a class="home-skip-link" href="#main-content">跳到主要内容</a>
 
 <script>
   (function () {
@@ -941,24 +941,21 @@ html, body { overflow-x: hidden; }
 </script>
 
 <!-- 🔄 Branded Loading Screen -->
-<div id="loading-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-     background-color: #FFF2E5; display: flex; flex-direction: column; justify-content: center; align-items: center;
-     font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: #254E70; z-index: 9999;">
-  <div class="spinner" style="border: 6px solid #FFDD59; border-top: 6px solid #FF6B6B;
-       border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; margin-bottom: 1rem;">
+<div id="loading-screen" class="localized-loading" aria-live="polite">
+  <div class="spinner localized-loading__spinner" aria-hidden="true">
   </div>
-  <p style="margin: 0;">正在温暖你的小小心灵...</p>
+  <p>正在温暖你的小小心灵...</p>
 </div>
 
 <header class="sticky-header">
   <div class="header-container">
     <!-- ✅ Logo + Brand is now a link -->
-    <a href="home.html" class="header-brand" style="text-decoration:none; color:inherit;">
+      <a href="home.html" class="header-brand">
       <img src="../images/logo-icon.webp" alt="Healthy Little Minds" class="logo" />
       <div class="brand-text">
-        <h1 class="site-title">
+        <div class="site-title" aria-label="Healthy Little Minds">
           <span>Healthy</span> <span>Little Minds</span>
-        </h1>
+        </div>
         <p class="subtitle">小小心灵俱乐部</p>
       </div>
     </a>
@@ -1072,6 +1069,7 @@ html, body { overflow-x: hidden; }
 </div>
 
 <!-- 💛 Welcome -->
+<main id="main-content">
 <section class="ny-banner" id="nyBanner" aria-label="欢迎信息">
   <div class="ny-banner-inner">
     <span class="ny-emoji">💛</span>
@@ -1088,7 +1086,7 @@ html, body { overflow-x: hidden; }
 <section class="tw-home-start" aria-labelledby="cnStartTitle">
   <div class="tw-home-start__copy">
     <p class="tw-eyebrow">开始探索 Healthy Little Minds</p>
-    <h2 id="cnStartTitle">从今天最需要的支持开始。</h2>
+    <h1 id="cnStartTitle">从今天最需要的支持开始。</h1>
     <p>认识情绪、阅读故事、打印练习，或查看能帮助家庭的主题指南。</p>
   </div>
   <nav class="tw-home-start__actions" aria-label="快速前往">
@@ -1178,7 +1176,7 @@ html, body { overflow-x: hidden; }
 
 <!-- 📚 情绪绘本区块（修复手机端封面变小） -->
 <section id="books" class="localized-book-shelf">
-  <h2 style="color:#254E70; text-align:center;">📚 情绪绘本</h2>
+  <h2 class="localized-section-title"><span aria-hidden="true">📚</span> 情绪绘本</h2>
   <p class="scroll-hint-text">
     👉 向右滑动查看更多绘本
   </p>
@@ -1407,20 +1405,15 @@ html, body { overflow-x: hidden; }
       <p>从情绪练习到家庭与课堂支持，选择适合你今天需要的方向。</p>
     </div>
     <div class="localized-pathways__grid">
-      <a class="localized-pathways__card" href="dashboard.html"><span class="localized-pathways__icon">🧠</span><strong>情绪探索</strong><small>帮助孩子认识并表达感受。</small></a>
-      <a class="localized-pathways__card" href="parents.html"><span class="localized-pathways__icon">👪</span><strong>家长专区</strong><small>日常陪伴与行为支持指南。</small></a>
-      <a class="localized-pathways__card" href="teacher-life.html"><span class="localized-pathways__icon">🍎</span><strong>教师专区</strong><small>适合课堂的温暖支持方法。</small></a>
-      <a class="localized-pathways__card" href="about_me.html"><span class="localized-pathways__icon">💛</span><strong>认识我们</strong><small>了解 Healthy Little Minds 的故事。</small></a>
+      <a class="localized-pathways__card" href="dashboard.html"><span class="localized-pathways__icon" aria-hidden="true">🧠</span><strong>情绪探索</strong><small>帮助孩子认识并表达感受。</small></a>
+      <a class="localized-pathways__card" href="parents.html"><span class="localized-pathways__icon" aria-hidden="true">👪</span><strong>家长专区</strong><small>日常陪伴与行为支持指南。</small></a>
+      <a class="localized-pathways__card" href="teacher-life.html"><span class="localized-pathways__icon" aria-hidden="true">🍎</span><strong>教师专区</strong><small>适合课堂的温暖支持方法。</small></a>
+      <a class="localized-pathways__card" href="about_me.html"><span class="localized-pathways__icon" aria-hidden="true">💛</span><strong>认识我们</strong><small>了解 Healthy Little Minds 的故事。</small></a>
     </div>
   </div>
 </section>
 
-<section style="
-  background-color:#DFF5FF;
-  padding:3rem 1rem;
-  text-align:center;
-  font-family:'DM Sans', sans-serif;
-">
+<section class="localized-about" aria-labelledby="cnAboutTitle">
 
   <!-- Profile Image (fixed crop + sharp) -->
   <img
@@ -1429,122 +1422,59 @@ html, body { overflow-x: hidden; }
     loading="lazy"
     decoding="async"
     fetchpriority="high"
-    onmouseover="this.style.transform='scale(1.05)'"
-    onmouseout="this.style.transform='scale(1)'"
-    style="
-      width:130px;
-      height:130px;
-      border-radius:50%;
-      object-fit:cover;
-      object-position:center 12%;
-      display:block;
-      margin:0 auto 1.5rem;
-      border:4px solid #fff;
-      box-shadow:0 10px 24px rgba(0,0,0,0.12);
-      background:#fff;
-      transition:transform .25s ease;
-      will-change:transform;
-    "
+    class="localized-about__portrait"
   />
 
   <!-- Heading -->
-  <h2 style="
-    color:#254E70;
-    font-size:1.8rem;
-    font-weight:900;
-    margin-bottom:1rem;
-    letter-spacing:-0.2px;
-  ">
+  <h2 id="cnAboutTitle" class="localized-about__title">
     关于我
   </h2>
 
   <!-- Description -->
-  <p style="
-    max-width:700px;
-    margin:0 auto 2rem;
-    font-size:1.05rem;
-    color:#444;
-    line-height:1.7;
-  ">
+  <p class="localized-about__copy">
     了解我的旅程、研究，以及
-    <strong style="color:#254E70;">Healthy Little Minds®</strong>
+    <strong>Healthy Little Minds®</strong>
     背后的故事。
   </p>
 
   <!-- Buttons -->
-  <div style="
-    display:flex;
-    gap:1rem;
-    justify-content:center;
-    flex-wrap:wrap;
-  ">
-    <a href="about_me.html"
-       style="
-         background:#254E70;
-         color:#fff;
-         padding:.75rem 1.6rem;
-         font-weight:900;
-         border-radius:999px;
-         text-decoration:none;
-         font-size:1rem;
-         box-shadow:0 8px 18px rgba(37,78,112,0.25);
-         transition:transform .2s ease, box-shadow .2s ease;
-       "
-       onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 12px 26px rgba(37,78,112,0.3)';"
-       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 18px rgba(37,78,112,0.25)';">
+  <div class="localized-about__actions">
+    <a class="localized-about__primary" href="about_me.html">
       查看完整简介 →
     </a>
 
-    <a href="https://instagram.com/heal.thylittleminds" target="_blank" rel="noopener"
-       style="
-         background:rgba(0,128,96,0.12);
-         color:#0B5B4A;
-         padding:.75rem 1.6rem;
-         font-weight:900;
-         border-radius:999px;
-         text-decoration:none;
-         font-size:1rem;
-         border:1px solid rgba(0,128,96,0.25);
-         transition:transform .2s ease, background .2s ease;
-       "
-       onmouseover="this.style.transform='translateY(-1px)'; this.style.background='rgba(0,128,96,0.18)';"
-       onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(0,128,96,0.12)';">
+    <a class="localized-about__secondary" href="https://instagram.com/heal.thylittleminds" target="_blank" rel="noopener">
       + 关注
     </a>
   </div>
 
 </section>
 
-<!-- 🌈 Simplified Chinese Footer -->
-<footer style="text-align: center; font-family: 'Poppins', sans-serif; font-size: 0.95rem; color: #777; margin-top: 2rem; padding: 2rem 1rem;">
-  © <span id="cn-copy-year"></span> Healthy Little Minds | 保留所有权利 🌟
-  &nbsp;|&nbsp;
-  <a href="#" onclick="logout()" style="color: #6B4EFF; text-decoration: none; font-weight: 600;">
-    登出
-  </a>
-</footer>
-
-<section id="subscribe">
-  <div class="subscribe-box" style="text-align: center; padding: 2rem;">
-    <h2 style="color: #254E70; font-size: 1.4rem;">📬 接收最新消息</h2>
-    <p style="color: #444; font-size: 1rem;">
+<section id="subscribe" class="localized-subscribe" aria-labelledby="cnSubscribeTitle">
+  <div class="localized-subscribe__inner">
+    <h2 id="cnSubscribeTitle"><span aria-hidden="true">📬</span> 接收最新消息</h2>
+    <p>
       获取适合家长的工具、公告和免费资源！<br>
       输入您的邮箱地址以订阅。
     </p>
-    <form action="https://formspree.io/f/mkgbvboj" method="POST" style="margin-top: 1rem;">
+    <form action="https://formspree.io/f/mkgbvboj" method="POST">
         <input type="hidden" name="form_type" value="newsletter" />
         <input type="hidden" name="source_page" value="zh-cn/home.html" />
         <input type="hidden" name="language" value="zh-cn" />
-      <input type="email" name="email" placeholder="请输入您的邮箱地址" required
-        style="padding: 0.6rem 1rem; width: 280px; max-width: 90%; border-radius: 30px; border: 1px solid #ccc; font-size: 1rem;">
-      <br><br>
-      <button type="submit"
-        style="padding: 0.6rem 1.5rem; background-color: #FF6B6B; color: #fff; border: none; border-radius: 30px; font-weight: bold; font-size: 1rem; cursor: pointer;">
+      <label class="sr-only" for="cn-subscribe-email">电子邮箱地址</label>
+      <input id="cn-subscribe-email" type="email" name="email" placeholder="请输入您的邮箱地址" required>
+      <button type="submit">
         订阅
       </button>
     </form>
   </div>
 </section>
+</main>
+
+<footer class="site-footer localized-footer">
+  <span>© <span id="cn-copy-year"></span> Healthy Little Minds · 保留所有权利</span>
+  <button type="button" onclick="logout()">登出</button>
+</footer>
 
 <!-- 🔐 Logout Function -->
 <script>
