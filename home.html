@@ -68,7 +68,7 @@
   </script>
   <link href="home-mobile-ui.css?v=1" rel="stylesheet" />
   <link href="site-ui-upgrades.css?v=1" rel="stylesheet" />
-  <link href="home-experience.css?v=1" rel="stylesheet" />
+  <link href="home-experience.css?v=2" rel="stylesheet" />
 </head>
  <body class="home-mobile-ui ui-upgraded home-experience">
   <a class="home-skip-link" href="#main-content">Skip to main content</a>
@@ -115,7 +115,7 @@
       </details>
       <!-- ADDED: logout in nav so members can exit from anywhere -->
       <button class="nav-logout-btn" type="button"
-              onclick="localStorage.removeItem('isMember'); window.location.href='index.html';"
+              data-home-logout="index.html"
               aria-label="Log out">
         Log out
       </button>
@@ -130,20 +130,20 @@
     <button class="hamburger" type="button" aria-label="Open menu"
             aria-controls="mobileNav"
             aria-expanded="false"
-            onclick="toggleMobileMenu()">
+            >
       ☰
     </button>
   </div>
 
   <!-- Backdrop -->
   <div class="nav-backdrop" id="navBackdrop"
-       onclick="toggleMobileMenu(false)"></div>
+       ></div>
 
   <!-- MOBILE NAV -->
   <div class="mobile-nav" id="mobileNav" aria-hidden="true">
     <div class="mobile-nav__head">
       <strong>Menu</strong>
-      <button type="button" class="mobile-nav__close" onclick="toggleMobileMenu(false)" aria-label="Close menu">×</button>
+      <button type="button" class="mobile-nav__close" aria-label="Close menu">×</button>
     </div>
     <p class="mobile-nav__label">Explore</p>
     <a href="#explore-feelings">Feelings</a>
@@ -168,7 +168,7 @@
     </button>
     <!-- ADDED: logout in mobile nav -->
     <button class="mobile-nav-logout-btn" type="button"
-            onclick="localStorage.removeItem('isMember'); window.location.href='index.html';"
+            data-home-logout="index.html"
             aria-label="Log out">
       Log out
     </button>
@@ -225,7 +225,7 @@
     Songs
   </a>
 
-  <button class="announcement-dismiss u-style-013" type="button" onclick="hideBar()"
+  <button class="announcement-dismiss u-style-013" type="button" data-home-action="dismiss-announcement"
           aria-label="Dismiss new this month announcements">
     <span>Got it</span>
     <span class="announcement-dismiss__icon" aria-hidden="true">&times;</span>
@@ -258,18 +258,18 @@
 
    <!-- Navigation Dots -->
    <div class="carousel-dots" aria-label="Choose featured banner">
-    <button class="dot active" type="button" onclick="showSlide(0)" aria-label="Show banner 1" aria-current="true"></button>
-    <button class="dot" type="button" onclick="showSlide(1)" aria-label="Show banner 2"></button>
-    <button class="dot" type="button" onclick="showSlide(2)" aria-label="Show banner 3"></button>
-    <button class="dot" type="button" onclick="showSlide(3)" aria-label="Show banner 4"></button>
-    <button class="dot" type="button" onclick="showSlide(4)" aria-label="Show banner 5"></button>
-    <button class="dot" type="button" onclick="showSlide(5)" aria-label="Show banner 6"></button>
+    <button class="dot active" type="button" data-slide-index="0" aria-label="Show banner 1" aria-current="true"></button>
+    <button class="dot" type="button" data-slide-index="1" aria-label="Show banner 2"></button>
+    <button class="dot" type="button" data-slide-index="2" aria-label="Show banner 3"></button>
+    <button class="dot" type="button" data-slide-index="3" aria-label="Show banner 4"></button>
+    <button class="dot" type="button" data-slide-index="4" aria-label="Show banner 5"></button>
+    <button class="dot" type="button" data-slide-index="5" aria-label="Show banner 6"></button>
    </div>
    <!-- Arrow Buttons -->
-   <button class="carousel-arrow left" onclick="changeSlide(-1)">
+   <button class="carousel-arrow left" type="button" data-slide-direction="-1">
     ❮
    </button>
-   <button class="carousel-arrow right" onclick="changeSlide(1)">
+   <button class="carousel-arrow right" type="button" data-slide-direction="1">
     ❯
    </button>
   </section>
@@ -371,35 +371,33 @@
 <hr class="section-divider"/>
 <section class="mood-check-strip" aria-labelledby="moodCheckTitle">
 <h2 class="mood-heading" id="moodCheckTitle">How are you feeling today?</h2>
-<p class="mood-helper">Tap a face for a small reminder you can carry into the next activity.</p>
+<p class="mood-helper">Choose the closest match, choose another word for yourself, or skip this check-in.</p>
 <div class="mood-row">
-  <button class="mood" type="button" aria-pressed="false" data-message="😲 You’re surprised! Sometimes things pop up out of nowhere, and that’s okay.">
-    <img alt="Surprised" class="mood-img" decoding="async" loading="lazy" src="images/surprised.webp"/>
+  <button class="mood" type="button" aria-pressed="false" data-message="Surprise can feel different for different people. Notice what changed, and give yourself a moment before choosing what to do next.">
+    <img alt="A face suggesting surprise" class="mood-img" decoding="async" loading="lazy" src="images/surprised.webp"/>
   </button>
-  <button class="mood" type="button" aria-pressed="false" data-message="😊 Yay! You’re happy today — let that smile shine bright!">
-    <img alt="Happy" class="mood-img" decoding="async" loading="lazy" src="images/happy.webp"/>
+  <button class="mood" type="button" aria-pressed="false" data-message="Happiness can feel quiet, warm, or full of energy. Notice what feels good and whether you would like to share it with someone.">
+    <img alt="A face suggesting happiness" class="mood-img" decoding="async" loading="lazy" src="images/happy.webp"/>
   </button>
-  <button class="mood" type="button" aria-pressed="false" data-message="😐 Feeling unsure? That happens sometimes. Let’s slow down and notice what’s inside.">
-    <img alt="Unsure" class="mood-img" decoding="async" loading="lazy" src="images/unsure.webp"/>
+  <button class="mood" type="button" aria-pressed="false" data-message="Not knowing yet is okay. You can pause, look for more information, or ask someone you trust for help.">
+    <img alt="A face suggesting uncertainty" class="mood-img" decoding="async" loading="lazy" src="images/unsure.webp"/>
   </button>
-  <button class="mood" type="button" aria-pressed="false" data-message="😡 Feeling angry? It’s okay to feel mad. Take a deep breath and let it pass.">
-    <img alt="Angry" class="mood-img" decoding="async" loading="lazy" src="images/angry.webp"/>
+  <button class="mood" type="button" aria-pressed="false" data-message="Anger may signal that something feels unfair, painful, blocked, or wrong. The feeling does not need to disappear before you choose a safe next step.">
+    <img alt="A face suggesting anger" class="mood-img" decoding="async" loading="lazy" src="images/angry.webp"/>
   </button>
-  <button class="mood" type="button" aria-pressed="false" data-message="🤩 Woohoo! You’re excited — that energy is awesome, let’s use it in a fun way!">
-    <img alt="Excited" class="mood-img" decoding="async" loading="lazy" src="images/excited.webp"/>
+  <button class="mood" type="button" aria-pressed="false" data-message="Excitement can bring a lot of energy. Notice what your body needs and choose a way to use that energy safely.">
+    <img alt="A face suggesting excitement" class="mood-img" decoding="async" loading="lazy" src="images/excited.webp"/>
   </button>
 </div>
 
   <div class="u-style-014" id="mood-response-wrapper">
-   <div class="u-style-015" id="mood-response">
+   <div class="u-style-015" id="mood-response" role="status" aria-live="polite">
    </div>
-   <button class="u-style-016" id="clearMood" onclick="clearMood()">
+   <button class="u-style-016" id="clearMood" type="button" data-home-action="clear-mood">
     Clear
    </button>
   </div>
   </section>
-  <audio id="mood-audio" preload="auto">
-  </audio>
   <section class="characters-section u-style-017" id="characters" aria-labelledby="charactersTitle">
    <div class="characters-header">
     <p class="eyebrow">Meet the friends</p>
@@ -646,7 +644,7 @@
 
    <!-- EXPRESS (modal) -->
 <button class="next-step__card" type="button"
-        onclick="openExpressModal()"
+        data-home-action="open-express"
         aria-label="Open express modal">
   <div class="next-step__icon next-step__icon--symbol">✎</div>
   <div class="next-step__label">Express</div>
@@ -672,7 +670,7 @@
 
 <!-- ✅ EXPRESS MODAL -->
 <div class="express-modal" id="expressModal" aria-hidden="true" role="dialog" aria-label="Express your feelings">
-  <div class="express-modal__backdrop" onclick="closeExpressModal()"></div>
+  <div class="express-modal__backdrop" data-home-action="close-express"></div>
 
   <div class="express-modal__panel" role="document">
     <div class="express-modal__head">
@@ -680,7 +678,7 @@
         <div class="express-modal__title">🎨 Express</div>
         <div class="express-modal__sub">One small sentence is enough.</div>
       </div>
-      <button class="express-modal__close" type="button" onclick="closeExpressModal()" aria-label="Close">✕</button>
+      <button class="express-modal__close" type="button" data-home-action="close-express" aria-label="Close">✕</button>
     </div>
 
     <label class="express-modal__label" for="expressText">Right now, I feel…</label>
@@ -688,8 +686,8 @@
       placeholder="Example: I feel angry because someone didn’t listen to me."></textarea>
 
     <div class="express-modal__actions">
-      <button class="express-modal__btn" type="button" onclick="saveExpress()">Save</button>
-      <button class="express-modal__btn express-modal__btn--ghost" type="button" onclick="closeExpressModal()">Done</button>
+      <button class="express-modal__btn" type="button" data-home-action="save-express">Save</button>
+      <button class="express-modal__btn express-modal__btn--ghost" type="button" data-home-action="close-express">Done</button>
     </div>
 
     <div class="express-modal__saved u-style-040" id="expressSaved">
@@ -1242,7 +1240,7 @@
 <button
   class="quick-logout u-style-085"
   type="button"
-  onclick="localStorage.removeItem('isMember'); window.location.href='index.html';"
+  data-home-logout="index.html"
   aria-label="Log out and return to home page"
 >
   Quick Log Out
@@ -1452,7 +1450,7 @@
   function libraryItemAttributes(item, index) {
     const attrs = [
       `class="character-book-card character-book-card--${String(item.type || "book").toLowerCase()}"`,
-      `style="--book-index:${index}"`,
+      `data-book-index="${index}"`,
       `href="${item.href}"`
     ];
     if (item.external) attrs.push('target="_blank"', 'rel="noopener"');
@@ -1537,7 +1535,7 @@
           <img class="u-style-089" src="images/share-icon.png" alt="Share icon"> 
           then <strong>“Add to Home Screen”</strong>
         </span>
-        <button class="u-style-090" onclick="this.parentElement.remove()">Close</button>
+        <button class="u-style-090" type="button" data-home-action="dismiss-parent">Close</button>
       </div>
     `;
     document.body.appendChild(iosBanner);
@@ -1554,187 +1552,10 @@
         loader.style.display = "none";
       }, 500);
     }
-
-    const scrollWrapper = document.querySelector(".scroll-wrapper");
-    const toggleBtn = document.getElementById("toggle-scroll");
-    let direction = 1;
-    let scrollInterval;
-    let isScrolling = true;
-
-    function startScroll() {
-      stopScroll(); // prevent duplicates
-      scrollInterval = setInterval(() => {
-        scrollWrapper.scrollLeft += direction;
-
-        const atRightEdge = scrollWrapper.scrollLeft + scrollWrapper.clientWidth >= scrollWrapper.scrollWidth;
-        const atLeftEdge = scrollWrapper.scrollLeft <= 0;
-
-        if (atRightEdge) direction = -1;
-        if (atLeftEdge) direction = 1;
-      }, 30);
-    }
-
-    function stopScroll() {
-      clearInterval(scrollInterval);
-    }
-
-    if (scrollWrapper) startScroll();
-
-    if (toggleBtn && scrollWrapper) {
-      toggleBtn.addEventListener("click", () => {
-        if (isScrolling) {
-          stopScroll();
-          toggleBtn.textContent = "▶️ Resume Auto-Scroll";
-        } else {
-          startScroll();
-          toggleBtn.textContent = "⏸️ Pause Auto-Scroll";
-        }
-        isScrolling = !isScrolling;
-      });
-    }
-
-    const isMobile = /iphone|ipad|ipod|android/i.test(navigator.userAgent);
-
-    if (scrollWrapper) {
-      if (!isMobile) {
-        scrollWrapper.addEventListener("mouseenter", () => {
-          if (isScrolling) stopScroll();
-        });
-        scrollWrapper.addEventListener("mouseleave", () => {
-          if (isScrolling) startScroll();
-        });
-      } else {
-        scrollWrapper.addEventListener("touchstart", () => {
-          if (isScrolling) stopScroll();
-        });
-        scrollWrapper.addEventListener("touchend", () => {
-          if (isScrolling && !scrollInterval) {
-            startScroll();
-          }
-        });
-      }
-    }
   });
   </script>
 
 
-  <script>
-   function showMood(mood) {
-    const moodResponse = document.getElementById('mood-response');
-    const clearBtn = document.getElementById('clearMood');
-    const audio = document.getElementById('mood-audio');
-
-    let message = "";
-    let audioSrc = "";
-
-    switch (mood) {
-      case '😊':
-        message = "Yay! You're feeling happy! 🌞";
-        audioSrc = "https://cdn.pixabay.com/audio/2023/03/06/audio_5dd55d186f.mp3";
-        break;
-      case '😳':
-        message = "That surprised you? It's okay!";
-        audioSrc = "https://cdn.pixabay.com/audio/2022/03/15/audio_c49ce88df1.mp3";
-        break;
-      case '😡':
-        message = "Feeling mad? Let's take a deep breath. 💨";
-        audioSrc = "https://cdn.pixabay.com/audio/2022/07/26/audio_f86bc7f1b4.mp3";
-        break;
-      case '😕':
-        message = "Feeling unsure? That's alright too. 💬";
-        audioSrc = "https://cdn.pixabay.com/audio/2021/08/09/audio_f6fa16fae8.mp3";
-        break;
-      case '🥳':
-        message = "Woohoo! Let's celebrate! 🎉";
-        audioSrc = "https://cdn.pixabay.com/audio/2022/03/15/audio_2b015694f0.mp3";
-        break;
-    }
-
-    moodResponse.innerText = message;
-    moodResponse.style.display = 'block';
-    clearBtn.style.display = 'inline-block';
-
-    audio.src = audioSrc;
-    audio.play().catch(err => {
-      console.warn("Audio autoplay blocked:", err);
-    });
-  }
-
-  function clearMood() {
-    document.getElementById('mood-response').style.display = 'none';
-    document.getElementById('clearMood').style.display = 'none';
-  }
-  </script>
-  <script>
-   window.addEventListener("load", () => {
-    /* 🌟 Legacy scroll code – saved for later
-    const scrollWrapper = document.querySelector('.scroll-wrapper');
-    const toggleBtn = document.getElementById('toggle-scroll');
-    let direction = 1;
-    let scrollInterval;
-    let isScrolling = true;
-
-    function startScroll() {
-      stopScroll(); // prevent duplicates
-      scrollInterval = setInterval(() => {
-        scrollWrapper.scrollLeft += direction;
-
-        const atRightEdge = scrollWrapper.scrollLeft + scrollWrapper.clientWidth >= scrollWrapper.scrollWidth;
-        const atLeftEdge = scrollWrapper.scrollLeft <= 0;
-
-        if (atRightEdge) direction = -1;
-        if (atLeftEdge) direction = 1;
-      }, 30);
-    }
-
-    function stopScroll() {
-      clearInterval(scrollInterval);
-    }
-
-    // ✅ Only continue if scrollWrapper exists
-    if (!scrollWrapper) {
-      console.warn("No scroll-wrapper found on this page.");
-      return;
-    }
-
-    // ✅ Start scrolling if wrapper is present
-    startScroll();
-
-    // 🧠 Toggle Button Logic
-    toggleBtn?.addEventListener("click", () => {
-      if (isScrolling) {
-        stopScroll();
-        toggleBtn.textContent = "▶️ Resume Auto-Scroll";
-      } else {
-        startScroll();
-        toggleBtn.textContent = "⏸️ Pause Auto-Scroll";
-      }
-      isScrolling = !isScrolling;
-    });
-
-    // 📱 Handle touch or mouse
-    const isMobile = /iphone|ipad|ipod|android/i.test(navigator.userAgent);
-
-    if (!isMobile) {
-      scrollWrapper.addEventListener("mouseenter", () => {
-        if (isScrolling) stopScroll();
-      });
-      scrollWrapper.addEventListener("mouseleave", () => {
-        if (isScrolling) startScroll();
-      });
-    } else {
-      scrollWrapper.addEventListener("touchstart", () => {
-        if (isScrolling) stopScroll();
-      });
-      scrollWrapper.addEventListener("touchend", () => {
-        if (isScrolling && !scrollInterval) {
-          startScroll();
-        }
-      });
-    }
-    */ // ✅ End of scroll code
-  });
-  </script>
 <script>
   let deferredPrompt = null;
   let installBannerEl = null;
@@ -1792,45 +1613,7 @@
 </script>
 
   <script>
-   // 🎯 For character card emoji pop-up
-function showMood(event, moodText) {
-  event.stopPropagation();
-
-  const tooltip = document.getElementById("mood-tooltip");
-  tooltip.textContent = moodText;
-  tooltip.style.display = "block";
-
-  const rect = event.target.getBoundingClientRect();
-  tooltip.style.left = rect.left + window.scrollX + "px";
-  tooltip.style.top = rect.bottom + window.scrollY + 5 + "px";
-
-  const card = event.target.closest(".character-card");
-
-  document.querySelectorAll('.character-card').forEach(c => {
-    c.style.backgroundColor = "#fff";
-  });
-
-  const moodColors = {
-    "😊": "#FFF9C4",
-    "😄": "#FFECB3",
-    "😌": "#E0F7FA",
-    "😕": "#F3E5F5",
-    "😢": "#E1F5FE",
-    "😡": "#FFCDD2"
-  };
-
-  const emoji = event.target.textContent.trim();
-  if (moodColors[emoji] && card) {
-    card.style.backgroundColor = moodColors[emoji];
-  }
-
-  setTimeout(() => {
-    tooltip.style.display = "none";
-    if (card) card.style.backgroundColor = "#fff";
-  }, 2000);
-}
-
-// 🧠 For "How Are You Feeling Today?" mood row with glow effect
+   // Mood check-in with accessible selected state.
 document.addEventListener("DOMContentLoaded", () => {
   const moods = document.querySelectorAll('.mood');
   const message = document.getElementById('mood-response');
@@ -2153,6 +1936,12 @@ document.getElementById('mobileNav')?.addEventListener('click', e => {
   const dots = document.querySelectorAll('.dot');
   const track = document.querySelector('.carousel');
   const container = document.querySelector('.carousel-container');
+  const reduceCarouselMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const carouselStatus = document.createElement('p');
+  carouselStatus.className = 'sr-only';
+  carouselStatus.setAttribute('role', 'status');
+  carouselStatus.setAttribute('aria-live', 'polite');
+  container.appendChild(carouselStatus);
 
   let autoSlideInterval;
 
@@ -2167,6 +1956,7 @@ document.getElementById('mobileNav')?.addEventListener('click', e => {
       dots[index].setAttribute('aria-current', 'true');
     }
     current = index;
+    carouselStatus.textContent = `Featured banner ${index + 1} of ${slides.length}`;
   }
 
   function changeSlide(direction) {
@@ -2177,6 +1967,7 @@ document.getElementById('mobileNav')?.addEventListener('click', e => {
 
   function startAutoSlide() {
     clearInterval(autoSlideInterval);
+    if (reduceCarouselMotion.matches) return;
     autoSlideInterval = setInterval(() => changeSlide(1), 7000);
   }
 
@@ -2187,12 +1978,27 @@ document.getElementById('mobileNav')?.addEventListener('click', e => {
 // 🖱 Pause on hover (desktop)
 container.addEventListener('mouseenter', stopAutoSlide);
 container.addEventListener('mouseleave', startAutoSlide);
+container.addEventListener('focusin', stopAutoSlide);
+container.addEventListener('focusout', (event) => {
+  if (!container.contains(event.relatedTarget)) startAutoSlide();
+});
 
 // ✋ Pause on touch (mobile)
 container.addEventListener('touchstart', stopAutoSlide, { passive: true });
 container.addEventListener('touchend', () => {
   setTimeout(startAutoSlide, 3000);
 }, { passive: true });
+
+container.addEventListener('click', (event) => {
+  if (!event.target.closest('.dot, .carousel-arrow')) return;
+  stopAutoSlide();
+  setTimeout(startAutoSlide, 3000);
+});
+
+reduceCarouselMotion.addEventListener('change', () => {
+  if (reduceCarouselMotion.matches) stopAutoSlide();
+  else startAutoSlide();
+});
 
 // 👆 Swipe gesture support
 let startX = 0;
@@ -2659,8 +2465,8 @@ startAutoSlide();
   const mobileBtn  = document.getElementById('homeThemeToggleMob');
 
   function syncButtons(dark) {
-    if (desktopBtn) desktopBtn.textContent = dark ? '☀️' : '🌙';
-    if (mobileBtn)  mobileBtn.textContent  = dark ? '☀️ Light Mode' : '🌙 Dark Mode';
+    if (desktopBtn) desktopBtn.textContent = '';
+    if (mobileBtn)  mobileBtn.textContent  = dark ? 'Light Mode' : 'Dark Mode';
   }
 
   function toggleTheme() {
@@ -2680,6 +2486,7 @@ startAutoSlide();
 </script>
   <script defer src="button-loader.js?v=1"></script>
   <script src="site-ui-upgrades.js?v=1"></script>
-  <script src="home-mobile-ui.js?v=1"></script>
+<script src="home-mobile-ui.js?v=1"></script>
+<script src="home-actions.js?v=1"></script>
 </body>
 </html>

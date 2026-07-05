@@ -909,9 +909,9 @@ html, body { overflow-x: hidden; }
       document.documentElement.classList.add('dark-mode');
     }
   </script>
-  <link href="../home-mobile-ui.css?v=1" rel="stylesheet" />
-  <link href="../site-ui-upgrades.css?v=1" rel="stylesheet" />
-  <link href="../home-experience.css?v=1" rel="stylesheet" />
+<link href="../home-mobile-ui.css?v=1" rel="stylesheet" />
+<link href="../site-ui-upgrades.css?v=1" rel="stylesheet" />
+<link href="../home-experience.css?v=2" rel="stylesheet" />
 </head>
 <body class="localized-home home-mobile-ui ui-upgraded home-experience">
 <a class="home-skip-link" href="#main-content">跳到主要内容</a>
@@ -961,7 +961,7 @@ html, body { overflow-x: hidden; }
     </a>
 
     <!-- ✅ Hamburger (Mobile) -->
-    <button class="menu-toggle cn-menu-toggle" type="button" aria-label="打开菜单" aria-controls="mobileNav" aria-expanded="false" onclick="toggleMobileMenu()">☰</button>
+    <button class="menu-toggle cn-menu-toggle" type="button" aria-label="打开菜单" aria-controls="mobileNav" aria-expanded="false"><span aria-hidden="true">☰</span></button>
   </div>
 </header>
 
@@ -988,7 +988,7 @@ html, body { overflow-x: hidden; }
   <a href="#subscribe" class="subscribe-btn">📬 订阅</a>
   <button class="mobile-nav-theme-btn" id="homeThemeToggleMob" type="button" aria-label="深色/浅色模式">🌙 深色模式</button>
   <button class="mobile-nav-logout-btn" type="button"
-          onclick="localStorage.removeItem('isMember'); window.location.href='index.html';"
+          data-home-logout="index.html"
           aria-label="登出">登出</button>
 </nav>
 
@@ -1017,7 +1017,7 @@ html, body { overflow-x: hidden; }
     <a href="#subscribe" class="subscribe-btn">订阅</a>
     <button class="nav-theme-btn" id="homeThemeToggle" type="button" aria-label="深色/浅色模式">🌙</button>
     <button class="nav-logout-btn" type="button"
-            onclick="localStorage.removeItem('isMember'); window.location.href='index.html';"
+            data-home-logout="index.html"
             aria-label="登出">登出</button>
   </div>
 </nav>
@@ -1196,7 +1196,7 @@ html, body { overflow-x: hidden; }
 
   <div class="book-row auto-book-rail">
 
-    <div class="book-card" style="background:#FFF8ED;">
+    <div class="book-card book-tone-warm">
   <p>🐒 <strong>有时候，家人会找到你</strong></p>
   <img 
     class="book-cover" 
@@ -1213,13 +1213,13 @@ html, body { overflow-x: hidden; }
   </a>
 </div>
 
-    <div class="book-card" style="background:#E8F0FF;">
+    <div class="book-card book-tone-blue">
       <p>🌟 <strong>德斯蒂尼想要放弃的一天</strong></p>
       <img class="book-cover" src="../images/The_Day_Destiny_Wanted_To_Quit.webp" alt="德斯蒂尼想要放弃的一天" />
       <a class="book-btn" href="https://heyzine.com/flip-book/8736fac672.html" target="_blank" rel="noopener">📖 阅读绘本</a>
     </div>
 
-    <div class="book-card" style="background:#FFEFF0;">
+    <div class="book-card book-tone-rose">
   <p>👑 <strong>当我的情绪变得太大的时候</strong></p>
   <img class="book-cover" src="../images/when-my-feelings-cover.webp" alt="当我的情绪变得太大的时候" />
   <a class="book-btn" href="https://heyzine.com/flip-book/5cbe03c993.html" target="_blank" rel="noopener">
@@ -1227,7 +1227,7 @@ html, body { overflow-x: hidden; }
   </a>
 </div>
 
-    <div class="book-card" style="background:#E8F3F8;">
+    <div class="book-card book-tone-sky">
       <p>🌊 <strong>戈申学会引导河流的那一天</strong></p>
       <img 
         class="book-cover" 
@@ -1244,49 +1244,49 @@ html, body { overflow-x: hidden; }
       </a>
     </div>
     
-<div class="book-card" style="background:#FFF3F6;">
+<div class="book-card book-tone-blush">
       <p>🌱 <strong>Ella 与她不断尝试的承诺</strong></p>
       <img class="book-cover" src="../images/ella-promise-cover.webp" alt="Ella 与她不断尝试的承诺" />
       <a class="book-btn" href="https://heyzine.com/flip-book/684fc1bda8.html" target="_blank" rel="noopener">📖 阅读绘本</a>
     </div>
 
-    <div class="book-card" style="background:#FFF2E5;">
+    <div class="book-card book-tone-peach">
       <p>📘 <strong>Feelings Are My Superpower</strong></p>
       <img class="book-cover" src="../images/book1.webp" alt="Feelings Are My Superpower" />
       <a class="book-btn" href="https://heyzine.com/flip-book/1d58a25aee.html" target="_blank" rel="noopener">📖 阅读绘本</a>
     </div>
 
-    <div class="book-card" style="background:#FCEFD5;">
+    <div class="book-card book-tone-warm">
       <p>🌧️ <strong>How to Calm the Storm Inside</strong></p>
       <img class="book-cover" src="../images/storm-book-cover.webp" alt="How to Calm the Storm Inside" />
       <a class="book-btn" href="https://heyzine.com/flip-book/3cf1027650.html" target="_blank" rel="noopener">📖 阅读绘本</a>
     </div>
 
-    <div class="book-card" style="background:#E3F2FD;">
+    <div class="book-card book-tone-calm">
       <p>😨 <strong>When I Feel Scared</strong></p>
       <img class="book-cover" src="../images/when-i-feel-scared-bkcover.webp" alt="When I Feel Scared" />
       <a class="book-btn" href="https://heyzine.com/flip-book/1f4337da92.html" target="_blank" rel="noopener">📖 阅读绘本</a>
     </div>
 
-    <div class="book-card" style="background:#FFE6EB;">
+    <div class="book-card book-tone-rose">
       <p>💖 <strong>Little Acts, Big Feelings</strong></p>
       <img class="book-cover" src="../images/little-acts-book-cover.webp" alt="Little Acts, Big Feelings" />
       <a class="book-btn" href="https://heyzine.com/flip-book/034942038a.html" target="_blank" rel="noopener">📖 阅读绘本</a>
     </div>
 
-    <div class="book-card" style="background:#E8F0FF;">
+    <div class="book-card book-tone-blue">
       <p>👩‍🎓 <strong>Princess的照片日惊喜</strong></p>
       <img class="book-cover" src="../images/princess-picture-day-cover.webp" alt="Princess and the Picture Day Surprise" />
       <a class="book-btn" href="https://heyzine.com/flip-book/a958329538.html" target="_blank" rel="noopener">📖 阅读绘本</a>
     </div>
 
-    <div class="book-card" style="background:#F5F5F5;">
+    <div class="book-card book-tone-neutral">
       <p>⚖️ <strong>世界不只是黑与白</strong></p>
       <img class="book-cover" src="../images/grey-thinking.webp" alt="世界不只是黑与白" />
       <a class="book-btn" href="https://heyzine.com/flip-book/d765b64bda.html" target="_blank" rel="noopener">📖 阅读绘本</a>
     </div>
 
-    <div class="book-card" style="background:#FFF9E6;">
+    <div class="book-card book-tone-sun">
       <p>🌍 <strong>我会等到我长大</strong></p>
       <img class="book-cover" src="../images/i-will-wait-cover.webp" alt="我会等到我长大" />
       <a class="book-btn" href="https://heyzine.com/flip-book/81bf5a9f97.html" target="_blank" rel="noopener">📖 阅读绘本</a>
@@ -1473,7 +1473,7 @@ html, body { overflow-x: hidden; }
 
 <footer class="site-footer localized-footer">
   <span>© <span id="cn-copy-year"></span> Healthy Little Minds · 保留所有权利</span>
-  <button type="button" onclick="logout()">登出</button>
+  <button type="button" data-home-logout="index.html">登出</button>
 </footer>
 
 <!-- 🔐 Logout Function -->
@@ -1853,8 +1853,8 @@ document.addEventListener('DOMContentLoaded', () => {
   var mobileBtn   = document.getElementById('homeThemeToggleMob');
 
   function syncButtons(dark) {
-    if (desktopBtn) desktopBtn.textContent = dark ? '☀️' : '🌙';
-    if (mobileBtn)  mobileBtn.textContent  = dark ? '☀️ 浅色模式' : '🌙 深色模式';
+    if (desktopBtn) desktopBtn.textContent = '';
+    if (mobileBtn)  mobileBtn.textContent  = dark ? '浅色模式' : '深色模式';
   }
 
   function toggleTheme() {

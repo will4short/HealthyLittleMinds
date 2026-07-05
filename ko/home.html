@@ -726,9 +726,9 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
       document.documentElement.classList.add('dark-mode');
     }
   </script>
-  <link href="../home-mobile-ui.css?v=1" rel="stylesheet" />
-  <link href="../site-ui-upgrades.css?v=1" rel="stylesheet" />
-  <link href="../home-experience.css?v=1" rel="stylesheet" />
+<link href="../home-mobile-ui.css?v=1" rel="stylesheet" />
+<link href="../site-ui-upgrades.css?v=1" rel="stylesheet" />
+<link href="../home-experience.css?v=2" rel="stylesheet" />
 </head>
 <body class="localized-home home-mobile-ui ui-upgraded home-experience">
 <a class="home-skip-link" href="#main-content">주요 콘텐츠로 건너뛰기</a>
@@ -776,7 +776,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
       </div>
     </a>
     <!-- ✅ use new function + a11y -->
-    <button class="menu-toggle ko-menu-toggle" type="button" aria-label="메뉴 열기" aria-controls="mobileNav" aria-expanded="false" onclick="toggleMobileMenu()">☰</button>
+    <button class="menu-toggle ko-menu-toggle" type="button" aria-label="메뉴 열기" aria-controls="mobileNav" aria-expanded="false"><span aria-hidden="true">☰</span></button>
   </div>
 </header>
 
@@ -803,7 +803,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
   <a href="#subscribe" class="subscribe-btn">구독하기</a>
   <button class="mobile-nav-theme-btn" id="homeThemeToggleMob" type="button" aria-label="다크/라이트 모드">🌙 다크 모드</button>
   <button class="mobile-nav-logout-btn" type="button"
-          onclick="localStorage.removeItem('isMember'); window.location.href='index.html';"
+          data-home-logout="index.html"
           aria-label="로그아웃">로그아웃</button>
 </nav>
 
@@ -832,7 +832,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
     <a href="#subscribe" class="subscribe-btn">구독하기</a>
     <button class="nav-theme-btn" id="homeThemeToggle" type="button" aria-label="다크/라이트 모드 전환">🌙</button>
     <button class="nav-logout-btn" type="button"
-            onclick="localStorage.removeItem('isMember'); window.location.href='index.html';"
+            data-home-logout="index.html"
             aria-label="로그아웃">로그아웃</button>
   </div>
 </nav>
@@ -1008,7 +1008,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
   <div class="book-row auto-book-rail">
 
   <!-- Book NEW: Sometimes Family Finds You -->
-<div class="book-card" style="background:#FFF8ED;">
+<div class="book-card book-tone-warm">
   <h3>🐒 가끔은 가족이 찾아와요</h3>
   <p>
     사랑을 기다리는 마음과,
@@ -1032,7 +1032,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
   />
 </div>
 
-<div class="book-card" style="background:#E8F0FF;">
+<div class="book-card book-tone-blue">
   <h3>🌟 데스티니가 포기하고 싶었던 날</h3>
   <p>노력이 너무 힘든 날, 감정을 말하고 다시 나아갈 작은 한 걸음을 찾는 이야기입니다.</p>
   <a class="book-btn" href="https://heyzine.com/flip-book/8736fac672.html" target="_blank" rel="noopener">책 읽기</a>
@@ -1040,7 +1040,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
 </div>
 
     <!-- Book 1 -->
-    <div class="book-card" style="background:#E8F3F8;">
+    <div class="book-card book-tone-sky">
       <h3>🌊 고셴이 강을 이끄는 법을 배운 날</h3>
       <p>
         감정을 멈추는 대신,
@@ -1057,7 +1057,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
       />
     </div>
  <!-- Book 8 -->
-<div class="book-card" style="background:#FFEFF0;">
+<div class="book-card book-tone-rose">
   <h3>👑 감정이 너무 커질 때</h3>
   <p>
     화가 나거나 마음이 복잡해질 때,
@@ -1079,14 +1079,14 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
        alt="감정이 너무 커질 때 미리보기" />
 </div>
 
-    <div class="book-card" style="background:#FFF2E5;">
+    <div class="book-card book-tone-peach">
       <h3>🌧️ 마음 속 폭풍을 잠재우는 방법</h3>
       <p>감정을 다루는 데 도움이 되는 이야기입니다.</p>
       <a class="book-btn" href="https://heyzine.com/flip-book/3cf1027650.html" target="_blank" rel="noopener">책 읽기</a>
       <img class="book-cover" src="../images/storm-book-cover.webp" alt="마음 속 폭풍을 잠재우는 방법 미리보기" />
     </div>
 
-    <div class="book-card" style="background:#E3F2FD;">
+    <div class="book-card book-tone-calm">
       <h3>😨 무서울 때</h3>
       <p>두려운 마음을 알아차리고, 안전함을 찾는 작은 방법들을 배워요.</p>
       <a class="book-btn" href="https://heyzine.com/flip-book/1f4337da92.html" target="_blank" rel="noopener">책 읽기</a>
@@ -1094,7 +1094,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
     </div>
 
     <!-- Book 2 -->
-    <div class="book-card" style="background:#FFFBE5;">
+    <div class="book-card book-tone-sun">
       <h3>📘 감정은 나의 힘</h3>
       <p>아이들이 감정을 이해하고 감정 속의 강점을 발견하도록 도와주는 책입니다.</p>
       <a class="book-btn" href="https://heyzine.com/flip-book/1d58a25aee.html" target="_blank" rel="noopener">책 읽기</a>
@@ -1102,7 +1102,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
     </div>
 
     <!-- Book 3 -->
-    <div class="book-card" style="background:#FFEFF6;">
+    <div class="book-card book-tone-blush">
       <h3>💖 작은 행동, 큰 감정</h3>
       <p>자신감과 친절함을 실천하며 마음의 힘을 키워요.</p>
       <a class="book-btn" href="https://heyzine.com/flip-book/034942038a.html" target="_blank" rel="noopener">책 읽기</a>
@@ -1110,7 +1110,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
     </div>
 
     <!-- Book 4 -->
-    <div class="book-card" style="background:#E6F1FF;">
+    <div class="book-card book-tone-blue">
       <h3>👩‍🎓 프린세스의 사진 날 이야기</h3>
       <p>프린세스는 짧은 머리 때문에 속상했지만, 진짜 나를 보여주는 용기를 배웠어요.</p>
       <a class="book-btn" href="https://heyzine.com/flip-book/a958329538.html" target="_blank" rel="noopener">책 읽기</a>
@@ -1118,7 +1118,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
     </div>
 
     <!-- Book 5 -->
-    <div class="book-card" style="background:#F1F9FF;">
+    <div class="book-card book-tone-sky">
       <h3>⚪⚫ 세상은 검은색과 흰색만 있는 게 아니야</h3>
       <p>아이들이 유연하게 생각하고 감정을 더 깊이 이해할 수 있도록 도와주는 이야기입니다.</p>
       <a class="book-btn" href="https://heyzine.com/flip-book/d765b64bda.html" target="_blank" rel="noopener">책 읽기</a>
@@ -1126,7 +1126,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
     </div>
 
     <!-- Book 6 -->
-    <div class="book-card" style="background:#FFF9E6;">
+    <div class="book-card book-tone-sun">
       <h3>🌍 나는 더 클 때까지 기다릴 거야</h3>
       <p>12살 고셴이 여러 나라에서의 경험을 통해 사랑과 희망, 그리고 자신의 이야기를 찾아가는 성장 이야기입니다.</p>
       <a class="book-btn" href="https://heyzine.com/flip-book/81bf5a9f97.html" target="_blank" rel="noopener">책 읽기</a>
@@ -1134,7 +1134,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
     </div>
 
     <!-- Book 7 -->
-    <div class="book-card" style="background:#EAF7F0;">
+    <div class="book-card book-tone-green">
       <h3>🌱 엘라의 계속 도전하는 약속</h3>
       <p>엘라는 바로 잘하지 못해도 괜찮다는 걸 배워요. 실수해도 다시 시도하고, 포기하지 않는 마음을 부드럽게 전해줍니다.</p>
       <a class="book-btn" href="https://heyzine.com/flip-book/684fc1bda8.html" target="_blank" rel="noopener">책 읽기</a>
@@ -1312,7 +1312,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
 </main>
 <footer class="site-footer localized-footer ko-footer">
   <span>© <span id="ko-copy-year"></span> Healthy Little Minds · 모든 권리 보유</span>
-  <button class="ko-logout" type="button" onclick="logout()">로그아웃</button>
+  <button class="ko-logout" type="button" data-home-logout="index.html">로그아웃</button>
 </footer>
 
 <script>
@@ -1733,8 +1733,8 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
   var mobileBtn   = document.getElementById('homeThemeToggleMob');
 
   function syncButtons(dark) {
-    if (desktopBtn) desktopBtn.textContent = dark ? '☀️' : '🌙';
-    if (mobileBtn)  mobileBtn.textContent  = dark ? '☀️ 라이트 모드' : '🌙 다크 모드';
+    if (desktopBtn) desktopBtn.textContent = '';
+    if (mobileBtn)  mobileBtn.textContent  = dark ? '라이트 모드' : '다크 모드';
   }
 
   function toggleTheme() {

@@ -59,6 +59,11 @@
     var title = guide.querySelector("#guideResultTitle");
     var text = guide.querySelector("#guideResultText");
     var link = guide.querySelector("#guideResultLink");
+    var status = document.createElement("p");
+    status.className = "sr-only";
+    status.setAttribute("role", "status");
+    status.setAttribute("aria-live", "polite");
+    guide.appendChild(status);
 
     function getValue(groupName) {
       var active = guide.querySelector('[data-guide-group="' + groupName + '"] button[aria-pressed="true"]');
@@ -84,6 +89,7 @@
       title.textContent = recommendation[1];
       text.textContent = recommendation[2];
       link.href = recommendation[3];
+      status.textContent = recommendation[1];
     }
 
     guide.querySelectorAll("[data-guide-group] button").forEach(function (button) {
@@ -114,6 +120,8 @@
     var compact = window.matchMedia("(max-width: 720px)");
     var pausedUntil = 0;
     var dragging = false;
+    var hovered = false;
+    var focusWithin = false;
     var touchStart = 0;
     var startScroll = 0;
     var loopWidth = 0;
@@ -149,7 +157,7 @@
       if (!previousTime) previousTime = time;
       var elapsed = Math.min(time - previousTime, 40);
       previousTime = time;
-      if (!reduceMotion.matches && !dragging && Date.now() > pausedUntil) {
+      if (!reduceMotion.matches && !dragging && !hovered && !focusWithin && Date.now() > pausedUntil) {
         rail.scrollLeft += elapsed * (compact.matches ? 0.024 : 0.032);
         normalizeScroll();
       }
@@ -166,8 +174,15 @@
       });
     });
 
-    rail.addEventListener("pointerenter", function () { pause(1600); });
-    rail.addEventListener("focusin", function () { pause(2400); });
+    rail.addEventListener("pointerenter", function () { hovered = true; });
+    rail.addEventListener("pointerleave", function () { hovered = false; pause(1200); });
+    rail.addEventListener("focusin", function () { focusWithin = true; });
+    rail.addEventListener("focusout", function (event) {
+      if (!rail.contains(event.relatedTarget)) {
+        focusWithin = false;
+        pause(1200);
+      }
+    });
     rail.addEventListener("touchstart", function (event) {
       if (!event.touches.length) return;
       dragging = true;

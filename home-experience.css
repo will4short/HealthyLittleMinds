@@ -309,6 +309,59 @@ body.home-experience {
   scroll-snap-align: start;
 }
 
+.home-experience .book-card {
+  background: var(--book-card-surface, var(--home-surface));
+}
+
+.home-experience .book-tone-warm { --book-card-surface: #fff8ed; }
+.home-experience .book-tone-blue { --book-card-surface: #e8f0ff; }
+.home-experience .book-tone-sky { --book-card-surface: #e8f3f8; }
+.home-experience .book-tone-peach { --book-card-surface: #fff2e5; }
+.home-experience .book-tone-rose { --book-card-surface: #ffeff0; }
+.home-experience .book-tone-blush { --book-card-surface: #fff3f6; }
+.home-experience .book-tone-green { --book-card-surface: #eaf7f0; }
+.home-experience .book-tone-mint { --book-card-surface: #e0f7ec; }
+.home-experience .book-tone-calm { --book-card-surface: #e3f2fd; }
+.home-experience .book-tone-sun { --book-card-surface: #fff9e6; }
+.home-experience .book-tone-neutral { --book-card-surface: #f3f3f3; }
+
+.home-experience .auto-book-rail > .book-card {
+  min-width: 250px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.home-experience .book-card__cover {
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: calc(var(--home-radius) - 4px);
+}
+
+.home-experience .book-card__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-top: 1rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--home-radius-pill);
+  background: var(--home-accent);
+  color: var(--home-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.home-experience .book-card__action:hover {
+  border-color: currentColor;
+}
+
+.home-experience .character-book-card:nth-child(2) { transition-delay: 55ms; }
+.home-experience .character-book-card:nth-child(3) { transition-delay: 110ms; }
+.home-experience .character-book-card:nth-child(4) { transition-delay: 165ms; }
+.home-experience .character-book-card:nth-child(5) { transition-delay: 220ms; }
+.home-experience .character-book-card:nth-child(6) { transition-delay: 275ms; }
+
 .home-experience :where(.book-rail-btn, [data-localized-book-scroll]) {
   min-width: 44px;
   min-height: 44px;
@@ -349,6 +402,29 @@ body.home-experience {
 
 .home-experience .site-footer {
   margin-top: clamp(4rem, 8vw, 7rem);
+}
+
+.home-experience :where(.nav-theme-btn, .mobile-nav-theme-btn)::before {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 auto;
+  background: currentColor;
+  content: "";
+  -webkit-mask: url("icons/moon.svg") center / contain no-repeat;
+  mask: url("icons/moon.svg") center / contain no-repeat;
+}
+
+.home-experience.dark-mode :where(.nav-theme-btn, .mobile-nav-theme-btn)::before,
+.dark-mode .home-experience :where(.nav-theme-btn, .mobile-nav-theme-btn)::before {
+  -webkit-mask-image: url("icons/sun.svg");
+  mask-image: url("icons/sun.svg");
+}
+
+.home-experience :where(.nav-theme-btn, .mobile-nav-theme-btn) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
 }
 
 .home-experience .localized-about {

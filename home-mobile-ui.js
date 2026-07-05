@@ -87,6 +87,9 @@
     setMenu(open, !open);
   };
 
+  menuButton.addEventListener("click", function () {
+    window.toggleMobileMenu();
+  });
   closeButton.addEventListener("click", function () { setMenu(false, true); });
   if (backdrop) backdrop.addEventListener("click", function () { setMenu(false, true); });
   nav.addEventListener("click", function (event) {
@@ -115,6 +118,14 @@
     if (window.innerWidth > 768 && nav.classList.contains("open")) setMenu(false, false);
   });
   setNavFocusable(false);
+
+  document.querySelectorAll("[data-home-logout]").forEach(function (control) {
+    control.addEventListener("click", function (event) {
+      event.preventDefault();
+      localStorage.removeItem("isMember");
+      window.location.href = control.dataset.homeLogout || "index.html";
+    });
+  });
 
   if (languageNav) {
     if (!languageNav.id) languageNav.id = "homeLanguageMenu";

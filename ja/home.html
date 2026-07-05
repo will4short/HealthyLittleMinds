@@ -631,9 +631,9 @@
       document.documentElement.classList.add('dark-mode');
     }
   </script>
-  <link href="../home-mobile-ui.css?v=1" rel="stylesheet" />
-  <link href="../site-ui-upgrades.css?v=1" rel="stylesheet" />
-  <link href="../home-experience.css?v=1" rel="stylesheet" />
+<link href="../home-mobile-ui.css?v=1" rel="stylesheet" />
+<link href="../site-ui-upgrades.css?v=1" rel="stylesheet" />
+<link href="../home-experience.css?v=2" rel="stylesheet" />
 </head>
 
 <body class="localized-home home-mobile-ui ui-upgraded home-experience">
@@ -703,7 +703,7 @@
     </a>
 
     <!-- ✅ Hamburger (Mobile) -->
-    <button class="menu-toggle ja-menu-toggle" type="button" aria-label="メニューを開く" aria-controls="mobileNav" aria-expanded="false" onclick="toggleMobileMenu()">☰</button>
+    <button class="menu-toggle ja-menu-toggle" type="button" aria-label="メニューを開く" aria-controls="mobileNav" aria-expanded="false"><span aria-hidden="true">☰</span></button>
   </div>
 </header>
 
@@ -730,7 +730,7 @@
   <button class="mobile-nav-theme-btn" id="homeThemeToggleMob" type="button" aria-label="ダークモード切替">🌙 ダークモード</button>
   <!-- Logout -->
   <button class="mobile-nav-logout-btn" type="button"
-          onclick="localStorage.removeItem('isMember'); window.location.href='index.html';"
+          data-home-logout="index.html"
           aria-label="ログアウト">ログアウト</button>
 </nav>
 
@@ -762,7 +762,7 @@
     <button class="nav-theme-btn" id="homeThemeToggle" type="button" aria-label="ダークモード切替">🌙</button>
     <!-- Logout -->
     <button class="nav-logout-btn" type="button"
-            onclick="localStorage.removeItem('isMember'); window.location.href='index.html';"
+            data-home-logout="index.html"
             aria-label="ログアウト">ログアウト</button>
   </div>
 </nav>
@@ -921,7 +921,7 @@
     <div class="book-scroll-wrapper auto-book-rail">
 
       <!-- 🆕 NEW: Sometimes Family Finds You -->
-      <div class="book-card" style="background:#FFF8ED;">
+      <div class="book-card book-tone-warm">
         <h3>🐒 ときどき、家族は見つかる</h3>
         <p>
           そばにいてほしい気持ちと、
@@ -932,70 +932,70 @@
         <img src="../images/Family_Finds_You.webp" alt="Sometimes Family Finds You" />
       </div>
 
-      <div class="book-card" style="background:#E8F0FF;">
+      <div class="book-card book-tone-blue">
         <h3>🌟 デスティニーが諦めたかった日</h3>
         <p>頑張ることに疲れた日、気持ちを伝え、小さな次の一歩を見つける物語。</p>
         <a href="https://heyzine.com/flip-book/8736fac672.html" target="_blank" rel="noopener">読む</a>
         <img src="../images/The_Day_Destiny_Wanted_To_Quit.webp" alt="デスティニーが諦めたかった日" />
       </div>
 
-      <div class="book-card" style="background:#FFF2E5;">
+      <div class="book-card book-tone-peach">
         <h3>📘 気持ちはわたしの力</h3>
         <p>感情に名前をつけて、自分の中の力を見つける本です。</p>
         <a href="https://heyzine.com/flip-book/1d58a25aee.html" target="_blank" rel="noopener">読む</a>
         <img src="../images/book1.webp" alt="Feelings Are My Superpower" />
       </div>
 
-      <div class="book-card" style="background:#FADBD8;">
+      <div class="book-card book-tone-rose">
         <h3>🌧️ 心の嵐をしずめるには</h3>
         <p>大きな気持ちを落ち着かせるための呼吸法やアート、会話の本です。</p>
         <a href="https://heyzine.com/flip-book/3cf1027650.html" target="_blank" rel="noopener">読む</a>
         <img src="../images/storm-book-cover.webp" alt="How to Calm the Storm Inside" />
       </div>
 
-      <div class="book-card" style="background:#CFFFE1;">
+      <div class="book-card book-tone-green">
         <h3>💖 小さな行動、大きな気持ち</h3>
         <p>思いやりと共感が心をあたためる、優しいストーリー。</p>
         <a href="https://heyzine.com/flip-book/034942038a.html" target="_blank" rel="noopener">読む</a>
         <img src="../images/little-acts-book-cover.webp" alt="Little Acts, Big Feelings" />
       </div>
 
-      <div class="book-card" style="background:#E6F7FF;">
+      <div class="book-card book-tone-sky">
         <h3>📖 大きな気持ちの小さなガイド</h3>
         <p>怖さや緊張などの大きな気持ちをやさしく受け止める感情ガイド。</p>
         <a href="https://heyzine.com/flip-book/1f4337da92.html" target="_blank" rel="noopener">読む</a>
         <img src="../images/when-i-feel-scared-bkcover.webp" alt="A Little Guide to Big Feelings" />
       </div>
 
-      <div class="book-card" style="background:#E8EDFF;">
+      <div class="book-card book-tone-blue">
         <h3>👩‍🎓 プリンセスの写真の日のびっくり</h3>
         <p>プリンセスは短い髪が恥ずかしかったけど、自分らしさの大切さに気づきました。</p>
         <a href="https://heyzine.com/flip-book/a958329538.html" target="_blank" rel="noopener">読む</a>
         <img src="../images/princess-picture-day-cover.webp" alt="プリンセスの写真の日のびっくり" />
       </div>
 
-      <div class="book-card" style="background:#F2F2F2;">
+      <div class="book-card book-tone-neutral">
         <h3>⚖️ 白でも黒でもない世界</h3>
         <p>「まんなか」の見かたで気持ちや人を理解する力を育てるストーリー。</p>
         <a href="https://heyzine.com/flip-book/d765b64bda.html" target="_blank" rel="noopener">読む</a>
         <img src="../images/grey-thinking.webp" alt="白でも黒でもない世界" />
       </div>
 
-      <div class="book-card" style="background:#FFF9E6;">
+      <div class="book-card book-tone-sun">
         <h3>🌍 大きくなるまで待つよ</h3>
         <p>ゴーシェンが居場所や希望を見つけていくストーリー。</p>
         <a href="https://heyzine.com/flip-book/81bf5a9f97.html" target="_blank" rel="noopener">読む</a>
         <img src="../images/i-will-wait-cover.webp" alt="I Will Wait Till I Get Older" />
       </div>
 
-      <div class="book-card" style="background:#FFF1F8;">
+      <div class="book-card book-tone-blush">
         <h3>🌱 エラと「つづけてみる」やくそく</h3>
         <p>「もう一度やってみる」ことを学ぶ、心あたたまる物語です。</p>
         <a href="https://heyzine.com/flip-book/684fc1bda8.html" target="_blank" rel="noopener">読む</a>
         <img src="../images/ella-promise-cover.webp" alt="エラと「つづけてみる」やくそく" />
       </div>
 
-      <div class="book-card" style="background:#FFEFF0;">
+      <div class="book-card book-tone-rose">
         <h3>👑 きもちがとてもおおきくなったとき</h3>
         <p>
           イライラしたり、気持ちがあふれそうなとき。
@@ -1006,7 +1006,7 @@
         <img src="../images/when-my-feelings-cover.webp" alt="きもちがとてもおおきくなったとき" />
       </div>
 
-      <div class="book-card" style="background:#E8F3F8;">
+      <div class="book-card book-tone-sky">
         <h3>🌊 ゴーシェンが川を導くことを学んだ日</h3>
         <p>
           強い気持ちを「止める」のではなく、
@@ -1200,7 +1200,7 @@
 <!-- Footer -->
 <footer class="site-footer localized-footer ja-footer">
   <span>© <span id="ja-copy-year"></span> Healthy Little Minds · 無断転載を禁じます</span>
-  <button class="ja-logout" type="button" onclick="logout()">ログアウト</button>
+  <button class="ja-logout" type="button" data-home-logout="index.html">ログアウト</button>
 </footer>
 
 <!-- Copyright year -->
@@ -1544,8 +1544,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileBtn   = document.getElementById('homeThemeToggleMob');
 
   function syncButtons(dark) {
-    if (desktopBtn) desktopBtn.textContent = dark ? '☀️' : '🌙';
-    if (mobileBtn)  mobileBtn.textContent  = dark ? '☀️ ライトモード' : '🌙 ダークモード';
+    if (desktopBtn) desktopBtn.textContent = '';
+    if (mobileBtn)  mobileBtn.textContent  = dark ? 'ライトモード' : 'ダークモード';
   }
 
   function toggleTheme() {

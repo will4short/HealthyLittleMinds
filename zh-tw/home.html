@@ -699,9 +699,9 @@ html[lang="zh-TW"] .hlm-res{
       document.documentElement.classList.add('dark-mode');
     }
   </script>
-  <link href="../home-mobile-ui.css?v=1" rel="stylesheet" />
-  <link href="../site-ui-upgrades.css?v=1" rel="stylesheet" />
-  <link href="../home-experience.css?v=1" rel="stylesheet" />
+<link href="../home-mobile-ui.css?v=1" rel="stylesheet" />
+<link href="../site-ui-upgrades.css?v=1" rel="stylesheet" />
+<link href="../home-experience.css?v=2" rel="stylesheet" />
 </head>
 <body class="localized-home home-mobile-ui ui-upgraded home-experience">
 <a class="home-skip-link" href="#main-content">跳到主要內容</a>
@@ -751,7 +751,7 @@ html[lang="zh-TW"] .hlm-res{
     </a>
 
     <!-- ✅ call the new function + a11y -->
-    <button class="menu-toggle tw-menu-toggle" type="button" aria-label="開啟選單" aria-controls="mobileNav" aria-expanded="false" onclick="toggleMobileMenu()">☰</button>
+    <button class="menu-toggle tw-menu-toggle" type="button" aria-label="開啟選單" aria-controls="mobileNav" aria-expanded="false"><span aria-hidden="true">☰</span></button>
   </div>
 </header>
 
@@ -779,7 +779,7 @@ html[lang="zh-TW"] .hlm-res{
   <a href="#subscribe" class="subscribe-btn">📬 訂閱</a>
   <button class="mobile-nav-theme-btn" id="homeThemeToggleMob" type="button" aria-label="深色/淺色模式">🌙 深色模式</button>
   <button class="mobile-nav-logout-btn" type="button"
-          onclick="localStorage.removeItem('isMember'); window.location.href='index.html';"
+          data-home-logout="index.html"
           aria-label="登出">登出</button>
 </nav>
 
@@ -808,7 +808,7 @@ html[lang="zh-TW"] .hlm-res{
     <a href="#subscribe" class="subscribe-btn">訂閱</a>
     <button class="nav-theme-btn" id="homeThemeToggle" type="button" aria-label="深色/淺色模式切換">🌙</button>
     <button class="nav-logout-btn" type="button"
-            onclick="localStorage.removeItem('isMember'); window.location.href='index.html';"
+            data-home-logout="index.html"
             aria-label="登出">登出</button>
   </div>
 </nav>
@@ -979,7 +979,7 @@ html[lang="zh-TW"] .hlm-res{
 <div class="auto-book-rail">
     
 <!-- NEW BOOK -->
-<div style="min-width: 250px; background: #FFF8ED; padding: 1rem; border-radius: 16px; text-align: center; scroll-snap-align: start;">
+<div class="book-card book-tone-warm">
   <h3>🐒 有時候，家人會找到你</h3>
   <p>
     這是一個關於等待、成長與歸屬的溫柔故事。
@@ -990,17 +990,14 @@ html[lang="zh-TW"] .hlm-res{
   <img 
     src="../images/Family_Finds_You.webp" 
     alt="有時候，家人會找到你"
-    style="width:100%; border-radius:12px; margin-top:1rem;"
+    class="book-card__cover"
   >
-  <button 
-    onclick="window.open('https://heyzine.com/flip-book/e9a223a23a.html')" 
-    style="margin-top:1rem; padding: 0.5rem 1rem; background: #FFDD59; border-radius: 30px; border: none; font-weight: bold; color: #254E70;"
-  >
+  <a class="book-card__action" href="https://heyzine.com/flip-book/e9a223a23a.html" target="_blank" rel="noopener">
     閱讀本書
-  </button>
+  </a>
 </div>
 
-<div style="min-width: 250px; background: #E8F0FF; padding: 1rem; border-radius: 16px; text-align: center; scroll-snap-align: start;">
+<div class="book-card book-tone-blue">
   <h3>🌟 Destiny 想要放棄的一天</h3>
   <p>
     當努力變得好累，Destiny 學會停一停、說出感受，
@@ -1009,18 +1006,18 @@ html[lang="zh-TW"] .hlm-res{
   <img
     src="../images/The_Day_Destiny_Wanted_To_Quit.webp"
     alt="Destiny 想要放棄的一天"
-    style="width:100%; border-radius:12px; margin-top:1rem;"
+    class="book-card__cover"
   >
   <a
     href="https://heyzine.com/flip-book/8736fac672.html"
     target="_blank"
     rel="noopener"
-    style="display:inline-block; margin-top:1rem; padding:0.5rem 1rem; background:#FFDD59; border-radius:30px; font-weight:bold; color:#254E70; text-decoration:none;"
+    class="book-card__action"
   >閱讀本書</a>
 </div>
 
  <!-- Book 9 -->
-<div style="min-width: 250px; background: #E8F3F8; padding: 1rem; border-radius: 16px; text-align: center; scroll-snap-align: start;">
+<div class="book-card book-tone-sky">
   <h3>🌊 戈申學會引導河流的那一天</h3>
   <p>
     戈申從一隻會引導河水的海狸身上學到一件重要的事：
@@ -1030,88 +1027,85 @@ html[lang="zh-TW"] .hlm-res{
   <img 
     src="../images/The_Day_Goshen_Learned_coverpage.webp" 
     alt="戈申學會引導河流的那一天" 
-    style="width:100%; border-radius:12px; margin-top:1rem;"
+    class="book-card__cover"
   >
-  <button 
-    onclick="window.open('https://heyzine.com/flip-book/f930d8ddcc.html')" 
-    style="margin-top:1rem; padding: 0.5rem 1rem; background: #FFDD59; border-radius: 30px; border: none; font-weight: bold; color: #254E70;"
-  >
+  <a class="book-card__action" href="https://heyzine.com/flip-book/f930d8ddcc.html" target="_blank" rel="noopener">
     閱讀本書
-  </button>
+  </a>
 </div>
 
 <!-- Book 7 -->
-<div style="min-width: 250px; background: #FFF3F6; padding: 1rem; border-radius: 16px; text-align: center; scroll-snap-align: start;">
+<div class="book-card book-tone-blush">
   <h3>🌱 Ella 與她一直努力的承諾</h3>
   <p>Ella學會了一件重要的事：不用一次就做到完美，願意再試一次，就是成長的開始。</p>
-  <img src="../images/ella-promise-cover.webp" alt="Ella 與她一直努力的承諾" style="width:100%; border-radius:12px; margin-top:1rem;">
-  <button onclick="window.open('https://heyzine.com/flip-book/684fc1bda8.html')" style="margin-top:1rem; padding: 0.5rem 1rem; background: #FFDD59; border-radius: 30px; border: none; font-weight: bold; color: #254E70;">
+  <img class="book-card__cover" src="../images/ella-promise-cover.webp" alt="Ella 與她一直努力的承諾">
+  <a class="book-card__action" href="https://heyzine.com/flip-book/684fc1bda8.html" target="_blank" rel="noopener">
     閱讀本書
-  </button>
+  </a>
 </div>
 
 <!-- Book 8 -->
-<div style="min-width: 250px; background: #FFEFF0; padding: 1rem; border-radius: 16px; text-align: center; scroll-snap-align: start;">
+<div class="book-card book-tone-rose">
   <h3>👑 當我的感受變得太大的時候</h3>
   <p>當生氣、委屈或心裡很亂時，小公主學會先停下來、深呼吸，慢慢聽懂自己真正的感受。</p>
-  <img src="../images/when-my-feelings-cover.webp" alt="當我的感受變得太大的時候" style="width:100%; border-radius:12px; margin-top:1rem;">
-  <button onclick="window.open('https://heyzine.com/flip-book/5cbe03c993.html')" style="margin-top:1rem; padding: 0.5rem 1rem; background: #FFDD59; border-radius: 30px; border: none; font-weight: bold; color: #254E70;">
+  <img class="book-card__cover" src="../images/when-my-feelings-cover.webp" alt="當我的感受變得太大的時候">
+  <a class="book-card__action" href="https://heyzine.com/flip-book/5cbe03c993.html" target="_blank" rel="noopener">
     閱讀本書
-  </button>
+  </a>
 </div>
 
-<div style="min-width: 250px; background: #E3F2FD; padding: 1rem; border-radius: 16px; text-align: center; scroll-snap-align: start;">
+<div class="book-card book-tone-calm">
   <h3>😨 當我感到害怕</h3>
   <p>透過溫柔的小步驟，學習說出害怕，並找到安全與安心的方法。</p>
-  <img src="../images/when-i-feel-scared-bkcover.webp" alt="當我感到害怕" style="width:100%; border-radius:12px; margin-top:1rem;">
-  <a href="https://heyzine.com/flip-book/1f4337da92.html" target="_blank" rel="noopener">閱讀本書</a>
+  <img class="book-card__cover" src="../images/when-i-feel-scared-bkcover.webp" alt="當我感到害怕">
+  <a class="book-card__action" href="https://heyzine.com/flip-book/1f4337da92.html" target="_blank" rel="noopener">閱讀本書</a>
 </div>
 
    <!-- Book 1 -->
-    <div style="min-width: 250px; background: #FFF2E5; padding: 1rem; border-radius: 16px; text-align: center; scroll-snap-align: start;">
+    <div class="book-card book-tone-peach">
       <h3>📘 Feelings Are My Superpower</h3>
       <p>感受與命名情緒，發現每一種情緒蘊藏的力量。</p>
-      <img src="../images/book1.webp" alt="Feelings Are My Superpower" style="width:100%; border-radius:12px; margin-top:1rem;">
-      <button onclick="window.open('https://heyzine.com/flip-book/1d58a25aee.html')" style="margin-top:1rem; padding: 0.5rem 1rem; background: #FFDD59; border-radius: 30px; border: none; font-weight: bold; color: #254E70;">閱讀本書</button>
+      <img class="book-card__cover" src="../images/book1.webp" alt="Feelings Are My Superpower">
+      <a class="book-card__action" href="https://heyzine.com/flip-book/1d58a25aee.html" target="_blank" rel="noopener">閱讀本書</a>
     </div>
 
     <!-- Book 2 -->
-    <div style="min-width: 250px; background: #FDEEDC; padding: 1rem; border-radius: 16px; text-align: center; scroll-snap-align: start;">
+    <div class="book-card book-tone-warm">
       <h3>🌧️ How to Calm the Storm Inside</h3>
       <p>學會面對大情緒，透過呼吸、塗鴉和信任的大人協助自己平靜。</p>
-      <img src="../images/storm-book-cover.webp" alt="How to Calm the Storm Inside" style="width:100%; border-radius:12px; margin-top:1rem;">
-      <button onclick="window.open('https://heyzine.com/flip-book/3cf1027650.html')" style="margin-top:1rem; padding: 0.5rem 1rem; background: #FFDD59; border-radius: 30px; border: none; font-weight: bold; color: #254E70;">閱讀本書</button>
+      <img class="book-card__cover" src="../images/storm-book-cover.webp" alt="How to Calm the Storm Inside">
+      <a class="book-card__action" href="https://heyzine.com/flip-book/3cf1027650.html" target="_blank" rel="noopener">閱讀本書</a>
     </div>
 
     <!-- Book 3 -->
-    <div style="min-width: 250px; background: #E0F7EC; padding: 1rem; border-radius: 16px; text-align: center; scroll-snap-align: start;">
+    <div class="book-card book-tone-mint">
       <h3>💖 Little Acts, Big Feelings</h3>
       <p>透過幫助朋友、關心動物、面對害羞，孩子們發現了善良與喜悅的力量。</p>
-      <img src="../images/little-acts-book-cover.webp" alt="Little Acts, Big Feelings" style="width:100%; border-radius:12px; margin-top:1rem;">
-      <button onclick="window.open('https://heyzine.com/flip-book/034942038a.html')" style="margin-top:1rem; padding: 0.5rem 1rem; background: #FFDD59; border-radius: 30px; border: none; font-weight: bold; color: #254E70;">閱讀本書</button>
+      <img class="book-card__cover" src="../images/little-acts-book-cover.webp" alt="Little Acts, Big Feelings">
+      <a class="book-card__action" href="https://heyzine.com/flip-book/034942038a.html" target="_blank" rel="noopener">閱讀本書</a>
     </div>
 
     <!-- Book 4 -->
-    <div style="min-width: 250px; background: #E8F0FF; padding: 1rem; border-radius: 16px; text-align: center; scroll-snap-align: start;">
+    <div class="book-card book-tone-blue">
       <h3>👩‍🎓 Princess的照片日驚喜</h3>
       <p>Princess曾對自己的短髮感到不安，但在照片日那天，她學會了做自己最美麗。</p>
-      <img src="../images/princess-picture-day-cover.webp" alt="Princess and the Picture Day Surprise" style="width:100%; border-radius:12px; margin-top:1rem;">
-      <button onclick="window.open('https://heyzine.com/flip-book/a958329538.html')" style="margin-top:1rem; padding: 0.5rem 1rem; background: #FFDD59; border-radius: 30px; border: none; font-weight: bold; color: #254E70;">閱讀本書</button>
+      <img class="book-card__cover" src="../images/princess-picture-day-cover.webp" alt="Princess and the Picture Day Surprise">
+      <a class="book-card__action" href="https://heyzine.com/flip-book/a958329538.html" target="_blank" rel="noopener">閱讀本書</a>
     </div>
 
     <!-- Book 5 -->
-    <div style="min-width: 250px; background: #F3F3F3; padding: 1rem; border-radius: 16px; text-align: center; scroll-snap-align: start;">
+    <div class="book-card book-tone-neutral">
       <h3>⚖️ 世界不只是黑與白</h3>
       <p>這本書幫助孩子學會用灰色思考來看待情緒與情境，了解事情往往不只有一種對錯。</p>
-      <img src="../images/grey-thinking.webp" alt="世界不只是黑與白" style="width:100%; border-radius:12px; margin-top:1rem;">
-      <button onclick="window.open('https://heyzine.com/flip-book/d765b64bda.html')" style="margin-top:1rem; padding: 0.5rem 1rem; background: #FFDD59; border-radius: 30px; border: none; font-weight: bold; color: #254E70;">閱讀本書</button>
+      <img class="book-card__cover" src="../images/grey-thinking.webp" alt="世界不只是黑與白">
+      <a class="book-card__action" href="https://heyzine.com/flip-book/d765b64bda.html" target="_blank" rel="noopener">閱讀本書</a>
     </div>
   <!-- Book 6 -->
-  <div style="min-width: 250px; background: #FFF9E6; padding: 1rem; border-radius: 16px; text-align: center; scroll-snap-align: start;">
+  <div class="book-card book-tone-sun">
     <h3>🌍 我會等到我長大</h3>
     <p>12歲的戈申在不同國家成長，雖然有時覺得心分散在各地，但愛與希望一直陪伴著他。</p>
-    <img src="../images/i-will-wait-cover.webp" alt="我會等到我長大" style="width:100%; border-radius:12px; margin-top:1rem;">
-    <button onclick="window.open('https://heyzine.com/flip-book/81bf5a9f97.html')" style="margin-top:1rem; padding: 0.5rem 1rem; background: #FFDD59; border-radius: 30px; border: none; font-weight: bold; color: #254E70;">閱讀本書</button>
+    <img class="book-card__cover" src="../images/i-will-wait-cover.webp" alt="我會等到我長大">
+    <a class="book-card__action" href="https://heyzine.com/flip-book/81bf5a9f97.html" target="_blank" rel="noopener">閱讀本書</a>
   </div>
 
 </div>
@@ -1286,7 +1280,7 @@ html[lang="zh-TW"] .hlm-res{
 </main>
 <footer class="site-footer localized-footer tw-footer">
   <span>© <span id="tw-copy-year"></span> Healthy Little Minds · 保留所有權利</span>
-  <button class="tw-logout" type="button" onclick="logout()">登出</button>
+  <button class="tw-logout" type="button" data-home-logout="index.html">登出</button>
 </footer>
 
 
@@ -1342,7 +1336,7 @@ html[lang="zh-TW"] .hlm-res{
     nav.setAttribute('aria-hidden', String(!willOpen));
   }
 
-  // expose for inline onclick=""
+  // Retained temporarily for legacy integrations.
   window.toggleMobileMenu = toggleMobileMenu;
 
   // ESC to close
@@ -1678,8 +1672,8 @@ html[lang="zh-TW"] .hlm-res{
   var mobileBtn   = document.getElementById('homeThemeToggleMob');
 
   function syncButtons(dark) {
-    if (desktopBtn) desktopBtn.textContent = dark ? '☀️' : '🌙';
-    if (mobileBtn)  mobileBtn.textContent  = dark ? '☀️ 淺色模式' : '🌙 深色模式';
+    if (desktopBtn) desktopBtn.textContent = '';
+    if (mobileBtn)  mobileBtn.textContent  = dark ? '淺色模式' : '深色模式';
   }
 
   function toggleTheme() {
