@@ -57,9 +57,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="../style.css?v=102">
 <script src="../member-preview.js?v=2"></script>
+<script src="../home-localized-runtime.js?v=1"></script>
 <link rel="stylesheet" href="../localized-home.css?v=20">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
   <script defer src="../localized-home-polish.js?v=3"></script>
+  <script defer src="../home-topic-panel.js?v=1"></script>
   <script src="../home-service-worker.js?v=1"></script>
 
   <!-- 结构化数据 -->
@@ -917,30 +919,6 @@ html, body { overflow-x: hidden; }
 <body class="localized-home home-mobile-ui ui-upgraded home-experience">
 <a class="home-skip-link" href="#main-content">跳到主要内容</a>
 
-<script>
-  (function () {
-    const isLocal = location.protocol === 'file:' ||
-      location.hostname === 'localhost' ||
-      location.hostname === '127.0.0.1';
-    const isMember = localStorage.getItem("isMember") === "true";
-    const hasPreview = window.HLMPreview && window.HLMPreview.isActive();
-
-    if (!isLocal && !isMember && !hasPreview) {
-      const path = window.location.pathname;
-      const locale = path.split('/')[1];
-      const redirectTo = locale && path.includes(`/${locale}/`) 
-        ? `/${locale}/index.html` 
-        : "/index.html";
-      window.location.replace(redirectTo);
-      return;
-    }
-
-    if (!isMember && hasPreview) {
-      window.HLMPreview.scheduleExpiryRedirect();
-    }
-  })();
-</script>
-
 <!-- 🔄 Branded Loading Screen -->
 <div id="loading-screen" class="localized-loading" aria-live="polite">
   <div class="spinner localized-loading__spinner" aria-hidden="true">
@@ -1478,164 +1456,6 @@ html, body { overflow-x: hidden; }
 </footer>
 
 <!-- DOM Interaction: Scroll + Announcement (merged) -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // 🔸 Scroll button
-  const scrollBtn = document.querySelector('.scroll-right');
-  const scrollContainer = document.querySelector('.scroll-container');
-  if (scrollBtn && scrollContainer) {
-    scrollBtn.addEventListener('click', () => {
-      scrollContainer.scrollBy({ left: 200, behavior: 'smooth' });
-    });
-  }
-
-});
-</script>
-
-<script>
-  if (location.hash === '#about') location.href = 'about_me.html';
-</script>
-<script>
-(function(){
-  const panel = document.querySelector('.hlm-topic-panel');
-  if(!panel) return;
-
-  const list   = panel.querySelector('.hlm-tp__list');
-  const items  = Array.from(list.querySelectorAll('li'));
-  const input  = panel.querySelector('.hlm-tp__search input[type="search"]');
-  const upBtn  = panel.querySelector('.hlm-tp__up');
-  const dnBtn  = panel.querySelector('.hlm-tp__down');
-  const track  = panel.querySelector('.hlm-tp__track');
-  const thumb  = track?.querySelector('.hlm-tp__thumb');
-
-  const SCROLL_STEP = 120; // px per tap
-  let holdTimer = null, isDragging = false, dragStartY = 0, dragStartScrollTop = 0;
-
-  /* ---------- Search filter (title text OR data-tags) ---------- */
-  function applyFilter(){
-    const q = (input?.value || '').trim().toLowerCase();
-    let visible = 0;
-    items.forEach(li => {
-      const txt  = li.textContent.toLowerCase();
-      const tags = (li.dataset.tags || '').toLowerCase();
-      const show = !q || txt.includes(q) || tags.includes(q);
-      li.style.display = show ? '' : 'none';
-      if(show) visible++;
-    });
-    list.dataset.empty = visible === 0 ? 'true' : 'false';
-    // Reset scroll and sync scrollbar
-    list.scrollTop = 0;
-    syncThumb();
-  }
-
-  /* ---------- Buttons (tap & press-and-hold) ---------- */
-  function scrollByStep(dir){
-    const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
-    list.scrollBy({ top: dir * SCROLL_STEP, behavior });
-  }
-  function startHold(dir){
-    scrollByStep(dir);
-    holdTimer = setInterval(() => scrollByStep(dir), 150);
-  }
-  function endHold(){ clearInterval(holdTimer); holdTimer = null; }
-
-  upBtn?.addEventListener('mousedown', () => startHold(-1));
-  dnBtn?.addEventListener('mousedown', () => startHold(+1));
-  document.addEventListener('mouseup', endHold);
-  upBtn?.addEventListener('click', () => scrollByStep(-1));
-  dnBtn?.addEventListener('click', () => scrollByStep(+1));
-
-  /* ---------- Custom scrollbar track/thumb ---------- */
-  function layoutTrack(){
-    if(!track || !thumb) return;
-    // Align the track alongside the list's vertical span
-    const top = list.offsetTop;
-    const height = list.clientHeight;
-    track.style.top = top + 'px';
-    track.style.height = height + 'px';
-    syncThumb();
-  }
-
-  function syncThumb(){
-    if(!track || !thumb) return;
-    const view = list.clientHeight;
-    const full = list.scrollHeight;
-    const sc   = list.scrollTop;
-
-    // Size thumb
-    const ratio = view / Math.max(full, 1);
-    const minThumb = 28;
-    const trackH = track.clientHeight;
-    const th = Math.max(minThumb, Math.round(trackH * ratio));
-    thumb.style.height = th + 'px';
-
-    // Position thumb
-    const maxScroll = Math.max(full - view, 1);
-    const maxThumbY = trackH - th;
-    const y = Math.round((sc / maxScroll) * maxThumbY);
-    thumb.style.transform = `translateY(${y}px)`;
-
-    // Hide track if not needed
-    track.style.display = (full <= view + 1) ? 'none' : 'block';
-  }
-
-  // Drag to scroll
-  function onThumbDown(e){
-    if(!track || !thumb) return;
-    isDragging = true;
-    dragStartY = (e.touches ? e.touches[0].clientY : e.clientY);
-    dragStartScrollTop = list.scrollTop;
-    document.addEventListener('mousemove', onThumbMove);
-    document.addEventListener('touchmove', onThumbMove, { passive:false });
-    document.addEventListener('mouseup', onThumbUp, { once:true });
-    document.addEventListener('touchend', onThumbUp, { once:true });
-    e.preventDefault();
-  }
-  function onThumbMove(e){
-    if(!isDragging) return;
-    const clientY = (e.touches ? e.touches[0].clientY : e.clientY);
-    const deltaY = clientY - dragStartY;
-
-    const trackH = track.clientHeight;
-    const th = thumb.offsetHeight;
-    const maxThumbY = Math.max(trackH - th, 1);
-    const full = list.scrollHeight;
-    const view = list.clientHeight;
-    const maxScroll = Math.max(full - view, 1);
-
-    // Map thumb movement -> scrollTop
-    const scrollDelta = (deltaY / maxThumbY) * maxScroll;
-    list.scrollTop = Math.min(maxScroll, Math.max(0, dragStartScrollTop + scrollDelta));
-    syncThumb();
-    e.preventDefault();
-  }
-  function onThumbUp(){
-    isDragging = false;
-    document.removeEventListener('mousemove', onThumbMove);
-    document.removeEventListener('touchmove', onThumbMove);
-  }
-  thumb?.addEventListener('mousedown', onThumbDown);
-  thumb?.addEventListener('touchstart', onThumbDown, { passive:false });
-
-  // Keep thumb synced
-  list.addEventListener('scroll', syncThumb);
-  window.addEventListener('resize', () => { layoutTrack(); });
-
-  // Filter hookup
-  input?.addEventListener('input', applyFilter);
-
-  // Init
-  layoutTrack();
-  applyFilter(); // sets empty state if needed
-})();
-</script>
-<script>
-  // If you already have layoutTrack()/syncThumb(), this keeps them accurate on phones.
-  window.addEventListener('orientationchange', () => {
-    setTimeout(() => window.dispatchEvent(new Event('resize')), 300);
-  });
-</script>
-
   <script defer src="../button-loader.js?v=1"></script>
   <script src="../site-ui-upgrades.js?v=1"></script>
   <script src="../home-mobile-ui.js?v=1"></script>

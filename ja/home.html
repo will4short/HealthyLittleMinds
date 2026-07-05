@@ -60,8 +60,10 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../style.css?v=102">
 <script src="../member-preview.js?v=2"></script>
+<script src="../home-localized-runtime.js?v=1"></script>
 <link rel="stylesheet" href="../localized-home.css?v=20">
   <script defer src="../localized-home-polish.js?v=3"></script>
+  <script defer src="../home-topic-panel.js?v=1"></script>
   <script src="../home-service-worker.js?v=1"></script>
 
   <!-- Structured Data -->
@@ -647,31 +649,6 @@
   <p>小さな心をあたためています…</p>
 </div>
 
-<script>
-  // 🔒 Membership redirect
-  (function () {
-    const isLocal = location.protocol === 'file:' ||
-      location.hostname === 'localhost' ||
-      location.hostname === '127.0.0.1';
-    const isMember = localStorage.getItem("isMember") === "true";
-    const hasPreview = window.HLMPreview && window.HLMPreview.isActive();
-
-    if (!isLocal && !isMember && !hasPreview) {
-      const path = window.location.pathname;
-      const locale = path.split('/')[1];
-      const redirectTo = locale && path.includes(`/${locale}/`)
-        ? `/${locale}/index.html`
-        : "/index.html";
-      window.location.replace(redirectTo);
-      return;
-    }
-
-    if (!isMember && hasPreview) {
-      window.HLMPreview.scheduleExpiryRedirect();
-    }
-  })();
-</script>
-
 <!-- 🌍 Floating Language Switcher -->
 <nav class="language-switcher" aria-label="言語を選択">
   <a href="../home.html" title="English"><img src="../images/flag-en.webp" alt="English"></a>
@@ -1197,129 +1174,6 @@
 
 <!-- Service Worker + Toast -->
 <!-- Topics panel JS -->
-<script>
-(function(){
-  'use strict';
-
-  const panel = document.querySelector('.hlm-topic-panel');
-  if (!panel) return;
-
-  const list  = panel.querySelector('.hlm-tp__list');
-  const items = Array.from(list.querySelectorAll('li'));
-  const input = panel.querySelector('.hlm-tp__search input[type="search"]');
-  const upBtn = panel.querySelector('.hlm-tp__up');
-  const dnBtn = panel.querySelector('.hlm-tp__down');
-  const track = panel.querySelector('.hlm-tp__track');
-  const thumb = track ? track.querySelector('.hlm-tp__thumb') : null;
-
-  const SCROLL_STEP = 90;
-
-  let holdTimer = null, dragging = false, dragStartY = 0, dragStartScroll = 0;
-
-  function applyFilter(){
-    const q = (input?.value || '').trim().toLowerCase();
-    let visible = 0;
-
-    items.forEach(li => {
-      const txt  = li.textContent.toLowerCase();
-      const tags = (li.dataset.tags || '').toLowerCase();
-      const show = !q || txt.includes(q) || tags.includes(q);
-      li.style.display = show ? '' : 'none';
-      if (show) visible++;
-    });
-
-    list.dataset.empty = visible === 0 ? 'true' : 'false';
-    list.scrollTop = 0;
-    syncThumb();
-  }
-  input?.addEventListener('input', applyFilter);
-
-  function scrollByStep(dir){
-    const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
-    list.scrollBy({ top: dir * SCROLL_STEP, behavior });
-  }
-  function startHold(dir){
-    scrollByStep(dir);
-    holdTimer = setInterval(() => scrollByStep(dir), 150);
-  }
-  function endHold(){ clearInterval(holdTimer); holdTimer = null; }
-
-  upBtn?.addEventListener('mousedown', () => startHold(-1));
-  dnBtn?.addEventListener('mousedown', () => startHold(+1));
-  document.addEventListener('mouseup', endHold);
-  upBtn?.addEventListener('click', () => scrollByStep(-1));
-  dnBtn?.addEventListener('click', () => scrollByStep(+1));
-
-  function layoutTrack(){
-    if (!track || !thumb) return;
-    track.style.top = list.offsetTop + 'px';
-    track.style.height = list.clientHeight + 'px';
-    syncThumb();
-  }
-  function syncThumb(){
-    if (!track || !thumb) return;
-    const view = list.clientHeight;
-    const full = list.scrollHeight;
-    const sc   = list.scrollTop;
-
-    const trackH   = track.clientHeight;
-    const minThumb = 28;
-    const th = Math.max(minThumb, Math.round(trackH * (view / Math.max(full,1))));
-    thumb.style.height = th + 'px';
-
-    const maxScroll = Math.max(full - view, 1);
-    const maxThumbY = Math.max(trackH - th, 1);
-    const y = Math.round((sc / maxScroll) * maxThumbY);
-    thumb.style.transform = `translateY(${y}px)`;
-
-    track.style.display = (full <= view + 1) ? 'none' : 'block';
-  }
-
-  function onThumbDown(e){
-    if (!track || !thumb) return;
-    dragging = true;
-    dragStartY = (e.touches ? e.touches[0].clientY : e.clientY);
-    dragStartScroll = list.scrollTop;
-    document.addEventListener('mousemove', onThumbMove);
-    document.addEventListener('touchmove', onThumbMove, { passive:false });
-    document.addEventListener('mouseup', onThumbUp, { once:true });
-    document.addEventListener('touchend', onThumbUp, { once:true });
-    e.preventDefault();
-  }
-  function onThumbMove(e){
-    if (!dragging) return;
-    const y = (e.touches ? e.touches[0].clientY : e.clientY);
-    const deltaY = y - dragStartY;
-
-    const trackH   = track.clientHeight;
-    const th       = thumb.offsetHeight;
-    const maxThumb = Math.max(trackH - th, 1);
-    const full     = list.scrollHeight;
-    const view     = list.clientHeight;
-    const maxScr   = Math.max(full - view, 1);
-
-    const scrollDelta = (deltaY / maxThumb) * maxScr;
-    list.scrollTop = Math.min(maxScr, Math.max(0, dragStartScroll + scrollDelta));
-    syncThumb();
-    e.preventDefault();
-  }
-  function onThumbUp(){
-    dragging = false;
-    document.removeEventListener('mousemove', onThumbMove);
-    document.removeEventListener('touchmove', onThumbMove);
-  }
-
-  thumb?.addEventListener('mousedown', onThumbDown);
-  thumb?.addEventListener('touchstart', onThumbDown, { passive:false });
-
-  list.addEventListener('scroll', syncThumb);
-  window.addEventListener('resize', layoutTrack);
-
-  layoutTrack();
-  applyFilter();
-})();
-</script>
-
 
   <script defer src="../button-loader.js?v=1"></script>
   <script src="../site-ui-upgrades.js?v=1"></script>
