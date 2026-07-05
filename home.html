@@ -629,160 +629,6 @@
 </div>
 </section>
 
-<!-- ✅ NEXT STEP (makes the gentle path REAL + clickable) -->
-<section class="next-step" aria-label="Choose your next step">
-  <h3 class="next-step__title">💛 Not sure what to do next?</h3>
-  <p class="next-step__sub">Pick one small step:</p>
-
-  <div class="next-step__grid">
-    <!-- BREATHE -->
-    <a class="next-step__card" href="interactive-tools.html#breathing" aria-label="Go to breathing tool">
-      <div class="next-step__icon">🌬️</div>
-      <div class="next-step__label">Breathe</div>
-      <div class="next-step__hint">1 minute calm-down</div>
-    </a>
-
-   <!-- EXPRESS (modal) -->
-<button class="next-step__card" type="button"
-        data-home-action="open-express"
-        aria-label="Open express modal">
-  <div class="next-step__icon next-step__icon--symbol">✎</div>
-  <div class="next-step__label">Express</div>
-  <div class="next-step__hint">Type it out</div>
-</button>
-
-    <!-- UNDERSTAND -->
-    <a class="next-step__card" href="#explore-feelings" aria-label="Jump to explore feelings section">
-      <div class="next-step__icon">📖</div>
-      <div class="next-step__label">Understand</div>
-      <div class="next-step__hint">Learn this feeling</div>
-    </a>
-
-<!-- TALK (scroll to Contact section) -->
-<a class="next-step__card" href="#contact" aria-label="Jump to contact section">
-  <div class="next-step__icon" aria-hidden="true">💬&#xfe0e;</div>
-  <div class="next-step__label">Talk</div>
-  <div class="next-step__hint">Message us</div>
-</a>
-  </div>
-  <p class="next-step__note">There’s no wrong place to begin 💛</p>
-</section>
-
-<!-- ✅ EXPRESS MODAL -->
-<div class="express-modal" id="expressModal" aria-hidden="true" role="dialog" aria-label="Express your feelings">
-  <div class="express-modal__backdrop" data-home-action="close-express"></div>
-
-  <div class="express-modal__panel" role="document">
-    <div class="express-modal__head">
-      <div>
-        <div class="express-modal__title">🎨 Express</div>
-        <div class="express-modal__sub">One small sentence is enough.</div>
-      </div>
-      <button class="express-modal__close" type="button" data-home-action="close-express" aria-label="Close">✕</button>
-    </div>
-
-    <label class="express-modal__label" for="expressText">Right now, I feel…</label>
-    <textarea id="expressText" class="express-modal__textarea" rows="4"
-      placeholder="Example: I feel angry because someone didn’t listen to me."></textarea>
-
-    <div class="express-modal__actions">
-      <button class="express-modal__btn" type="button" data-home-action="save-express">Save</button>
-      <button class="express-modal__btn express-modal__btn--ghost" type="button" data-home-action="close-express">Done</button>
-    </div>
-
-    <div class="express-modal__saved u-style-040" id="expressSaved">
-      ✅ Saved. You did a brave thing.
-    </div>
-  </div>
-</div>
-
-<section id="resources" class="hlm-res">
-  <div class="hlm-res__grid">
-
-    <!-- LEFT: intro + visual -->
-    <div class="hlm-res__intro">
-      <h2>Explore Mental Health Topics</h2>
-      <p>
-        Short, friendly guides and printables for teens (12+), parents, and educators.
-        Find practical ideas for talking about feelings, handling stress, building
-        confidence, and supporting children’s emotional growth.
-      </p>
-      <p class="hlm-res__note hlm-res__note--callout" role="note">
-        <strong>Educational content only</strong> — not a substitute for professional care.
-      </p>
-
-      <picture class="hlm-res__art-wrap">
-        <img
-          class="hlm-res__art"
-          src="images/resources-illustration-840.webp"
-          width="420" height="280"
-          alt="Parent and teen exploring mental health resources together"
-          decoding="async" loading="lazy" />
-      </picture>
-    </div><!-- /hlm-res__intro -->
-
-    <section class="topic-library" aria-label="Explore resources by topic">
-      <div class="topic-library__head">
-        <div>
-          <p class="eyebrow">Resource library</p>
-          <h3>Browse by topic</h3>
-        </div>
-        <label class="topic-library__search">
-          <span class="sr-only">Search topics</span>
-          <input id="topicSearch" type="search" placeholder="Search topics" aria-label="Search topics">
-        </label>
-      </div>
-
-      <div class="topic-library__featured">
-        <a class="topic-card topic-card--primary" data-tags="children teens parents educators feelings" href="resources/emotions.html">
-          <span>Emotions</span>
-          <small>Understand feelings</small>
-        </a>
-        <a class="topic-card" data-tags="children teens parents educators anxiety worries nervous fear" href="resources/worry-anxiety.html">
-          <span>Worry &amp; Anxiety</span>
-          <small>Handle anxious thoughts</small>
-        </a>
-        <a class="topic-card" data-tags="teens parents educators pressure" href="resources/stress.html">
-          <span>Stress</span>
-          <small>Handle pressure</small>
-        </a>
-        <a class="topic-card" data-tags="children teens parents educators confidence" href="resources/self-esteem.html">
-          <span>Self-Esteem</span>
-          <small>Build confidence</small>
-        </a>
-        <a class="topic-card" data-tags="children teens parents educators calm" href="resources/relaxation.html">
-          <span>Relaxation</span>
-          <small>Find calm</small>
-        </a>
-        <a class="topic-card" data-tags="parents educators home behavior" href="resources/parents.html">
-          <span>Parenting &amp; Behavior</span>
-          <small>Support at home</small>
-        </a>
-      </div>
-
-      <details class="topic-more">
-        <summary>View all topics</summary>
-        <ul class="topic-library__list">
-          <li data-tags="teens parents educators"><a href="resources/goals.html">Goals</a></li>
-          <li data-tags="teens parents educators"><a href="resources/grief.html">Grief</a></li>
-          <li data-tags="children teens parents educators"><a href="resources/positive-psychology.html">Positive Psychology</a></li>
-          <li data-tags="teens parents educators"><a href="resources/relationships.html">Relationships</a></li>
-          <li data-tags="teens parents educators"><a href="resources/substance-use.html">Substance Use</a></li>
-          <li data-tags="children teens parents educators"><a href="resources/values.html">Values</a></li>
-          <li data-tags="children teens parents educators"><a href="resources/mindfulness.html">Mindfulness</a></li>
-          <li data-tags="children teens parents educators"><a href="resources/sleep.html">Sleep</a></li>
-          <li data-tags="teens parents educators"><a href="resources/trauma.html">Trauma</a></li>
-          <li data-tags="teens parents educators"><a href="resources/youth-teens.html">Youth &amp; Teens</a></li>
-          <li data-tags="children teens parents educators school online safety friendship"><a href="resources/bullying.html">Bullying &amp; Cyberbullying</a></li>
-          <li data-tags="children teens parents educators school change new classroom"><a href="resources/school-transitions.html">Starting or Changing School</a></li>
-        </ul>
-      </details>
-      <p class="topic-library__empty" role="status" aria-live="polite" hidden>No topics match your search.</p>
-    </section>
-
-  </div><!-- /hlm-res__grid -->
-</section>
-
   <section id="emotional-literacy" class="book-rail-section">
   <h2>📚 Emotional Literacy: Books That Help With Feelings</h2>
 
@@ -1056,6 +902,159 @@
 
    </section>
 
+<section id="resources" class="hlm-res">
+  <div class="hlm-res__grid">
+
+    <!-- LEFT: intro + visual -->
+    <div class="hlm-res__intro">
+      <h2>Explore Mental Health Topics</h2>
+      <p>
+        Short, friendly guides and printables for teens (12+), parents, and educators.
+        Find practical ideas for talking about feelings, handling stress, building
+        confidence, and supporting children’s emotional growth.
+      </p>
+      <p class="hlm-res__note hlm-res__note--callout" role="note">
+        <strong>Educational content only</strong> — not a substitute for professional care.
+      </p>
+
+      <picture class="hlm-res__art-wrap">
+        <img
+          class="hlm-res__art"
+          src="images/resources-illustration-840.webp"
+          width="420" height="280"
+          alt="Parent and teen exploring mental health resources together"
+          decoding="async" loading="lazy" />
+      </picture>
+    </div><!-- /hlm-res__intro -->
+
+    <section class="topic-library" aria-label="Explore resources by topic">
+      <div class="topic-library__head">
+        <div>
+          <p class="eyebrow">Resource library</p>
+          <h3>Browse by topic</h3>
+        </div>
+        <label class="topic-library__search">
+          <span class="sr-only">Search topics</span>
+          <input id="topicSearch" type="search" placeholder="Search topics" aria-label="Search topics">
+        </label>
+      </div>
+
+      <div class="topic-library__featured">
+        <a class="topic-card topic-card--primary" data-tags="children teens parents educators feelings" href="resources/emotions.html">
+          <span>Emotions</span>
+          <small>Understand feelings</small>
+        </a>
+        <a class="topic-card" data-tags="children teens parents educators anxiety worries nervous fear" href="resources/worry-anxiety.html">
+          <span>Worry &amp; Anxiety</span>
+          <small>Handle anxious thoughts</small>
+        </a>
+        <a class="topic-card" data-tags="teens parents educators pressure" href="resources/stress.html">
+          <span>Stress</span>
+          <small>Handle pressure</small>
+        </a>
+        <a class="topic-card" data-tags="children teens parents educators confidence" href="resources/self-esteem.html">
+          <span>Self-Esteem</span>
+          <small>Build confidence</small>
+        </a>
+        <a class="topic-card" data-tags="children teens parents educators calm" href="resources/relaxation.html">
+          <span>Relaxation</span>
+          <small>Find calm</small>
+        </a>
+        <a class="topic-card" data-tags="parents educators home behavior" href="resources/parents.html">
+          <span>Parenting &amp; Behavior</span>
+          <small>Support at home</small>
+        </a>
+      </div>
+
+      <details class="topic-more">
+        <summary>View all topics</summary>
+        <ul class="topic-library__list">
+          <li data-tags="teens parents educators"><a href="resources/goals.html">Goals</a></li>
+          <li data-tags="teens parents educators"><a href="resources/grief.html">Grief</a></li>
+          <li data-tags="children teens parents educators"><a href="resources/positive-psychology.html">Positive Psychology</a></li>
+          <li data-tags="teens parents educators"><a href="resources/relationships.html">Relationships</a></li>
+          <li data-tags="teens parents educators"><a href="resources/substance-use.html">Substance Use</a></li>
+          <li data-tags="children teens parents educators"><a href="resources/values.html">Values</a></li>
+          <li data-tags="children teens parents educators"><a href="resources/mindfulness.html">Mindfulness</a></li>
+          <li data-tags="children teens parents educators"><a href="resources/sleep.html">Sleep</a></li>
+          <li data-tags="teens parents educators"><a href="resources/trauma.html">Trauma</a></li>
+          <li data-tags="teens parents educators"><a href="resources/youth-teens.html">Youth &amp; Teens</a></li>
+          <li data-tags="children teens parents educators school online safety friendship"><a href="resources/bullying.html">Bullying &amp; Cyberbullying</a></li>
+          <li data-tags="children teens parents educators school change new classroom"><a href="resources/school-transitions.html">Starting or Changing School</a></li>
+        </ul>
+      </details>
+      <p class="topic-library__empty" role="status" aria-live="polite" hidden>No topics match your search.</p>
+    </section>
+
+  </div><!-- /hlm-res__grid -->
+</section>
+
+<!-- ✅ NEXT STEP (makes the gentle path REAL + clickable) -->
+<section class="next-step" aria-label="Choose your next step">
+  <h3 class="next-step__title">💛 Not sure what to do next?</h3>
+  <p class="next-step__sub">Pick one small step:</p>
+
+  <div class="next-step__grid">
+    <!-- BREATHE -->
+    <a class="next-step__card" href="interactive-tools.html#breathing" aria-label="Go to breathing tool">
+      <div class="next-step__icon">🌬️</div>
+      <div class="next-step__label">Breathe</div>
+      <div class="next-step__hint">1 minute calm-down</div>
+    </a>
+
+   <!-- EXPRESS (modal) -->
+<button class="next-step__card" type="button"
+        data-home-action="open-express"
+        aria-label="Open express modal">
+  <div class="next-step__icon next-step__icon--symbol">✎</div>
+  <div class="next-step__label">Express</div>
+  <div class="next-step__hint">Type it out</div>
+</button>
+
+    <!-- UNDERSTAND -->
+    <a class="next-step__card" href="#explore-feelings" aria-label="Jump to explore feelings section">
+      <div class="next-step__icon">📖</div>
+      <div class="next-step__label">Understand</div>
+      <div class="next-step__hint">Learn this feeling</div>
+    </a>
+
+<!-- TALK (scroll to Contact section) -->
+<a class="next-step__card" href="#contact" aria-label="Jump to contact section">
+  <div class="next-step__icon" aria-hidden="true">💬&#xfe0e;</div>
+  <div class="next-step__label">Talk</div>
+  <div class="next-step__hint">Message us</div>
+</a>
+  </div>
+  <p class="next-step__note">There’s no wrong place to begin 💛</p>
+</section>
+
+<!-- ✅ EXPRESS MODAL -->
+<div class="express-modal" id="expressModal" aria-hidden="true" role="dialog" aria-label="Express your feelings">
+  <div class="express-modal__backdrop" data-home-action="close-express"></div>
+
+  <div class="express-modal__panel" role="document">
+    <div class="express-modal__head">
+      <div>
+        <div class="express-modal__title">🎨 Express</div>
+        <div class="express-modal__sub">One small sentence is enough.</div>
+      </div>
+      <button class="express-modal__close" type="button" data-home-action="close-express" aria-label="Close">✕</button>
+    </div>
+
+    <label class="express-modal__label" for="expressText">Right now, I feel…</label>
+    <textarea id="expressText" class="express-modal__textarea" rows="4"
+      placeholder="Example: I feel angry because someone didn’t listen to me."></textarea>
+
+    <div class="express-modal__actions">
+      <button class="express-modal__btn" type="button" data-home-action="save-express">Save</button>
+      <button class="express-modal__btn express-modal__btn--ghost" type="button" data-home-action="close-express">Done</button>
+    </div>
+
+    <div class="express-modal__saved u-style-040" id="expressSaved">
+      ✅ Saved. You did a brave thing.
+    </div>
+  </div>
+</div>
 
    <section class="trust-section u-style-053">
     <h2 class="u-style-054">
