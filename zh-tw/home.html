@@ -1368,13 +1368,6 @@ html[lang="zh-TW"] .hlm-res{
 </script>
 
 <script>
-  function logout() {
-    try { localStorage.removeItem('isMember'); } catch (e) {}
-    window.location.href = 'index.html';
-  }
-</script>
-
-<script>
   // ✅ Prevent double inclusion
   if (!window.__HLM_SW_BOOTSTRAPPED__) {
     window.__HLM_SW_BOOTSTRAPPED__ = true;
@@ -1658,37 +1651,6 @@ html[lang="zh-TW"] .hlm-res{
 })();
 </script>
 
-<script>
-/* ── Dark mode + copyright year for zh-tw/home.html ── */
-(function () {
-  // Copyright year
-  var yrEl = document.getElementById('tw-copy-year');
-  if (yrEl) yrEl.textContent = new Date().getFullYear();
-
-  // Dark mode button wiring
-  var STORAGE_KEY = 'hlmTheme';
-  var DARK_CLASS  = 'dark-mode';
-  var desktopBtn  = document.getElementById('homeThemeToggle');
-  var mobileBtn   = document.getElementById('homeThemeToggleMob');
-
-  function syncButtons(dark) {
-    if (desktopBtn) desktopBtn.textContent = '';
-    if (mobileBtn)  mobileBtn.textContent  = dark ? '淺色模式' : '深色模式';
-  }
-
-  function toggleTheme() {
-    var dark = !document.documentElement.classList.contains(DARK_CLASS);
-    document.documentElement.classList.toggle(DARK_CLASS, dark);
-    document.body.classList.toggle(DARK_CLASS, dark);
-    syncButtons(dark);
-    localStorage.setItem(STORAGE_KEY, dark ? 'dark' : 'light');
-  }
-
-  syncButtons(localStorage.getItem(STORAGE_KEY) === 'dark');
-  if (desktopBtn) desktopBtn.addEventListener('click', toggleTheme);
-  if (mobileBtn)  mobileBtn.addEventListener('click', toggleTheme);
-})();
-</script>
   <script defer src="../button-loader.js?v=1"></script>
   <script src="../site-ui-upgrades.js?v=1"></script>
   <script src="../home-mobile-ui.js?v=1"></script>

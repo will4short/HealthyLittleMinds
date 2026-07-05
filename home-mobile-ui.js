@@ -14,11 +14,11 @@
     : lang.indexOf("zh") === 0 ? "zhCN"
     : "en";
   var copy = {
-    en: { menu: "Menu", open: "Open menu", close: "Close menu", language: "Languages" },
-    ja: { menu: "メニュー", open: "メニューを開く", close: "メニューを閉じる", language: "言語" },
-    ko: { menu: "메뉴", open: "메뉴 열기", close: "메뉴 닫기", language: "언어" },
-    zhCN: { menu: "菜单", open: "打开菜单", close: "关闭菜单", language: "语言" },
-    zhHant: { menu: "選單", open: "開啟選單", close: "關閉選單", language: "語言" }
+    en: { menu: "Menu", open: "Open menu", close: "Close menu", language: "Languages", light: "Light mode", dark: "Dark mode" },
+    ja: { menu: "メニュー", open: "メニューを開く", close: "メニューを閉じる", language: "言語", light: "ライトモード", dark: "ダークモード" },
+    ko: { menu: "메뉴", open: "메뉴 열기", close: "메뉴 닫기", language: "언어", light: "라이트 모드", dark: "다크 모드" },
+    zhCN: { menu: "菜单", open: "打开菜单", close: "关闭菜单", language: "语言", light: "浅色模式", dark: "深色模式" },
+    zhHant: { menu: "選單", open: "開啟選單", close: "關閉選單", language: "語言", light: "淺色模式", dark: "深色模式" }
   }[locale];
   var focusableSelector = "a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex='-1'])";
   var previousFocus = null;
@@ -126,6 +126,32 @@
       window.location.href = control.dataset.homeLogout || "index.html";
     });
   });
+
+  document.querySelectorAll("[id$='-copy-year']").forEach(function (element) {
+    element.textContent = new Date().getFullYear();
+  });
+
+  var desktopThemeButton = locale === "en" ? null : document.getElementById("homeThemeToggle");
+  var mobileThemeButton = locale === "en" ? null : document.getElementById("homeThemeToggleMob");
+  function syncThemeButtons(dark) {
+    if (desktopThemeButton) {
+      desktopThemeButton.textContent = "";
+      desktopThemeButton.setAttribute("aria-label", dark ? copy.light : copy.dark);
+      desktopThemeButton.title = dark ? copy.light : copy.dark;
+    }
+    if (mobileThemeButton) mobileThemeButton.textContent = dark ? copy.light : copy.dark;
+  }
+  function toggleTheme() {
+    var dark = !document.documentElement.classList.contains("dark-mode");
+    document.documentElement.classList.toggle("dark-mode", dark);
+    document.body.classList.toggle("dark-mode", dark);
+    localStorage.setItem("hlmTheme", dark ? "dark" : "light");
+    syncThemeButtons(dark);
+  }
+  var themeIsDark = localStorage.getItem("hlmTheme") === "dark";
+  syncThemeButtons(themeIsDark);
+  if (desktopThemeButton) desktopThemeButton.addEventListener("click", toggleTheme);
+  if (mobileThemeButton) mobileThemeButton.addEventListener("click", toggleTheme);
 
   if (languageNav) {
     if (!languageNav.id) languageNav.id = "homeLanguageMenu";

@@ -1315,14 +1315,6 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
   <button class="ko-logout" type="button" data-home-logout="index.html">로그아웃</button>
 </footer>
 
-<script>
-  (function(){ var el = document.getElementById('ko-copy-year'); if(el) el.textContent = new Date().getFullYear(); })();
-  function logout() {
-    localStorage.removeItem("isMember");
-    window.location.href = "index.html";
-  }
-</script>
-
  <!-- DOM Interaction: Scroll + Announcement -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -1357,16 +1349,6 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
     // Auto-hide after 5 seconds
     setTimeout(hideBar, 5000);
   });
-</script>
-
-<script>
-  // ✅ Safe mobile menu toggle
-  function toggleMenu() {
-    const nav = document.getElementById("mobileMenu");
-    if (nav) {
-      nav.classList.toggle("show");
-    }
-  }
 </script>
 
 <script>
@@ -1724,32 +1706,6 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
 })();
 </script>
 
-<script>
-/* ── Dark mode button wiring for ko/home.html ── */
-(function () {
-  var STORAGE_KEY = 'hlmTheme';
-  var DARK_CLASS  = 'dark-mode';
-  var desktopBtn  = document.getElementById('homeThemeToggle');
-  var mobileBtn   = document.getElementById('homeThemeToggleMob');
-
-  function syncButtons(dark) {
-    if (desktopBtn) desktopBtn.textContent = '';
-    if (mobileBtn)  mobileBtn.textContent  = dark ? '라이트 모드' : '다크 모드';
-  }
-
-  function toggleTheme() {
-    var dark = !document.documentElement.classList.contains(DARK_CLASS);
-    document.documentElement.classList.toggle(DARK_CLASS, dark);
-    document.body.classList.toggle(DARK_CLASS, dark);
-    syncButtons(dark);
-    localStorage.setItem(STORAGE_KEY, dark ? 'dark' : 'light');
-  }
-
-  syncButtons(localStorage.getItem(STORAGE_KEY) === 'dark');
-  if (desktopBtn) desktopBtn.addEventListener('click', toggleTheme);
-  if (mobileBtn)  mobileBtn.addEventListener('click', toggleTheme);
-})();
-</script>
   <script defer src="../button-loader.js?v=1"></script>
   <script src="../site-ui-upgrades.js?v=1"></script>
   <script src="../home-mobile-ui.js?v=1"></script>

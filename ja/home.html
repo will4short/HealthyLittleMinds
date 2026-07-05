@@ -647,15 +647,6 @@
 </div>
 
 <script>
-  // Spinner keyframes (kept here so it always works)
-  (function(){
-    const style = document.createElement('style');
-    style.textContent = "@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}";
-    document.head.appendChild(style);
-  })();
-</script>
-
-<script>
   // 🔒 Membership redirect
   (function () {
     const isLocal = location.protocol === 'file:' ||
@@ -1204,18 +1195,6 @@
 </footer>
 
 <!-- Copyright year -->
-<script>
-  (function(){ var el = document.getElementById('ja-copy-year'); if(el) el.textContent = new Date().getFullYear(); })();
-</script>
-
-<!-- Logout -->
-<script>
-  function logout() {
-    localStorage.removeItem("isMember");
-    window.location.href = "index.html";
-  }
-</script>
-
 <!-- Announcement auto-hide -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -1535,32 +1514,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 
-<script>
-/* ── Dark mode button wiring for ja/home.html ── */
-(function () {
-  const STORAGE_KEY = 'hlmTheme';
-  const DARK_CLASS  = 'dark-mode';
-  const desktopBtn  = document.getElementById('homeThemeToggle');
-  const mobileBtn   = document.getElementById('homeThemeToggleMob');
-
-  function syncButtons(dark) {
-    if (desktopBtn) desktopBtn.textContent = '';
-    if (mobileBtn)  mobileBtn.textContent  = dark ? 'ライトモード' : 'ダークモード';
-  }
-
-  function toggleTheme() {
-    const dark = !document.documentElement.classList.contains(DARK_CLASS);
-    document.documentElement.classList.toggle(DARK_CLASS, dark);
-    document.body.classList.toggle(DARK_CLASS, dark);
-    syncButtons(dark);
-    localStorage.setItem(STORAGE_KEY, dark ? 'dark' : 'light');
-  }
-
-  syncButtons(localStorage.getItem(STORAGE_KEY) === 'dark');
-  if (desktopBtn) desktopBtn.addEventListener('click', toggleTheme);
-  if (mobileBtn)  mobileBtn.addEventListener('click', toggleTheme);
-})();
-</script>
   <script defer src="../button-loader.js?v=1"></script>
   <script src="../site-ui-upgrades.js?v=1"></script>
   <script src="../home-mobile-ui.js?v=1"></script>
