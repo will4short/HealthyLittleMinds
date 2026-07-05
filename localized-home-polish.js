@@ -1,4 +1,26 @@
 (function () {
+  function initAnnouncement() {
+    var bar = document.getElementById("announcementBar");
+    var dismissButton = document.getElementById("dismissBtn");
+    if (!bar || bar.dataset.announcementReady === "true") return;
+
+    bar.dataset.announcementReady = "true";
+    var hideTimer;
+    function hideAnnouncement() {
+      if (bar.classList.contains("is-dismissed")) return;
+      bar.classList.add("is-dismissing");
+      window.setTimeout(function () {
+        bar.classList.add("is-dismissed");
+        bar.hidden = true;
+      }, 500);
+    }
+
+    if (dismissButton) dismissButton.addEventListener("click", hideAnnouncement);
+    hideTimer = window.setTimeout(hideAnnouncement, 5000);
+    bar.addEventListener("mouseenter", function () { window.clearTimeout(hideTimer); });
+    bar.addEventListener("focusin", function () { window.clearTimeout(hideTimer); });
+  }
+
   function initSupportGuide() {
     var guide = document.querySelector(".localized-support-guide");
     if (!guide || guide.dataset.guideReady === "true") return;
@@ -211,9 +233,11 @@
     document.addEventListener("DOMContentLoaded", function () {
       initSupportGuide();
       initBookShelf();
+      initAnnouncement();
     });
   } else {
     initSupportGuide();
     initBookShelf();
+    initAnnouncement();
   }
 })();
