@@ -461,15 +461,19 @@
       </div>
     `;
 
+    const guideApp = document.getElementById("feelingApp");
+    const guideHero = guideApp?.querySelector(".feeling-hero");
     const intro = document.querySelector(".intro-text");
     const header = document.querySelector("header");
     const h1 = document.querySelector("h1");
-    if (intro?.parentNode) {
+    if (guideHero?.parentNode) {
+      guideHero.insertAdjacentElement("afterend", panel);
+    } else if (intro?.parentNode) {
       intro.insertAdjacentElement("afterend", panel);
-    } else if (header?.parentNode) {
-      header.insertAdjacentElement("afterend", panel);
     } else if (h1?.parentNode) {
       h1.insertAdjacentElement("afterend", panel);
+    } else if (header?.parentNode) {
+      header.insertAdjacentElement("afterend", panel);
     } else {
       document.body.prepend(panel);
     }

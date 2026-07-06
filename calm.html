@@ -1,283 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calm – Healthy Little Minds</title>
-  <meta name="description" content="Discover how to find calm and peace. Learn what promotes calmness in young people and explore evidence-based techniques for stress relief and mindfulness.">
-  <meta name="keywords" content="calm, peace, mindfulness, meditation, stress relief, breathing exercises, relaxation, children, teens">
-
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: radial-gradient(125% 125% at 50% 10%, #ffffff 40%, #14b8a6 100%);
-      background-attachment: fixed;
-      background-size: 100% 100%;
-      color: #254E70;
-      margin: 0;
-      padding: 2rem;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .intro-text {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      font-size: 1.1rem;
-      color: #555;
-    }
-
-    .breadcrumb {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #888;
-      margin-bottom: 2rem;
-    }
-
-    .breadcrumb a {
-      color: #16A085;
-      text-decoration: none;
-    }
-
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-
-    .back-btn {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 10px 20px;
-      background-color: #16A085;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-    }
-
-    .back-btn:hover {
-      background-color: #117a64;
-    }
-
-    .subtopic-header {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 15px;
-      cursor: pointer;
-      user-select: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      margin: 1rem auto;
-      max-width: 800px;
-      transition: background-color 0.3s ease;
-    }
-
-    .subtopic-header:hover {
-      background-color: #FFF7F0;
-    }
-
-    .subtopic-header h2 {
-      margin: 0;
-      color: #16A085;
-      font-size: 1.3rem;
-    }
-
-    .toggle-icon {
-      font-size: 1.5rem;
-      transition: transform 0.3s ease;
-    }
-
-    .subtopic-content {
-      display: none;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 1rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 0 1rem 2rem 1rem;
-    }
-
-    .subtopic-content.active {
-      display: grid;
-    }
-
-    .subtopic-card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .subtopic-card h3 {
-      color: #16A085;
-      margin-top: 0;
-    }
-
-    .subtopic-card p {
-      color: #555;
-      line-height: 1.6;
-    }
-
-    .book-section {
-      max-width: 500px;
-      margin: 3rem auto;
-      padding: 2rem;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      text-align: center;
-    }
-
-    .book-link {
-      background: #16A085;
-      color: white;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 8px;
-      display: inline-block;
-      font-weight: bold;
-      margin-top: 1rem;
-      transition: background-color 0.3s ease;
-    }
-
-    .book-link:hover {
-      background-color: #117a64;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      padding: 2rem;
-      border-top: 1px solid #ddd;
-      color: #888;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      .subtopic-content {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-  <link rel="stylesheet" href="feeling-page-standard.css?v=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calm - Healthy Little Minds</title>
+  <meta name="description" content="Help children notice calm, practise regulation, and remember what supports steadiness.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="feelings-guide.css">
+  <link rel="stylesheet" href="feeling-page-standard.css?v=1">
   <script defer src="feeling-page-standard.js?v=1"></script>
+  <script defer src="feelings-en.js?v=1"></script>
 </head>
-<body>
-<script>
-  // 🔒 Redirect to login page if not logged in
-  (function () {
-    const isMember = localStorage.getItem("isMember") === "true";
-
-    if (!isMember) {
-      const path = window.location.pathname;
-      const locale = path.split('/')[1];
-      const redirectTo = locale && path.includes(`/${locale}/`) 
-        ? `/${locale}/index.html` 
-        : "/index.html";
-      window.location.replace(redirectTo);
-    }
-  })();
-
-  function toggleSection(sectionId) {
-    const content = document.getElementById(sectionId);
-    const icon = document.getElementById(sectionId + '-icon');
-    content.classList.toggle('active');
-    icon.textContent = content.classList.contains('active') ? '➖' : '➕';
-  }
-</script>
-
-<div class="breadcrumb">
-  <a href="home.html">Home</a> > <span>Calm</span>
-</div>
-
-<h1>🧘 Finding Calm</h1>
-<p class="intro-text">
-  Calm is not about never feeling stressed—it's a skill you can learn. Calmness helps your mind and body relax, making it easier to handle tough moments. Research shows that practices like breathing, movement, and rest can activate your body's natural calming response.
-</p>
-
-<div class="subtopic-header" onclick="toggleSection('causes')">
-  <h2>🎯 What Promotes Calmness</h2>
-  <span class="toggle-icon" id="causes-icon">➕</span>
-</div>
-<div class="subtopic-content" id="causes">
-  <div class="subtopic-card">
-    <h3>😴 Adequate Sleep</h3>
-    <p>A well-rested brain is calmer, more focused, and better at handling stress. Sleep helps repair and regulate your nervous system.</p>
-  </div>
-  <div class="subtopic-card">
-    <h3>🥗 Good Nutrition</h3>
-    <p>Foods rich in vitamins, minerals, and omega-3s support brain health and emotional stability. Skipping meals or eating lots of sugar can make you feel jittery.</p>
-  </div>
-  <div class="subtopic-card">
-    <h3>🏃 Regular Physical Activity</h3>
-    <p>Exercise releases endorphins and burns off extra energy that can make you feel anxious or restless. Even a 10-minute walk can calm your mind.</p>
-  </div>
-  <div class="subtopic-card">
-    <h3>🌿 Time in Nature</h3>
-    <p>Being outside, especially in green spaces, naturally lowers stress hormones like cortisol. Fresh air and natural light reset your nervous system.</p>
-  </div>
-  <div class="subtopic-card">
-    <h3>❤️ Positive Relationships</h3>
-    <p>Spending time with people who care about you—talking, laughing, or just being together—is one of the most powerful calming forces.</p>
-  </div>
-  <div class="subtopic-card">
-    <h3>🕐 Consistent Routine</h3>
-    <p>Predictable patterns for sleep, meals, and activities help your body know what to expect, reducing anxiety about the unknown.</p>
-  </div>
-</div>
-
-<div class="subtopic-header" onclick="toggleSection('management')">
-  <h2>🛠️ Evidence-Based Calming Techniques</h2>
-  <span class="toggle-icon" id="management-icon">➕</span>
-</div>
-<div class="subtopic-content" id="management">
-  <div class="subtopic-card">
-    <h3>🌬️ Box Breathing</h3>
-    <p>Breathe in for 4 counts, hold for 4, out for 4, hold for 4. This simple pattern signals your body that it's safe to relax. Try it when you feel tense.</p>
-  </div>
-  <div class="subtopic-card">
-    <h3>🧘 Meditation & Mindfulness</h3>
-    <p>Sitting quietly and focusing on your breath or a calming object trains your mind to stay present instead of worrying. Start with just 5 minutes a day.</p>
-  </div>
-  <div class="subtopic-card">
-    <h3>🎵 Calming Music or Sounds</h3>
-    <p>Listening to soft instrumental music, nature sounds, or lo-fi beats can shift your mood and help your nervous system relax within minutes.</p>
-  </div>
-  <div class="subtopic-card">
-    <h3>🤗 Progressive Muscle Relaxation</h3>
-    <p>Slowly tense then release each muscle group from your toes to your head. This teaches your body the difference between tension and relaxation.</p>
-  </div>
-  <div class="subtopic-card">
-    <h3>🎨 Creative Expression</h3>
-    <p>Art, writing, coloring, or music naturally calm the mind by giving it a positive focus. Creative activities quiet the anxious part of your brain.</p>
-  </div>
-  <div class="subtopic-card">
-    <h3>🤲 Touch & Comfort</h3>
-    <p>Gentle touch—a hug, holding a pet, wrapped in a cozy blanket—releases oxytocin, a hormone that reduces stress and promotes feelings of safety.</p>
-  </div>
-</div>
-
-<div class="book-section">
-  <h2>📚 Learn More About Calm</h2>
-  <p>Explore these resources to deepen your understanding of calmness and discover new techniques.</p>
-  <a href="https://heyzine.com/flip-book/3cf1027650.html" target="_blank" rel="noopener noreferrer" class="book-link">📖 How to Calm the Storm Inside</a>
-</div>
-
-<footer>
-  © 2026 Healthy Little Minds | 
-  <a href="index.html">Back to Home</a> | 
-  <a href="more-feelings.html">More Feelings</a> | 
-  <a href="parents.html">Parents & Teachers</a>
-</footer>
-
+<body class="feeling-page feeling-page--calm">
+  <header class="feeling-header">
+    <div class="feeling-header__inner">
+      <a class="feeling-brand" href="home.html">
+        <img src="images/logo-icon.webp" alt="">
+        <span>Healthy Little Minds</span>
+      </a>
+      <nav class="feeling-nav" aria-label="Page navigation">
+        <a href="home.html">Home</a>
+        <a href="more-feelings.html">Feeling library</a>
+      </nav>
+    </div>
+  </header>
+  <main class="feelings-shell" id="feelingApp" data-feeling="calm"></main>
+  <footer class="feeling-footer">Healthy Little Minds - practical emotional learning for growing minds</footer>
   <script defer src="shared-language-switcher.js?v=1"></script>
   <script defer src="feeling-support.js?v=1"></script>
   <script defer src="button-loader.js?v=1"></script>

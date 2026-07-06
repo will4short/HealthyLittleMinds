@@ -1,300 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fear – Healthy Little Minds</title>
-  <meta name="description" content="Understanding fear and anxiety in young people. Learn what triggers fear, effective coping strategies, and discover books that help children feel brave and secure.">
-  <meta name="keywords" content="fear, anxiety, courage, bravery, worries, phobias, children, teens, emotional support">
-
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: radial-gradient(circle at 50% 30%, #fbf7ff 0%, #eadcff 25%, #d8c8ff 50%, #b79cf4 75%, #9473e8 100%);
-      background-attachment: fixed;
-      background-size: 100% 100%;
-      color: #254E70;
-      margin: 0;
-      padding: 2rem;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .intro-text {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      font-size: 1.1rem;
-      color: #555;
-    }
-
-    .breadcrumb {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #888;
-      margin-bottom: 2rem;
-    }
-
-    .breadcrumb a {
-      color: #E67E22;
-      text-decoration: none;
-    }
-
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-
-    .back-btn {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 10px 20px;
-      background-color: #E67E22;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-    }
-
-    .back-btn:hover {
-      background-color: #d46a0e;
-    }
-
-    .subtopic-header {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 15px;
-      cursor: pointer;
-      user-select: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      margin: 1rem auto;
-      max-width: 800px;
-      transition: background-color 0.3s ease;
-    }
-
-    .subtopic-header:hover {
-      background-color: #FFF7F0;
-    }
-
-    .subtopic-header h2 {
-      margin: 0;
-      color: #E67E22;
-      font-size: 1.3rem;
-    }
-
-    .toggle-icon {
-      font-size: 1.5rem;
-      transition: transform 0.3s ease;
-    }
-
-    .subtopic-content {
-      display: none;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 1rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 0 1rem 2rem 1rem;
-    }
-
-    .subtopic-content.active {
-      display: grid;
-    }
-
-    .subtopic-card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .subtopic-card h3 {
-      color: #E67E22;
-      margin-top: 0;
-    }
-
-    .subtopic-card p {
-      color: #555;
-      line-height: 1.6;
-    }
-
-    .book-section {
-      max-width: 500px;
-      margin: 3rem auto;
-      padding: 2rem;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      text-align: center;
-    }
-
-    .book-link {
-      background: #E67E22;
-      color: white;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 8px;
-      display: inline-block;
-      font-weight: bold;
-      margin-top: 1rem;
-      transition: background-color 0.3s ease;
-    }
-
-    .book-link:hover {
-      background-color: #d46a0e;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      padding: 2rem;
-      border-top: 1px solid #ddd;
-      color: #888;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      .subtopic-content {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-  <link rel="stylesheet" href="feeling-page-standard.css?v=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fear - Healthy Little Minds</title>
+  <meta name="description" content="Help children understand fear, check safety, and take small supported steps.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="feelings-guide.css">
+  <link rel="stylesheet" href="feeling-page-standard.css?v=1">
   <script defer src="feeling-page-standard.js?v=1"></script>
+  <script defer src="feelings-en.js?v=1"></script>
 </head>
-<body>
-<script>
-  function toggleSection(sectionId) {
-    const content = document.getElementById(sectionId);
-    const icon = document.getElementById(sectionId + '-icon');
-    
-    content.classList.toggle('active');
-    icon.textContent = content.classList.contains('active') ? '➖' : '➕';
-  }
-
-  (function () {
-    const isMember = localStorage.getItem("isMember") === "true";
-
-    if (!isMember) {
-      const path = window.location.pathname;
-      const locale = path.split('/')[1];
-      const redirectTo = locale && path.includes(`/${locale}/`) 
-        ? `/${locale}/index.html` 
-        : "/index.html";
-      window.location.replace(redirectTo);
-    }
-  })();
-</script>
-
-  <div class="breadcrumb">
-    <a href="home.html">Home</a> > <span>Fear</span>
-  </div>
-
-  <h1>😨 Understanding Fear</h1>
-
-  <p class="intro-text">
-    Fear is a protective emotion that alerts us to danger. But sometimes fear can feel bigger than necessary. Here you'll learn what causes fear, brave ways to face it, and resources to build confidence.
-  </p>
-
-  <!-- 🎯 CAUSES OF FEAR -->
-  <div class="subtopic-header" onclick="toggleSection('causes')">
-    <h2>🎯 What Triggers Fear in Young People</h2>
-    <span class="toggle-icon" id="causes-icon">➕</span>
-  </div>
-  <div class="subtopic-content" id="causes">
-    <div class="subtopic-card">
-      <h3>🌍 Unknown or New Situations</h3>
-      <p>First day of school, new people, unfamiliar places. The brain triggers fear when it doesn't know what to expect.</p>
+<body class="feeling-page feeling-page--fear">
+  <header class="feeling-header">
+    <div class="feeling-header__inner">
+      <a class="feeling-brand" href="home.html">
+        <img src="images/logo-icon.webp" alt="">
+        <span>Healthy Little Minds</span>
+      </a>
+      <nav class="feeling-nav" aria-label="Page navigation">
+        <a href="home.html">Home</a>
+        <a href="more-feelings.html">Feeling library</a>
+      </nav>
     </div>
-
-    <div class="subtopic-card">
-      <h3>💥 Past Trauma or Injury</h3>
-      <p>Previous scary experiences—accident, illness, bullying, or witnessing something frightening—can create lasting fear responses.</p>
-    </div>
-
-    <div class="subtopic-card">
-      <h3>🧟 Imagining Worst-Case Scenarios</h3>
-      <p>Worry about things that might happen: failing an exam, being rejected, something bad happening to loved ones. Mind creates scary "what-ifs."</p>
-    </div>
-
-    <div class="subtopic-card">
-      <h3>📺 Media and Stories</h3>
-      <p>Scary movies, horror stories, scary news, or social media can plant fears. Younger kids especially struggle to distinguish fiction from reality.</p>
-    </div>
-
-    <div class="subtopic-card">
-      <h3>😰 Pressure and Stress</h3>
-      <p>High expectations, perfectionism, or major life changes create anxiety that presents as fear. Stressed nervous systems are more reactive.</p>
-    </div>
-
-    <div class="subtopic-card">
-      <h3>👥 Social Anxiety</h3>
-      <p>Fear of judgment, embarrassment, or social failure. Worrying about what others think is very common in young people.</p>
-    </div>
-  </div>
-
-  <!-- 💪 WAYS TO MANAGE FEAR -->
-  <div class="subtopic-header" onclick="toggleSection('management')">
-    <h2>💪 Ways to Manage Fear and Build Courage</h2>
-    <span class="toggle-icon" id="management-icon">➕</span>
-  </div>
-  <div class="subtopic-content" id="management">
-    <div class="subtopic-card">
-      <h3>🌬️ Grounding Techniques</h3>
-      <p><strong>5 Senses:</strong> Name 5 things you see, 4 you touch, 3 you hear, 2 you smell, 1 you taste. Brings mind back to safety.</p>
-    </div>
-
-    <div class="subtopic-card">
-      <h3>🗣️ Face It Gradually</h3>
-      <p>Avoid the scary thing makes fear grow. Small, safe steps toward what scares you (exposure) builds courage and shows that fear is manageable.</p>
-    </div>
-
-    <div class="subtopic-card">
-      <h3>💭 Challenge Worried Thoughts</h3>
-      <p>Ask: "Is this actually likely? What evidence do I have?" Often scary thoughts aren't realistic. Practice replacing them with truth.</p>
-    </div>
-
-    <div class="subtopic-card">
-      <h3>🏃 Physical Exercise</h3>
-      <p>Movement burns off adrenaline and nervous energy. Running, dancing, or sports help the body finish the fear response cycle.</p>
-    </div>
-
-    <div class="subtopic-card">
-      <h3>🤝 Seek Support</h3>
-      <p>Talk to trusted adults about fears. Being reassured and hearing others have faced similar fears helps. Sometimes therapy is needed.</p>
-    </div>
-
-    <div class="subtopic-card">
-      <h3>🎯 Prepare and Practice</h3>
-      <p>For predictable fears (presentations, auditions), practice beforehand. Preparation builds confidence and reduces the unknown.</p>
-    </div>
-  </div>
-
-  <!-- 📚 BOOK RESOURCES -->
-  <div class="book-section">
-    <h2>📚 Fear Resources</h2>
-    <img src="images/when-i-feel-scared-bkcover.webp" alt="A Little Guide to Big Feelings" style="width: 90%; max-width: 200px; border-radius: 10px; margin-bottom: 1rem;">
-    <h3>A Little Guide to Big Feelings</h3>
-    <p>A gentle and playful book that helps kids explore fear, sadness, happiness, and more—through stories, breathing, drawing, and reflection prompts.</p>
-    <a href="https://heyzine.com/flip-book/1f4337da92.html" target="_blank" rel="noopener" class="book-link">📖 Read Now</a>
-  </div>
-
-  <div style="text-align:center;">
-    <a href="home.html" class="back-btn">⬅ Back to Home</a>
-  </div>
-
-  <footer>
-    © 2026 Healthy Little Minds | <a href="more-feelings.html" style="color:#E67E22;">Explore More Emotions</a> | <a href="parents.html" style="color:#E67E22;">For Parents</a>
-  </footer>
-
+  </header>
+  <main class="feelings-shell" id="feelingApp" data-feeling="fear"></main>
+  <footer class="feeling-footer">Healthy Little Minds - practical emotional learning for growing minds</footer>
   <script defer src="shared-language-switcher.js?v=1"></script>
   <script defer src="feeling-support.js?v=1"></script>
   <script defer src="button-loader.js?v=1"></script>

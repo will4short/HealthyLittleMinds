@@ -1,313 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joy – Healthy Little Minds</title>
-  <meta name="description" content="Celebrate joy and happiness in young people. Discover what brings joy, how to cultivate gratitude and positive feelings, and inspiring books about celebrating life's good moments.">
-  <meta name="keywords" content="joy, happiness, gratitude, celebration, positive emotions, contentment, children, teens">
-
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background:
-        radial-gradient(ellipse 80% 60% at 60% 20%, rgba(175, 109, 255, 0.50), transparent 65%),
-        radial-gradient(ellipse 70% 60% at 20% 80%, rgba(255, 100, 180, 0.45), transparent 65%),
-        radial-gradient(ellipse 60% 50% at 60% 65%, rgba(255, 235, 170, 0.43), transparent 62%),
-        radial-gradient(ellipse 65% 40% at 50% 60%, rgba(120, 190, 255, 0.48), transparent 68%),
-        linear-gradient(180deg, #f7eaff 0%, #fde2ea 100%);
-      background-attachment: fixed;
-      background-size: 100% 100%;
-      color: #254E70;
-      margin: 0;
-      padding: 2rem;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .intro-text {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      font-size: 1.1rem;
-      color: #555;
-    }
-
-    .breadcrumb {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #888;
-      margin-bottom: 2rem;
-    }
-
-    .breadcrumb a {
-      color: #F39C12;
-      text-decoration: none;
-    }
-
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-
-    .back-btn {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 10px 20px;
-      background-color: #F39C12;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-    }
-
-    .back-btn:hover {
-      background-color: #d68910;
-    }
-
-    .subtopic-header {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 15px;
-      cursor: pointer;
-      user-select: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      margin: 1rem auto;
-      max-width: 800px;
-      transition: background-color 0.3s ease;
-    }
-
-    .subtopic-header:hover {
-      background-color: #FFF7F0;
-    }
-
-    .subtopic-header h2 {
-      margin: 0;
-      color: #F39C12;
-      font-size: 1.3rem;
-    }
-
-    .toggle-icon {
-      font-size: 1.5rem;
-      transition: transform 0.3s ease;
-    }
-
-    .subtopic-content {
-      display: none;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 1rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 0 1rem 2rem 1rem;
-    }
-
-    .subtopic-content.active {
-      display: grid;
-    }
-
-    .subtopic-card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .subtopic-card h3 {
-      color: #F39C12;
-      margin-top: 0;
-    }
-
-    .subtopic-card p {
-      color: #555;
-      line-height: 1.6;
-    }
-
-    .book-section {
-      max-width: 500px;
-      margin: 3rem auto;
-      padding: 2rem;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      text-align: center;
-    }
-
-    .book-link {
-      background: #F39C12;
-      color: white;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 8px;
-      display: inline-block;
-      font-weight: bold;
-      margin-top: 1rem;
-      transition: background-color 0.3s ease;
-    }
-
-    .book-link:hover {
-      background-color: #d68910;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      padding: 2rem;
-      border-top: 1px solid #ddd;
-      color: #888;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      .subtopic-content {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-  <link rel="stylesheet" href="feeling-page-standard.css?v=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joy - Healthy Little Minds</title>
+  <meta name="description" content="Help children notice, share, and remember joy without overwhelming themselves or others.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="feelings-guide.css">
+  <link rel="stylesheet" href="feeling-page-standard.css?v=1">
   <script defer src="feeling-page-standard.js?v=1"></script>
+  <script defer src="feelings-en.js?v=1"></script>
 </head>
-<body>
-<script>
-  function toggleSection(sectionId) {
-    const content = document.getElementById(sectionId);
-    const icon = document.getElementById(sectionId + '-icon');
-    
-    content.classList.toggle('active');
-    icon.textContent = content.classList.contains('active') ? '➖' : '➕';
-  }
-
-  (function () {
-    const isMember = localStorage.getItem("isMember") === "true";
-
-    if (!isMember) {
-      const isLocal = window.location.protocol === "file:";
-      const path = window.location.pathname;
-      const locale = path.split('/')[1];
-
-      let redirectTo;
-      if (isLocal) {
-        redirectTo = "index.html";
-      } else {
-        redirectTo = locale && path.includes(`/${locale}/`) 
-          ? `/${locale}/index.html`
-          : "/index.html";
-      }
-
-      window.location.replace(redirectTo);
-    }
-  })();
-</script>
-
-  <div class="breadcrumb">
-    <a href="home.html">Home</a> > <span>Joy</span>
-  </div>
-
-  <h1>😄 Celebrating Joy</h1>
-
-  <p class="intro-text">
-    Joy is one of life's greatest gifts. It comes from connection, achievement, kindness, and appreciating the good moments. Here you'll discover what brings joy, how to cultivate it, and celebrate life's happiness.
-  </p>
-
-  <!-- 🎯 SOURCES OF JOY -->
-  <div class="subtopic-header" onclick="toggleSection('causes')">
-    <h2>🎯 What Brings Joy to Young People</h2>
-    <span class="toggle-icon" id="causes-icon">➕</span>
-  </div>
-  <div class="subtopic-content" id="causes">
-    <div class="subtopic-card">
-      <h3>👥 Connection & Relationships</h3>
-      <p>Time with family and friends, feeling loved and accepted. Strong relationships are the #1 source of joy and wellbeing.</p>
+<body class="feeling-page feeling-page--joy">
+  <header class="feeling-header">
+    <div class="feeling-header__inner">
+      <a class="feeling-brand" href="home.html">
+        <img src="images/logo-icon.webp" alt="">
+        <span>Healthy Little Minds</span>
+      </a>
+      <nav class="feeling-nav" aria-label="Page navigation">
+        <a href="home.html">Home</a>
+        <a href="more-feelings.html">Feeling library</a>
+      </nav>
     </div>
-
-    <div class="subtopic-card">
-      <h3>🏆 Achievement & Mastery</h3>
-      <p>Learning something new, improving a skill, reaching a goal. The accomplishment and growth feel wonderful.</p>
-    </div>
-
-    <div class="subtopic-card">
-      <h3>🤝 Acts of Kindness</h3>
-      <p>Helping others, volunteering, giving gifts. Research shows giving creates more happiness than receiving.</p>
-    </div>
-
-    <div class="subtopic-card">
-      <h3>🎮 Play & Fun</h3>
-      <p>Games, laughter, silly moments, hobbies, and activities they love. Joy is found in playfulness and creativity.</p>
-    </div>
-
-    <div class="subtopic-card">
-      <h3>🌟 Moments of Beauty</h3>
-      <p>Nature, music, art, sunsets, animals. Taking time to notice beauty creates joy and wonder.</p>
-    </div>
-
-    <div class="subtopic-card">
-      <h3>🎁 Anticipation & Surprises</h3>
-      <p>Looking forward to something, unexpected kindness, pleasant surprises. The excitement builds joy even before the moment arrives.</p>
-    </div>
-  </div>
-
-  <!-- 💪 CULTIVATE JOY -->
-  <div class="subtopic-header" onclick="toggleSection('management')">
-    <h2>💪 How to Cultivate Joy & Gratitude</h2>
-    <span class="toggle-icon" id="management-icon">➕</span>
-  </div>
-  <div class="subtopic-content" id="management">
-    <div class="subtopic-card">
-      <h3>📝 Keep a Gratitude Practice</h3>
-      <p>Write down 3 things you're grateful for daily. This rewires the brain to notice good things and increases overall happiness.</p>
-    </div>
-
-    <div class="subtopic-card">
-      <h3>☀️ Slow Down & Savor</h3>
-      <p>Really notice and enjoy good moments—delicious food, a hug, a laugh. Savoring extends and deepens joy.</p>
-    </div>
-
-    <div class="subtopic-card">
-      <h3>🤗 Practice Generosity</h3>
-      <p>Small acts of kindness—helping a friend, compliments, thoughtful gestures. Giving activates joy in both giver and receiver.</p>
-    </div>
-
-    <div class="subtopic-card">
-      <h3>✨ Share Your Joy</h3>
-      <p>Tell others about good things, celebrate together, share what made you happy. Joy multiplies when shared.</p>
-    </div>
-
-    <div class="subtopic-card">
-      <h3>🎯 Pursue What You Love</h3>
-      <p>Make time for hobbies, passions, and activities that light you up. Joy comes from doing what feels meaningful.</p>
-    </div>
-
-    <div class="subtopic-card">
-      <h3>👨‍👩‍👨‍👧 Invest in Relationships</h3>
-      <p>Spend quality time with people you love. Prioritize connection—it's the deepest source of lasting happiness.</p>
-    </div>
-  </div>
-
-  <!-- 📚 BOOK RESOURCES -->
-  <div class="book-section">
-    <h2>📚 Joy Resources</h2>
-    <img src="images/little-acts-book-cover.webp" alt="Little Acts, Big Feelings" style="width: 90%; max-width: 200px; border-radius: 10px; margin-bottom: 1rem;">
-    <h3>💖 Little Acts, Big Feelings</h3>
-    <p>Celebrates kindness, empathy, and the big emotions that come from helping others. A gentle story that shows how caring makes our hearts feel full.</p>
-    <a href="https://heyzine.com/flip-book/034942038a.html" target="_blank" rel="noopener" class="book-link">📖 Read Now</a>
-  </div>
-
-  <div style="text-align:center;">
-    <a href="home.html" class="back-btn">⬅ Back to Home</a>
-  </div>
-
-  <footer>
-    © 2026 Healthy Little Minds | <a href="more-feelings.html" style="color:#F39C12;">Explore More Emotions</a> | <a href="parents.html" style="color:#F39C12;">For Parents</a>
-  </footer>
-
+  </header>
+  <main class="feelings-shell" id="feelingApp" data-feeling="joy"></main>
+  <footer class="feeling-footer">Healthy Little Minds - practical emotional learning for growing minds</footer>
   <script defer src="shared-language-switcher.js?v=1"></script>
   <script defer src="feeling-support.js?v=1"></script>
   <script defer src="button-loader.js?v=1"></script>
