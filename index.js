@@ -332,35 +332,7 @@
   }
 
   // ─────────────────────────────────────────────────────────────
-  // ANNOUNCEMENT BANNER
-  // CHANGED: was hardcoded to year 2026, month 0 (January only).
-  // We're now in June 2026 — the banner would never fire.
-  // Logic updated: show the banner whenever it exists and has not
-  // been dismissed — no date gating. If you want seasonal banners
-  // in future, update the HTML content and clear the localStorage
-  // key (rename "ny2026Dismissed" to a new key each time).
   // ─────────────────────────────────────────────────────────────
-  function setupAnnouncement() {
-    const banner = document.getElementById("newYearBanner");
-    const close  = document.getElementById("closeNewYear");
-    if (!banner || !close) return;
-
-    // CHANGED: removed year/month date gate that made the banner
-    // permanently invisible after January 2026.
-    // Now: show if not already dismissed by the user this session.
-    const dismissed = localStorage.getItem("hlmBannerDismissed");
-    if (dismissed) return;
-
-    banner.hidden = false;
-    const timer = window.setTimeout(() => { banner.hidden = true; }, 5000);
-
-    close.addEventListener("click", () => {
-      window.clearTimeout(timer);
-      banner.hidden = true;
-      localStorage.setItem("hlmBannerDismissed", "true");
-    });
-  }
-
   // ─────────────────────────────────────────────────────────────
   // ADDED: logout helper
   // Exposed on window so any inline onclick="logout()" in HTML
@@ -381,7 +353,6 @@
     setupTheme();
     setupMedia();
     setupMenu();
-    // The dated 2026 banner remains hidden; evergreen announcements should use reviewed copy.
     document.querySelectorAll("[data-year]").forEach((node) => {
       node.textContent = String(new Date().getFullYear());
     });

@@ -60,7 +60,8 @@
 .topic-page--self-esteem,
 .topic-page--bullying {
   --topic-page-gradient:
-    radial-gradient(125% 125% at 50% 90%, #ffffff 40%, #ec4899 100%);
+    radial-gradient(90% 75% at 50% 100%, rgba(236, 72, 153, .12), transparent 72%),
+    linear-gradient(180deg, #fff 0%, #fffafd 100%);
 }
 
 .topic-page--worry-anxiety,
@@ -69,8 +70,8 @@
 .topic-page--trauma,
 .topic-page--substance-use {
   --topic-page-gradient:
-    radial-gradient(ellipse 80% 60% at 12% 24%, rgba(175, 109, 255, .22), transparent 66%),
-    radial-gradient(ellipse 70% 60% at 86% 12%, rgba(120, 190, 255, .2), transparent 62%),
+    radial-gradient(ellipse 80% 60% at 12% 24%, rgba(175, 109, 255, .11), transparent 66%),
+    radial-gradient(ellipse 70% 60% at 86% 12%, rgba(120, 190, 255, .1), transparent 62%),
     linear-gradient(180deg, #fbf8ff 0%, #ffffff 64%);
 }
 
@@ -79,23 +80,23 @@
 .topic-page--values,
 .topic-page--positive-psychology {
   --topic-page-gradient:
-    radial-gradient(125% 125% at 50% 10%, #ffffff 40%, #14b8a6 100%);
+    radial-gradient(90% 70% at 50% 0%, rgba(20, 184, 166, .12), transparent 70%),
+    linear-gradient(180deg, #fbfffe 0%, #fff 100%);
 }
 
 .topic-page--goals,
 .topic-page--youth-teens,
 .topic-page--school-transitions {
   --topic-page-gradient:
-    radial-gradient(125% 125% at 50% 90%, #ffffff 40%, #10b981 100%);
+    radial-gradient(90% 70% at 50% 100%, rgba(16, 185, 129, .11), transparent 72%),
+    linear-gradient(180deg, #fff 0%, #fbfffd 100%);
 }
 
 .topic-page--grief {
   --topic-page-gradient:
-    radial-gradient(ellipse 80% 60% at 5% 40%, rgba(175, 109, 255, 0.48), transparent 67%),
-    radial-gradient(ellipse 70% 60% at 45% 45%, rgba(255, 100, 180, 0.41), transparent 67%),
-    radial-gradient(ellipse 62% 52% at 83% 76%, rgba(255, 235, 170, 0.44), transparent 63%),
-    radial-gradient(ellipse 60% 48% at 75% 20%, rgba(120, 190, 255, 0.36), transparent 66%),
-    linear-gradient(45deg, #f7eaff 0%, #fde2ea 100%);
+    radial-gradient(ellipse 75% 55% at 10% 35%, rgba(175, 109, 255, .1), transparent 68%),
+    radial-gradient(ellipse 65% 50% at 85% 70%, rgba(120, 190, 255, .1), transparent 66%),
+    linear-gradient(180deg, #fdfbff 0%, #fff 100%);
 }
 
 .topic-page .topic-wrap {

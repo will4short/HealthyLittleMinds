@@ -38,15 +38,22 @@
   style.href = prefix + "resources/resource-language-switcher.css?v=1";
   document.head.appendChild(style);
 
+  var polishStyle = document.querySelector('link[href*="resource-polish.css"]');
+  if (polishStyle) {
+    var polishUrl = new URL(polishStyle.href, window.location.href);
+    polishUrl.searchParams.set("v", "9");
+    polishStyle.href = polishUrl.href;
+  }
+
   if (!document.querySelector('link[href*="resource-page-standard.css"]')) {
     var standardStyle = document.createElement("link");
     standardStyle.rel = "stylesheet";
-    standardStyle.href = prefix + "resources/resource-page-standard.css?v=1";
+    standardStyle.href = prefix + "resources/resource-page-standard.css?v=2";
     document.head.appendChild(standardStyle);
   }
   if (!document.querySelector('script[src*="resource-page-standard.js"]')) {
     var standardScript = document.createElement("script");
-    standardScript.src = prefix + "resources/resource-page-standard.js?v=1";
+    standardScript.src = prefix + "resources/resource-page-standard.js?v=2";
     standardScript.defer = true;
     document.head.appendChild(standardScript);
   }

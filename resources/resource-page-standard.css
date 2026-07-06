@@ -46,6 +46,56 @@
   max-width: 100%;
 }
 
+.hlm-resource-page .hlm-resource-footer {
+  padding: 1rem;
+  color: var(--resource-muted, #61758a);
+  text-align: center;
+}
+
+.hlm-resource-page .disclaimer {
+  margin-top: 1rem;
+}
+
+.hlm-resource-page #emoji-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.hlm-resource-page .mood-btn {
+  display: inline-grid;
+  min-width: 3rem;
+  min-height: 3rem;
+  padding: 0.25rem;
+  place-items: center;
+  border: 1px solid var(--topic-border, #dce8ee);
+  border-radius: 0.75rem;
+  background: var(--topic-tint, #f7fbfc);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.hlm-resource-page .mood-btn:hover {
+  transform: translateY(-2px);
+}
+
+.hlm-resource-page #mood-response {
+  min-height: 1.5em;
+  margin-top: 1rem;
+  color: var(--coral, #b74f57);
+  font-weight: 700;
+}
+
+.hlm-resource-page .hlm-resource-book-cover {
+  width: min(100%, 16.25rem);
+  height: auto;
+  margin-top: 0.5rem;
+  border-radius: 0.75rem;
+}
+
 .hlm-resource-page .hlm-resource-boundary {
   margin-block: 1.25rem 0;
   padding: 1rem 1.1rem;
@@ -58,6 +108,48 @@
   margin: 0;
 }
 
+.hlm-resource-page .hlm-resource-urgent {
+  margin-block: 1rem 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--topic-accent, #d06e73) 45%, #dce8ee);
+  border-radius: 0.75rem;
+  background: var(--topic-tint, #fff7f4);
+  font-weight: 700;
+}
+
+.hlm-resource-page .hlm-resource-use {
+  margin-block: 0 1.25rem;
+  padding: clamp(1rem, 2.5vw, 1.35rem);
+  border: 1px solid var(--topic-border, #dce8ee);
+  border-radius: 1rem;
+  background: rgb(255 255 255 / 94%);
+}
+
+.hlm-resource-page .hlm-resource-use h2 {
+  margin-block: 0 0.8rem;
+}
+
+.hlm-resource-page .hlm-resource-use__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.hlm-resource-page .hlm-resource-use__grid article {
+  padding: 0.9rem;
+  border: 1px solid var(--topic-border, #dce8ee);
+  border-radius: 0.75rem;
+  background: var(--topic-tint, #f7fbfc);
+}
+
+.hlm-resource-page .hlm-resource-use__grid :where(h3, p) {
+  margin-block: 0;
+}
+
+.hlm-resource-page .hlm-resource-use__grid h3 {
+  margin-bottom: 0.35rem;
+}
+
 @media (max-width: 42rem) {
   .hlm-resource-page .topic-main :where(p, li) {
     max-width: none;
@@ -65,6 +157,10 @@
 
   .hlm-resource-page :where(a, button, input, select, textarea) {
     min-height: 2.75rem;
+  }
+
+  .hlm-resource-page .hlm-resource-use__grid {
+    grid-template-columns: 1fr;
   }
 }
 
