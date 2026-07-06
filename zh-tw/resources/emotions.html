@@ -353,15 +353,15 @@ html[lang="ko"]{
   <h2>互動式心情檢測</h2>
   <p>選擇最符合你現在心情的表情：</p>
   
-  <div id="emoji-container" style="display: flex; gap: 15px; font-size: 2.5rem; margin-top: 1rem; flex-wrap: wrap;">
-    <button class="mood-btn" data-mood="happy" style="background:none; border:none; font-size:inherit; cursor:pointer; transition: transform 0.2s;">😊</button>
-    <button class="mood-btn" data-mood="sad" style="background:none; border:none; font-size:inherit; cursor:pointer; transition: transform 0.2s;">😢</button>
-    <button class="mood-btn" data-mood="angry" style="background:none; border:none; font-size:inherit; cursor:pointer; transition: transform 0.2s;">😡</button>
-    <button class="mood-btn" data-mood="worried" style="background:none; border:none; font-size:inherit; cursor:pointer; transition: transform 0.2s;">😟</button>
-    <button class="mood-btn" data-mood="calm" style="background:none; border:none; font-size:inherit; cursor:pointer; transition: transform 0.2s;">😌</button>
+  <div id="emoji-container">
+    <button class="mood-btn" data-mood="happy">😊</button>
+    <button class="mood-btn" data-mood="sad">😢</button>
+    <button class="mood-btn" data-mood="angry">😡</button>
+    <button class="mood-btn" data-mood="worried">😟</button>
+    <button class="mood-btn" data-mood="calm">😌</button>
   </div>
   
-  <div id="mood-response" style="margin-top: 1rem; font-weight: 700; color: var(--coral); min-height: 1.5em;"></div>
+  <div id="mood-response"></div>
 </div>
 
         <div id="try" class="topic-card">
@@ -426,7 +426,7 @@ html[lang="ko"]{
 
   </div>
 
-  <p class="disclaimer" style="margin-top:1rem;">
+  <p class="disclaimer">
     每個孩子感受情緒的方式都不同——所有情緒都是可以被接納的。
   </p>
 </div>
@@ -459,41 +459,9 @@ html[lang="ko"]{
     </section>
   </div>
 
-  <footer style="text-align:center; padding:1rem; color:#6b7a8e;">
+  <footer class="hlm-resource-footer">
     &copy; 2025 Healthy Little Minds
   </footer>
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.mood-btn');
-    const responseText = document.getElementById('mood-response');
-    let messageTimer;
-
-    const messages = {
-      'happy': "太棒了！注意一下你現在身體的哪個部位感受到了這份快樂。",
-      'sad': "難過也沒關係。慢慢做個深呼吸，或者要一個擁抱，都會有幫助的。",
-      'angry': "我看到你很生氣。這是一種強烈的情緒！要不要試著抖一抖身體，或者數到 10？",
-      'worried': "擔心可能會讓我們的肚子感覺緊緊的。試試看 5-4-3-2-1 著陸遊戲吧！",
-      'calm': "平靜的感覺真好。現在是看書或玩拼圖的絕佳時機。"
-    };
-
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const mood = btn.getAttribute('data-mood');
-        responseText.textContent = messages[mood];
-        
-        clearTimeout(messageTimer);
-        messageTimer = setTimeout(() => {
-          responseText.textContent = "";
-        }, 5000);
-        
-        btn.style.transform = 'scale(1.2)';
-        setTimeout(() => {
-          btn.style.transform = 'scale(1)';
-        }, 200);
-      });
-    });
-  });
-</script>
   <script defer src="../../button-loader.js?v=1"></script>
 </body>
 </html>

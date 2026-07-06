@@ -481,29 +481,6 @@
   <footer class="topic-footer">
     &copy; 2025 Healthy Little Minds
   </footer>
-
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.mood-btn');
-    const responseText = document.getElementById('mood-response');
-    const messages = {
-      'happy': "That's wonderful! Notice where you feel that happiness in your body right now.",
-      'sad': "It's okay to feel sad. Taking a slow, deep breath or asking for a hug can help.",
-      'angry': "I see you're feeling mad. That's a big feeling! Want to try shaking it out or counting to 10?",
-      'worried': "Worrying can make our tummies feel tight. Try the 5-4-3-2-1 grounding game!",
-      'calm': "It feels nice to be calm. This is a great time to read a book or do a puzzle."
-    };
-
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const mood = btn.getAttribute('data-mood');
-        responseText.textContent = messages[mood];
-        buttons.forEach(button => button.classList.remove('is-selected'));
-        btn.classList.add('is-selected');
-      });
-    });
-  });
-</script>
   <script defer src="../button-loader.js?v=1"></script>
 </body>
 </html>

@@ -54,6 +54,45 @@
     return { happy: "Happy", sad: "Sad", angry: "Angry", worried: "Worried", calm: "Calm" };
   }
 
+  function getMoodMessages() {
+    var lang = (document.documentElement.lang || "en").toLowerCase();
+    if (lang.indexOf("ja") === 0) return {
+      happy: "心地よい気持ちがここにあります。体のどこに感じるか、安心して育てる助けになることは何かを見てみましょう。",
+      sad: "悲しさは、いたわり、静けさ、誰かといること、安心できる関わりを求めている合図かもしれません。小さな次の一歩を選びましょう。",
+      angry: "怒りは、何かが不公平、行き詰まり、または安全でないと感じている合図かもしれません。反応する前に止まり、安全な行動を選びましょう。",
+      worried: "心配は警報のように働くことがあります。何が事実で、何がまだ分からないか、助けになる小さな一歩を確認しましょう。",
+      calm: "落ち着きは、休む、練習する、読む、誰かとつながるための大切な時間になります。"
+    };
+    if (lang.indexOf("ko") === 0) return {
+      happy: "기분 좋은 감정이 여기에 있어요. 몸 어디에서 느껴지는지, 그 감정이 안전하게 자라도록 돕는 것이 무엇인지 살펴보세요.",
+      sad: "슬픔은 돌봄, 조용한 시간, 함께 있어 주는 사람, 위로가 필요하다는 신호일 수 있어요. 작은 다음 단계를 하나 골라 보세요.",
+      angry: "화는 무언가가 불공평하거나 막혔거나 안전하지 않게 느껴진다는 신호일 수 있어요. 반응하기 전에 잠시 멈추고 안전한 행동을 선택하세요.",
+      worried: "걱정은 경보처럼 작동할 수 있어요. 무엇이 실제이고, 무엇이 아직 불확실한지, 도움이 되는 작은 한 걸음은 무엇인지 확인해 보세요.",
+      calm: "차분함은 쉬거나, 연습하거나, 읽거나, 누군가와 연결될 수 있는 좋은 순간이에요."
+    };
+    if (lang.indexOf("zh-hant") === 0 || lang.indexOf("zh-tw") === 0) return {
+      happy: "一種舒服的感覺正在這裡。留意它出現在身體哪裡，以及什麼能讓它安全地延伸。",
+      sad: "難過可能是在提醒我們需要照顧、安靜、陪伴或安慰。選一個合適的小小下一步。",
+      angry: "生氣可能表示某件事感覺不公平、受阻或不安全。先停一停，再選擇安全的行動。",
+      worried: "擔心有時像警報。看看什麼是真實的，什麼還不確定，以及哪一個小步驟會有幫助。",
+      calm: "平靜可以是休息、練習、閱讀或與人連結的好時刻。"
+    };
+    if (lang.indexOf("zh") === 0) return {
+      happy: "一种舒服的感觉正在这里。留意它出现在身体哪里，以及什么能让它安全地延伸。",
+      sad: "难过可能是在提醒我们需要照顾、安静、陪伴或安慰。选一个合适的小小下一步。",
+      angry: "生气可能表示某件事感觉不公平、受阻或不安全。先停一停，再选择安全的行动。",
+      worried: "担心有时像警报。看看什么是真实的，什么还不确定，以及哪一个小步骤会有帮助。",
+      calm: "平静可以是休息、练习、阅读或与人连接的好时刻。"
+    };
+    return {
+      happy: "A pleasant feeling is here. Notice where it shows up in your body, and what helps it grow safely.",
+      sad: "Sadness can ask for care, quiet, company, or comfort. Choose one kind next step.",
+      angry: "Anger can show that something feels unfair, blocked, or unsafe. Pause and choose a safe action before responding.",
+      worried: "Worry can be an alarm signal. Check what is real, what is uncertain, and one small step that helps.",
+      calm: "Calm can be a useful moment to rest, practise, read, or connect."
+    };
+  }
+
   function normalizeLegacyPresentation() {
     document.querySelectorAll("footer[style]").forEach(function (footer) {
       footer.removeAttribute("style");
@@ -82,6 +121,70 @@
       image.removeAttribute("style");
       image.classList.add("hlm-resource-book-cover");
     });
+  }
+
+  function initMoodPicker() {
+    var response = document.getElementById("mood-response");
+    var buttons = Array.prototype.slice.call(document.querySelectorAll(".mood-btn[data-mood]"));
+    if (!response || !buttons.length || response.dataset.hlmMoodReady === "1") return;
+    response.dataset.hlmMoodReady = "1";
+    response.setAttribute("role", "status");
+    response.setAttribute("aria-live", "polite");
+    response.setAttribute("aria-atomic", "true");
+    var messages = getMoodMessages();
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var mood = button.getAttribute("data-mood");
+        response.textContent = messages[mood] || response.textContent;
+        buttons.forEach(function (item) {
+          item.classList.remove("is-selected");
+          item.setAttribute("aria-pressed", "false");
+        });
+        button.classList.add("is-selected");
+        button.setAttribute("aria-pressed", "true");
+      });
+      if (!button.hasAttribute("aria-pressed")) button.setAttribute("aria-pressed", "false");
+    });
+  }
+
+  function initQuickAnchors() {
+    var offset = 88;
+    var nav = document.querySelector(".quick-nav");
+    if (!nav || nav.dataset.hlmAnchorReady === "1") return;
+    nav.dataset.hlmAnchorReady = "1";
+    function smoothTo(hash) {
+      if (!hash) return;
+      var target = document.querySelector(hash);
+      if (!target) return;
+      var top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: top, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    }
+    nav.addEventListener("click", function (event) {
+      var link = event.target.closest('a[href^="#"]');
+      if (!link) return;
+      var url = new URL(link.href, location.href);
+      if (url.pathname !== location.pathname || !document.querySelector(url.hash)) return;
+      event.preventDefault();
+      history.pushState({}, "", url.hash);
+      smoothTo(url.hash);
+    });
+    var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
+    var pairs = links.map(function (link) {
+      return { link: link, target: document.querySelector(link.getAttribute("href")) };
+    }).filter(function (pair) { return pair.target; });
+    if ("IntersectionObserver" in window && pairs.length) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var active = pairs.find(function (pair) { return pair.target === entry.target; });
+          if (!active) return;
+          links.forEach(function (link) { link.classList.remove("is-active"); });
+          active.link.classList.add("is-active");
+        });
+      }, { rootMargin: "-" + (offset + 10) + "px 0px -60% 0px", threshold: 0.01 });
+      pairs.forEach(function (pair) { observer.observe(pair.target); });
+    }
+    if (location.hash) window.setTimeout(function () { smoothTo(location.hash); }, 0);
   }
 
   function init() {
@@ -135,6 +238,8 @@
       rel.add("noopener");
       link.setAttribute("rel", Array.from(rel).join(" "));
     });
+    initMoodPicker();
+    initQuickAnchors();
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);

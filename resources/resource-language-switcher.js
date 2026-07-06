@@ -53,7 +53,7 @@
   }
   if (!document.querySelector('script[src*="resource-page-standard.js"]')) {
     var standardScript = document.createElement("script");
-    standardScript.src = prefix + "resources/resource-page-standard.js?v=2";
+    standardScript.src = prefix + "resources/resource-page-standard.js?v=3";
     standardScript.defer = true;
     document.head.appendChild(standardScript);
   }

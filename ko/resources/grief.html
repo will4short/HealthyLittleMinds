@@ -332,49 +332,9 @@ a:focus-visible, button:focus-visible{ outline:3px solid #9ad1ff; outline-offset
     </section>
   </div>
 
-  <footer style="text-align:center; padding:1rem; color:#6b7a8e;">
+  <footer class="hlm-resource-footer">
     &copy; 2025 Healthy Little Minds
   </footer>
-
-  <!-- Topic JS (inline; move to shared topic.js if you prefer) -->
-  <script>
-  (() => {
-    const OFFSET = 88;
-    function smoothTo(hash){
-      const el = document.querySelector(hash);
-      if(!el) return;
-      const top = el.getBoundingClientRect().top + window.scrollY - OFFSET;
-      window.scrollTo({ top, behavior:'smooth' });
-    }
-    document.addEventListener('click', (e) => {
-      const a = e.target.closest('a[href^="#"]']);
-      if(!a) return;
-      const url = new URL(a.href, location.href);
-      if(url.pathname !== location.pathname) return;
-      e.preventDefault();
-      history.pushState({}, "", url.hash);
-      smoothTo(url.hash);
-    });
-
-    const nav = document.querySelector('.quick-nav');
-    if(nav){
-      const links = [...nav.querySelectorAll('a[href^="#"]')];
-      const pairs = links.map(a => ({ a, el: document.querySelector(a.getAttribute('href')) })).filter(x => x.el);
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          const hit = pairs.find(x => x.el === entry.target);
-          if(!hit) return;
-          if(entry.isIntersecting){
-            links.forEach(a => a.classList.remove('is-active'));
-            hit.a.classList.add('is-active');
-          }
-        });
-      }, { rootMargin: `-${OFFSET + 10}px 0px -60% 0px`, threshold: 0.01 });
-      pairs.forEach(x => io.observe(x.el));
-    }
-    if(location.hash) setTimeout(() => smoothTo(location.hash), 0);
-  })();
-  </script>
-  <script defer src="../../button-loader.js?v=1"></script>
+<script defer src="../../button-loader.js?v=1"></script>
 </body>
 </html>

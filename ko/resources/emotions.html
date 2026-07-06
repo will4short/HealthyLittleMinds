@@ -349,15 +349,15 @@ html[lang="ko"]{
   <h2>인터랙티브 기분 체크</h2>
   <p>지금 내 기분과 가장 잘 맞는 얼굴을 골라보세요:</p>
   
-  <div id="emoji-container" style="display: flex; gap: 15px; font-size: 2.5rem; margin-top: 1rem; flex-wrap: wrap;">
-    <button class="mood-btn" data-mood="happy" style="background:none; border:none; font-size:inherit; cursor:pointer; transition: transform 0.2s;">😊</button>
-    <button class="mood-btn" data-mood="sad" style="background:none; border:none; font-size:inherit; cursor:pointer; transition: transform 0.2s;">😢</button>
-    <button class="mood-btn" data-mood="angry" style="background:none; border:none; font-size:inherit; cursor:pointer; transition: transform 0.2s;">😡</button>
-    <button class="mood-btn" data-mood="worried" style="background:none; border:none; font-size:inherit; cursor:pointer; transition: transform 0.2s;">😟</button>
-    <button class="mood-btn" data-mood="calm" style="background:none; border:none; font-size:inherit; cursor:pointer; transition: transform 0.2s;">😌</button>
+  <div id="emoji-container">
+    <button class="mood-btn" data-mood="happy">😊</button>
+    <button class="mood-btn" data-mood="sad">😢</button>
+    <button class="mood-btn" data-mood="angry">😡</button>
+    <button class="mood-btn" data-mood="worried">😟</button>
+    <button class="mood-btn" data-mood="calm">😌</button>
   </div>
   
-  <div id="mood-response" style="margin-top: 1rem; font-weight: 700; color: var(--coral); min-height: 1.5em;"></div>
+  <div id="mood-response"></div>
 </div>
 
         <div id="try" class="topic-card">
@@ -422,7 +422,7 @@ html[lang="ko"]{
 
   </div>
 
-  <p class="disclaimer" style="margin-top:1rem;">
+  <p class="disclaimer">
     아이마다 감정을 느끼는 방식은 모두 다릅니다 — 모든 감정은 괜찮아요.
   </p>
 </div>
@@ -456,41 +456,9 @@ html[lang="ko"]{
     </section>
   </div>
 
-  <footer style="text-align:center; padding:1rem; color:#6b7a8e;">
+  <footer class="hlm-resource-footer">
     &copy; 2025 Healthy Little Minds
   </footer>
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.mood-btn');
-    const responseText = document.getElementById('mood-response');
-    let messageTimer;
-
-    const messages = {
-      'happy': "정말 멋져요! 지금 몸 어디에서 그 행복이 느껴지는지 알아차려 보세요.",
-      'sad': "슬퍼도 괜찮아요. 천천히 심호흡을 하거나 안아달라고 부탁하면 도움이 될 수 있어요.",
-      'angry': "화가 났군요. 아주 큰 감정이에요! 몸을 털어보거나 10까지 세어볼까요?",
-      'worried': "걱정을 하면 배가 팽팽해지는 느낌이 들 수 있어요. 5-4-3-2-1 그라운딩 게임을 해보세요!",
-      'calm': "차분해지니 기분이 좋네요. 책을 읽거나 퍼즐을 맞추기에 아주 좋은 시간이에요."
-    };
-
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const mood = btn.getAttribute('data-mood');
-        responseText.textContent = messages[mood];
-        
-        clearTimeout(messageTimer);
-        messageTimer = setTimeout(() => {
-          responseText.textContent = "";
-        }, 5000);
-        
-        btn.style.transform = 'scale(1.2)';
-        setTimeout(() => {
-          btn.style.transform = 'scale(1)';
-        }, 200);
-      });
-    });
-  });
-</script>
   <script defer src="../../button-loader.js?v=1"></script>
 </body>
 </html>
