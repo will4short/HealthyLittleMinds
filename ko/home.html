@@ -736,7 +736,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
 <body class="localized-home home-mobile-ui ui-upgraded home-experience">
 <a class="home-skip-link" href="#main-content">주요 콘텐츠로 건너뛰기</a>
 <!-- 🔄 Branded Loading Screen -->
-<div id="loading-screen" class="localized-loading" aria-live="polite">
+<div id="loading-screen" class="localized-loading" role="status" aria-live="polite" aria-atomic="true">
   <div class="spinner localized-loading__spinner" aria-hidden="true">
   </div>
   <p>작은 마음을 따뜻하게 준비 중입니다…</p>
@@ -872,7 +872,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
   </div>
 </section>
 
-<section class="ko-home-start" aria-labelledby="koStartTitle">
+<section class="ko-home-start" data-home-section="start" aria-labelledby="koStartTitle">
   <div class="ko-home-start__copy">
     <p class="ko-eyebrow">Healthy Little Minds 시작하기</p>
     <h1 id="koStartTitle">오늘 마음에 맞는 곳에서 시작해 보세요.</h1>
@@ -887,7 +887,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
   </nav>
 </section>
 
-<section class="localized-support-guide" id="support-guide" aria-labelledby="supportGuideTitle">
+<section class="localized-support-guide" id="support-guide" data-home-section="support" aria-labelledby="supportGuideTitle">
   <div class="localized-support-guide__intro">
     <p class="ko-eyebrow">선택 도우미</p>
     <h2 id="supportGuideTitle">세 번의 선택으로 알맞은 도움을 찾아요.</h2>
@@ -934,8 +934,8 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
   </div>
 </section>
 
-<section id="feelings" class="feelings-section ko-feelings">
-  <h2>✨ 감정 이야기 둘러보기</h2>
+<section id="feelings" class="feelings-section ko-feelings" data-home-section="feelings" aria-labelledby="homeFeelingsTitle">
+  <h2 id="homeFeelingsTitle"><span aria-hidden="true">✨</span> 감정 이야기 둘러보기</h2>
   <div class="feelings-grid" aria-label="감정 선택하기">
     <a class="emotion-btn" href="embarrassed.html">😳 창피함</a>
     <a class="emotion-btn" href="nervous.html">😬 긴장됨</a>
@@ -963,8 +963,8 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
 </section>
 
 <!-- 📚 그림책 시리즈 Section (mobile cover-size fix) -->
-<section id="books" class="localized-book-shelf">
-  <h2 class="localized-section-title"><span aria-hidden="true">📚</span> 그림책 시리즈</h2>
+<section id="books" class="localized-book-shelf" data-home-section="books" aria-labelledby="homeBooksTitle">
+  <h2 id="homeBooksTitle" class="localized-section-title"><span aria-hidden="true">📚</span> 그림책 시리즈</h2>
 
   <p class="scroll-hint-text">
     👉 옆으로 스크롤하거나 오른쪽으로 넘겨서 더 많은 책을 살펴보세요
@@ -1122,11 +1122,11 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
    </div>
 </section>
 
-<section id="worksheets" class="worksheet-section ko-worksheet">
+<section id="worksheets" class="worksheet-section ko-worksheet" data-home-section="worksheets" aria-labelledby="homeWorksheetsTitle">
   <div class="worksheet-section__header">
     <div>
       <p class="eyebrow">인쇄해서 연습하기</p>
-      <h2>📝 워크시트</h2>
+    <h2 id="homeWorksheetsTitle"><span aria-hidden="true">📝</span> 워크시트</h2>
       <p class="worksheet-section__sub">감정을 표현하고, 마음을 가라앉히고, 다정함을 연습하는 활동을 내려받아 보세요.</p>
     </div>
     <nav class="worksheet-picker" aria-label="필요에 맞는 워크시트 고르기">
@@ -1160,7 +1160,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
   </div>
 </section>
 
-<section id="topics" class="hlm-res hlm-res--full" aria-labelledby="hlm-topics-title">
+<section id="topics" class="hlm-res hlm-res--full" data-home-section="topics" aria-labelledby="hlm-topics-title">
   <div class="hlm-res__grid">
     <!-- LEFT: intro + visual -->
     <div class="hlm-res__intro">
@@ -1220,7 +1220,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
   </div><!-- /hlm-res__grid -->
 </section>
 
-<section class="localized-pathways" aria-labelledby="koPathwaysTitle">
+<section class="localized-pathways" data-home-section="pathways" aria-labelledby="koPathwaysTitle">
   <div class="localized-pathways__inner">
     <div class="localized-pathways__heading">
       <p class="localized-pathways__eyebrow">계속 둘러보기</p>
@@ -1273,16 +1273,16 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
 
 </section>
 
-<section id="subscribe" class="ko-subscribe" aria-labelledby="koSubscribeTitle">
+<section id="subscribe" class="ko-subscribe localized-subscribe" aria-labelledby="koSubscribeTitle">
   <h2 id="koSubscribeTitle"><span aria-hidden="true">📬</span> 새로운 자료 소식 받기</h2>
   <p>새로운 그림책, 워크시트, 부모님을 위한 도움 자료가 올라오면 이메일로 알려드릴게요.</p>
-  <form action="https://formspree.io/f/mkgbvboj" method="POST">
+  <form class="home-subscribe-form" action="https://formspree.io/f/mkgbvboj" method="POST">
         <input type="hidden" name="form_type" value="newsletter" />
         <input type="hidden" name="source_page" value="ko/home.html" />
         <input type="hidden" name="language" value="ko" />
     <label class="sr-only" for="ko-subscribe-email">이메일 주소</label>
-    <input id="ko-subscribe-email" type="email" name="email" placeholder="이메일 주소" required>
-    <button type="submit">구독하기</button>
+    <input class="home-subscribe-form__input" id="ko-subscribe-email" type="email" name="email" placeholder="이메일 주소" autocomplete="email" inputmode="email" required>
+    <button class="home-subscribe-form__submit" type="submit">구독하기</button>
   </form>
 </section>
 

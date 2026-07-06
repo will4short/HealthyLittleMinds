@@ -920,7 +920,7 @@ html, body { overflow-x: hidden; }
 <a class="home-skip-link" href="#main-content">跳到主要内容</a>
 
 <!-- 🔄 Branded Loading Screen -->
-<div id="loading-screen" class="localized-loading" aria-live="polite">
+<div id="loading-screen" class="localized-loading" role="status" aria-live="polite" aria-atomic="true">
   <div class="spinner localized-loading__spinner" aria-hidden="true">
   </div>
   <p>正在温暖你的小小心灵...</p>
@@ -1062,7 +1062,7 @@ html, body { overflow-x: hidden; }
   </div>
 </section>
 
-<section class="tw-home-start" aria-labelledby="cnStartTitle">
+<section class="tw-home-start" data-home-section="start" aria-labelledby="cnStartTitle">
   <div class="tw-home-start__copy">
     <p class="tw-eyebrow">开始探索 Healthy Little Minds</p>
     <h1 id="cnStartTitle">从今天最需要的支持开始。</h1>
@@ -1078,7 +1078,7 @@ html, body { overflow-x: hidden; }
   </nav>
 </section>
 
-<section class="localized-support-guide" id="support-guide" aria-labelledby="supportGuideTitle">
+<section class="localized-support-guide" id="support-guide" data-home-section="support" aria-labelledby="supportGuideTitle">
   <div class="localized-support-guide__intro">
     <p class="tw-eyebrow">帮我选择</p>
     <h2 id="supportGuideTitle">三步找到合适的支持。</h2>
@@ -1125,8 +1125,8 @@ html, body { overflow-x: hidden; }
   </div>
 </section>
 
-<section id="feelings" class="feelings-section cn-feelings">
-  <h2>✨ 探索情绪故事</h2>
+<section id="feelings" class="feelings-section cn-feelings" data-home-section="feelings" aria-labelledby="homeFeelingsTitle">
+  <h2 id="homeFeelingsTitle"><span aria-hidden="true">✨</span> 探索情绪故事</h2>
   <div class="feelings-grid" aria-label="选择一种情绪">
     <a class="emotion-btn" href="embarrassed.html">😳 尴尬</a>
     <a class="emotion-btn" href="nervous.html">😬 紧张</a>
@@ -1154,8 +1154,8 @@ html, body { overflow-x: hidden; }
 </section>
 
 <!-- 📚 情绪绘本区块（修复手机端封面变小） -->
-<section id="books" class="localized-book-shelf">
-  <h2 class="localized-section-title"><span aria-hidden="true">📚</span> 情绪绘本</h2>
+<section id="books" class="localized-book-shelf" data-home-section="books" aria-labelledby="homeBooksTitle">
+  <h2 id="homeBooksTitle" class="localized-section-title"><span aria-hidden="true">📚</span> 情绪绘本</h2>
   <p class="scroll-hint-text">
     👉 向右滑动查看更多绘本
   </p>
@@ -1275,8 +1275,8 @@ html, body { overflow-x: hidden; }
 </section>
 
 <!-- 📝 工作纸专区 -->
-<section id="worksheets">
-  <h2>📝 工作纸专区</h2>
+<section id="worksheets" class="worksheet-section cn-worksheet" data-home-section="worksheets" aria-labelledby="homeWorksheetsTitle">
+  <h2 id="homeWorksheetsTitle"><span aria-hidden="true">📝</span> 工作纸专区</h2>
 
   <p class="subtext">
     透过涂色、呼吸练习和自我反思，帮助孩子整理内心情绪。
@@ -1317,7 +1317,7 @@ html, body { overflow-x: hidden; }
 </section>
 
 <!-- LEFT: intro + visual -->
-<section id="topics" class="hlm-res hlm-res--full" aria-labelledby="hlm-topics-title">
+<section id="topics" class="hlm-res hlm-res--full" data-home-section="topics" aria-labelledby="hlm-topics-title">
   <div class="hlm-res__grid">
     <!-- LEFT: intro + visual -->
     <div class="hlm-res__intro">
@@ -1376,7 +1376,7 @@ html, body { overflow-x: hidden; }
   </div><!-- /hlm-res__grid -->
 </section>
 
-<section class="localized-pathways" aria-labelledby="cnPathwaysTitle">
+<section class="localized-pathways" data-home-section="pathways" aria-labelledby="cnPathwaysTitle">
   <div class="localized-pathways__inner">
     <div class="localized-pathways__heading">
       <p class="localized-pathways__eyebrow">继续探索</p>
@@ -1436,13 +1436,13 @@ html, body { overflow-x: hidden; }
       获取适合家长的工具、公告和免费资源！<br>
       输入您的邮箱地址以订阅。
     </p>
-    <form action="https://formspree.io/f/mkgbvboj" method="POST">
+    <form class="home-subscribe-form" action="https://formspree.io/f/mkgbvboj" method="POST">
         <input type="hidden" name="form_type" value="newsletter" />
         <input type="hidden" name="source_page" value="zh-cn/home.html" />
         <input type="hidden" name="language" value="zh-cn" />
       <label class="sr-only" for="cn-subscribe-email">电子邮箱地址</label>
-      <input id="cn-subscribe-email" type="email" name="email" placeholder="请输入您的邮箱地址" required>
-      <button type="submit">
+      <input class="home-subscribe-form__input" id="cn-subscribe-email" type="email" name="email" placeholder="请输入您的邮箱地址" autocomplete="email" inputmode="email" required>
+      <button class="home-subscribe-form__submit" type="submit">
         订阅
       </button>
     </form>

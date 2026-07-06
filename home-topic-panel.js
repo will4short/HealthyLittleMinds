@@ -27,6 +27,16 @@
 
     list.setAttribute("aria-live", "polite");
     list.setAttribute("data-empty-text", emptyText);
+    var emptyStatus = panel.querySelector(".home-topic-empty");
+    if (!emptyStatus) {
+      emptyStatus = document.createElement("p");
+      emptyStatus.className = "home-topic-empty";
+      emptyStatus.setAttribute("role", "status");
+      emptyStatus.setAttribute("aria-live", "polite");
+      emptyStatus.textContent = emptyText;
+      emptyStatus.hidden = true;
+      list.insertAdjacentElement("afterend", emptyStatus);
+    }
 
     function syncThumb() {
       if (!track || !thumb) return;
@@ -59,6 +69,7 @@
         if (show) visible += 1;
       });
       list.dataset.empty = visible === 0 ? "true" : "false";
+      emptyStatus.hidden = visible !== 0;
       list.setAttribute("aria-busy", "false");
       list.scrollTop = 0;
       syncThumb();

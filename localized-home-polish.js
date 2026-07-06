@@ -21,6 +21,25 @@
     bar.addEventListener("focusin", function () { window.clearTimeout(hideTimer); });
   }
 
+  function normalizeComponentHooks() {
+    document.querySelectorAll(".book-card").forEach(function (card) {
+      card.classList.add("home-resource-card", "home-resource-card--book");
+      var cover = card.querySelector(":scope > img");
+      var action = card.querySelector(":scope > a");
+      if (cover) cover.classList.add("book-card__cover");
+      if (action) action.classList.add("book-card__action", "home-action");
+    });
+    document.querySelectorAll(".worksheet-card").forEach(function (card) {
+      card.classList.add("home-resource-card", "home-resource-card--worksheet");
+      card.querySelectorAll("a, button").forEach(function (action) {
+        action.classList.add("home-action");
+      });
+    });
+    document.querySelectorAll(".feeling-card, .feeling-btn").forEach(function (card) {
+      card.classList.add("home-resource-card", "home-resource-card--feeling");
+    });
+  }
+
   function initSupportGuide() {
     var guide = document.querySelector(".localized-support-guide");
     if (!guide || guide.dataset.guideReady === "true") return;
@@ -234,10 +253,12 @@
       initSupportGuide();
       initBookShelf();
       initAnnouncement();
+      normalizeComponentHooks();
     });
   } else {
     initSupportGuide();
     initBookShelf();
     initAnnouncement();
+    normalizeComponentHooks();
   }
 })();

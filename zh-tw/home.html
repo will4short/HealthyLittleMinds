@@ -709,7 +709,7 @@ html[lang="zh-TW"] .hlm-res{
 <body class="localized-home home-mobile-ui ui-upgraded home-experience">
 <a class="home-skip-link" href="#main-content">跳到主要內容</a>
 <!-- 🔄 Branded Loading Screen -->
-<div id="loading-screen" class="localized-loading" aria-live="polite">
+<div id="loading-screen" class="localized-loading" role="status" aria-live="polite" aria-atomic="true">
   <div class="spinner localized-loading__spinner" aria-hidden="true">
   </div>
   <p>正在溫暖你的小小心靈…</p>
@@ -853,7 +853,7 @@ html[lang="zh-TW"] .hlm-res{
   </div>
 </section>
 
-<section class="tw-home-start" aria-labelledby="twStartTitle">
+<section class="tw-home-start" data-home-section="start" aria-labelledby="twStartTitle">
   <div class="tw-home-start__copy">
     <p class="tw-eyebrow">開始使用 Healthy Little Minds</p>
     <h1 id="twStartTitle">從最適合今天心情的地方開始。</h1>
@@ -869,7 +869,7 @@ html[lang="zh-TW"] .hlm-res{
   </nav>
 </section>
 
-<section class="localized-support-guide" id="support-guide" aria-labelledby="supportGuideTitle">
+<section class="localized-support-guide" id="support-guide" data-home-section="support" aria-labelledby="supportGuideTitle">
   <div class="localized-support-guide__intro">
     <p class="tw-eyebrow">幫我選擇</p>
     <h2 id="supportGuideTitle">三步找到適合今天的支持。</h2>
@@ -916,8 +916,8 @@ html[lang="zh-TW"] .hlm-res{
   </div>
 </section>
 
-<section id="feelings" class="feelings-section tw-feelings">
-  <h2>✨ 探索情緒故事</h2>
+<section id="feelings" class="feelings-section tw-feelings" data-home-section="feelings" aria-labelledby="homeFeelingsTitle">
+  <h2 id="homeFeelingsTitle"><span aria-hidden="true">✨</span> 探索情緒故事</h2>
   <div class="feelings-grid" aria-label="選擇一種情緒">
     <a class="emotion-btn" href="embarrassed.html">😳 尷尬</a>
     <a class="emotion-btn" href="nervous.html">😬 緊張</a>
@@ -945,8 +945,8 @@ html[lang="zh-TW"] .hlm-res{
 </section>
 
 <!-- 📚 情緒繪本區 Section -->
-<section id="books" class="localized-book-shelf">
-  <h2 class="localized-section-title"><span aria-hidden="true">📚</span> 情緒繪本區</h2>
+<section id="books" class="localized-book-shelf" data-home-section="books" aria-labelledby="homeBooksTitle">
+  <h2 id="homeBooksTitle" class="localized-section-title"><span aria-hidden="true">📚</span> 情緒繪本區</h2>
   <p class="scroll-hint-text">
     👉 向右滑動或左右滑動即可查看更多繪本
   </p>
@@ -1090,11 +1090,11 @@ html[lang="zh-TW"] .hlm-res{
 </div>
 </section>
 
-<section id="worksheets" class="worksheet-section tw-worksheet">
+<section id="worksheets" class="worksheet-section tw-worksheet" data-home-section="worksheets" aria-labelledby="homeWorksheetsTitle">
   <div class="worksheet-section__header">
     <div>
       <p class="eyebrow">列印後練習</p>
-      <h2>📝 學習單</h2>
+    <h2 id="homeWorksheetsTitle"><span aria-hidden="true">📝</span> 學習單</h2>
       <p class="worksheet-section__sub">下載活動，幫助孩子說出情緒、平靜下來，也練習溫柔與同理。</p>
     </div>
     <nav class="worksheet-picker" aria-label="依需要選擇學習單">
@@ -1128,7 +1128,7 @@ html[lang="zh-TW"] .hlm-res{
   </div>
 </section>
 
-<section id="topics" class="hlm-res hlm-res--full" aria-labelledby="hlm-topics-title">
+<section id="topics" class="hlm-res hlm-res--full" data-home-section="topics" aria-labelledby="hlm-topics-title">
   <div class="hlm-res__grid">
     <!-- LEFT: intro + visual -->
     <div class="hlm-res__intro">
@@ -1188,7 +1188,7 @@ html[lang="zh-TW"] .hlm-res{
   </div><!-- /hlm-res__grid -->
 </section>
 
-<section class="localized-pathways" aria-labelledby="twPathwaysTitle">
+<section class="localized-pathways" data-home-section="pathways" aria-labelledby="twPathwaysTitle">
   <div class="localized-pathways__inner">
     <div class="localized-pathways__heading">
       <p class="localized-pathways__eyebrow">繼續探索</p>
@@ -1242,16 +1242,16 @@ html[lang="zh-TW"] .hlm-res{
   </div>
 </section>
 
-<section id="subscribe" class="tw-subscribe" aria-labelledby="twSubscribeTitle">
+<section id="subscribe" class="tw-subscribe localized-subscribe" aria-labelledby="twSubscribeTitle">
   <h2 id="twSubscribeTitle"><span aria-hidden="true">📬</span> 接收新資源通知</h2>
   <p>新的繪本、學習單和家長支持資料上線時，我們會透過電子郵件通知您。</p>
-  <form action="https://formspree.io/f/mkgbvboj" method="POST">
+  <form class="home-subscribe-form" action="https://formspree.io/f/mkgbvboj" method="POST">
         <input type="hidden" name="form_type" value="newsletter" />
         <input type="hidden" name="source_page" value="zh-tw/home.html" />
         <input type="hidden" name="language" value="zh-tw" />
     <label class="sr-only" for="tw-subscribe-email">電子郵件地址</label>
-    <input id="tw-subscribe-email" type="email" name="email" placeholder="電子郵件地址" required>
-    <button type="submit">訂閱</button>
+    <input class="home-subscribe-form__input" id="tw-subscribe-email" type="email" name="email" placeholder="電子郵件地址" autocomplete="email" inputmode="email" required>
+    <button class="home-subscribe-form__submit" type="submit">訂閱</button>
   </form>
 </section>
 

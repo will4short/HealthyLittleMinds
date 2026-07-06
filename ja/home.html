@@ -643,7 +643,7 @@
 <a class="home-skip-link" href="#main-content">メインコンテンツへ移動</a>
 
 <!-- 🔄 Branded Loading Screen -->
-<div id="loading-screen" class="localized-loading" aria-live="polite">
+<div id="loading-screen" class="localized-loading" role="status" aria-live="polite" aria-atomic="true">
   <div class="spinner localized-loading__spinner" aria-hidden="true">
   </div>
   <p>小さな心をあたためています…</p>
@@ -786,7 +786,7 @@
   </div>
 </section>
 
-<section class="ja-home-start" aria-labelledby="jaStartTitle">
+<section class="ja-home-start" data-home-section="start" aria-labelledby="jaStartTitle">
   <div class="ja-home-start__copy">
     <p class="ja-eyebrow">Healthy Little Minds を始める</p>
     <h1 id="jaStartTitle">今日の気持ちに合う場所から始めましょう。</h1>
@@ -801,7 +801,7 @@
   </nav>
 </section>
 
-<section class="localized-support-guide" id="support-guide" aria-labelledby="supportGuideTitle">
+<section class="localized-support-guide" id="support-guide" data-home-section="support" aria-labelledby="supportGuideTitle">
   <div class="localized-support-guide__intro">
     <p class="ja-eyebrow">選び方ガイド</p>
     <h2 id="supportGuideTitle">3ステップで、今に合うサポートへ。</h2>
@@ -848,8 +848,8 @@
   </div>
 </section>
 
-<section id="feelings" class="feelings-section ja-feelings">
-  <h2>✨ 感情のお話を探す</h2>
+<section id="feelings" class="feelings-section ja-feelings" data-home-section="feelings" aria-labelledby="homeFeelingsTitle">
+  <h2 id="homeFeelingsTitle"><span aria-hidden="true">✨</span> 感情のお話を探す</h2>
   <div class="feelings-grid" aria-label="感情を選ぶ">
     <a class="emotion-btn" href="embarrassed.html">😳 はずかしい</a>
     <a class="emotion-btn" href="nervous.html">😬 緊張</a>
@@ -877,9 +877,9 @@
 </section>
 
 <!-- ✅ Books -->
-<section id="books" class="localized-book-shelf">
+<section id="books" class="localized-book-shelf" data-home-section="books" aria-labelledby="homeBooksTitle">
   <div class="container">
-    <h2>📚 感情を学べる絵本たち</h2>
+    <h2 id="homeBooksTitle"><span aria-hidden="true">📚</span> 感情を学べる絵本たち</h2>
     <p>絵本を通して、子どもたちは自分の気持ちを理解し、安心して表現する力を育てます。</p>
     <p class="scroll-hint-text">👉 スワイプして他の絵本も見てみよう</p>
     <div class="localized-rail-controls" aria-label="絵本の移動">
@@ -992,11 +992,11 @@
 </section>
 
 <!-- ✅ Worksheets -->
-<section id="worksheets" class="worksheet-section ja-worksheet">
+<section id="worksheets" class="worksheet-section ja-worksheet" data-home-section="worksheets" aria-labelledby="homeWorksheetsTitle">
   <div class="worksheet-section__header">
     <div>
       <p class="eyebrow">印刷して取り組む</p>
-      <h2>📝 ワークシート</h2>
+    <h2 id="homeWorksheetsTitle"><span aria-hidden="true">📝</span> ワークシート</h2>
       <p class="worksheet-section__sub">気持ちを表現し、心を落ち着かせ、やさしさを練習する活動をダウンロードできます。</p>
     </div>
     <nav class="worksheet-picker" aria-label="目的別にワークシートを選ぶ">
@@ -1031,7 +1031,7 @@
 </section>
 
 <!-- ✅ Topics -->
-<section id="topics" class="localized-topics" aria-labelledby="hlm-topics-title">
+<section id="topics" class="localized-topics" data-home-section="topics" aria-labelledby="hlm-topics-title">
   <div class="hlm-res">
     <div class="hlm-res__grid">
       <div class="hlm-res__intro">
@@ -1090,7 +1090,7 @@
   </div>
 </section>
 
-<section class="localized-pathways" aria-labelledby="jaPathwaysTitle">
+<section class="localized-pathways" data-home-section="pathways" aria-labelledby="jaPathwaysTitle">
   <div class="localized-pathways__inner">
     <div class="localized-pathways__heading">
       <p class="localized-pathways__eyebrow">さらに探す</p>
@@ -1152,16 +1152,16 @@
 
 
 <!-- Subscribe -->
-<section id="subscribe" class="ja-subscribe" aria-labelledby="jaSubscribeTitle">
+<section id="subscribe" class="ja-subscribe localized-subscribe" aria-labelledby="jaSubscribeTitle">
   <h2 id="jaSubscribeTitle"><span aria-hidden="true">📬</span> 新しいリソースのお知らせ</h2>
   <p>新しい絵本、ワークシート、保護者向けのサポート資料が公開されたら、メールでお知らせします。</p>
-  <form action="https://formspree.io/f/mkgbvboj" method="POST">
+  <form class="home-subscribe-form" action="https://formspree.io/f/mkgbvboj" method="POST">
         <input type="hidden" name="form_type" value="newsletter" />
         <input type="hidden" name="source_page" value="ja/home.html" />
         <input type="hidden" name="language" value="ja" />
     <label class="sr-only" for="ja-subscribe-email">メールアドレス</label>
-    <input id="ja-subscribe-email" type="email" name="email" placeholder="メールアドレス" required>
-    <button type="submit">購読する</button>
+    <input class="home-subscribe-form__input" id="ja-subscribe-email" type="email" name="email" placeholder="メールアドレス" autocomplete="email" inputmode="email" required>
+    <button class="home-subscribe-form__submit" type="submit">購読する</button>
   </form>
 </section>
 
