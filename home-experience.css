@@ -394,10 +394,18 @@ button.home-status-notice {
 .home-experience :where(.book-rail-window, .auto-book-rail) {
   scrollbar-color: #9ab8c6 transparent;
   scrollbar-width: thin;
-  scroll-snap-type: inline mandatory;
+  scroll-snap-type: none;
 }
 
 .home-experience :where(.book-card, .localized-book-card) {
+  scroll-snap-align: none;
+}
+
+.home-experience .book-rail-window.is-manual {
+  scroll-snap-type: inline proximity;
+}
+
+.home-experience .book-rail-window.is-manual .book-card {
   scroll-snap-align: start;
 }
 

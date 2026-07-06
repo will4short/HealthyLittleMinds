@@ -178,6 +178,9 @@
   <!-- Language selector -->
   <nav class="language-switcher" aria-label="Choose language">
    <span class="language-switcher__label">Language</span>
+   <a href="home.html" title="English" aria-current="page">
+    <img alt="English" decoding="async" loading="lazy" src="images/flag-en.webp" width="24"/>
+   </a>
    <a href="zh-tw/home.html" title="繁體中文">
     <img alt="繁體中文" decoding="async" loading="lazy" src="images/flag-tw.webp" width="24"/>
    </a>
@@ -235,7 +238,7 @@
   <!-- 🔄 Sliding Banner Section with Canva Banners (Extended to 6 Slides) -->
   <main id="main-content">
   <section class="carousel-container" aria-label="Featured stories and activities">
-   <div class="carousel" aria-live="off">
+   <div class="carousel" aria-live="off" aria-atomic="false">
     <!-- Slide 1 -->
     <div class="carousel-slide banner1">
     </div>
@@ -257,7 +260,7 @@
    </div>
 
    <!-- Navigation Dots -->
-   <div class="carousel-dots" aria-label="Choose featured banner">
+   <div class="carousel-dots" role="group" aria-label="Choose featured banner">
     <button class="dot active" type="button" data-slide-index="0" aria-label="Show banner 1" aria-current="true"></button>
     <button class="dot" type="button" data-slide-index="1" aria-label="Show banner 2"></button>
     <button class="dot" type="button" data-slide-index="2" aria-label="Show banner 3"></button>
@@ -266,11 +269,11 @@
     <button class="dot" type="button" data-slide-index="5" aria-label="Show banner 6"></button>
    </div>
    <!-- Arrow Buttons -->
-   <button class="carousel-arrow left" type="button" data-slide-direction="-1">
-    ❮
+   <button class="carousel-arrow left" type="button" data-slide-direction="-1" aria-label="Show previous featured banner">
+    <span aria-hidden="true">❮</span>
    </button>
-   <button class="carousel-arrow right" type="button" data-slide-direction="1">
-    ❯
+   <button class="carousel-arrow right" type="button" data-slide-direction="1" aria-label="Show next featured banner">
+    <span aria-hidden="true">❯</span>
    </button>
   </section>
 
@@ -1943,9 +1946,20 @@ document.getElementById('mobileNav')?.addEventListener('click', e => {
   container.appendChild(carouselStatus);
 
   let autoSlideInterval;
+  let carouselResumeTimer;
+  let carouselHovered = false;
+  let carouselFocused = false;
+  let carouselTouched = false;
+  let carouselPausedUntil = 0;
 
-  function showSlide(index) {
+  function showSlide(index, announce = false) {
     track.style.transform = `translateX(-${index * 100}%)`;
+    slides.forEach((slide, slideIndex) => {
+      slide.setAttribute('role', 'group');
+      slide.setAttribute('aria-roledescription', 'slide');
+      slide.setAttribute('aria-label', `${slideIndex + 1} of ${slides.length}`);
+      slide.setAttribute('aria-hidden', String(slideIndex !== index));
+    });
     dots.forEach(dot => {
       dot.classList.remove('active');
       dot.removeAttribute('aria-current');
@@ -1955,43 +1969,77 @@ document.getElementById('mobileNav')?.addEventListener('click', e => {
       dots[index].setAttribute('aria-current', 'true');
     }
     current = index;
-    carouselStatus.textContent = `Featured banner ${index + 1} of ${slides.length}`;
+    if (announce) carouselStatus.textContent = `Featured banner ${index + 1} of ${slides.length}`;
   }
 
-  function changeSlide(direction) {
+  function changeSlide(direction, announce = false) {
     const total = slides.length;
     let next = (current + direction + total) % total;
-    showSlide(next);
+    showSlide(next, announce);
+  }
+
+  function carouselCanRotate() {
+    return !reduceCarouselMotion.matches
+      && !carouselHovered
+      && !carouselFocused
+      && !carouselTouched
+      && Date.now() >= carouselPausedUntil;
   }
 
   function startAutoSlide() {
     clearInterval(autoSlideInterval);
-    if (reduceCarouselMotion.matches) return;
-    autoSlideInterval = setInterval(() => changeSlide(1), 7000);
+    if (!carouselCanRotate()) return;
+    autoSlideInterval = setInterval(() => changeSlide(1, false), 7000);
   }
 
   function stopAutoSlide() {
     clearInterval(autoSlideInterval);
   }
 
+  function pauseCarouselFor(duration) {
+    stopAutoSlide();
+    carouselPausedUntil = Date.now() + duration;
+    clearTimeout(carouselResumeTimer);
+    carouselResumeTimer = setTimeout(startAutoSlide, duration);
+  }
+
 // 🖱 Pause on hover (desktop)
-container.addEventListener('mouseenter', stopAutoSlide);
-container.addEventListener('mouseleave', startAutoSlide);
-container.addEventListener('focusin', stopAutoSlide);
+container.addEventListener('mouseenter', () => {
+  carouselHovered = true;
+  stopAutoSlide();
+});
+container.addEventListener('mouseleave', () => {
+  carouselHovered = false;
+  startAutoSlide();
+});
+container.addEventListener('focusin', () => {
+  carouselFocused = true;
+  stopAutoSlide();
+});
 container.addEventListener('focusout', (event) => {
-  if (!container.contains(event.relatedTarget)) startAutoSlide();
+  if (!container.contains(event.relatedTarget)) {
+    carouselFocused = false;
+    startAutoSlide();
+  }
 });
 
 // ✋ Pause on touch (mobile)
-container.addEventListener('touchstart', stopAutoSlide, { passive: true });
+container.addEventListener('touchstart', () => {
+  carouselTouched = true;
+  stopAutoSlide();
+}, { passive: true });
 container.addEventListener('touchend', () => {
-  setTimeout(startAutoSlide, 3000);
+  carouselTouched = false;
+  pauseCarouselFor(3000);
+}, { passive: true });
+container.addEventListener('touchcancel', () => {
+  carouselTouched = false;
+  pauseCarouselFor(3000);
 }, { passive: true });
 
 container.addEventListener('click', (event) => {
   if (!event.target.closest('.dot, .carousel-arrow')) return;
-  stopAutoSlide();
-  setTimeout(startAutoSlide, 3000);
+  pauseCarouselFor(3000);
 });
 
 reduceCarouselMotion.addEventListener('change', () => {
@@ -2010,12 +2058,13 @@ container.addEventListener('touchend', function (e) {
   const endX = e.changedTouches[0].clientX;
   const diff = startX - endX;
   if (Math.abs(diff) > 50) {
-    if (diff > 0) changeSlide(1);
-    else changeSlide(-1);
+    if (diff > 0) changeSlide(1, true);
+    else changeSlide(-1, true);
   }
 }, { passive: true });
 
 // 🚀 Start everything
+showSlide(0, false);
 startAutoSlide();
   </script>
   <script>

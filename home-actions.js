@@ -6,12 +6,12 @@
     if (!control) return;
 
     if (control.dataset.slideIndex !== undefined && typeof window.showSlide === "function") {
-      window.showSlide(Number(control.dataset.slideIndex));
+      window.showSlide(Number(control.dataset.slideIndex), true);
       return;
     }
 
     if (control.dataset.slideDirection && typeof window.changeSlide === "function") {
-      window.changeSlide(Number(control.dataset.slideDirection));
+      window.changeSlide(Number(control.dataset.slideDirection), true);
       return;
     }
 

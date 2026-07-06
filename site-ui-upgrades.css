@@ -42,6 +42,24 @@
   object-fit: cover;
 }
 
+/* Printable covers must remain fully visible; they are previews, not decorative crops. */
+.ui-upgraded .parent-printable {
+  display: grid;
+  grid-template-rows: minmax(0, auto) 1fr;
+  align-items: start;
+}
+
+.ui-upgraded .parent-printable img {
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  padding: 0.4rem;
+  border-radius: 6px;
+  background: var(--hlm-sky);
+  object-fit: contain;
+  object-position: center;
+}
+
 .ui-upgraded .book-card a,
 .ui-upgraded .parent-path,
 .ui-upgraded .parent-story-card a,
