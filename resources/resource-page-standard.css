@@ -96,6 +96,76 @@
   border-radius: 0.75rem;
 }
 
+.hlm-resource-page .hlm-topic-depth {
+  margin-block: 1.5rem;
+  padding: clamp(1.1rem, 3vw, 1.75rem);
+  border: 1px solid var(--topic-border, #dce8ee);
+  border-radius: 1.25rem;
+  background: rgb(255 255 255 / 96%);
+  box-shadow: 0 0.75rem 2rem rgb(31 78 112 / 8%);
+}
+
+.hlm-resource-page .hlm-topic-depth__eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--topic-accent, #b74f57);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hlm-resource-page .hlm-topic-depth > h2,
+.hlm-resource-page .hlm-topic-depth__lead {
+  margin-block-start: 0;
+}
+
+.hlm-resource-page .hlm-topic-depth__lead {
+  font-size: 1.05rem;
+}
+
+.hlm-resource-page .hlm-topic-depth__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.hlm-resource-page .hlm-topic-depth__grid article {
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--topic-border, #dce8ee);
+  border-radius: 0.9rem;
+  background: var(--topic-tint, #f7fbfc);
+}
+
+.hlm-resource-page .hlm-topic-depth__grid article:first-child,
+.hlm-resource-page .hlm-topic-depth__grid article:last-child {
+  grid-column: 1 / -1;
+}
+
+.hlm-resource-page .hlm-topic-depth__grid :where(h3, p, ul) {
+  margin-block-start: 0;
+}
+
+.hlm-resource-page .hlm-topic-depth__grid :where(p, ul) {
+  margin-block-end: 0;
+}
+
+.hlm-resource-page .hlm-topic-depth__evidence {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--topic-border, #dce8ee);
+  border-radius: 0.75rem;
+}
+
+.hlm-resource-page .hlm-topic-depth__evidence summary {
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.hlm-resource-page .hlm-topic-depth__evidence summary::marker {
+  color: var(--topic-accent, currentColor);
+}
+
 .hlm-resource-page .hlm-resource-boundary {
   margin-block: 1.25rem 0;
   padding: 1rem 1.1rem;
@@ -162,6 +232,14 @@
   .hlm-resource-page .hlm-resource-use__grid {
     grid-template-columns: 1fr;
   }
+
+  .hlm-resource-page .hlm-topic-depth__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hlm-resource-page .hlm-topic-depth__grid article {
+    grid-column: auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -188,5 +266,11 @@
   .hlm-resource-page nav,
   .hlm-resource-page button {
     display: none !important;
+  }
+
+  .hlm-resource-page .hlm-topic-depth,
+  .hlm-resource-page .hlm-topic-depth__grid article {
+    box-shadow: none;
+    break-inside: avoid;
   }
 }

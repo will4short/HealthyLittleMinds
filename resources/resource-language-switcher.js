@@ -57,6 +57,29 @@
     standardScript.defer = true;
     document.head.appendChild(standardScript);
   }
+  if (!document.querySelector('script[src*="resource-content-library.js"]')) {
+    var loadContentLibrary = function () {
+      if (document.querySelector('script[src*="resource-content-library.js"]')) return;
+      var contentScript = document.createElement("script");
+      contentScript.src = prefix + "resources/resource-content-library.js?v=2";
+      contentScript.defer = true;
+      document.head.appendChild(contentScript);
+    };
+    var translationScript = document.createElement("script");
+    translationScript.src = prefix + "resources/resource-content-locales.js?v=1";
+    translationScript.defer = true;
+    var loadLocaleSupplement = function () {
+      var supplement = document.createElement("script");
+      supplement.src = prefix + "resources/resource-content-zh-tw.js?v=1";
+      supplement.defer = true;
+      supplement.addEventListener("load", loadContentLibrary, { once: true });
+      supplement.addEventListener("error", loadContentLibrary, { once: true });
+      document.head.appendChild(supplement);
+    };
+    translationScript.addEventListener("load", loadLocaleSupplement, { once: true });
+    translationScript.addEventListener("error", loadContentLibrary, { once: true });
+    document.head.appendChild(translationScript);
+  }
 
   var nav = document.createElement("nav");
   nav.className = "resource-languages";
