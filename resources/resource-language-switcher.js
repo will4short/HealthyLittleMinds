@@ -48,7 +48,7 @@
   if (!document.querySelector('link[href*="resource-page-standard.css"]')) {
     var standardStyle = document.createElement("link");
     standardStyle.rel = "stylesheet";
-    standardStyle.href = prefix + "resources/resource-page-standard.css?v=6";
+    standardStyle.href = prefix + "resources/resource-page-standard.css?v=7";
     document.head.appendChild(standardStyle);
   }
   if (!document.querySelector('script[src*="resource-page-standard.js"]')) {
