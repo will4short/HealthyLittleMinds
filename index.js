@@ -1,6 +1,121 @@
 (function () {
   "use strict";
 
+  function setupLandingStandard() {
+    const lang = (document.documentElement.lang || "en").toLowerCase();
+    const skipLabel = lang.startsWith("ja") ? "主な内容へ移動"
+      : lang.startsWith("ko") ? "주요 내용으로 건너뛰기"
+      : lang.startsWith("zh-tw") || lang.startsWith("zh-hant") ? "跳到主要內容"
+      : lang.startsWith("zh") ? "跳到主要内容"
+      : "Skip to main content";
+
+    document.body.classList.add("hlm-landing-page");
+    const loading = document.getElementById("loading-screen");
+    if (loading) {
+      loading.setAttribute("role", "status");
+      loading.setAttribute("aria-live", "polite");
+      loading.setAttribute("aria-atomic", "true");
+      loading.querySelector(".spinner")?.setAttribute("aria-hidden", "true");
+    }
+
+    let main = document.querySelector("main");
+    const sections = Array.from(document.querySelectorAll(".page-container > section"));
+    if (!main && sections.length) {
+      main = document.createElement("main");
+      main.id = "main-content";
+      sections[0].parentNode.insertBefore(main, sections[0]);
+      sections.forEach((section) => main.appendChild(section));
+    } else if (main && !main.id) {
+      main.id = "main-content";
+    }
+
+    if (main && !document.querySelector(".landing-skip-link")) {
+      const skip = document.createElement("a");
+      skip.className = "landing-skip-link";
+      skip.href = "#" + main.id;
+      skip.textContent = skipLabel;
+      document.body.insertBefore(skip, document.body.firstChild);
+    }
+
+    const accessInput = document.getElementById("password-input");
+    const accessButton = document.getElementById("loginButton");
+    if (accessInput && accessButton && !accessInput.closest("form")) {
+      const accessLabels = lang.startsWith("ja") ? { field: "アクセスコード", submit: "ライブラリを開く" }
+        : lang.startsWith("ko") ? { field: "이용 코드", submit: "라이브러리 열기" }
+        : lang.startsWith("zh-tw") || lang.startsWith("zh-hant") ? { field: "存取碼", submit: "開啟資源庫" }
+        : lang.startsWith("zh") ? { field: "访问码", submit: "打开资源库" }
+        : { field: "Access code", submit: "Open library" };
+      const form = document.createElement("form");
+      form.className = "landing-access-form";
+      form.noValidate = true;
+      const label = document.createElement("label");
+      label.className = "sr-only";
+      label.htmlFor = accessInput.id;
+      label.textContent = accessLabels.field;
+      accessInput.parentNode.insertBefore(form, accessInput);
+      form.appendChild(label);
+      form.appendChild(accessInput);
+      form.appendChild(accessButton);
+      accessInput.autocomplete = "current-password";
+      accessButton.type = "submit";
+      accessButton.setAttribute("aria-label", accessLabels.submit);
+    }
+
+    document.querySelectorAll(".character-showcase > p[style]").forEach((paragraph) => {
+      paragraph.classList.add("character-showcase__action");
+      paragraph.removeAttribute("style");
+      const link = paragraph.querySelector("a[style]");
+      if (link) {
+        link.classList.add("character-showcase__link");
+        link.removeAttribute("style");
+      }
+    });
+
+    const languageSwitcher = document.querySelector(".language-switcher");
+    if (languageSwitcher) {
+      languageSwitcher.querySelectorAll("a").forEach((link) => link.removeAttribute("aria-current"));
+      const currentFile = window.location.pathname.replace(/\\/g, "/");
+      let currentLink = Array.from(languageSwitcher.querySelectorAll("a")).find((link) => {
+        const target = new URL(link.href, window.location.href).pathname.replace(/\\/g, "/");
+        return target === currentFile;
+      });
+      if (!currentLink && !lang.startsWith("ja") && !lang.startsWith("ko") && !lang.startsWith("zh")) {
+        currentLink = document.createElement("a");
+        currentLink.href = "index.html";
+        currentLink.title = "English";
+        currentLink.setAttribute("aria-label", "English");
+        const flag = document.createElement("img");
+        flag.src = "images/flag-en.webp";
+        flag.alt = "";
+        flag.width = 24;
+        flag.loading = "lazy";
+        currentLink.appendChild(flag);
+        languageSwitcher.insertBefore(currentLink, languageSwitcher.firstChild);
+      }
+      currentLink?.setAttribute("aria-current", "page");
+    }
+
+    const sectionMap = [
+      [".access-hero", "introduction"],
+      [".member-entry", "member-entry"],
+      [".library-preview", "free-resources"],
+      [".pathways-section", "audiences"],
+      [".journey-section", "learning-path"],
+      [".member-benefits", "access-options"],
+      [".character-showcase", "stories"],
+      [".tools-preview", "tools"],
+      [".trust-note", "scope"],
+      [".faq-section", "questions"]
+    ];
+    sectionMap.forEach(([selector, value]) => {
+      document.querySelector(selector)?.setAttribute("data-landing-section", value);
+    });
+
+    // Testimonials require documented, reviewable consent and provenance.
+    // Keep them out of the public landing experience until that evidence exists.
+    document.querySelector(".testimonials")?.remove();
+  }
+
   // ─────────────────────────────────────────────────────────────
   // LOGIN
   // CHANGED: error alert now includes a "Get Access" link so a
@@ -47,16 +162,13 @@
       if (btn && btn.parentNode) {
         btn.parentNode.insertBefore(errorEl, btn.nextSibling);
       }
+      document.getElementById("password-input")?.setAttribute("aria-describedby", errorEl.id);
     }
 
     errorEl.textContent = message;
     errorEl.hidden = false;
 
-    // Auto-clear after 7 seconds
-    clearTimeout(errorEl._timer);
-    errorEl._timer = setTimeout(() => { errorEl.hidden = true; }, 7000);
-
-    // Also clear on next keypress in the input
+    // Keep the message available until the visitor edits the code.
     const input = document.getElementById("password-input");
     if (input) {
       input.addEventListener("keydown", () => { errorEl.hidden = true; }, { once: true });
@@ -110,8 +222,16 @@
   function setupLogin() {
     const input  = document.getElementById("password-input");
     const button = document.getElementById("loginButton");
-    if (button) button.addEventListener("click", checkLogin);
-    if (input) {
+    const form = input?.closest("form");
+    if (form) {
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        checkLogin();
+      });
+    } else if (button) {
+      button.addEventListener("click", checkLogin);
+    }
+    if (input && !form) {
       input.addEventListener("keydown", (event) => {
         if (event.key === "Enter") checkLogin();
       });
@@ -255,12 +375,13 @@
   // BOOT — UNCHANGED call order
   // ─────────────────────────────────────────────────────────────
   document.addEventListener("DOMContentLoaded", () => {
+    setupLandingStandard();
     setupCharacters();
     setupLogin();
     setupTheme();
     setupMedia();
     setupMenu();
-    setupAnnouncement();
+    // The dated 2026 banner remains hidden; evergreen announcements should use reviewed copy.
     document.querySelectorAll("[data-year]").forEach((node) => {
       node.textContent = String(new Date().getFullYear());
     });

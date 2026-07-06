@@ -113,6 +113,70 @@
   };
 
   const englishFeelingData = {
+    bored: {
+      meaning: "Boredom may signal a need for novelty, meaningful choice, movement, connection, or rest.",
+      body: "Low energy, restlessness, wandering attention, irritability, or feeling that time is moving slowly.",
+      child: "I feel bored. I can check whether I need a new activity, company, movement, or rest.",
+      parent: "Boredom is information. I can offer a few choices without solving every empty moment for you.",
+      tryNow: "Choose one: move your body, make something with available materials, notice three new details nearby, or take a genuine rest.",
+      variation: "Boredom is not always a lack of entertainment. It can also appear when a task feels too easy, too difficult, disconnected, or tiring."
+    },
+    confused: {
+      meaning: "Confusion can appear when information is new, incomplete, conflicting, or arriving too quickly.",
+      body: "A busy mind, hesitation, tension, repeated questions, silence, or wanting to leave the task.",
+      child: "I do not understand yet. Please explain one step again or show me where to begin.",
+      parent: "Not understanding yet is part of learning. Let us find the exact part that feels unclear.",
+      tryNow: "Say one thing you already know, identify one unclear point, and ask one specific question about the next step.",
+      variation: "Confusion does not mean a child was not listening or cannot learn. Language, processing time, stress, instructions, and context can all matter."
+    },
+    curious: {
+      meaning: "Curiosity is the wish to notice, question, explore, and understand something more fully.",
+      body: "Focused attention, alert energy, many questions, careful observation, or wanting to try something directly.",
+      child: "I am curious. I can ask a question and explore the answer safely.",
+      parent: "Your question matters. We can investigate it together, even if we do not know the answer yet.",
+      tryNow: "Write or draw one question, choose a trustworthy place to investigate it, then describe what you discovered.",
+      variation: "Curiosity may be energetic and talkative, or quiet and observant. A child may also need boundaries when exploration involves privacy or safety."
+    },
+    disappointed: {
+      meaning: "Disappointment can follow when something hoped for, expected, or worked toward does not happen.",
+      body: "A sinking feeling, tears, quietness, irritation, low energy, or wanting to give up.",
+      child: "I am disappointed because this mattered to me. I need time before I choose what comes next.",
+      parent: "I can see that you hoped for a different result. We do not need to pretend it does not hurt.",
+      tryNow: "Name what you hoped would happen, allow the feeling some time, then choose whether to adapt, try again later, or seek comfort.",
+      variation: "Disappointment may look like sadness, anger, withdrawal, joking, or apparent indifference. Ask before assuming the meaning of a reaction."
+    },
+    embarrassed: {
+      meaning: "Embarrassment can appear when someone feels exposed, noticed, mistaken, or worried about how others see them.",
+      body: "Warm cheeks, looking away, nervous laughter, hiding, going quiet, or wanting to leave.",
+      child: "I feel embarrassed. I need a moment, and I can decide whether I want help repairing what happened.",
+      parent: "You are still worthy when something awkward or mistaken happens. I will not make this moment bigger.",
+      tryNow: "Move to a less exposed space, take one slow breath, and decide whether you need reassurance, privacy, clarification, or repair.",
+      variation: "Laughing, silence, anger, or avoidance can sometimes accompany embarrassment. Do not tease, demand disclosure, or assume intent."
+    },
+    grateful: {
+      meaning: "Gratitude is noticing support, care, opportunity, or something meaningful without denying what is difficult.",
+      body: "Warmth, steadiness, connection, a wish to say thank you, or quiet appreciation.",
+      child: "I can notice one thing that helped me and choose how I want to show appreciation.",
+      parent: "We can model appreciation without requiring gratitude while a child is hurt, overwhelmed, or disappointed.",
+      tryNow: "Name one specific action or moment that helped, then express appreciation through words, a note, a drawing, or a kind response.",
+      variation: "Gratitude should not be used to silence sadness, anger, unfairness, or unmet needs. Difficult and appreciative feelings can exist together."
+    },
+    jealous: {
+      meaning: "Jealousy can signal fear of losing attention, belonging, closeness, opportunity, or something personally important.",
+      body: "Tension, comparison, worry, anger, sadness, watching others closely, or wanting reassurance.",
+      child: "I feel jealous. I need help naming what I am afraid of losing or what I wish I had.",
+      parent: "Jealousy does not make you unkind. We can understand the need without hurting or controlling someone else.",
+      tryNow: "Complete the sentence, ‘I wish…’ or ‘I am worried that…’, then choose a respectful request or one action within your control.",
+      variation: "Jealousy and envy are related but not identical, and both can mix with love, fear, sadness, or anger. Avoid shaming the feeling."
+    },
+    love: {
+      meaning: "Love can include care, trust, connection, protection, respect, and a wish for another person's wellbeing.",
+      body: "Warmth, ease, closeness, focused care, missing someone, or wanting to help and connect.",
+      child: "I can show care in ways that respect my body, the other person's body, and both people's choices.",
+      parent: "Affection should include consent. A child can choose a hug, words, a wave, shared time, or another comfortable form of connection.",
+      tryNow: "Ask what kind of connection feels welcome, then choose a specific caring action such as listening, helping, writing, or spending time together.",
+      variation: "Love is not proved by physical affection, obedience, constant closeness, or giving up boundaries. Safe relationships allow choice and repair."
+    },
     nervous: {
       meaning: "Nervousness often appears before something new, important, or uncertain.",
       body: "Butterflies, a fast heartbeat, shaky hands, or wanting to hide.",
@@ -212,6 +276,22 @@
       story: ["Feeling Sad story", "story-sad.html"],
       tool: ["Draw the feeling", "interactive-tools.html#drawing-tool"],
       printable: ["Little Acts, Big Feelings", "worksheets/Little-Acts-Big-Feelings-Worksheet.pdf"]
+    },
+    shy: {
+      meaning: "Shyness can describe feeling cautious, self-conscious, or slow to warm up around attention, unfamiliar people, or new situations.",
+      body: "A quiet voice, looking away, staying close to a trusted person, tension, or needing more observation time.",
+      child: "I need more time before I join. I can watch, practise, or begin with one safe person.",
+      parent: "You do not have to perform confidence. I can give you preparation, choice, and a smaller way to participate.",
+      tryNow: "Preview what will happen, practise one opening sentence, or choose a low-pressure role such as watching first or joining one person.",
+      variation: "Quietness is not a flaw, and it does not always mean fear. Temperament, culture, language, sensory needs, and the situation all matter."
+    },
+    silly: {
+      meaning: "Silliness can express play, creativity, connection, excitement, tension release, or a need for movement.",
+      body: "Laughter, lively movement, playful sounds, quick ideas, or difficulty shifting back to the current task.",
+      child: "I feel playful. I can enjoy being silly and check whether this is a safe time and place for it.",
+      parent: "Playfulness belongs here. I can enjoy it while helping you notice other people's boundaries and the needs of the moment.",
+      tryNow: "Choose a safe playful activity, agree on a clear stopping signal, and practise shifting together when the activity ends.",
+      variation: "Silliness is not automatically misbehavior. It may also appear when a child is nervous, overwhelmed, seeking connection, or avoiding exposure."
     }
   };
 
@@ -256,6 +336,14 @@
         parent: "何が安心につながったか、一緒に覚えておこう。",
         tryNow: "呼吸や肩など、安定しているサインを一つ見つけ、何が助けになったかを言葉にします。",
         variation: "落ち着きは、いつも静かにしていることではありません。動く、話す、作る、変化を求める中でも感じられます。"
+      },
+      hopeful: {
+        meaning: "希望は、今すべてが解決していなくても、よりよい次の一歩があると感じることです。",
+        body: "少し軽いエネルギー、好奇心、やってみようという気持ち、または静かな忍耐として現れることがあります。",
+        child: "すべてを今解決しなくてもいい。小さな一歩を選べる。",
+        parent: "無理に前向きにならなくていいよ。今できる小さな一歩を一緒に探そう。",
+        tryNow: "心配の中でも自分にできることを一つ書き、助けてくれる人や資源を一つ選びます。",
+        variation: "希望は、常に自信があることや、つらい気持ちを無視することではありません。不安と希望は同時に存在できます。"
       }
     }
   };

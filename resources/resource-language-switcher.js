@@ -38,6 +38,19 @@
   style.href = prefix + "resources/resource-language-switcher.css?v=1";
   document.head.appendChild(style);
 
+  if (!document.querySelector('link[href*="resource-page-standard.css"]')) {
+    var standardStyle = document.createElement("link");
+    standardStyle.rel = "stylesheet";
+    standardStyle.href = prefix + "resources/resource-page-standard.css?v=1";
+    document.head.appendChild(standardStyle);
+  }
+  if (!document.querySelector('script[src*="resource-page-standard.js"]')) {
+    var standardScript = document.createElement("script");
+    standardScript.src = prefix + "resources/resource-page-standard.js?v=1";
+    standardScript.defer = true;
+    document.head.appendChild(standardScript);
+  }
+
   var nav = document.createElement("nav");
   nav.className = "resource-languages";
   nav.setAttribute("aria-label", labels[currentLanguage]);
