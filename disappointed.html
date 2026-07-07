@@ -1,102 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Disappointed – Healthy Little Minds</title>
-  <meta name="description" content="Learn why disappointment happens and simple ways children and teens can cope, reframe expectations, and try again with resilience." />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    :root{--accent:#4B8FD4;--bg:#F6FBFF;--card:#FFFFFF;--muted:#55626a}
-    body{font-family:'Poppins',sans-serif;background:radial-gradient(ellipse 80% 60% at 5% 40%, rgba(175, 109, 255, 0.48), transparent 67%),radial-gradient(ellipse 70% 60% at 45% 45%, rgba(255, 100, 180, 0.41), transparent 67%),radial-gradient(ellipse 62% 52% at 83% 76%, rgba(255, 235, 170, 0.44), transparent 63%),radial-gradient(ellipse 60% 48% at 75% 20%, rgba(120, 190, 255, 0.36), transparent 66%),linear-gradient(45deg, #f7eaff 0%, #fde2ea 100%);background-attachment:fixed;background-size:100% 100%;color:#1f2b33;margin:0;padding:2.5rem}
-    .page{max-width:980px;margin:0 auto}
-    .breadcrumb{color:var(--muted);margin-bottom:0.6rem}
-    .breadcrumb a{color:var(--accent);text-decoration:none}
-    header{display:flex;justify-content:space-between;align-items:center}
-    h1{font-size:2rem;margin:0}
-    .intro-text{max-width:760px;color:#55636b;margin:0.6rem 0 1.4rem}
-
-    .subtopic-header{background:var(--card);padding:1rem;border-radius:14px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;box-shadow:0 8px 22px rgba(17,24,39,0.06)}
-    .subtopic-header h2{margin:0;color:var(--accent)}
-    .toggle-icon{width:40px;height:40px;border-radius:50%;background:#fff;border:2px solid #eef4fb;display:inline-flex;align-items:center;justify-content:center;color:var(--accent)}
-
-    .subtopic-content{display:none;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
-    .subtopic-content.active{display:grid}
-    .subtopic-card{background:var(--card);padding:1rem;border-radius:12px;box-shadow:0 8px 20px rgba(17,24,39,0.04);transition:transform .18s}
-    .subtopic-card:hover{transform:translateY(-6px)}
-    .subtopic-card h3{margin:0 0 .45rem}
-    .subtopic-card p{margin:0;color:#59676f}
-
-    .book-section{margin:2rem 0;text-align:center}
-    .book-section h2{margin:0 0 1rem}
-    .book-card{display:flex;align-items:center;gap:1.25rem;max-width:560px;margin:0 auto;padding:1rem;background:var(--card);border-radius:18px;box-shadow:0 10px 26px rgba(17,24,39,0.07);text-align:left}
-    .book-cover{width:120px;height:164px;object-fit:cover;border-radius:11px;box-shadow:0 5px 13px rgba(17,24,39,0.1)}
-    .book-details h3{margin:0 0 .35rem;font-size:1.15rem}
-    .book-details p{margin:0 0 .9rem;color:var(--muted);font-size:.94rem;line-height:1.5}
-    .book-link{display:inline-flex;background:var(--accent);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600}
-    .book-link:hover,.book-link:focus-visible{background:#326fae}
-
-    footer{margin-top:2.5rem;color:#7a858b;text-align:center}
-    @media(max-width:768px){body{padding:1.25rem}.subtopic-content{grid-template-columns:1fr}.breadcrumb{text-align:center}header{align-items:flex-start;gap:1rem;flex-direction:column}.book-card{flex-direction:column;text-align:center}.book-cover{width:min(210px,100%);height:auto}}
-  </style>
-  <link rel="stylesheet" href="feeling-page-standard.css?v=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disappointment - Healthy Little Minds</title>
+  <meta name="description" content="Help children understand disappointment when hopes, expectations, or efforts do not turn out as wished.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="feelings-guide.css">
+  <link rel="stylesheet" href="feeling-page-standard.css?v=1">
   <script defer src="feeling-page-standard.js?v=1"></script>
+  <script defer src="feelings-en.js?v=2"></script>
 </head>
-<body>
-  <div class="page">
-    <div class="breadcrumb"><a href="home.html">Home</a> › Emotions › Disappointed</div>
-    <header>
-      <h1>😞 Dealing with Disappointment</h1>
-      <a class="back-btn" href="more-feelings.html" style="background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none">← More feelings</a>
-    </header>
-
-    <p class="intro-text">Disappointment happens when things don't match our hopes. It's okay to feel sad — there are healthy ways to process disappointment and move forward with confidence.</p>
-
-    <div class="subtopic-header" onclick="toggleSection('causes')">
-      <h2>Common reasons for disappointment</h2>
-      <span id="causes-icon" class="toggle-icon">➕</span>
+<body class="feeling-page feeling-page--disappointed">
+  <header class="feeling-header">
+    <div class="feeling-header__inner">
+      <a class="feeling-brand" href="home.html">
+        <img src="images/logo-icon.webp" alt="">
+        <span>Healthy Little Minds</span>
+      </a>
+      <nav class="feeling-nav" aria-label="Page navigation">
+        <a href="home.html">Home</a>
+        <a href="more-feelings.html">Feeling library</a>
+      </nav>
     </div>
-    <div id="causes" class="subtopic-content">
-      <div class="subtopic-card"><h3>High Expectations</h3><p>Expecting too much can make outcomes feel worse when they don’t match.</p></div>
-      <div class="subtopic-card"><h3>Unfair Situations</h3><p>Seeing others treated differently can cause hurt and disappointment.</p></div>
-      <div class="subtopic-card"><h3>Loss or Missed Opportunities</h3><p>Missing out on something you wanted is naturally disappointing.</p></div>
-      <div class="subtopic-card"><h3>Miscommunication</h3><p>When plans or promises aren’t clear, it can lead to misunderstandings.</p></div>
-      <div class="subtopic-card"><h3>Comparisons</h3><p>Comparing yourself to others often increases disappointment.</p></div>
-      <div class="subtopic-card"><h3>Change</h3><p>Big or sudden changes can leave us feeling unsettled and let down.</p></div>
-    </div>
-
-    <div class="subtopic-header" onclick="toggleSection('management')" style="margin-top:1rem">
-      <h2>Ways to cope and bounce back</h2>
-      <span id="management-icon" class="toggle-icon">➕</span>
-    </div>
-    <div id="management" class="subtopic-content">
-      <div class="subtopic-card"><h3>Name the Feeling</h3><p>Saying 'I'm disappointed' helps your brain process it more quickly.</p></div>
-      <div class="subtopic-card"><h3>Allow Yourself to Feel</h3><p>It's okay to be sad — give yourself a safe moment to feel it.</p></div>
-      <div class="subtopic-card"><h3>Reframe</h3><p>Look for what you learned or what you can try next time.</p></div>
-      <div class="subtopic-card"><h3>Set Small Goals</h3><p>Choose one tiny next step to rebuild confidence.</p></div>
-      <div class="subtopic-card"><h3>Talk with Someone</h3><p>Sharing your disappointment makes it easier to carry.</p></div>
-      <div class="subtopic-card"><h3>Practice Self-Kindness</h3><p>Be as gentle with yourself as you would be with a friend.</p></div>
-    </div>
-
-    <div class="book-section">
-      <h2>📚 Books & Resources</h2>
-      <article class="book-card">
-        <img class="book-cover" src="images/when_i_cant_coverpage.webp" alt="When I Can't Do It Yet book cover">
-        <div class="book-details">
-          <h3>When I Can&rsquo;t Do It Yet</h3>
-          <p>A gentle story about trying again, growing through hard moments, and discovering that not yet is not never.</p>
-          <a class="book-link" href="https://heyzine.com/flip-book/1fb2ef8177.html" target="_blank" rel="noopener">Read the book</a>
-        </div>
-      </article>
-    </div>
-
-    <footer>© 2026 Healthy Little Minds • <a href="more-feelings.html">More Feelings</a> • <a href="parents.html">Parents</a></footer>
-  </div>
-
-  <script>
-    function toggleSection(id){ const el=document.getElementById(id); const ic=document.getElementById(id+'-icon'); el.classList.toggle('active'); ic.textContent = el.classList.contains('active') ? '➖' : '➕'; }
-    (function(){ const isMember=localStorage.getItem('isMember')==='true'; if(!isMember){ const p=window.location.pathname; const l=p.split('/')[1]; const r=l&&p.includes('/'+l+'/')?'/'+l+'/index.html':'/index.html'; window.location.replace(r); }})();
-  </script>
+  </header>
+  <main class="feelings-shell" id="feelingApp" data-feeling="disappointed"></main>
+  <footer class="feeling-footer">Healthy Little Minds - practical emotional learning for growing minds</footer>
   <script defer src="shared-language-switcher.js?v=1"></script>
   <script defer src="feeling-support.js?v=1"></script>
   <script defer src="button-loader.js?v=1"></script>

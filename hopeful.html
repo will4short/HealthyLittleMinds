@@ -1,210 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>🌈 Hopeful – Healthy Little Minds</title>
-  <meta name="description" content="Discover children's books that inspire hope, resilience, and calm confidence. Read stories that help kids keep trying and manage big emotions." />
-  <meta name="keywords" content="children's books, hope, growth mindset, resilience, emotional learning, Healthy Little Minds" />
-  <meta name="author" content="Healthy Little Minds" />
-
-  <meta property="og:title" content="Hopeful – Healthy Little Minds">
-  <meta property="og:description" content="Gentle stories that help children stay hopeful, keep trying, and feel safe when emotions get big.">
-  <meta property="og:image" content="https://yourwebsite.com/images/when_i_can't_coverpage.png" />
-  <meta property="og:url" content="https://yourwebsite.com/hopeful.html" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      font-family: 'Nunito', sans-serif;
-      background: radial-gradient(125% 125% at 50% 90%, #ffffff 40%, #10b981 100%);
-      background-attachment: fixed;
-      background-size: 100% 100%;
-      color: #254E70;
-      padding: 2rem;
-      text-align: center;
-      margin: 0;
-    }
-    h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-    }
-    p {
-      font-size: 1.2rem;
-      margin: 1rem auto;
-      max-width: 600px;
-      line-height: 1.6;
-    }
-
-    /* Layout for multiple books */
-    .books-wrap {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 2rem;
-    }
-
-    .book-card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 1rem;
-      max-width: 320px;
-      width: 100%;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-    }
-
-    .book-card img {
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    .book-card .title {
-      font-weight: 800;
-      margin-top: 0.9rem;
-      font-size: 1.1rem;
-    }
-
-    .book-card .sub {
-      margin: 0.5rem 0 0;
-      font-size: 1rem;
-      color: #555;
-      line-height: 1.5;
-    }
-
-    .book-card a {
-      display: inline-block;
-      margin-top: 0.9rem;
-      padding: 0.55rem 1rem;
-      background-color: #FF6B6B;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-
-    .book-card a:hover {
-      background-color: #e05555;
-    }
-
-    a.back-link {
-      display: block;
-      margin-top: 2rem;
-      color: #254E70;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    .back-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-
-  margin: 2.5rem auto 0;
-  padding: 0.7rem 1.4rem;
-
-  background-color: #FF6B6B;
-  color: #ffffff;
-
-  font-size: 1rem;
-  font-weight: 700;
-  text-decoration: none;
-
-  border-radius: 999px; /* soft pill shape */
-  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.25);
-
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-}
-
-.back-btn:hover {
-  background-color: #e05555;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(255, 107, 107, 0.35);
-}
-
-.back-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.25);
-}
-
-/* Mobile-friendly sizing */
-@media (max-width: 480px) {
-  .back-btn {
-    font-size: 0.95rem;
-    padding: 0.6rem 1.2rem;
-  }
-}
-  </style>
-  <link rel="stylesheet" href="feeling-page-standard.css?v=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hope - Healthy Little Minds</title>
+  <meta name="description" content="Help children understand hope as the ability to imagine a possible next step with support.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="feelings-guide.css">
+  <link rel="stylesheet" href="feeling-page-standard.css?v=1">
   <script defer src="feeling-page-standard.js?v=1"></script>
+  <script defer src="feelings-en.js?v=2"></script>
 </head>
-
-<body>
-
-<script>
-  // 🔒 Redirect to login page if not logged in
-  (function () {
-    const isMember = localStorage.getItem("isMember") === "true";
-
-    if (!isMember) {
-      const isLocal = window.location.protocol === "file:";
-      const path = window.location.pathname;
-      const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
-
-      let redirectTo;
-      if (isLocal) {
-        // Local testing fallback
-        redirectTo = "index.html";
-      } else {
-        // Online redirection logic
-        redirectTo = locale && path.includes(`/${locale}/`)
-          ? `/${locale}/index.html`
-          : "/index.html";
-      }
-
-      window.location.replace(redirectTo);
-    }
-  })();
-</script>
-
-<h2>🌈 Hopeful</h2>
-<p>Sometimes things feel too hard—but with a little hope and effort, anything is possible.</p>
-
-<div class="books-wrap">
-
-  <div class="book-card">
-    <img src="audiobooks/ella/coverpage.jpg" alt="One More Kick, Ella! cover">
-    <div class="title">One More Kick, Ella!</div>
-    <div class="sub">An interactive audiobook about hope, practice, and believing growth is still possible.</div>
-    <a href="audiobook.html?book=audiobooks/ella/book.json">Listen to the Audiobook</a>
-  </div>
-
-  <!-- Book 1 -->
-  <div class="book-card">
-    <img src="images/when_i_cant_coverpage.webp" alt="When I Can’t Do It Yet Book Cover">
-    <div class="title">When I Can’t Do It Yet</div>
-    <div class="sub">A story about trying again and believing in yourself.</div>
-    <a href="https://heyzine.com/flip-book/1fb2ef8177.html" target="_blank" rel="noopener">📘 Read This Book</a>
-  </div>
-
-  <!-- Book 2 (Added) -->
-  <div class="book-card">
-    <img src="images/when-my-feelings-cover.webp" alt="When My Feelings Get Too Big Book Cover">
-    <div class="title">When My Feelings Get Too Big</div>
-    <div class="sub">Princess learns to pause, breathe, and feel safe again when emotions get overwhelming.</div>
-    <a href="https://heyzine.com/flip-book/5cbe03c993.html" target="_blank" rel="noopener">📘 Read This Book</a>
-  </div>
-
-</div>
-
-<a href="more-feelings.html" class="back-btn">
-  ← Back to More Feelings
-</a>
-
+<body class="feeling-page feeling-page--hopeful">
+  <header class="feeling-header">
+    <div class="feeling-header__inner">
+      <a class="feeling-brand" href="home.html">
+        <img src="images/logo-icon.webp" alt="">
+        <span>Healthy Little Minds</span>
+      </a>
+      <nav class="feeling-nav" aria-label="Page navigation">
+        <a href="home.html">Home</a>
+        <a href="more-feelings.html">Feeling library</a>
+      </nav>
+    </div>
+  </header>
+  <main class="feelings-shell" id="feelingApp" data-feeling="hopeful"></main>
+  <footer class="feeling-footer">Healthy Little Minds - practical emotional learning for growing minds</footer>
+  <script defer src="shared-language-switcher.js?v=1"></script>
   <script defer src="feeling-support.js?v=1"></script>
   <script defer src="button-loader.js?v=1"></script>
 </body>

@@ -3,72 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feeling Silly - Healthy Little Minds</title>
-  <meta name="description" content="Celebrate playful energy while helping children notice when silly play is kind and welcome.">
+  <title>Silliness - Healthy Little Minds</title>
+  <meta name="description" content="Help children understand playful energy while learning timing, safety, and respect.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="feelings-guide.css">
-  <link rel="stylesheet" href="feeling-page-standard.css?v=1" />
+  <link rel="stylesheet" href="feeling-page-standard.css?v=1">
   <script defer src="feeling-page-standard.js?v=1"></script>
+  <script defer src="feelings-en.js?v=2"></script>
 </head>
 <body class="feeling-page feeling-page--silly">
-  <script>
-    (function () {
-      if (localStorage.getItem("isMember") !== "true") {
-        const local = window.location.protocol === "file:";
-        const path = window.location.pathname;
-        const locale = path.split("/")[1];
-        window.location.replace(local ? "index.html" : (locale && path.includes("/" + locale + "/") ? "/" + locale + "/index.html" : "/index.html"));
-      }
-    })();
-  </script>
-  <main class="feelings-shell">
-    <a class="breadcrumb" href="more-feelings.html">&larr; Explore more feelings</a>
-    <section class="feeling-hero">
-      <div>
-        <p class="kicker">Explore a feeling</p>
-        <h1>Feeling Silly</h1>
-        <p class="feeling-lead">Silly feelings can bring laughter, play, and friendship. Play is at its best when everyone feels safe, included, and ready to join in.</p>
-      </div>
-      <aside class="hero-prompt">
-        <h2>Try saying</h2>
-        <p>"I have playful energy. Is this a good time for a silly game?"</p>
-      </aside>
-    </section>
-    <section class="guide-section">
-      <h2>Happy, respectful silliness</h2>
-      <div class="card-grid">
-        <article class="insight-card"><h3>Joyful play</h3><p>Funny voices, dance moves, and imagination can help us connect.</p></article>
-        <article class="insight-card"><h3>Read the room</h3><p>Others may need calm, quiet, or focus, even when you feel playful.</p></article>
-        <article class="insight-card"><h3>Laugh with, not at</h3><p>Kind silliness never embarrasses, hurts, or excludes someone.</p></article>
-      </div>
-    </section>
-    <div class="two-column">
-      <section class="panel">
-        <h2>Try this now</h2>
-        <ol class="steps">
-          <li><strong>Choose a playful minute.</strong> Invent a dance, a rhyme, or a funny drawing together.</li>
-          <li><strong>Check in.</strong> Ask, "Is this fun for you too?" and listen to the answer.</li>
-          <li><strong>Switch gears gently.</strong> When it is time to settle, take three breaths and choose a quiet activity.</li>
-        </ol>
-      </section>
-      <aside class="support-card">
-        <h2>For grown-ups</h2>
-        <p>Playful energy is useful. Name when it fits, provide joyful outlets, and teach children how to notice other people's boundaries.</p>
-      </aside>
+  <header class="feeling-header">
+    <div class="feeling-header__inner">
+      <a class="feeling-brand" href="home.html">
+        <img src="images/logo-icon.webp" alt="">
+        <span>Healthy Little Minds</span>
+      </a>
+      <nav class="feeling-nav" aria-label="Page navigation">
+        <a href="home.html">Home</a>
+        <a href="more-feelings.html">Feeling library</a>
+      </nav>
     </div>
-    <section class="resource-panel">
-      <h2>Find a playful activity</h2>
-      <div class="tool-link">
-        <div>
-          <strong>Interactive feelings tools</strong>
-          <p>Choose an activity that helps energy become creative expression.</p>
-        </div>
-        <a class="read-button" href="interactive-tools.html">Open tools</a>
-      </div>
-    </section>
-  </main>
+  </header>
+  <main class="feelings-shell" id="feelingApp" data-feeling="silly"></main>
+  <footer class="feeling-footer">Healthy Little Minds - practical emotional learning for growing minds</footer>
+  <script defer src="shared-language-switcher.js?v=1"></script>
   <script defer src="feeling-support.js?v=1"></script>
   <script defer src="button-loader.js?v=1"></script>
 </body>

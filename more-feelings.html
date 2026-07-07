@@ -10,23 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="feelings-guide.css">
+  <script src="member-guard.js"></script>
 </head>
 <body class="feelings-hub">
-  <script>
-    (function () {
-      const isMember = localStorage.getItem("isMember") === "true";
-      if (!isMember) {
-        const isLocal = window.location.protocol === "file:";
-        const path = window.location.pathname;
-        const locale = path.split("/")[1];
-        const redirectTo = isLocal
-          ? "index.html"
-          : (locale && path.includes("/" + locale + "/") ? "/" + locale + "/index.html" : "/index.html");
-        window.location.replace(redirectTo);
-      }
-    })();
-  </script>
-
   <main class="feelings-shell">
     <a class="breadcrumb" href="home.html">&larr; Back to home</a>
 
@@ -52,6 +38,7 @@
         <a class="feeling-tile tile--nervous" href="nervous.html"><strong>Nervous</strong><span>Preparing for new or uncertain moments.</span></a>
         <a class="feeling-tile tile--lonely" href="lonely.html"><strong>Lonely</strong><span>When we need belonging and connection.</span></a>
         <a class="feeling-tile tile--grateful" href="grateful.html"><strong>Grateful</strong><span>Noticing good moments and helpful people.</span></a>
+        <a class="feeling-tile tile--hopeful" href="hopeful.html"><strong>Hopeful</strong><span>Finding one possible next step with support.</span></a>
         <a class="feeling-tile tile--curious" href="curious.html"><strong>Curious</strong><span>Questions that help us discover and grow.</span></a>
         <a class="feeling-tile tile--shy" href="shy.html"><strong>Shy</strong><span>Taking gentle steps into connection.</span></a>
         <a class="feeling-tile tile--jealous" href="jealous.html"><strong>Jealous</strong><span>When someone else has something we want.</span></a>

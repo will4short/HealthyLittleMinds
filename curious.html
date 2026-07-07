@@ -3,76 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feeling Curious - Healthy Little Minds</title>
-  <meta name="description" content="Encourage children's curiosity with safe questions, observation, and stories that celebrate wondering.">
+  <title>Curiosity - Healthy Little Minds</title>
+  <meta name="description" content="Help children use curiosity safely, respectfully, and thoughtfully.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="feelings-guide.css">
-  <link rel="stylesheet" href="feeling-page-standard.css?v=1" />
+  <link rel="stylesheet" href="feeling-page-standard.css?v=1">
   <script defer src="feeling-page-standard.js?v=1"></script>
+  <script defer src="feelings-en.js?v=2"></script>
 </head>
 <body class="feeling-page feeling-page--curious">
-  <script>
-    (function () {
-      if (localStorage.getItem("isMember") !== "true") {
-        const local = window.location.protocol === "file:";
-        const path = window.location.pathname;
-        const locale = path.split("/")[1];
-        window.location.replace(local ? "index.html" : (locale && path.includes("/" + locale + "/") ? "/" + locale + "/index.html" : "/index.html"));
-      }
-    })();
-  </script>
-  <main class="feelings-shell">
-    <a class="breadcrumb" href="more-feelings.html">&larr; Explore more feelings</a>
-    <section class="feeling-hero">
-      <div>
-        <p class="kicker">Explore a feeling</p>
-        <h1>Feeling Curious</h1>
-        <p class="feeling-lead">Curiosity is the feeling that makes us wonder, notice, and ask questions. It helps children learn about themselves, other people, and the world.</p>
-      </div>
-      <aside class="hero-prompt"><h2>Try saying</h2><p>"I wonder why that happens. How could we find out safely?"</p></aside>
-    </section>
-    <section class="guide-section">
-      <h2>Ways curiosity grows</h2>
-      <div class="card-grid">
-        <article class="insight-card"><h3>Observe</h3><p>Look closely, listen, and notice what changes or stays the same.</p></article>
-        <article class="insight-card"><h3>Ask</h3><p>Good questions begin with why, how, what, or what if.</p></article>
-        <article class="insight-card"><h3>Discover safely</h3><p>Ask an adult before exploring anything private, risky, or unfamiliar.</p></article>
-      </div>
-    </section>
-    <div class="two-column">
-      <section class="panel">
-        <h2>Try this now</h2>
-        <ol class="steps">
-          <li><strong>Collect three wonders.</strong> Write or draw three questions about today.</li>
-          <li><strong>Choose one investigation.</strong> Read, observe, ask an adult, or test a safe idea.</li>
-          <li><strong>Share what changed.</strong> Explain one thing you know now that you did not know before.</li>
-        </ol>
-      </section>
-      <aside class="support-card">
-        <h2>For grown-ups</h2>
-        <p>You do not need every answer. Try, "That is a thoughtful question. Let us see how we can find out together."</p>
-      </aside>
+  <header class="feeling-header">
+    <div class="feeling-header__inner">
+      <a class="feeling-brand" href="home.html">
+        <img src="images/logo-icon.webp" alt="">
+        <span>Healthy Little Minds</span>
+      </a>
+      <nav class="feeling-nav" aria-label="Page navigation">
+        <a href="home.html">Home</a>
+        <a href="more-feelings.html">Feeling library</a>
+      </nav>
     </div>
-    <section class="resource-panel">
-      <h2>Read together</h2>
-      <div class="resource-grid">
-        <article class="resource-card">
-          <img src="images/why_why_why_cover.webp" alt="Curious book cover">
-          <h3>Curious</h3>
-          <p>A gentle story about the power of asking why.</p>
-          <a class="read-button" href="https://heyzine.com/flip-book/373488f572.html" target="_blank" rel="noopener">Read the book</a>
-        </article>
-        <article class="resource-card">
-          <img src="images/when-my-feelings-cover.webp" alt="When My Feelings Get Too Big book cover">
-          <h3>When My Feelings Get Too Big</h3>
-          <p>A story about pausing and listening to what feelings are saying.</p>
-          <a class="read-button" href="https://heyzine.com/flip-book/5cbe03c993.html" target="_blank" rel="noopener">Read the book</a>
-        </article>
-      </div>
-    </section>
-  </main>
+  </header>
+  <main class="feelings-shell" id="feelingApp" data-feeling="curious"></main>
+  <footer class="feeling-footer">Healthy Little Minds - practical emotional learning for growing minds</footer>
   <script defer src="shared-language-switcher.js?v=1"></script>
   <script defer src="feeling-support.js?v=1"></script>
   <script defer src="button-loader.js?v=1"></script>

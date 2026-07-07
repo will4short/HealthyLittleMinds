@@ -232,6 +232,7 @@ a {
 .tile--nervous { --tile-accent: #fae2dc; }
 .tile--lonely { --tile-accent: #ece4f4; }
 .tile--grateful { --tile-accent: #fff0c9; }
+.tile--hopeful { --tile-accent: #fff6cf; }
 .tile--curious { --tile-accent: #dff2fa; }
 .tile--shy { --tile-accent: #e9e7ff; }
 .tile--jealous { --tile-accent: #e6f1de; }
