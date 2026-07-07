@@ -1,261 +1,61 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>📌 공지 게시판 – Healthy Little Minds</title>
-<!-- 🌐 Multilingual SEO: Hreflang Tags for Parents Page -->
-<link rel="alternate" href="https://www.healthylittleminds.club/parents.html" hreflang="en" />
-<link rel="alternate" href="https://www.healthylittleminds.club/zh-tw/parents.html" hreflang="zh-TW" />
-<link rel="alternate" href="https://www.healthylittleminds.club/zh-cn/parents.html" hreflang="zh-CN" />
-<link rel="alternate" href="https://www.healthylittleminds.club/ja/parents.html" hreflang="ja" />
-<link rel="alternate" href="https://www.healthylittleminds.club/ko/parents.html" hreflang="ko" />
-<link rel="alternate" href="https://www.healthylittleminds.club/parents.html" hreflang="x-default" />
-
-  <link rel="stylesheet" href="../style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=DM+Sans&display=swap" rel="stylesheet">
-<style>
-  /* === Base Styles === */
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: #FFF2E5;
-    margin: 0;
-    padding-top: 100px; /* Prevents content from being hidden under sticky header */
-    color: #254E70;
-    overflow-x: hidden;
-  }
-
-  /* === Header === */
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: #fff;
-    padding: 1rem 1.5rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  }
-
-  .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-
-  .navbar-brand {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .site-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #254E70;
-  }
-
-  .navbar-menu a {
-    margin-left: 1rem;
-    text-decoration: none;
-    color: #254E70;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-
-  .navbar-menu a:hover {
-    text-decoration: underline;
-    color: #FF6B6B;
-  }
-
-  /* === Toggle Section === */
-  .toggle-wrapper {
-    max-width: 800px;
-    margin: 0 auto 3rem auto;
-    padding: 1rem;
-  }
-
-  .toggle-card {
-    background-color: #FFF2E5;
-    border: 2px solid #FFDD59;
-    border-radius: 16px;
-    margin-bottom: 1rem;
-    overflow: hidden;
-    transition: all 0.3s ease;
-  }
-
-  .toggle-header {
-    background-color: #FFDD59;
-    padding: 1rem 1.2rem;
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: #254E70;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .toggle-header::after {
-    content: "▼";
-    font-size: 1rem;
-    margin-left: 0.5rem;
-    transition: transform 0.3s ease;
-  }
-
-  .toggle-card.open .toggle-header::after {
-    content: "▲";
-  }
-
-  .toggle-content {
-    padding: 1rem 1.2rem;
-    display: none;
-    color: #333;
-    font-size: 0.95rem;
-    background-color: #fff;
-  }
-
-  .toggle-card.open .toggle-content {
-    display: block;
-  }
-
-  /* === Footer === */
-  footer {
-    text-align: center;
-    padding: 2rem 1rem;
-    font-size: 0.9rem;
-    color: #777;
-  }
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggles = document.querySelectorAll('.toggle-card');
-    toggles.forEach(card => {
-      const header = card.querySelector('.toggle-header');
-      header.addEventListener('click', () => {
-        card.classList.toggle('open');
-      });
-    });
-  });
-</script>
+  <title>공지 게시판 | Healthy Little Minds</title>
+  <meta name="description" content="Healthy Little Minds의 새로운 책, 워크시트, 노래와 업데이트입니다." />
+  <link rel="canonical" href="https://www.healthylittleminds.club/ko/bulletin.html" />
+  <link rel="icon" href="../images/favicon.webp" type="image/webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Sans+TC:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../bulletin.css?v=1" />
 </head>
-<body>
-<script>
-  (function () {
-    const isLocal = location.protocol === 'file:';
-    const isMember = localStorage.getItem("isMember") === "true";
-
-    if (!isLocal && !isMember) {
-      const path = window.location.pathname;
-      const locale = path.split('/')[1];
-      const redirectTo = locale && path.includes(`/${locale}/`) 
-        ? `/${locale}/index.html` 
-        : "/index.html";
-      window.location.replace(redirectTo);
-    }
-  })();
-</script>
-
-<div style="position: fixed; top: 15px; right: 15px; z-index: 1000; background: #E6E6FA; border: 2px solid #D8BFD8; border-radius: 30px; padding: 0.5rem 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-  <a href="home.html" style="text-decoration: none; color: #5A3E8A; font-weight: bold; font-size: 0.95rem;">🏠 홈으로 돌아가기</a>
-</div>
-
-<header>
-  <div class="navbar">
-    <div id="logo" class="navbar-brand">
-      <img src="../images/logo-icon.png" alt="Logo" style="height: 30px;" />
-      <h1 class="site-title"><span style="color:#254E70">Healthy</span> <span style="color:#FF6B6B">Little Minds</span></h1>
+<body class="bulletin-page bulletin-page--ko">
+  <header class="bulletin-header">
+    <div class="bulletin-shell bulletin-header__inner">
+      <a class="bulletin-brand" href="home.html"><img src="../images/logo-icon.webp" alt=""><span>Healthy Little Minds</span></a>
+      <nav class="bulletin-nav" aria-label="Primary navigation"><a href="home.html#explore-feelings">감정</a><a href="home.html#emotional-literacy">이야기</a><a href="home.html#worksheets">워크시트</a><a href="parents.html">부모</a><a href="bulletin.html" aria-current="page">공지</a><a href="dashboard.html">대시보드</a><a href="songs.html">노래</a><a href="inspire_page.html">동영상</a><a href="audiobook_section.html">오디오북</a><a href="social.html">소셜 포스트</a></nav>
+      <button class="bulletin-menu-button" type="button" data-bulletin-menu aria-controls="bulletinMobileNav" aria-expanded="false">☰<span class="sr-only">메뉴</span></button>
     </div>
-    <nav class="navbar-menu">
-      <a href="home.html">홈</a>
-      <a href="dashboard.html">감정 대시보드</a>
-      <a href="interactive-tools.html">도구</a>
-      <a href="parents.html">부모님을 위한 안내</a>
-      <a href="bulletin.html" class="bulletin-link">📌 공지 게시판</a>
-    </nav>
-  </div>
-</header>
+    <nav class="bulletin-mobile-nav" id="bulletinMobileNav" data-bulletin-mobile-nav aria-label="Mobile navigation" aria-hidden="true"><div class="bulletin-shell bulletin-mobile-nav__inner"><a href="home.html#explore-feelings">감정</a><a href="home.html#emotional-literacy">이야기</a><a href="home.html#worksheets">워크시트</a><a href="parents.html">부모</a><a href="bulletin.html" aria-current="page">공지</a><a href="dashboard.html">대시보드</a><a href="songs.html">노래</a><a href="inspire_page.html">동영상</a><a href="audiobook_section.html">오디오북</a><a href="social.html">소셜 포스트</a></div></nav>
+  </header>
 
-<main class="toggle-wrapper">
-  <h2 style="text-align:center;">📢 최신 소식과 공지</h2>
-  <p style="text-align:center;">Healthy Little Minds의 새로운 소식을 확인하세요!</p>
+  <main class="bulletin-main">
+    <section class="bulletin-shell bulletin-hero" aria-labelledby="bulletinTitle"><p class="bulletin-kicker">새 소식</p><h1 id="bulletinTitle">📌 공지 게시판</h1><p>Healthy Little Minds의 새로운 책, 워크시트, 노래와 업데이트를 확인하세요.</p></section>
+    <section class="bulletin-shell bulletin-strip" aria-labelledby="monthTitle"><p class="bulletin-kicker">이번 달 새 자료</p><h2 id="monthTitle">새로 올라온 자료 📚</h2><div class="bulletin-pill-row"><a class="bulletin-pill" href="https://heyzine.com/flip-book/e9a223a23a.html" target="_blank" rel="noopener">🐒 Sometimes Family Finds You</a>
+        <a class="bulletin-pill" href="https://heyzine.com/flip-book/ed1606de6d.html" target="_blank" rel="noopener">📰 The News We Choose</a>
+        <a class="bulletin-pill" href="https://heyzine.com/flip-book/1fb2ef8177.html" target="_blank" rel="noopener">💪 When I Can't Do It Yet</a>
+        <a class="bulletin-pill" href="https://heyzine.com/flip-book/8736fac672.html" target="_blank" rel="noopener">🌟 The Day Destiny Wanted To Quit</a>
+        <a class="bulletin-pill" href="songs.html">🎵 노래</a></div></section>
+    <section class="bulletin-shell bulletin-section" aria-labelledby="booksTitle"><h2 class="bulletin-section__heading" id="booksTitle">📘 새 책</h2><div class="bulletin-grid"><article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">🐒</span><span class="bulletin-card__tag bulletin-card__tag--new">최신</span><h3>Sometimes Family Finds You</h3><p>A quiet, heartfelt story about belonging and resilience — and the many ways connection can begin.</p><a class="bulletin-card__link" href="https://heyzine.com/flip-book/e9a223a23a.html" target="_blank" rel="noopener">지금 읽기</a></article>
+      <article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">📰</span><span class="bulletin-card__tag bulletin-card__tag--new">최신</span><h3>The News We Choose</h3><p>Helping children think critically about what they see and hear in the world around them.</p><a class="bulletin-card__link" href="https://heyzine.com/flip-book/ed1606de6d.html" target="_blank" rel="noopener">지금 읽기</a></article>
+      <article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">💪</span><span class="bulletin-card__tag bulletin-card__tag--new">새 책</span><h3>When I Can't Do It Yet</h3><p>A gentle story about effort, emotions, and the courage to try again.</p><a class="bulletin-card__link" href="https://heyzine.com/flip-book/1fb2ef8177.html" target="_blank" rel="noopener">지금 읽기</a></article>
+      <article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">🌟</span><span class="bulletin-card__tag bulletin-card__tag--new">새 책</span><h3>The Day Destiny Wanted To Quit</h3><p>A heartfelt story about finding courage when giving up feels easier.</p><a class="bulletin-card__link" href="https://heyzine.com/flip-book/8736fac672.html" target="_blank" rel="noopener">지금 읽기</a></article>
+      <article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">👑</span><span class="bulletin-card__tag bulletin-card__tag--new">새 책</span><h3>Princess and the Picture Day Surprise</h3><p>A sweet story about nerves, excitement, and being yourself.</p><a class="bulletin-card__link" href="https://heyzine.com/flip-book/a958329538.html" target="_blank" rel="noopener">지금 읽기</a></article>
+      <article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">🌊</span><span class="bulletin-card__tag bulletin-card__tag--new">새 책</span><h3>The Day Goshen Learned to Guide the River</h3><p>A calm story about managing big emotions through safe, gentle replacement behaviours.</p><a class="bulletin-card__link" href="https://heyzine.com/flip-book/f930d8ddcc.html" target="_blank" rel="noopener">지금 읽기</a></article>
+      <article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">👑</span><span class="bulletin-card__tag bulletin-card__tag--new">새 책</span><h3>When My Feelings Get Too Big</h3><p>Helps children see that feelings are messages — and practise pausing, breathing, and naming them.</p><a class="bulletin-card__link" href="https://heyzine.com/flip-book/5cbe03c993.html" target="_blank" rel="noopener">지금 읽기</a></article>
+      <article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">😨</span><span class="bulletin-card__tag bulletin-card__tag--new">새 책</span><h3>When I Feel Scared</h3><p>A comforting story for big feelings — helping children feel safe, supported, and brave again.</p><a class="bulletin-card__link" href="https://heyzine.com/flip-book/1f4337da92.html" target="_blank" rel="noopener">지금 읽기</a></article>
+      <article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">🌧️</span><span class="bulletin-card__tag bulletin-card__tag--new">새 책</span><h3>How to Calm the Storm Inside</h3><p>Tools and stories to help children recognise overwhelming emotions and find their calm.</p><a class="bulletin-card__link" href="https://heyzine.com/flip-book/3cf1027650.html" target="_blank" rel="noopener">지금 읽기</a></article>
+      <article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">💖</span><span class="bulletin-card__tag bulletin-card__tag--new">새 책</span><h3>Little Acts, Big Feelings</h3><p>Celebrating kindness, empathy, and the emotions that grow when children care for others.</p><a class="bulletin-card__link" href="https://heyzine.com/flip-book/034942038a.html" target="_blank" rel="noopener">지금 읽기</a></article>
+      <article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">🌱</span><span class="bulletin-card__tag bulletin-card__tag--new">새 책</span><h3>Ella and the Promise She Keeps Trying</h3><p>Ella learns that effort matters more than perfection — trying again is part of growing stronger.</p><a class="bulletin-card__link" href="https://heyzine.com/flip-book/684fc1bda8.html" target="_blank" rel="noopener">지금 읽기</a></article>
+      <article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">⚖️</span><span class="bulletin-card__tag bulletin-card__tag--new">새 책</span><h3>The World Isn't Just Black and White</h3><p>Helps children practise flexible thinking and understand that feelings are rarely all-or-nothing.</p><a class="bulletin-card__link" href="https://heyzine.com/flip-book/d765b64bda.html" target="_blank" rel="noopener">지금 읽기</a></article></div></section>
+    <section class="bulletin-shell bulletin-section" aria-labelledby="worksheetsTitle"><h2 class="bulletin-section__heading" id="worksheetsTitle">🎨 새 워크시트</h2><div class="bulletin-grid"><article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">🦸‍♀️</span><span class="bulletin-card__tag bulletin-card__tag--sheet">워크시트</span><h3>Feelings Are My Superpower</h3><p>Draw, name, and explore emotions in a simple, fun way. Great for naming feelings.</p><a class="bulletin-card__link" href="../worksheets/worksheet1.pdf" download>무료 다운로드</a></article>
+      <article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">🌧️</span><span class="bulletin-card__tag bulletin-card__tag--sheet">워크시트</span><h3>Calm the Storm Inside – My Feelings Workbook</h3><p>Breathing, drawing, and reflection tools to help children calm big emotions.</p><a class="bulletin-card__link" href="../worksheets/Calm the Storm Inside - My Feelings Workbook.pdf" download>무료 다운로드</a></article>
+      <article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">💖</span><span class="bulletin-card__tag bulletin-card__tag--sheet">워크시트</span><h3>Little Acts, Big Feelings Worksheet</h3><p>A creative worksheet exploring kindness, emotions, and reflection for kids.</p><a class="bulletin-card__link" href="../worksheets/Little-Acts-Big-Feelings-Worksheet.pdf" download>무료 다운로드</a></article></div></section>
+    <section class="bulletin-shell bulletin-section" aria-labelledby="audioTitle"><h2 class="bulletin-section__heading" id="audioTitle">🎵 노래와 오디오</h2><div class="bulletin-grid"><article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">🎵</span><span class="bulletin-card__tag bulletin-card__tag--song">오디오</span><h3>Healthy Little Minds Songs</h3><p>Gentle music and sing-along tracks to help children pause, breathe, and feel.</p><a class="bulletin-card__link" href="../songs.html">지금 듣기</a></article>
+      <article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">🎧</span><span class="bulletin-card__tag bulletin-card__tag--song">오디오</span><h3>Audiobook Collection</h3><p>Stories read aloud — perfect for bedtime, calm-down moments, or on the go.</p><a class="bulletin-card__link" href="../audiobook_section.html">지금 듣기</a></article>
+      <article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">🎬</span><span class="bulletin-card__tag bulletin-card__tag--song">오디오</span><h3>Inspiring Videos</h3><p>Short, uplifting videos to spark conversation about feelings, growth, and kindness.</p><a class="bulletin-card__link" href="../inspire_page.html">지금 보기</a></article></div></section>
+    <section class="bulletin-shell bulletin-section" aria-labelledby="socialTitle"><h2 class="bulletin-section__heading" id="socialTitle">📱 커뮤니티와 소셜</h2><div class="bulletin-grid"><article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">📸</span><span class="bulletin-card__tag bulletin-card__tag--social">소셜</span><h3>Follow Us on Instagram</h3><p>Behind-the-scenes stories, sneak peeks, and daily emotional literacy tips.</p><a class="bulletin-card__link" href="https://instagram.com/heal.thylittleminds" target="_blank" rel="noopener">@heal.thylittleminds</a></article>
+      <article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">👥</span><span class="bulletin-card__tag bulletin-card__tag--social">소셜</span><h3>Join Us on Facebook</h3><p>Connect with other parents and educators in the Healthy Little Minds community.</p><a class="bulletin-card__link" href="https://facebook.com/healthylittlemindsbywill" target="_blank" rel="noopener">페이지 방문</a></article>
+      <article class="bulletin-card"><span class="bulletin-card__icon" aria-hidden="true">✨</span><span class="bulletin-card__tag bulletin-card__tag--social">소셜</span><h3>Shareable Social Posts</h3><p>Ready-made posts about emotions and wellbeing to share with your community.</p><a class="bulletin-card__link" href="../social.html">게시물 보기</a></article></div></section>
+    <section class="bulletin-shell bulletin-subscribe" aria-labelledby="subscribeTitle"><div><h2 id="subscribeTitle">📬 업데이트 받기</h2><p>새 책, 워크시트, 자료 소식을 이메일로 받아보세요.</p><div class="bulletin-social-row"><a href="https://facebook.com/healthylittlemindsbywill" target="_blank" rel="noopener"><img src="../images/facebook.webp" alt="Facebook" loading="lazy"></a><a href="https://instagram.com/heal.thylittleminds" target="_blank" rel="noopener"><img src="../images/instagram.webp" alt="Instagram" loading="lazy"></a><a href="https://tiktok.com/" target="_blank" rel="noopener"><img src="../images/tiktok.png" alt="TikTok" loading="lazy"></a></div></div><form class="bulletin-form" action="https://formspree.io/f/mkgbvboj" method="POST"><input type="hidden" name="form_type" value="newsletter"><input type="hidden" name="source_page" value="ko/bulletin.html"><input type="hidden" name="language" value="ko"><input type="email" name="email" placeholder="이메일 주소" required><button type="submit">구독하기</button></form></section>
+  </main>
 
-<div class="toggle-card">
-  <div class="toggle-header">📘 2025/08/06: 새로운 책 “아직 못 해요” 출시!</div>
-  <div class="toggle-content">
-    “계속 해봤는데도 안 돼요…”<br>
-    실패 속에서도 다시 시도할 수 있도록 용기와 성장의 메시지를 담은 이야기입니다.<br>
-    <a href="https://heyzine.com/flip-book/1fb2ef8177.html" target="_blank" rel="noopener noreferrer">지금 읽기</a>
-  </div>
-</div>
-
-
-<div class="toggle-card">
-  <div class="toggle-header">❓ 2025/07/20: 새로운 책 “왜, 왜, 왜?” 출간!</div>
-  <div class="toggle-content">
-    끊임없이 “왜?”라고 묻는 아이의 순수함과 감정 성장을 담은 이야기.<br>
-    <a href="https://online.fliphtml5.com/aogil/asyu/index.html" target="_blank" rel="noopener noreferrer">지금 읽기</a>
-  </div>
-</div>
-
-
-  <div class="toggle-card">
-    <div class="toggle-header">👑 2025/07/13: 새로운 이야기 “Princess and the Picture Day Surprise” 출시!</div>
-    <div class="toggle-content">
-      사진 찍는 날, 용기를 낸 프린세스의 자존감 이야기!<br>
-      <a href="https://heyzine.com/flip-book/a958329538.html" target="_blank" rel="noopener noreferrer">지금 읽기</a>
-    </div>
-  </div>
-
-  <div class="toggle-card">
-    <div class="toggle-header">💖 2025/07/10: “작은 행동, 큰 감정” 출간!</div>
-    <div class="toggle-content">
-      친절과 배려를 통해 아이들이 감정을 이해하고 표현하는 데 도움을 줍니다.<br>
-      <a href="https://heyzine.com/flip-book/034942038a.html" target="_blank" rel="noopener noreferrer">지금 읽기</a>
-    </div>
-  </div>
-
-  <div class="toggle-card">
-    <div class="toggle-header">📘 2025/06/29: “내가 무서울 때” 출간!</div>
-    <div class="toggle-content">
-      감정이 클 때를 위한 따뜻한 이야기. 불안과 두려움을 다루는 법을 배워요.<br>
-      <a href="https://heyzine.com/flip-book/1f4337da92.html" target="_blank" rel="noopener noreferrer">지금 읽기</a>
-    </div>
-  </div>
-
-  <div class="toggle-card">
-    <div class="toggle-header">🌀 2025/06/10: “내 마음의 폭풍을 진정시키는 방법” 출시</div>
-    <div class="toggle-content">
-      감정을 진정시키는 숨쉬기, 미술, 대화 방법을 담은 힐링 이야기.<br>
-      <a href="https://heyzine.com/flip-book/3cf1027650.html" target="_blank" rel="noopener noreferrer">지금 읽기</a>
-    </div>
-  </div>
-
-  <div class="toggle-card">
-    <div class="toggle-header">📄 2025/06/23: “감정 워크북” 다운로드 가능!</div>
-    <div class="toggle-content">
-      “내 마음의 폭풍을 진정시키는 감정 워크북” 지금 바로 인쇄하고 활동해보세요.<br>
-      <a href="../worksheets/Calm the Storm Inside - My Feelings Workbook.pdf" download>지금 다운로드</a>
-    </div>
-  </div>
-
-  <div class="toggle-card">
-    <div class="toggle-header">📱 Instagram 소식</div>
-    <div class="toggle-content">
-      @heal.thylittleminds에서 비하인드, 예고편, 특별 콘텐츠를 만나보세요!<br>
-      <a href="https://instagram.com/healthylittleminds" target="_blank" rel="noopener noreferrer">Instagram 팔로우하기</a>
-    </div>
-  </div>
-</main>
-
-<footer>
-  © 2025 건강한 작은 마음 | 모든 권리 보유 🌟
-</footer>
-
-  <script defer src="../shared-language-switcher.js?v=1"></script>
+  <footer class="bulletin-footer">© 2026 Healthy Little Minds. 지지적인 대화를 위한 교육 자료.</footer>
+  <script defer src="../bulletin.js?v=1"></script>
+  <script defer src="../shared-language-switcher.js?v=2"></script>
   <script defer src="../button-loader.js?v=1"></script>
 </body>
 </html>
