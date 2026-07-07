@@ -88,7 +88,15 @@ body.feelings-hub {
 .feeling-page--disappointed { --highlight: #e7f5f5; --accent: #397f83; --accent-dark: #20585c; }
 .feeling-page--fear { --highlight: #e9f0fc; --accent: #5271b1; --accent-dark: #334f89; }
 .feeling-page--lonely { --highlight: #f0ebf8; --accent: #7564a5; --accent-dark: #55437f; }
+.feeling-page--sadness { --highlight: #e8f2fb; --accent: #47799a; --accent-dark: #28526d; }
+.feeling-page--anger { --highlight: #ffe7df; --accent: #dc624d; --accent-dark: #a63b2d; }
+.feeling-page--calm { --highlight: #def4ed; --accent: #3d846f; --accent-dark: #225b49; }
+.feeling-page--joy { --highlight: #fff3cf; --accent: #d48633; --accent-dark: #a45917; }
 .tile--fear { --tile-accent: #e9f0fc; }
+.tile--anger { --tile-accent: #ffe2da; }
+.tile--sadness { --tile-accent: #e1effa; }
+.tile--calm { --tile-accent: #ddf4eb; }
+.tile--joy { --tile-accent: #fff1bf; }
 
 .feeling-page .guide-section .insight-card {
   min-height: 138px;
