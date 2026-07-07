@@ -1,36 +1,26 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>感謝の気持ち - こころのひろば</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    body { font-family: 'Nunito', sans-serif; background: radial-gradient(125% 125% at 50% 90%, #ffffff 40%, #10b981 100%); background-attachment: fixed; background-size: 100% 100%; color: #254E70; padding: 2rem; text-align: center; }
-    a { display: inline-block; margin-top: 2rem; color: #FF6B6B; text-decoration: none; font-weight: bold; }
-    a:hover { text-decoration: underline; }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>?? - Healthy Little Minds</title>
+  <meta name="description" content="???????????????????????">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../feelings-guide.css">
+  <link rel="stylesheet" href="feelings-ja.css">
+  <script defer src="feelings-ja.js?v=2"></script>
 </head>
-<body>
-<script>
-  (function () {
-    const isLocal = location.protocol === 'file:';
-    const isMember = localStorage.getItem("isMember") === "true";
-
-    if (!isLocal && !isMember) {
-      const path = window.location.pathname;
-      const locale = path.split('/')[1];
-      const redirectTo = locale && path.includes(`/${locale}/`) 
-        ? `/${locale}/index.html` 
-        : "/index.html";
-      window.location.replace(redirectTo);
-    }
-  })();
-</script>
-
-  <h2>🙏 感謝の気持ち</h2>
-  <p>「感謝の気持ち」に関する本やリソースは、もうすぐ追加されます！</p>
-  <a href="more-feelings.html">← ほかのきもちにもどる</a>
+<body class="feeling-page feeling-page--hopeful">
+  <header class="ja-feeling-header">
+    <div class="ja-feeling-header__inner">
+      <a class="ja-feeling-brand" href="home.html"><img src="../images/logo-icon.webp" alt=""><span>Healthy Little Minds</span></a>
+      <nav class="ja-feeling-nav" aria-label="?????"><a href="home.html">???</a><a href="more-feelings.html">????</a></nav>
+    </div>
+  </header>
+  <main class="feelings-shell" id="feelingApp" data-feeling="hopeful"></main>
+  <footer class="ja-feeling-footer">Healthy Little Minds - ?????????????????</footer>
   <script defer src="../feeling-support.js?v=1"></script>
   <script defer src="../button-loader.js?v=1"></script>
 </body>

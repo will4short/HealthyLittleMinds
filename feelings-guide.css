@@ -227,10 +227,15 @@ a {
 .tile--love { --tile-accent: #ffe4df; }
 .tile--bored { --tile-accent: #fff3c8; }
 .tile--frustrated { --tile-accent: #ffe9c9; }
+.tile--anger { --tile-accent: #ffe1e3; }
 .tile--proud { --tile-accent: #dcf5e4; }
 .tile--disappointed { --tile-accent: #dbf2f2; }
 .tile--nervous { --tile-accent: #fae2dc; }
+.tile--fear { --tile-accent: #e6edff; }
+.tile--sadness { --tile-accent: #dfeeff; }
 .tile--lonely { --tile-accent: #ece4f4; }
+.tile--joy { --tile-accent: #fff2bf; }
+.tile--calm { --tile-accent: #def4e8; }
 .tile--grateful { --tile-accent: #fff0c9; }
 .tile--hopeful { --tile-accent: #fff6cf; }
 .tile--curious { --tile-accent: #dff2fa; }
