@@ -49,9 +49,30 @@
     });
   }
 
+  function setupYouTubeButtons() {
+    document.querySelectorAll("[data-youtube-id]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var id = button.getAttribute("data-youtube-id");
+        var card = button.closest(".media-card");
+        var slot = card && card.querySelector("[data-youtube-slot]");
+        if (!id || !slot) return;
+        if (!slot.querySelector("iframe")) {
+          var iframe = document.createElement("iframe");
+          iframe.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(id) + "?autoplay=1&rel=0";
+          iframe.title = button.getAttribute("data-youtube-title") || "YouTube video";
+          iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+          iframe.allowFullscreen = true;
+          slot.appendChild(iframe);
+        }
+        slot.classList.add("is-open");
+      });
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     setYear();
     setupVideoControls();
     setupCopyButtons();
+    setupYouTubeButtons();
   });
 })();
