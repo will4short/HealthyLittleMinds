@@ -2,672 +2,153 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>インタラクティブ・ツール | こころのひろば</title>
-<!-- 🌐 Multilingual SEO: Hreflang Tags for Parents Page -->
-<link rel="alternate" href="https://www.healthylittleminds.club/parents.html" hreflang="en" />
-<link rel="alternate" href="https://www.healthylittleminds.club/zh-tw/parents.html" hreflang="zh-TW" />
-<link rel="alternate" href="https://www.healthylittleminds.club/zh-cn/parents.html" hreflang="zh-CN" />
-<link rel="alternate" href="https://www.healthylittleminds.club/ja/parents.html" hreflang="ja" />
-<link rel="alternate" href="https://www.healthylittleminds.club/ko/parents.html" hreflang="ko" />
-<link rel="alternate" href="https://www.healthylittleminds.club/parents.html" hreflang="x-default" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=DM+Sans&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>インタラクティブツール | Healthy Little Minds</title>
+  <meta name="description" content="呼吸、描くこと、ふり返り、次の一歩を選ぶための短く実用的な感情学習ツール。" />
+  <link rel="canonical" href="https://www.healthylittleminds.club/ja/interactive-tools.html" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/interactive-tools.html" hreflang="en" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/zh-tw/interactive-tools.html" hreflang="zh-TW" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/zh-cn/interactive-tools.html" hreflang="zh-CN" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/ja/interactive-tools.html" hreflang="ja" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/ko/interactive-tools.html" hreflang="ko" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/interactive-tools.html" hreflang="x-default" />
+  <link rel="icon" href="../images/favicon.webp" type="image/webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Sans+TC:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../interactive-tools.css?v=2">
-  <style>
-     #nowPlayingLabel {
-      transition: opacity 0.3s ease-in-out;
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-      color: #254E70;
-      font-weight: 500;
-    }
-    .sound-btn {
-      background: #FF66B6;
-      color: white;
-      padding: 0.6rem 1.2rem;
-      margin: 0.3rem;
-      border: none;
-      border-radius: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    .sound-btn:hover {
-      transform: scale(1.05);
-    }
-    @media (max-width: 600px) {
-      .sound-btn {
-        font-size: 0.9rem;
-        padding: 0.6rem 1rem;
-      }
-      #nowPlayingLabel {
-        font-size: 1rem;
-      }
-    }
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 110px;
-      min-height: 100%;
-    }
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #E3F2FD;
-      color: #254E70;
-    }
-    .site-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      width: min(100%, 1280px);
-      margin: 0 auto;
-      padding: 0.85rem clamp(1.25rem, 3vw, 2rem);
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(37,78,112,.12);
-      box-shadow: 0 20px 40px rgba(37,78,112,.08);
-      position: sticky;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-    }
-    .site-branding {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      text-decoration: none;
-      color: #254E70;
-    }
-    .site-branding img {
-      width: 42px;
-      height: auto;
-    }
-    .site-title {
-      font-weight: 700;
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      letter-spacing: 0.01em;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1.25rem;
-      align-items: center;
-      justify-content: flex-end;
-      flex: 1;
-      min-width: 0;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      color: #254E70;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: color .2s ease, transform .2s ease;
-      white-space: nowrap;
-    }
-    .nav-links a:hover {
-      color: #FF6B6B;
-      transform: translateY(-1px);
-    }
-    h2, h3 {
-      text-align: center;
-      color: #254E70;
-    }
-    section {
-      padding: 3rem 2rem;
-      max-width: 760px;
-      margin: auto;
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-      margin-top: 2rem;
-    }
-    @media (max-width: 780px) {
-      .site-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      section {
-        padding: 2rem 1.25rem;
-      }
-    }
-    button {
-      background-color: #FF66B6;
-      color: white;
-      border: none;
-      padding: 0.7rem 1.4rem;
-      border-radius: 25px;
-      font-size: 1rem;
-      cursor: pointer;
-      margin: 0.5rem;
-    }
-  #mood-story-builder button {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 8px;
-    background: #FF6B6B;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-
-  #mood-story-builder button:hover {
-    background: #e15b5b;
-  }
-  .story-card {
-    background: #dff6ff;
-    padding: 1.5rem;
-    margin: 2rem auto;
-    max-width: 320px;
-    text-align: center;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  }
-
-  .story-card img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    border-radius: 12px;
-    margin: 1rem 0;
-  }
-
-  .story-card h4 {
-    font-size: 1.25rem;
-    color: #254e70;
-    margin-bottom: 0.5rem;
-  }
-
-  .story-card p {
-    font-size: 1rem;
-    color: #444;
-    margin-bottom: 1rem;
-  }
-
-  .story-card .btn {
-    display: inline-block;
-    padding: 0.6rem 1.4rem;
-    background-color: #ff6b6b;
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-  }
-
-  .story-card .btn:hover {
-    background-color: #e25555;
-  }
-  .story-card:hover {
-  transform: scale(1.02);
-  transition: transform 0.3s ease;
-}
-</style>
 </head>
 <body class="tools-page tools-page--localized tools-page--ja">
+  <header class="tools-header">
+    <div class="tools-header__inner tools-shell">
+      <a href="home.html" class="tools-brand">
+        <img src="../images/logo-icon.png" alt="" />
+        <span>Healthy Little Minds</span>
+      </a>
+      <nav class="tools-nav" aria-label="Primary navigation"><a href="home.html">ホーム</a><a href="growth-plan.html">成長プラン</a><a href="#calm-corner">落ち着く</a><a href="#drawing-tool">描く</a><a href="#mood-story-builder">気持ち</a><a href="dashboard.html">ダッシュボード</a></nav>
+    </div>
+  </header>
 
-<header class="site-header">
-  <a href="home.html" class="site-branding">
-    <img src="images/logo-icon.png" alt="Healthy Little Minds Logo" />
-    <div class="site-title">こころのひろば</div>
-  </a>
-  <nav class="nav-links">
-    <a href="home.html">ホーム</a>
-    <a href="growth-plan.html">7日間プラン</a>
-    <a href="#calm-corner">落ち着く</a>
-    <a href="#drawingCanvas">描く</a>
-    <a href="#mood-story-builder">気持ち</a>
-  </nav>
-</header>
-
-<main class="localized-tools-main">
-<section class="localized-tools-hero" aria-labelledby="toolsTitle">
-  <div class="localized-tools-hero__copy">
-    <p class="tools-kicker">インタラクティブな落ち着きツール</p>
-    <h1 id="toolsTitle">いま目の前にある気持ちに、小さな道具をひとつ選ぼう。</h1>
-    <p>音を聴く、円に合わせて呼吸する、気持ちを描く、短い気持ちのストーリーを作る。どれも少し立ち止まるための活動です。</p>
-  </div>
-  <aside class="localized-tools-hero__panel" aria-label="おすすめの流れ">
-    <span>2 分のリセット</span>
-    <p>呼吸して、音を選んで、いまの気持ちを描いてみよう。</p>
-  </aside>
-</section>
-
-<section id="calm-corner">
-  <h2>🧘‍♂️ オチツキコーナー</h2>
-  <p>深い息をして、オーディオを選んでこころを落ち着けましょう。</p>
-  <div>
-    <button onclick="playSound('../audio/ocean.mp3', '海のさざなみ')" class="sound-btn">🌊 海のさざなみ</button>
-    <button onclick="playSound('../audio/gentle-piano.mp3', 'やさしいピアノ')" class="sound-btn">🎹 やさしいピアノ</button>
-    <button onclick="playSound('../audio/forest-sound.mp3', '森の声')" class="sound-btn">🌲 森の声</button>
-    <button onclick="stopMusic()" class="stop-btn">⏹️ サウンド停止</button>
-    <p id="nowPlayingLabel"></p>
-  </div>
-
-  <div id="breathing-circle" style="width: 150px; height: 150px; margin: 2rem auto; border-radius: 50%; background: #A7E5F3; transition: all 4s ease-in-out;"></div>
-  <p id="breathing-text" style="text-align:center; font-size: 1.4rem;">準備はいいかな...？</p>
-  <div style="text-align: center;">
-    <button onclick="startBreathing()">🌬️ 息をしましょう</button>
-  </div>
-</section>
-
-<section>
-  <h2>🎨 きもちをえがこう</h2>
-  <p style="text-align:center;">色を選んで、いまのきもちをえがいてみましょう。</p>
-  <div style="text-align:center; margin: 1rem 0;">
-    🖍️ 色を選ぶ: <input type="color" id="inkColor" value="#254E70" />
-    <button id="saveBtn">📀 えがきを保存</button>
-  </div>
-  <p style="font-size: 0.9rem; color: #555; margin-top: 0.5rem;">
-    えがきを保存したら、おとなの人と一緒にメールを送ってみましょう。
-  </p>
-  <div style="text-align: center; margin-top: 1.5rem;">
-    <button id="send-email" style="background:#FF6086; color:white; padding:0.6rem 1.2rem; border-radius:20px; font-weight:bold; border:none; cursor:pointer;">
-      📩 おうちの人に送る
-    </button>
-    <p style="font-size: 0.8rem; color: #999; margin-top: 0.5rem;">
-      📌 ダウンロードのえがきを添付してください。
-    </p>
-  </div>
-  <canvas id="drawingCanvas" style="display:block; margin:auto; border:1px solid #ccc; border-radius: 12px; background:#fffbea;" width="300" height="300"></canvas>
-  <div style="text-align:center; margin-top:1rem;">
-    <button id="eraserBtn">🧽 けしごむ</button>
-    <label for="eraserSize">けしごむの大きさ:</label>
-    <input type="range" id="eraserSize" min="5" max="40" value="10" />
-    <button id="clearBtn">💖 すべて削除</button>
-  </div>
-</section>
-
-<section id="mood-story-builder">
-  <h2 style="color:#254E70;">📖 きもちのストーリーをつくろう</h2>
-  <p style="text-align:center;">今日のきもちに合わせてアクティビティをご紹介します。</p>
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin: 1.5rem 0;">
-    <button onclick="showMoodStory('happy')">✨ うれしい</button>
-    <button onclick="showMoodStory('angry')">😠 いらいら</button>
-    <button onclick="showMoodStory('sad')">😢 かなしい</button>
-    <button onclick="showMoodStory('scared')">😨 こわい</button>
-    <button onclick="showMoodStory('calm')">😌 りらく</button>
-    <button onclick="showMoodStory('unsure')">😕 わからない</button>
-  </div>
-
-  <div id="storyOutput" style="max-width: 600px; margin: auto; background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); display:none;">
-    <h3 id="moodTitle"></h3>
-    <p id="moodMessage"></p>
-    <button onclick="resetStory()" style="margin-top:1rem;">🔁 きもちを選びなおす</button>
-  </div>
-</section>
-
-<section id="ella-reflection" class="tool-card tool-card--reflection">
-  <div class="tool-card__header">
-    <p class="tools-kicker">オーディオブックのあとに</p>
-    <h2>もう一回キック、エラ！ふりかえり</h2>
-    <p>お話を聞いたあとに、エラの気持ち、勇気、そして小さな練習の一歩を見つけましょう。</p>
-  </div>
-
-  <div class="reflection-layout">
-    <aside class="reflection-book">
-      <img src="../audiobooks/ella/coverpage.jpg" alt="もう一回キック、エラ！ 表紙" loading="lazy" decoding="async">
-      <a class="tools-btn tools-btn--secondary" href="../audiobook.html?book=audiobooks/ella/book.json">もう一度聞く</a>
-    </aside>
-
-    <div class="reflection-steps">
-      <fieldset class="reflection-step">
-        <legend>1. パターンが難しかったとき、エラはどんな気持ちだった？</legend>
-        <div class="reflection-choice-grid" role="group" aria-label="エラの気持ちを選ぶ">
-          <button type="button" data-reflection-group="feeling" data-reflection-value="不安">不安</button>
-          <button type="button" data-reflection-group="feeling" data-reflection-value="くやしい">くやしい</button>
-          <button type="button" data-reflection-group="feeling" data-reflection-value="落ちこんだ">落ちこんだ</button>
-          <button type="button" data-reflection-group="feeling" data-reflection-value="希望">希望</button>
+  <main class="tools-main">
+    <section class="tools-hero tools-shell" aria-labelledby="toolsTitle">
+      <div class="tools-hero__copy">
+        <p class="tools-kicker">インタラクティブな落ち着きツール</p>
+        <h1 id="toolsTitle">いま目の前にある気持ちに、小さな道具をひとつ選ぼう。</h1>
+        <p>音を聞く、呼吸する、描く、短い気持ちの物語を作る。どの活動も、教室の小休止、家族のチェックイン、静かなリセットに使いやすい短さです。</p>
+        <div class="tools-hero__actions" aria-label="Jump to a tool">
+          <a href="#ella-reflection">Ella のふり返り</a>
+          <a href="growth-plan.html#resource-finder">リソースを探す</a>
+          <a href="#calm-corner">落ち着く</a>
+          <a href="#drawing-tool">描いてみる</a>
+          <a href="#mood-story-builder">気持ちを選ぶ</a>
         </div>
-      </fieldset>
-
-      <fieldset class="reflection-step">
-        <legend>2. エラが続ける助けになったことは？</legend>
-        <div class="reflection-choice-grid reflection-choice-grid--wide" role="group" aria-label="エラを助けたことを選ぶ">
-          <button type="button" data-reflection-group="help" data-reflection-value="エラは、自分がもう成長していたことを思い出しました。">成長を思い出す</button>
-          <button type="button" data-reflection-group="help" data-reflection-value="エラは比べることを減らし、学ぶことに集中しました。">比べすぎない</button>
-          <button type="button" data-reflection-group="help" data-reflection-value="エラは一歩ずつ練習しました。">小さな一歩</button>
-          <button type="button" data-reflection-group="help" data-reflection-value="エラはまちがえたあとも、もう一度やってみました。">もう一度やる</button>
-        </div>
-      </fieldset>
-
-      <label class="reflection-step reflection-prompt" for="practiceStep">
-        <span>3. あなたが練習し続けたいことを一つ書こう。</span>
-        <textarea id="practiceStep" rows="3" placeholder="例：読むこと、キック、絵を描くこと、学校で勇気を出すこと..."></textarea>
-      </label>
-
-      <div class="reflection-actions">
-        <button type="button" class="tools-btn" id="buildReflectionBtn">ふりかえりを作る</button>
-        <button type="button" class="tools-btn tools-btn--secondary" id="resetReflectionBtn">はじめから</button>
       </div>
-    </div>
-  </div>
+      <aside class="tools-hero__panel" aria-label="Suggested flow">
+        <span>2分のリセット</span>
+        <ol>
+          <li>丸に合わせて呼吸する</li>
+          <li>背景の音をひとつ選ぶ</li>
+          <li>気持ちが必要としているものを描く</li>
+        </ol>
+      </aside>
+    </section>
 
-  <div id="reflectionResult" class="reflection-result" aria-live="polite">
-    <h3>あなたのふりかえり</h3>
-    <p id="reflectionSummary">気持ち、助けになったこと、練習したい一歩を選んで書きましょう。</p>
-    <div class="reflection-links" aria-label="関連ページ">
-      <a href="../frustrated.html">くやしい気持ち</a>
-      <a href="../nervous.html">不安な気持ち</a>
-      <a href="../proud.html">誇らしい気持ち</a>
-      <a href="resources/goals.html">目標と小さな一歩</a>
-    </div>
-  </div>
+    <section class="tools-workspace tools-shell" aria-label="Interactive activities">
+      <article id="calm-corner" class="tool-card tool-card--calm">
+        <div class="tool-card__header">
+          <p class="tools-kicker">落ち着きコーナー</p>
+          <h2>音と呼吸</h2>
+          <p>やさしい音を選び、丸に合わせて体を落ち着かせます。</p>
+        </div>
+        <div class="sound-grid" aria-label="落ち着く音">
+          <button type="button" data-sound-src="../audio/ocean.mp3" data-sound-label="海のさざなみ" data-playing-text="再生中: 海のさざなみ" data-tap-again="もう一度タップすると音が始まります。" class="sound-btn">海のさざなみ</button>
+          <button type="button" data-sound-src="../audio/gentle-piano.mp3" data-sound-label="やさしいピアノ" data-playing-text="再生中: やさしいピアノ" data-tap-again="もう一度タップすると音が始まります。" class="sound-btn">やさしいピアノ</button>
+          <button type="button" data-sound-src="../audio/forest-sound.mp3" data-sound-label="森の音" data-playing-text="再生中: 森の音" data-tap-again="もう一度タップすると音が始まります。" class="sound-btn">森の音</button>
+          <button type="button" data-stop-sound class="sound-btn sound-btn--quiet">音を止める</button>
+        </div>
+        <p id="nowPlayingLabel" aria-live="polite"></p>
+        <div class="breathing-stage" data-breathing-stage data-breathe-in="息を吸って..." data-hold="そのまま..." data-breathe-out="息を吐いて...">
+          <div id="breathing-circle" aria-hidden="true"></div>
+          <p id="breathing-text">準備しましょう...</p>
+          <button type="button" data-start-breathing class="tools-btn">呼吸を始める</button>
+        </div>
+        <div class="bubble-box" aria-label="大人へのメモ"><strong>大人へのメモ</strong><p>近くに座り、一緒に呼吸します。直そうとしなくて大丈夫。ただそばにいることが助けになります。</p></div>
+      </article>
 
-  <div class="bubble-box" aria-label="保護者向け会話のヒント">
-    <strong>保護者メモ</strong>
-    <p>聞いてみましょう：「エラはいつ自分を比べ始めたかな？」「もう一度やってみる助けになったことは？」「今週の小さな一歩は何にする？」</p>
-  </div>
-</section>
+      <article id="drawing-tool" class="tool-card tool-card--draw">
+        <div class="tool-card__header"><p class="tools-kicker">お絵かきツール</p><h2>気持ちを描いてみる</h2><p>色を選び、気持ちを線、形、天気、場所として表してみましょう。</p></div>
+        <div class="drawing-layout">
+          <div class="drawing-panel"><canvas id="drawingCanvas" width="720" height="520"></canvas></div>
+          <div class="drawing-controls" aria-label="Drawing controls">
+            <label class="color-control" for="inkColor"><span>インクの色</span><input type="color" id="inkColor" value="#254E70" /></label>
+            <button type="button" id="eraserBtn" class="tools-btn tools-btn--secondary" data-label="消しゴム" data-active-label="消しています...">消しゴム</button>
+            <label class="range-control" for="eraserSize"><span>消しゴムの大きさ</span><input type="range" id="eraserSize" min="5" max="40" value="10" /></label>
+            <button type="button" id="clearBtn" class="tools-btn tools-btn--secondary">絵を消す</button>
+            <button type="button" id="saveBtn" class="tools-btn" data-label="絵を保存" data-saved-label="保存しました" data-filename="healthy-little-minds-drawing.png">絵を保存</button>
+            <button type="button" id="send-email" class="tools-btn tools-btn--mail" data-mail-subject="Healthy Little Minds で描いた絵" data-mail-body="今日の気持ちを描きました。送るのを手伝ってください。保存したファイルはダウンロードフォルダーにあります。">大人に送る</button>
+            <p class="tools-note">保存したら、ダウンロードフォルダーから絵を見つけ、メールに添付してください。</p>
+          </div>
+        </div>
+        <div class="bubble-box" aria-label="大人へのメモ"><strong>大人へのメモ</strong><p>「この絵は何を伝えたいのかな？」と聞いてみましょう。評価せず、まず聴きます。</p></div>
+      </article>
 
-<div class="story-card story-card--bella">
-  <img src="images/destiny-sad.png" alt="Destiny feeling sad" />
-  <h4>😢 悲しみ</h4>
-  <p>デスティニーの次の行動を選んで、気持ちがよくなるお手伝いをしよう。</p>
-  <a href="story-sad.html" class="btn">📖 ストーリーをはじめる</a>
-</div>
+      <article id="mood-story-builder" class="tool-card tool-card--story">
+        <div class="tool-card__header"><p class="tools-kicker">気持ちの物語</p><h2>気持ちを選ぶ</h2><p>いちばん近い気持ちを選ぶと、やさしい次の一歩が出てきます。</p></div>
+        <div class="mood-options" role="list" aria-label="気持ちを選ぶ">
+          <button type="button" data-mood="happy" data-mood-title="うれしい気持ちです。" data-mood-message="何が助けになったかに気づいてみましょう。その場面を描いたり、誰かに話したり、あとで思い出せるように残してもよいです。">😊<span>うれしい</span></button>
+          <button type="button" data-mood="angry" data-mood-title="怒っている気持ちです。" data-mood-message="怒りは、不公平、うまくいかない、負担が大きい、というサインかもしれません。ゆっくり3回呼吸して、安全な方法をひとつ選びましょう。">😡<span>怒っている</span></button>
+          <button type="button" data-mood="sad" data-mood-title="かなしい気持ちです。" data-mood-message="悲しみは、安心、時間、つながりを求めていることがあります。悲しみが必要としているものを描くか、信頼できる人に小さく伝えてみましょう。">😢<span>かなしい</span></button>
+          <button type="button" data-mood="scared" data-mood-title="こわい気持ちです。" data-mood-message="こわさは、体が守ろうとしているサインかもしれません。安定するものを持ち、部屋を見回して、安全なものをひとつ見つけましょう。">😨<span>こわい</span></button>
+          <button type="button" data-mood="calm" data-mood-title="落ち着いた気持ちです。" data-mood-message="静かな時間を少し味わいましょう。落ち着く場所を描いたり、呼吸を聞いたり、落ち着く助けになったことを思い出してもよいです。">😌<span>落ち着いている</span></button>
+          <button type="button" data-mood="unsure" data-mood-title="まだはっきりしません。" data-mood-message="ぴったりの言葉が見つからなくても大丈夫。まず体から始めましょう。ぎゅっとする、重い、そわそわする、静か、あたたかい、疲れた、など。">😕<span>わからない</span></button>
+        </div>
+        <div id="storyOutput" class="story-output" aria-live="polite">
+          <h3 id="moodTitle"></h3>
+          <p id="moodMessage"></p>
+          <div class="story-output__actions"><button type="button" data-reset-story class="tools-btn tools-btn--secondary">別の気持ちを選ぶ</button><button type="button" data-start-breathing class="tools-btn">もう一度呼吸する</button></div>
+        </div>
+        <div class="bubble-box" aria-label="大人へのメモ"><strong>大人へのメモ</strong><p>まず映します。「___ って感じているんだね。」それから「体がもっと安心するには何が助けになるかな？」と聞きます。</p></div>
+      </article>
 
-<div class="story-card">
-  <img src="../images/bella_interactive_story.png" alt="ベラのインタラクティブストーリー" />
-  <h4>🌈 Bella の選択ストーリー</h4>
-  <p>
-    ベラがさまざまな場面でどのように選び、それが感情や友情にどう影響するのかを一緒に体験しましょう。
-  </p>
+      <article id="ella-reflection" class="tool-card tool-card--reflection">
+        <div class="tool-card__header"><p class="tools-kicker">オーディオブックのあとに</p><h2>One More Kick, Ella! のふり返り</h2><p>聴いたあとに、子どもが気持ちに名前をつけ、勇気に気づき、小さな練習の一歩を選ぶために使います。</p></div>
+        <div class="reflection-layout">
+          <aside class="reflection-book"><img src="../audiobooks/ella/coverpage.jpg" alt="One More Kick, Ella! cover" loading="lazy" decoding="async"><a class="tools-btn tools-btn--secondary" href="../audiobook.html?book=audiobooks/ella/book.json">もう一度聞く</a></aside>
+          <div class="reflection-steps">
+            <fieldset class="reflection-step"><legend>1. パターンが難しかったとき、Ella はどんな気持ちだった？</legend><div class="reflection-choice-grid" role="group" aria-label="Ella の気持ちを選ぶ"><button type="button" data-reflection-group="feeling" data-reflection-value="不安">不安</button>
+                  <button type="button" data-reflection-group="feeling" data-reflection-value="いらいら">いらいら</button>
+                  <button type="button" data-reflection-group="feeling" data-reflection-value="がっかり">がっかり</button>
+                  <button type="button" data-reflection-group="feeling" data-reflection-value="希望">希望</button></div></fieldset>
+            <fieldset class="reflection-step"><legend>2. Ella が続ける助けになったことは？</legend><div class="reflection-choice-grid reflection-choice-grid--wide" role="group" aria-label="Ella を助けたことを選ぶ"><button type="button" data-reflection-group="help" data-reflection-value="Ella はこれまで成長してきたことを思い出しました。">成長を思い出す</button>
+                  <button type="button" data-reflection-group="help" data-reflection-value="比べることをやめ、学ぶことに目を向けました。">比べすぎない</button>
+                  <button type="button" data-reflection-group="help" data-reflection-value="一歩ずつ練習しました。">小さな一歩</button>
+                  <button type="button" data-reflection-group="help" data-reflection-value="間違えたあとでも、もう一度試しました。">もう一度試す</button></div></fieldset>
+            <label class="reflection-step reflection-prompt" for="practiceStep"><span>3. あなたが練習し続けたいことは何ですか？</span><textarea id="practiceStep" rows="3" placeholder="例：読むこと、キック、絵を描くこと、学校で勇気を出すこと..."></textarea></label>
+            <div class="reflection-actions"><button type="button" class="tools-btn" id="buildReflectionBtn">ふり返りを作る</button><button type="button" class="tools-btn tools-btn--secondary" id="resetReflectionBtn">はじめから</button></div>
+          </div>
+        </div>
+        <div id="reflectionResult" class="reflection-result" aria-live="polite" data-template="Ella は {feeling} と感じました。{help} 私は {practice} を、一歩ずつ練習できます。" data-fallback-feeling="はっきりしない" data-fallback-help="Ella は続けるための小さな方法を見つけました。" data-fallback-practice="大切にしたい小さなこと">
+          <h3>あなたのふり返り</h3><p id="reflectionSummary">気持ち、助けになったこと、練習したい一歩を選んで書きましょう。</p><div class="reflection-links" aria-label="関連ページ"><a href="frustrated.html">いらいら</a>
+              <a href="nervous.html">不安</a>
+              <a href="proud.html">誇らしい</a>
+              <a href="resources/goals.html">目標と小さな一歩</a></div>
+        </div>
+        <div class="bubble-box" aria-label="大人へのメモ"><strong>大人へのメモ</strong><p>「Ella はいつ比べ始めたかな？」「もう一度試す助けになったことは？」「今週練習できる小さな一歩は？」と聞いてみましょう。</p></div>
+      </article>
+    </section>
 
-  <!-- 🌸 Bubbled Button Wrapper -->
-  <div style="
-    background-color: #ffeef4;
-    padding: 1rem;
-    margin-top: 1rem;
-    border-radius: 30px;
-    display: inline-block;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-  ">
-    <a href="interactive-stories/scene_1_bella_story.html" class="choice-btn pink" style="
-      background-color: #ff6b81;
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 20px;
-      font-weight: bold;
-      text-decoration: none;
-      display: inline-block;
-    ">📖 ベラの物語を始める</a>
-  </div>
-</div>
+    <section class="story-library tools-shell" aria-labelledby="storiesTitle">
+      <div class="story-library__head"><p class="tools-kicker">インタラクティブストーリー</p><h2 id="storiesTitle">物語の中で選択を練習する</h2></div>
+      <div class="story-grid">
+        <article class="story-card story-card--sky"><img src="../images/destiny-sad.png" alt="Destiny feeling sad" loading="lazy" decoding="async"><div><h3>かなしい気持ち</h3><p>Destiny が次に何をするか選びながら、気持ちを支えます。</p><a href="story-sad.html" class="tools-btn">ストーリーを始める</a></div></article>
+        <article class="story-card story-card--blush"><img src="../images/bella_interactive_story.png" alt="Bella's interactive story" loading="lazy" decoding="async"><div><h3>選択と気持ち</h3><p>Bella と一緒に、選択が気持ちや友情にどう関わるかを学びます。</p><a href="interactive-stories/scene_1_bella_story.html" class="tools-btn">Bella の物語を始める</a></div></article>
+      </div>
+    </section>
+  </main>
 
-</main>
-
-<script>
-  // 🔒 Redirect to login page if not logged in
-  (function () {
-    const isMember = localStorage.getItem("isMember") === "true";
-
-    if (!isMember) {
-      const path = window.location.pathname;
-      const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
-      const redirectTo = locale && path.includes(`/${locale}/`) 
-        ? `/${locale}/index.html` 
-        : "/index.html";
-      window.location.replace(redirectTo); // 👈 Smooth silent redirect
-    }
-  })();
-</script>
-
-<script>
-  const moodResponses = {
-  happy: {
-    title: "あなたはうれしい気持ちですね！😊",
-    message: "すばらしいですね！今日はあなたを笑顔にしたことを絵や文で描いてみましょう。幸せな瞬間を共有すると、もっと大きくなります。"
-  },
-  angry: {
-    title: "あなたはいらいらしています 😡",
-    message: "いらいらするのは普通のことです。深呼吸を3回してから、気持ちを絵に描いたり、クッションをぎゅっとしてみましょう。"
-  },
-  sad: {
-    title: "あなたはかなしい気持ちです 😢",
-    message: "かなしい時は安心できる場所が必要です。かなしい気持ちを絵で描いたり、気持ちに手紙を書いてみましょう。信頼できる人に話すのもいいですよ。"
-  },
-  scared: {
-    title: "あなたはこわい気持ちです 😨",
-    message: "こわいと感じるのは、それだけ大切なことがあるということです。やわらかい物を持ったり、安心できる場所を描いてみましょう。あなたは一人じゃないよ。"
-  },
-  calm: {
-    title: "あなたはいま、りらくしています 😌",
-    message: "落ち着いた時間ですね！お花や雲、動物など、静かな絵を描いてゆっくり呼吸してみましょう。"
-  },
-  unsure: {
-    title: "気持ちがわからない 😕",
-    message: "どんな気持ちかはっきりしなくても大丈夫。自由に線や形を描いてみて、そこから見えてくる気持ちを探してみましょう。"
-  }
-};
-
-  function showMoodStory(mood) {
-    const output = document.getElementById('storyOutput');
-    document.getElementById('moodTitle').textContent = moodResponses[mood].title;
-    document.getElementById('moodMessage').textContent = moodResponses[mood].message;
-    output.style.display = 'block';
-  }
-
-  function resetStory() {
-    document.getElementById('storyOutput').style.display = 'none';
-  }
-</script>
-
-<script>
-const reflectionState = {
-  feeling: '',
-  help: ''
-};
-
-function updateReflectionChoice(button) {
-  const group = button.dataset.reflectionGroup;
-  reflectionState[group] = button.dataset.reflectionValue;
-  document.querySelectorAll(`[data-reflection-group="${group}"]`).forEach((choice) => {
-    const isSelected = choice === button;
-    choice.classList.toggle('is-selected', isSelected);
-    choice.setAttribute('aria-pressed', String(isSelected));
-  });
-}
-
-function buildReflection() {
-  const practice = document.getElementById('practiceStep').value.trim();
-  const feeling = reflectionState.feeling || 'まだはっきりしない気持ち';
-  const helped = reflectionState.help || 'エラは小さな方法を見つけて続けました。';
-  const practiceText = practice || '自分が大切にしたい小さなこと';
-  document.getElementById('reflectionSummary').textContent = `エラは${feeling}を感じました。${helped} わたしも「${practiceText}」を一歩ずつ練習できます。`;
-  const result = document.getElementById('reflectionResult');
-  result.classList.add('is-visible');
-  result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-
-function resetReflection() {
-  reflectionState.feeling = '';
-  reflectionState.help = '';
-  document.getElementById('practiceStep').value = '';
-  document.getElementById('reflectionSummary').textContent = '気持ち、助けになったこと、練習したい一歩を選んで書きましょう。';
-  document.getElementById('reflectionResult').classList.remove('is-visible');
-  document.querySelectorAll('[data-reflection-group]').forEach((choice) => {
-    choice.classList.remove('is-selected');
-    choice.setAttribute('aria-pressed', 'false');
-  });
-}
-
-document.querySelectorAll('[data-reflection-group]').forEach((button) => {
-  button.setAttribute('aria-pressed', 'false');
-  button.addEventListener('click', () => updateReflectionChoice(button));
-});
-document.getElementById('buildReflectionBtn').addEventListener('click', buildReflection);
-document.getElementById('resetReflectionBtn').addEventListener('click', resetReflection);
-</script>
-
-<script>
-const canvas = document.getElementById('drawingCanvas');
-const ctx = canvas.getContext('2d');
-const colorPicker = document.getElementById('inkColor');
-const eraserBtn = document.getElementById('eraserBtn');
-const clearBtn = document.getElementById('clearBtn');
-const saveBtn = document.getElementById('saveBtn');
-const eraserSize = document.getElementById('eraserSize');
-
-canvas.width = canvas.offsetWidth;
-canvas.height = canvas.offsetHeight;
-ctx.fillStyle = '#fffbea';
-ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-let drawing = false;
-let erasing = false;
-let lastX = 0;
-let lastY = 0;
-
-function getXY(e) {
-  const rect = canvas.getBoundingClientRect();
-  return {
-    x: (e.touches ? e.touches[0].clientX : e.clientX) - rect.left,
-    y: (e.touches ? e.touches[0].clientY : e.clientY) - rect.top
-  };
-}
-
-function startDrawing(e) {
-  drawing = true;
-  const pos = getXY(e);
-  lastX = pos.x;
-  lastY = pos.y;
-}
-
-function draw(e) {
-  if (!drawing) return;
-  e.preventDefault();
-  const pos = getXY(e);
-  ctx.strokeStyle = erasing ? '#fffbea' : colorPicker.value;
-  ctx.lineWidth = erasing ? parseInt(eraserSize.value) : 3;
-  ctx.lineCap = 'round';
-
-  ctx.beginPath();
-  ctx.moveTo(lastX, lastY);
-  ctx.lineTo(pos.x, pos.y);
-  ctx.stroke();
-
-  lastX = pos.x;
-  lastY = pos.y;
-}
-
-function stopDrawing() {
-  drawing = false;
-}
-
-canvas.addEventListener('mousedown', startDrawing);
-canvas.addEventListener('mousemove', draw);
-canvas.addEventListener('mouseup', stopDrawing);
-canvas.addEventListener('mouseout', stopDrawing);
-canvas.addEventListener('touchstart', startDrawing);
-canvas.addEventListener('touchmove', draw);
-canvas.addEventListener('touchend', stopDrawing);
-
-eraserBtn.addEventListener('click', () => {
-  erasing = !erasing;
-  eraserBtn.textContent = erasing ? '🧽 Erasing...' : '🧽 Eraser';
-});
-
-clearBtn.addEventListener('click', () => {
-  ctx.fillStyle = '#fffbea';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-});
-
-saveBtn.addEventListener('click', () => {
-  const image = canvas.toDataURL("image/png");
-  const link = document.createElement('a');
-  link.href = image;
-  link.download = "my_drawing.png";
-  link.click();
-});
-
-function startBreathing() {
-  const circle = document.getElementById('breathing-circle');
-  const text = document.getElementById('breathing-text');
-  let state = 'breathe in';
-
-  text.textContent = 'Breathe in...';
-  circle.style.transform = 'scale(1.4)';
-
-  if (window.breathingInterval) clearInterval(window.breathingInterval);
-
-  window.breathingInterval = setInterval(() => {
-    if (state === 'breathe in') {
-      state = 'hold';
-      text.textContent = 'Hold...';
-      circle.style.transform = 'scale(1.4)';
-    } else if (state === 'hold') {
-      state = 'breathe out';
-      text.textContent = 'Breathe out...';
-      circle.style.transform = 'scale(1)';
-    } else {
-      state = 'breathe in';
-      text.textContent = 'Breathe in...';
-      circle.style.transform = 'scale(1.4)';
-    }
-  }, 4000);
-}
-
-let audioPlayer = new Audio();
-
-function playSound(src, label = "") {
-  audioPlayer.pause();
-  audioPlayer = new Audio(src);
-  audioPlayer.loop = true;
-  audioPlayer.play();
-  document.getElementById('nowPlayingLabel').textContent = `🎵 Now Playing: ${label}`;
-}
-
-function stopMusic() {
-  audioPlayer.pause();
-  audioPlayer.currentTime = 0;
-  document.getElementById('nowPlayingLabel').textContent = "";
-}
-
-document.getElementById("send-email").addEventListener("click", function () {
-  const subject = encodeURIComponent("My Drawing from Healthy Little Minds");
-  const body = encodeURIComponent("Hi Mom/Dad! I've drawn how I feel today. Please help me send it. You can find the file I just saved in the Downloads folder and attach it to this message. ❤️");
-  window.location.href = `mailto:?subject=${subject}&body=${body}`;
-});
-</script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const moodButtons = document.querySelectorAll('#mood-story-builder button[onclick^="showMoodStory"]');
-
-      moodButtons.forEach((button) => {
-        button.setAttribute('aria-pressed', 'false');
-        button.addEventListener('click', () => {
-          moodButtons.forEach((item) => {
-            item.classList.remove('is-selected');
-            item.setAttribute('aria-pressed', 'false');
-          });
-          button.classList.add('is-selected');
-          button.setAttribute('aria-pressed', 'true');
-        });
-      });
-
-      const originalResetStory = window.resetStory;
-      if (typeof originalResetStory === 'function') {
-        window.resetStory = function (...args) {
-          const result = originalResetStory.apply(this, args);
-          moodButtons.forEach((button) => {
-            button.classList.remove('is-selected');
-            button.setAttribute('aria-pressed', 'false');
-          });
-          return result;
-        };
-      }
-    });
-  </script>
-
-  <script defer src="../feelings-checkin.js?v=2"></script>
-  <script defer src="../shared-language-switcher.js?v=1"></script>
+  <footer class="tools-footer">© 2026 Healthy Little Minds. 支え合う会話のための教育リソース。</footer>
+  <script defer src="../interactive-tools.js?v=1"></script>
+  <script defer src="../shared-language-switcher.js?v=2"></script>
   <script defer src="../button-loader.js?v=1"></script>
 </body>
 </html>

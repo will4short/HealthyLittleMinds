@@ -2,641 +2,153 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>인터랙티브 도구 | 건강한 작은 마음</title>
-<!-- 🌐 Multilingual SEO: Hreflang Tags for Parents Page -->
-<link rel="alternate" href="https://www.healthylittleminds.club/parents.html" hreflang="en" />
-<link rel="alternate" href="https://www.healthylittleminds.club/zh-tw/parents.html" hreflang="zh-TW" />
-<link rel="alternate" href="https://www.healthylittleminds.club/zh-cn/parents.html" hreflang="zh-CN" />
-<link rel="alternate" href="https://www.healthylittleminds.club/ja/parents.html" hreflang="ja" />
-<link rel="alternate" href="https://www.healthylittleminds.club/ko/parents.html" hreflang="ko" />
-<link rel="alternate" href="https://www.healthylittleminds.club/parents.html" hreflang="x-default" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>인터랙티브 도구 | Healthy Little Minds</title>
+  <meta name="description" content="호흡, 그림, 되돌아보기, 도움이 되는 다음 단계를 위한 짧고 실용적인 정서 학습 도구입니다." />
+  <link rel="canonical" href="https://www.healthylittleminds.club/ko/interactive-tools.html" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/interactive-tools.html" hreflang="en" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/zh-tw/interactive-tools.html" hreflang="zh-TW" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/zh-cn/interactive-tools.html" hreflang="zh-CN" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/ja/interactive-tools.html" hreflang="ja" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/ko/interactive-tools.html" hreflang="ko" />
+  <link rel="alternate" href="https://www.healthylittleminds.club/interactive-tools.html" hreflang="x-default" />
+  <link rel="icon" href="../images/favicon.webp" type="image/webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Sans+TC:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../interactive-tools.css?v=2">
-
-  <style>
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 110px;
-      min-height: 100%;
-    }
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #E3F2FD;
-      color: #254E70;
-    }
-    .site-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      width: min(100%, 1280px);
-      margin: 0 auto;
-      padding: 1rem clamp(1.25rem, 3vw, 2rem);
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(37,78,112,.1);
-      box-shadow: 0 18px 40px rgba(37,78,112,.09);
-      position: sticky;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-    }
-    .site-branding {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      text-decoration: none;
-      color: #254E70;
-    }
-    .site-branding img {
-      width: 48px;
-      height: auto;
-    }
-    .site-title {
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      justify-content: flex-end;
-      flex: 1;
-      min-width: 0;
-      flex-wrap: nowrap;
-    }
-    .nav-links a {
-      color: #254E70;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color .2s ease, transform .2s ease;
-      white-space: nowrap;
-    }
-    .nav-links a:hover {
-      color: #FF6B6B;
-      transform: translateY(-1px);
-    }
-    h2, h3 {
-      text-align: center;
-      color: #254E70;
-    }
-    section {
-      padding: 3rem 2rem;
-      max-width: 760px;
-      margin: auto;
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-      margin-top: 2rem;
-    }
-    @media (max-width: 780px) {
-      .site-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      section {
-        padding: 2rem 1.25rem;
-      }
-    }
-    button {
-      background-color: #FF66B6;
-      color: white;
-      border: none;
-      padding: 0.7rem 1.4rem;
-      border-radius: 25px;
-      font-size: 1rem;
-      cursor: pointer;
-      margin: 0.5rem;
-    }
-    .sound-btn {
-      background: #FF66B6;
-      color: white;
-      padding: 0.6rem 1.2rem;
-      margin: 0.3rem;
-      border: none;
-      border-radius: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    .sound-btn:hover {
-      transform: scale(1.05);
-    }
-    #nowPlayingLabel {
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-      color: #254E70;
-      font-weight: 500;
-    }
-    .story-card:hover {
-  transform: scale(1.02);
-  transition: transform 0.3s ease;
-}
-  .story-card {
-    background: #dff6ff;
-    padding: 1.5rem;
-    margin: 2rem auto;
-    max-width: 320px;
-    text-align: center;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  }
-
-  .story-card img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    border-radius: 12px;
-    margin: 1rem 0;
-  }
-
-  .story-card h4 {
-    font-size: 1.25rem;
-    color: #254e70;
-    margin-bottom: 0.5rem;
-  }
-
-  .story-card p {
-    font-size: 1rem;
-    color: #444;
-    margin-bottom: 1rem;
-  }
-
-  .story-card .btn {
-    display: inline-block;
-    padding: 0.6rem 1.4rem;
-    background-color: #ff6b6b;
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-  }
-  .story-card .btn:hover {
-    background-color: #e25555;
-  }
-  .bubble-box {
-    background: #fff0f6;
-    border: 2px dashed #ff6b6b;
-    padding: 1rem;
-    border-radius: 20px;
-    margin-top: 1rem;
-    transition: transform 0.3s ease;
-  }
-
-  .bubble-box:hover {
-    transform: scale(1.03);
-    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.15);
-  }
-
-  .bubble-box a {
-    background-color: #ff6b81;
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border-radius: 20px;
-    font-weight: bold;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-  }
-
-  .bubble-box a:hover {
-    background-color: #ff4f6b;
-  }
-</style>
 </head>
 <body class="tools-page tools-page--localized tools-page--ko">
-<script>
-  (function () {
-    const isLocal = location.protocol === 'file:';
-    const isMember = localStorage.getItem("isMember") === "true";
+  <header class="tools-header">
+    <div class="tools-header__inner tools-shell">
+      <a href="home.html" class="tools-brand">
+        <img src="../images/logo-icon.png" alt="" />
+        <span>Healthy Little Minds</span>
+      </a>
+      <nav class="tools-nav" aria-label="Primary navigation"><a href="home.html">홈</a><a href="growth-plan.html">성장 계획</a><a href="#calm-corner">차분함</a><a href="#drawing-tool">그리기</a><a href="#mood-story-builder">감정</a><a href="dashboard.html">대시보드</a></nav>
+    </div>
+  </header>
 
-    if (!isLocal && !isMember) {
-      const path = window.location.pathname;
-      const locale = path.split('/')[1];
-      const redirectTo = locale && path.includes(`/${locale}/`) 
-        ? `/${locale}/index.html` 
-        : "/index.html";
-      window.location.replace(redirectTo);
-    }
-  })();
-</script>
-
-<header class="site-header">
-  <a href="home.html" class="site-branding">
-    <img src="images/logo-icon.png" alt="Healthy Little Minds Logo" />
-    <div class="site-title">건강한 작은 마음</div>
-  </a>
-  <nav class="nav-links">
-    <a href="home.html">홈</a>
-    <a href="growth-plan.html">7일 계획</a>
-    <a href="#calm-corner">진정</a>
-    <a href="#drawingCanvas">그리기</a>
-    <a href="#mood-story-builder">감정</a>
-  </nav>
-</header>
-
-<main class="localized-tools-main">
-<section class="localized-tools-hero" aria-labelledby="toolsTitle">
-  <div class="localized-tools-hero__copy">
-    <p class="tools-kicker">인터랙티브 진정 도구</p>
-    <h1 id="toolsTitle">지금 느끼는 마음에 맞는 작은 도구를 하나 골라요.</h1>
-    <p>소리를 듣고, 원을 따라 숨 쉬고, 마음을 그림으로 표현하거나 짧은 감정 이야기를 만들어 보세요. 잠깐 멈춰 돌보는 활동입니다.</p>
-  </div>
-  <aside class="localized-tools-hero__panel" aria-label="추천 흐름">
-    <span>2분 리셋</span>
-    <p>숨을 쉬고, 소리를 고른 뒤, 지금의 마음을 그려 보세요.</p>
-  </aside>
-</section>
-
-<section id="calm-corner">
-  <h2>🧘‍♂️ 마음을 진정시키는 공간</h2>
-  <p>깊게 숨 쉬고, 마음을 평온하게 해주는 소리를 선택해 보세요.</p>
-  <div>
-    <button onclick="playSound('../audio/ocean.mp3', '바다 소리')" class="sound-btn">🌊 바다 소리</button>
-    <button onclick="playSound('../audio/gentle-piano.mp3', '잔잔한 피아노')" class="sound-btn">🎹 잔잔한 피아노</button>
-    <button onclick="playSound('../audio/forest-sound.mp3', '숲속 소리')" class="sound-btn">🌲 숲속 소리</button>
-    <button onclick="stopMusic()" class="sound-btn">⏹️ 음악 멈추기</button>
-    <p id="nowPlayingLabel"></p>
-  </div>
-  <div id="breathing-circle" style="width: 150px; height: 150px; margin: 2rem auto; border-radius: 50%; background: #A7E5F3; transition: all 4s ease-in-out;"></div>
-  <p id="breathing-text" style="text-align:center; font-size: 1.4rem;">준비하세요...</p>
-  <div style="text-align: center;">
-    <button onclick="startBreathing()">🌬️ 호흡 시작</button>
-  </div>
-</section>
-
-<section>
-  <h2>🎨 감정을 그림으로 표현해요</h2>
-  <p style="text-align:center;">색을 선택하고 당신의 감정을 그려보세요.</p>
-  <div style="text-align:center; margin: 1rem 0;">
-    🖍️ 색상 선택: <input type="color" id="inkColor" value="#254E70" />
-    <button id="saveBtn">💾 저장</button>
-  </div>
-  <p style="text-align:center; font-size: 0.9rem;">💌 그림을 저장한 후 부모님께 이메일로 보내보세요.</p>
-  <div style="text-align: center; margin-top: 1.5rem;">
-    <button id="send-email" style="background:#FF6086; color:white; padding:0.6rem 1.2rem; border-radius:20px; font-weight:bold; border:none; cursor:pointer;">
-      📩 부모님께 보내기
-    </button>
-    <p style="font-size: 0.8rem; color: #999; margin-top: 0.5rem;">
-      다운로드 폴더에서 그림 파일을 찾아 이메일에 첨부해 주세요.
-    </p>
-  </div>
-  <canvas id="drawingCanvas" style="display:block; margin:auto; border:1px solid #ccc; border-radius: 12px; background:#fffbea;" width="300" height="300"></canvas>
-  <div style="text-align:center; margin-top:1rem;">
-    <button id="eraserBtn">🧽 지우개</button>
-    <label for="eraserSize">지우개 크기:</label>
-    <input type="range" id="eraserSize" min="5" max="40" value="10" />
-    <button id="clearBtn">💖 모두 지우기</button>
-  </div>
-</section>
-
-<section id="mood-story-builder" style="text-align:center; padding: 2rem; background:#fffbea;">
-  <h2 style="color:#254E70;">📖 감정 이야기 만들기</h2>
-  <p>지금 기분을 선택하면, 마음을 다스릴 수 있는 활동을 안내할게요.</p>
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin: 1.5rem 0;">
-    <button onclick="showMoodStory('happy')">😊 기쁨</button>
-    <button onclick="showMoodStory('angry')">😡 화남</button>
-    <button onclick="showMoodStory('sad')">😢 슬픔</button>
-    <button onclick="showMoodStory('scared')">😨 무서움</button>
-    <button onclick="showMoodStory('calm')">😌 평온함</button>
-    <button onclick="showMoodStory('unsure')">😕 잘 모르겠어요</button>
-  </div>
-  <div id="storyOutput" style="max-width: 600px; margin: auto; background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); display:none;">
-    <h3 id="moodTitle"></h3>
-    <p id="moodMessage"></p>
-    <button onclick="resetStory()" style="margin-top:1rem;">🔁 다시 선택하기</button>
-  </div>
-</section>
-
-<section id="ella-reflection" class="tool-card tool-card--reflection">
-  <div class="tool-card__header">
-    <p class="tools-kicker">오디오북 후 활동</p>
-    <h2>한 번 더 발차기, 엘라! 되돌아보기</h2>
-    <p>이야기를 들은 뒤, 엘라의 감정을 떠올리고 용기와 작은 연습 단계를 찾아보세요.</p>
-  </div>
-
-  <div class="reflection-layout">
-    <aside class="reflection-book">
-      <img src="../audiobooks/ella/coverpage.jpg" alt="한 번 더 발차기, 엘라! 표지" loading="lazy" decoding="async">
-      <a class="tools-btn tools-btn--secondary" href="../audiobook.html?book=audiobooks/ella/book.json">다시 듣기</a>
-    </aside>
-
-    <div class="reflection-steps">
-      <fieldset class="reflection-step">
-        <legend>1. 어려웠을 때 엘라는 어떤 마음이었을까요?</legend>
-        <div class="reflection-choice-grid" role="group" aria-label="엘라의 감정 선택">
-          <button type="button" data-reflection-group="feeling" data-reflection-value="긴장">긴장</button>
-          <button type="button" data-reflection-group="feeling" data-reflection-value="답답함">답답함</button>
-          <button type="button" data-reflection-group="feeling" data-reflection-value="낙담">낙담</button>
-          <button type="button" data-reflection-group="feeling" data-reflection-value="희망">희망</button>
+  <main class="tools-main">
+    <section class="tools-hero tools-shell" aria-labelledby="toolsTitle">
+      <div class="tools-hero__copy">
+        <p class="tools-kicker">인터랙티브 진정 도구</p>
+        <h1 id="toolsTitle">지금 느끼는 마음에 맞는 작은 도구를 하나 골라요.</h1>
+        <p>소리를 듣고, 숨을 쉬고, 그림을 그리고, 짧은 감정 이야기를 만들어 보세요. 각 활동은 교실의 짧은 멈춤, 가족 체크인, 조용한 리셋에 사용할 수 있을 만큼 짧습니다.</p>
+        <div class="tools-hero__actions" aria-label="Jump to a tool">
+          <a href="#ella-reflection">Ella 되돌아보기</a>
+          <a href="growth-plan.html#resource-finder">자료 찾기</a>
+          <a href="#calm-corner">차분하게 시작</a>
+          <a href="#drawing-tool">그림으로 표현</a>
+          <a href="#mood-story-builder">감정 고르기</a>
         </div>
-      </fieldset>
-
-      <fieldset class="reflection-step">
-        <legend>2. 엘라가 계속할 수 있게 도와준 것은 무엇이었나요?</legend>
-        <div class="reflection-choice-grid reflection-choice-grid--wide" role="group" aria-label="엘라에게 도움이 된 것 선택">
-          <button type="button" data-reflection-group="help" data-reflection-value="엘라는 자신이 이미 얼마나 자랐는지 떠올렸어요.">성장 떠올리기</button>
-          <button type="button" data-reflection-group="help" data-reflection-value="엘라는 비교를 줄이고 배우는 데 집중했어요.">비교 줄이기</button>
-          <button type="button" data-reflection-group="help" data-reflection-value="엘라는 한 단계씩 연습했어요.">작은 단계</button>
-          <button type="button" data-reflection-group="help" data-reflection-value="엘라는 실수 후에 다시 시도했어요.">다시 시도</button>
-        </div>
-      </fieldset>
-
-      <label class="reflection-step reflection-prompt" for="practiceStep">
-        <span>3. 내가 계속 연습하고 싶은 한 가지는?</span>
-        <textarea id="practiceStep" rows="3" placeholder="예: 읽기, 발차기, 그림 그리기, 학교에서 용기 내기..."></textarea>
-      </label>
-
-      <div class="reflection-actions">
-        <button type="button" class="tools-btn" id="buildReflectionBtn">나의 되돌아보기 만들기</button>
-        <button type="button" class="tools-btn tools-btn--secondary" id="resetReflectionBtn">처음부터</button>
       </div>
-    </div>
-  </div>
+      <aside class="tools-hero__panel" aria-label="Suggested flow">
+        <span>2분 리셋</span>
+        <ol>
+          <li>원에 맞춰 숨쉬기</li>
+          <li>배경 소리 하나 고르기</li>
+          <li>감정이 필요한 것을 그리기</li>
+        </ol>
+      </aside>
+    </section>
 
-  <div id="reflectionResult" class="reflection-result" aria-live="polite">
-    <h3>나의 되돌아보기</h3>
-    <p id="reflectionSummary">감정과 도움이 된 것을 고르고, 연습하고 싶은 한 가지를 적어 보세요.</p>
-    <div class="reflection-links" aria-label="관련 페이지">
-      <a href="../frustrated.html">답답할 때</a>
-      <a href="../nervous.html">긴장될 때</a>
-      <a href="../proud.html">자랑스러울 때</a>
-      <a href="resources/goals.html">목표와 작은 단계</a>
-    </div>
-  </div>
+    <section class="tools-workspace tools-shell" aria-label="Interactive activities">
+      <article id="calm-corner" class="tool-card tool-card--calm">
+        <div class="tool-card__header">
+          <p class="tools-kicker">차분함 코너</p>
+          <h2>소리와 호흡</h2>
+          <p>부드러운 소리를 고른 뒤 원을 따라 몸을 가라앉혀 보세요.</p>
+        </div>
+        <div class="sound-grid" aria-label="차분해지는 소리">
+          <button type="button" data-sound-src="../audio/ocean.mp3" data-sound-label="바다 소리" data-playing-text="재생 중: 바다 소리" data-tap-again="다시 탭하면 오디오가 시작됩니다." class="sound-btn">바다 소리</button>
+          <button type="button" data-sound-src="../audio/gentle-piano.mp3" data-sound-label="잔잔한 피아노" data-playing-text="재생 중: 잔잔한 피아노" data-tap-again="다시 탭하면 오디오가 시작됩니다." class="sound-btn">잔잔한 피아노</button>
+          <button type="button" data-sound-src="../audio/forest-sound.mp3" data-sound-label="숲속 소리" data-playing-text="재생 중: 숲속 소리" data-tap-again="다시 탭하면 오디오가 시작됩니다." class="sound-btn">숲속 소리</button>
+          <button type="button" data-stop-sound class="sound-btn sound-btn--quiet">음악 멈추기</button>
+        </div>
+        <p id="nowPlayingLabel" aria-live="polite"></p>
+        <div class="breathing-stage" data-breathing-stage data-breathe-in="숨을 들이마셔요..." data-hold="잠시 멈춰요..." data-breathe-out="숨을 내쉬어요...">
+          <div id="breathing-circle" aria-hidden="true"></div>
+          <p id="breathing-text">준비하세요...</p>
+          <button type="button" data-start-breathing class="tools-btn">호흡 시작</button>
+        </div>
+        <div class="bubble-box" aria-label="어른을 위한 메모"><strong>어른을 위한 메모</strong><p>가까이 앉아 함께 숨을 쉬세요. 바로 고치려 하지 않아도 됩니다. 곁에 있는 것이 도움이 됩니다.</p></div>
+      </article>
 
-  <div class="bubble-box" aria-label="부모 대화 질문">
-    <strong>부모님 메모</strong>
-    <p>물어보세요: “엘라는 언제 자신을 비교하기 시작했을까?” “다시 해 보게 도와준 것은 무엇이었을까?” “이번 주에 연습할 작은 한 걸음은 무엇일까?”</p>
-  </div>
-</section>
+      <article id="drawing-tool" class="tool-card tool-card--draw">
+        <div class="tool-card__header"><p class="tools-kicker">그림 도구</p><h2>느낌을 그려 보기</h2><p>색을 고르고 감정을 선, 모양, 날씨, 장소로 표현해 보세요.</p></div>
+        <div class="drawing-layout">
+          <div class="drawing-panel"><canvas id="drawingCanvas" width="720" height="520"></canvas></div>
+          <div class="drawing-controls" aria-label="Drawing controls">
+            <label class="color-control" for="inkColor"><span>잉크 색</span><input type="color" id="inkColor" value="#254E70" /></label>
+            <button type="button" id="eraserBtn" class="tools-btn tools-btn--secondary" data-label="지우개" data-active-label="지우는 중...">지우개</button>
+            <label class="range-control" for="eraserSize"><span>지우개 크기</span><input type="range" id="eraserSize" min="5" max="40" value="10" /></label>
+            <button type="button" id="clearBtn" class="tools-btn tools-btn--secondary">그림 지우기</button>
+            <button type="button" id="saveBtn" class="tools-btn" data-label="그림 저장" data-saved-label="저장했어요" data-filename="healthy-little-minds-drawing.png">그림 저장</button>
+            <button type="button" id="send-email" class="tools-btn tools-btn--mail" data-mail-subject="Healthy Little Minds에서 그린 그림" data-mail-body="오늘 느낀 감정을 그렸어요. 보내는 것을 도와주세요. 저장한 파일은 다운로드 폴더에 있습니다.">어른에게 보내기</button>
+            <p class="tools-note">저장한 뒤 다운로드 폴더에서 그림을 찾아 이메일에 첨부하세요.</p>
+          </div>
+        </div>
+        <div class="bubble-box" aria-label="어른을 위한 메모"><strong>어른을 위한 메모</strong><p>“네 그림은 무엇을 말하고 싶어?”라고 물어보세요. 판단하지 말고 먼저 들어 주세요.</p></div>
+      </article>
 
-<div class="story-card story-card--bella">
-  <img src="images/destiny-sad.png" alt="Destiny feeling sad" />
-  <h4>슬픔</h4>
-<p>데스티니가 기분이 나아지도록 다음 행동을 선택해 주세요.</p>
-  <a href="story-sad.html" class="btn">📖 스토리 시작하기</a>
-</div>
+      <article id="mood-story-builder" class="tool-card tool-card--story">
+        <div class="tool-card__header"><p class="tools-kicker">감정 이야기</p><h2>감정 고르기</h2><p>가장 가까운 감정을 고르면 부드러운 다음 단계가 나타납니다.</p></div>
+        <div class="mood-options" role="list" aria-label="감정 고르기">
+          <button type="button" data-mood="happy" data-mood-title="기쁜 마음이에요." data-mood-message="무엇이 도움이 되었는지 알아차려 보세요. 그 순간을 그리거나, 누군가와 나누거나, 나중에 기억할 수 있게 남겨도 좋아요.">😊<span>기쁨</span></button>
+          <button type="button" data-mood="angry" data-mood-title="화가 난 마음이에요." data-mood-message="화는 무언가 불공평하거나 막혔거나 너무 많다는 신호일 수 있어요. 천천히 세 번 숨을 쉬고, 그 에너지를 안전하게 쓸 방법을 하나 고르세요.">😡<span>화남</span></button>
+          <button type="button" data-mood="sad" data-mood-title="슬픈 마음이에요." data-mood-message="슬픔은 위로, 시간, 연결을 원할 수 있어요. 슬픔이 필요한 것을 그리거나 믿을 수 있는 사람에게 작은 한 가지를 말해 보세요.">😢<span>슬픔</span></button>
+          <button type="button" data-mood="scared" data-mood-title="무서운 마음이에요." data-mood-message="두려움은 몸이 나를 보호하려는 신호일 수 있어요. 안정감을 주는 것을 잡고, 방 안에서 안전한 것 하나를 찾아보세요.">😨<span>무서움</span></button>
+          <button type="button" data-mood="calm" data-mood-title="차분한 마음이에요." data-mood-message="조용한 순간을 잠시 느껴 보세요. 차분한 장소를 그리거나 숨소리를 듣거나, 무엇이 도움이 되었는지 떠올려도 좋아요.">😌<span>평온함</span></button>
+          <button type="button" data-mood="unsure" data-mood-title="아직 잘 모르겠어요." data-mood-message="정확한 단어를 몰라도 괜찮아요. 몸에서 시작해 보세요. 꽉 조이는지, 무거운지, 들뜬지, 조용한지, 따뜻한지, 피곤한지 살펴보세요.">😕<span>잘 모르겠어요</span></button>
+        </div>
+        <div id="storyOutput" class="story-output" aria-live="polite">
+          <h3 id="moodTitle"></h3>
+          <p id="moodMessage"></p>
+          <div class="story-output__actions"><button type="button" data-reset-story class="tools-btn tools-btn--secondary">다른 감정 고르기</button><button type="button" data-start-breathing class="tools-btn">다시 숨쉬기</button></div>
+        </div>
+        <div class="bubble-box" aria-label="어른을 위한 메모"><strong>어른을 위한 메모</strong><p>먼저 비춰 주세요. “___라고 느끼는구나.” 그런 다음 “몸이 더 안전하게 느끼려면 무엇이 도움이 될까?”라고 물어보세요.</p></div>
+      </article>
 
-<div class="story-card">
-  <img src="../images/bella_interactive_story.png" alt="벨라의 인터랙티브 스토리" />
-  <h4>🌈 벨라의 선택 이야기</h4>
-  <p>벨라가 다양한 상황에서 어떤 선택을 하고 그것이 감정과 우정에 어떤 영향을 주는지 함께 알아봐요.</p>
-  <a href="interactive-stories/scene_1_bella_story.html" class="btn bubble">📖 벨라의 이야기 시작하기</a>
-</div>
+      <article id="ella-reflection" class="tool-card tool-card--reflection">
+        <div class="tool-card__header"><p class="tools-kicker">오디오북 후 활동</p><h2>One More Kick, Ella! 되돌아보기</h2><p>듣고 난 뒤 아이들이 감정에 이름을 붙이고, 용기를 알아차리고, 작은 연습 단계를 고를 수 있도록 돕습니다.</p></div>
+        <div class="reflection-layout">
+          <aside class="reflection-book"><img src="../audiobooks/ella/coverpage.jpg" alt="One More Kick, Ella! cover" loading="lazy" decoding="async"><a class="tools-btn tools-btn--secondary" href="../audiobook.html?book=audiobooks/ella/book.json">다시 듣기</a></aside>
+          <div class="reflection-steps">
+            <fieldset class="reflection-step"><legend>1. 패턴이 어려웠을 때 Ella는 어떤 마음이었을까요?</legend><div class="reflection-choice-grid" role="group" aria-label="Ella의 감정 선택"><button type="button" data-reflection-group="feeling" data-reflection-value="긴장">긴장</button>
+                  <button type="button" data-reflection-group="feeling" data-reflection-value="답답함">답답함</button>
+                  <button type="button" data-reflection-group="feeling" data-reflection-value="낙담">낙담</button>
+                  <button type="button" data-reflection-group="feeling" data-reflection-value="희망">희망</button></div></fieldset>
+            <fieldset class="reflection-step"><legend>2. Ella가 계속할 수 있게 도운 것은 무엇인가요?</legend><div class="reflection-choice-grid reflection-choice-grid--wide" role="group" aria-label="Ella에게 도움이 된 것 선택"><button type="button" data-reflection-group="help" data-reflection-value="Ella는 자신이 이미 많이 자랐다는 것을 떠올렸습니다.">성장 기억하기</button>
+                  <button type="button" data-reflection-group="help" data-reflection-value="비교를 멈추고 배우는 데 집중했습니다.">덜 비교하기</button>
+                  <button type="button" data-reflection-group="help" data-reflection-value="한 단계씩 연습했습니다.">작은 단계</button>
+                  <button type="button" data-reflection-group="help" data-reflection-value="실수 후에도 다시 시도했습니다.">다시 시도하기</button></div></fieldset>
+            <label class="reflection-step reflection-prompt" for="practiceStep"><span>3. 계속 연습하고 싶은 한 가지는 무엇인가요?</span><textarea id="practiceStep" rows="3" placeholder="예: 읽기, 발차기, 그림 그리기, 학교에서 용기 내기..."></textarea></label>
+            <div class="reflection-actions"><button type="button" class="tools-btn" id="buildReflectionBtn">나의 되돌아보기 만들기</button><button type="button" class="tools-btn tools-btn--secondary" id="resetReflectionBtn">처음부터</button></div>
+          </div>
+        </div>
+        <div id="reflectionResult" class="reflection-result" aria-live="polite" data-template="Ella는 {feeling}을 느꼈습니다. {help} 나는 {practice}을/를 한 걸음씩 연습할 수 있습니다." data-fallback-feeling="잘 모르는 마음" data-fallback-help="Ella는 계속할 수 있는 작은 방법을 찾았습니다." data-fallback-practice="내가 소중히 여기는 작은 일">
+          <h3>나의 되돌아보기</h3><p id="reflectionSummary">감정과 도움이 된 것을 고르고, 연습하고 싶은 한 가지를 적어 보세요.</p><div class="reflection-links" aria-label="관련 페이지"><a href="frustrated.html">답답함 느끼기</a>
+              <a href="nervous.html">긴장 느끼기</a>
+              <a href="proud.html">자랑스러움 느끼기</a>
+              <a href="resources/goals.html">목표와 작은 단계</a></div>
+        </div>
+        <div class="bubble-box" aria-label="어른을 위한 메모"><strong>어른을 위한 메모</strong><p>“Ella는 언제 자신을 비교하기 시작했을까?” “무엇이 다시 시도하게 도왔을까?” “이번 주에 연습할 작은 한 걸음은 무엇일까?”라고 물어보세요.</p></div>
+      </article>
+    </section>
 
-</main>
+    <section class="story-library tools-shell" aria-labelledby="storiesTitle">
+      <div class="story-library__head"><p class="tools-kicker">인터랙티브 이야기</p><h2 id="storiesTitle">이야기 속에서 선택을 연습하기</h2></div>
+      <div class="story-grid">
+        <article class="story-card story-card--sky"><img src="../images/destiny-sad.png" alt="Destiny feeling sad" loading="lazy" decoding="async"><div><h3>슬픈 마음</h3><p>Destiny가 다음에 무엇을 할지 고르며 마음을 도와주세요.</p><a href="story-sad.html" class="tools-btn">이야기 시작</a></div></article>
+        <article class="story-card story-card--blush"><img src="../images/bella_interactive_story.png" alt="Bella's interactive story" loading="lazy" decoding="async"><div><h3>선택과 감정</h3><p>Bella와 함께 선택이 감정과 친구 관계에 어떤 영향을 주는지 배워요.</p><a href="interactive-stories/scene_1_bella_story.html" class="tools-btn">Bella 이야기 시작</a></div></article>
+      </div>
+    </section>
+  </main>
 
-<script>
-const moodResponses = {
-  happy: {
-    title: "당신은 지금 기뻐요! 😊",
-    message: "정말 좋네요! 오늘 웃게 한 일을 그림이나 글로 표현해 보세요. 기쁜 순간을 공유하면 더 커져요."
-  },
-  angry: {
-    title: "당신은 지금 화가 났어요 😡",
-    message: "화나는 건 괜찮아요. 함께 깊게 숨을 세 번 쉬어볼까요? 감정을 그림으로 표현하거나 쿠션을 꽉 안아보세요."
-  },
-  sad: {
-    title: "당신은 지금 슬퍼요 😢",
-    message: "슬플 땐 안전함이 필요해요. 감정을 그림으로 표현하거나 편지를 써보세요. 누군가와 이야기하는 것도 도움이 돼요."
-  },
-  scared: {
-    title: "당신은 지금 무서워요 😨",
-    message: "무섭다는 건 무언가 소중하다는 뜻이에요. 부드러운 것을 껴안거나 안전한 장소를 그려보세요. 혼자가 아니에요."
-  },
-  calm: {
-    title: "당신은 지금 평온해요 😌",
-    message: "평온한 순간이네요! 평화로운 정원이나 구름을 그려보며 이 순간을 만끽하세요."
-  },
-  unsure: {
-    title: "당신은 잘 모르겠어요 😕",
-    message: "감정을 모를 때도 있어요. 무작위로 도형을 그려보면 감정이 드러날지도 몰라요."
-  }
-};
-
-function showMoodStory(mood) {
-  document.getElementById('moodTitle').textContent = moodResponses[mood].title;
-  document.getElementById('moodMessage').textContent = moodResponses[mood].message;
-  document.getElementById('storyOutput').style.display = 'block';
-}
-function resetStory() {
-  document.getElementById('storyOutput').style.display = 'none';
-}
-</script>
-
-<script>
-const reflectionState = {
-  feeling: '',
-  help: ''
-};
-
-function updateReflectionChoice(button) {
-  const group = button.dataset.reflectionGroup;
-  reflectionState[group] = button.dataset.reflectionValue;
-  document.querySelectorAll(`[data-reflection-group="${group}"]`).forEach((choice) => {
-    const isSelected = choice === button;
-    choice.classList.toggle('is-selected', isSelected);
-    choice.setAttribute('aria-pressed', String(isSelected));
-  });
-}
-
-function buildReflection() {
-  const practice = document.getElementById('practiceStep').value.trim();
-  const feeling = reflectionState.feeling || '잘 모르겠는 마음';
-  const helped = reflectionState.help || '엘라는 작은 방법을 찾아 계속해 보았어요.';
-  const practiceText = practice || '내가 소중하게 생각하는 작은 일';
-  document.getElementById('reflectionSummary').textContent = `엘라는 ${feeling}을 느꼈어요. ${helped} 나도 ${practiceText}을/를 한 걸음씩 연습할 수 있어요.`;
-  const result = document.getElementById('reflectionResult');
-  result.classList.add('is-visible');
-  result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-
-function resetReflection() {
-  reflectionState.feeling = '';
-  reflectionState.help = '';
-  document.getElementById('practiceStep').value = '';
-  document.getElementById('reflectionSummary').textContent = '감정과 도움이 된 것을 고르고, 연습하고 싶은 한 가지를 적어 보세요.';
-  document.getElementById('reflectionResult').classList.remove('is-visible');
-  document.querySelectorAll('[data-reflection-group]').forEach((choice) => {
-    choice.classList.remove('is-selected');
-    choice.setAttribute('aria-pressed', 'false');
-  });
-}
-
-document.querySelectorAll('[data-reflection-group]').forEach((button) => {
-  button.setAttribute('aria-pressed', 'false');
-  button.addEventListener('click', () => updateReflectionChoice(button));
-});
-document.getElementById('buildReflectionBtn').addEventListener('click', buildReflection);
-document.getElementById('resetReflectionBtn').addEventListener('click', resetReflection);
-</script>
-
-<script>
-const canvas = document.getElementById('drawingCanvas');
-const ctx = canvas.getContext('2d');
-const colorPicker = document.getElementById('inkColor');
-const eraserBtn = document.getElementById('eraserBtn');
-const clearBtn = document.getElementById('clearBtn');
-const saveBtn = document.getElementById('saveBtn');
-const eraserSize = document.getElementById('eraserSize');
-
-canvas.width = canvas.offsetWidth;
-canvas.height = canvas.offsetHeight;
-ctx.fillStyle = '#fffbea';
-ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-let drawing = false;
-let erasing = false;
-let lastX = 0;
-let lastY = 0;
-
-function getXY(e) {
-  const rect = canvas.getBoundingClientRect();
-  return {
-    x: (e.touches ? e.touches[0].clientX : e.clientX) - rect.left,
-    y: (e.touches ? e.touches[0].clientY : e.clientY) - rect.top
-  };
-}
-
-function startDrawing(e) {
-  drawing = true;
-  const pos = getXY(e);
-  lastX = pos.x;
-  lastY = pos.y;
-}
-function draw(e) {
-  if (!drawing) return;
-  e.preventDefault();
-  const pos = getXY(e);
-  ctx.strokeStyle = erasing ? '#fffbea' : colorPicker.value;
-  ctx.lineWidth = erasing ? parseInt(eraserSize.value) : 3;
-  ctx.lineCap = 'round';
-  ctx.beginPath();
-  ctx.moveTo(lastX, lastY);
-  ctx.lineTo(pos.x, pos.y);
-  ctx.stroke();
-  lastX = pos.x;
-  lastY = pos.y;
-}
-function stopDrawing() {
-  drawing = false;
-}
-
-canvas.addEventListener('mousedown', startDrawing);
-canvas.addEventListener('mousemove', draw);
-canvas.addEventListener('mouseup', stopDrawing);
-canvas.addEventListener('mouseout', stopDrawing);
-canvas.addEventListener('touchstart', startDrawing);
-canvas.addEventListener('touchmove', draw);
-canvas.addEventListener('touchend', stopDrawing);
-
-eraserBtn.addEventListener('click', () => {
-  erasing = !erasing;
-  eraserBtn.textContent = erasing ? '🧽 지우는 중...' : '🧽 지우개';
-});
-clearBtn.addEventListener('click', () => {
-  ctx.fillStyle = '#fffbea';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-});
-saveBtn.addEventListener('click', () => {
-  const image = canvas.toDataURL("image/png");
-  const link = document.createElement('a');
-  link.href = image;
-  link.download = "my_drawing.png";
-  link.click();
-});
-</script>
-
-<script>
-function startBreathing() {
-  const circle = document.getElementById('breathing-circle');
-  const text = document.getElementById('breathing-text');
-  let state = 'breathe in';
-
-  text.textContent = '들이마시기...';
-  circle.style.transform = 'scale(1.4)';
-
-  if (window.breathingInterval) clearInterval(window.breathingInterval);
-
-  window.breathingInterval = setInterval(() => {
-    if (state === 'breathe in') {
-      state = 'hold';
-      text.textContent = '멈추기...';
-      circle.style.transform = 'scale(1.4)';
-    } else if (state === 'hold') {
-      state = 'breathe out';
-      text.textContent = '내쉬기...';
-      circle.style.transform = 'scale(1)';
-    } else {
-      state = 'breathe in';
-      text.textContent = '들이마시기...';
-      circle.style.transform = 'scale(1.4)';
-    }
-  }, 4000);
-}
-
-let audioPlayer = new Audio();
-function playSound(src, label = "") {
-  audioPlayer.pause();
-  audioPlayer = new Audio(src);
-  audioPlayer.loop = true;
-  audioPlayer.play();
-  document.getElementById('nowPlayingLabel').textContent = `🎵 재생 중: ${label}`;
-}
-function stopMusic() {
-  audioPlayer.pause();
-  audioPlayer.currentTime = 0;
-  document.getElementById('nowPlayingLabel').textContent = "";
-}
-
-document.getElementById("send-email").addEventListener("click", function () {
-  const subject = encodeURIComponent("내 감정 그림");
-  const body = encodeURIComponent("안녕하세요! 오늘의 감정을 그림으로 표현했어요. 다운로드 폴더에서 저장된 그림을 이메일에 첨부해주세요. ❤️");
-  window.location.href = `mailto:?subject=${subject}&body=${body}`;
-});
-</script>
-<footer>
-    © 2025 건강한 작은 마음 | 모든 권리 보유 🌟
- </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const moodButtons = document.querySelectorAll('#mood-story-builder button[onclick^="showMoodStory"]');
-
-      moodButtons.forEach((button) => {
-        button.setAttribute('aria-pressed', 'false');
-        button.addEventListener('click', () => {
-          moodButtons.forEach((item) => {
-            item.classList.remove('is-selected');
-            item.setAttribute('aria-pressed', 'false');
-          });
-          button.classList.add('is-selected');
-          button.setAttribute('aria-pressed', 'true');
-        });
-      });
-
-      const originalResetStory = window.resetStory;
-      if (typeof originalResetStory === 'function') {
-        window.resetStory = function (...args) {
-          const result = originalResetStory.apply(this, args);
-          moodButtons.forEach((button) => {
-            button.classList.remove('is-selected');
-            button.setAttribute('aria-pressed', 'false');
-          });
-          return result;
-        };
-      }
-    });
-  </script>
-
-  <script defer src="../feelings-checkin.js?v=2"></script>
-  <script defer src="../shared-language-switcher.js?v=1"></script>
+  <footer class="tools-footer">© 2026 Healthy Little Minds. 지지적인 대화를 위한 교육 자료.</footer>
+  <script defer src="../interactive-tools.js?v=1"></script>
+  <script defer src="../shared-language-switcher.js?v=2"></script>
   <script defer src="../button-loader.js?v=1"></script>
 </body>
 </html>

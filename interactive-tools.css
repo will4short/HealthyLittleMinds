@@ -1224,6 +1224,10 @@ body.tools-page {
   box-shadow: none;
 }
 
+.story-output.is-visible {
+  display: block;
+}
+
 .story-output h3 {
   text-align: left;
 }
