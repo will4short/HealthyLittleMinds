@@ -216,6 +216,36 @@ button.home-status-notice {
   margin-inline: auto;
 }
 
+.home-experience :where(.navbar-menu, .quick-links, .nav-inner) {
+  min-width: 0;
+}
+
+.home-experience :where(.nav-more, .ja-nav-more, .ko-nav-more, .cn-nav-more, .tw-nav-more) {
+  position: relative;
+}
+
+.home-experience :where(.nav-more summary, .ja-nav-more summary, .ko-nav-more summary, .cn-nav-more summary, .tw-nav-more summary) {
+  cursor: pointer;
+}
+
+.home-experience :where(.nav-more__panel, .ja-nav-more__menu, .ko-nav-more__menu, .cn-nav-more__menu, .tw-nav-more__menu) {
+  right: 0;
+  left: auto;
+  box-sizing: border-box;
+  width: max-content;
+  min-width: 12rem;
+  max-width: min(22rem, calc(100vw - 2rem));
+  max-height: min(70vh, 28rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.home-experience :where(.nav-more__panel, .ja-nav-more__menu, .ko-nav-more__menu, .cn-nav-more__menu, .tw-nav-more__menu) a {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 .home-experience .site-title,
 .home-experience h1,
 .home-experience h2,

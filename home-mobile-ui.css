@@ -1,6 +1,11 @@
 /* Shared mobile navigation and language controls for all home pages. */
 .home-mobile-ui .mobile-nav {
   box-sizing: border-box;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .home-mobile-ui .mobile-nav__head {
@@ -45,7 +50,21 @@
 
 .home-mobile-ui .mobile-nav a,
 .home-mobile-ui .mobile-nav > button:not(.mobile-nav__close) {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
   border-radius: 9px;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
+}
+
+.home-mobile-ui .mobile-nav__label {
+  margin: 0.85rem 0 0.25rem;
+  color: #5b7080;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .home-language-toggle {
@@ -56,7 +75,9 @@
   .home-mobile-ui .mobile-nav {
     width: min(88vw, 380px) !important;
     max-width: 100%;
-    padding: 0.85rem 0.9rem max(1.5rem, env(safe-area-inset-bottom)) !important;
+    max-height: 100vh !important;
+    max-height: 100dvh !important;
+    padding: 0.85rem 0.9rem max(5.25rem, calc(1.5rem + env(safe-area-inset-bottom))) !important;
     overflow-y: auto;
     overscroll-behavior: contain;
     box-shadow: -18px 0 44px rgba(21, 52, 70, 0.2);
