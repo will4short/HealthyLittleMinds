@@ -169,6 +169,21 @@
       languageButton.setAttribute("aria-expanded", String(open));
     }
 
+    languageNav.addEventListener("click", function (event) {
+      var link = event.target.closest("a[href]");
+      if (!link) return;
+      if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button) return;
+
+      event.preventDefault();
+      try {
+        if (window.localStorage.getItem("isMember") === "true") {
+          window.localStorage.setItem("isMember", "true");
+        }
+      } catch (error) {}
+      setLanguages(false);
+      window.location.assign(link.href);
+    });
+
     languageButton.addEventListener("click", function () {
       setLanguages(!languageNav.classList.contains("is-open"));
     });

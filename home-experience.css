@@ -43,6 +43,11 @@ body.home-experience {
   font-size: 1.05rem;
 }
 
+.home-experience .localized-loading[hidden],
+.home-experience #loading-screen[hidden] {
+  display: none !important;
+}
+
 .home-experience .localized-loading__spinner {
   width: 50px;
   height: 50px;

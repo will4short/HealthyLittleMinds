@@ -72,9 +72,21 @@
     document.body.appendChild(updateNotice);
   }
 
-  window.addEventListener("load", function () {
+  function hideLoadingScreen() {
     var loading = document.getElementById("loading-screen");
     if (loading) loading.hidden = true;
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", hideLoadingScreen, { once: true });
+  } else {
+    hideLoadingScreen();
+  }
+
+  window.setTimeout(hideLoadingScreen, 3500);
+
+  window.addEventListener("load", function () {
+    hideLoadingScreen();
     if (!navigator.onLine) showStatus(messages.offlineInitial, "offline");
   });
   window.addEventListener("online", function () { showStatus(messages.online, "online"); });
