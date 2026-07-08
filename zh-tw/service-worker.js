@@ -3,7 +3,7 @@
 // Lean precache (no big media) + runtime image cache
 // ===============================
 
-const PRECACHE_NAME = 'hlm-precache-v80'; // bump here for new release
+const PRECACHE_NAME = 'hlm-precache-v81'; // bump here for new release
 const RUNTIME_NAME  = 'hlm-runtime-v20';   // leave if strategy unchanged
 const IMAGE_CACHE   = 'hlm-img-v15';       // leave if image rules unchanged
 
@@ -14,7 +14,7 @@ const IMAGE_MAX_AGE_MS  = 1000 * 60 * 60 * 24 * 30; // ~30 days
 const ASSETS_TO_PRECACHE = [
   // Shell & core pages
   '/', '/index.html', '/home.html', '/dashboard.html', '/interactive-tools.html',
-  '/bulletin.html', '/inspire_page.html', '/offline.html', '/more-feelings.html',
+  '/bulletin.html', '/offline.html', '/more-feelings.html',
   '/teacher-life.html', '/about_me.html',
 
   // Emotional pages (HTML only)

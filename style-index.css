@@ -1294,6 +1294,12 @@ footer{
   gap: 8px;
   align-items:center;
 }
+.language-switcher__label{
+  color: var(--ink);
+  font-size: .78rem;
+  font-weight: 800;
+  line-height: 1;
+}
 .language-switcher img{
   width:22px;
   height:22px;

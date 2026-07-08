@@ -3,7 +3,7 @@
 // Lean precache (no big media) + runtime image cache
 // ===============================
 
-const PRECACHE_NAME = 'hlm-precache-v176'; // bump here for new release/update toast
+const PRECACHE_NAME = 'hlm-precache-v177'; // bump here for new release/update toast
 const RUNTIME_NAME  = 'hlm-runtime-v29';   // bump to refresh updated versioned page assets
 const IMAGE_CACHE   = 'hlm-img-v18';       // leave if image rules unchanged
 
@@ -16,7 +16,7 @@ const ASSETS_TO_PRECACHE = [
   '/', '/index.html', '/home.html', '/dashboard.html', '/interactive-tools.html',
   '/growth-plan.html',
   '/audiobook.html',
-  '/bulletin.html', '/inspire_page.html', '/offline.html', '/more-feelings.html',
+  '/bulletin.html', '/offline.html', '/more-feelings.html',
   '/teacher-life.html', '/about_me.html',
 
   // Emotional pages (HTML only)
