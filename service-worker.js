@@ -3,8 +3,8 @@
 // Lean precache (no big media) + runtime image cache
 // ===============================
 
-const PRECACHE_NAME = 'hlm-precache-v177'; // bump here for new release/update toast
-const RUNTIME_NAME  = 'hlm-runtime-v29';   // bump to refresh updated versioned page assets
+const PRECACHE_NAME = 'hlm-precache-v191'; // bump here for new release/update toast
+const RUNTIME_NAME  = 'hlm-runtime-v43';   // bump to refresh updated versioned page assets
 const IMAGE_CACHE   = 'hlm-img-v18';       // leave if image rules unchanged
 
 const IMAGE_MAX_ENTRIES = 60;                   // limit image count
@@ -13,7 +13,7 @@ const IMAGE_MAX_AGE_MS  = 1000 * 60 * 60 * 24 * 30; // ~30 days
 // Keep precache small & critical (NO big images/videos/PDFs)
 const ASSETS_TO_PRECACHE = [
   // Shell & core pages
-  '/', '/index.html', '/home.html', '/dashboard.html', '/interactive-tools.html',
+  '/', '/index.html', '/home.html', '/worksheets.html', '/dashboard.html', '/interactive-tools.html',
   '/growth-plan.html',
   '/audiobook.html',
   '/bulletin.html', '/offline.html', '/more-feelings.html',
@@ -30,6 +30,9 @@ const ASSETS_TO_PRECACHE = [
 
   // Teachers Hub (HTML only)
   '/teachers.html', '/zh-tw/teachers.html', '/zh-cn/teachers.html', '/ja/teachers.html', '/ko/teachers.html',
+
+  // Worksheet hubs (HTML only)
+  '/zh-tw/worksheets.html', '/zh-cn/worksheets.html', '/ja/worksheets.html', '/ko/worksheets.html',
 
   // Will Talks (HTML only)
   '/will-talks.html', '/zh-tw/will-talks.html', '/zh-cn/will-talks.html', '/ja/will-talks.html', '/ko/will-talks.html',
@@ -181,6 +184,7 @@ const ASSETS_TO_PRECACHE = [
   '/home-mobile-ui.js',
   '/site-ui-upgrades.css',
   '/site-ui-upgrades.js',
+  '/worksheet-hub.css',
   '/shared-language-switcher.css',
   '/shared-language-switcher.js',
   '/manifest.json',

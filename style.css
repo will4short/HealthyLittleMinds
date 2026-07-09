@@ -6329,24 +6329,6 @@ body.dark-mode #characters .character-book-type {
   background: #234f70 !important;
 }
 
-.localized-home #worksheets {
-  background: #fff8f2 !important;
-  padding: clamp(2rem, 4vw, 3rem) clamp(0.8rem, 3vw, 1.5rem) !important;
-}
-
-.localized-home #worksheets .scroll-container,
-.localized-home #worksheets .book-scroll-wrapper,
-.localized-home #worksheets .worksheet-rail {
-  gap: 1rem !important;
-  padding: 1rem 0.35rem !important;
-}
-
-.localized-home #worksheets .worksheet-card,
-.localized-home #worksheets .book-card {
-  border: 1px solid #f0e2d7;
-  box-shadow: 0 6px 18px rgba(37, 78, 112, 0.07);
-}
-
 .localized-home .hlm-res,
 .localized-home .hlm-res--full {
   background:
@@ -7469,7 +7451,6 @@ body,
 #support-guide,
 #resources,
 #emotional-literacy,
-#worksheets,
 #contact {
   scroll-margin-top: calc(82px + var(--announcement-height, 0px));
 }
@@ -7648,7 +7629,6 @@ body,
   #support-guide,
   #resources,
   #emotional-literacy,
-  #worksheets,
   #contact {
     scroll-margin-top: calc(74px + var(--announcement-height, 48px));
   }

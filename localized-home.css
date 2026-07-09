@@ -235,7 +235,6 @@ html[lang="ja"] .localized-home #navLinks {
 
 html[lang="ja"] .localized-home #feelings,
 html[lang="ja"] .localized-home #books,
-html[lang="ja"] .localized-home #worksheets,
 html[lang="ja"] .localized-home #topics,
 html[lang="ja"] .localized-home #subscribe {
   scroll-margin-top: calc(var(--ja-header-height) + var(--ja-nav-height) + 14px);
@@ -438,7 +437,6 @@ html[lang="zh-Hant"] .localized-home .sticky-nav {
 
 html[lang="zh-Hant"] .localized-home #feelings,
 html[lang="zh-Hant"] .localized-home #books,
-html[lang="zh-Hant"] .localized-home #worksheets,
 html[lang="zh-Hant"] .localized-home #topics,
 html[lang="zh-Hant"] .localized-home #subscribe {
   scroll-margin-top: calc(var(--tw-header-height) + var(--tw-nav-height) + 14px);
@@ -646,7 +644,6 @@ html[lang="ko"] .localized-home .sticky-nav {
 
 html[lang="ko"] .localized-home #feelings,
 html[lang="ko"] .localized-home #books,
-html[lang="ko"] .localized-home #worksheets,
 html[lang="ko"] .localized-home #topics,
 html[lang="ko"] .localized-home #subscribe {
   scroll-margin-top: calc(var(--ko-header-height) + var(--ko-nav-height) + 14px);
@@ -853,7 +850,6 @@ html[lang="zh-CN"] .localized-home .sticky-nav {
 
 html[lang="zh-CN"] .localized-home #feelings,
 html[lang="zh-CN"] .localized-home #books,
-html[lang="zh-CN"] .localized-home #worksheets,
 html[lang="zh-CN"] .localized-home #topics,
 html[lang="zh-CN"] .localized-home #subscribe {
   scroll-margin-top: calc(var(--cn-header-height) + var(--cn-nav-height) + 14px);
@@ -1114,7 +1110,6 @@ html[lang="zh-CN"] .localized-home .cn-feelings__more .cn-tools:focus-visible {
 
   html[lang="ja"] .localized-home #feelings,
   html[lang="ja"] .localized-home #books,
-  html[lang="ja"] .localized-home #worksheets,
   html[lang="ja"] .localized-home #topics,
   html[lang="ja"] .localized-home #subscribe {
     scroll-margin-top: calc(var(--ja-header-height) + 12px);
@@ -1127,7 +1122,6 @@ html[lang="zh-CN"] .localized-home .cn-feelings__more .cn-tools:focus-visible {
 
   html[lang="zh-CN"] .localized-home #feelings,
   html[lang="zh-CN"] .localized-home #books,
-  html[lang="zh-CN"] .localized-home #worksheets,
   html[lang="zh-CN"] .localized-home #topics,
   html[lang="zh-CN"] .localized-home #subscribe {
     scroll-margin-top: calc(var(--cn-header-height) + 12px);
@@ -1140,7 +1134,6 @@ html[lang="zh-CN"] .localized-home .cn-feelings__more .cn-tools:focus-visible {
 
   html[lang="ko"] .localized-home #feelings,
   html[lang="ko"] .localized-home #books,
-  html[lang="ko"] .localized-home #worksheets,
   html[lang="ko"] .localized-home #topics,
   html[lang="ko"] .localized-home #subscribe {
     scroll-margin-top: calc(var(--ko-header-height) + 12px);
@@ -1153,7 +1146,6 @@ html[lang="zh-CN"] .localized-home .cn-feelings__more .cn-tools:focus-visible {
 
   html[lang="zh-Hant"] .localized-home #feelings,
   html[lang="zh-Hant"] .localized-home #books,
-  html[lang="zh-Hant"] .localized-home #worksheets,
   html[lang="zh-Hant"] .localized-home #topics,
   html[lang="zh-Hant"] .localized-home #subscribe {
     scroll-margin-top: calc(var(--tw-header-height) + 12px);

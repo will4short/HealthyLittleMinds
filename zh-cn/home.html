@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <!-- Google Analytics -->
@@ -248,89 +248,6 @@ section h2 {
   max-width: 100%;
   border-radius: 10px;
 }
-/* -----------------------------
-   Worksheet Section (Refined)
------------------------------ */
-#worksheets {
-  padding: 2rem;
-  background: #fff;
-  text-align: center;
-}
-
-#worksheets h2 {
-  color: #254E70;
-  font-size: 1.6rem;
-  margin-bottom: 0.5rem;
-}
-
-#worksheets .subtext {
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 0.5rem;
-}
-
-#worksheets .scroll-hint {
-  font-size: 0.9rem;
-  color: #888;
-  margin-bottom: 1rem;
-}
-
-.scroll-container {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding: 1rem 0;
-  scroll-behavior: smooth;
-  justify-content: flex-start;
-  -webkit-overflow-scrolling: touch;
-}
-
-.worksheet-card {
-  min-width: 300px;          /* ✅ FIX: no more tiny cards */
-  max-width: 320px;
-  background: #FFF2E5;
-  padding: 1rem;
-  border-radius: 16px;
-  text-align: center;
-  flex-shrink: 0;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-  font-size: 0.95rem;
-}
-
-.worksheet-card img {
-  width: 100%;
-  max-width: 260px;
-  height: auto;
-  display: block;
-  margin: 0.75rem auto 0;
-  border-radius: 12px;
-}
-
-.download-btn {
-  display: inline-block;
-  margin-top: 0.75rem;
-  background-color: #FFDD59;
-  color: #254E70;
-  padding: 0.5rem 1.1rem;
-  border-radius: 999px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: background 0.25s ease, transform 0.2s ease;
-}
-
-.download-btn:hover {
-  background-color: #ffc107;
-  transform: translateY(-1px);
-}
-
-/* ✅ Mobile fine-tuning */
-@media (max-width: 420px) {
-  .worksheet-card {
-    min-width: 88vw;         /* fills most of the screen */
-  }
-}
-
 /* -----------------------------
    Footer
 ----------------------------- */
@@ -914,7 +831,7 @@ html, body { overflow-x: hidden; }
   </script>
 <link href="../home-mobile-ui.css?v=2" rel="stylesheet" />
 <link href="../site-ui-upgrades.css?v=1" rel="stylesheet" />
-<link href="../home-experience.css?v=6" rel="stylesheet" />
+<link href="../home-experience.css?v=7" rel="stylesheet" />
 </head>
 <body class="localized-home home-mobile-ui ui-upgraded home-experience">
 <a class="home-skip-link" href="#main-content">跳到主要内容</a>
@@ -952,7 +869,7 @@ html, body { overflow-x: hidden; }
   <a href="#feelings">📖 情绪故事</a>
   <a href="#support-guide">帮我选择</a>
   <a href="#books">📚 情绪绘本</a>
-  <a href="#worksheets">📝 学习单</a>
+  <a href="worksheets.html">📝 学习单</a>
   <a href="parents.html">👪 给家长的建议</a>
   <a href="teachers.html">🍎 教师资源</a>
   <a href="interactive-tools.html">🧘 情绪工具</a>
@@ -975,7 +892,7 @@ html, body { overflow-x: hidden; }
     <a href="#feelings">情绪故事</a>
     <a href="#support-guide">帮我选择</a>
     <a href="#books">情绪绘本</a>
-    <a href="#worksheets">学习单</a>
+    <a href="worksheets.html">学习单</a>
     <a href="parents.html">家长专区</a>
     <a href="teachers.html">教师资源中心</a>
     <a href="#topics">主题指南</a>
@@ -1069,7 +986,7 @@ html, body { overflow-x: hidden; }
     <a href="#feelings">情绪</a>
     <a href="#support-guide">帮我选择</a>
     <a href="#books">绘本</a>
-    <a href="#worksheets">练习单</a>
+    <a href="worksheets.html">练习单</a>
   </nav>
 </section>
 
@@ -1270,48 +1187,7 @@ html, body { overflow-x: hidden; }
 </section>
 
 <!-- 📝 工作纸专区 -->
-<section id="worksheets" class="worksheet-section cn-worksheet" data-home-section="worksheets" aria-labelledby="homeWorksheetsTitle">
-  <h2 id="homeWorksheetsTitle"><span aria-hidden="true">📝</span> 工作纸专区</h2>
 
-  <p class="subtext">
-    透过涂色、呼吸练习和自我反思，帮助孩子整理内心情绪。
-  </p>
-
-  <p class="scroll-hint">
-    👉 向右滑动查看更多工作纸
-  </p>
-
-  <div class="scroll-container">
-
-    <!-- Worksheet 1 -->
-    <div class="worksheet-card">
-      <p><strong>日常情绪工作纸</strong></p>
-      <img src="../images/worksheet1.webp" alt="日常情绪工作纸 预览">
-      <a href="../worksheets/worksheet1.pdf" class="download-btn">下载</a>
-    </div>
-
-    <!-- Worksheet 2 -->
-    <div class="worksheet-card">
-      <p><strong>平息内心的风暴</strong></p>
-      <img src="../images/calm-the-storm-workbook-cover.webp" alt="平息内心的风暴 工作纸">
-      <a href="../worksheets/Calm the Storm Inside - My Feelings Workbook.pdf" class="download-btn">
-        下载 PDF
-      </a>
-    </div>
-
-    <!-- Worksheet 3 -->
-    <div class="worksheet-card">
-      <p><strong>小行动，大感受</strong></p>
-      <img src="../images/Little-Acts-Big-Feelings-Worksheet-Cover.webp" alt="小行动，大感受 工作纸">
-      <a href="../worksheets/Little-Acts-Big-Feelings-Worksheet.pdf" class="download-btn">
-        下载 PDF
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<!-- LEFT: intro + visual -->
 <section id="topics" class="hlm-res hlm-res--full" data-home-section="topics" aria-labelledby="hlm-topics-title">
   <div class="hlm-res__grid">
     <!-- LEFT: intro + visual -->
@@ -1452,7 +1328,7 @@ html, body { overflow-x: hidden; }
 
 <!-- DOM Interaction: Scroll + Announcement (merged) -->
   <script defer src="../button-loader.js?v=1"></script>
-  <script src="../site-ui-upgrades.js?v=1"></script>
+  <script src="../site-ui-upgrades.js?v=2"></script>
   <script src="../home-mobile-ui.js?v=2"></script>
 </body>
 </html>

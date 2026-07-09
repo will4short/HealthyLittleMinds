@@ -27,6 +27,8 @@ body.home-experience {
   background:
     radial-gradient(circle at 8% 4%, rgba(255, 221, 89, 0.12), transparent 24rem),
     linear-gradient(180deg, #fbfefe 0, #ffffff 34rem);
+  max-width: 100%;
+  overflow-x: clip;
   text-rendering: optimizeLegibility;
 }
 
@@ -862,6 +864,88 @@ body.home-experience.dark-mode :where(.support-guide__step, .localized-support-g
 @media (max-width: 430px) {
   .home-experience :where(.home-start__actions, .ja-home-start__actions, .ko-home-start__actions, .tw-home-start__actions) a {
     flex-basis: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  html,
+  body.home-experience,
+  body.localized-home.home-experience {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .home-experience :where(main, header, footer, section, nav, div, article, aside) {
+    max-width: 100%;
+  }
+
+  .home-experience :where(img, video, canvas, svg) {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .home-experience :where(.navbar, .home-start, .ja-home-start, .ko-home-start, .tw-home-start, .support-guide, .localized-support-guide) {
+    max-width: calc(100vw - 1.25rem) !important;
+  }
+
+  .home-experience :where(.carousel-container, .member-welcome-greeting, .mood-check-strip, .characters-section, .feelings-section, .book-rail-section, .localized-book-shelf, .hlm-res, .localized-topics, .localized-pathways, .localized-about, .localized-subscribe, .ja-subscribe, .ko-subscribe, .tw-subscribe) {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: clip;
+  }
+
+  .home-experience :where(.support-guide__panel, .localized-support-guide__panel, .hlm-res__grid, .localized-pathways__grid) {
+    grid-template-columns: 1fr !important;
+    min-width: 0;
+  }
+
+  .home-experience :where(.support-guide__step, .localized-support-guide__step, .support-guide__result, .localized-support-guide__result, .hlm-res__intro, .hlm-topic-panel) {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .home-experience :where(.support-guide__choices, .localized-support-guide__choices, .support-guide__actions, .localized-support-guide__actions, .home-start__actions, .ja-home-start__actions, .ko-home-start__actions, .tw-home-start__actions) {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .home-experience :where(.support-guide__choices, .localized-support-guide__choices) button,
+  .home-experience :where(.support-guide__actions, .localized-support-guide__actions) a {
+    min-width: 0;
+    white-space: normal;
+  }
+
+  .home-experience :where(.language-switcher) {
+    max-width: calc(100vw - 1rem);
+    left: auto;
+    right: 0.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .home-experience .language-switcher::-webkit-scrollbar {
+    display: none;
+  }
+
+  .home-experience :where(.book-rail-window, .auto-book-rail, .book-row, .scroll-container) {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+  }
+
+  .home-experience .book-rail-window {
+    width: 100%;
+    padding-inline: 0.75rem;
+  }
+
+  .home-experience #emotional-literacy .book-grid.book-rail-track {
+    width: max-content !important;
+    max-width: none !important;
+  }
+
+  .home-experience :where(.auto-book-rail > .book-card, #books .book-card, .book-rail-window .book-card) {
+    max-width: calc(100vw - 2rem);
   }
 }
 

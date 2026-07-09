@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <!-- Google Analytics -->
@@ -260,66 +260,6 @@ section h2 {
 }
 
 /* -----------------------------
-   Worksheet Section
------------------------------ */
-#worksheets {
-  padding: 2rem;
-  background: #fff;
-  text-align: center;
-}
-
-#worksheets h2 {
-  color: #254E70;
-  font-size: 1.6rem;
-  margin-bottom: 0.5rem;
-}
-
-#worksheets .subtext {
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 0.5rem;
-}
-
-#worksheets .scroll-hint {
-  font-size: 0.9rem;
-  color: #888;
-  margin-bottom: 1rem;
-}
-
-.worksheet-card {
-  min-width: 220px;
-  background: #FFF2E5;
-  padding: 1rem;
-  border-radius: 16px;
-  text-align: center;
-  flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.worksheet-card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-top: 0.5rem;
-}
-
-.download-btn {
-  display: inline-block;
-  margin-top: 0.7rem;
-  background-color: #FFDD59;
-  color: #254E70;
-  padding: 0.4rem 1rem;
-  border-radius: 20px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9rem;
-  transition: background 0.3s ease;
-}
-
-.download-btn:hover {
-  background-color: #ffc107;
-}
-
-/* -----------------------------
    Footer
 ----------------------------- */
 footer {
@@ -420,49 +360,6 @@ html {
   scroll-behavior: smooth;
 }
 
-.scroll-container {
-  display: flex;
-  overflow-x: auto;
-  gap: 1rem;
-  scroll-behavior: smooth;
-  padding: 1rem 0;          /* covers both "padding-bottom:1rem" and "padding:1rem 0" */
-  justify-content: flex-start;
-}
-
-.worksheet-card {
-  min-width: 160px;
-  max-width: 170px;
-  background: #FFF2E5;
-  padding: 0.6rem;
-  border-radius: 12px;
-  text-align: center;
-  flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  font-size: 0.85rem;
-}
-
-.worksheet-card img {
-  width: 100%;
-  border-radius: 6px;
-  margin-top: 0.5rem;
-}
-
-.download-btn {
-  display: inline-block;
-  margin-top: 0.5rem;
-  background-color: #FFDD59;
-  color: #254E70;
-  padding: 0.3rem 0.8rem;
-  border-radius: 18px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
-
-.download-btn:hover {
-  background-color: #ffc107;
-}
 .logout-btn {
   display: inline-block;
   background-color: #FFDD59;
@@ -704,7 +601,7 @@ html[lang="zh-TW"] .hlm-res{
   </script>
 <link href="../home-mobile-ui.css?v=2" rel="stylesheet" />
 <link href="../site-ui-upgrades.css?v=1" rel="stylesheet" />
-<link href="../home-experience.css?v=6" rel="stylesheet" />
+<link href="../home-experience.css?v=7" rel="stylesheet" />
 </head>
 <body class="localized-home home-mobile-ui ui-upgraded home-experience">
 <a class="home-skip-link" href="#main-content">跳到主要內容</a>
@@ -743,7 +640,7 @@ html[lang="zh-TW"] .hlm-res{
   <a href="#feelings">📖 情緒故事</a>
   <a href="#support-guide">幫我選擇</a>
   <a href="#books">📚 情緒繪本</a>
-  <a href="#worksheets">📝學習單</a>
+  <a href="worksheets.html">📝學習單</a>
   <a href="parents.html">👪 家長專區</a>
   <a href="teachers.html">🍎 教師資源</a>
   <a href="interactive-tools.html">🧘 情緒工具</a>
@@ -766,7 +663,7 @@ html[lang="zh-TW"] .hlm-res{
     <a href="#feelings">情緒故事</a>
     <a href="#support-guide">幫我選擇</a>
     <a href="#books">情緒繪本</a>
-    <a href="#worksheets">學習單</a>
+    <a href="worksheets.html">學習單</a>
     <a href="parents.html">家長專區</a>
     <a href="teachers.html">教師資源中心</a>
     <a href="#topics">主題指南</a>
@@ -860,7 +757,7 @@ html[lang="zh-TW"] .hlm-res{
     <a href="#feelings">情緒</a>
     <a href="#support-guide">幫我選擇</a>
     <a href="#books">繪本</a>
-    <a href="#worksheets">學習單</a>
+    <a href="worksheets.html">學習單</a>
   </nav>
 </section>
 
@@ -1085,43 +982,6 @@ html[lang="zh-TW"] .hlm-res{
 </div>
 </section>
 
-<section id="worksheets" class="worksheet-section tw-worksheet" data-home-section="worksheets" aria-labelledby="homeWorksheetsTitle">
-  <div class="worksheet-section__header">
-    <div>
-      <p class="eyebrow">列印後練習</p>
-    <h2 id="homeWorksheetsTitle"><span aria-hidden="true">📝</span> 學習單</h2>
-      <p class="worksheet-section__sub">下載活動，幫助孩子說出情緒、平靜下來，也練習溫柔與同理。</p>
-    </div>
-    <nav class="worksheet-picker" aria-label="依需要選擇學習單">
-      <a href="#tw-worksheet-feelings">認識情緒</a>
-      <a href="#tw-worksheet-calm">安定情緒</a>
-      <a href="#tw-worksheet-kindness">練習友善</a></nav>
-  </div>
-  <div class="worksheet-grid">
-    <article class="worksheet-card" id="tw-worksheet-feelings">
-      <div class="card-thumb"><img src="../images/worksheet1.webp" alt="日常情緒學習單" loading="lazy" decoding="async"></div>
-      <span class="worksheet-tag">認識情緒</span>
-      <h3>🖍️ 我的感受</h3>
-      <p>透過塗色、情緒紀錄和反思問題，表達今天心裡的感受。</p>
-      <a class="btn" href="../worksheets/worksheet1.pdf" download>下載 PDF</a>
-    </article>
-    <article class="worksheet-card" id="tw-worksheet-calm">
-      <div class="card-thumb"><img src="../images/calm-the-storm-workbook-cover.webp" alt="平息內心的風暴學習單" loading="lazy" decoding="async"></div>
-      <span class="worksheet-tag">安定情緒</span>
-      <h3>🌧️ 平息內心的風暴</h3>
-      <p>使用呼吸、繪畫和反思活動，練習照顧強烈的情緒。</p>
-      <a class="btn" href="../worksheets/Calm%20the%20Storm%20Inside%20-%20My%20Feelings%20Workbook.pdf" download>下載 PDF</a>
-    </article>
-    <article class="worksheet-card" id="tw-worksheet-kindness">
-      <div class="card-thumb"><img src="../images/Little-Acts-Big-Feelings-Worksheet-Cover.webp" alt="小行動，大感受學習單" loading="lazy" decoding="async"></div>
-      <span class="worksheet-tag">練習友善</span>
-      <h3>💖 小行動，大感受</h3>
-      <p>透過友善、勇氣和情緒表達，支持孩子溫柔地成長。</p>
-      <a class="btn" href="../worksheets/Little-Acts-Big-Feelings-Worksheet.pdf" download>下載 PDF</a>
-    </article>
-  </div>
-</section>
-
 <section id="topics" class="hlm-res hlm-res--full" data-home-section="topics" aria-labelledby="hlm-topics-title">
   <div class="hlm-res__grid">
     <!-- LEFT: intro + visual -->
@@ -1259,7 +1119,7 @@ html[lang="zh-TW"] .hlm-res{
 
 <!-- Page Interaction Scripts -->
   <script defer src="../button-loader.js?v=1"></script>
-  <script src="../site-ui-upgrades.js?v=1"></script>
+  <script src="../site-ui-upgrades.js?v=2"></script>
   <script src="../home-mobile-ui.js?v=2"></script>
 </body>
 </html>
