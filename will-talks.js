@@ -1,12 +1,697 @@
-(function(){"use strict";var lang=(document.documentElement.lang||"en").toLowerCase();var code=lang.indexOf("zh-tw")===0?"zh-tw":lang.indexOf("zh-cn")===0?"zh-cn":lang.indexOf("ja")===0?"ja":lang.indexOf("ko")===0?"ko":"en";var prefix=code==="en"?"":"../";
-var allTopics=["Cognitive Distortions","Emotional Regulation","Learned Helplessness","Relationships","Self-awareness","Stress and Coping","Childhood and Family Patterns","Personal Growth"];var icons=["🧠","🌿","🧩","🤝","🪞","🌤️","🏡","🌱"];
-var copy={en:{page:"Will Talks",home:"Home",back:"Back to Home",nav:["Latest","Episodes","Topics"],subtitle:"Psychology, Human Behavior & Everyday Mental Health",intro:"Will Talks is a reflective podcast and talk series exploring psychology, emotional wellbeing, relationships, learning, personal growth, and the everyday patterns that shape human behavior.",latestBtn:"Listen to Latest Episode",topicsBtn:"Explore Topics",heroImage:"Podcast or channel portrait",latestTitle:"Latest episode",latestLead:"A featured conversation from Will Talks.",episodeTitle:"Latest episode title",episodeDesc:"Add a short description of the newest episode here, including the central question or everyday experience it explores.",topicExplain:"Why this topic matters",topicText:"Use this space to briefly explain the psychology behind the episode and what listeners can take into everyday life.",listen:"Listen / Watch",episodesTitle:"Episodes and talks",episodesLead:"Reflective conversations that make psychology practical, human, and easier to understand.",topicsTitle:"Topics covered",topicsLead:"Explore recurring themes across the podcast and talk series.",aboutTitle:"About Will Talks",about:"Will Talks was created to make psychology and mental health ideas easier to understand, more relatable, and useful in everyday life.",ctaTitle:"Continue the conversation",ctaText:"Follow the podcast for new episodes, practical reflections, and thoughtful conversations about everyday human behavior.",follow:"Follow the Podcast",platform:"Visit YouTube / Spotify",contact:"Contact Will",placeholder:"Replace image: images/will-talks",linkPending:"Channel link coming soon",footer:"Psychology and everyday mental health conversations.",episodeNames:["Why Our Thoughts Feel Like Facts","The Skill Behind Emotional Regulation","When Trying Stops Feeling Worth It","Patterns We Bring Into Relationships","What Self-awareness Really Looks Like","Stress, Coping, and the Body"],summaries:["How cognitive distortions shape interpretation, emotion, and everyday choices.","A practical look at noticing feelings without being controlled by them.","Understanding learned helplessness and how small experiences of agency rebuild hope.","How early patterns, expectations, and communication influence connection.","Moving beyond overthinking toward honest, useful self-observation.","Why stress lives in the body and how flexible coping supports recovery."]},
-"zh-tw":{page:"Will Talks",home:"首頁",back:"返回首頁",nav:["最新一集","節目","主題"],subtitle:"心理學、人類行為與日常心理健康",intro:"Will Talks 是一個反思型播客與談話系列，探索心理學、情緒健康、人際關係、學習、個人成長，以及塑造人類行為的日常模式。",latestBtn:"收聽最新一集",topicsBtn:"探索主題",heroImage:"播客或頻道主視覺",latestTitle:"最新一集",latestLead:"Will Talks 的精選對談。",episodeTitle:"最新一集標題",episodeDesc:"在此加入最新一集的簡短介紹，包括核心問題或探討的日常經驗。",topicExplain:"為甚麼這個主題重要",topicText:"在此簡要解釋節目背後的心理學，以及聽眾可帶進日常生活的重點。",listen:"收聽／觀看",episodesTitle:"節目與對談",episodesLead:"讓心理學變得實用、貼近人心且容易理解的反思對談。",topicsTitle:"涵蓋主題",topicsLead:"探索播客與談話系列中反覆出現的主題。",aboutTitle:"關於 Will Talks",about:"Will Talks 的成立，是為了讓心理學與心理健康概念更容易理解、更貼近生活，並能實際運用。",ctaTitle:"延續這場對話",ctaText:"追蹤播客，收聽新節目、實用反思與關於日常人類行為的深度對談。",follow:"追蹤播客",platform:"前往 YouTube／Spotify",contact:"聯絡 Will",placeholder:"替換圖片：images/will-talks",linkPending:"頻道連結即將提供",footer:"心理學與日常心理健康對談。",episodeNames:["為甚麼想法感覺像事實","情緒調節背後的能力","當嘗試不再值得","我們帶進關係的模式","真正的自我覺察","壓力、因應與身體"],summaries:["認知扭曲如何影響理解、情緒與日常選擇。","實際理解如何察覺感受而不被感受控制。","了解習得無助，以及微小自主經驗如何重建希望。","早期模式、期待與溝通如何影響連結。","從過度思考走向誠實而有用的自我觀察。","壓力為何存在身體中，以及彈性因應如何支持復原。"]},
-"zh-cn":{page:"Will Talks",home:"首页",back:"返回首页",nav:["最新一集","节目","主题"],subtitle:"心理学、人类行为与日常心理健康",intro:"Will Talks 是一个反思型播客与谈话系列，探索心理学、情绪健康、人际关系、学习、个人成长，以及塑造人类行为的日常模式。",latestBtn:"收听最新一集",topicsBtn:"探索主题",heroImage:"播客或频道主视觉",latestTitle:"最新一集",latestLead:"Will Talks 的精选对谈。",episodeTitle:"最新一集标题",episodeDesc:"在此加入最新一集的简短介绍，包括核心问题或探讨的日常经验。",topicExplain:"为什么这个主题重要",topicText:"在此简要解释节目背后的心理学，以及听众可以带入日常生活的重点。",listen:"收听／观看",episodesTitle:"节目与对谈",episodesLead:"让心理学变得实用、贴近人心且容易理解的反思对谈。",topicsTitle:"涵盖主题",topicsLead:"探索播客与谈话系列中反复出现的主题。",aboutTitle:"关于 Will Talks",about:"Will Talks 的成立，是为了让心理学与心理健康概念更容易理解、更贴近生活，并能实际运用。",ctaTitle:"延续这场对话",ctaText:"关注播客，收听新节目、实用反思与关于日常人类行为的深度对谈。",follow:"关注播客",platform:"前往 YouTube／Spotify",contact:"联系 Will",placeholder:"替换图片：images/will-talks",linkPending:"频道链接即将提供",footer:"心理学与日常心理健康对谈。",episodeNames:["为什么想法感觉像事实","情绪调节背后的能力","当尝试不再值得","我们带进关系的模式","真正的自我觉察","压力、应对与身体"],summaries:["认知扭曲如何影响理解、情绪与日常选择。","实际理解如何觉察感受而不被感受控制。","了解习得无助，以及微小自主经验如何重建希望。","早期模式、期待与沟通如何影响连接。","从过度思考走向诚实而有用的自我观察。","压力为何存在身体中，以及灵活应对如何支持恢复。"]},
-ja:{page:"Will Talks",home:"ホーム",back:"ホームへ戻る",nav:["最新回","エピソード","テーマ"],subtitle:"心理学・人間行動・日常のメンタルヘルス",intro:"Will Talks は、心理学、心の健康、人間関係、学び、自己成長、そして人の行動を形づくる日常のパターンを探る内省的なポッドキャスト／トークシリーズです。",latestBtn:"最新回を聴く",topicsBtn:"テーマを見る",heroImage:"ポッドキャスト／チャンネル画像",latestTitle:"最新エピソード",latestLead:"Will Talksから注目の対話を紹介します。",episodeTitle:"最新エピソードのタイトル",episodeDesc:"最新回の中心となる問いや日常体験を含む短い紹介をここに追加します。",topicExplain:"このテーマが大切な理由",topicText:"エピソードの背景にある心理学と、日常生活に持ち帰れるポイントを簡潔に説明します。",listen:"聴く／見る",episodesTitle:"エピソードとトーク",episodesLead:"心理学を実用的で人間らしく、理解しやすくする内省的な対話。",topicsTitle:"扱うテーマ",topicsLead:"ポッドキャストとトークシリーズで繰り返し扱うテーマ。",aboutTitle:"Will Talksについて",about:"Will Talksは、心理学とメンタルヘルスの考えを理解しやすく、身近で、日常に役立つものにするために生まれました。",ctaTitle:"対話を続けよう",ctaText:"新しいエピソード、実践的な振り返り、日常の人間行動についての対話をフォローしてください。",follow:"ポッドキャストをフォロー",platform:"YouTube／Spotifyへ",contact:"Willに連絡",placeholder:"画像を差し替え：images/will-talks",linkPending:"チャンネルリンク準備中",footer:"心理学と日常のメンタルヘルスについての対話。",episodeNames:["考えが事実のように感じる理由","感情調整を支えるスキル","努力する意味を感じられない時","人間関係に持ち込むパターン","本当の自己認識とは","ストレス・対処・身体"],summaries:["認知のゆがみが解釈、感情、選択をどう形づくるか。","感情に支配されず気づくための実践的な視点。","学習性無力感と、小さな主体性が希望を再建する仕組み。","初期のパターン、期待、コミュニケーションがつながりに与える影響。","考えすぎを越えて役立つ自己観察へ。","ストレスが身体に宿る理由と柔軟な対処。"]},
-ko:{page:"Will Talks",home:"홈",back:"홈으로",nav:["최신 회차","에피소드","주제"],subtitle:"심리학, 인간 행동과 일상의 정신 건강",intro:"Will Talks는 심리학, 정서적 웰빙, 관계, 학습, 개인 성장, 그리고 인간 행동을 형성하는 일상의 패턴을 탐구하는 성찰형 팟캐스트 및 토크 시리즈입니다.",latestBtn:"최신 에피소드 듣기",topicsBtn:"주제 둘러보기",heroImage:"팟캐스트 또는 채널 이미지",latestTitle:"최신 에피소드",latestLead:"Will Talks의 주요 대화를 소개합니다.",episodeTitle:"최신 에피소드 제목",episodeDesc:"최신 회차가 다루는 핵심 질문이나 일상 경험을 포함한 짧은 설명을 여기에 추가하세요.",topicExplain:"이 주제가 중요한 이유",topicText:"에피소드의 심리학과 청취자가 일상에 적용할 수 있는 점을 짧게 설명합니다.",listen:"듣기／보기",episodesTitle:"에피소드와 토크",episodesLead:"심리학을 실용적이고 인간적이며 이해하기 쉽게 만드는 성찰적 대화입니다.",topicsTitle:"다루는 주제",topicsLead:"팟캐스트와 토크 시리즈에서 반복해서 탐구하는 주제입니다.",aboutTitle:"Will Talks 소개",about:"Will Talks는 심리학과 정신 건강 개념을 더 이해하기 쉽고 공감되며 일상에 유용하게 만들기 위해 시작되었습니다.",ctaTitle:"대화를 이어가세요",ctaText:"새 에피소드, 실용적인 성찰, 일상 인간 행동에 관한 깊이 있는 대화를 팔로우하세요.",follow:"팟캐스트 팔로우",platform:"YouTube／Spotify 방문",contact:"Will에게 연락",placeholder:"이미지 교체: images/will-talks",linkPending:"채널 링크 준비 중",footer:"심리학과 일상 정신 건강에 관한 대화.",episodeNames:["생각이 사실처럼 느껴지는 이유","감정 조절을 돕는 기술","시도할 가치가 없다고 느낄 때","관계에 가져오는 패턴","진정한 자기 인식","스트레스, 대처와 몸"],summaries:["인지 왜곡이 해석, 감정, 선택을 형성하는 방식.","감정에 휘둘리지 않고 알아차리는 실용적 관점.","학습된 무기력과 작은 주도성이 희망을 회복하는 방법.","초기 패턴, 기대, 소통이 연결에 미치는 영향.","과도한 생각을 넘어 유용한 자기 관찰로.","스트레스가 몸에 남는 이유와 유연한 대처."]}};var c=copy[code];var topicSets={en:allTopics,"zh-tw":["認知扭曲","情緒調節","習得無助","人際關係","自我覺察","壓力與因應","童年與家庭模式","個人成長"],"zh-cn":["认知扭曲","情绪调节","习得无助","人际关系","自我觉察","压力与应对","童年与家庭模式","个人成长"],ja:["認知のゆがみ","感情調整","学習性無力感","人間関係","自己認識","ストレスと対処","子ども時代と家族のパターン","自己成長"],ko:["인지 왜곡","감정 조절","학습된 무기력","관계","자기 인식","스트레스와 대처","아동기와 가족 패턴","개인 성장"]};allTopics=topicSets[code];var spotifyUrl="https://open.spotify.com/episode/4PNHEiwusoYZKG572kMxDa?si=c3h1-zlASP6-n1MJ5Z6Izw",youtubeUrl="https://youtu.be/_5vzBYbVh3s?si=nSQ8ATWAbdMRHP5D",episodeThumb="https://i.ytimg.com/vi/_5vzBYbVh3s/hqdefault.jpg";var latestCopy={en:{desc:"Have you ever assumed someone was ignoring you, only to discover they were simply busy? This episode explores why the mind fills in missing information with assumptions—and how those interpretations can create anxiety, misunderstanding, and emotional distress.",topic:"Our interpretations, rather than situations alone, often shape emotion. Learn why the brain jumps to conclusions, how cognitive distortions make assumptions feel factual, and how to pause and respond with greater clarity.",spotify:"Listen on Spotify",youtube:"Watch on YouTube"},"zh-tw":{desc:"你是否曾以為有人故意不理你，後來才發現對方只是很忙？本集探討大腦如何用假設填補缺失資訊，以及這些解讀如何造成焦慮、誤解與情緒困擾。",topic:"影響情緒的往往不只是情境，而是我們對情境的解讀。了解大腦為何快速下結論、認知扭曲如何讓假設像事實，以及如何停一停，以更清晰的方式回應。",spotify:"在 Spotify 收聽",youtube:"在 YouTube 觀看"},"zh-cn":{desc:"你是否曾以为有人故意不理你，后来才发现对方只是很忙？本集探讨大脑如何用假设填补缺失信息，以及这些解读如何造成焦虑、误解和情绪困扰。",topic:"影响情绪的往往不只是情境，而是我们对情境的解读。了解大脑为何快速下结论、认知扭曲如何让假设像事实，以及如何暂停并更清晰地回应。",spotify:"在 Spotify 收听",youtube:"在 YouTube 观看"},ja:{desc:"無視されたと思ったのに、相手はただ忙しかっただけ——そんな経験はありませんか。本エピソードでは、脳が不足した情報を推測で埋め、それが不安や誤解、心の負担を生む仕組みを探ります。",topic:"感情を形づくるのは状況そのものだけでなく、その解釈です。脳が結論を急ぐ理由、認知のゆがみが推測を事実のように感じさせる仕組み、立ち止まって明確に対応する方法を紹介します。",spotify:"Spotifyで聴く",youtube:"YouTubeで見る"},ko:{desc:"누군가 나를 무시한다고 생각했지만 사실은 그저 바빴던 경험이 있나요? 이 에피소드는 뇌가 빠진 정보를 가정으로 채우는 방식과 그 해석이 불안, 오해, 정서적 고통을 만드는 과정을 살펴봅니다.",topic:"감정은 상황 자체보다 상황을 해석하는 방식에 의해 달라지기도 합니다. 뇌가 성급히 결론을 내리는 이유, 인지 왜곡이 가정을 사실처럼 느끼게 하는 방식, 잠시 멈추고 더 명확하게 반응하는 법을 알아봅니다.",spotify:"Spotify에서 듣기",youtube:"YouTube에서 보기"}}[code];c.episodeTitle="Your Brain Lies To You Sometimes";c.episodeDesc=latestCopy.desc;c.topicText=latestCopy.topic;c.episodeNames[0]=c.episodeTitle;c.summaries[0]=latestCopy.desc;
-function placeholder(name){return '<div class="wt-placeholder" role="img" aria-label="'+name+'"><div><span aria-hidden="true">🎙️</span><strong>'+name+'</strong><small>'+c.placeholder+'-'+name.toLowerCase().replace(/[^a-z0-9]+/g,"-")+'.webp</small></div></div>'}function disabled(label){return '<span class="wt-btn" aria-disabled="true" title="'+c.linkPending+'">'+label+'</span>'}
-var root=document.getElementById("will-talks-app");root.innerHTML='<header class="wt-header"><div class="wt-shell wt-header__inner"><a class="wt-brand" href="'+prefix+'home.html"><img src="'+prefix+'images/logo-icon.webp" alt="" width="37" height="37"><span>Healthy Little Minds</span></a><nav class="wt-nav" aria-label="'+c.page+'">'+c.nav.map(function(n,i){return '<a href="#'+["latest","episodes","topics"][i]+'">'+n+'</a>'}).join('')+'</nav><a class="wt-home" href="'+prefix+'home.html">'+c.back+'</a></div></header><main class="wt-shell wt-main"><nav class="wt-breadcrumb" aria-label="Breadcrumb"><a href="'+prefix+'home.html">'+c.home+'</a><span>/</span><span>'+c.page+'</span></nav><section class="wt-hero"><div><p class="wt-kicker">Healthy Little Minds presents</p><h1>'+c.page+'</h1><p class="wt-subtitle">'+c.subtitle+'</p><p class="wt-intro">'+c.intro+'</p><div class="wt-actions"><a class="wt-btn" href="#latest">'+c.latestBtn+'</a><a class="wt-btn wt-btn--secondary" href="#topics">'+c.topicsBtn+'</a></div></div>'+placeholder(c.heroImage)+'</section><section class="wt-section" id="latest"><div class="wt-section__head"><h2>'+c.latestTitle+'</h2><p>'+c.latestLead+'</p></div><article class="wt-feature">'+placeholder(c.episodeTitle)+'<div class="wt-feature__copy"><span class="wt-label">'+allTopics[0]+'</span><h3>'+c.episodeTitle+'</h3><p>'+c.episodeDesc+'</p><div class="wt-explanation"><strong>'+c.topicExplain+'</strong><p>'+c.topicText+'</p></div>'+disabled(c.listen)+'</div></article></section><section class="wt-section" id="episodes"><div class="wt-section__head"><h2>'+c.episodesTitle+'</h2><p>'+c.episodesLead+'</p></div><div class="wt-episode-grid">'+c.episodeNames.map(function(n,i){return '<article class="wt-episode">'+placeholder(n)+'<div class="wt-episode__body"><span class="wt-label">'+allTopics[i]+'</span><h3>'+n+'</h3><p>'+c.summaries[i]+'</p>'+disabled(c.listen)+'</div></article>'}).join('')+'</div></section><section class="wt-section" id="topics"><div class="wt-section__head"><h2>'+c.topicsTitle+'</h2><p>'+c.topicsLead+'</p></div><div class="wt-topics">'+allTopics.map(function(t,i){return '<article class="wt-topic"><span aria-hidden="true">'+icons[i]+'</span><h3>'+t+'</h3></article>'}).join('')+'</div></section><section class="wt-section wt-about"><div class="wt-about__title"><p class="wt-kicker">'+c.page+'</p><h2>'+c.aboutTitle+'</h2></div><div class="wt-about__copy">'+c.about+'</div></section><section class="wt-section"><div class="wt-cta"><div><h2>'+c.ctaTitle+'</h2><p>'+c.ctaText+'</p></div><div class="wt-actions">'+disabled(c.follow)+disabled(c.platform)+'<a class="wt-btn wt-btn--secondary" href="'+prefix+'contact.html">'+c.contact+'</a></div></div></section></main><footer class="wt-footer">&copy; 2026 Healthy Little Minds. '+c.footer+'</footer>';var heroPlaceholder=root.querySelector(".wt-hero>.wt-placeholder");heroPlaceholder.outerHTML='<figure class="wt-hero__portrait"><img src="'+prefix+'images/will-talks.webp" alt="'+c.heroImage+'" fetchpriority="high" onerror="this.parentElement.classList.add(\'is-missing\')"><div class="wt-placeholder"><div><span aria-hidden="true">🎙️</span><strong>'+c.heroImage+'</strong></div></div></figure>';function art(){return '<figure class="wt-episode-art"><img src="'+episodeThumb+'" alt="'+c.episodeTitle+'" loading="lazy"></figure>'}function actions(){return '<div class="wt-listen-actions"><a class="wt-btn wt-platform--spotify" href="'+spotifyUrl+'" target="_blank" rel="noopener">'+latestCopy.spotify+'</a><a class="wt-btn wt-platform--youtube" href="'+youtubeUrl+'" target="_blank" rel="noopener">'+latestCopy.youtube+'</a></div>'}var featured=root.querySelector(".wt-feature");featured.querySelector(".wt-placeholder").outerHTML=art();featured.querySelector('[aria-disabled="true"]').outerHTML=actions();var firstEpisode=root.querySelector(".wt-episode");firstEpisode.querySelector(".wt-placeholder").outerHTML=art();firstEpisode.querySelector('[aria-disabled="true"]').outerHTML=actions();var ctaDisabled=root.querySelectorAll(".wt-cta [aria-disabled=true]");ctaDisabled[0].outerHTML='<a class="wt-btn wt-platform--spotify" href="'+spotifyUrl+'" target="_blank" rel="noopener">'+c.follow+'</a>';ctaDisabled[1].outerHTML='<a class="wt-btn wt-platform--youtube" href="'+youtubeUrl+'" target="_blank" rel="noopener">'+c.platform+'</a>';
-var soonCopy={en:["More conversations are coming","New Will Talks episodes will appear here as they are published. Follow on Spotify or YouTube so you do not miss the next conversation."],"zh-tw":["更多對談即將推出","新的 Will Talks 節目發布後會出現在這裡。追蹤 Spotify 或 YouTube，不要錯過下一場對談。"],"zh-cn":["更多对谈即将推出","新的 Will Talks 节目发布后会出现在这里。关注 Spotify 或 YouTube，不要错过下一场对谈。"],ja:["新しい対話を準備中","新しいWill Talksエピソードは公開後ここに追加されます。SpotifyまたはYouTubeをフォローしてください。"],ko:["새로운 대화를 준비 중입니다","새 Will Talks 에피소드는 공개되는 대로 여기에 추가됩니다. Spotify 또는 YouTube를 팔로우하세요."]}[code];root.querySelectorAll(".wt-episode-art img").forEach(function(img){img.src=prefix+"images/will-talks-brain-lies-thumbnail.jpg"});root.querySelector(".wt-episode-grid").innerHTML='<article class="wt-coming-soon"><span aria-hidden="true">🎙️</span><div><h3>'+soonCopy[0]+'</h3><p>'+soonCopy[1]+'</p></div></article>';featured.insertAdjacentHTML("beforeend",'<div class="wt-player-grid"><div><strong>Spotify</strong><iframe title="'+c.episodeTitle+' — Spotify" src="https://open.spotify.com/embed/episode/4PNHEiwusoYZKG572kMxDa?utm_source=generator&theme=0" width="100%" height="232" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div><div><strong>YouTube</strong><div class="wt-video-frame"><iframe title="'+c.episodeTitle+' — YouTube" src="https://www.youtube-nocookie.com/embed/_5vzBYbVh3s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div></div></div>');var schema=document.createElement("script");schema.type="application/ld+json";schema.textContent=JSON.stringify({"@context":"https://schema.org","@type":"PodcastEpisode",name:c.episodeTitle,description:c.episodeDesc,associatedMedia:{"@type":"MediaObject",contentUrl:spotifyUrl,embedUrl:"https://open.spotify.com/embed/episode/4PNHEiwusoYZKG572kMxDa"},url:youtubeUrl,image:new URL(prefix+"images/will-talks-brain-lies-thumbnail.jpg",window.location.href).href,partOfSeries:{"@type":"PodcastSeries",name:"Will Talks"}});document.head.appendChild(schema);
-var socialMeta=document.createElement("meta");socialMeta.setAttribute("property","og:image");socialMeta.content=new URL(prefix+"images/will-talks-social.webp",window.location.href).href;document.head.appendChild(socialMeta);var extras={en:{search:"Search episodes",all:"All topics",subscribe:"Get new Will Talks episodes",subscribeText:"Occasional email updates when a new conversation is published.",email:"Email address",submit:"Subscribe",privacy:"Click counts stay on this device and are never transmitted."},"zh-tw":{search:"搜尋節目",all:"所有主題",subscribe:"接收 Will Talks 新節目",subscribeText:"新對談發布時，偶爾寄送電子郵件通知。",email:"電子郵件",submit:"訂閱",privacy:"點擊統計只留在此裝置，不會傳送。"},"zh-cn":{search:"搜索节目",all:"所有主题",subscribe:"接收 Will Talks 新节目",subscribeText:"新对谈发布时，偶尔发送电子邮件通知。",email:"电子邮箱",submit:"订阅",privacy:"点击统计只留在此设备，不会发送。"},ja:{search:"エピソードを検索",all:"すべてのテーマ",subscribe:"Will Talksの新着を受け取る",subscribeText:"新しい対話の公開時にメールでお知らせします。",email:"メールアドレス",submit:"登録",privacy:"クリック数はこの端末だけに保存され、送信されません。"},ko:{search:"에피소드 검색",all:"모든 주제",subscribe:"Will Talks 새 소식 받기",subscribeText:"새 대화가 공개될 때 가끔 이메일로 알려드립니다.",email:"이메일 주소",submit:"구독",privacy:"클릭 수는 이 기기에만 저장되며 전송되지 않습니다."}}[code];var episodesSection=root.querySelector("#episodes");episodesSection.querySelector(".wt-section__head").insertAdjacentHTML("beforeend",'<div class="wt-filter-bar"><label><span class="sr-only">'+extras.search+'</span><input id="wtSearch" type="search" placeholder="'+extras.search+'"></label><div class="wt-filter-chips"><button type="button" class="is-active" data-topic="all">'+extras.all+'</button>'+allTopics.map(function(t){return '<button type="button" data-topic="'+t+'">'+t+'</button>'}).join('')+'</div></div>');var cta=root.querySelector(".wt-cta");cta.insertAdjacentHTML("afterend",'<form class="wt-subscribe" action="https://formspree.io/f/mkgbvboj" method="post"><div><h3>'+extras.subscribe+'</h3><p>'+extras.subscribeText+'</p></div><input type="hidden" name="form_type" value="will-talks-subscription"><input type="hidden" name="language" value="'+code+'"><label><span class="sr-only">'+extras.email+'</span><input type="email" name="email" autocomplete="email" placeholder="'+extras.email+'" required></label><button class="wt-btn" type="submit">'+extras.submit+'</button><small>'+extras.privacy+'</small></form>');function track(kind,label){try{var key="hlm_wt_analytics",data=JSON.parse(localStorage.getItem(key)||"{}");var id=kind+":"+label;data[id]=(data[id]||0)+1;localStorage.setItem(key,JSON.stringify(data))}catch(e){}}root.addEventListener("click",function(ev){var a=ev.target.closest("a");if(a&&a.href)track("click",a.textContent.trim())});Promise.all([fetch(prefix+"data/will-talks-episodes.json").then(function(r){return r.json()}),fetch(prefix+"data/will-talks-config.json").then(function(r){return r.json()})]).then(function(results){var eps=results[0].episodes||[],config=results[1];var spotify=config.spotify_show_url||spotifyUrl,youtube=config.youtube_channel_url||youtubeUrl;var ctaLinks=root.querySelectorAll(".wt-cta a");if(ctaLinks[0])ctaLinks[0].href=spotify;if(ctaLinks[1])ctaLinks[1].href=youtube;var additional=eps.slice(1);var grid=root.querySelector(".wt-episode-grid");function render(){var q=(document.getElementById("wtSearch").value||"").toLowerCase(),active=root.querySelector(".wt-filter-chips .is-active"),topic=active?active.dataset.topic:"all";var found=additional.filter(function(ep){return (!q||(ep.title+" "+ep.category).toLowerCase().includes(q))&&(topic==="all"||ep.category===topic)});if(!found.length)return;grid.innerHTML=found.map(function(ep){return '<article class="wt-episode"><figure class="wt-episode-art"><img src="'+prefix+ep.image+'" alt="'+ep.title+'" loading="lazy" width="480" height="270"></figure><div class="wt-episode__body"><span class="wt-label">'+ep.category+'</span><h3>'+ep.title+'</h3><div class="wt-listen-actions"><a class="wt-btn wt-platform--spotify" href="'+ep.spotify+'" target="_blank" rel="noopener">'+latestCopy.spotify+'</a><a class="wt-btn wt-platform--youtube" href="'+ep.youtube+'" target="_blank" rel="noopener">'+latestCopy.youtube+'</a></div></div></article>'}).join("")}document.getElementById("wtSearch").addEventListener("input",render);root.querySelector(".wt-filter-chips").addEventListener("click",function(ev){var b=ev.target.closest("button");if(!b)return;this.querySelectorAll("button").forEach(function(x){x.classList.remove("is-active")});b.classList.add("is-active");render()})}).catch(function(){});
+(function () {
+  "use strict";
+
+  const root = document.getElementById("will-talks-app");
+  if (!root) return;
+
+  const lang = (document.documentElement.lang || "en").toLowerCase();
+  const locale = lang.startsWith("zh-tw")
+    ? "zh-tw"
+    : lang.startsWith("zh-cn")
+      ? "zh-cn"
+      : lang.startsWith("ja")
+        ? "ja"
+        : lang.startsWith("ko")
+          ? "ko"
+          : "en";
+  const prefix = locale === "en" ? "" : "../";
+
+  const episodeLinks = {
+    spotify:
+      "https://open.spotify.com/episode/2SQDr6gscwAJmwD2sYtUvN?si=ZtXMCBgIQx24RHqobLxdyg",
+    spotifyEmbed:
+      "https://open.spotify.com/embed/episode/2SQDr6gscwAJmwD2sYtUvN?utm_source=generator&theme=0",
+    youtube: "https://youtu.be/rFB3goO0-G0?si=2hBmavZqWOxogl4z",
+    youtubeEmbed: "https://www.youtube-nocookie.com/embed/rFB3goO0-G0",
+  };
+
+  const archiveLinks = {
+    spotify:
+      "https://open.spotify.com/episode/4PNHEiwusoYZKG572kMxDa?si=c3h1-zlASP6-n1MJ5Z6Izw",
+    youtube: "https://youtu.be/_5vzBYbVh3s?si=nSQ8ATWAbdMRHP5D",
+  };
+
+  const copy = {
+    en: {
+      home: "Home",
+      back: "Back to home",
+      pageLabel: "Will Talks",
+      nav: ["Latest", "Episodes", "Topics", "About"],
+      eyebrow: "Will Talks",
+      title: "Psychology made practical for everyday life.",
+      intro:
+        "Reflective conversations about emotions, relationships, behaviour, learning, and the patterns that shape everyday choices.",
+      primaryCta: "Listen to latest episode",
+      secondaryCta: "Explore topics",
+      heroNote:
+        "Educational reflections for adults, educators, and curious listeners. Not a replacement for therapy, diagnosis, or medical care.",
+      latestLabel: "Latest episode",
+      latestTitle:
+        "Gaslighting: The Most Misused Psychology Word | Psychology Misunderstood S1E1",
+      latestTopic: "Psychology misunderstood",
+      latestSummary:
+        "The first episode of Psychology Misunderstood separates the science from the buzzword. Learn what gaslighting actually means, why it is often confused with lying or disagreement, and why accurate language matters.",
+      listenSpotify: "Listen on Spotify",
+      watchYoutube: "Watch on YouTube",
+      episodeMeta: "Psychology Misunderstood · Season 1 · Episode 1",
+      whyTitle: "Why this episode matters",
+      whyText:
+        "Gaslighting is now used everywhere, but loose use can make a serious psychological pattern harder to understand. This episode helps listeners separate everyday conflict from repeated manipulation of a person's sense of reality.",
+      useTitle: "Use it in real life",
+      useItems: [
+        "Learn the difference between lying, disagreeing, forgetting, and gaslighting.",
+        "Notice patterns over time instead of judging one moment in isolation.",
+        "Use psychology terms carefully, especially when describing relationships.",
+      ],
+      episodesTitle: "Episodes and conversations",
+      episodesLead:
+        "Will Talks is built slowly and intentionally. Each episode should make psychology easier to understand, remember, and apply.",
+      filterLabel: "Filter episodes by topic",
+      allTopics: "All topics",
+      topicsTitle: "Topics covered",
+      topicsLead:
+        "The show returns to practical themes that affect homes, classrooms, relationships, and self-understanding.",
+      aboutTitle: "About Will Talks",
+      aboutText:
+        "Will Talks was created to make psychology and mental health ideas easier to understand without making them shallow. The goal is not to sound impressive. The goal is to help people think more clearly, respond more gently, and use psychological knowledge in ordinary life.",
+      promiseTitle: "Editorial promise",
+      promiseItems: [
+        "Evidence-informed, not exaggerated.",
+        "Reflective, not sensational.",
+        "Practical, not performative.",
+        "Human, warm, and honest.",
+      ],
+      followTitle: "Continue the conversation",
+      followText:
+        "Follow new episodes, practical reflections, and thoughtful conversations about everyday human behaviour.",
+      comingSoon: "Channel link coming soon",
+      subscribe: "Subscribe",
+      emailPlaceholder: "Email address",
+      searchPlaceholder: "Search episodes",
+      noResults: "No episodes match that search yet.",
+      openEpisode: "Open episode",
+      platform: "Platform",
+      language: "Language",
+      imageAlt: "Will Talks podcast artwork",
+      thumbnailAlt: "Episode artwork for Gaslighting: The Most Misused Psychology Word",
+      topics: [
+        "Cognitive distortions",
+        "Psychology misunderstood",
+        "Gaslighting",
+        "Emotional regulation",
+        "Stress and coping",
+        "Relationships",
+        "Self-awareness",
+        "Childhood and family patterns",
+        "Personal growth",
+        "Learning and motivation",
+      ],
+      archiveTitle: "Your Brain Lies To You Sometimes",
+      archiveSummary:
+        "A practical conversation about cognitive distortions: why our thoughts can feel convincing, how they influence emotions, and how to pause before believing every story the mind tells.",
+      archiveTopic: "Cognitive distortions",
+      archiveAlt: "Episode artwork for Your Brain Lies To You Sometimes",
+    },
+    "zh-tw": {
+      home: "首頁",
+      back: "返回首頁",
+      pageLabel: "Will Talks",
+      nav: ["最新", "集數", "主題", "關於"],
+      eyebrow: "Will Talks",
+      title: "把心理學變成日常生活中用得上的理解。",
+      intro:
+        "關於情緒、人際關係、行為、學習，以及影響日常選擇的心理模式的反思對話。",
+      primaryCta: "收聽最新一集",
+      secondaryCta: "探索主題",
+      heroNote:
+        "為成人、教育工作者和好奇的聽眾提供的教育性反思。不能取代治療、診斷或醫療照護。",
+      latestLabel: "最新一集",
+      latestTitle: "煤氣燈操控：最常被誤用的心理學詞語 | Psychology Misunderstood S1E1",
+      latestTopic: "被誤解的心理學",
+      latestSummary:
+        "Psychology Misunderstood 第一集把科學理解和流行用語分開。你會了解煤氣燈操控真正的意思、為什麼它常被誤解為說謊或意見不同，以及為什麼準確使用心理學語言很重要。",
+      listenSpotify: "在 Spotify 收聽",
+      watchYoutube: "在 YouTube 觀看",
+      episodeMeta: "Psychology Misunderstood · 第 1 季 · 第 1 集",
+      whyTitle: "為什麼這一集重要",
+      whyText:
+        "煤氣燈操控現在被到處使用，但過度寬鬆的用法可能讓一個嚴肅的心理模式更難被理解。這一集幫助聽眾分辨日常衝突和反覆操控一個人現實感的模式。",
+      useTitle: "在生活中使用",
+      useItems: [
+        "分辨說謊、意見不同、忘記事情和煤氣燈操控之間的差別。",
+        "觀察一段時間中的模式，而不是只根據單一時刻下判斷。",
+        "描述關係時，謹慎使用心理學詞語。",
+      ],
+      episodesTitle: "集數與對話",
+      episodesLead:
+        "Will Talks 會慢慢、慎重地建立。每一集都應該讓心理學更容易理解、記得住，也能用在生活裡。",
+      filterLabel: "依主題篩選集數",
+      allTopics: "所有主題",
+      topicsTitle: "涵蓋主題",
+      topicsLead:
+        "節目會回到影響家庭、課堂、人際關係和自我理解的實用主題。",
+      aboutTitle: "關於 Will Talks",
+      aboutText:
+        "Will Talks 的建立，是為了讓心理學和心理健康概念更容易理解，但不把它們簡化得失去深度。目標不是聽起來很厲害，而是幫助人們想得更清楚、回應得更溫和，並把心理知識用在日常生活中。",
+      promiseTitle: "編輯承諾",
+      promiseItems: [
+        "以證據為基礎，不誇大。",
+        "重視反思，不煽情。",
+        "實用，而不是表演式。",
+        "有人味、溫暖且誠實。",
+      ],
+      followTitle: "延續這場對話",
+      followText:
+        "追蹤新集數、實用反思，以及關於日常人類行為的深度對話。",
+      comingSoon: "頻道連結即將提供",
+      subscribe: "訂閱",
+      emailPlaceholder: "電子郵件地址",
+      searchPlaceholder: "搜尋集數",
+      noResults: "目前沒有符合搜尋的集數。",
+      openEpisode: "開啟集數",
+      platform: "平台",
+      language: "語言",
+      imageAlt: "Will Talks 播客封面",
+      thumbnailAlt: "《煤氣燈操控：最常被誤用的心理學詞語》集數封面",
+      archiveTitle: "你的大腦有時會騙你",
+      archiveSummary:
+        "關於認知扭曲的實用對話：為什麼想法有時很有說服力、它們如何影響情緒，以及如何在相信每個念頭之前先停一停。",
+      archiveTopic: "認知扭曲",
+      archiveAlt: "《你的大腦有時會騙你》集數封面",
+      topics: [
+        "認知扭曲",
+        "情緒調節",
+        "壓力與因應",
+        "人際關係",
+        "自我覺察",
+        "童年與家庭模式",
+        "個人成長",
+        "學習與動機",
+      ],
+    },
+    "zh-cn": {
+      home: "首页",
+      back: "返回首页",
+      pageLabel: "Will Talks",
+      nav: ["最新", "节目", "主题", "关于"],
+      eyebrow: "Will Talks",
+      title: "把心理学变成日常生活中用得上的理解。",
+      intro:
+        "关于情绪、人际关系、行为、学习，以及影响日常选择的心理模式的反思对话。",
+      primaryCta: "收听最新一期",
+      secondaryCta: "探索主题",
+      heroNote:
+        "为成人、教育工作者和好奇听众提供的教育性反思。不能替代治疗、诊断或医疗照护。",
+      latestLabel: "最新一期",
+      latestTitle: "煤气灯操控：最常被误用的心理学词语 | Psychology Misunderstood S1E1",
+      latestTopic: "被误解的心理学",
+      latestSummary:
+        "Psychology Misunderstood 第一期把科学理解和流行用语分开。你会了解煤气灯操控真正的意思、为什么它常被误解为说谎或意见不同，以及为什么准确使用心理学语言很重要。",
+      listenSpotify: "在 Spotify 收听",
+      watchYoutube: "在 YouTube 观看",
+      episodeMeta: "Psychology Misunderstood · 第 1 季 · 第 1 期",
+      whyTitle: "为什么这一期重要",
+      whyText:
+        "煤气灯操控现在被到处使用，但过于宽泛的用法可能让一个严肃的心理模式更难被理解。这一期帮助听众分辨日常冲突和反复操控一个人现实感的模式。",
+      useTitle: "在生活中使用",
+      useItems: [
+        "分辨说谎、意见不同、忘事情和煤气灯操控之间的差别。",
+        "观察一段时间中的模式，而不是只根据单一时刻下判断。",
+        "描述关系时，谨慎使用心理学词语。",
+      ],
+      episodesTitle: "节目与对话",
+      episodesLead:
+        "Will Talks 会慢慢、慎重地建立。每一期都应该让心理学更容易理解、记得住，也能用在生活里。",
+      filterLabel: "按主题筛选节目",
+      allTopics: "所有主题",
+      topicsTitle: "涵盖主题",
+      topicsLead:
+        "节目会回到影响家庭、课堂、人际关系和自我理解的实用主题。",
+      aboutTitle: "关于 Will Talks",
+      aboutText:
+        "Will Talks 的建立，是为了让心理学和心理健康概念更容易理解，但不把它们简化得失去深度。目标不是听起来很厉害，而是帮助人们想得更清楚、回应得更温和，并把心理知识用在日常生活中。",
+      promiseTitle: "编辑承诺",
+      promiseItems: [
+        "以证据为基础，不夸大。",
+        "重视反思，不煽情。",
+        "实用，而不是表演式。",
+        "有人味、温暖且诚实。",
+      ],
+      followTitle: "延续这场对话",
+      followText:
+        "追踪新节目、实用反思，以及关于日常人类行为的深度对话。",
+      comingSoon: "频道链接即将提供",
+      subscribe: "订阅",
+      emailPlaceholder: "电子邮箱地址",
+      searchPlaceholder: "搜索节目",
+      noResults: "目前没有符合搜索的节目。",
+      openEpisode: "打开节目",
+      platform: "平台",
+      language: "语言",
+      imageAlt: "Will Talks 播客封面",
+      thumbnailAlt: "《煤气灯操控：最常被误用的心理学词语》节目封面",
+      archiveTitle: "你的大脑有时会骗你",
+      archiveSummary:
+        "关于认知扭曲的实用对话：为什么想法有时很有说服力、它们如何影响情绪，以及如何在相信每个念头之前先停一停。",
+      archiveTopic: "认知扭曲",
+      archiveAlt: "《你的大脑有时会骗你》节目封面",
+      topics: [
+        "认知扭曲",
+        "情绪调节",
+        "压力与应对",
+        "人际关系",
+        "自我觉察",
+        "童年与家庭模式",
+        "个人成长",
+        "学习与动机",
+      ],
+    },
+    ja: {
+      home: "ホーム",
+      back: "ホームへ戻る",
+      pageLabel: "Will Talks",
+      nav: ["最新", "エピソード", "テーマ", "概要"],
+      eyebrow: "Will Talks",
+      title: "心理学を、毎日の生活で使える理解に。",
+      intro:
+        "感情、人間関係、行動、学び、そして日々の選択を形づくる心のパターンについて考える対話です。",
+      primaryCta: "最新回を聴く",
+      secondaryCta: "テーマを見る",
+      heroNote:
+        "大人、教育者、学びたい人のための教育的な振り返りです。治療、診断、医療ケアの代わりではありません。",
+      latestLabel: "最新回",
+      latestTitle: "ガスライティング：最も誤用されている心理学用語 | Psychology Misunderstood S1E1",
+      latestTopic: "誤解されやすい心理学",
+      latestSummary:
+        "Psychology Misunderstoodの第1回では、科学的な意味と流行語としての使われ方を分けて考えます。ガスライティングとは本来何か、なぜ嘘や意見の違いと混同されやすいのか、正確な言葉づかいがなぜ大切なのかを扱います。",
+      listenSpotify: "Spotifyで聴く",
+      watchYoutube: "YouTubeで見る",
+      episodeMeta: "Psychology Misunderstood · シーズン1 · エピソード1",
+      whyTitle: "この回が大切な理由",
+      whyText:
+        "ガスライティングという言葉は広く使われていますが、あいまいな使い方は深刻な心理的パターンの理解を難しくします。この回は、日常の対立と、相手の現実感を繰り返し揺さぶる操作との違いを考える助けになります。",
+      useTitle: "生活で使うには",
+      useItems: [
+        "嘘、意見の違い、忘れたこと、ガスライティングの違いを学ぶ。",
+        "一つの出来事だけでなく、時間をかけて見えるパターンに注目する。",
+        "人間関係を説明するとき、心理学用語を慎重に使う。",
+      ],
+      episodesTitle: "エピソードと対話",
+      episodesLead:
+        "Will Talksは、ゆっくり丁寧につくっていきます。各回は、心理学を理解しやすく、覚えやすく、生活に生かしやすくするためのものです。",
+      filterLabel: "テーマでエピソードを絞り込む",
+      allTopics: "すべてのテーマ",
+      topicsTitle: "扱うテーマ",
+      topicsLead:
+        "家庭、教室、人間関係、自己理解に関わる実用的なテーマを繰り返し扱います。",
+      aboutTitle: "Will Talksについて",
+      aboutText:
+        "Will Talksは、心理学と心の健康に関する考えを、浅くせずに分かりやすくするためにつくられました。目的は立派に聞こえることではありません。人がより明確に考え、より穏やかに反応し、心理学の知識を日常生活で使えるようにすることです。",
+      promiseTitle: "編集上の約束",
+      promiseItems: [
+        "根拠を大切にし、誇張しない。",
+        "煽らず、振り返りを大切にする。",
+        "見せかけではなく、実用的である。",
+        "人間らしく、温かく、正直である。",
+      ],
+      followTitle: "対話を続ける",
+      followText:
+        "新しいエピソード、実用的な振り返り、日常の人間行動についての丁寧な対話をフォローしてください。",
+      comingSoon: "チャンネルリンクは準備中です",
+      subscribe: "登録",
+      emailPlaceholder: "メールアドレス",
+      searchPlaceholder: "エピソードを検索",
+      noResults: "一致するエピソードはまだありません。",
+      openEpisode: "エピソードを開く",
+      platform: "プラットフォーム",
+      language: "言語",
+      imageAlt: "Will Talksのポッドキャスト画像",
+      thumbnailAlt: "「ガスライティング：最も誤用されている心理学用語」のエピソード画像",
+      archiveTitle: "脳はときどき私たちをだます",
+      archiveSummary:
+        "認知のゆがみについての実用的な対話です。考えがなぜ強く感じられるのか、感情にどう影響するのか、そして心が語る物語をすぐ信じる前にどう立ち止まるかを扱います。",
+      archiveTopic: "認知のゆがみ",
+      archiveAlt: "「脳はときどき私たちをだます」のエピソード画像",
+      topics: [
+        "認知のゆがみ",
+        "感情の調整",
+        "ストレスと対処",
+        "人間関係",
+        "自己理解",
+        "幼少期と家族のパターン",
+        "自己成長",
+        "学びと動機づけ",
+      ],
+    },
+    ko: {
+      home: "홈",
+      back: "홈으로 돌아가기",
+      pageLabel: "Will Talks",
+      nav: ["최신", "에피소드", "주제", "소개"],
+      eyebrow: "Will Talks",
+      title: "심리학을 일상에서 사용할 수 있는 이해로 바꿉니다.",
+      intro:
+        "감정, 관계, 행동, 배움, 그리고 일상의 선택을 만드는 마음의 패턴에 대해 차분히 나누는 대화입니다.",
+      primaryCta: "최신 에피소드 듣기",
+      secondaryCta: "주제 살펴보기",
+      heroNote:
+        "성인, 교육자, 호기심 있는 청취자를 위한 교육적 성찰입니다. 치료, 진단 또는 의료적 돌봄을 대신하지 않습니다.",
+      latestLabel: "최신 에피소드",
+      latestTitle: "가스라이팅: 가장 많이 오해되는 심리학 단어 | Psychology Misunderstood S1E1",
+      latestTopic: "오해받는 심리학",
+      latestSummary:
+        "Psychology Misunderstood 첫 번째 에피소드는 과학적 의미와 유행어로 쓰이는 방식을 구분합니다. 가스라이팅이 실제로 무엇을 뜻하는지, 왜 거짓말이나 의견 차이와 혼동되는지, 정확한 언어 사용이 왜 중요한지 다룹니다.",
+      listenSpotify: "Spotify에서 듣기",
+      watchYoutube: "YouTube에서 보기",
+      episodeMeta: "Psychology Misunderstood · 시즌 1 · 에피소드 1",
+      whyTitle: "이 에피소드가 중요한 이유",
+      whyText:
+        "가스라이팅이라는 말은 이제 어디에서나 쓰이지만, 너무 넓게 사용하면 심각한 심리적 패턴을 이해하기 더 어려워질 수 있습니다. 이 에피소드는 일상적인 갈등과 한 사람의 현실감을 반복적으로 흔드는 조작의 차이를 살펴봅니다.",
+      useTitle: "일상에서 사용하기",
+      useItems: [
+        "거짓말, 의견 차이, 잊어버림, 가스라이팅의 차이를 배웁니다.",
+        "한 순간만 판단하지 말고 시간 속에서 반복되는 패턴을 봅니다.",
+        "관계를 설명할 때 심리학 용어를 신중하게 사용합니다.",
+      ],
+      episodesTitle: "에피소드와 대화",
+      episodesLead:
+        "Will Talks는 천천히, 신중하게 만들어집니다. 각 에피소드는 심리학을 더 이해하기 쉽고, 기억하기 쉽고, 삶에 적용하기 쉽게 해야 합니다.",
+      filterLabel: "주제별로 에피소드 필터링",
+      allTopics: "모든 주제",
+      topicsTitle: "다루는 주제",
+      topicsLead:
+        "가정, 교실, 관계, 자기 이해에 영향을 주는 실용적인 주제로 계속 돌아옵니다.",
+      aboutTitle: "Will Talks 소개",
+      aboutText:
+        "Will Talks는 심리학과 정신 건강 개념을 더 쉽게 이해하되 얕게 만들지 않기 위해 시작되었습니다. 목적은 인상적으로 들리는 것이 아닙니다. 사람들이 더 분명하게 생각하고, 더 부드럽게 반응하며, 심리학 지식을 일상에서 사용할 수 있도록 돕는 것입니다.",
+      promiseTitle: "편집 원칙",
+      promiseItems: [
+        "근거를 바탕으로 하며 과장하지 않습니다.",
+        "선정적이지 않고 성찰적입니다.",
+        "보여주기보다 실용적입니다.",
+        "인간적이고 따뜻하며 정직합니다.",
+      ],
+      followTitle: "대화를 이어가기",
+      followText:
+        "새 에피소드, 실용적인 성찰, 일상적 인간 행동에 관한 깊이 있는 대화를 팔로우하세요.",
+      comingSoon: "채널 링크 준비 중",
+      subscribe: "구독",
+      emailPlaceholder: "이메일 주소",
+      searchPlaceholder: "에피소드 검색",
+      noResults: "아직 검색과 일치하는 에피소드가 없습니다.",
+      openEpisode: "에피소드 열기",
+      platform: "플랫폼",
+      language: "언어",
+      imageAlt: "Will Talks 팟캐스트 아트워크",
+      thumbnailAlt: "가스라이팅: 가장 많이 오해되는 심리학 단어 에피소드 아트워크",
+      archiveTitle: "우리 뇌는 때때로 우리를 속입니다",
+      archiveSummary:
+        "인지 왜곡에 대한 실용적인 대화입니다. 생각이 왜 그토록 설득력 있게 느껴지는지, 감정에 어떤 영향을 주는지, 마음이 들려주는 모든 이야기를 믿기 전에 어떻게 멈출 수 있는지 다룹니다.",
+      archiveTopic: "인지 왜곡",
+      archiveAlt: "우리 뇌는 때때로 우리를 속입니다 에피소드 아트워크",
+      topics: [
+        "인지 왜곡",
+        "감정 조절",
+        "스트레스와 대처",
+        "관계",
+        "자기 인식",
+        "어린 시절과 가족 패턴",
+        "개인 성장",
+        "학습과 동기",
+      ],
+    },
+  };
+
+  const t = copy[locale] || copy.en;
+
+  const homeHref = `${prefix}home.html`;
+  const routes = {
+    en: `${prefix}will-talks.html`,
+    "zh-tw": `${prefix}zh-tw/will-talks.html`,
+    "zh-cn": `${prefix}zh-cn/will-talks.html`,
+    ja: `${prefix}ja/will-talks.html`,
+    ko: `${prefix}ko/will-talks.html`,
+  };
+  if (locale !== "en") {
+    routes.en = `${prefix}will-talks.html`;
+    routes["zh-tw"] = "../zh-tw/will-talks.html";
+    routes["zh-cn"] = "../zh-cn/will-talks.html";
+    routes.ja = "../ja/will-talks.html";
+    routes.ko = "../ko/will-talks.html";
+  }
+
+  const episodes = [
+    {
+      title: t.latestTitle,
+      topic: t.latestTopic || t.topics[0],
+      summary: t.latestSummary,
+      image: `${prefix}images/Gaslighting.webp`,
+      alt: t.thumbnailAlt,
+      spotify: episodeLinks.spotify,
+      youtube: episodeLinks.youtube,
+      tags: [t.latestTopic || t.topics[0], t.topics[0], t.topics[4]],
+    },
+    {
+      title: t.archiveTitle || copy.en.archiveTitle,
+      topic: t.archiveTopic || copy.en.archiveTopic,
+      summary: t.archiveSummary || copy.en.archiveSummary,
+      image: `${prefix}images/will-talks-brain-lies-thumbnail.jpg`,
+      alt: t.archiveAlt || copy.en.archiveAlt,
+      spotify: archiveLinks.spotify,
+      youtube: archiveLinks.youtube,
+      tags: [t.archiveTopic || copy.en.archiveTopic, t.topics[1], t.topics[4]],
+    },
+  ];
+
+  function esc(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function list(items) {
+    return items.map((item) => `<li>${esc(item)}</li>`).join("");
+  }
+
+  function chip(topic, index) {
+    const isFirst = index === 0;
+    return `<button class="wt-chip${isFirst ? " is-active" : ""}" type="button" data-topic="${esc(topic)}" aria-pressed="${isFirst ? "true" : "false"}">${esc(topic)}</button>`;
+  }
+
+  function languageSwitcher() {
+    const labels = {
+      en: "🇺🇸 English",
+      "zh-tw": "🇹🇼 繁體中文",
+      "zh-cn": "🇨🇳 简体中文",
+      ja: "🇯🇵 日本語",
+      ko: "🇰🇷 한국어",
+    };
+
+    return `<details class="wt-language">
+      <summary>🌐 ${esc(t.language)}</summary>
+      <div class="wt-language__menu" aria-label="${esc(t.language)}">
+        ${Object.entries(labels)
+          .map(
+            ([code, label]) =>
+              `<a href="${esc(routes[code])}"${code === locale ? ' aria-current="page"' : ""}>${esc(label)}</a>`,
+          )
+          .join("")}
+      </div>
+    </details>`;
+  }
+
+  function renderEpisodeCard(episode) {
+    return `<article class="wt-episode-card" data-card data-topics="${esc(episode.tags.join(" "))}" data-title="${esc(episode.title.toLowerCase())}">
+      <img src="${esc(episode.image)}" alt="${esc(episode.alt)}" loading="lazy" />
+      <div class="wt-episode-card__body">
+        <p class="wt-kicker">${esc(episode.topic)}</p>
+        <h3>${esc(episode.title)}</h3>
+        <p>${esc(episode.summary)}</p>
+        <div class="wt-card-actions">
+          <a class="wt-button wt-button--small" href="${esc(episode.spotify)}" target="_blank" rel="noopener">${esc(t.listenSpotify)}</a>
+          <a class="wt-button wt-button--small wt-button--ghost" href="${esc(episode.youtube)}" target="_blank" rel="noopener">${esc(t.watchYoutube)}</a>
+        </div>
+      </div>
+    </article>`;
+  }
+
+  root.innerHTML = `
+    <header class="wt-header">
+      <a class="wt-brand" href="${esc(homeHref)}" aria-label="Healthy Little Minds">
+        <img src="${esc(prefix)}images/logo-icon.webp" alt="" />
+        <span>Healthy Little Minds</span>
+      </a>
+      <nav class="wt-nav" aria-label="Will Talks">
+        <a href="#latest">${esc(t.nav[0])}</a>
+        <a href="#episodes">${esc(t.nav[1])}</a>
+        <a href="#topics">${esc(t.nav[2])}</a>
+        <a href="#about">${esc(t.nav[3])}</a>
+      </nav>
+      <div class="wt-header-actions">
+        ${languageSwitcher()}
+        <a class="wt-button wt-button--ghost wt-button--small" href="${esc(homeHref)}">${esc(t.back)}</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="wt-hero" aria-labelledby="will-talks-title">
+        <div class="wt-hero__content">
+          <p class="wt-eyebrow">${esc(t.eyebrow)}</p>
+          <h1 id="will-talks-title">${esc(t.title)}</h1>
+          <p class="wt-lead">${esc(t.intro)}</p>
+          <div class="wt-actions">
+            <a class="wt-button" href="#latest">${esc(t.primaryCta)}</a>
+            <a class="wt-button wt-button--ghost" href="#topics">${esc(t.secondaryCta)}</a>
+          </div>
+          <p class="wt-note">${esc(t.heroNote)}</p>
+        </div>
+        <figure class="wt-hero__media">
+          <img src="${esc(prefix)}images/will-talks.webp" alt="${esc(t.imageAlt)}" />
+        </figure>
+      </section>
+
+      <section class="wt-section wt-latest" id="latest" aria-labelledby="latest-title">
+        <div class="wt-section-heading">
+          <p class="wt-eyebrow">${esc(t.latestLabel)}</p>
+          <h2 id="latest-title">${esc(t.latestTitle)}</h2>
+          <p>${esc(t.latestSummary)}</p>
+          <p class="wt-meta">${esc(t.episodeMeta)}</p>
+        </div>
+
+        <div class="wt-latest-grid">
+          <article class="wt-feature-card">
+            <img src="${esc(prefix)}images/Gaslighting.webp" alt="${esc(t.thumbnailAlt)}" />
+            <div class="wt-card-actions">
+              <a class="wt-button" href="${esc(episodeLinks.spotify)}" target="_blank" rel="noopener">${esc(t.listenSpotify)}</a>
+              <a class="wt-button wt-button--ghost" href="${esc(episodeLinks.youtube)}" target="_blank" rel="noopener">${esc(t.watchYoutube)}</a>
+            </div>
+          </article>
+
+          <div class="wt-insight-card">
+            <h3>${esc(t.whyTitle)}</h3>
+            <p>${esc(t.whyText)}</p>
+            <h3>${esc(t.useTitle)}</h3>
+            <ul>${list(t.useItems)}</ul>
+          </div>
+        </div>
+
+        <div class="wt-embed-grid" aria-label="${esc(t.latestTitle)}">
+          <iframe class="wt-embed wt-embed--spotify" title="${esc(t.listenSpotify)}" src="${esc(episodeLinks.spotifyEmbed)}" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+          <iframe class="wt-embed wt-embed--youtube" title="${esc(t.watchYoutube)}" src="${esc(episodeLinks.youtubeEmbed)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </section>
+
+      <section class="wt-section" id="topics" aria-labelledby="topics-title">
+        <div class="wt-section-heading">
+          <p class="wt-eyebrow">${esc(t.secondaryCta)}</p>
+          <h2 id="topics-title">${esc(t.topicsTitle)}</h2>
+          <p>${esc(t.topicsLead)}</p>
+        </div>
+        <div class="wt-topic-grid">
+          ${t.topics
+            .map(
+              (topic) => `<article class="wt-topic-card">
+                <span aria-hidden="true">•</span>
+                <h3>${esc(topic)}</h3>
+              </article>`,
+            )
+            .join("")}
+        </div>
+      </section>
+
+      <section class="wt-section" id="episodes" aria-labelledby="episodes-title">
+        <div class="wt-section-heading wt-section-heading--row">
+          <div>
+            <p class="wt-eyebrow">${esc(t.nav[1])}</p>
+            <h2 id="episodes-title">${esc(t.episodesTitle)}</h2>
+            <p>${esc(t.episodesLead)}</p>
+          </div>
+          <label class="wt-search">
+            <span>${esc(t.searchPlaceholder)}</span>
+            <input type="search" id="episode-search" placeholder="${esc(t.searchPlaceholder)}" />
+          </label>
+        </div>
+
+        <div class="wt-filter" aria-label="${esc(t.filterLabel)}">
+          ${[t.allTopics, ...t.topics.slice(0, 5)].map(chip).join("")}
+        </div>
+
+        <div class="wt-episode-grid" id="episode-list">
+          ${episodes.map(renderEpisodeCard).join("")}
+        </div>
+        <p class="wt-empty" id="episode-empty" hidden>${esc(t.noResults)}</p>
+      </section>
+
+      <section class="wt-section wt-about" id="about" aria-labelledby="about-title">
+        <div>
+          <p class="wt-eyebrow">${esc(t.nav[3])}</p>
+          <h2 id="about-title">${esc(t.aboutTitle)}</h2>
+          <p>${esc(t.aboutText)}</p>
+        </div>
+        <aside class="wt-promise">
+          <h3>${esc(t.promiseTitle)}</h3>
+          <ul>${list(t.promiseItems)}</ul>
+        </aside>
+      </section>
+
+      <section class="wt-section wt-follow" aria-labelledby="follow-title">
+        <div>
+          <p class="wt-eyebrow">${esc(t.subscribe)}</p>
+          <h2 id="follow-title">${esc(t.followTitle)}</h2>
+          <p>${esc(t.followText)}</p>
+        </div>
+        <form class="wt-subscribe" data-subscribe>
+          <label class="visually-hidden" for="wt-email">${esc(t.emailPlaceholder)}</label>
+          <input id="wt-email" type="email" placeholder="${esc(t.emailPlaceholder)}" autocomplete="email" />
+          <button class="wt-button" type="submit">${esc(t.subscribe)}</button>
+          <p class="wt-form-note" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+  `;
+
+  const cards = Array.from(root.querySelectorAll("[data-card]"));
+  const chips = Array.from(root.querySelectorAll(".wt-chip"));
+  const search = root.querySelector("#episode-search");
+  const empty = root.querySelector("#episode-empty");
+  let activeTopic = t.allTopics;
+
+  function applyFilters() {
+    const query = (search?.value || "").trim().toLowerCase();
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const topics = card.dataset.topics || "";
+      const title = card.dataset.title || "";
+      const matchesTopic = activeTopic === t.allTopics || topics.includes(activeTopic);
+      const matchesSearch = !query || title.includes(query) || topics.toLowerCase().includes(query);
+      const visible = matchesTopic && matchesSearch;
+      card.hidden = !visible;
+      if (visible) visibleCount += 1;
+    });
+
+    if (empty) empty.hidden = visibleCount > 0;
+  }
+
+  chips.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeTopic = button.dataset.topic || t.allTopics;
+      chips.forEach((chipButton) => {
+        const active = chipButton === button;
+        chipButton.classList.toggle("is-active", active);
+        chipButton.setAttribute("aria-pressed", String(active));
+      });
+      applyFilters();
+    });
+  });
+
+  search?.addEventListener("input", applyFilters);
+
+  root.querySelector("[data-subscribe]")?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const note = event.currentTarget.querySelector(".wt-form-note");
+    if (note) note.textContent = t.comingSoon;
+  });
 })();

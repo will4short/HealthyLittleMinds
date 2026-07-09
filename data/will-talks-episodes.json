@@ -2,6 +2,20 @@
   "instructions": "Add new episodes to the top of this array. Keep image paths relative to the website root.",
   "episodes": [
     {
+      "slug": "gaslighting-most-misused-psychology-word",
+      "series": "Psychology Misunderstood",
+      "season": 1,
+      "episode": 1,
+      "title": "Gaslighting: The Most Misused Psychology Word | Psychology Misunderstood S1E1",
+      "category": "Psychology Misunderstood",
+      "image": "images/Gaslighting.webp",
+      "description": "What does gaslighting actually mean? In this first episode of Psychology Misunderstood, Will Ambrose separates the science from the buzzword and explains why accurate psychology language matters.",
+      "spotify": "https://open.spotify.com/episode/2SQDr6gscwAJmwD2sYtUvN?si=ZtXMCBgIQx24RHqobLxdyg",
+      "youtube": "https://youtu.be/rFB3goO0-G0?si=2hBmavZqWOxogl4z",
+      "youtube_embed": "https://www.youtube-nocookie.com/embed/rFB3goO0-G0",
+      "spotify_embed": "https://open.spotify.com/embed/episode/2SQDr6gscwAJmwD2sYtUvN?utm_source=generator&theme=0"
+    },
+    {
       "slug": "your-brain-lies-to-you-sometimes",
       "title": "Your Brain Lies To You Sometimes",
       "category": "Cognitive Distortions",
