@@ -1772,6 +1772,26 @@ body {
   border-radius: 999px;
 }
 
+.subscribe-section__contact {
+  margin: 1rem 0 0;
+  color: #496270;
+  font-size: 0.98rem;
+  text-align: center;
+}
+
+.subscribe-section__contact a {
+  color: #254e70;
+  font-weight: 900;
+  text-decoration-thickness: 0.12em;
+  text-underline-offset: 0.18em;
+}
+
+.subscribe-section__contact a:hover,
+.subscribe-section__contact a:focus-visible {
+  color: #ff6b6b;
+  outline: none;
+}
+
 #why-this-matters {
   background: linear-gradient(180deg, #fff7e8 0%, #ffeaf0 100%) !important;
   padding: 3.25rem 1rem !important;

@@ -53,7 +53,7 @@
         "The first episode of Psychology Misunderstood separates the science from the buzzword. Learn what gaslighting actually means, why it is often confused with lying or disagreement, and why accurate language matters.",
       listenSpotify: "Listen on Spotify",
       watchYoutube: "Watch on YouTube",
-      episodeMeta: "Psychology Misunderstood · Season 1 · Episode 1",
+      episodeMeta: "Psychology Misunderstood Â· Season 1 Â· Episode 1",
       whyTitle: "Why this episode matters",
       whyText:
         "Gaslighting is now used everywhere, but loose use can make a serious psychological pattern harder to understand. This episode helps listeners separate everyday conflict from repeated manipulation of a person's sense of reality.",
@@ -90,6 +90,9 @@
       searchPlaceholder: "Search episodes",
       noResults: "No episodes match that search yet.",
       openEpisode: "Open episode",
+      copyLink: "Copy link",
+      linkCopied: "Link copied",
+      backToTop: "Back to top",
       platform: "Platform",
       language: "Language",
       imageAlt: "Will Talks podcast artwork",
@@ -113,311 +116,323 @@
       archiveAlt: "Episode artwork for Your Brain Lies To You Sometimes",
     },
     "zh-tw": {
-      home: "首頁",
-      back: "返回首頁",
+      home: "é¦–é ",
+      back: "è¿”å›žé¦–é ",
       pageLabel: "Will Talks",
-      nav: ["最新", "集數", "主題", "關於"],
+      nav: ["æœ€æ–°", "é›†æ•¸", "ä¸»é¡Œ", "é—œæ–¼"],
       eyebrow: "Will Talks",
-      title: "把心理學變成日常生活中用得上的理解。",
+      title: "æŠŠå¿ƒç†å­¸è®Šæˆæ—¥å¸¸ç”Ÿæ´»ä¸­ç”¨å¾—ä¸Šçš„ç†è§£ã€‚",
       intro:
-        "關於情緒、人際關係、行為、學習，以及影響日常選擇的心理模式的反思對話。",
-      primaryCta: "收聽最新一集",
-      secondaryCta: "探索主題",
+        "é—œæ–¼æƒ…ç·’ã€äººéš›é—œä¿‚ã€è¡Œç‚ºã€å­¸ç¿’ï¼Œä»¥åŠå½±éŸ¿æ—¥å¸¸é¸æ“‡çš„å¿ƒç†æ¨¡å¼çš„åæ€å°è©±ã€‚",
+      primaryCta: "æ”¶è½æœ€æ–°ä¸€é›†",
+      secondaryCta: "æŽ¢ç´¢ä¸»é¡Œ",
       heroNote:
-        "為成人、教育工作者和好奇的聽眾提供的教育性反思。不能取代治療、診斷或醫療照護。",
-      latestLabel: "最新一集",
-      latestTitle: "煤氣燈操控：最常被誤用的心理學詞語 | Psychology Misunderstood S1E1",
-      latestTopic: "被誤解的心理學",
+        "ç‚ºæˆäººã€æ•™è‚²å·¥ä½œè€…å’Œå¥½å¥‡çš„è½çœ¾æä¾›çš„æ•™è‚²æ€§åæ€ã€‚ä¸èƒ½å–ä»£æ²»ç™‚ã€è¨ºæ–·æˆ–é†«ç™‚ç…§è­·ã€‚",
+      latestLabel: "æœ€æ–°ä¸€é›†",
+      latestTitle: "ç…¤æ°£ç‡ˆæ“æŽ§ï¼šæœ€å¸¸è¢«èª¤ç”¨çš„å¿ƒç†å­¸è©žèªž | Psychology Misunderstood S1E1",
+      latestTopic: "è¢«èª¤è§£çš„å¿ƒç†å­¸",
       latestSummary:
-        "Psychology Misunderstood 第一集把科學理解和流行用語分開。你會了解煤氣燈操控真正的意思、為什麼它常被誤解為說謊或意見不同，以及為什麼準確使用心理學語言很重要。",
-      listenSpotify: "在 Spotify 收聽",
-      watchYoutube: "在 YouTube 觀看",
-      episodeMeta: "Psychology Misunderstood · 第 1 季 · 第 1 集",
-      whyTitle: "為什麼這一集重要",
+        "Psychology Misunderstood ç¬¬ä¸€é›†æŠŠç§‘å­¸ç†è§£å’Œæµè¡Œç”¨èªžåˆ†é–‹ã€‚ä½ æœƒäº†è§£ç…¤æ°£ç‡ˆæ“æŽ§çœŸæ­£çš„æ„æ€ã€ç‚ºä»€éº¼å®ƒå¸¸è¢«èª¤è§£ç‚ºèªªè¬Šæˆ–æ„è¦‹ä¸åŒï¼Œä»¥åŠç‚ºä»€éº¼æº–ç¢ºä½¿ç”¨å¿ƒç†å­¸èªžè¨€å¾ˆé‡è¦ã€‚",
+      listenSpotify: "åœ¨ Spotify æ”¶è½",
+      watchYoutube: "åœ¨ YouTube è§€çœ‹",
+      episodeMeta: "Psychology Misunderstood Â· ç¬¬ 1 å­£ Â· ç¬¬ 1 é›†",
+      whyTitle: "ç‚ºä»€éº¼é€™ä¸€é›†é‡è¦",
       whyText:
-        "煤氣燈操控現在被到處使用，但過度寬鬆的用法可能讓一個嚴肅的心理模式更難被理解。這一集幫助聽眾分辨日常衝突和反覆操控一個人現實感的模式。",
-      useTitle: "在生活中使用",
+        "ç…¤æ°£ç‡ˆæ“æŽ§ç¾åœ¨è¢«åˆ°è™•ä½¿ç”¨ï¼Œä½†éŽåº¦å¯¬é¬†çš„ç”¨æ³•å¯èƒ½è®“ä¸€å€‹åš´è‚…çš„å¿ƒç†æ¨¡å¼æ›´é›£è¢«ç†è§£ã€‚é€™ä¸€é›†å¹«åŠ©è½çœ¾åˆ†è¾¨æ—¥å¸¸è¡çªå’Œåè¦†æ“æŽ§ä¸€å€‹äººç¾å¯¦æ„Ÿçš„æ¨¡å¼ã€‚",
+      useTitle: "åœ¨ç”Ÿæ´»ä¸­ä½¿ç”¨",
       useItems: [
-        "分辨說謊、意見不同、忘記事情和煤氣燈操控之間的差別。",
-        "觀察一段時間中的模式，而不是只根據單一時刻下判斷。",
-        "描述關係時，謹慎使用心理學詞語。",
+        "åˆ†è¾¨èªªè¬Šã€æ„è¦‹ä¸åŒã€å¿˜è¨˜äº‹æƒ…å’Œç…¤æ°£ç‡ˆæ“æŽ§ä¹‹é–“çš„å·®åˆ¥ã€‚",
+        "è§€å¯Ÿä¸€æ®µæ™‚é–“ä¸­çš„æ¨¡å¼ï¼Œè€Œä¸æ˜¯åªæ ¹æ“šå–®ä¸€æ™‚åˆ»ä¸‹åˆ¤æ–·ã€‚",
+        "æè¿°é—œä¿‚æ™‚ï¼Œè¬¹æ…Žä½¿ç”¨å¿ƒç†å­¸è©žèªžã€‚",
       ],
-      episodesTitle: "集數與對話",
+      episodesTitle: "é›†æ•¸èˆ‡å°è©±",
       episodesLead:
-        "Will Talks 會慢慢、慎重地建立。每一集都應該讓心理學更容易理解、記得住，也能用在生活裡。",
-      filterLabel: "依主題篩選集數",
-      allTopics: "所有主題",
-      topicsTitle: "涵蓋主題",
+        "Will Talks æœƒæ…¢æ…¢ã€æ…Žé‡åœ°å»ºç«‹ã€‚æ¯ä¸€é›†éƒ½æ‡‰è©²è®“å¿ƒç†å­¸æ›´å®¹æ˜“ç†è§£ã€è¨˜å¾—ä½ï¼Œä¹Ÿèƒ½ç”¨åœ¨ç”Ÿæ´»è£¡ã€‚",
+      filterLabel: "ä¾ä¸»é¡Œç¯©é¸é›†æ•¸",
+      allTopics: "æ‰€æœ‰ä¸»é¡Œ",
+      topicsTitle: "æ¶µè“‹ä¸»é¡Œ",
       topicsLead:
-        "節目會回到影響家庭、課堂、人際關係和自我理解的實用主題。",
-      aboutTitle: "關於 Will Talks",
+        "ç¯€ç›®æœƒå›žåˆ°å½±éŸ¿å®¶åº­ã€èª²å ‚ã€äººéš›é—œä¿‚å’Œè‡ªæˆ‘ç†è§£çš„å¯¦ç”¨ä¸»é¡Œã€‚",
+      aboutTitle: "é—œæ–¼ Will Talks",
       aboutText:
-        "Will Talks 的建立，是為了讓心理學和心理健康概念更容易理解，但不把它們簡化得失去深度。目標不是聽起來很厲害，而是幫助人們想得更清楚、回應得更溫和，並把心理知識用在日常生活中。",
-      promiseTitle: "編輯承諾",
+        "Will Talks çš„å»ºç«‹ï¼Œæ˜¯ç‚ºäº†è®“å¿ƒç†å­¸å’Œå¿ƒç†å¥åº·æ¦‚å¿µæ›´å®¹æ˜“ç†è§£ï¼Œä½†ä¸æŠŠå®ƒå€‘ç°¡åŒ–å¾—å¤±åŽ»æ·±åº¦ã€‚ç›®æ¨™ä¸æ˜¯è½èµ·ä¾†å¾ˆåŽ²å®³ï¼Œè€Œæ˜¯å¹«åŠ©äººå€‘æƒ³å¾—æ›´æ¸…æ¥šã€å›žæ‡‰å¾—æ›´æº«å’Œï¼Œä¸¦æŠŠå¿ƒç†çŸ¥è­˜ç”¨åœ¨æ—¥å¸¸ç”Ÿæ´»ä¸­ã€‚",
+      promiseTitle: "ç·¨è¼¯æ‰¿è«¾",
       promiseItems: [
-        "以證據為基礎，不誇大。",
-        "重視反思，不煽情。",
-        "實用，而不是表演式。",
-        "有人味、溫暖且誠實。",
+        "ä»¥è­‰æ“šç‚ºåŸºç¤Žï¼Œä¸èª‡å¤§ã€‚",
+        "é‡è¦–åæ€ï¼Œä¸ç…½æƒ…ã€‚",
+        "å¯¦ç”¨ï¼Œè€Œä¸æ˜¯è¡¨æ¼”å¼ã€‚",
+        "æœ‰äººå‘³ã€æº«æš–ä¸”èª å¯¦ã€‚",
       ],
-      followTitle: "延續這場對話",
+      followTitle: "å»¶çºŒé€™å ´å°è©±",
       followText:
-        "追蹤新集數、實用反思，以及關於日常人類行為的深度對話。",
-      comingSoon: "頻道連結即將提供",
-      subscribe: "訂閱",
-      emailPlaceholder: "電子郵件地址",
-      searchPlaceholder: "搜尋集數",
-      noResults: "目前沒有符合搜尋的集數。",
-      openEpisode: "開啟集數",
-      platform: "平台",
-      language: "語言",
-      imageAlt: "Will Talks 播客封面",
-      thumbnailAlt: "《煤氣燈操控：最常被誤用的心理學詞語》集數封面",
-      archiveTitle: "你的大腦有時會騙你",
+        "è¿½è¹¤æ–°é›†æ•¸ã€å¯¦ç”¨åæ€ï¼Œä»¥åŠé—œæ–¼æ—¥å¸¸äººé¡žè¡Œç‚ºçš„æ·±åº¦å°è©±ã€‚",
+      comingSoon: "é »é“é€£çµå³å°‡æä¾›",
+      subscribe: "è¨‚é–±",
+      emailPlaceholder: "é›»å­éƒµä»¶åœ°å€",
+      searchPlaceholder: "æœå°‹é›†æ•¸",
+      noResults: "ç›®å‰æ²’æœ‰ç¬¦åˆæœå°‹çš„é›†æ•¸ã€‚",
+      openEpisode: "é–‹å•Ÿé›†æ•¸",
+      copyLink: "è¤‡è£½é€£çµ",
+      linkCopied: "é€£çµå·²è¤‡è£½",
+      backToTop: "å›žåˆ°é ‚éƒ¨",
+      platform: "å¹³å°",
+      language: "èªžè¨€",
+      imageAlt: "Will Talks æ’­å®¢å°é¢",
+      thumbnailAlt: "ã€Šç…¤æ°£ç‡ˆæ“æŽ§ï¼šæœ€å¸¸è¢«èª¤ç”¨çš„å¿ƒç†å­¸è©žèªžã€‹é›†æ•¸å°é¢",
+      archiveTitle: "ä½ çš„å¤§è…¦æœ‰æ™‚æœƒé¨™ä½ ",
       archiveSummary:
-        "關於認知扭曲的實用對話：為什麼想法有時很有說服力、它們如何影響情緒，以及如何在相信每個念頭之前先停一停。",
-      archiveTopic: "認知扭曲",
-      archiveAlt: "《你的大腦有時會騙你》集數封面",
+        "é—œæ–¼èªçŸ¥æ‰­æ›²çš„å¯¦ç”¨å°è©±ï¼šç‚ºä»€éº¼æƒ³æ³•æœ‰æ™‚å¾ˆæœ‰èªªæœåŠ›ã€å®ƒå€‘å¦‚ä½•å½±éŸ¿æƒ…ç·’ï¼Œä»¥åŠå¦‚ä½•åœ¨ç›¸ä¿¡æ¯å€‹å¿µé ­ä¹‹å‰å…ˆåœä¸€åœã€‚",
+      archiveTopic: "èªçŸ¥æ‰­æ›²",
+      archiveAlt: "ã€Šä½ çš„å¤§è…¦æœ‰æ™‚æœƒé¨™ä½ ã€‹é›†æ•¸å°é¢",
       topics: [
-        "認知扭曲",
-        "情緒調節",
-        "壓力與因應",
-        "人際關係",
-        "自我覺察",
-        "童年與家庭模式",
-        "個人成長",
-        "學習與動機",
+        "èªçŸ¥æ‰­æ›²",
+        "æƒ…ç·’èª¿ç¯€",
+        "å£“åŠ›èˆ‡å› æ‡‰",
+        "äººéš›é—œä¿‚",
+        "è‡ªæˆ‘è¦ºå¯Ÿ",
+        "ç«¥å¹´èˆ‡å®¶åº­æ¨¡å¼",
+        "å€‹äººæˆé•·",
+        "å­¸ç¿’èˆ‡å‹•æ©Ÿ",
       ],
     },
     "zh-cn": {
-      home: "首页",
-      back: "返回首页",
+      home: "é¦–é¡µ",
+      back: "è¿”å›žé¦–é¡µ",
       pageLabel: "Will Talks",
-      nav: ["最新", "节目", "主题", "关于"],
+      nav: ["æœ€æ–°", "èŠ‚ç›®", "ä¸»é¢˜", "å…³äºŽ"],
       eyebrow: "Will Talks",
-      title: "把心理学变成日常生活中用得上的理解。",
+      title: "æŠŠå¿ƒç†å­¦å˜æˆæ—¥å¸¸ç”Ÿæ´»ä¸­ç”¨å¾—ä¸Šçš„ç†è§£ã€‚",
       intro:
-        "关于情绪、人际关系、行为、学习，以及影响日常选择的心理模式的反思对话。",
-      primaryCta: "收听最新一期",
-      secondaryCta: "探索主题",
+        "å…³äºŽæƒ…ç»ªã€äººé™…å…³ç³»ã€è¡Œä¸ºã€å­¦ä¹ ï¼Œä»¥åŠå½±å“æ—¥å¸¸é€‰æ‹©çš„å¿ƒç†æ¨¡å¼çš„åæ€å¯¹è¯ã€‚",
+      primaryCta: "æ”¶å¬æœ€æ–°ä¸€æœŸ",
+      secondaryCta: "æŽ¢ç´¢ä¸»é¢˜",
       heroNote:
-        "为成人、教育工作者和好奇听众提供的教育性反思。不能替代治疗、诊断或医疗照护。",
-      latestLabel: "最新一期",
-      latestTitle: "煤气灯操控：最常被误用的心理学词语 | Psychology Misunderstood S1E1",
-      latestTopic: "被误解的心理学",
+        "ä¸ºæˆäººã€æ•™è‚²å·¥ä½œè€…å’Œå¥½å¥‡å¬ä¼—æä¾›çš„æ•™è‚²æ€§åæ€ã€‚ä¸èƒ½æ›¿ä»£æ²»ç–—ã€è¯Šæ–­æˆ–åŒ»ç–—ç…§æŠ¤ã€‚",
+      latestLabel: "æœ€æ–°ä¸€æœŸ",
+      latestTitle: "ç…¤æ°”ç¯æ“æŽ§ï¼šæœ€å¸¸è¢«è¯¯ç”¨çš„å¿ƒç†å­¦è¯è¯­ | Psychology Misunderstood S1E1",
+      latestTopic: "è¢«è¯¯è§£çš„å¿ƒç†å­¦",
       latestSummary:
-        "Psychology Misunderstood 第一期把科学理解和流行用语分开。你会了解煤气灯操控真正的意思、为什么它常被误解为说谎或意见不同，以及为什么准确使用心理学语言很重要。",
-      listenSpotify: "在 Spotify 收听",
-      watchYoutube: "在 YouTube 观看",
-      episodeMeta: "Psychology Misunderstood · 第 1 季 · 第 1 期",
-      whyTitle: "为什么这一期重要",
+        "Psychology Misunderstood ç¬¬ä¸€æœŸæŠŠç§‘å­¦ç†è§£å’Œæµè¡Œç”¨è¯­åˆ†å¼€ã€‚ä½ ä¼šäº†è§£ç…¤æ°”ç¯æ“æŽ§çœŸæ­£çš„æ„æ€ã€ä¸ºä»€ä¹ˆå®ƒå¸¸è¢«è¯¯è§£ä¸ºè¯´è°Žæˆ–æ„è§ä¸åŒï¼Œä»¥åŠä¸ºä»€ä¹ˆå‡†ç¡®ä½¿ç”¨å¿ƒç†å­¦è¯­è¨€å¾ˆé‡è¦ã€‚",
+      listenSpotify: "åœ¨ Spotify æ”¶å¬",
+      watchYoutube: "åœ¨ YouTube è§‚çœ‹",
+      episodeMeta: "Psychology Misunderstood Â· ç¬¬ 1 å­£ Â· ç¬¬ 1 æœŸ",
+      whyTitle: "ä¸ºä»€ä¹ˆè¿™ä¸€æœŸé‡è¦",
       whyText:
-        "煤气灯操控现在被到处使用，但过于宽泛的用法可能让一个严肃的心理模式更难被理解。这一期帮助听众分辨日常冲突和反复操控一个人现实感的模式。",
-      useTitle: "在生活中使用",
+        "ç…¤æ°”ç¯æ“æŽ§çŽ°åœ¨è¢«åˆ°å¤„ä½¿ç”¨ï¼Œä½†è¿‡äºŽå®½æ³›çš„ç”¨æ³•å¯èƒ½è®©ä¸€ä¸ªä¸¥è‚ƒçš„å¿ƒç†æ¨¡å¼æ›´éš¾è¢«ç†è§£ã€‚è¿™ä¸€æœŸå¸®åŠ©å¬ä¼—åˆ†è¾¨æ—¥å¸¸å†²çªå’Œåå¤æ“æŽ§ä¸€ä¸ªäººçŽ°å®žæ„Ÿçš„æ¨¡å¼ã€‚",
+      useTitle: "åœ¨ç”Ÿæ´»ä¸­ä½¿ç”¨",
       useItems: [
-        "分辨说谎、意见不同、忘事情和煤气灯操控之间的差别。",
-        "观察一段时间中的模式，而不是只根据单一时刻下判断。",
-        "描述关系时，谨慎使用心理学词语。",
+        "åˆ†è¾¨è¯´è°Žã€æ„è§ä¸åŒã€å¿˜äº‹æƒ…å’Œç…¤æ°”ç¯æ“æŽ§ä¹‹é—´çš„å·®åˆ«ã€‚",
+        "è§‚å¯Ÿä¸€æ®µæ—¶é—´ä¸­çš„æ¨¡å¼ï¼Œè€Œä¸æ˜¯åªæ ¹æ®å•ä¸€æ—¶åˆ»ä¸‹åˆ¤æ–­ã€‚",
+        "æè¿°å…³ç³»æ—¶ï¼Œè°¨æ…Žä½¿ç”¨å¿ƒç†å­¦è¯è¯­ã€‚",
       ],
-      episodesTitle: "节目与对话",
+      episodesTitle: "èŠ‚ç›®ä¸Žå¯¹è¯",
       episodesLead:
-        "Will Talks 会慢慢、慎重地建立。每一期都应该让心理学更容易理解、记得住，也能用在生活里。",
-      filterLabel: "按主题筛选节目",
-      allTopics: "所有主题",
-      topicsTitle: "涵盖主题",
+        "Will Talks ä¼šæ…¢æ…¢ã€æ…Žé‡åœ°å»ºç«‹ã€‚æ¯ä¸€æœŸéƒ½åº”è¯¥è®©å¿ƒç†å­¦æ›´å®¹æ˜“ç†è§£ã€è®°å¾—ä½ï¼Œä¹Ÿèƒ½ç”¨åœ¨ç”Ÿæ´»é‡Œã€‚",
+      filterLabel: "æŒ‰ä¸»é¢˜ç­›é€‰èŠ‚ç›®",
+      allTopics: "æ‰€æœ‰ä¸»é¢˜",
+      topicsTitle: "æ¶µç›–ä¸»é¢˜",
       topicsLead:
-        "节目会回到影响家庭、课堂、人际关系和自我理解的实用主题。",
-      aboutTitle: "关于 Will Talks",
+        "èŠ‚ç›®ä¼šå›žåˆ°å½±å“å®¶åº­ã€è¯¾å ‚ã€äººé™…å…³ç³»å’Œè‡ªæˆ‘ç†è§£çš„å®žç”¨ä¸»é¢˜ã€‚",
+      aboutTitle: "å…³äºŽ Will Talks",
       aboutText:
-        "Will Talks 的建立，是为了让心理学和心理健康概念更容易理解，但不把它们简化得失去深度。目标不是听起来很厉害，而是帮助人们想得更清楚、回应得更温和，并把心理知识用在日常生活中。",
-      promiseTitle: "编辑承诺",
+        "Will Talks çš„å»ºç«‹ï¼Œæ˜¯ä¸ºäº†è®©å¿ƒç†å­¦å’Œå¿ƒç†å¥åº·æ¦‚å¿µæ›´å®¹æ˜“ç†è§£ï¼Œä½†ä¸æŠŠå®ƒä»¬ç®€åŒ–å¾—å¤±åŽ»æ·±åº¦ã€‚ç›®æ ‡ä¸æ˜¯å¬èµ·æ¥å¾ˆåŽ‰å®³ï¼Œè€Œæ˜¯å¸®åŠ©äººä»¬æƒ³å¾—æ›´æ¸…æ¥šã€å›žåº”å¾—æ›´æ¸©å’Œï¼Œå¹¶æŠŠå¿ƒç†çŸ¥è¯†ç”¨åœ¨æ—¥å¸¸ç”Ÿæ´»ä¸­ã€‚",
+      promiseTitle: "ç¼–è¾‘æ‰¿è¯º",
       promiseItems: [
-        "以证据为基础，不夸大。",
-        "重视反思，不煽情。",
-        "实用，而不是表演式。",
-        "有人味、温暖且诚实。",
+        "ä»¥è¯æ®ä¸ºåŸºç¡€ï¼Œä¸å¤¸å¤§ã€‚",
+        "é‡è§†åæ€ï¼Œä¸ç…½æƒ…ã€‚",
+        "å®žç”¨ï¼Œè€Œä¸æ˜¯è¡¨æ¼”å¼ã€‚",
+        "æœ‰äººå‘³ã€æ¸©æš–ä¸”è¯šå®žã€‚",
       ],
-      followTitle: "延续这场对话",
+      followTitle: "å»¶ç»­è¿™åœºå¯¹è¯",
       followText:
-        "追踪新节目、实用反思，以及关于日常人类行为的深度对话。",
-      comingSoon: "频道链接即将提供",
-      subscribe: "订阅",
-      emailPlaceholder: "电子邮箱地址",
-      searchPlaceholder: "搜索节目",
-      noResults: "目前没有符合搜索的节目。",
-      openEpisode: "打开节目",
-      platform: "平台",
-      language: "语言",
-      imageAlt: "Will Talks 播客封面",
-      thumbnailAlt: "《煤气灯操控：最常被误用的心理学词语》节目封面",
-      archiveTitle: "你的大脑有时会骗你",
+        "è¿½è¸ªæ–°èŠ‚ç›®ã€å®žç”¨åæ€ï¼Œä»¥åŠå…³äºŽæ—¥å¸¸äººç±»è¡Œä¸ºçš„æ·±åº¦å¯¹è¯ã€‚",
+      comingSoon: "é¢‘é“é“¾æŽ¥å³å°†æä¾›",
+      subscribe: "è®¢é˜…",
+      emailPlaceholder: "ç”µå­é‚®ç®±åœ°å€",
+      searchPlaceholder: "æœç´¢èŠ‚ç›®",
+      noResults: "ç›®å‰æ²¡æœ‰ç¬¦åˆæœç´¢çš„èŠ‚ç›®ã€‚",
+      openEpisode: "æ‰“å¼€èŠ‚ç›®",
+      copyLink: "å¤åˆ¶é“¾æŽ¥",
+      linkCopied: "é“¾æŽ¥å·²å¤åˆ¶",
+      backToTop: "å›žåˆ°é¡¶éƒ¨",
+      platform: "å¹³å°",
+      language: "è¯­è¨€",
+      imageAlt: "Will Talks æ’­å®¢å°é¢",
+      thumbnailAlt: "ã€Šç…¤æ°”ç¯æ“æŽ§ï¼šæœ€å¸¸è¢«è¯¯ç”¨çš„å¿ƒç†å­¦è¯è¯­ã€‹èŠ‚ç›®å°é¢",
+      archiveTitle: "ä½ çš„å¤§è„‘æœ‰æ—¶ä¼šéª—ä½ ",
       archiveSummary:
-        "关于认知扭曲的实用对话：为什么想法有时很有说服力、它们如何影响情绪，以及如何在相信每个念头之前先停一停。",
-      archiveTopic: "认知扭曲",
-      archiveAlt: "《你的大脑有时会骗你》节目封面",
+        "å…³äºŽè®¤çŸ¥æ‰­æ›²çš„å®žç”¨å¯¹è¯ï¼šä¸ºä»€ä¹ˆæƒ³æ³•æœ‰æ—¶å¾ˆæœ‰è¯´æœåŠ›ã€å®ƒä»¬å¦‚ä½•å½±å“æƒ…ç»ªï¼Œä»¥åŠå¦‚ä½•åœ¨ç›¸ä¿¡æ¯ä¸ªå¿µå¤´ä¹‹å‰å…ˆåœä¸€åœã€‚",
+      archiveTopic: "è®¤çŸ¥æ‰­æ›²",
+      archiveAlt: "ã€Šä½ çš„å¤§è„‘æœ‰æ—¶ä¼šéª—ä½ ã€‹èŠ‚ç›®å°é¢",
       topics: [
-        "认知扭曲",
-        "情绪调节",
-        "压力与应对",
-        "人际关系",
-        "自我觉察",
-        "童年与家庭模式",
-        "个人成长",
-        "学习与动机",
+        "è®¤çŸ¥æ‰­æ›²",
+        "æƒ…ç»ªè°ƒèŠ‚",
+        "åŽ‹åŠ›ä¸Žåº”å¯¹",
+        "äººé™…å…³ç³»",
+        "è‡ªæˆ‘è§‰å¯Ÿ",
+        "ç«¥å¹´ä¸Žå®¶åº­æ¨¡å¼",
+        "ä¸ªäººæˆé•¿",
+        "å­¦ä¹ ä¸ŽåŠ¨æœº",
       ],
     },
     ja: {
-      home: "ホーム",
-      back: "ホームへ戻る",
+      home: "ãƒ›ãƒ¼ãƒ ",
+      back: "ãƒ›ãƒ¼ãƒ ã¸æˆ»ã‚‹",
       pageLabel: "Will Talks",
-      nav: ["最新", "エピソード", "テーマ", "概要"],
+      nav: ["æœ€æ–°", "ã‚¨ãƒ”ã‚½ãƒ¼ãƒ‰", "ãƒ†ãƒ¼ãƒž", "æ¦‚è¦"],
       eyebrow: "Will Talks",
-      title: "心理学を、毎日の生活で使える理解に。",
+      title: "å¿ƒç†å­¦ã‚’ã€æ¯Žæ—¥ã®ç”Ÿæ´»ã§ä½¿ãˆã‚‹ç†è§£ã«ã€‚",
       intro:
-        "感情、人間関係、行動、学び、そして日々の選択を形づくる心のパターンについて考える対話です。",
-      primaryCta: "最新回を聴く",
-      secondaryCta: "テーマを見る",
+        "æ„Ÿæƒ…ã€äººé–“é–¢ä¿‚ã€è¡Œå‹•ã€å­¦ã³ã€ãã—ã¦æ—¥ã€…ã®é¸æŠžã‚’å½¢ã¥ãã‚‹å¿ƒã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã«ã¤ã„ã¦è€ƒãˆã‚‹å¯¾è©±ã§ã™ã€‚",
+      primaryCta: "æœ€æ–°å›žã‚’è´ã",
+      secondaryCta: "ãƒ†ãƒ¼ãƒžã‚’è¦‹ã‚‹",
       heroNote:
-        "大人、教育者、学びたい人のための教育的な振り返りです。治療、診断、医療ケアの代わりではありません。",
-      latestLabel: "最新回",
-      latestTitle: "ガスライティング：最も誤用されている心理学用語 | Psychology Misunderstood S1E1",
-      latestTopic: "誤解されやすい心理学",
+        "å¤§äººã€æ•™è‚²è€…ã€å­¦ã³ãŸã„äººã®ãŸã‚ã®æ•™è‚²çš„ãªæŒ¯ã‚Šè¿”ã‚Šã§ã™ã€‚æ²»ç™‚ã€è¨ºæ–­ã€åŒ»ç™‚ã‚±ã‚¢ã®ä»£ã‚ã‚Šã§ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚",
+      latestLabel: "æœ€æ–°å›ž",
+      latestTitle: "ã‚¬ã‚¹ãƒ©ã‚¤ãƒ†ã‚£ãƒ³ã‚°ï¼šæœ€ã‚‚èª¤ç”¨ã•ã‚Œã¦ã„ã‚‹å¿ƒç†å­¦ç”¨èªž | Psychology Misunderstood S1E1",
+      latestTopic: "èª¤è§£ã•ã‚Œã‚„ã™ã„å¿ƒç†å­¦",
       latestSummary:
-        "Psychology Misunderstoodの第1回では、科学的な意味と流行語としての使われ方を分けて考えます。ガスライティングとは本来何か、なぜ嘘や意見の違いと混同されやすいのか、正確な言葉づかいがなぜ大切なのかを扱います。",
-      listenSpotify: "Spotifyで聴く",
-      watchYoutube: "YouTubeで見る",
-      episodeMeta: "Psychology Misunderstood · シーズン1 · エピソード1",
-      whyTitle: "この回が大切な理由",
+        "Psychology Misunderstoodã®ç¬¬1å›žã§ã¯ã€ç§‘å­¦çš„ãªæ„å‘³ã¨æµè¡Œèªžã¨ã—ã¦ã®ä½¿ã‚ã‚Œæ–¹ã‚’åˆ†ã‘ã¦è€ƒãˆã¾ã™ã€‚ã‚¬ã‚¹ãƒ©ã‚¤ãƒ†ã‚£ãƒ³ã‚°ã¨ã¯æœ¬æ¥ä½•ã‹ã€ãªãœå˜˜ã‚„æ„è¦‹ã®é•ã„ã¨æ··åŒã•ã‚Œã‚„ã™ã„ã®ã‹ã€æ­£ç¢ºãªè¨€è‘‰ã¥ã‹ã„ãŒãªãœå¤§åˆ‡ãªã®ã‹ã‚’æ‰±ã„ã¾ã™ã€‚",
+      listenSpotify: "Spotifyã§è´ã",
+      watchYoutube: "YouTubeã§è¦‹ã‚‹",
+      episodeMeta: "Psychology Misunderstood Â· ã‚·ãƒ¼ã‚ºãƒ³1 Â· ã‚¨ãƒ”ã‚½ãƒ¼ãƒ‰1",
+      whyTitle: "ã“ã®å›žãŒå¤§åˆ‡ãªç†ç”±",
       whyText:
-        "ガスライティングという言葉は広く使われていますが、あいまいな使い方は深刻な心理的パターンの理解を難しくします。この回は、日常の対立と、相手の現実感を繰り返し揺さぶる操作との違いを考える助けになります。",
-      useTitle: "生活で使うには",
+        "ã‚¬ã‚¹ãƒ©ã‚¤ãƒ†ã‚£ãƒ³ã‚°ã¨ã„ã†è¨€è‘‰ã¯åºƒãä½¿ã‚ã‚Œã¦ã„ã¾ã™ãŒã€ã‚ã„ã¾ã„ãªä½¿ã„æ–¹ã¯æ·±åˆ»ãªå¿ƒç†çš„ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ç†è§£ã‚’é›£ã—ãã—ã¾ã™ã€‚ã“ã®å›žã¯ã€æ—¥å¸¸ã®å¯¾ç«‹ã¨ã€ç›¸æ‰‹ã®ç¾å®Ÿæ„Ÿã‚’ç¹°ã‚Šè¿”ã—æºã•ã¶ã‚‹æ“ä½œã¨ã®é•ã„ã‚’è€ƒãˆã‚‹åŠ©ã‘ã«ãªã‚Šã¾ã™ã€‚",
+      useTitle: "ç”Ÿæ´»ã§ä½¿ã†ã«ã¯",
       useItems: [
-        "嘘、意見の違い、忘れたこと、ガスライティングの違いを学ぶ。",
-        "一つの出来事だけでなく、時間をかけて見えるパターンに注目する。",
-        "人間関係を説明するとき、心理学用語を慎重に使う。",
+        "å˜˜ã€æ„è¦‹ã®é•ã„ã€å¿˜ã‚ŒãŸã“ã¨ã€ã‚¬ã‚¹ãƒ©ã‚¤ãƒ†ã‚£ãƒ³ã‚°ã®é•ã„ã‚’å­¦ã¶ã€‚",
+        "ä¸€ã¤ã®å‡ºæ¥äº‹ã ã‘ã§ãªãã€æ™‚é–“ã‚’ã‹ã‘ã¦è¦‹ãˆã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ã«æ³¨ç›®ã™ã‚‹ã€‚",
+        "äººé–“é–¢ä¿‚ã‚’èª¬æ˜Žã™ã‚‹ã¨ãã€å¿ƒç†å­¦ç”¨èªžã‚’æ…Žé‡ã«ä½¿ã†ã€‚",
       ],
-      episodesTitle: "エピソードと対話",
+      episodesTitle: "ã‚¨ãƒ”ã‚½ãƒ¼ãƒ‰ã¨å¯¾è©±",
       episodesLead:
-        "Will Talksは、ゆっくり丁寧につくっていきます。各回は、心理学を理解しやすく、覚えやすく、生活に生かしやすくするためのものです。",
-      filterLabel: "テーマでエピソードを絞り込む",
-      allTopics: "すべてのテーマ",
-      topicsTitle: "扱うテーマ",
+        "Will Talksã¯ã€ã‚†ã£ãã‚Šä¸å¯§ã«ã¤ãã£ã¦ã„ãã¾ã™ã€‚å„å›žã¯ã€å¿ƒç†å­¦ã‚’ç†è§£ã—ã‚„ã™ãã€è¦šãˆã‚„ã™ãã€ç”Ÿæ´»ã«ç”Ÿã‹ã—ã‚„ã™ãã™ã‚‹ãŸã‚ã®ã‚‚ã®ã§ã™ã€‚",
+      filterLabel: "ãƒ†ãƒ¼ãƒžã§ã‚¨ãƒ”ã‚½ãƒ¼ãƒ‰ã‚’çµžã‚Šè¾¼ã‚€",
+      allTopics: "ã™ã¹ã¦ã®ãƒ†ãƒ¼ãƒž",
+      topicsTitle: "æ‰±ã†ãƒ†ãƒ¼ãƒž",
       topicsLead:
-        "家庭、教室、人間関係、自己理解に関わる実用的なテーマを繰り返し扱います。",
-      aboutTitle: "Will Talksについて",
+        "å®¶åº­ã€æ•™å®¤ã€äººé–“é–¢ä¿‚ã€è‡ªå·±ç†è§£ã«é–¢ã‚ã‚‹å®Ÿç”¨çš„ãªãƒ†ãƒ¼ãƒžã‚’ç¹°ã‚Šè¿”ã—æ‰±ã„ã¾ã™ã€‚",
+      aboutTitle: "Will Talksã«ã¤ã„ã¦",
       aboutText:
-        "Will Talksは、心理学と心の健康に関する考えを、浅くせずに分かりやすくするためにつくられました。目的は立派に聞こえることではありません。人がより明確に考え、より穏やかに反応し、心理学の知識を日常生活で使えるようにすることです。",
-      promiseTitle: "編集上の約束",
+        "Will Talksã¯ã€å¿ƒç†å­¦ã¨å¿ƒã®å¥åº·ã«é–¢ã™ã‚‹è€ƒãˆã‚’ã€æµ…ãã›ãšã«åˆ†ã‹ã‚Šã‚„ã™ãã™ã‚‹ãŸã‚ã«ã¤ãã‚‰ã‚Œã¾ã—ãŸã€‚ç›®çš„ã¯ç«‹æ´¾ã«èžã“ãˆã‚‹ã“ã¨ã§ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚äººãŒã‚ˆã‚Šæ˜Žç¢ºã«è€ƒãˆã€ã‚ˆã‚Šç©ã‚„ã‹ã«åå¿œã—ã€å¿ƒç†å­¦ã®çŸ¥è­˜ã‚’æ—¥å¸¸ç”Ÿæ´»ã§ä½¿ãˆã‚‹ã‚ˆã†ã«ã™ã‚‹ã“ã¨ã§ã™ã€‚",
+      promiseTitle: "ç·¨é›†ä¸Šã®ç´„æŸ",
       promiseItems: [
-        "根拠を大切にし、誇張しない。",
-        "煽らず、振り返りを大切にする。",
-        "見せかけではなく、実用的である。",
-        "人間らしく、温かく、正直である。",
+        "æ ¹æ‹ ã‚’å¤§åˆ‡ã«ã—ã€èª‡å¼µã—ãªã„ã€‚",
+        "ç…½ã‚‰ãšã€æŒ¯ã‚Šè¿”ã‚Šã‚’å¤§åˆ‡ã«ã™ã‚‹ã€‚",
+        "è¦‹ã›ã‹ã‘ã§ã¯ãªãã€å®Ÿç”¨çš„ã§ã‚ã‚‹ã€‚",
+        "äººé–“ã‚‰ã—ãã€æ¸©ã‹ãã€æ­£ç›´ã§ã‚ã‚‹ã€‚",
       ],
-      followTitle: "対話を続ける",
+      followTitle: "å¯¾è©±ã‚’ç¶šã‘ã‚‹",
       followText:
-        "新しいエピソード、実用的な振り返り、日常の人間行動についての丁寧な対話をフォローしてください。",
-      comingSoon: "チャンネルリンクは準備中です",
-      subscribe: "登録",
-      emailPlaceholder: "メールアドレス",
-      searchPlaceholder: "エピソードを検索",
-      noResults: "一致するエピソードはまだありません。",
-      openEpisode: "エピソードを開く",
-      platform: "プラットフォーム",
-      language: "言語",
-      imageAlt: "Will Talksのポッドキャスト画像",
-      thumbnailAlt: "「ガスライティング：最も誤用されている心理学用語」のエピソード画像",
-      archiveTitle: "脳はときどき私たちをだます",
+        "æ–°ã—ã„ã‚¨ãƒ”ã‚½ãƒ¼ãƒ‰ã€å®Ÿç”¨çš„ãªæŒ¯ã‚Šè¿”ã‚Šã€æ—¥å¸¸ã®äººé–“è¡Œå‹•ã«ã¤ã„ã¦ã®ä¸å¯§ãªå¯¾è©±ã‚’ãƒ•ã‚©ãƒ­ãƒ¼ã—ã¦ãã ã•ã„ã€‚",
+      comingSoon: "ãƒãƒ£ãƒ³ãƒãƒ«ãƒªãƒ³ã‚¯ã¯æº–å‚™ä¸­ã§ã™",
+      subscribe: "ç™»éŒ²",
+      emailPlaceholder: "ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹",
+      searchPlaceholder: "ã‚¨ãƒ”ã‚½ãƒ¼ãƒ‰ã‚’æ¤œç´¢",
+      noResults: "ä¸€è‡´ã™ã‚‹ã‚¨ãƒ”ã‚½ãƒ¼ãƒ‰ã¯ã¾ã ã‚ã‚Šã¾ã›ã‚“ã€‚",
+      openEpisode: "ã‚¨ãƒ”ã‚½ãƒ¼ãƒ‰ã‚’é–‹ã",
+      copyLink: "ãƒªãƒ³ã‚¯ã‚’ã‚³ãƒ”ãƒ¼",
+      linkCopied: "ãƒªãƒ³ã‚¯ã‚’ã‚³ãƒ”ãƒ¼ã—ã¾ã—ãŸ",
+      backToTop: "ãƒˆãƒƒãƒ—ã¸æˆ»ã‚‹",
+      platform: "ãƒ—ãƒ©ãƒƒãƒˆãƒ•ã‚©ãƒ¼ãƒ ",
+      language: "è¨€èªž",
+      imageAlt: "Will Talksã®ãƒãƒƒãƒ‰ã‚­ãƒ£ã‚¹ãƒˆç”»åƒ",
+      thumbnailAlt: "ã€Œã‚¬ã‚¹ãƒ©ã‚¤ãƒ†ã‚£ãƒ³ã‚°ï¼šæœ€ã‚‚èª¤ç”¨ã•ã‚Œã¦ã„ã‚‹å¿ƒç†å­¦ç”¨èªžã€ã®ã‚¨ãƒ”ã‚½ãƒ¼ãƒ‰ç”»åƒ",
+      archiveTitle: "è„³ã¯ã¨ãã©ãç§ãŸã¡ã‚’ã ã¾ã™",
       archiveSummary:
-        "認知のゆがみについての実用的な対話です。考えがなぜ強く感じられるのか、感情にどう影響するのか、そして心が語る物語をすぐ信じる前にどう立ち止まるかを扱います。",
-      archiveTopic: "認知のゆがみ",
-      archiveAlt: "「脳はときどき私たちをだます」のエピソード画像",
+        "èªçŸ¥ã®ã‚†ãŒã¿ã«ã¤ã„ã¦ã®å®Ÿç”¨çš„ãªå¯¾è©±ã§ã™ã€‚è€ƒãˆãŒãªãœå¼·ãæ„Ÿã˜ã‚‰ã‚Œã‚‹ã®ã‹ã€æ„Ÿæƒ…ã«ã©ã†å½±éŸ¿ã™ã‚‹ã®ã‹ã€ãã—ã¦å¿ƒãŒèªžã‚‹ç‰©èªžã‚’ã™ãä¿¡ã˜ã‚‹å‰ã«ã©ã†ç«‹ã¡æ­¢ã¾ã‚‹ã‹ã‚’æ‰±ã„ã¾ã™ã€‚",
+      archiveTopic: "èªçŸ¥ã®ã‚†ãŒã¿",
+      archiveAlt: "ã€Œè„³ã¯ã¨ãã©ãç§ãŸã¡ã‚’ã ã¾ã™ã€ã®ã‚¨ãƒ”ã‚½ãƒ¼ãƒ‰ç”»åƒ",
       topics: [
-        "認知のゆがみ",
-        "感情の調整",
-        "ストレスと対処",
-        "人間関係",
-        "自己理解",
-        "幼少期と家族のパターン",
-        "自己成長",
-        "学びと動機づけ",
+        "èªçŸ¥ã®ã‚†ãŒã¿",
+        "æ„Ÿæƒ…ã®èª¿æ•´",
+        "ã‚¹ãƒˆãƒ¬ã‚¹ã¨å¯¾å‡¦",
+        "äººé–“é–¢ä¿‚",
+        "è‡ªå·±ç†è§£",
+        "å¹¼å°‘æœŸã¨å®¶æ—ã®ãƒ‘ã‚¿ãƒ¼ãƒ³",
+        "è‡ªå·±æˆé•·",
+        "å­¦ã³ã¨å‹•æ©Ÿã¥ã‘",
       ],
     },
     ko: {
-      home: "홈",
-      back: "홈으로 돌아가기",
+      home: "í™ˆ",
+      back: "í™ˆìœ¼ë¡œ ëŒì•„ê°€ê¸°",
       pageLabel: "Will Talks",
-      nav: ["최신", "에피소드", "주제", "소개"],
+      nav: ["ìµœì‹ ", "ì—í”¼ì†Œë“œ", "ì£¼ì œ", "ì†Œê°œ"],
       eyebrow: "Will Talks",
-      title: "심리학을 일상에서 사용할 수 있는 이해로 바꿉니다.",
+      title: "ì‹¬ë¦¬í•™ì„ ì¼ìƒì—ì„œ ì‚¬ìš©í•  ìˆ˜ ìžˆëŠ” ì´í•´ë¡œ ë°”ê¿‰ë‹ˆë‹¤.",
       intro:
-        "감정, 관계, 행동, 배움, 그리고 일상의 선택을 만드는 마음의 패턴에 대해 차분히 나누는 대화입니다.",
-      primaryCta: "최신 에피소드 듣기",
-      secondaryCta: "주제 살펴보기",
+        "ê°ì •, ê´€ê³„, í–‰ë™, ë°°ì›€, ê·¸ë¦¬ê³  ì¼ìƒì˜ ì„ íƒì„ ë§Œë“œëŠ” ë§ˆìŒì˜ íŒ¨í„´ì— ëŒ€í•´ ì°¨ë¶„ížˆ ë‚˜ëˆ„ëŠ” ëŒ€í™”ìž…ë‹ˆë‹¤.",
+      primaryCta: "ìµœì‹  ì—í”¼ì†Œë“œ ë“£ê¸°",
+      secondaryCta: "ì£¼ì œ ì‚´íŽ´ë³´ê¸°",
       heroNote:
-        "성인, 교육자, 호기심 있는 청취자를 위한 교육적 성찰입니다. 치료, 진단 또는 의료적 돌봄을 대신하지 않습니다.",
-      latestLabel: "최신 에피소드",
-      latestTitle: "가스라이팅: 가장 많이 오해되는 심리학 단어 | Psychology Misunderstood S1E1",
-      latestTopic: "오해받는 심리학",
+        "ì„±ì¸, êµìœ¡ìž, í˜¸ê¸°ì‹¬ ìžˆëŠ” ì²­ì·¨ìžë¥¼ ìœ„í•œ êµìœ¡ì  ì„±ì°°ìž…ë‹ˆë‹¤. ì¹˜ë£Œ, ì§„ë‹¨ ë˜ëŠ” ì˜ë£Œì  ëŒë´„ì„ ëŒ€ì‹ í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.",
+      latestLabel: "ìµœì‹  ì—í”¼ì†Œë“œ",
+      latestTitle: "ê°€ìŠ¤ë¼ì´íŒ…: ê°€ìž¥ ë§Žì´ ì˜¤í•´ë˜ëŠ” ì‹¬ë¦¬í•™ ë‹¨ì–´ | Psychology Misunderstood S1E1",
+      latestTopic: "ì˜¤í•´ë°›ëŠ” ì‹¬ë¦¬í•™",
       latestSummary:
-        "Psychology Misunderstood 첫 번째 에피소드는 과학적 의미와 유행어로 쓰이는 방식을 구분합니다. 가스라이팅이 실제로 무엇을 뜻하는지, 왜 거짓말이나 의견 차이와 혼동되는지, 정확한 언어 사용이 왜 중요한지 다룹니다.",
-      listenSpotify: "Spotify에서 듣기",
-      watchYoutube: "YouTube에서 보기",
-      episodeMeta: "Psychology Misunderstood · 시즌 1 · 에피소드 1",
-      whyTitle: "이 에피소드가 중요한 이유",
+        "Psychology Misunderstood ì²« ë²ˆì§¸ ì—í”¼ì†Œë“œëŠ” ê³¼í•™ì  ì˜ë¯¸ì™€ ìœ í–‰ì–´ë¡œ ì“°ì´ëŠ” ë°©ì‹ì„ êµ¬ë¶„í•©ë‹ˆë‹¤. ê°€ìŠ¤ë¼ì´íŒ…ì´ ì‹¤ì œë¡œ ë¬´ì—‡ì„ ëœ»í•˜ëŠ”ì§€, ì™œ ê±°ì§“ë§ì´ë‚˜ ì˜ê²¬ ì°¨ì´ì™€ í˜¼ë™ë˜ëŠ”ì§€, ì •í™•í•œ ì–¸ì–´ ì‚¬ìš©ì´ ì™œ ì¤‘ìš”í•œì§€ ë‹¤ë£¹ë‹ˆë‹¤.",
+      listenSpotify: "Spotifyì—ì„œ ë“£ê¸°",
+      watchYoutube: "YouTubeì—ì„œ ë³´ê¸°",
+      episodeMeta: "Psychology Misunderstood Â· ì‹œì¦Œ 1 Â· ì—í”¼ì†Œë“œ 1",
+      whyTitle: "ì´ ì—í”¼ì†Œë“œê°€ ì¤‘ìš”í•œ ì´ìœ ",
       whyText:
-        "가스라이팅이라는 말은 이제 어디에서나 쓰이지만, 너무 넓게 사용하면 심각한 심리적 패턴을 이해하기 더 어려워질 수 있습니다. 이 에피소드는 일상적인 갈등과 한 사람의 현실감을 반복적으로 흔드는 조작의 차이를 살펴봅니다.",
-      useTitle: "일상에서 사용하기",
+        "ê°€ìŠ¤ë¼ì´íŒ…ì´ë¼ëŠ” ë§ì€ ì´ì œ ì–´ë””ì—ì„œë‚˜ ì“°ì´ì§€ë§Œ, ë„ˆë¬´ ë„“ê²Œ ì‚¬ìš©í•˜ë©´ ì‹¬ê°í•œ ì‹¬ë¦¬ì  íŒ¨í„´ì„ ì´í•´í•˜ê¸° ë” ì–´ë ¤ì›Œì§ˆ ìˆ˜ ìžˆìŠµë‹ˆë‹¤. ì´ ì—í”¼ì†Œë“œëŠ” ì¼ìƒì ì¸ ê°ˆë“±ê³¼ í•œ ì‚¬ëžŒì˜ í˜„ì‹¤ê°ì„ ë°˜ë³µì ìœ¼ë¡œ í”ë“œëŠ” ì¡°ìž‘ì˜ ì°¨ì´ë¥¼ ì‚´íŽ´ë´…ë‹ˆë‹¤.",
+      useTitle: "ì¼ìƒì—ì„œ ì‚¬ìš©í•˜ê¸°",
       useItems: [
-        "거짓말, 의견 차이, 잊어버림, 가스라이팅의 차이를 배웁니다.",
-        "한 순간만 판단하지 말고 시간 속에서 반복되는 패턴을 봅니다.",
-        "관계를 설명할 때 심리학 용어를 신중하게 사용합니다.",
+        "ê±°ì§“ë§, ì˜ê²¬ ì°¨ì´, ìžŠì–´ë²„ë¦¼, ê°€ìŠ¤ë¼ì´íŒ…ì˜ ì°¨ì´ë¥¼ ë°°ì›ë‹ˆë‹¤.",
+        "í•œ ìˆœê°„ë§Œ íŒë‹¨í•˜ì§€ ë§ê³  ì‹œê°„ ì†ì—ì„œ ë°˜ë³µë˜ëŠ” íŒ¨í„´ì„ ë´…ë‹ˆë‹¤.",
+        "ê´€ê³„ë¥¼ ì„¤ëª…í•  ë•Œ ì‹¬ë¦¬í•™ ìš©ì–´ë¥¼ ì‹ ì¤‘í•˜ê²Œ ì‚¬ìš©í•©ë‹ˆë‹¤.",
       ],
-      episodesTitle: "에피소드와 대화",
+      episodesTitle: "ì—í”¼ì†Œë“œì™€ ëŒ€í™”",
       episodesLead:
-        "Will Talks는 천천히, 신중하게 만들어집니다. 각 에피소드는 심리학을 더 이해하기 쉽고, 기억하기 쉽고, 삶에 적용하기 쉽게 해야 합니다.",
-      filterLabel: "주제별로 에피소드 필터링",
-      allTopics: "모든 주제",
-      topicsTitle: "다루는 주제",
+        "Will TalksëŠ” ì²œì²œížˆ, ì‹ ì¤‘í•˜ê²Œ ë§Œë“¤ì–´ì§‘ë‹ˆë‹¤. ê° ì—í”¼ì†Œë“œëŠ” ì‹¬ë¦¬í•™ì„ ë” ì´í•´í•˜ê¸° ì‰½ê³ , ê¸°ì–µí•˜ê¸° ì‰½ê³ , ì‚¶ì— ì ìš©í•˜ê¸° ì‰½ê²Œ í•´ì•¼ í•©ë‹ˆë‹¤.",
+      filterLabel: "ì£¼ì œë³„ë¡œ ì—í”¼ì†Œë“œ í•„í„°ë§",
+      allTopics: "ëª¨ë“  ì£¼ì œ",
+      topicsTitle: "ë‹¤ë£¨ëŠ” ì£¼ì œ",
       topicsLead:
-        "가정, 교실, 관계, 자기 이해에 영향을 주는 실용적인 주제로 계속 돌아옵니다.",
-      aboutTitle: "Will Talks 소개",
+        "ê°€ì •, êµì‹¤, ê´€ê³„, ìžê¸° ì´í•´ì— ì˜í–¥ì„ ì£¼ëŠ” ì‹¤ìš©ì ì¸ ì£¼ì œë¡œ ê³„ì† ëŒì•„ì˜µë‹ˆë‹¤.",
+      aboutTitle: "Will Talks ì†Œê°œ",
       aboutText:
-        "Will Talks는 심리학과 정신 건강 개념을 더 쉽게 이해하되 얕게 만들지 않기 위해 시작되었습니다. 목적은 인상적으로 들리는 것이 아닙니다. 사람들이 더 분명하게 생각하고, 더 부드럽게 반응하며, 심리학 지식을 일상에서 사용할 수 있도록 돕는 것입니다.",
-      promiseTitle: "편집 원칙",
+        "Will TalksëŠ” ì‹¬ë¦¬í•™ê³¼ ì •ì‹  ê±´ê°• ê°œë…ì„ ë” ì‰½ê²Œ ì´í•´í•˜ë˜ ì–•ê²Œ ë§Œë“¤ì§€ ì•Šê¸° ìœ„í•´ ì‹œìž‘ë˜ì—ˆìŠµë‹ˆë‹¤. ëª©ì ì€ ì¸ìƒì ìœ¼ë¡œ ë“¤ë¦¬ëŠ” ê²ƒì´ ì•„ë‹™ë‹ˆë‹¤. ì‚¬ëžŒë“¤ì´ ë” ë¶„ëª…í•˜ê²Œ ìƒê°í•˜ê³ , ë” ë¶€ë“œëŸ½ê²Œ ë°˜ì‘í•˜ë©°, ì‹¬ë¦¬í•™ ì§€ì‹ì„ ì¼ìƒì—ì„œ ì‚¬ìš©í•  ìˆ˜ ìžˆë„ë¡ ë•ëŠ” ê²ƒìž…ë‹ˆë‹¤.",
+      promiseTitle: "íŽ¸ì§‘ ì›ì¹™",
       promiseItems: [
-        "근거를 바탕으로 하며 과장하지 않습니다.",
-        "선정적이지 않고 성찰적입니다.",
-        "보여주기보다 실용적입니다.",
-        "인간적이고 따뜻하며 정직합니다.",
+        "ê·¼ê±°ë¥¼ ë°”íƒ•ìœ¼ë¡œ í•˜ë©° ê³¼ìž¥í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.",
+        "ì„ ì •ì ì´ì§€ ì•Šê³  ì„±ì°°ì ìž…ë‹ˆë‹¤.",
+        "ë³´ì—¬ì£¼ê¸°ë³´ë‹¤ ì‹¤ìš©ì ìž…ë‹ˆë‹¤.",
+        "ì¸ê°„ì ì´ê³  ë”°ëœ»í•˜ë©° ì •ì§í•©ë‹ˆë‹¤.",
       ],
-      followTitle: "대화를 이어가기",
+      followTitle: "ëŒ€í™”ë¥¼ ì´ì–´ê°€ê¸°",
       followText:
-        "새 에피소드, 실용적인 성찰, 일상적 인간 행동에 관한 깊이 있는 대화를 팔로우하세요.",
-      comingSoon: "채널 링크 준비 중",
-      subscribe: "구독",
-      emailPlaceholder: "이메일 주소",
-      searchPlaceholder: "에피소드 검색",
-      noResults: "아직 검색과 일치하는 에피소드가 없습니다.",
-      openEpisode: "에피소드 열기",
-      platform: "플랫폼",
-      language: "언어",
-      imageAlt: "Will Talks 팟캐스트 아트워크",
-      thumbnailAlt: "가스라이팅: 가장 많이 오해되는 심리학 단어 에피소드 아트워크",
-      archiveTitle: "우리 뇌는 때때로 우리를 속입니다",
+        "ìƒˆ ì—í”¼ì†Œë“œ, ì‹¤ìš©ì ì¸ ì„±ì°°, ì¼ìƒì  ì¸ê°„ í–‰ë™ì— ê´€í•œ ê¹Šì´ ìžˆëŠ” ëŒ€í™”ë¥¼ íŒ”ë¡œìš°í•˜ì„¸ìš”.",
+      comingSoon: "ì±„ë„ ë§í¬ ì¤€ë¹„ ì¤‘",
+      subscribe: "êµ¬ë…",
+      emailPlaceholder: "ì´ë©”ì¼ ì£¼ì†Œ",
+      searchPlaceholder: "ì—í”¼ì†Œë“œ ê²€ìƒ‰",
+      noResults: "ì•„ì§ ê²€ìƒ‰ê³¼ ì¼ì¹˜í•˜ëŠ” ì—í”¼ì†Œë“œê°€ ì—†ìŠµë‹ˆë‹¤.",
+      openEpisode: "ì—í”¼ì†Œë“œ ì—´ê¸°",
+      copyLink: "ë§í¬ ë³µì‚¬",
+      linkCopied: "ë§í¬ê°€ ë³µì‚¬ë˜ì—ˆìŠµë‹ˆë‹¤",
+      backToTop: "ë§¨ ìœ„ë¡œ",
+      platform: "í”Œëž«í¼",
+      language: "ì–¸ì–´",
+      imageAlt: "Will Talks íŒŸìºìŠ¤íŠ¸ ì•„íŠ¸ì›Œí¬",
+      thumbnailAlt: "ê°€ìŠ¤ë¼ì´íŒ…: ê°€ìž¥ ë§Žì´ ì˜¤í•´ë˜ëŠ” ì‹¬ë¦¬í•™ ë‹¨ì–´ ì—í”¼ì†Œë“œ ì•„íŠ¸ì›Œí¬",
+      archiveTitle: "ìš°ë¦¬ ë‡ŒëŠ” ë•Œë•Œë¡œ ìš°ë¦¬ë¥¼ ì†ìž…ë‹ˆë‹¤",
       archiveSummary:
-        "인지 왜곡에 대한 실용적인 대화입니다. 생각이 왜 그토록 설득력 있게 느껴지는지, 감정에 어떤 영향을 주는지, 마음이 들려주는 모든 이야기를 믿기 전에 어떻게 멈출 수 있는지 다룹니다.",
-      archiveTopic: "인지 왜곡",
-      archiveAlt: "우리 뇌는 때때로 우리를 속입니다 에피소드 아트워크",
+        "ì¸ì§€ ì™œê³¡ì— ëŒ€í•œ ì‹¤ìš©ì ì¸ ëŒ€í™”ìž…ë‹ˆë‹¤. ìƒê°ì´ ì™œ ê·¸í† ë¡ ì„¤ë“ë ¥ ìžˆê²Œ ëŠê»´ì§€ëŠ”ì§€, ê°ì •ì— ì–´ë–¤ ì˜í–¥ì„ ì£¼ëŠ”ì§€, ë§ˆìŒì´ ë“¤ë ¤ì£¼ëŠ” ëª¨ë“  ì´ì•¼ê¸°ë¥¼ ë¯¿ê¸° ì „ì— ì–´ë–»ê²Œ ë©ˆì¶œ ìˆ˜ ìžˆëŠ”ì§€ ë‹¤ë£¹ë‹ˆë‹¤.",
+      archiveTopic: "ì¸ì§€ ì™œê³¡",
+      archiveAlt: "ìš°ë¦¬ ë‡ŒëŠ” ë•Œë•Œë¡œ ìš°ë¦¬ë¥¼ ì†ìž…ë‹ˆë‹¤ ì—í”¼ì†Œë“œ ì•„íŠ¸ì›Œí¬",
       topics: [
-        "인지 왜곡",
-        "감정 조절",
-        "스트레스와 대처",
-        "관계",
-        "자기 인식",
-        "어린 시절과 가족 패턴",
-        "개인 성장",
-        "학습과 동기",
+        "ì¸ì§€ ì™œê³¡",
+        "ê°ì • ì¡°ì ˆ",
+        "ìŠ¤íŠ¸ë ˆìŠ¤ì™€ ëŒ€ì²˜",
+        "ê´€ê³„",
+        "ìžê¸° ì¸ì‹",
+        "ì–´ë¦° ì‹œì ˆê³¼ ê°€ì¡± íŒ¨í„´",
+        "ê°œì¸ ì„±ìž¥",
+        "í•™ìŠµê³¼ ë™ê¸°",
       ],
     },
   };
@@ -425,20 +440,6 @@
   const t = copy[locale] || copy.en;
 
   const homeHref = `${prefix}home.html`;
-  const routes = {
-    en: `${prefix}will-talks.html`,
-    "zh-tw": `${prefix}zh-tw/will-talks.html`,
-    "zh-cn": `${prefix}zh-cn/will-talks.html`,
-    ja: `${prefix}ja/will-talks.html`,
-    ko: `${prefix}ko/will-talks.html`,
-  };
-  if (locale !== "en") {
-    routes.en = `${prefix}will-talks.html`;
-    routes["zh-tw"] = "../zh-tw/will-talks.html";
-    routes["zh-cn"] = "../zh-cn/will-talks.html";
-    routes.ja = "../ja/will-talks.html";
-    routes.ko = "../ko/will-talks.html";
-  }
 
   const episodes = [
     {
@@ -480,28 +481,6 @@
     return `<button class="wt-chip${isFirst ? " is-active" : ""}" type="button" data-topic="${esc(topic)}" aria-pressed="${isFirst ? "true" : "false"}">${esc(topic)}</button>`;
   }
 
-  function languageSwitcher() {
-    const labels = {
-      en: "🇺🇸 English",
-      "zh-tw": "🇹🇼 繁體中文",
-      "zh-cn": "🇨🇳 简体中文",
-      ja: "🇯🇵 日本語",
-      ko: "🇰🇷 한국어",
-    };
-
-    return `<details class="wt-language">
-      <summary>🌐 ${esc(t.language)}</summary>
-      <div class="wt-language__menu" aria-label="${esc(t.language)}">
-        ${Object.entries(labels)
-          .map(
-            ([code, label]) =>
-              `<a href="${esc(routes[code])}"${code === locale ? ' aria-current="page"' : ""}>${esc(label)}</a>`,
-          )
-          .join("")}
-      </div>
-    </details>`;
-  }
-
   function renderEpisodeCard(episode) {
     return `<article class="wt-episode-card" data-card data-topics="${esc(episode.tags.join(" "))}" data-title="${esc(episode.title.toLowerCase())}">
       <img src="${esc(episode.image)}" alt="${esc(episode.alt)}" loading="lazy" />
@@ -512,6 +491,7 @@
         <div class="wt-card-actions">
           <a class="wt-button wt-button--small" href="${esc(episode.spotify)}" target="_blank" rel="noopener">${esc(t.listenSpotify)}</a>
           <a class="wt-button wt-button--small wt-button--ghost" href="${esc(episode.youtube)}" target="_blank" rel="noopener">${esc(t.watchYoutube)}</a>
+          <button class="wt-button wt-button--small wt-button--quiet" type="button" data-copy-link="${esc(episode.youtube)}">${esc(t.copyLink)}</button>
         </div>
       </div>
     </article>`;
@@ -530,7 +510,6 @@
         <a href="#about">${esc(t.nav[3])}</a>
       </nav>
       <div class="wt-header-actions">
-        ${languageSwitcher()}
         <a class="wt-button wt-button--ghost wt-button--small" href="${esc(homeHref)}">${esc(t.back)}</a>
       </div>
     </header>
@@ -593,7 +572,7 @@
           ${t.topics
             .map(
               (topic) => `<article class="wt-topic-card">
-                <span aria-hidden="true">•</span>
+                <span aria-hidden="true">&bull;</span>
                 <h3>${esc(topic)}</h3>
               </article>`,
             )
@@ -649,6 +628,12 @@
           <p class="wt-form-note" role="status" aria-live="polite"></p>
         </form>
       </section>
+
+      <button class="wt-back-to-top" type="button" aria-label="${esc(t.backToTop)}">
+        ↑
+      </button>
+
+      <p class="wt-toast" role="status" aria-live="polite" hidden></p>
     </main>
   `;
 
@@ -656,7 +641,26 @@
   const chips = Array.from(root.querySelectorAll(".wt-chip"));
   const search = root.querySelector("#episode-search");
   const empty = root.querySelector("#episode-empty");
+  const header = root.querySelector(".wt-header");
+  const navLinks = Array.from(root.querySelectorAll(".wt-nav a"));
+  const sections = Array.from(root.querySelectorAll("main section[id]"));
+  const toast = root.querySelector(".wt-toast");
+  const backToTop = root.querySelector(".wt-back-to-top");
   let activeTopic = t.allTopics;
+
+  function showToast(message) {
+    if (!toast) return;
+    toast.textContent = message;
+    toast.hidden = false;
+    toast.classList.add("is-visible");
+    window.clearTimeout(showToast.timeout);
+    showToast.timeout = window.setTimeout(() => {
+      toast.classList.remove("is-visible");
+      window.setTimeout(() => {
+        toast.hidden = true;
+      }, 220);
+    }, 1800);
+  }
 
   function applyFilters() {
     const query = (search?.value || "").trim().toLowerCase();
@@ -688,6 +692,73 @@
   });
 
   search?.addEventListener("input", applyFilters);
+
+  root.addEventListener("click", async (event) => {
+    const copyButton = event.target.closest("[data-copy-link]");
+    if (!copyButton) return;
+
+    const url = copyButton.getAttribute("data-copy-link");
+    if (!url) return;
+
+    try {
+      await navigator.clipboard.writeText(url);
+      showToast(t.linkCopied);
+    } catch {
+      window.prompt(t.copyLink, url);
+    }
+  });
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      const scrolled = window.scrollY > 12;
+      header?.classList.toggle("is-scrolled", scrolled);
+      backToTop?.classList.toggle("is-visible", window.scrollY > 650);
+    },
+    { passive: true },
+  );
+
+  backToTop?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.12 },
+    );
+
+    root
+      .querySelectorAll(".wt-hero, .wt-section, .wt-topic-card, .wt-episode-card")
+      .forEach((element) => {
+        element.classList.add("wt-reveal");
+        revealObserver.observe(element);
+      });
+
+    const activeObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          navLinks.forEach((link) => {
+            const active = link.getAttribute("href") === `#${entry.target.id}`;
+            link.classList.toggle("is-active", active);
+            if (active) link.setAttribute("aria-current", "true");
+            else link.removeAttribute("aria-current");
+          });
+        });
+      },
+      { rootMargin: "-30% 0px -55% 0px", threshold: 0.01 },
+    );
+
+    sections.forEach((section) => activeObserver.observe(section));
+  }
 
   root.querySelector("[data-subscribe]")?.addEventListener("submit", (event) => {
     event.preventDefault();
