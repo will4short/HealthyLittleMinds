@@ -185,7 +185,7 @@
 /* Japanese home: calmer header controls and a connected welcome action. */
 html[lang="ja"] body.localized-home {
   --ja-header-height: 86px;
-  --ja-nav-height: 66px;
+  --ja-nav-height: 116px;
   padding-top: calc(var(--ja-header-height) + var(--ja-nav-height));
 }
 

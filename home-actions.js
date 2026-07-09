@@ -18,9 +18,6 @@
     var action = control.dataset.homeAction;
     if (action === "dismiss-announcement" && typeof window.hideBar === "function") window.hideBar();
     if (action === "clear-mood" && typeof window.clearMood === "function") window.clearMood();
-    if (action === "open-express" && typeof window.openExpressModal === "function") window.openExpressModal();
-    if (action === "close-express" && typeof window.closeExpressModal === "function") window.closeExpressModal();
-    if (action === "save-express" && typeof window.saveExpress === "function") window.saveExpress();
     if (action === "dismiss-parent") control.parentElement.remove();
   });
 }());

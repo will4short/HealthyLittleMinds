@@ -58,12 +58,77 @@ body.home-experience {
 }
 
 .home-experience .announcement-bar {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap !important;
+  gap: 0.6rem;
+  height: auto !important;
+  justify-content: center;
+  line-height: 1.35;
+  min-height: 0;
+  overflow: visible !important;
+  padding-block: 0.85rem;
+  padding-inline: clamp(0.85rem, 2vw, 1.25rem);
   transition: opacity 0.5s ease;
+  white-space: normal;
+  word-break: keep-all;
+}
+
+body.localized-home.home-experience {
+  --announcement-height: 0px;
+}
+
+body.localized-home.home-experience .announcement-bar {
+  position: relative !important;
+  inset: auto !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  z-index: 3 !important;
+  width: min(1160px, calc(100% - 32px)) !important;
+  margin: 18px auto 12px !important;
+  transform: none !important;
 }
 
 .home-experience .announcement-bar.is-dismissing {
   opacity: 0;
   pointer-events: none;
+}
+
+.home-experience .announcement-label,
+.home-experience .announcement-link,
+.home-experience .announcement-dismiss {
+  flex: 0 1 auto;
+}
+
+.home-experience .announcement-link,
+.home-experience .announcement-dismiss {
+  align-items: center;
+  display: inline-flex;
+  min-height: 2.25rem;
+}
+
+.home-experience .announcement-link {
+  max-width: 100%;
+}
+
+.home-experience .announcement-dismiss {
+  justify-content: center;
+}
+
+@media (max-width: 720px) {
+  .home-experience .announcement-bar {
+    align-items: stretch;
+    justify-content: flex-start;
+    text-align: start;
+  }
+
+  .home-experience .announcement-label,
+  .home-experience .announcement-link,
+  .home-experience .announcement-dismiss {
+    flex-basis: 100%;
+  }
 }
 
 .home-status-notice {

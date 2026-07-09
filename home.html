@@ -68,7 +68,7 @@
   </script>
   <link href="home-mobile-ui.css?v=2" rel="stylesheet" />
   <link href="site-ui-upgrades.css?v=1" rel="stylesheet" />
-  <link href="home-experience.css?v=3" rel="stylesheet" />
+  <link href="home-experience.css?v=6" rel="stylesheet" />
 </head>
  <body class="home-mobile-ui ui-upgraded home-experience">
   <a class="home-skip-link" href="#main-content">Skip to main content</a>
@@ -306,10 +306,8 @@
     <div class="home-start__actions" aria-label="Quick links">
       <a href="#explore-feelings">Feelings</a>
       <a href="#support-guide">Help Me Choose</a>
-      <a href="#emotional-literacy">Books</a>
+      <a href="#emotional-literacy">Stories</a>
       <a href="#worksheets">Worksheets</a>
-      <a href="#resources">Topics</a>
-      <a href="growth-plan.html">7-Day Plan</a>
     </div>
   </section>
 
@@ -988,73 +986,6 @@
 
   </div><!-- /hlm-res__grid -->
 </section>
-
-<!-- ✅ NEXT STEP (makes the gentle path REAL + clickable) -->
-<section class="next-step" data-home-section="pathways" aria-labelledby="homePathwaysTitle">
-  <h2 id="homePathwaysTitle" class="next-step__title"><span aria-hidden="true">💛</span> Not sure what to do next?</h2>
-  <p class="next-step__sub">Pick one small step:</p>
-
-  <div class="next-step__grid">
-    <!-- BREATHE -->
-    <a class="next-step__card" href="interactive-tools.html#breathing" aria-label="Go to breathing tool">
-      <div class="next-step__icon">🌬️</div>
-      <div class="next-step__label">Breathe</div>
-      <div class="next-step__hint">1 minute calm-down</div>
-    </a>
-
-   <!-- EXPRESS (modal) -->
-<button class="next-step__card" type="button"
-        data-home-action="open-express"
-        aria-label="Open express modal">
-  <div class="next-step__icon next-step__icon--symbol">✎</div>
-  <div class="next-step__label">Express</div>
-  <div class="next-step__hint">Type it out</div>
-</button>
-
-    <!-- UNDERSTAND -->
-    <a class="next-step__card" href="#explore-feelings" aria-label="Jump to explore feelings section">
-      <div class="next-step__icon">📖</div>
-      <div class="next-step__label">Understand</div>
-      <div class="next-step__hint">Learn this feeling</div>
-    </a>
-
-<!-- TALK (scroll to Contact section) -->
-<a class="next-step__card" href="#contact" aria-label="Jump to contact section">
-  <div class="next-step__icon" aria-hidden="true">💬&#xfe0e;</div>
-  <div class="next-step__label">Talk</div>
-  <div class="next-step__hint">Message us</div>
-</a>
-  </div>
-  <p class="next-step__note">There’s no wrong place to begin 💛</p>
-</section>
-
-<!-- ✅ EXPRESS MODAL -->
-<div class="express-modal" id="expressModal" aria-hidden="true" role="dialog" aria-label="Express your feelings">
-  <div class="express-modal__backdrop" data-home-action="close-express"></div>
-
-  <div class="express-modal__panel" role="document">
-    <div class="express-modal__head">
-      <div>
-        <div class="express-modal__title">🎨 Express</div>
-        <div class="express-modal__sub">One small sentence is enough.</div>
-      </div>
-      <button class="express-modal__close" type="button" data-home-action="close-express" aria-label="Close">✕</button>
-    </div>
-
-    <label class="express-modal__label" for="expressText">Right now, I feel…</label>
-    <textarea id="expressText" class="express-modal__textarea" rows="4"
-      placeholder="Example: I feel angry because someone didn’t listen to me."></textarea>
-
-    <div class="express-modal__actions">
-      <button class="express-modal__btn" type="button" data-home-action="save-express">Save</button>
-      <button class="express-modal__btn express-modal__btn--ghost" type="button" data-home-action="close-express">Done</button>
-    </div>
-
-    <div class="express-modal__saved u-style-040" id="expressSaved">
-      ✅ Saved. You did a brave thing.
-    </div>
-  </div>
-</div>
 
    <section class="trust-section u-style-053">
     <h2 class="u-style-054">
@@ -2274,46 +2205,6 @@ startAutoSlide();
 </script>
 
 <script>
-  function openExpressModal(){
-    const modal = document.getElementById('expressModal');
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden','false');
-    document.body.classList.add('modal-open');
-    setTimeout(()=> document.getElementById('expressText')?.focus(), 50);
-  }
-
-  function closeExpressModal(){
-    const modal = document.getElementById('expressModal');
-    modal.setAttribute('aria-hidden','true');
-    modal.classList.remove('is-open');
-    document.body.classList.remove('modal-open');
-  }
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && document.getElementById('expressModal')?.classList.contains('is-open')) {
-      closeExpressModal();
-    }
-  });
-
-  function saveExpress(){
-    const text = document.getElementById('expressText').value.trim();
-    if(!text) return;
-
-    // Save locally (kid-safe, no account needed)
-    try {
-      localStorage.setItem('hlm_express_latest', text);
-      localStorage.setItem('hlm_express_time', new Date().toISOString());
-    } catch(e){}
-
-    const saved = document.getElementById('expressSaved');
-    saved.style.display = 'block';
-
-    // optional: clear after save
-    // document.getElementById('expressText').value = '';
-
-    setTimeout(()=> saved.style.display = 'none', 2500);
-  }
-
   // Optional: smooth scroll for same-page anchors
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click', (e)=>{
@@ -2327,14 +2218,6 @@ startAutoSlide();
   });
 </script>
 
-<script>
-  document.addEventListener("click", (e) => {
-    const card = e.target.closest(".next-step__card");
-    if (!card) return;
-    document.querySelectorAll(".next-step__card.is-selected").forEach(el => el.classList.remove("is-selected"));
-    card.classList.add("is-selected");
-  });
-</script>
 <script>
   (() => {
     const rail = document.querySelector("#emotional-literacy .book-rail-window");
@@ -2532,6 +2415,6 @@ startAutoSlide();
   <script defer src="button-loader.js?v=1"></script>
   <script src="site-ui-upgrades.js?v=1"></script>
 <script src="home-mobile-ui.js?v=2"></script>
-<script src="home-actions.js?v=1"></script>
+<script src="home-actions.js?v=2"></script>
 </body>
 </html>
