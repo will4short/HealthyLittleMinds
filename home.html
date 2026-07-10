@@ -54,7 +54,7 @@
   <!-- Fonts & Styles -->
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link href="style.css?v=102" rel="stylesheet"/>
+  <link href="style.css?v=107" rel="stylesheet"/>
   <script src="member-preview.js?v=2"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Nunito:wght@600;800&amp;display=swap" rel="stylesheet">
    <!-- Structured Data -->
@@ -995,87 +995,128 @@
     </section>
    </section>
     <!-- WHY THIS MATTERS Section -->
-    <section class="u-style-060" id="why-this-matters">
-     <div class="u-style-061">
-      <!-- Animated Image Container -->
-      <div class="floating-image-container">
-       <img alt="Kids learning emotions illustration" class="why-image" decoding="async" loading="lazy" src="images/why-this-matters.webp">
+    <section class="u-style-060 why-matters" id="why-this-matters" aria-labelledby="whyMattersTitle">
+     <div class="why-matters__inner">
+      <div class="why-matters__media">
+       <img alt="Child sitting calmly with two cats beside a glowing candle" class="why-image" decoding="async" loading="lazy" src="images/why-this-matters.webp">
       </div>
-      <!-- Title -->
-      <h2 class="u-style-062">
-       Why This Matters
-      </h2>
-      <!-- Description -->
-      <p class="u-style-063">
-       Teaching emotional literacy helps kids understand their feelings, connect with others, and grow into kind, confident humans.
-       Our books and tools are designed to make this learning gentle, joyful, and practical.
-      </p>
-      <div class="impact-points" aria-label="Benefits of emotional literacy">
-       <div class="impact-point">
+      <div class="why-matters__content">
+       <p class="why-matters__eyebrow">Emotional literacy in everyday life</p>
+       <h2 class="u-style-062" id="whyMattersTitle">
+        Why This Matters
+       </h2>
+       <p class="u-style-063">
+        Emotional learning is not one big lesson. It grows through small moments:
+        naming what is happening, practising a helpful response, and staying connected
+        with trusted adults.
+       </p>
+      </div>
+
+      <div class="impact-points" role="tablist" aria-label="Benefits of emotional literacy">
+       <button class="impact-point is-active" id="impact-name-tab" type="button" role="tab" aria-selected="true" aria-controls="impact-name-panel" data-impact-target="impact-name-panel">
+       <span class="impact-point__number" aria-hidden="true">01</span>
         <strong>Name feelings</strong>
-        <span>Children find words for what is happening inside.</span>
-       </div>
-       <div class="impact-point">
+        <span class="impact-point__hint">View guidance</span>
+       </button>
+       <button class="impact-point" id="impact-coping-tab" type="button" role="tab" aria-selected="false" aria-controls="impact-coping-panel" data-impact-target="impact-coping-panel">
+        <span class="impact-point__number" aria-hidden="true">02</span>
         <strong>Practise coping</strong>
-        <span>Small calming tools become easier to use when needed.</span>
-       </div>
-       <div class="impact-point">
+        <span class="impact-point__hint">View guidance</span>
+       </button>
+       <button class="impact-point" id="impact-care-tab" type="button" role="tab" aria-selected="false" aria-controls="impact-care-panel" data-impact-target="impact-care-panel">
+        <span class="impact-point__number" aria-hidden="true">03</span>
         <strong>Connect with care</strong>
-        <span>Families can talk, listen, and ask for support sooner.</span>
-       </div>
+        <span class="impact-point__hint">View guidance</span>
+       </button>
+      </div>
+
+      <div class="impact-detail">
+       <article class="impact-detail__panel is-active" id="impact-name-panel" role="tabpanel" aria-labelledby="impact-name-tab">
+        <h3>Start with language children can use.</h3>
+        <p>When children can name a feeling, adults can respond with more patience and children are less likely to feel alone with what is happening inside.</p>
+        <a href="#explore-feelings">Explore feelings</a>
+       </article>
+       <article class="impact-detail__panel" id="impact-coping-panel" role="tabpanel" aria-labelledby="impact-coping-tab" hidden>
+        <h3>Practise before the hard moment.</h3>
+        <p>Simple routines like breathing, drawing, pausing, and asking for help become easier when children practise them during calm moments.</p>
+        <a href="worksheets.html">Open worksheets</a>
+       </article>
+       <article class="impact-detail__panel" id="impact-care-panel" role="tabpanel" aria-labelledby="impact-care-tab" hidden>
+        <h3>Connection makes learning safer.</h3>
+        <p>Healthy Little Minds resources are designed to help adults guide, listen, and co-regulate rather than shame, rush, or correct too quickly.</p>
+        <a href="parents.html">Visit parent support</a>
+       </article>
       </div>
      </div>
 
      <section class="creator-section u-style-064">
-      <!-- ✅ Profile + About Teaser (Upgraded 2026-style) -->
-<section class="u-style-065" id="about-teaser">
+      <section class="creator-card u-style-065" id="about-teaser" aria-labelledby="creatorTitle">
+       <div class="creator-card__portrait">
+        <img class="u-style-066"
+          alt="Godswill Ambrose, creator of Healthy Little Minds"
+          fetchpriority="high"
+          decoding="async"
+          loading="lazy"
+          src="images/profile-photo.png"
+        />
+       </div>
 
-  <!-- ✅ Profile Photo (no squeeze + modern ring + subtle hover) -->
-  <img class="u-style-066"
-    alt="Godswill Ambrose"
-    fetchpriority="high"
-    decoding="async"
-    loading="lazy"
-    src="images/profile-photo.png"
+       <div class="creator-card__content">
+        <div class="u-style-067">
+         <span>Created with care</span>
+        </div>
 
-  />
+        <h2 class="u-style-068" id="creatorTitle">
+         Meet the Creator
+        </h2>
 
-  <!-- ✅ Micro badge -->
-  <div class="u-style-067">
-    <span aria-hidden="true">🧠</span>
-    <span>Healthy Little Minds Creator</span>
-  </div>
+        <p class="u-style-069">
+         Healthy Little Minds&reg; is created by <strong class="u-style-070">Godswill U. Ambrose</strong>
+         to make emotional learning practical, gentle, and accessible for children, parents,
+         and teachers.
+        </p>
 
-  <h2 class="u-style-068">
-    About Me
-  </h2>
+        <p class="creator-card__note">
+         The work is guided by a simple responsibility: explain psychology clearly, avoid
+         overstatement, and turn useful ideas into resources people can actually use in
+         homes, classrooms, and everyday conversations.
+        </p>
 
-  <p class="u-style-069">
-    Learn more about my journey, research, and the work behind
-    <strong class="u-style-070">Healthy Little Minds&reg;</strong>.
-  </p>
+        <div class="creator-pillars" aria-label="What guides Healthy Little Minds">
+         <article class="creator-pillar">
+          <span aria-hidden="true">01</span>
+          <strong>Educational focus</strong>
+          <p>Resources are designed to teach emotional skills through simple, repeatable practice.</p>
+         </article>
+         <article class="creator-pillar">
+          <span aria-hidden="true">02</span>
+          <strong>Evidence-informed approach</strong>
+          <p>Psychology is presented carefully, with respect for uncertainty and real-world context.</p>
+         </article>
+         <article class="creator-pillar">
+          <span aria-hidden="true">03</span>
+          <strong>Practical support</strong>
+          <p>Stories, worksheets, and guides are shaped for real families, classrooms, and quiet moments.</p>
+         </article>
+        </div>
 
-  <!-- ✅ CTA Buttons -->
-  <div class="u-style-071">
-    <a class="u-style-072"
-      href="about_me.html"
-    >
-      <span>Read Full Profile</span>
-      <span aria-hidden="true">→</span>
-    </a>
+        <div class="u-style-071">
+         <a class="u-style-072" href="about_me.html">
+          <span>Read Full Profile</span>
+          <span aria-hidden="true">&rarr;</span>
+         </a>
 
-    <a class="u-style-073"
-      href="https://instagram.com/heal.thylittleminds"
-      target="_blank"
-      rel="noopener"
-    >
-      <span aria-hidden="true">＋</span>
-      <span>Follow</span>
-    </a>
-  </div>
-</section>
+         <a class="u-style-073" href="will-talks.html">
+          <span>Listen to Will Talks</span>
+         </a>
+
+         <a class="creator-card__link" href="contact.html">
+          <span>Contact Me</span>
+         </a>
+        </div>
+       </div>
+      </section>
      </section>
-    </section>
       <button
         id="backToTop"
         class="home-back-to-top"
@@ -2331,6 +2372,6 @@ startAutoSlide();
   <script defer src="button-loader.js?v=1"></script>
   <script src="site-ui-upgrades.js?v=2"></script>
 <script src="home-mobile-ui.js?v=2"></script>
-<script src="home-actions.js?v=2"></script>
+<script src="home-actions.js?v=4"></script>
 </body>
 </html>

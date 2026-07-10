@@ -57,7 +57,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../style.css?v=102">
+<link rel="stylesheet" href="../style.css?v=107">
 <script src="../member-preview.js?v=2"></script>
 <script src="../home-localized-runtime.js?v=1"></script>
 <link rel="stylesheet" href="../localized-home.css?v=20">
@@ -1058,42 +1058,68 @@ html[lang="zh-TW"] .hlm-res{
   </div>
 </section>
 
-<section class="localized-about" aria-labelledby="twAboutTitle">
+<section class="creator-section localized-about localized-about--tw" aria-labelledby="twAboutTitle">
+  <section class="creator-card u-style-065" id="about-teaser" aria-labelledby="twAboutTitle">
+    <div class="creator-card__portrait">
+      <img
+        src="../images/profile-photo.png"
+        alt="Godswill Ambrose, Healthy Little Minds creator"
+        loading="lazy"
+        decoding="async"
+        fetchpriority="high"
+        class="u-style-066 localized-about__portrait"
+      />
+    </div>
 
-  <!-- Profile Image (fixed crop + sharp) -->
-  <img
-    src="../images/profile-photo.png"
-    alt="Godswill Ambrose"
-    loading="lazy"
-    decoding="async"
-    fetchpriority="high"
-    class="localized-about__portrait"
-  />
+    <div class="creator-card__content">
+      <div class="u-style-067 localized-about__badge">
+        <span>用心建立</span>
+      </div>
 
-  <!-- Title -->
-  <h2 id="twAboutTitle" class="localized-about__title">
-    關於我
-  </h2>
+      <h2 id="twAboutTitle" class="u-style-068 localized-about__title">
+        認識創作者
+      </h2>
 
-  <!-- Short Description -->
-  <p class="localized-about__copy">
-    了解我的旅程、研究，以及
-    <strong>Healthy Little Minds®</strong>
-    背後的故事。
-  </p>
+      <p class="u-style-069 localized-about__copy">
+        Healthy Little Minds&reg; 由 Godswill U. Ambrose 創立，目標是讓孩子、家長和老師都能以溫和、實用、容易理解的方式學習情緒能力。
+      </p>
 
-  <!-- Buttons -->
-  <div class="localized-about__actions">
+      <p class="creator-card__note localized-about__copy">
+        這項工作的責任很簡單：清楚說明心理學，避免誇大，並把有用的想法轉化為家庭、課堂和日常對話中真正能使用的資源。
+      </p>
 
-    <a class="localized-about__primary" href="about_me.html">
-      查看完整簡介 →
-    </a>
+      <div class="creator-pillars" aria-label="Healthy Little Minds creator principles">
+        <article class="creator-pillar">
+          <span aria-hidden="true">01</span>
+          <strong>以教育為核心</strong>
+          <p>資源協助孩子透過簡單、可重複的練習學習情緒技能。</p>
+        </article>
+        <article class="creator-pillar">
+          <span aria-hidden="true">02</span>
+          <strong>以證據為基礎</strong>
+          <p>心理學內容會謹慎呈現，並尊重不確定性與真實生活情境。</p>
+        </article>
+        <article class="creator-pillar">
+          <span aria-hidden="true">03</span>
+          <strong>實用支持</strong>
+          <p>故事、學習單和指南都面向真實家庭、課堂和安靜陪伴的時刻。</p>
+        </article>
+      </div>
 
-    <a class="localized-about__secondary" href="https://instagram.com/heal.thylittleminds" target="_blank" rel="noopener">
-      + 追蹤
-    </a>
-
-  </div>
+      <div class="u-style-071 localized-about__actions">
+        <a class="u-style-072 localized-about__primary" href="about_me.html">
+          <span>查看完整簡介</span>
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="u-style-073 localized-about__secondary" href="will-talks.html">
+          <span>收聽 Will Talks</span>
+        </a>
+        <a class="creator-card__link" href="../contact.html">
+          <span>聯絡我</span>
+        </a>
+      </div>
+    </div>
+  </section>
 </section>
 
 <section id="subscribe" class="tw-subscribe localized-subscribe" aria-labelledby="twSubscribeTitle">

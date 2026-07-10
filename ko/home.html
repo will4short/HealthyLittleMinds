@@ -55,7 +55,7 @@
   <!-- 폰트 & 스타일 -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="../style.css?v=102">
+<link rel="stylesheet" href="../style.css?v=107">
 <script src="../member-preview.js?v=2"></script>
 <script src="../home-localized-runtime.js?v=1"></script>
 <link rel="stylesheet" href="../localized-home.css?v=20">
@@ -1194,41 +1194,68 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
   </div>
 </section>
 
-<section class="localized-about" aria-labelledby="koAboutTitle">
+<section class="creator-section localized-about localized-about--ko" aria-labelledby="koAboutTitle">
+  <section class="creator-card u-style-065" id="about-teaser" aria-labelledby="koAboutTitle">
+    <div class="creator-card__portrait">
+      <img
+        src="../images/profile-photo.png"
+        alt="Godswill Ambrose, Healthy Little Minds creator"
+        loading="lazy"
+        decoding="async"
+        fetchpriority="high"
+        class="u-style-066 localized-about__portrait"
+      />
+    </div>
 
-  <!-- Profile Image (fixed crop + sharp) -->
-  <img
-    src="../images/profile-photo.png"
-    alt="Godswill Ambrose"
-    loading="lazy"
-    decoding="async"
-    fetchpriority="high"
-    class="localized-about__portrait"
-  />
+    <div class="creator-card__content">
+      <div class="u-style-067 localized-about__badge">
+        <span>정성으로 만들었습니다</span>
+      </div>
 
-  <!-- Heading -->
-  <h2 id="koAboutTitle" class="localized-about__title">
-    소개
-  </h2>
+      <h2 id="koAboutTitle" class="u-style-068 localized-about__title">
+        만든 사람 소개
+      </h2>
 
-  <!-- Description -->
-  <p class="localized-about__copy">
-    저의 여정, 연구, 그리고
-    <strong>Healthy Little Minds®</strong>
-    뒤에 있는 이야기를 알아보세요.
-  </p>
+      <p class="u-style-069 localized-about__copy">
+        Healthy Little Minds&reg;는 Godswill U. Ambrose가 아이들, 부모님, 선생님이 정서 학습을 부드럽고 실제적으로 사용할 수 있도록 만들고 있습니다.
+      </p>
 
-  <!-- Buttons -->
-  <div class="localized-about__actions">
-    <a class="localized-about__primary" href="about_me.html">
-      전체 프로필 보기 →
-    </a>
+      <p class="creator-card__note localized-about__copy">
+        이 작업은 심리학을 분명하게 설명하고, 과장하지 않으며, 가정과 교실과 일상 대화에서 실제로 쓸 수 있는 자료로 바꾸는 책임을 바탕으로 합니다.
+      </p>
 
-    <a class="localized-about__secondary" href="https://instagram.com/heal.thylittleminds" target="_blank" rel="noopener">
-      + 팔로우
-    </a>
-  </div>
+      <div class="creator-pillars" aria-label="Healthy Little Minds creator principles">
+        <article class="creator-pillar">
+          <span aria-hidden="true">01</span>
+          <strong>교육 중심</strong>
+          <p>정서 기술을 단순하고 반복 가능한 연습으로 배울 수 있도록 자료를 설계합니다.</p>
+        </article>
+        <article class="creator-pillar">
+          <span aria-hidden="true">02</span>
+          <strong>근거를 바탕으로</strong>
+          <p>심리학 내용은 불확실성을 존중하며 조심스럽고 책임 있게 전달합니다.</p>
+        </article>
+        <article class="creator-pillar">
+          <span aria-hidden="true">03</span>
+          <strong>실제적인 지원</strong>
+          <p>이야기, 워크시트, 가이드는 실제 가정과 교실, 조용한 순간에 사용할 수 있도록 구성됩니다.</p>
+        </article>
+      </div>
 
+      <div class="u-style-071 localized-about__actions">
+        <a class="u-style-072 localized-about__primary" href="about_me.html">
+          <span>전체 프로필 보기</span>
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="u-style-073 localized-about__secondary" href="will-talks.html">
+          <span>Will Talks 듣기</span>
+        </a>
+        <a class="creator-card__link" href="../contact.html">
+          <span>문의하기</span>
+        </a>
+      </div>
+    </div>
+  </section>
 </section>
 
 <section id="subscribe" class="ko-subscribe localized-subscribe" aria-labelledby="koSubscribeTitle">
