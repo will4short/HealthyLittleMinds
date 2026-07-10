@@ -106,7 +106,6 @@
         <div class="nav-more__panel">
           <a class="bulletin-link" href="bulletin.html">Bulletin</a>
           <a href="dashboard.html">Dashboard</a>
-          <a href="songs.html">Songs</a>
 
           <a href="audiobook_section.html">Audiobooks</a>
           <a href="social.html">Social Posts</a>
@@ -154,7 +153,6 @@
     <p class="mobile-nav__label">More</p>
     <a class="bulletin-link" href="bulletin.html">Bulletin</a>
     <a href="dashboard.html">Dashboard</a>
-    <a href="songs.html">Songs</a>
 
     <a href="audiobook_section.html">Audiobooks</a>
     <a href="social.html">Social Posts</a>
@@ -219,11 +217,6 @@
 
      target="_blank" rel="noopener noreferrer">
     The Day Destiny Wanted To Quit
-  </a>
-
-  <a class="u-style-013" href="songs.html"
-    >
-    Songs
   </a>
 
   <button class="announcement-dismiss u-style-013" type="button" data-home-action="dismiss-announcement"
@@ -562,33 +555,6 @@
   </div>
 </div>
 </div>
-<!-- ✅ WELCOME SONG BAR (place this where you want it to appear) -->
-<section class="welcome-audio" aria-label="Welcome Song">
-  <div class="welcome-audio-inner">
-    <div class="welcome-audio-left">
-      <div class="welcome-icon" aria-hidden="true">🎵</div>
-      <div class="welcome-audio-text">
-        <div class="welcome-title">Welcome Song</div>
-        <div class="welcome-subtitle">PAUSE. BREATHE. FEEL.</div>
-        <div class="welcome-helper">🎧 Gentle music to help you feel calm</div>
-      </div>
-    </div>
-
-    <div class="welcome-audio-right">
-      <button id="soundToggle" class="welcome-btn" type="button" aria-pressed="false">
-        🔇 Sound Off
-      </button>
-
-      <a class="welcome-link" href="songs.html">Go to Songs →</a>
-    </div>
-  </div>
-
-  <!-- ✅ Local audio file (best for autoplay + real toggle control) -->
-  <audio id="welcomeSong" preload="auto" loop playsinline muted>
-    <source src="audio/pause-breathe-feel.mp3" type="audio/mpeg" />
-  </audio>
-</section>
-
 </section>
   <div class="mood-tooltip u-style-029" id="mood-tooltip">
   </div>
@@ -916,47 +882,50 @@
   </div><!-- /hlm-res__grid -->
 </section>
 
-   <section class="trust-section u-style-053">
-    <h2 class="u-style-054">
-     💬 What Parents Are Saying
-    </h2>
-    <p class="trust-section__sub">
-      Real families are using these stories and worksheets to make feelings easier to talk about.
-    </p>
-    <div class="testimonial-grid">
-     <div class="testimonial">
-      <p class="u-style-055">
-       ⭐⭐⭐⭐⭐
+   <section class="trust-section u-style-053" aria-labelledby="parentVoicesTitle">
+    <div class="trust-section__header">
+      <p class="trust-section__eyebrow">Parent voices</p>
+      <h2 class="u-style-054" id="parentVoicesTitle">
+       <span aria-hidden="true">&#128172;</span> What Parents Are Saying
+      </h2>
+      <p class="trust-section__sub">
+        Short reflections from families using stories, worksheets, and simple prompts to make feelings easier to talk about.
       </p>
-      <p>
-       "My daughter loves the worksheets! She&rsquo;s more confident talking about her feelings."
-      </p>
-      <small>
-       &ndash; Maria T., mom of 6-year-old
-      </small>
-     </div>
-     <div class="testimonial">
-      <p class="u-style-056">
-       ⭐⭐⭐⭐⭐
-      </p>
-      <p>
-       "The flipbook helped us start bedtime chats about emotions. So helpful!"
-      </p>
-      <small>
-       &ndash; Jake B., dad of two
-      </small>
-     </div>
-     <div class="testimonial">
-      <p class="u-style-057">
-       ⭐⭐⭐⭐⭐
-      </p>
-      <p>
-       "Beautifully made and easy for kids to understand. We print something every week."
-      </p>
-      <small>
-       &ndash; Aisha R.
-      </small>
-     </div>
+    </div>
+    <div class="testimonial-showcase" data-testimonials>
+      <div class="testimonial-feature" aria-live="polite">
+        <span class="testimonial-feature__label" data-testimonial-label>Worksheets at home</span>
+        <blockquote data-testimonial-quote>
+          My daughter loves the worksheets. She is more confident talking about her feelings.
+        </blockquote>
+        <p class="testimonial-feature__meta" data-testimonial-meta>Maria T., parent of a 6-year-old</p>
+      </div>
+      <div class="testimonial-controls" aria-label="Parent story controls">
+        <button class="testimonial-control" type="button" data-testimonial-direction="-1" aria-label="Show previous parent story">&#8592;</button>
+        <div class="testimonial-dots" aria-hidden="true">
+          <span class="is-active"></span>
+          <span></span>
+          <span></span>
+        </div>
+        <button class="testimonial-control" type="button" data-testimonial-direction="1" aria-label="Show next parent story">&#8594;</button>
+      </div>
+      <div class="testimonial-grid" role="tablist" aria-label="Parent reflections">
+       <button class="testimonial is-active" type="button" role="tab" aria-selected="true" data-testimonial-index="0" data-label="Worksheets at home" data-quote="My daughter loves the worksheets. She is more confident talking about her feelings." data-meta="Maria T., parent of a 6-year-old">
+        <span class="testimonial__rating" aria-label="Five-star parent reflection">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="testimonial__quote">My daughter loves the worksheets. She is more confident talking about her feelings.</span>
+        <span class="testimonial__name">Maria T., parent of a 6-year-old</span>
+       </button>
+       <button class="testimonial" type="button" role="tab" aria-selected="false" data-testimonial-index="1" data-label="Bedtime conversations" data-quote="The flipbook helped us start bedtime chats about emotions. It gave us words we could actually use." data-meta="Jake B., dad of two">
+        <span class="testimonial__rating" aria-label="Five-star parent reflection">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="testimonial__quote">The flipbook helped us start bedtime chats about emotions. It gave us words we could actually use.</span>
+        <span class="testimonial__name">Jake B., dad of two</span>
+       </button>
+       <button class="testimonial" type="button" role="tab" aria-selected="false" data-testimonial-index="2" data-label="Weekly practice" data-quote="Beautifully made and easy for kids to understand. We print something every week." data-meta="Aisha R.">
+        <span class="testimonial__rating" aria-label="Five-star parent reflection">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="testimonial__quote">Beautifully made and easy for kids to understand. We print something every week.</span>
+        <span class="testimonial__name">Aisha R.</span>
+       </button>
+      </div>
     </div>
     <section class="subscribe-section u-style-058">
      <h2 class="u-style-059">
@@ -1315,12 +1284,11 @@
     },
     ella: {
       name: "Ella",
-      subtitle: "Books, audiobooks, songs, and activities featuring Ella",
+      subtitle: "Books, audiobooks, and activities featuring Ella",
       items: [
         { title: "One More Kick, Ella!", type: "Audiobook", href: "audiobook.html?book=audiobooks/ella/book.json" },
         { title: "Ella and the Promise She Keeps Trying", type: "Book", href: "https://heyzine.com/flip-book/684fc1bda8.html", external: true },
-        { title: "Ella Reflection Activity", type: "Activity", href: "interactive-tools.html#ella-reflection" },
-        { title: "Keep Trying, Ella", type: "Song", href: "songs.html" }
+        { title: "Ella Reflection Activity", type: "Activity", href: "interactive-tools.html#ella-reflection" }
       ]
     }
   };
@@ -1330,8 +1298,7 @@
     Activity: "Activity",
     Audiobook: "Audio",
     "Interactive Story": "Story",
-    "Video Audiobook": "Video",
-    Song: "Song"
+    "Video Audiobook": "Video"
   };
 
   function libraryItemAttributes(item, index) {
@@ -2103,62 +2070,7 @@ startAutoSlide();
   applyTopicSearch();
 })();
 
-(function () {
-  const audio = document.getElementById('welcomeSong');
-  const toggleBtn = document.getElementById('soundToggle');
-  if (!audio || !toggleBtn) return;
 
-  // Start muted for autoplay compatibility
-  audio.muted = true;
-  audio.volume = 0.9;
-
-  // Attempt autoplay (muted)
-  window.addEventListener('load', () => {
-    audio.play().catch(() => {});
-  });
-
-  // Kickstart on first interaction if autoplay blocked
-  const kickstart = () => audio.play().catch(() => {});
-  document.addEventListener('pointerdown', kickstart, { once: true });
-  document.addEventListener('touchstart', kickstart, { once: true });
-  document.addEventListener('keydown', kickstart, { once: true });
-  document.addEventListener('scroll', kickstart, { passive: true, once: true });
-
-  // UI default
-  toggleBtn.textContent = '🔇 Sound Off';
-  toggleBtn.classList.remove('is-on');
-  toggleBtn.setAttribute('aria-pressed', 'false');
-
-  toggleBtn.addEventListener('click', async () => {
-    const turningOn = audio.muted === true;
-
-    if (turningOn) {
-      audio.muted = false;
-      try { await audio.play(); } catch (_) {}
-      toggleBtn.textContent = '🔊 Sound On';
-      toggleBtn.classList.add('is-on');
-      toggleBtn.setAttribute('aria-pressed', 'true');
-      localStorage.setItem('hlm_welcome_sound', 'on');
-    } else {
-      audio.muted = true;
-      toggleBtn.textContent = '🔇 Sound Off';
-      toggleBtn.classList.remove('is-on');
-      toggleBtn.setAttribute('aria-pressed', 'false');
-      localStorage.setItem('hlm_welcome_sound', 'off');
-    }
-  });
-
-  // Optional: remember preference
-  const pref = localStorage.getItem('hlm_welcome_sound');
-  if (pref === 'on') {
-    audio.muted = false;
-    toggleBtn.textContent = '🔊 Sound On';
-    toggleBtn.classList.add('is-on');
-    toggleBtn.setAttribute('aria-pressed', 'true');
-    // Try play (will still need gesture sometimes)
-    audio.play().catch(() => {});
-  }
-})();
 </script>
 
 <script>

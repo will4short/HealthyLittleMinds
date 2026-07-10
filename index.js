@@ -267,7 +267,6 @@
   // MEDIA — UNCHANGED
   // magicJarVideo is now on home.html; the guard (if video) means
   // this is safely a no-op on index.html.
-  // welcomeSong is also on home.html; same safe no-op on index.
   // ─────────────────────────────────────────────────────────────
   function setupMedia() {
     const video = document.getElementById("magicJarVideo");
@@ -278,22 +277,6 @@
         video.play().catch(() => {});
       });
     }
-    const audio  = document.getElementById("welcomeSong");
-    const toggle = document.getElementById("soundToggle");
-    if (!audio || !toggle) return;
-    audio.play().catch(() => {});
-    toggle.addEventListener("click", () => {
-      const enable = audio.muted;
-      audio.muted   = !enable;
-      toggle.textContent = enable
-        ? (toggle.dataset.soundOn  || "Sound On")
-        : (toggle.dataset.soundOff || "Sound Off");
-      toggle.setAttribute("aria-pressed", String(enable));
-      if (enable) {
-        audio.currentTime = 0;
-        audio.play().catch(() => {});
-      }
-    });
   }
 
   // ─────────────────────────────────────────────────────────────
