@@ -395,32 +395,107 @@ img {
   min-height: 0;
 }
 
-.wt-topic-grid,
 .wt-episode-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
 }
 
-.wt-topic-card {
-  min-height: 150px;
-  padding: 1.15rem;
+.wt-topic-explorer {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.72fr);
+  gap: 1rem;
+  align-items: stretch;
+  padding: clamp(0.7rem, 2vw, 1rem);
+  border: 1px solid var(--wt-border);
+  border-radius: var(--wt-radius-lg);
   background:
-    linear-gradient(145deg, rgba(238, 248, 252, 0.75), rgba(255, 255, 255, 0.96)),
+    radial-gradient(circle at 15% 12%, rgba(255, 240, 238, 0.8), transparent 12rem),
+    linear-gradient(145deg, rgba(238, 248, 252, 0.78), rgba(255, 255, 255, 0.96)),
     #ffffff;
+  box-shadow: 0 16px 42px rgba(33, 77, 111, 0.08);
 }
 
-.wt-topic-card span {
+.wt-topic-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  max-height: 24rem;
+  overflow: auto;
+  padding-right: 0.15rem;
+  scrollbar-gutter: stable;
+}
+
+.wt-topic-button {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.7rem;
+  align-items: center;
+  min-height: 64px;
+  padding: 0.75rem;
+  border: 1px solid rgba(216, 231, 238, 0.95);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--wt-ink);
+  font: inherit;
+  font-weight: 900;
+  line-height: 1.18;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.wt-topic-button:hover,
+.wt-topic-button:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(33, 77, 111, 0.42);
+  box-shadow: 0 12px 24px rgba(33, 77, 111, 0.1);
+  outline: none;
+}
+
+.wt-topic-button.is-active {
+  border-color: var(--wt-ink);
+  background: var(--wt-ink);
+  color: #ffffff;
+  box-shadow: 0 16px 30px rgba(33, 77, 111, 0.18);
+}
+
+.wt-topic-button__mark {
   display: inline-grid;
-  width: 34px;
-  height: 34px;
-  margin-bottom: 1rem;
+  width: 32px;
+  height: 32px;
   place-items: center;
   border-radius: 50%;
-  background: var(--wt-coral-soft);
+  background: rgba(255, 240, 238, 0.95);
   color: var(--wt-coral);
-  font-size: 1.5rem;
-  line-height: 1;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.wt-topic-button.is-active .wt-topic-button__mark {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.wt-topic-panel {
+  position: sticky;
+  top: 6.5rem;
+  align-self: start;
+  min-height: 100%;
+  padding: clamp(1.2rem, 3vw, 1.7rem);
+  border: 1px solid var(--wt-border);
+  border-radius: var(--wt-radius-md);
+  background:
+    linear-gradient(145deg, rgba(255, 247, 223, 0.82), rgba(255, 255, 255, 0.96)),
+    #ffffff;
+  box-shadow: 0 12px 30px rgba(33, 77, 111, 0.08);
+}
+
+.wt-topic-panel h3 {
+  font-size: clamp(1.6rem, 3vw, 2.35rem);
 }
 
 .wt-filter {
@@ -625,11 +700,16 @@ img {
   .wt-latest-grid,
   .wt-about,
   .wt-follow,
+  .wt-topic-explorer,
   .wt-section-heading--row {
     grid-template-columns: 1fr;
   }
 
-  .wt-topic-grid,
+  .wt-topic-panel {
+    position: static;
+  }
+
+  .wt-topic-list,
   .wt-episode-grid,
   .wt-embed-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -675,7 +755,7 @@ img {
     border-radius: 24px;
   }
 
-  .wt-topic-grid,
+  .wt-topic-list,
   .wt-episode-grid,
   .wt-embed-grid,
   .wt-subscribe {

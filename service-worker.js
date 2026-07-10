@@ -3,8 +3,8 @@
 // Lean precache (no big media) + runtime image cache
 // ===============================
 
-const PRECACHE_NAME = 'hlm-precache-v199'; // bump here for new release/update toast
-const RUNTIME_NAME  = 'hlm-runtime-v51';   // bump to refresh updated versioned page assets
+const PRECACHE_NAME = 'hlm-precache-v201'; // bump here for new release/update toast
+const RUNTIME_NAME  = 'hlm-runtime-v53';   // bump to refresh updated versioned page assets
 const IMAGE_CACHE   = 'hlm-img-v18';       // leave if image rules unchanged
 
 const IMAGE_MAX_ENTRIES = 60;                   // limit image count

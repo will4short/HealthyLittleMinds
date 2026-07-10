@@ -316,7 +316,7 @@
       alt: t.thumbnailAlt,
       spotify: episodeLinks.spotify,
       youtube: episodeLinks.youtube,
-      tags: [t.latestTopic || t.topics[0], t.topics[0], t.topics[4]],
+      tags: [t.latestTopic || t.topics[1], t.topics[2], t.topics[4]],
     },
     {
       title: t.archiveTitle || copy.en.archiveTitle,
@@ -347,8 +347,16 @@
     return `<button class="wt-chip${isFirst ? " is-active" : ""}" type="button" data-topic="${esc(topic)}" aria-pressed="${isFirst ? "true" : "false"}">${esc(topic)}</button>`;
   }
 
+  function topicButton(topic, index) {
+    const isFirst = index === 0;
+    return `<button class="wt-topic-button${isFirst ? " is-active" : ""}" type="button" data-topic-choice="${esc(topic)}" aria-pressed="${isFirst ? "true" : "false"}">
+      <span class="wt-topic-button__mark" aria-hidden="true">${index + 1}</span>
+      <span>${esc(topic)}</span>
+    </button>`;
+  }
+
   function renderEpisodeCard(episode) {
-    return `<article class="wt-episode-card" data-card data-topics="${esc(episode.tags.join(" "))}" data-title="${esc(episode.title.toLowerCase())}">
+    return `<article class="wt-episode-card" data-card data-topics="${esc(episode.tags.join("||"))}" data-title="${esc(episode.title.toLowerCase())}">
       <img src="${esc(episode.image)}" alt="${esc(episode.alt)}" loading="lazy" />
       <div class="wt-episode-card__body">
         <p class="wt-kicker">${esc(episode.topic)}</p>
@@ -434,15 +442,19 @@
           <h2 id="topics-title">${esc(t.topicsTitle)}</h2>
           <p>${esc(t.topicsLead)}</p>
         </div>
-        <div class="wt-topic-grid">
-          ${t.topics
-            .map(
-              (topic) => `<article class="wt-topic-card">
-                <span aria-hidden="true">&bull;</span>
-                <h3>${esc(topic)}</h3>
-              </article>`,
-            )
-            .join("")}
+        <div class="wt-topic-explorer" data-topic-explorer>
+          <div class="wt-topic-list" role="list" aria-label="${esc(t.topicsTitle)}">
+            ${t.topics.map(topicButton).join("")}
+          </div>
+          <article class="wt-topic-panel" aria-live="polite">
+            <p class="wt-eyebrow">${esc(t.nav[2])}</p>
+            <h3 data-topic-title>${esc(t.topics[0])}</h3>
+            <p data-topic-summary>${esc(t.topicsLead)}</p>
+            <div class="wt-card-actions">
+              <a class="wt-button wt-button--small" href="#episodes" data-topic-filter-link>${esc(t.nav[1])}</a>
+              <button class="wt-button wt-button--small wt-button--ghost" type="button" data-topic-next>${esc(t.secondaryCta)}</button>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -505,6 +517,10 @@
 
   const cards = Array.from(root.querySelectorAll("[data-card]"));
   const chips = Array.from(root.querySelectorAll(".wt-chip"));
+  const topicButtons = Array.from(root.querySelectorAll(".wt-topic-button"));
+  const topicTitle = root.querySelector("[data-topic-title]");
+  const topicSummary = root.querySelector("[data-topic-summary]");
+  const topicNext = root.querySelector("[data-topic-next]");
   const search = root.querySelector("#episode-search");
   const empty = root.querySelector("#episode-empty");
   const header = root.querySelector(".wt-header");
@@ -534,8 +550,9 @@
 
     cards.forEach((card) => {
       const topics = card.dataset.topics || "";
+      const topicList = topics.split("||").filter(Boolean);
       const title = card.dataset.title || "";
-      const matchesTopic = activeTopic === t.allTopics || topics.includes(activeTopic);
+      const matchesTopic = activeTopic === t.allTopics || topicList.includes(activeTopic);
       const matchesSearch = !query || title.includes(query) || topics.toLowerCase().includes(query);
       const visible = matchesTopic && matchesSearch;
       card.hidden = !visible;
@@ -547,14 +564,54 @@
 
   chips.forEach((button) => {
     button.addEventListener("click", () => {
-      activeTopic = button.dataset.topic || t.allTopics;
-      chips.forEach((chipButton) => {
-        const active = chipButton === button;
-        chipButton.classList.toggle("is-active", active);
-        chipButton.setAttribute("aria-pressed", String(active));
-      });
-      applyFilters();
+      setActiveTopic(button.dataset.topic || t.allTopics);
     });
+  });
+
+  function setActiveTopic(topic, options = {}) {
+    activeTopic = topic || t.allTopics;
+
+    chips.forEach((chipButton) => {
+      const active = chipButton.dataset.topic === activeTopic;
+      chipButton.classList.toggle("is-active", active);
+      chipButton.setAttribute("aria-pressed", String(active));
+    });
+
+    topicButtons.forEach((topicButtonEl) => {
+      const active = topicButtonEl.dataset.topicChoice === activeTopic;
+      topicButtonEl.classList.toggle("is-active", active);
+      topicButtonEl.setAttribute("aria-pressed", String(active));
+    });
+
+    if (topicTitle) topicTitle.textContent = activeTopic;
+    if (topicSummary) {
+      topicSummary.textContent =
+        activeTopic === t.allTopics
+          ? t.topicsLead
+          : `${activeTopic}: ${t.episodesLead}`;
+    }
+
+    applyFilters();
+
+    if (options.scrollToEpisodes) {
+      root.querySelector("#episodes")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  topicButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      setActiveTopic(button.dataset.topicChoice || t.topics[0]);
+    });
+  });
+
+  topicNext?.addEventListener("click", () => {
+    const currentIndex = Math.max(0, t.topics.indexOf(activeTopic));
+    const nextTopic = t.topics[(currentIndex + 1) % t.topics.length];
+    setActiveTopic(nextTopic);
+  });
+
+  root.querySelector("[data-topic-filter-link]")?.addEventListener("click", () => {
+    if (activeTopic !== t.allTopics) setActiveTopic(activeTopic, { scrollToEpisodes: false });
   });
 
   search?.addEventListener("input", applyFilters);
