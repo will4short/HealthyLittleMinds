@@ -248,17 +248,51 @@
     window.requestAnimationFrame(frame);
   }
 
+  function initFeelingExplorer() {
+    document.querySelectorAll("[data-feeling-explorer]").forEach(function (explorer) {
+      if (explorer.dataset.feelingExplorerReady === "true") return;
+      explorer.dataset.feelingExplorerReady = "true";
+
+      var cards = Array.prototype.slice.call(explorer.querySelectorAll("[data-feeling-card]"));
+      var title = explorer.querySelector("[data-feeling-preview-title]");
+      var summary = explorer.querySelector("[data-feeling-preview-summary]");
+      var link = explorer.querySelector("[data-feeling-preview-link]");
+
+      function update(card) {
+        if (!card) return;
+        cards.forEach(function (item) {
+          item.classList.toggle("is-active", item === card);
+        });
+        if (title) title.textContent = card.dataset.feelingTitle || card.textContent.trim();
+        if (summary) summary.textContent = card.dataset.feelingSummary || "";
+        if (link) {
+          link.href = card.getAttribute("href") || "#";
+          link.textContent = card.dataset.feelingAction || "";
+        }
+      }
+
+      cards.forEach(function (card) {
+        card.addEventListener("mouseenter", function () { update(card); });
+        card.addEventListener("focus", function () { update(card); });
+      });
+
+      update(cards[0]);
+    });
+  }
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
       initSupportGuide();
       initBookShelf();
       initAnnouncement();
       normalizeComponentHooks();
+      initFeelingExplorer();
     });
   } else {
     initSupportGuide();
     initBookShelf();
     initAnnouncement();
     normalizeComponentHooks();
+    initFeelingExplorer();
   }
 })();

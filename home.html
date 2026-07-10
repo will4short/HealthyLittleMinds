@@ -558,40 +558,84 @@
 </section>
   <div class="mood-tooltip u-style-029" id="mood-tooltip">
   </div>
-<section id="explore-feelings" class="feelings-section" data-home-section="feelings" aria-labelledby="homeFeelingsTitle">
-<h2 id="homeFeelingsTitle" class="u-style-030">
-     <span aria-hidden="true">✨</span> Explore Feelings
-   </h2>
-   <div class="feelings-grid" aria-label="Explore feelings">
-    <a class="emotion-btn u-style-031" href="anger.html">
-     😡 Anger
-    </a>
-    <a class="emotion-btn u-style-032" href="sadness.html">
-     😢 Sadness
-    </a>
-    <a class="emotion-btn u-style-033" href="joy.html">
-     😊 Joy
-    </a>
-    <a class="emotion-btn u-style-034" href="fear.html">
-     😨 Fear
-    </a>
-    <a class="emotion-btn u-style-035" href="calm.html">
-     🌈 Calm
-    </a>
-   <div class="u-style-036">
-  <a class="emotion-btn u-style-037" href="more-feelings.html"
-    >
-    🧩 Explore More Feelings
-  </a>
-</div>
+<section id="explore-feelings" class="feelings-section feelings-section--standard" data-home-section="feelings" aria-labelledby="homeFeelingsTitle">
+  <div class="feelings-section__inner">
+    <div class="feelings-section__header">
+      <p class="feelings-section__eyebrow">Start with a feeling</p>
+      <h2 id="homeFeelingsTitle" class="u-style-030">
+        <span aria-hidden="true">&#10024;</span> Explore Feelings
+      </h2>
+      <p class="feelings-section__lead">
+        Choose one feeling to begin. Each path opens a friendly page with simple language, stories, and practical support.
+      </p>
+    </div>
 
-<!-- NEW: Interactive Tools directly under Explore More Feelings -->
-<div class="u-style-038">
-  <a class="u-style-039" href="interactive-tools.html">
-    ✨ Try Interactive Tools
-  </a>
-</div>
-</div>
+    <div class="feelings-explorer" data-feeling-explorer>
+      <div class="feelings-grid" role="list" aria-label="Explore common feelings">
+        <a class="emotion-btn emotion-btn--anger u-style-031 is-active" role="listitem" href="anger.html" data-feeling-card data-feeling-title="Anger" data-feeling-summary="When anger feels big, start by naming it, slowing the body, and choosing one safe next step." data-feeling-action="Open anger support">
+          <span class="emotion-btn__icon" aria-hidden="true">&#128545;</span>
+          <span class="emotion-btn__text">Anger</span>
+          <span class="emotion-btn__hint">Big feelings</span>
+        </a>
+        <a class="emotion-btn emotion-btn--sadness u-style-032" role="listitem" href="sadness.html" data-feeling-card data-feeling-title="Sadness" data-feeling-summary="Sadness can need comfort, words, and gentle connection before a child is ready to move on." data-feeling-action="Open sadness support">
+          <span class="emotion-btn__icon" aria-hidden="true">&#128546;</span>
+          <span class="emotion-btn__text">Sadness</span>
+          <span class="emotion-btn__hint">Comfort</span>
+        </a>
+        <a class="emotion-btn emotion-btn--joy u-style-033" role="listitem" href="joy.html" data-feeling-card data-feeling-title="Joy" data-feeling-summary="Joy helps children notice what feels good, share positive moments, and build gratitude." data-feeling-action="Open joy support">
+          <span class="emotion-btn__icon" aria-hidden="true">&#128522;</span>
+          <span class="emotion-btn__text">Joy</span>
+          <span class="emotion-btn__hint">Good moments</span>
+        </a>
+        <a class="emotion-btn emotion-btn--fear u-style-034" role="listitem" href="fear.html" data-feeling-card data-feeling-title="Fear" data-feeling-summary="Fear often needs safety, reassurance, and small brave steps rather than pressure or dismissal." data-feeling-action="Open fear support">
+          <span class="emotion-btn__icon" aria-hidden="true">&#128552;</span>
+          <span class="emotion-btn__text">Fear</span>
+          <span class="emotion-btn__hint">Safety</span>
+        </a>
+        <a class="emotion-btn emotion-btn--calm u-style-035" role="listitem" href="calm.html" data-feeling-card data-feeling-title="Calm" data-feeling-summary="Calm can be practised through breathing, quiet routines, and environments that lower stress." data-feeling-action="Open calm support">
+          <span class="emotion-btn__icon" aria-hidden="true">&#127752;</span>
+          <span class="emotion-btn__text">Calm</span>
+          <span class="emotion-btn__hint">Regulation</span>
+        </a>
+      </div>
+
+      <aside class="feelings-preview" aria-live="polite" aria-label="Selected feeling guidance">
+        <span class="feelings-preview__label">Selected feeling</span>
+        <h3 data-feeling-preview-title>Anger</h3>
+        <p data-feeling-preview-summary>When anger feels big, start by naming it, slowing the body, and choosing one safe next step.</p>
+        <a href="anger.html" data-feeling-preview-link>Open anger support</a>
+      </aside>
+    </div>
+
+    <div class="feelings-section__actions" aria-label="More feelings">
+      <a class="emotion-btn emotion-btn--more u-style-037" href="more-feelings.html">
+        <span class="feelings-action__icon" aria-hidden="true">&#129513;</span>
+        <span class="feelings-action__content">
+          <strong>Explore More Feelings</strong>
+          <small>Open the full emotion library</small>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="interactive-tools-spotlight" aria-labelledby="interactiveToolsTitle">
+  <div class="interactive-tools-spotlight__inner">
+    <div class="interactive-tools-spotlight__content">
+      <p class="interactive-tools-spotlight__eyebrow">Practise emotional skills</p>
+      <h2 id="interactiveToolsTitle">Interactive tools for calm, reflection, and small next steps.</h2>
+      <p>
+        Use simple activities like breathing, drawing, check-ins, and guided choices to help children practise emotional skills before the hardest moment.
+      </p>
+    </div>
+    <a class="interactive-tools-spotlight__cta" href="interactive-tools.html">
+      <span class="interactive-tools-spotlight__icon" aria-hidden="true">&#10024;</span>
+      <span>
+        <strong>Open Interactive Tools</strong>
+        <small>Breathing, drawing, mood check-ins, and calm-down support</small>
+      </span>
+    </a>
+  </div>
 </section>
 
   <section id="emotional-literacy" class="book-rail-section" data-home-section="books" aria-labelledby="homeBooksTitle">

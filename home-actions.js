@@ -117,4 +117,36 @@
 
     setTestimonial(0, false);
   }
+
+  var feelingExplorer = document.querySelector("[data-feeling-explorer]");
+  if (feelingExplorer) {
+    var feelingCards = Array.prototype.slice.call(feelingExplorer.querySelectorAll("[data-feeling-card]"));
+    var feelingTitle = feelingExplorer.querySelector("[data-feeling-preview-title]");
+    var feelingSummary = feelingExplorer.querySelector("[data-feeling-preview-summary]");
+    var feelingLink = feelingExplorer.querySelector("[data-feeling-preview-link]");
+
+    function setFeelingPreview(card) {
+      if (!card) return;
+      feelingCards.forEach(function (item) {
+        item.classList.toggle("is-active", item === card);
+      });
+      if (feelingTitle) feelingTitle.textContent = card.dataset.feelingTitle || card.textContent.trim();
+      if (feelingSummary) feelingSummary.textContent = card.dataset.feelingSummary || "";
+      if (feelingLink) {
+        feelingLink.href = card.getAttribute("href") || "#";
+        feelingLink.textContent = card.dataset.feelingAction || "Open support";
+      }
+    }
+
+    feelingCards.forEach(function (card) {
+      card.addEventListener("mouseenter", function () {
+        setFeelingPreview(card);
+      });
+      card.addEventListener("focus", function () {
+        setFeelingPreview(card);
+      });
+    });
+
+    setFeelingPreview(feelingCards[0]);
+  }
 }());

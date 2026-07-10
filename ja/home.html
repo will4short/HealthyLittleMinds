@@ -58,11 +58,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../style.css?v=107">
+<link rel="stylesheet" href="../style.css?v=108">
 <script src="../member-preview.js?v=2"></script>
 <script src="../home-localized-runtime.js?v=1"></script>
-<link rel="stylesheet" href="../localized-home.css?v=21">
-  <script defer src="../localized-home-polish.js?v=3"></script>
+<link rel="stylesheet" href="../localized-home.css?v=22">
+  <script defer src="../localized-home-polish.js?v=4"></script>
   <script defer src="../home-topic-panel.js?v=1"></script>
   <script src="../home-service-worker.js?v=2"></script>
 
@@ -841,18 +841,67 @@
   </div>
 </section>
 
-<section id="feelings" class="feelings-section ja-feelings" data-home-section="feelings" aria-labelledby="homeFeelingsTitle">
-  <h2 id="homeFeelingsTitle"><span aria-hidden="true">✨</span> 感情のお話を探す</h2>
-  <div class="feelings-grid" aria-label="感情を選ぶ">
-    <a class="emotion-btn" href="embarrassed.html">😳 はずかしい</a>
-    <a class="emotion-btn" href="nervous.html">😬 緊張</a>
-    <a class="emotion-btn" href="disappointed.html">😞 がっかり</a>
-    <a class="emotion-btn" href="fear.html">😨 怖い</a>
-    <a class="emotion-btn" href="proud.html">🥹 誇らしい</a>
-    <div class="ja-feelings__more">
-      <a class="emotion-btn ja-more-feelings" href="more-feelings.html">もっと感情を見る →</a>
-      <a class="ja-tools" href="interactive-tools.html">感情ツールを試す →</a>
+<section id="feelings" class="feelings-section feelings-section--standard ja-feelings" data-home-section="feelings" aria-labelledby="homeFeelingsTitle">
+  <div class="feelings-section__inner">
+    <div class="feelings-section__header">
+      <p class="feelings-section__eyebrow">感情を選ぶ</p>
+      <h2 id="homeFeelingsTitle" class="localized-section-title"><span aria-hidden="true">✨</span> 感情のお話を探す</h2>
+      <p class="feelings-section__lead">感情を選ぶ</p>
     </div>
+
+    <div class="feelings-explorer" data-feeling-explorer>
+      <div class="feelings-grid" role="list" aria-label="感情を選ぶ">
+        <a class="emotion-btn emotion-btn--localized is-active" role="listitem" href="embarrassed.html" data-feeling-card data-feeling-title="😳 はずかしい" data-feeling-summary="感情を選ぶ" data-feeling-action="😳 はずかしい">
+          <span class="emotion-btn__text">😳 はずかしい</span>
+        </a>
+        <a class="emotion-btn emotion-btn--localized " role="listitem" href="nervous.html" data-feeling-card data-feeling-title="😬 緊張" data-feeling-summary="感情を選ぶ" data-feeling-action="😬 緊張">
+          <span class="emotion-btn__text">😬 緊張</span>
+        </a>
+        <a class="emotion-btn emotion-btn--localized " role="listitem" href="disappointed.html" data-feeling-card data-feeling-title="😞 がっかり" data-feeling-summary="感情を選ぶ" data-feeling-action="😞 がっかり">
+          <span class="emotion-btn__text">😞 がっかり</span>
+        </a>
+        <a class="emotion-btn emotion-btn--localized " role="listitem" href="fear.html" data-feeling-card data-feeling-title="😨 怖い" data-feeling-summary="感情を選ぶ" data-feeling-action="😨 怖い">
+          <span class="emotion-btn__text">😨 怖い</span>
+        </a>
+        <a class="emotion-btn emotion-btn--localized " role="listitem" href="proud.html" data-feeling-card data-feeling-title="🥹 誇らしい" data-feeling-summary="感情を選ぶ" data-feeling-action="🥹 誇らしい">
+          <span class="emotion-btn__text">🥹 誇らしい</span>
+        </a>
+      </div>
+
+      <aside class="feelings-preview" aria-live="polite" aria-label="感情を選ぶ">
+        <span class="feelings-preview__label">感情を選ぶ</span>
+        <h3 data-feeling-preview-title>😳 はずかしい</h3>
+        <p data-feeling-preview-summary>感情を選ぶ</p>
+        <a href="embarrassed.html" data-feeling-preview-link>😳 はずかしい</a>
+      </aside>
+    </div>
+
+    <div class="feelings-section__actions" aria-label="もっと感情を見る">
+      <a class="emotion-btn emotion-btn--more" href="more-feelings.html">
+        <span class="feelings-action__icon" aria-hidden="true">&#129513;</span>
+        <span class="feelings-action__content">
+          <strong>もっと感情を見る →</strong>
+          <small>感情を選ぶ</small>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="interactive-tools-spotlight" aria-labelledby="interactiveToolsTitle">
+  <div class="interactive-tools-spotlight__inner">
+    <div class="interactive-tools-spotlight__content">
+      <p class="interactive-tools-spotlight__eyebrow">感情ツールを試す</p>
+      <h2 id="interactiveToolsTitle">感情ツールを試す</h2>
+      <p>感情を選ぶ</p>
+    </div>
+    <a class="interactive-tools-spotlight__cta" href="interactive-tools.html">
+      <span class="interactive-tools-spotlight__icon" aria-hidden="true">&#10024;</span>
+      <span>
+        <strong>感情ツールを試す →</strong>
+        <small>感情を選ぶ</small>
+      </span>
+    </a>
   </div>
 </section>
 

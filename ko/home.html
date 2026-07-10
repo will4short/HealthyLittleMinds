@@ -55,12 +55,12 @@
   <!-- 폰트 & 스타일 -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="../style.css?v=107">
+<link rel="stylesheet" href="../style.css?v=108">
 <script src="../member-preview.js?v=2"></script>
 <script src="../home-localized-runtime.js?v=1"></script>
-<link rel="stylesheet" href="../localized-home.css?v=20">
+<link rel="stylesheet" href="../localized-home.css?v=22">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
-  <script defer src="../localized-home-polish.js?v=3"></script>
+  <script defer src="../localized-home-polish.js?v=4"></script>
   <script defer src="../home-topic-panel.js?v=1"></script>
   <script src="../home-service-worker.js?v=2"></script>
 
@@ -927,18 +927,67 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
   </div>
 </section>
 
-<section id="feelings" class="feelings-section ko-feelings" data-home-section="feelings" aria-labelledby="homeFeelingsTitle">
-  <h2 id="homeFeelingsTitle"><span aria-hidden="true">✨</span> 감정 이야기 둘러보기</h2>
-  <div class="feelings-grid" aria-label="감정 선택하기">
-    <a class="emotion-btn" href="embarrassed.html">😳 창피함</a>
-    <a class="emotion-btn" href="nervous.html">😬 긴장됨</a>
-    <a class="emotion-btn" href="disappointed.html">😞 실망</a>
-    <a class="emotion-btn" href="fear.html">😨 두려움</a>
-    <a class="emotion-btn" href="proud.html">🥹 자랑스러움</a>
-    <div class="ko-feelings__more">
-      <a class="emotion-btn ko-more-feelings" href="more-feelings.html">더 많은 감정 보기 →</a>
-      <a class="ko-tools" href="interactive-tools.html">감정 도구 체험하기 →</a>
+<section id="feelings" class="feelings-section feelings-section--standard ko-feelings" data-home-section="feelings" aria-labelledby="homeFeelingsTitle">
+  <div class="feelings-section__inner">
+    <div class="feelings-section__header">
+      <p class="feelings-section__eyebrow">감정 선택하기</p>
+      <h2 id="homeFeelingsTitle" class="localized-section-title"><span aria-hidden="true">✨</span> 감정 이야기 둘러보기</h2>
+      <p class="feelings-section__lead">감정 선택하기</p>
     </div>
+
+    <div class="feelings-explorer" data-feeling-explorer>
+      <div class="feelings-grid" role="list" aria-label="감정 선택하기">
+        <a class="emotion-btn emotion-btn--localized is-active" role="listitem" href="embarrassed.html" data-feeling-card data-feeling-title="😳 창피함" data-feeling-summary="감정 선택하기" data-feeling-action="😳 창피함">
+          <span class="emotion-btn__text">😳 창피함</span>
+        </a>
+        <a class="emotion-btn emotion-btn--localized " role="listitem" href="nervous.html" data-feeling-card data-feeling-title="😬 긴장됨" data-feeling-summary="감정 선택하기" data-feeling-action="😬 긴장됨">
+          <span class="emotion-btn__text">😬 긴장됨</span>
+        </a>
+        <a class="emotion-btn emotion-btn--localized " role="listitem" href="disappointed.html" data-feeling-card data-feeling-title="😞 실망" data-feeling-summary="감정 선택하기" data-feeling-action="😞 실망">
+          <span class="emotion-btn__text">😞 실망</span>
+        </a>
+        <a class="emotion-btn emotion-btn--localized " role="listitem" href="fear.html" data-feeling-card data-feeling-title="😨 두려움" data-feeling-summary="감정 선택하기" data-feeling-action="😨 두려움">
+          <span class="emotion-btn__text">😨 두려움</span>
+        </a>
+        <a class="emotion-btn emotion-btn--localized " role="listitem" href="proud.html" data-feeling-card data-feeling-title="🥹 자랑스러움" data-feeling-summary="감정 선택하기" data-feeling-action="🥹 자랑스러움">
+          <span class="emotion-btn__text">🥹 자랑스러움</span>
+        </a>
+      </div>
+
+      <aside class="feelings-preview" aria-live="polite" aria-label="감정 선택하기">
+        <span class="feelings-preview__label">감정 선택하기</span>
+        <h3 data-feeling-preview-title>😳 창피함</h3>
+        <p data-feeling-preview-summary>감정 선택하기</p>
+        <a href="embarrassed.html" data-feeling-preview-link>😳 창피함</a>
+      </aside>
+    </div>
+
+    <div class="feelings-section__actions" aria-label="더 많은 감정 보기">
+      <a class="emotion-btn emotion-btn--more" href="more-feelings.html">
+        <span class="feelings-action__icon" aria-hidden="true">&#129513;</span>
+        <span class="feelings-action__content">
+          <strong>더 많은 감정 보기 →</strong>
+          <small>감정 선택하기</small>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="interactive-tools-spotlight" aria-labelledby="interactiveToolsTitle">
+  <div class="interactive-tools-spotlight__inner">
+    <div class="interactive-tools-spotlight__content">
+      <p class="interactive-tools-spotlight__eyebrow">감정 도구 체험하기</p>
+      <h2 id="interactiveToolsTitle">감정 도구 체험하기</h2>
+      <p>감정 선택하기</p>
+    </div>
+    <a class="interactive-tools-spotlight__cta" href="interactive-tools.html">
+      <span class="interactive-tools-spotlight__icon" aria-hidden="true">&#10024;</span>
+      <span>
+        <strong>감정 도구 체험하기 →</strong>
+        <small>감정 선택하기</small>
+      </span>
+    </a>
   </div>
 </section>
 
