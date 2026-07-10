@@ -68,7 +68,7 @@
   </script>
   <link href="home-mobile-ui.css?v=2" rel="stylesheet" />
   <link href="site-ui-upgrades.css?v=1" rel="stylesheet" />
-  <link href="home-experience.css?v=7" rel="stylesheet" />
+  <link href="home-experience.css?v=9" rel="stylesheet" />
 </head>
  <body class="home-mobile-ui ui-upgraded home-experience">
   <a class="home-skip-link" href="#main-content">Skip to main content</a>
@@ -1076,23 +1076,15 @@
 </section>
      </section>
     </section>
-
-      <!-- Scroll-to-Play Audio Script -->
-      <button id="backToTop" title="Back to Top">
-       ⬆️
+      <button
+        id="backToTop"
+        class="home-back-to-top"
+        type="button"
+        aria-label="Back to top"
+        title="Back to top"
+      >
+        <span aria-hidden="true">&uarr;</span>
       </button>
-<!-- ================= QUICK LOG OUT ================= -->
-<!-- CHANGED: was a plain <a href="index.html"> which only navigated.
-     Now clears isMember from localStorage before redirecting,
-     so the session is actually ended. -->
-<button
-  class="quick-logout u-style-085"
-  type="button"
-  data-home-logout="index.html"
-  aria-label="Log out and return to home page"
->
-  Quick Log Out
-</button>
 </main>
 
 <!-- ================= FOOTER ================= -->
@@ -1186,11 +1178,17 @@
   <script>
    const backToTopBtn = document.getElementById("backToTop");
 
-  window.addEventListener("scroll", () => {
-    backToTopBtn.style.display = window.scrollY > 200 ? "block" : "none";
-  });
+  function updateBackToTop() {
+    if (!backToTopBtn) return;
+    const shouldShow = window.scrollY > 420;
+    backToTopBtn.classList.toggle("is-visible", shouldShow);
+    backToTopBtn.setAttribute("aria-hidden", String(!shouldShow));
+  }
 
-  backToTopBtn.addEventListener("click", () => {
+  window.addEventListener("scroll", updateBackToTop, { passive: true });
+  window.addEventListener("load", updateBackToTop);
+
+  backToTopBtn?.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
   </script>

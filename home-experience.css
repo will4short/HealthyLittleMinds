@@ -959,3 +959,101 @@ body.home-experience.dark-mode :where(.support-guide__step, .localized-support-g
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Keep the home header present while users scroll.
+   This page has several legacy header rules; this scoped rule wins for the
+   current home experience without affecting other page templates. */
+body.home-experience .site-header {
+  position: fixed !important;
+  inset-block-start: 0 !important;
+  inset-inline: 0 !important;
+  width: 100% !important;
+  z-index: 1600 !important;
+}
+
+body.home-experience .site-header .navbar {
+  min-height: 72px;
+}
+
+.home-back-to-top {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 1350;
+  display: grid;
+  width: 3.15rem;
+  height: 3.15rem;
+  min-width: 3.15rem;
+  min-height: 3.15rem;
+  place-items: center;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(216, 232, 238, 0.94);
+  border-radius: 999px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(239, 248, 250, 0.96)),
+    #ffffff;
+  color: var(--home-primary-strong);
+  box-shadow:
+    0 1rem 2.4rem rgba(24, 59, 86, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  font: 900 1.35rem/1 "Nunito", "DM Sans", system-ui, sans-serif;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.8rem) scale(0.94);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.home-back-to-top span {
+  transform: translateY(-1px);
+}
+
+.home-back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.home-back-to-top:hover,
+.home-back-to-top:focus-visible {
+  border-color: rgba(233, 95, 111, 0.42);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 1), rgba(255, 241, 244, 0.98)),
+    #ffffff;
+  box-shadow:
+    0 1.2rem 2.8rem rgba(24, 59, 86, 0.22),
+    0 0 0 4px rgba(233, 95, 111, 0.14);
+  outline: none;
+}
+
+body.home-experience.dark-mode .home-back-to-top,
+html.dark-mode body.home-experience .home-back-to-top {
+  border-color: rgba(126, 164, 181, 0.34);
+  background:
+    linear-gradient(145deg, rgba(22, 55, 70, 0.98), rgba(13, 38, 51, 0.98)),
+    #143746;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  body.home-experience .site-header,
+  body.home-experience .site-header .navbar {
+    min-height: 64px;
+  }
+
+  .home-back-to-top {
+    right: max(0.85rem, env(safe-area-inset-right));
+    bottom: calc(5.05rem + env(safe-area-inset-bottom));
+    width: 3rem;
+    height: 3rem;
+    min-width: 3rem;
+    min-height: 3rem;
+    font-size: 1.25rem;
+  }
+}
