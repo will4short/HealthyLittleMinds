@@ -280,8 +280,23 @@
     });
   }
 
+  function initLocalizedHeaderState() {
+    var header = document.querySelector(".sticky-header, .main-header");
+    if (!header || document.body.dataset.localizedHeaderReady === "true") return;
+
+    document.body.dataset.localizedHeaderReady = "true";
+
+    function update() {
+      document.body.classList.toggle("localized-header-scrolled", window.scrollY > 8);
+    }
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+  }
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
+      initLocalizedHeaderState();
       initSupportGuide();
       initBookShelf();
       initAnnouncement();
@@ -289,6 +304,7 @@
       initFeelingExplorer();
     });
   } else {
+    initLocalizedHeaderState();
     initSupportGuide();
     initBookShelf();
     initAnnouncement();

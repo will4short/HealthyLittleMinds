@@ -8835,3 +8835,241 @@ main > section,
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ===== Home header standard refinement ===== */
+body.home-experience {
+  --home-header-height: 66px;
+}
+
+body.home-experience .site-header {
+  height: var(--home-header-height) !important;
+  border-bottom: 1px solid rgba(216, 232, 238, 0.86) !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  box-shadow: none !important;
+  backdrop-filter: saturate(1.08) blur(16px);
+  -webkit-backdrop-filter: saturate(1.08) blur(16px);
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+body.home-experience.home-header-scrolled .site-header {
+  border-bottom-color: rgba(199, 219, 228, 0.96) !important;
+  background: rgba(255, 255, 255, 0.97) !important;
+  box-shadow: 0 12px 28px rgba(37, 78, 112, 0.09) !important;
+}
+
+body.home-experience .site-header .navbar {
+  width: min(1180px, calc(100% - 2rem));
+  min-height: var(--home-header-height) !important;
+  height: var(--home-header-height) !important;
+  padding-inline: 0 !important;
+  gap: clamp(0.75rem, 1.6vw, 1.25rem);
+}
+
+body.home-experience .brand-link {
+  flex: 0 0 clamp(220px, 19vw, 270px);
+  width: clamp(220px, 19vw, 270px);
+  min-width: 220px;
+  border-radius: 18px;
+}
+
+body.home-experience .navbar-brand {
+  display: grid !important;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 0.55rem;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+
+body.home-experience #logo img,
+body.home-experience .navbar-brand img {
+  width: 34px !important;
+  height: 34px !important;
+  flex: 0 0 34px;
+}
+
+body.home-experience .site-header .site-title {
+  display: grid !important;
+  min-width: 0;
+  max-width: 8.5rem;
+  font-size: clamp(1.1rem, 1.7vw, 1.32rem) !important;
+  line-height: 0.94;
+  white-space: normal;
+}
+
+body.home-experience .site-header .site-title span {
+  display: block !important;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+body.home-experience .navbar-menu {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  align-items: center;
+  gap: clamp(0.15rem, 0.55vw, 0.45rem);
+  min-width: 0;
+  margin-left: clamp(0.75rem, 2vw, 1.4rem);
+}
+
+body.home-experience .navbar-menu > a,
+body.home-experience .nav-more > summary {
+  min-height: 38px;
+  padding: 0.48rem 0.66rem;
+  color: #244b68;
+  font-size: clamp(0.84rem, 1.05vw, 0.95rem);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+body.home-experience .navbar-menu > a:hover,
+body.home-experience .navbar-menu > a:focus-visible,
+body.home-experience .nav-more > summary:hover,
+body.home-experience .nav-more > summary:focus-visible {
+  background: #eff8fb;
+  color: #173a56;
+}
+
+body.home-experience .nav-more summary::after {
+  width: 5px;
+  height: 5px;
+  margin-left: 0.42rem;
+  border-color: currentColor;
+  opacity: 0.82;
+  transition: transform 160ms ease;
+}
+
+body.home-experience .nav-more[open] summary::after {
+  transform: rotate(225deg) translate(-1px, -1px);
+}
+
+body.home-experience .nav-more__panel {
+  top: calc(100% + 0.4rem);
+  min-width: 210px;
+  padding: 0.5rem;
+  border-radius: 16px;
+  border-color: rgba(216, 232, 238, 0.96);
+  box-shadow: 0 22px 46px rgba(37, 78, 112, 0.16);
+}
+
+body.home-experience .nav-more__panel a {
+  min-height: 40px;
+  padding: 0.68rem 0.78rem;
+}
+
+body.home-experience .nav-logout-btn {
+  min-height: 40px;
+  padding: 0.52rem 0.9rem;
+  border: 1px solid rgba(231, 168, 0, 0.82);
+  background: rgba(255, 255, 255, 0.62);
+  color: #b77b00;
+  font-size: 0.86rem;
+  font-weight: 900;
+  box-shadow: none;
+}
+
+body.home-experience .nav-logout-btn:hover,
+body.home-experience .nav-logout-btn:focus-visible {
+  border-color: #d89a00;
+  background: #fff7df;
+  color: #8a6200;
+}
+
+body.home-experience .nav-theme-btn {
+  display: inline-grid;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(198, 218, 227, 0.96);
+  background: rgba(255, 255, 255, 0.68);
+  color: #244b68;
+  box-shadow: none;
+}
+
+body.home-experience .nav-theme-btn:hover,
+body.home-experience .nav-theme-btn:focus-visible {
+  background: #eff8fb;
+  border-color: rgba(160, 197, 211, 0.96);
+  color: #173a56;
+}
+
+body.home-experience .hamburger {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+}
+
+@media (max-width: 1120px) {
+  body.home-experience .brand-link {
+    flex-basis: 210px;
+    width: 210px;
+    min-width: 210px;
+  }
+
+  body.home-experience .navbar-menu {
+    gap: 0.05rem;
+    margin-left: 0.5rem;
+  }
+
+  body.home-experience .navbar-menu > a,
+  body.home-experience .nav-more > summary {
+    padding-inline: 0.48rem;
+  }
+}
+
+@media (max-width: 980px) {
+  body.home-experience .brand-link {
+    flex-basis: auto;
+  }
+
+  body.home-experience .navbar-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  body.home-experience {
+    --home-header-height: 62px;
+  }
+
+  body.home-experience .site-header .navbar {
+    width: min(100% - 1rem, 42rem);
+  }
+
+  body.home-experience .site-header .site-title {
+    font-size: clamp(1rem, 6vw, 1.24rem) !important;
+  }
+
+  body.home-experience #logo img,
+  body.home-experience .navbar-brand img {
+    width: 32px !important;
+    height: 32px !important;
+    flex-basis: 32px;
+  }
+}
+
+html.dark-mode body.home-experience .site-header,
+body.home-experience.dark-mode .site-header {
+  background: rgba(15, 35, 50, 0.94) !important;
+  border-bottom-color: rgba(109, 145, 166, 0.28) !important;
+}
+
+html.dark-mode body.home-experience.home-header-scrolled .site-header,
+body.home-experience.dark-mode.home-header-scrolled .site-header {
+  background: rgba(15, 35, 50, 0.98) !important;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28) !important;
+}
+
+html.dark-mode body.home-experience .navbar-menu > a,
+html.dark-mode body.home-experience .nav-more > summary,
+body.home-experience.dark-mode .navbar-menu > a,
+body.home-experience.dark-mode .nav-more > summary {
+  color: #f6fbff;
+}

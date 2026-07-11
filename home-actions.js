@@ -149,4 +149,13 @@
 
     setFeelingPreview(feelingCards[0]);
   }
+
+  var header = document.querySelector(".site-header");
+  if (header) {
+    var setHeaderState = function () {
+      document.body.classList.toggle("home-header-scrolled", window.scrollY > 8);
+    };
+    setHeaderState();
+    window.addEventListener("scroll", setHeaderState, { passive: true });
+  }
 }());

@@ -1966,4 +1966,469 @@ body.localized-home.body-lock {
   border-radius: 18px;
 }
 
-/* Japanese home: calmer header controls and a connected welcome action. */
+/* =====================================================
+   Localized header final alignment
+   Matches the English home header while protecting longer translated labels.
+   ===================================================== */
+html[lang] body.localized-home {
+  --localized-header-height: 66px;
+  padding-top: var(--localized-header-height) !important;
+  overflow-x: hidden;
+}
+
+body.localized-home :where(.sticky-header, .main-header) {
+  position: fixed !important;
+  inset: 0 0 auto 0 !important;
+  z-index: 1600 !important;
+  width: 100% !important;
+  height: var(--localized-header-height) !important;
+  min-height: var(--localized-header-height) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(219, 231, 239, 0.86) !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  box-shadow: 0 8px 22px rgba(37, 78, 112, 0.055) !important;
+  backdrop-filter: blur(14px);
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+body.localized-home.localized-header-scrolled :where(.sticky-header, .main-header) {
+  border-bottom-color: rgba(199, 219, 228, 0.98) !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  box-shadow: 0 14px 30px rgba(37, 78, 112, 0.10) !important;
+}
+
+body.localized-home .header-container {
+  width: min(1180px, calc(100% - 2rem)) !important;
+  height: var(--localized-header-height) !important;
+  min-height: var(--localized-header-height) !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1rem !important;
+}
+
+body.localized-home .header-brand {
+  position: relative !important;
+  z-index: 1 !important;
+  flex: 0 0 clamp(228px, 20vw, 286px) !important;
+  width: clamp(228px, 20vw, 286px) !important;
+  min-width: 228px !important;
+  max-width: 286px !important;
+  display: grid !important;
+  grid-template-columns: 34px minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 0.58rem !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+body.localized-home .header-brand .logo {
+  display: block !important;
+  width: 34px !important;
+  height: 34px !important;
+  max-width: 34px !important;
+  margin: 0 !important;
+  object-fit: contain !important;
+  flex: 0 0 auto !important;
+}
+
+body.localized-home .brand-text {
+  display: block !important;
+  min-width: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+body.localized-home .site-title {
+  display: grid !important;
+  max-width: 9.5rem !important;
+  margin: 0 !important;
+  color: #244b68 !important;
+  font-size: clamp(1.05rem, 1.55vw, 1.28rem) !important;
+  font-weight: 900 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.02em !important;
+  white-space: normal !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+body.localized-home .site-title span {
+  display: block !important;
+  white-space: nowrap !important;
+}
+
+body.localized-home .brand-word--accent,
+body.localized-home .site-title span:last-child {
+  color: #ff6b6b !important;
+}
+
+body.localized-home .brand-text .subtitle {
+  display: none !important;
+}
+
+body.localized-home :where(.sticky-nav, #navLinks) {
+  position: fixed !important;
+  inset: 0 0 auto 0 !important;
+  z-index: 1650 !important;
+  width: 100% !important;
+  height: var(--localized-header-height) !important;
+  min-height: var(--localized-header-height) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+}
+
+body.localized-home :where(.quick-links, .nav-inner) {
+  width: min(1180px, calc(100% - 2rem)) !important;
+  height: var(--localized-header-height) !important;
+  min-height: var(--localized-header-height) !important;
+  margin: 0 auto !important;
+  padding: 0 0 0 clamp(320px, 27vw, 380px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: clamp(0.08rem, 0.36vw, 0.32rem) !important;
+  flex-wrap: nowrap !important;
+  pointer-events: auto !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body.localized-home :where(.quick-links > a, .nav-inner > a),
+body.localized-home :where(.ja-nav-more, .ko-nav-more, .cn-nav-more, .tw-nav-more) > summary {
+  min-height: 38px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0.48rem 0.56rem !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #244b68 !important;
+  font-size: clamp(0.76rem, 0.88vw, 0.88rem) !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.02em !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+body.localized-home :where(.quick-links > a, .nav-inner > a):hover,
+body.localized-home :where(.quick-links > a, .nav-inner > a):focus-visible,
+body.localized-home :where(.ja-nav-more, .ko-nav-more, .cn-nav-more, .tw-nav-more) > summary:hover,
+body.localized-home :where(.ja-nav-more, .ko-nav-more, .cn-nav-more, .tw-nav-more) > summary:focus-visible {
+  background: #eff8fb !important;
+  color: #173a56 !important;
+}
+
+body.localized-home :where(.quick-links .subscribe-btn, .nav-inner .subscribe-btn) {
+  background: transparent !important;
+  color: #244b68 !important;
+}
+
+body.localized-home :where(.ja-nav-more, .ko-nav-more, .cn-nav-more, .tw-nav-more) {
+  position: relative !important;
+}
+
+body.localized-home :where(.ja-nav-more, .ko-nav-more, .cn-nav-more, .tw-nav-more) > summary {
+  gap: 0.36rem !important;
+  list-style: none !important;
+  cursor: pointer !important;
+}
+
+body.localized-home :where(.ja-nav-more, .ko-nav-more, .cn-nav-more, .tw-nav-more) > summary::-webkit-details-marker {
+  display: none !important;
+}
+
+body.localized-home :where(.ja-nav-more, .ko-nav-more, .cn-nav-more, .tw-nav-more) > summary::after {
+  content: "" !important;
+  width: 5px !important;
+  height: 5px !important;
+  margin-left: 0.18rem !important;
+  border-right: 2px solid currentColor !important;
+  border-bottom: 2px solid currentColor !important;
+  opacity: 0.82 !important;
+  transform: rotate(45deg) translateY(-1px) !important;
+}
+
+body.localized-home :where(.ja-nav-more, .ko-nav-more, .cn-nav-more, .tw-nav-more)[open] > summary::after {
+  transform: rotate(225deg) translate(-1px, -1px) !important;
+}
+
+body.localized-home :where(.ja-nav-more__menu, .ko-nav-more__menu, .cn-nav-more__menu, .tw-nav-more__menu) {
+  position: absolute !important;
+  top: calc(100% + 0.4rem) !important;
+  right: 0 !important;
+  left: auto !important;
+  z-index: 1700 !important;
+  display: grid !important;
+  gap: 2px !important;
+  min-width: 210px !important;
+  max-width: min(22rem, calc(100vw - 2rem)) !important;
+  padding: 0.5rem !important;
+  border: 1px solid rgba(216, 232, 238, 0.96) !important;
+  border-radius: 16px !important;
+  background: #fff !important;
+  box-shadow: 0 22px 46px rgba(37, 78, 112, 0.16) !important;
+}
+
+body.localized-home :where(.ja-nav-more__menu, .ko-nav-more__menu, .cn-nav-more__menu, .tw-nav-more__menu) a {
+  min-height: 40px !important;
+  padding: 0.68rem 0.78rem !important;
+  border-radius: 10px !important;
+  color: #244b68 !important;
+  font-weight: 900 !important;
+}
+
+body.localized-home :where(.quick-links, .nav-inner) .nav-logout-btn {
+  min-height: 40px !important;
+  padding: 0.52rem 0.9rem !important;
+  border: 1px solid rgba(231, 168, 0, 0.82) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.68) !important;
+  color: #b77b00 !important;
+  font-size: 0.84rem !important;
+  font-weight: 900 !important;
+  box-shadow: none !important;
+}
+
+body.localized-home :where(.quick-links, .nav-inner) .nav-logout-btn:hover,
+body.localized-home :where(.quick-links, .nav-inner) .nav-logout-btn:focus-visible {
+  background: #fff7df !important;
+  color: #8a6200 !important;
+}
+
+body.localized-home :where(.quick-links, .nav-inner) .nav-theme-btn {
+  display: inline-grid !important;
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  min-height: 42px !important;
+  place-items: center !important;
+  padding: 0 !important;
+  border: 1px solid rgba(198, 218, 227, 0.96) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.72) !important;
+  color: #244b68 !important;
+  box-shadow: none !important;
+}
+
+body.localized-home .menu-toggle {
+  display: none !important;
+  width: 42px !important;
+  height: 42px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 1px solid rgba(198, 218, 227, 0.96) !important;
+  border-radius: 14px !important;
+  background: rgba(255, 255, 255, 0.76) !important;
+  color: #244b68 !important;
+  box-shadow: 0 8px 20px rgba(37, 78, 112, 0.09) !important;
+}
+
+body.localized-home .menu-toggle[aria-expanded="true"] {
+  background: #254e70 !important;
+  border-color: #254e70 !important;
+  color: #fff !important;
+}
+
+body.localized-home :where(#feelings, #books, #topics, #support-guide, #subscribe) {
+  scroll-margin-top: calc(var(--localized-header-height) + 14px) !important;
+}
+
+@media (max-width: 1180px) {
+  body.localized-home :where(.sticky-nav, #navLinks) {
+    display: none !important;
+  }
+
+  body.localized-home .menu-toggle {
+    display: inline-grid !important;
+    place-items: center !important;
+  }
+}
+
+@media (max-width: 720px) {
+  html[lang] body.localized-home {
+    --localized-header-height: 62px;
+  }
+
+  body.localized-home .header-container {
+    width: min(100% - 1rem, 42rem) !important;
+  }
+
+  body.localized-home .header-brand {
+    flex-basis: auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: min(72vw, 17rem) !important;
+    grid-template-columns: 32px minmax(0, 1fr) !important;
+  }
+
+  body.localized-home .header-brand .logo {
+    width: 32px !important;
+    height: 32px !important;
+    max-width: 32px !important;
+  }
+
+  body.localized-home .site-title {
+    max-width: 8.4rem !important;
+    font-size: clamp(1rem, 5.4vw, 1.2rem) !important;
+  }
+}
+
+/* Localized header brand visibility guard.
+   Older locale-specific inline rules are intentionally overridden here. */
+html[lang] body.localized-home :is(.sticky-header, .main-header) {
+  z-index: 1600 !important;
+  pointer-events: none !important;
+}
+
+html[lang] body.localized-home :is(.sticky-header, .main-header) .header-container {
+  position: relative !important;
+  z-index: 2 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+html[lang] body.localized-home :is(.sticky-header, .main-header) .header-brand {
+  position: relative !important;
+  z-index: 3 !important;
+  display: grid !important;
+  grid-template-columns: 34px minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 0.58rem !important;
+  flex: 0 0 clamp(228px, 20vw, 286px) !important;
+  width: clamp(228px, 20vw, 286px) !important;
+  min-width: 228px !important;
+  max-width: 286px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  pointer-events: auto !important;
+}
+
+html[lang] body.localized-home :is(.sticky-header, .main-header) .menu-toggle {
+  pointer-events: auto !important;
+}
+
+html[lang] body.localized-home :is(.sticky-header, .main-header) .header-brand .logo {
+  display: block !important;
+  width: 34px !important;
+  height: 34px !important;
+  max-width: 34px !important;
+  max-height: 34px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+html[lang] body.localized-home :is(.sticky-header, .main-header) .brand-text,
+html[lang] body.localized-home :is(.sticky-header, .main-header) .site-title,
+html[lang] body.localized-home :is(.sticky-header, .main-header) .site-title span {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+html[lang] body.localized-home :is(.sticky-header, .main-header) .site-title {
+  color: #244b68 !important;
+  font-size: clamp(1.05rem, 1.55vw, 1.28rem) !important;
+  font-weight: 900 !important;
+  line-height: 0.98 !important;
+  max-width: 9.5rem !important;
+}
+
+html[lang] body.localized-home :is(.sticky-header, .main-header) .site-title span {
+  white-space: nowrap !important;
+}
+
+html[lang] body.localized-home :is(.sticky-header, .main-header) .site-title span:last-child {
+  color: #ff6b6b !important;
+}
+
+html[lang] body.localized-home :is(.quick-links, .nav-inner) {
+  padding-left: clamp(340px, 29vw, 410px) !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html[lang] body.localized-home :is(.sticky-nav, #navLinks) {
+  z-index: 1750 !important;
+}
+
+@media (max-width: 1180px) {
+  html[lang] body.localized-home :is(.sticky-header, .main-header) .header-brand {
+    flex-basis: auto !important;
+    width: auto !important;
+    max-width: min(72vw, 17rem) !important;
+    min-width: 0 !important;
+  }
+}
+
+/* Desktop localized header: render one clean professional row.
+   The original localized pages split brand and nav into separate elements;
+   this desktop treatment gives the nav row its own brand so it cannot disappear. */
+@media (min-width: 1181px) {
+  html[lang] body.localized-home :is(.sticky-header, .main-header) .header-brand {
+    display: none !important;
+  }
+
+  html[lang] body.localized-home :is(.quick-links, .nav-inner) {
+    position: relative !important;
+    padding-left: clamp(300px, 24vw, 350px) !important;
+  }
+
+  html[lang] body.localized-home :is(.quick-links, .nav-inner)::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 999px !important;
+    background: url("images/logo-icon.webp") center / contain no-repeat !important;
+    transform: translateY(-50%) !important;
+  }
+
+  html[lang] body.localized-home :is(.quick-links, .nav-inner)::after {
+    content: "Healthy\A Little Minds" !important;
+    position: absolute !important;
+    left: 44px !important;
+    top: 50% !important;
+    color: #244b68 !important;
+    font-size: clamp(1.05rem, 1.55vw, 1.28rem) !important;
+    font-weight: 900 !important;
+    line-height: 0.98 !important;
+    letter-spacing: -0.02em !important;
+    white-space: pre !important;
+    transform: translateY(-50%) !important;
+  }
+
+  html[lang] body.localized-home :is(.quick-links, .nav-inner) > a:first-of-type {
+    margin-left: auto !important;
+  }
+
+  html[lang="ja"] body.localized-home :is(.quick-links, .nav-inner) {
+    padding-left: clamp(300px, 25vw, 360px) !important;
+  }
+
+  html[lang="ja"] body.localized-home :is(.quick-links, .nav-inner)::after {
+    font-size: clamp(1rem, 1.32vw, 1.16rem) !important;
+  }
+}
