@@ -2005,6 +2005,16 @@ body,
   border-radius:24px;
   background:#fff;
   box-shadow:0 16px 34px rgba(37,78,112,.12);
+  transition:
+    transform .24s ease,
+    box-shadow .24s ease,
+    border-color .24s ease;
+}
+
+.trailer-card.is-playing{
+  border-color:rgba(255,107,107,.35);
+  box-shadow:0 22px 46px rgba(37,78,112,.16);
+  transform:translateY(-2px);
 }
 
 .trailer-video{
@@ -2083,11 +2093,23 @@ body,
   border-radius:18px;
   background:linear-gradient(145deg, #fff, var(--card-tint));
   box-shadow:0 8px 24px rgba(37,78,112,.07);
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease,
+    background .22s ease;
 }
 
 .pathway-card--children{ --card-tint:#fff4eb; }
 .pathway-card--parents{ --card-tint:#edf8f1; }
 .pathway-card--teachers{ --card-tint:#edf5fc; }
+
+.pathway-card.is-active,
+.pathway-card:focus-within{
+  border-color:rgba(37,78,112,.18);
+  box-shadow:0 18px 36px rgba(37,78,112,.12);
+  transform:translateY(-4px);
+}
 
 .pathway-icon{
   display:grid;
@@ -2145,6 +2167,21 @@ body,
   padding:1.1rem 1rem 1rem 3.6rem;
   border-radius:15px;
   background:#f7fbfd;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease,
+    background-color .22s ease;
+}
+
+.journey-step.is-active,
+.journey-step:focus-visible{
+  border-color:rgba(37,78,112,.16);
+  background:#fff;
+  box-shadow:0 16px 32px rgba(37,78,112,.11);
+  transform:translateY(-3px);
 }
 
 .journey-step > span{
@@ -2159,6 +2196,16 @@ body,
   background:#FFDD59;
   color:var(--ink);
   font-weight:900;
+  transition:
+    background-color .22s ease,
+    color .22s ease,
+    transform .22s ease;
+}
+
+.journey-step.is-active > span{
+  background:var(--accent-dark);
+  color:#fff;
+  transform:scale(1.04);
 }
 
 .journey-step h3{
@@ -2309,13 +2356,48 @@ body,
   border:1px solid rgba(37,78,112,.1);
   border-radius:15px;
   background:#fff;
+  transition:
+    border-color .22s ease,
+    box-shadow .22s ease,
+    background-color .22s ease;
+}
+
+.faq-grid details[open],
+.faq-grid details.is-open{
+  border-color:rgba(37,78,112,.18);
+  background:linear-gradient(135deg, #fff, #f5fbff);
+  box-shadow:0 14px 30px rgba(37,78,112,.10);
 }
 
 .faq-grid summary{
   color:var(--ink);
   cursor:pointer;
   font-weight:800;
-  list-style-position:outside;
+  list-style:none;
+}
+
+.faq-grid summary::-webkit-details-marker{
+  display:none;
+}
+
+.faq-grid summary::after{
+  content:"+";
+  float:right;
+  display:inline-grid;
+  place-items:center;
+  width:1.65rem;
+  height:1.65rem;
+  margin-left:.75rem;
+  border-radius:999px;
+  background:#f3fafd;
+  color:var(--accent-dark);
+  font-weight:900;
+}
+
+.faq-grid details[open] summary::after{
+  content:"−";
+  background:var(--accent-dark);
+  color:#fff;
 }
 
 .faq-grid p{
@@ -2594,6 +2676,20 @@ body.dark-mode {
   50% {
     box-shadow: 0 18px 42px rgba(20, 184, 166, 0.18);
   }
+}
+
+.landing-reveal{
+  opacity:0;
+  transform:translateY(18px);
+  transition:
+    opacity .58s ease,
+    transform .58s ease;
+  transition-delay:calc(var(--reveal-index, 0) * 28ms);
+}
+
+.landing-reveal.is-visible{
+  opacity:1;
+  transform:translateY(0);
 }
 
 /* 1. Page and section entrance */

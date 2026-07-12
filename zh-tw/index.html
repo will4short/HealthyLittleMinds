@@ -23,9 +23,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Noto+Sans+TC:wght@400;500;700;800&amp;display=swap" rel="stylesheet" />
-  <link href="../style-index.css?v=5" rel="stylesheet" />
+  <link href="../style-index.css?v=6" rel="stylesheet" />
   <script defer src="../member-preview.js?v=2"></script>
-  <script defer src="../index.js?v=2"></script>
+  <script defer src="../index.js?v=3"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -57,6 +57,22 @@
       <div class="access-hero-panel" aria-label="學習內容"><div><strong>故事</strong><span>短小親切的故事，幫助孩子看見自己的感受。</span></div><div><strong>平靜</strong><span>呼吸、反思和自我照顧的小練習。</span></div><div><strong>成長</strong><span>適合家庭和課堂持續使用的小步驟。</span></div></div>
     </section>
 
+<section class="trailer-section fade-in" aria-labelledby="trailerTitle">
+      <div class="trailer-section__copy">
+        <p class="eyebrow">觀看預告片</p>
+        <h2 id="trailerTitle">探索 Healthy Little Minds 的世界</h2>
+        <p>看看故事、平靜活動、情緒工具和引導式體驗，如何幫助孩子理解自己的感受、建立信心，並在關愛他們的大人支持下成長。</p>
+      </div>
+      <div class="trailer-card">
+        <video class="trailer-video" controls preload="metadata" playsinline aria-describedby="trailerDescription">
+          <source src="../video/Healthy%20Little%20Minds%20Trailer.mp4" type="video/mp4" />
+          你的瀏覽器不支援嵌入式影片。
+          <a href="../video/Healthy%20Little%20Minds%20Trailer.mp4">下載 Healthy Little Minds 預告片。</a>
+        </video>
+        <p id="trailerDescription" class="trailer-caption">介紹 Healthy Little Minds 資源庫的官方預告片。</p>
+      </div>
+    </section>
+
 <section class="member-entry fade-in" id="login" aria-labelledby="memberEntryTitle"><div class="landing-heading"><p class="eyebrow">會員入口</p><h2 id="memberEntryTitle">輸入存取碼</h2><p>購買後收到的存取碼可以打開會員資源。</p></div><div class="member-entry-grid"><div class="login-box"><p class="entry-card-label">會員登入</p><h3>輸入代碼</h3><p>輸入你的存取碼，打開資源庫。</p><input id="password-input" type="password" placeholder="存取碼..." data-error-message="存取碼不正確。請再次檢查電子郵件中的代碼。" /><button id="loginButton" type="button">登入</button><div class="login-actions"><p class="access-note">還沒有存取碼？可以在這裡取得。</p><a class="get-access-btn newyear-highlight" href="https://payhip.com/b/j6uL8" target="_blank" rel="noopener">取得存取權</a><button class="preview-pass-btn" type="button" data-preview-home>3分鐘預覽</button></div><div class="dark-mode-toggle-container"><button class="dark-mode-toggle" id="themeToggle" type="button" data-dark-label="深色模式" data-light-label="淺色模式">深色模式</button></div></div><article class="audiobook-card"><span class="audio-label">精選有聲書</span><h3>聽一聽，想一想，說一說</h3><img src="../audiobooks/ella/coverpage.jpg" alt="Oh No, Ella! 封面" loading="lazy" /><p class="audio-title">Oh No, Ella!</p><p class="audio-description">一本關於情緒、選擇和重新開始勇氣的16頁有聲故事。</p><a class="btn" href="../audiobook.html?book=audiobooks/ella/book.json" target="_blank" rel="noopener">打開有聲書</a></article></div></section>
 
 <section class="library-preview" id="free-library" aria-labelledby="libraryTitle"><div class="library-heading"><p class="eyebrow">免費資源庫</p><h2 id="libraryTitle">現在就能閱讀的免費資源</h2><p>這些書和練習單能幫助孩子更容易談論自己的感受。</p></div><div class="grid"><article class="card free-access"><span class="label-free">免費</span><img src="../images/when-my-feelings-cover.webp" alt="When My Feelings" loading="lazy" /><p>When My Feelings</p><a class="btn" href="https://heyzine.com/flip-book/5cbe03c993.html" target="_blank" rel="noopener">閱讀</a></article><article class="card free-access"><span class="label-free">免費</span><img src="../images/little-acts-book-cover.webp" alt="Little Acts, Big Hearts" loading="lazy" /><p>Little Acts, Big Hearts</p><a class="btn" href="https://heyzine.com/flip-book/034942038a.html" target="_blank" rel="noopener">閱讀</a></article><article class="card free-access"><span class="label-free">免費</span><img src="../images/grey-thinking.webp" alt="Grey Thinking" loading="lazy" /><p>Grey Thinking</p><a class="btn" href="https://heyzine.com/flip-book/d765b64bda.html" target="_blank" rel="noopener">閱讀</a></article><article class="card free-access"><span class="label-free">免費</span><img src="../images/The_Day_Destiny_Wanted_To_Quit.webp" alt="The Day Destiny Wanted To Quit" loading="lazy" /><p>The Day Destiny Wanted To Quit</p><a class="btn" href="https://heyzine.com/flip-book/8736fac672.html" target="_blank" rel="noopener">閱讀</a></article></div></section>
@@ -68,8 +84,6 @@
 <section class="member-benefits" aria-labelledby="benefitsTitle"><div class="landing-heading"><p class="eyebrow">會員內容</p><h2 id="benefitsTitle">先免費試用，需要時再打開完整資源</h2><p>你可以先從免費資源開始。成為會員後，可以使用更多書籍、音訊和練習。</p></div><div class="access-comparison"><article class="access-card access-card--free"><p class="access-label">免費</p><h3>入門資源</h3><ul><li>免費繪本</li><li>幫助思考的練習單</li><li>家庭和課堂活動</li></ul><a class="compare-link compare-link--quiet" href="#free-library">免費查看</a></article><article class="access-card access-card--full"><p class="access-label">完整存取</p><h3>使用全部資源</h3><ul><li>會員專屬書籍和音訊</li><li>可列印練習單</li><li>幫助平靜的互動工具</li></ul><div class="access-card-actions"><a class="compare-link" href="https://payhip.com/b/j6uL8" target="_blank" rel="noopener">取得存取權</a><a class="member-login-link" href="#login">我已經是會員</a></div></article></div></section>
 
 <section class="character-showcase fade-in" aria-labelledby="charactersTitle"><div class="landing-heading"><p class="eyebrow">故事角色</p><h2 id="charactersTitle">認識 Healthy Little Minds 的朋友們</h2><p>孩子們會和故事裡的朋友一起學習勇氣、善意和重新開始的能力。</p></div><div class="character-grid"><article class="character-card" data-name="amaka"><img src="../images/amaka1_card.webp" alt="Amaka" fetchpriority="high" /><div class="character-name">Amaka</div><div class="character-info"><p>一個溫柔的孩子，正在學習相信自己的聲音。</p></div></article><article class="character-card" data-name="bella"><img src="../images/bella1_card.webp" alt="Bella" loading="lazy" /><div class="character-name">Bella</div><div class="character-info"><p>她練習整理大情緒，並勇敢地再試一次。</p></div></article><article class="character-card" data-name="goshen"><img src="../images/goshen_card.webp" alt="Goshen" loading="lazy" /><div class="character-name">Goshen</div><div class="character-info"><p>透過友誼、勇氣和善良不斷成長。</p></div></article></div><p class="character-showcase__action"><a class="character-showcase__link" href="#login">在會員資源中閱讀故事 &rarr;</a></p></section>
-
-<section class="section fade-in tools-preview" aria-labelledby="toolsTitle"><h2 id="toolsTitle">安定工具</h2><div class="grid"><a class="card tool-card" href="#login"><img src="../video/breathing-tool-preview.webp" alt="呼吸工具預覽" loading="lazy" /><p>當大情緒出現時，可以使用溫柔的呼吸和反思工具。</p></a></div></section>
 
 <section class="trust-note" aria-labelledby="trustTitle"><div><p class="eyebrow">安心使用的資源</p><h2 id="trustTitle">適合家庭，也適合課堂</h2><p>Healthy Little Minds 旨在幫助孩子安全地理解、表達和練習處理自己的感受。</p></div><a class="trust-link" href="#login">查看會員資源</a></section>
 

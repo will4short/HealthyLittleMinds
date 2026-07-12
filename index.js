@@ -97,13 +97,13 @@
 
     const sectionMap = [
       [".access-hero", "introduction"],
+      [".trailer-section", "trailer"],
       [".member-entry", "member-entry"],
       [".library-preview", "free-resources"],
       [".pathways-section", "audiences"],
       [".journey-section", "learning-path"],
       [".member-benefits", "access-options"],
       [".character-showcase", "stories"],
-      [".tools-preview", "tools"],
       [".trust-note", "scope"],
       [".faq-section", "questions"]
     ];
@@ -114,6 +114,117 @@
     // Testimonials require documented, reviewable consent and provenance.
     // Keep them out of the public landing experience until that evidence exists.
     document.querySelector(".testimonials")?.remove();
+  }
+
+  function setupLandingBehaviors() {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const revealTargets = Array.from(document.querySelectorAll([
+      ".access-hero",
+      ".trailer-section",
+      ".member-entry",
+      ".library-preview",
+      ".pathways-section",
+      ".journey-section",
+      ".member-benefits",
+      ".character-showcase",
+      ".trust-note",
+      ".faq-section"
+    ].join(",")));
+
+    revealTargets.forEach((section, index) => {
+      section.classList.add("landing-reveal");
+      section.style.setProperty("--reveal-index", String(Math.min(index, 6)));
+    });
+
+    if (reducedMotion || !("IntersectionObserver" in window)) {
+      revealTargets.forEach((section) => section.classList.add("is-visible"));
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+      revealTargets.forEach((section) => observer.observe(section));
+    }
+
+    const pathwayCards = Array.from(document.querySelectorAll(".pathway-card"));
+    pathwayCards.forEach((card) => {
+      card.addEventListener("mouseenter", () => {
+        pathwayCards.forEach((item) => item.classList.toggle("is-active", item === card));
+      });
+      card.addEventListener("focusin", () => {
+        pathwayCards.forEach((item) => item.classList.toggle("is-active", item === card));
+      });
+    });
+    document.querySelector(".pathways-section")?.addEventListener("mouseleave", () => {
+      pathwayCards.forEach((item) => item.classList.remove("is-active"));
+    });
+
+    const journeySteps = Array.from(document.querySelectorAll(".journey-step"));
+    const setJourneyStep = (selected) => {
+      journeySteps.forEach((step) => {
+        const active = step === selected;
+        step.classList.toggle("is-active", active);
+        step.setAttribute("aria-pressed", String(active));
+      });
+    };
+    journeySteps.forEach((step, index) => {
+      step.tabIndex = 0;
+      step.setAttribute("role", "button");
+      step.setAttribute("aria-pressed", index === 0 ? "true" : "false");
+      step.addEventListener("click", () => setJourneyStep(step));
+      step.addEventListener("focus", () => setJourneyStep(step));
+      step.addEventListener("mouseenter", () => setJourneyStep(step));
+      step.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        setJourneyStep(step);
+      });
+    });
+    if (journeySteps.length) setJourneyStep(journeySteps[0]);
+
+    const faqItems = Array.from(document.querySelectorAll(".faq-grid details"));
+    faqItems.forEach((item) => {
+      item.addEventListener("toggle", () => {
+        item.classList.toggle("is-open", item.open);
+        if (!item.open) return;
+        faqItems.forEach((other) => {
+          if (other !== item) {
+            other.open = false;
+            other.classList.remove("is-open");
+          }
+        });
+      });
+    });
+
+    const videos = Array.from(document.querySelectorAll("video"));
+    videos.forEach((video) => {
+      const card = video.closest(".trailer-card");
+      video.addEventListener("play", () => {
+        videos.forEach((other) => {
+          if (other !== video) other.pause();
+        });
+        card?.classList.add("is-playing");
+      });
+      ["pause", "ended"].forEach((eventName) => {
+        video.addEventListener(eventName, () => {
+          card?.classList.remove("is-playing");
+        });
+      });
+    });
+
+    if (!reducedMotion && "IntersectionObserver" in window) {
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) return;
+          const video = entry.target;
+          if (!video.paused) video.pause();
+        });
+      }, { threshold: 0.18 });
+      videos.forEach((video) => videoObserver.observe(video));
+    }
   }
 
   // ─────────────────────────────────────────────────────────────
@@ -331,6 +442,7 @@
   // ─────────────────────────────────────────────────────────────
   document.addEventListener("DOMContentLoaded", () => {
     setupLandingStandard();
+    setupLandingBehaviors();
     setupCharacters();
     setupLogin();
     setupTheme();
