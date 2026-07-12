@@ -1967,6 +1967,68 @@ body,
   border:1px solid rgba(255,107,107,.16);
 }
 
+.trailer-section{
+  width:min(1120px, 92vw);
+  margin:0 auto 1.5rem;
+  display:grid;
+  grid-template-columns:minmax(0, .82fr) minmax(320px, 1.18fr);
+  gap:clamp(1rem, 3vw, 2rem);
+  align-items:center;
+  padding:clamp(1rem, 2.5vw, 1.5rem);
+  border:1px solid rgba(37,78,112,.10);
+  border-radius:22px;
+  background:linear-gradient(135deg, #fffdf8 0%, #f6fbfd 56%, #eef9f7 100%);
+  box-shadow:0 18px 42px rgba(37,78,112,.10);
+}
+
+.trailer-section__copy h2{
+  margin:.15rem 0 .75rem;
+  color:#254E70;
+  font-family:"Nunito", sans-serif;
+  font-size:clamp(1.9rem, 4vw, 3.5rem);
+  line-height:1.04;
+  letter-spacing:-.02em;
+}
+
+.trailer-section__copy p:last-child{
+  max-width:58ch;
+  margin:0;
+  color:#3f5668;
+  font-size:1.04rem;
+  line-height:1.65;
+}
+
+.trailer-card{
+  position:relative;
+  padding:.65rem;
+  border:1px solid rgba(37,78,112,.12);
+  border-radius:24px;
+  background:#fff;
+  box-shadow:0 16px 34px rgba(37,78,112,.12);
+}
+
+.trailer-video{
+  display:block;
+  width:100%;
+  aspect-ratio:16 / 9;
+  border:0;
+  border-radius:18px;
+  background:#12384d;
+  object-fit:cover;
+}
+
+.trailer-video:focus-visible{
+  outline:4px solid rgba(255,213,79,.85);
+  outline-offset:4px;
+}
+
+.trailer-caption{
+  margin:.75rem .35rem .15rem;
+  color:#536a7a;
+  font-size:.92rem;
+  line-height:1.45;
+}
+
 .video-wrapper{
   width:min(920px, 92vw);
   background:rgba(255,255,255,.58);
@@ -2301,6 +2363,10 @@ body.dark-mode .faq-grid p{
     grid-template-columns:1fr;
   }
 
+  .trailer-section{
+    grid-template-columns:1fr;
+  }
+
   .access-hero-actions a{
     flex:1 1 210px;
   }
@@ -2334,6 +2400,7 @@ body.dark-mode .faq-grid p{
 
 @media (max-width: 520px){
   .access-hero,
+  .trailer-section,
   .library-preview,
   .pathways-section,
   .journey-section,
@@ -2347,8 +2414,18 @@ body.dark-mode .faq-grid p{
 
   .access-hero-copy,
   .access-hero-panel,
-  .library-heading{
+  .library-heading,
+  .trailer-section,
+  .trailer-card{
     border-radius:14px;
+  }
+
+  .trailer-card{
+    padding:.45rem;
+  }
+
+  .trailer-video{
+    border-radius:12px;
   }
 
   .access-hero-actions{
