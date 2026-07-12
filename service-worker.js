@@ -3,8 +3,8 @@
 // Lean precache (no big media) + runtime image cache
 // ===============================
 
-const PRECACHE_NAME = 'hlm-precache-v226'; // bump here for new release/update toast
-const RUNTIME_NAME  = 'hlm-runtime-v78';   // bump to refresh updated versioned page assets
+const PRECACHE_NAME = 'hlm-precache-v233'; // bump here for new release/update toast
+const RUNTIME_NAME  = 'hlm-runtime-v85';   // bump to refresh updated versioned page assets
 const IMAGE_CACHE   = 'hlm-img-v18';       // leave if image rules unchanged
 
 const IMAGE_MAX_ENTRIES = 60;                   // limit image count
@@ -172,6 +172,7 @@ const ASSETS_TO_PRECACHE = [
   '/growth-plan.css',
   '/growth-plan.js',
   '/button-loader.js',
+  '/membership-links.js',
   '/worldcup-theme.js',
   '/member-preview.js',
   '/feeling-support.css',
@@ -191,10 +192,10 @@ const ASSETS_TO_PRECACHE = [
   '/manifest.json',
   '/icon-192.webp', '/icon-512.webp', '/favicon.ico',
 
-  // ✅ Logo (tiny, critical for UI)
+  // Logo (tiny, critical for UI)
   '/images/logo-icon.webp',
   '/images/logo-icon.png'
-  // ❌ deliberately NOT precaching large images/characters/videos/PDFs
+  // deliberately NOT precaching large images/characters/videos/PDFs
 ];
 
 // -------------------------------
@@ -208,7 +209,7 @@ self.addEventListener('install', (event) => {
         try {
           await cache.add(url);
         } catch (err) {
-          console.warn('❌ Precache failed:', url, err);
+          console.warn('Precache failed:', url, err);
         }
       }
     })

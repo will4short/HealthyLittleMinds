@@ -2079,7 +2079,7 @@ body.localized-home .brand-text .subtitle {
 body.localized-home :where(.sticky-nav, #navLinks) {
   position: fixed !important;
   inset: 0 0 auto 0 !important;
-  z-index: 1650 !important;
+  z-index: 1590 !important;
   width: 100% !important;
   height: var(--localized-header-height) !important;
   min-height: var(--localized-header-height) !important;
@@ -2369,7 +2369,7 @@ html[lang] body.localized-home :is(.quick-links, .nav-inner) {
 }
 
 html[lang] body.localized-home :is(.sticky-nav, #navLinks) {
-  z-index: 1750 !important;
+  z-index: 1590 !important;
 }
 
 @media (max-width: 1180px) {
@@ -2385,50 +2385,96 @@ html[lang] body.localized-home :is(.sticky-nav, #navLinks) {
    The original localized pages split brand and nav into separate elements;
    this desktop treatment gives the nav row its own brand so it cannot disappear. */
 @media (min-width: 1181px) {
+  html[lang] body.localized-home :is(.sticky-header, .main-header) {
+    z-index: 2000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  html[lang] body.localized-home :is(.sticky-header, .main-header) .header-container {
+    width: min(1180px, calc(100% - 2rem)) !important;
+    max-width: 1180px !important;
+  }
+
   html[lang] body.localized-home :is(.sticky-header, .main-header) .header-brand {
-    display: none !important;
-  }
-
-  html[lang] body.localized-home :is(.quick-links, .nav-inner) {
-    position: relative !important;
-    padding-left: clamp(300px, 24vw, 350px) !important;
-  }
-
-  html[lang] body.localized-home :is(.quick-links, .nav-inner)::before {
-    content: "" !important;
     position: absolute !important;
-    left: 0 !important;
     top: 50% !important;
-    width: 34px !important;
-    height: 34px !important;
-    border-radius: 999px !important;
-    background: url("images/logo-icon.webp") center / contain no-repeat !important;
+    left: clamp(1rem, 4vw, 4.5rem) !important;
+    z-index: 2010 !important;
+    display: grid !important;
+    pointer-events: auto !important;
+    flex: 0 0 clamp(214px, 18vw, 270px) !important;
+    width: clamp(214px, 18vw, 270px) !important;
+    min-width: 214px !important;
+    max-width: 270px !important;
     transform: translateY(-50%) !important;
   }
 
-  html[lang] body.localized-home :is(.quick-links, .nav-inner)::after {
-    content: "Healthy\A Little Minds" !important;
+  html[lang] body.localized-home :is(.sticky-header, .main-header) .header-brand .brand-text {
     position: absolute !important;
-    left: 44px !important;
-    top: 50% !important;
-    color: #244b68 !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+  }
+
+  html[lang] body.localized-home :is(.sticky-header, .main-header) .header-brand::after {
+    content: "Healthy\A Little Minds" !important;
+    display: block !important;
+    background: linear-gradient(180deg, #244b68 0 49%, #ff6b6b 50% 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
     font-size: clamp(1.05rem, 1.55vw, 1.28rem) !important;
     font-weight: 900 !important;
     line-height: 0.98 !important;
     letter-spacing: -0.02em !important;
     white-space: pre !important;
-    transform: translateY(-50%) !important;
+  }
+
+  html[lang] body.localized-home :is(.sticky-nav, #navLinks) {
+    z-index: 1900 !important;
+    pointer-events: none !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-bottom: 1px solid rgba(219, 231, 239, 0.86) !important;
+    box-shadow: 0 8px 22px rgba(37, 78, 112, 0.055) !important;
+  }
+
+  html[lang] body.localized-home :is(.quick-links, .nav-inner) {
+    position: relative !important;
+    width: min(1180px, calc(100% - 2rem)) !important;
+    max-width: 1180px !important;
+    padding-left: clamp(280px, 24vw, 350px) !important;
+    pointer-events: none !important;
+  }
+
+  html[lang] body.localized-home :is(.quick-links, .nav-inner)::before {
+    content: none !important;
+  }
+
+  html[lang] body.localized-home :is(.quick-links, .nav-inner)::after {
+    content: none !important;
   }
 
   html[lang] body.localized-home :is(.quick-links, .nav-inner) > a:first-of-type {
     margin-left: auto !important;
   }
 
+  html[lang] body.localized-home :is(.quick-links, .nav-inner) > a,
+  html[lang] body.localized-home :is(.quick-links, .nav-inner) > button,
+  html[lang] body.localized-home :is(.quick-links, .nav-inner) > details {
+    pointer-events: auto !important;
+  }
+
   html[lang="ja"] body.localized-home :is(.quick-links, .nav-inner) {
-    padding-left: clamp(300px, 25vw, 360px) !important;
+    padding-left: clamp(280px, 25vw, 360px) !important;
   }
 
   html[lang="ja"] body.localized-home :is(.quick-links, .nav-inner)::after {
-    font-size: clamp(1rem, 1.32vw, 1.16rem) !important;
+    content: none !important;
   }
 }
