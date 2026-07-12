@@ -1284,14 +1284,14 @@ footer{
   position:fixed;
   bottom: 20px;
   right: 20px;
-  background: rgba(255,255,255,.9);
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 8px 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,.12);
+  background: rgba(255,255,255,.96);
+  border: 1px solid #e6eef3;
+  border-radius: 999px;
+  padding: 0.5rem 0.65rem;
+  box-shadow: 0 10px 24px rgba(37,78,112,.12);
   z-index: 1200;
   display:flex;
-  gap: 8px;
+  gap: 0.45rem;
   align-items:center;
 }
 .language-switcher__label{
@@ -1301,12 +1301,27 @@ footer{
   line-height: 1;
 }
 .language-switcher img{
-  width:22px;
-  height:22px;
+  width:24px;
+  height:24px;
+  border-radius:50%;
   cursor:pointer;
   transition: transform .15s ease;
 }
 .language-switcher img:hover{ transform: scale(1.08); }
+
+.language-switcher a{
+  display:inline-flex;
+  border-radius:50%;
+}
+
+.language-switcher a[aria-current="page"]{
+  box-shadow:0 0 0 3px rgba(255,107,107,.22);
+}
+
+.language-switcher a:focus-visible{
+  outline:3px solid var(--ink);
+  outline-offset:3px;
+}
 
 /* ===== Animations ===== */
 @keyframes fadeInUp{
