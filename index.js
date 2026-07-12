@@ -199,9 +199,11 @@
       });
     });
 
-    const videos = Array.from(document.querySelectorAll("video"));
+    const videos = Array.from(document.querySelectorAll(".trailer-video"));
     videos.forEach((video) => {
       const card = video.closest(".trailer-card");
+      video.muted = true;
+      video.dataset.autoScrollVideo = "true";
       video.addEventListener("play", () => {
         videos.forEach((other) => {
           if (other !== video) other.pause();
@@ -218,11 +220,14 @@
     if (!reducedMotion && "IntersectionObserver" in window) {
       const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) return;
           const video = entry.target;
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+            return;
+          }
           if (!video.paused) video.pause();
         });
-      }, { threshold: 0.18 });
+      }, { threshold: 0.55, rootMargin: "-8% 0px -8% 0px" });
       videos.forEach((video) => videoObserver.observe(video));
     }
   }

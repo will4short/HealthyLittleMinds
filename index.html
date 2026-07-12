@@ -33,7 +33,7 @@
 
   <!-- Fonts & Favicon -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet"/>
-  <link href="style-index.css?v=6" rel="stylesheet"/>
+  <link href="style-index.css?v=8" rel="stylesheet"/>
   <link href="images/favicon.webp" rel="icon" type="image/webp">
   <link href="images/favicon.ico" rel="icon" type="image/x-icon">
   <link href="/manifest.json" rel="manifest"/>
@@ -53,7 +53,7 @@
   </script>
 
   <script defer src="member-preview.js?v=2"></script>
-  <script defer src="index.js?v=3"></script>
+  <script defer src="index.js?v=4"></script>
 
   <!-- Structured data â€” WebSite schema (D: searchAction removed, URL fixed) -->
   <script type="application/ld+json">
@@ -106,9 +106,7 @@
       </nav>
 
       <!-- Hamburger -->
-      <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false">
-        â˜°
-      </button>
+      <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false"></button>
     </header>
 
     <!-- Backdrop for mobile menu -->
@@ -118,7 +116,7 @@
     <div class="mobile-nav" id="mobileNav" aria-hidden="true">
       <div class="mobile-nav__head">
         <strong>Menu</strong>
-        <button type="button" class="mobile-nav__close no-loader" aria-label="Close menu">Ã—</button>
+        <button type="button" class="mobile-nav__close no-loader" aria-label="Close menu">×</button>
       </div>
       <p class="mobile-nav__label">Explore</p>
       <a href="#login">Member login</a>
@@ -176,7 +174,7 @@
       </div>
 
       <div class="trailer-card">
-        <video class="trailer-video" controls preload="metadata" playsinline aria-describedby="trailerDescription">
+        <video class="trailer-video" controls muted preload="metadata" playsinline aria-describedby="trailerDescription">
           <source src="video/Healthy%20Little%20Minds%20Trailer.mp4" type="video/mp4" />
           Your browser does not support embedded video.
           <a href="video/Healthy%20Little%20Minds%20Trailer.mp4">Download the Healthy Little Minds trailer.</a>
