@@ -54,7 +54,7 @@
   <!-- Fonts & Styles -->
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link href="style.css?v=109" rel="stylesheet"/>
+  <link href="style.css?v=113" rel="stylesheet"/>
   <script src="member-preview.js?v=2"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Nunito:wght@600;800&amp;display=swap" rel="stylesheet">
    <!-- Structured Data -->
@@ -66,9 +66,9 @@
       document.documentElement.classList.add('dark-mode');
     }
   </script>
-  <link href="home-mobile-ui.css?v=2" rel="stylesheet" />
+  <link href="home-mobile-ui.css?v=5" rel="stylesheet" />
   <link href="site-ui-upgrades.css?v=1" rel="stylesheet" />
-  <link href="home-experience.css?v=9" rel="stylesheet" />
+  <link href="home-experience.css?v=10" rel="stylesheet" />
 </head>
  <body class="home-mobile-ui ui-upgraded home-experience">
   <a class="home-skip-link" href="#main-content">Skip to main content</a>
@@ -174,7 +174,9 @@
 
   <!-- Language selector -->
   <nav class="language-switcher" aria-label="Choose language">
-   <span class="language-switcher__label">Language</span>
+   <button class="language-switcher__toggle" type="button" aria-expanded="false" aria-label="Open language choices" data-close-label="Close language choices">
+    <span aria-hidden="true">🌐</span><span>Language</span><span class="language-switcher__chevron" aria-hidden="true"></span>
+   </button>
    <a href="home.html" title="English" aria-current="page">
     <img alt="English" decoding="async" loading="lazy" src="images/flag-en.webp" width="24"/>
    </a>
@@ -191,81 +193,71 @@
     <img alt="한국어" decoding="async" loading="lazy" src="images/flag-kr.webp" width="24"/>
    </a></nav>
 
-  <!-- Announcement Bar -->
-<div class="announcement-bar u-style-008" id="announcementBar">
-  <strong>New this month</strong>
+  <!-- Compact, in-flow website updates -->
+<aside class="announcement-bar u-style-008" id="announcementBar" aria-labelledby="announcementTitle">
+  <div class="announcement-heading">
+    <span class="announcement-heading__icon" aria-hidden="true">✨</span>
+    <div>
+      <strong id="announcementTitle">Latest in the library</strong>
+      <span class="announcement-summary">Three fresh stories to explore</span>
+    </div>
+  </div>
 
-  <a class="u-style-009" href="https://heyzine.com/flip-book/1fb2ef8177.html"
+  <div class="announcement-items">
+    <a class="announcement-link u-style-009" href="https://heyzine.com/flip-book/1fb2ef8177.html" target="_blank" rel="noopener noreferrer">
+      <span aria-hidden="true">📘</span><span>When I Can’t Do It Yet</span>
+    </a>
+    <a class="announcement-link u-style-010" href="https://heyzine.com/flip-book/ed1606de6d.html" target="_blank" rel="noopener noreferrer">
+      <span aria-hidden="true">📰</span><span>The News We Choose</span>
+    </a>
+    <a class="announcement-link u-style-011" href="https://heyzine.com/flip-book/e9a223a23a.html" target="_blank" rel="noopener noreferrer">
+      <span aria-hidden="true">🐒</span><span>Sometimes Family Finds You</span>
+    </a>
+  </div>
 
-     target="_blank" rel="noopener noreferrer">
-    When I Can’t Do It Yet
-  </a>
-
-  <a class="u-style-010" href="https://heyzine.com/flip-book/ed1606de6d.html"
-
-     target="_blank" rel="noopener noreferrer">
-    The News We Choose
-  </a>
-
-  <a class="u-style-011" href="https://heyzine.com/flip-book/e9a223a23a.html"
-
-     target="_blank" rel="noopener noreferrer">
-    Sometimes Family Finds You
-  </a>
-
-  <a class="u-style-012" href="https://heyzine.com/flip-book/8736fac672.html"
-
-     target="_blank" rel="noopener noreferrer">
-    The Day Destiny Wanted To Quit
-  </a>
-
-  <button class="announcement-dismiss u-style-013" type="button" data-home-action="dismiss-announcement"
-          aria-label="Dismiss new this month announcements">
-    <span>Got it</span>
+  <button class="announcement-dismiss u-style-013" type="button" data-home-action="dismiss-announcement" aria-label="Dismiss latest updates">
+    <span class="announcement-dismiss__label">Dismiss</span>
     <span class="announcement-dismiss__icon" aria-hidden="true">&times;</span>
   </button>
-</div>
+</aside>
 
-  <!-- 🔄 Sliding Banner Section with Canva Banners (Extended to 6 Slides) -->
+  <!-- 🔄 Sliding Banner Section with Canva Banners (10 Slides) -->
   <main id="main-content">
   <section class="carousel-container" aria-label="Featured stories and activities">
+   <div class="carousel-viewport">
    <div class="carousel" aria-live="off" aria-atomic="false">
     <!-- Slide 1 -->
-    <div class="carousel-slide banner1">
-    </div>
+    <div class="carousel-slide"><a class="carousel-slide__link" href="#homeStartTitle"><img src="images/banner1.webp" width="1920" height="600" fetchpriority="high" decoding="async" alt="Healthy Little Minds pathways to stories, worksheets, activities, and audiobooks"></a></div>
     <!-- Slide 2 -->
-    <div class="carousel-slide banner2">
-    </div>
+    <div class="carousel-slide"><a class="carousel-slide__link" href="parents.html"><img src="images/banner2.webp" width="1920" height="600" loading="lazy" decoding="async" alt="Parent and child reading together with practical support for everyday emotional learning"></a></div>
     <!-- Slide 3 -->
-    <div class="carousel-slide banner3">
-    </div>
+    <div class="carousel-slide"><a class="carousel-slide__link" href="worksheets.html"><img src="images/banner3.webp" width="1920" height="600" loading="lazy" decoding="async" alt="Child completing a feelings worksheet beside printable activity books"></a></div>
     <!-- Slide 4 -->
-    <div class="carousel-slide banner4">
-    </div>
+    <div class="carousel-slide"><a class="carousel-slide__link" href="#emotional-literacy"><img src="images/banner4.webp" width="1920" height="600" loading="lazy" decoding="async" alt="Children's emotional learning books When My Feelings Get Too Big and The Day Destiny Wanted to Quit"></a></div>
     <!-- Slide 5 -->
-    <div class="carousel-slide banner5">
-    </div>
+    <div class="carousel-slide"><a class="carousel-slide__link" href="#characters"><img src="images/banner5.webp" width="1920" height="600" loading="lazy" decoding="async" alt="Healthy Little Minds characters Amaka, Destiny, Goshen, Bella, Princess, and Ella"></a></div>
     <!-- Slide 6 -->
-    <div class="carousel-slide banner6">
-    </div>
+    <div class="carousel-slide"><a class="carousel-slide__link" href="about_me.html"><img src="images/banner6.webp" width="1920" height="600" loading="lazy" decoding="async" alt="Godswill Ambrose, creator of Healthy Little Minds"></a></div>
+    <!-- Slide 7 -->
+    <div class="carousel-slide"><a class="carousel-slide__link" href="will-talks.html"><img src="images/banner7.webp" width="1920" height="600" loading="lazy" decoding="async" alt="Will Talks podcast about practical psychology for everyday life"></a></div>
+    <!-- Slide 8 -->
+    <div class="carousel-slide"><a class="carousel-slide__link" href="interactive-tools.html"><img src="images/banner8.webp" width="1920" height="600" loading="lazy" decoding="async" alt="Parent and child exploring emotional learning tools on a tablet"></a></div>
+    <!-- Slide 9 -->
+    <div class="carousel-slide"><a class="carousel-slide__link" href="#emotional-literacy"><img src="images/banner9.webp" width="1920" height="600" loading="lazy" decoding="async" alt="Children reading in the Healthy Little Minds book library"></a></div>
+    <!-- Slide 10 -->
+    <div class="carousel-slide"><a class="carousel-slide__link" href="contact.html"><img src="images/banner10.webp" width="1920" height="600" loading="lazy" decoding="async" alt="Healthy Little Minds contact and social media information"></a></div>
+   </div>
    </div>
 
-   <!-- Navigation Dots -->
-   <div class="carousel-dots" role="group" aria-label="Choose featured banner">
-    <button class="dot active" type="button" data-slide-index="0" aria-label="Show banner 1" aria-current="true"></button>
-    <button class="dot" type="button" data-slide-index="1" aria-label="Show banner 2"></button>
-    <button class="dot" type="button" data-slide-index="2" aria-label="Show banner 3"></button>
-    <button class="dot" type="button" data-slide-index="3" aria-label="Show banner 4"></button>
-    <button class="dot" type="button" data-slide-index="4" aria-label="Show banner 5"></button>
-    <button class="dot" type="button" data-slide-index="5" aria-label="Show banner 6"></button>
+   <div class="carousel-controls" role="group" aria-label="Featured banner controls">
+    <button class="carousel-control" type="button" data-slide-direction="-1" aria-label="Show previous featured banner"><span aria-hidden="true">&#8592;</span></button>
+    <div class="carousel-position" aria-hidden="true">
+     <span class="carousel-counter"><span data-carousel-current>01</span><span class="carousel-counter__separator">/</span><span data-carousel-total>10</span></span>
+     <span class="carousel-progress"><span class="carousel-progress__fill" data-carousel-progress></span></span>
+    </div>
+    <button class="carousel-control carousel-control--toggle" type="button" data-carousel-toggle aria-label="Pause featured banners"><span data-carousel-toggle-icon aria-hidden="true">&#10074;&#10074;</span></button>
+    <button class="carousel-control" type="button" data-slide-direction="1" aria-label="Show next featured banner"><span aria-hidden="true">&#8594;</span></button>
    </div>
-   <!-- Arrow Buttons -->
-   <button class="carousel-arrow left" type="button" data-slide-direction="-1" aria-label="Show previous featured banner">
-    <span aria-hidden="true">❮</span>
-   </button>
-   <button class="carousel-arrow right" type="button" data-slide-direction="1" aria-label="Show next featured banner">
-    <span aria-hidden="true">❯</span>
-   </button>
   </section>
 
   <!-- =====================================================
@@ -276,13 +268,20 @@
        ===================================================== -->
   <section class="member-welcome-greeting" aria-label="Welcome message">
     <div class="member-welcome-greeting__inner">
-      <span class="member-welcome-greeting__badge" aria-hidden="true">💛</span>
-      <div>
-        <p class="member-welcome-greeting__title">Welcome back to your library</p>
+      <div class="member-welcome-greeting__badge" aria-hidden="true">
+        <span>💛</span>
+      </div>
+      <div class="member-welcome-greeting__copy">
+        <p class="member-welcome-greeting__eyebrow">Welcome back to your library</p>
+        <h2 class="member-welcome-greeting__title">You’re not just welcome here. <span>You belong here.</span></h2>
         <p class="member-welcome-greeting__sub">
-          You're in. Explore stories, worksheets, feelings tools, and more — all made for curious, growing minds.
+          Explore stories, worksheets, feelings tools, and gentle support—at your own pace, in your own way.
         </p>
       </div>
+      <a class="member-welcome-greeting__action" href="#explore-feelings">
+        <span>Find a place to begin</span>
+        <span aria-hidden="true">↓</span>
+      </a>
     </div>
   </section>
 
@@ -628,13 +627,22 @@
         Use simple activities like breathing, drawing, check-ins, and guided choices to help children practise emotional skills before the hardest moment.
       </p>
     </div>
-    <a class="interactive-tools-spotlight__cta" href="interactive-tools.html">
-      <span class="interactive-tools-spotlight__icon" aria-hidden="true">&#10024;</span>
-      <span>
-        <strong>Open Interactive Tools</strong>
-        <small>Breathing, drawing, mood check-ins, and calm-down support</small>
-      </span>
-    </a>
+    <div class="interactive-tools-spotlight__media">
+      <img
+        class="interactive-tools-spotlight__image"
+        src="images/interrative_section_intro.webp"
+        alt="A child exploring mood check-ins, calming exercises, drawing, and interactive stories on a tablet"
+        loading="lazy"
+        decoding="async"
+      >
+      <a class="interactive-tools-spotlight__cta" href="interactive-tools.html">
+        <span class="interactive-tools-spotlight__icon" aria-hidden="true">&#10024;</span>
+        <span>
+          <strong>Open Interactive Tools</strong>
+          <small>Breathing, drawing, mood check-ins, and calm-down support</small>
+        </span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1011,7 +1019,7 @@
     <section class="u-style-060 why-matters" id="why-this-matters" aria-labelledby="whyMattersTitle">
      <div class="why-matters__inner">
       <div class="why-matters__media">
-       <img alt="Child sitting calmly with two cats beside a glowing candle" class="why-image" decoding="async" loading="lazy" src="images/why-this-matters.webp">
+       <img alt="Child reflecting on feelings with a journal and calming activity cards" class="why-image" decoding="async" loading="lazy" src="images/why-this-matters.webp">
       </div>
       <div class="why-matters__content">
        <p class="why-matters__eyebrow">Emotional literacy in everyday life</p>
@@ -1580,16 +1588,14 @@ document.getElementById('mobileNav')?.addEventListener('click', e => {
   <script>
   function hideBar() {
     const bar = document.getElementById('announcementBar');
-    if (bar) {
-      document.body.classList.add('announcement-dismissed');
-      bar.style.opacity = '0';
-      setTimeout(() => {
-        bar.style.display = 'none';
-      }, 500);
-    }
+    if (!bar || bar.classList.contains('is-dismissing')) return;
+    bar.classList.add('is-dismissing');
+    setTimeout(() => {
+      bar.classList.add('is-dismissed');
+      bar.hidden = true;
+    }, 180);
   }
 
-  // Auto-hide after 8 seconds
   </script>
   <script>
    document.addEventListener('DOMContentLoaded', function () {
@@ -1829,12 +1835,17 @@ document.getElementById('mobileNav')?.addEventListener('click', e => {
 </script>
 
   <script>
-   let current = 0;
-  const slides = document.querySelectorAll('.carousel-slide');
-  const dots = document.querySelectorAll('.dot');
+  let current = 0;
+  const slides = Array.from(document.querySelectorAll('.carousel-slide'));
   const track = document.querySelector('.carousel');
   const container = document.querySelector('.carousel-container');
+  const currentOutput = container.querySelector('[data-carousel-current]');
+  const totalOutput = container.querySelector('[data-carousel-total]');
+  const progress = container.querySelector('[data-carousel-progress]');
+  const toggle = container.querySelector('[data-carousel-toggle]');
+  const toggleIcon = container.querySelector('[data-carousel-toggle-icon]');
   const reduceCarouselMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const AUTO_SLIDE_DELAY = 8000;
   const carouselStatus = document.createElement('p');
   carouselStatus.className = 'sr-only';
   carouselStatus.setAttribute('role', 'status');
@@ -1842,126 +1853,121 @@ document.getElementById('mobileNav')?.addEventListener('click', e => {
   container.appendChild(carouselStatus);
 
   let autoSlideInterval;
-  let carouselResumeTimer;
   let carouselHovered = false;
   let carouselFocused = false;
   let carouselTouched = false;
-  let carouselPausedUntil = 0;
+  let carouselPlaying = !reduceCarouselMotion.matches;
+  let startX = 0;
 
-  function showSlide(index, announce = false) {
-    track.style.transform = `translateX(-${index * 100}%)`;
-    slides.forEach((slide, slideIndex) => {
-      slide.setAttribute('role', 'group');
-      slide.setAttribute('aria-roledescription', 'slide');
-      slide.setAttribute('aria-label', `${slideIndex + 1} of ${slides.length}`);
-      slide.setAttribute('aria-hidden', String(slideIndex !== index));
-    });
-    dots.forEach(dot => {
-      dot.classList.remove('active');
-      dot.removeAttribute('aria-current');
-    });
-    if (dots[index]) {
-      dots[index].classList.add('active');
-      dots[index].setAttribute('aria-current', 'true');
-    }
-    current = index;
-    if (announce) carouselStatus.textContent = `Featured banner ${index + 1} of ${slides.length}`;
-  }
-
-  function changeSlide(direction, announce = false) {
-    const total = slides.length;
-    let next = (current + direction + total) % total;
-    showSlide(next, announce);
+  function updatePlayControl() {
+    const isPaused = !carouselPlaying;
+    toggle.setAttribute('aria-label', isPaused ? 'Play featured banners' : 'Pause featured banners');
+    toggleIcon.textContent = isPaused ? '▶' : '❚❚';
+    container.classList.toggle('carousel-is-paused', isPaused);
   }
 
   function carouselCanRotate() {
-    return !reduceCarouselMotion.matches
-      && !carouselHovered
-      && !carouselFocused
-      && !carouselTouched
-      && Date.now() >= carouselPausedUntil;
+    return carouselPlaying && !reduceCarouselMotion.matches && !document.hidden
+      && !carouselHovered && !carouselFocused && !carouselTouched;
   }
 
-  function startAutoSlide() {
-    clearInterval(autoSlideInterval);
-    if (!carouselCanRotate()) return;
-    autoSlideInterval = setInterval(() => changeSlide(1, false), 7000);
+  function restartProgress() {
+    progress.classList.remove('is-running');
+    void progress.offsetWidth;
+    if (carouselCanRotate()) progress.classList.add('is-running');
+  }
+
+  function showSlide(index, announce = false) {
+    const normalizedIndex = (index + slides.length) % slides.length;
+    track.style.transform = `translateX(-${normalizedIndex * 100}%)`;
+    slides.forEach((slide, slideIndex) => {
+      const active = slideIndex === normalizedIndex;
+      const link = slide.querySelector('a');
+      slide.setAttribute('role', 'group');
+      slide.setAttribute('aria-roledescription', 'slide');
+      slide.setAttribute('aria-label', `${slideIndex + 1} of ${slides.length}`);
+      slide.setAttribute('aria-hidden', String(!active));
+      if (link) link.tabIndex = active ? 0 : -1;
+    });
+    current = normalizedIndex;
+    currentOutput.textContent = String(current + 1).padStart(2, '0');
+    totalOutput.textContent = String(slides.length).padStart(2, '0');
+    if (announce) carouselStatus.textContent = `Featured banner ${current + 1} of ${slides.length}`;
+    restartProgress();
+  }
+
+  function changeSlide(direction, announce = false) {
+    showSlide(current + direction, announce);
   }
 
   function stopAutoSlide() {
     clearInterval(autoSlideInterval);
+    progress.classList.remove('is-running');
   }
 
-  function pauseCarouselFor(duration) {
+  function startAutoSlide() {
     stopAutoSlide();
-    carouselPausedUntil = Date.now() + duration;
-    clearTimeout(carouselResumeTimer);
-    carouselResumeTimer = setTimeout(startAutoSlide, duration);
+    if (!carouselCanRotate()) return;
+    restartProgress();
+    autoSlideInterval = setInterval(() => changeSlide(1, false), AUTO_SLIDE_DELAY);
   }
 
-// 🖱 Pause on hover (desktop)
-container.addEventListener('mouseenter', () => {
-  carouselHovered = true;
-  stopAutoSlide();
-});
-container.addEventListener('mouseleave', () => {
-  carouselHovered = false;
+  function setCarouselPlaying(playing) {
+    carouselPlaying = playing && !reduceCarouselMotion.matches;
+    updatePlayControl();
+    if (carouselPlaying) startAutoSlide();
+    else stopAutoSlide();
+  }
+
+  container.addEventListener('mouseenter', () => { carouselHovered = true; stopAutoSlide(); });
+  container.addEventListener('mouseleave', () => { carouselHovered = false; startAutoSlide(); });
+  container.addEventListener('focusin', () => { carouselFocused = true; stopAutoSlide(); });
+  container.addEventListener('focusout', (event) => {
+    if (!container.contains(event.relatedTarget)) { carouselFocused = false; startAutoSlide(); }
+  });
+
+  container.addEventListener('click', (event) => {
+    if (event.target.closest('[data-carousel-toggle]')) {
+      const shouldPlay = !carouselPlaying;
+      if (shouldPlay) {
+        carouselHovered = false;
+        carouselFocused = false;
+      }
+      setCarouselPlaying(shouldPlay);
+      return;
+    }
+    if (event.target.closest('[data-slide-direction]')) setCarouselPlaying(false);
+  });
+
+  container.addEventListener('touchstart', (event) => {
+    carouselTouched = true;
+    startX = event.touches[0].clientX;
+    stopAutoSlide();
+  }, { passive: true });
+  container.addEventListener('touchend', (event) => {
+    const diff = startX - event.changedTouches[0].clientX;
+    carouselTouched = false;
+    if (Math.abs(diff) > 50) {
+      setCarouselPlaying(false);
+      changeSlide(diff > 0 ? 1 : -1, true);
+    } else startAutoSlide();
+  }, { passive: true });
+  container.addEventListener('touchcancel', () => { carouselTouched = false; startAutoSlide(); }, { passive: true });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopAutoSlide();
+    else startAutoSlide();
+  });
+  reduceCarouselMotion.addEventListener('change', () => {
+    if (reduceCarouselMotion.matches) setCarouselPlaying(false);
+    else updatePlayControl();
+  });
+
+  window.showSlide = showSlide;
+  window.changeSlide = changeSlide;
+  showSlide(0, false);
+  updatePlayControl();
   startAutoSlide();
-});
-container.addEventListener('focusin', () => {
-  carouselFocused = true;
-  stopAutoSlide();
-});
-container.addEventListener('focusout', (event) => {
-  if (!container.contains(event.relatedTarget)) {
-    carouselFocused = false;
-    startAutoSlide();
-  }
-});
-
-// ✋ Pause on touch (mobile)
-container.addEventListener('touchstart', () => {
-  carouselTouched = true;
-  stopAutoSlide();
-}, { passive: true });
-container.addEventListener('touchend', () => {
-  carouselTouched = false;
-  pauseCarouselFor(3000);
-}, { passive: true });
-container.addEventListener('touchcancel', () => {
-  carouselTouched = false;
-  pauseCarouselFor(3000);
-}, { passive: true });
-
-container.addEventListener('click', (event) => {
-  if (!event.target.closest('.dot, .carousel-arrow')) return;
-  pauseCarouselFor(3000);
-});
-
-reduceCarouselMotion.addEventListener('change', () => {
-  if (reduceCarouselMotion.matches) stopAutoSlide();
-  else startAutoSlide();
-});
-
-// 👆 Swipe gesture support
-let startX = 0;
-
-container.addEventListener('touchstart', function (e) {
-  startX = e.touches[0].clientX;
-}, { passive: true });
-
-container.addEventListener('touchend', function (e) {
-  const endX = e.changedTouches[0].clientX;
-  const diff = startX - endX;
-  if (Math.abs(diff) > 50) {
-    if (diff > 0) changeSlide(1, true);
-    else changeSlide(-1, true);
-  }
-}, { passive: true });
-
-// 🚀 Start everything
-showSlide(0, false);
-startAutoSlide();
   </script>
   <script>
    if (location.hash === '#about') location.href = 'about_me.html';
@@ -2326,8 +2332,9 @@ startAutoSlide();
 })();
 </script>
   <script defer src="button-loader.js?v=1"></script>
-  <script src="site-ui-upgrades.js?v=2"></script>
-<script src="home-mobile-ui.js?v=2"></script>
+  <script src="site-ui-upgrades.js?v=7"></script>
+<script src="home-mobile-ui.js?v=3"></script>
+<script src="impact-tabs.js?v=1"></script>
 <script src="home-actions.js?v=5"></script>
 <script defer src="membership-links.js?v=2"></script></body>
 </html>

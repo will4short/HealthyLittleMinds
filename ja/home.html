@@ -58,11 +58,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../style.css?v=108">
+<link rel="stylesheet" href="../style.css?v=113">
 <script src="../member-preview.js?v=2"></script>
 <script src="../home-localized-runtime.js?v=1"></script>
 <link rel="stylesheet" href="../localized-home.css?v=35">
-  <script defer src="../localized-home-polish.js?v=5"></script>
+<script defer src="../localized-home-polish.js?v=9"></script>
   <script defer src="../home-topic-panel.js?v=1"></script>
   <script src="../home-service-worker.js?v=2"></script>
 
@@ -324,35 +324,6 @@
       cursor: pointer;
       font-weight: 800;
     }
-
-    /* =====================================================
-       Welcome BANNER
-       ===================================================== */
-    .ny-banner {
-      padding: 12px 12px;
-      background: #ffffff;
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .ny-banner.hide { opacity:0; transform: translateY(-8px); pointer-events:none; }
-    .ny-banner-inner{
-      max-width:1100px;
-      margin:0 auto;
-      padding:14px 18px;
-      border-radius:16px;
-      display:flex;
-      align-items:center;
-      gap:14px;
-      background:linear-gradient(90deg,
-        rgba(255,107,107,0.18),
-        rgba(37,78,112,0.15),
-        rgba(255,221,89,0.2)
-      );
-      box-shadow:0 10px 24px rgba(0,0,0,0.08);
-      border:1px solid rgba(0,0,0,0.06);
-    }
-    .ny-emoji{ font-size:1.6rem; }
-    .ny-title{ font-weight:900; color:#254E70; font-size:1.05rem; }
-    .ny-sub{ font-size:0.9rem; font-weight:800; opacity:0.85; margin-top:4px; line-height:1.35; }
 
     /* =====================================================
        VIDEO BUTTON
@@ -621,9 +592,6 @@
       .header-container { flex-direction: row; }
       .site-title{ font-size: 1.15rem; }
       .subtitle{ font-size: 0.85rem; }
-      .ny-banner-inner{ padding: 12px 14px; }
-      .ny-title{ font-size: 1rem; }
-      .ny-sub{ font-size: 0.85rem; }
     }
   </style>
 
@@ -633,9 +601,9 @@
       document.documentElement.classList.add('dark-mode');
     }
   </script>
-<link href="../home-mobile-ui.css?v=2" rel="stylesheet" />
+<link href="../home-mobile-ui.css?v=5" rel="stylesheet" />
 <link href="../site-ui-upgrades.css?v=1" rel="stylesheet" />
-<link href="../home-experience.css?v=9" rel="stylesheet" />
+<link href="../home-experience.css?v=10" rel="stylesheet" />
 </head>
 
 <body class="localized-home home-mobile-ui ui-upgraded home-experience">
@@ -650,6 +618,7 @@
 
 <!-- 🌍 Floating Language Switcher -->
 <nav class="language-switcher" aria-label="言語を選択">
+  <button class="language-switcher__toggle" type="button" aria-expanded="false" aria-label="言語の選択肢を開く" data-close-label="言語の選択肢を閉じる"><span aria-hidden="true">🌐</span><span>言語</span><span class="language-switcher__chevron" aria-hidden="true"></span></button>
   <a href="../home.html" title="English"><img src="../images/flag-en.webp" alt="English"></a>
   <a href="../zh-tw/home.html" title="繁體中文"><img src="../images/flag-tw.webp" alt="繁體中文"></a>
   <a href="../zh-cn/home.html" title="简体中文"><img src="../images/flag-cn.webp" alt="简体中文"></a>
@@ -730,53 +699,33 @@
             aria-label="ログアウト">ログアウト</button>
   </div></nav>
 
-<!-- Announcement Bar -->
-<div id="announcementBar" class="announcement-bar">
-  <strong class="announcement-label">📢💖 新しいコンテンツ：</strong>
-
-  <a class="announcement-link" href="https://heyzine.com/flip-book/1fb2ef8177.html" target="_blank" rel="noopener noreferrer">
-    📘 『まだできなくてもいいんだよ』を読む
-  </a>
-  <a class="announcement-link announcement-link--extra" href="https://heyzine.com/flip-book/ed1606de6d.html" target="_blank" rel="noopener noreferrer">
-    📰 『わたしたちが選ぶニュース（The News We Choose）』を読む
-  </a>
-  <a class="announcement-link announcement-link--extra" href="https://heyzine.com/flip-book/e9a223a23a.html" target="_blank" rel="noopener noreferrer">
-    🐒 『ときどき、家族は見つかる』を読む
-  </a>
-
-  <a class="announcement-link announcement-link--extra" href="https://heyzine.com/flip-book/8736fac672.html" target="_blank" rel="noopener noreferrer">
-    📘 『デスティニーが諦めたかった日』を読む
-  </a>
-
-  <button id="dismissBtn" class="announcement-dismiss" type="button" aria-label="お知らせを閉じる">
-    <span>確認しました</span><span class="announcement-dismiss__icon" aria-hidden="true">&times;</span>
+<!-- Compact, in-flow website updates -->
+<aside id="announcementBar" class="announcement-bar" aria-labelledby="announcementTitle">
+  <div class="announcement-heading">
+    <span class="announcement-heading__icon" aria-hidden="true">✨</span>
+    <div><strong id="announcementTitle" class="announcement-label">ライブラリーの新着</strong><span class="announcement-summary">新しい物語を3冊ご紹介</span></div>
+  </div>
+  <div class="announcement-items">
+    <a class="announcement-link" href="https://heyzine.com/flip-book/1fb2ef8177.html" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📘</span><span>『まだできなくてもいいんだよ』を読む</span></a>
+    <a class="announcement-link" href="https://heyzine.com/flip-book/ed1606de6d.html" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📰</span><span>『わたしたちが選ぶニュース』を読む</span></a>
+    <a class="announcement-link" href="https://heyzine.com/flip-book/e9a223a23a.html" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🐒</span><span>『ときどき、家族は見つかる』を読む</span></a>
+  </div>
+  <button id="dismissBtn" class="announcement-dismiss" type="button" data-home-action="dismiss-announcement" aria-label="新着情報を閉じる">
+    <span class="announcement-dismiss__label">閉じる</span><span class="announcement-dismiss__icon" aria-hidden="true">&times;</span>
   </button>
-</div>
+</aside>
 
 <main id="main-content">
-<section class="ny-banner" id="nyBanner" aria-label="ウェルカムメッセージ">
-  <div class="ny-banner-inner">
-    <span class="ny-emoji">💛</span>
-    <div class="ny-text">
-      <div class="ny-title">ようこそ Healthy Little Minds へ</div>
-      <div class="ny-sub">
-        ここは気持ちを大切にしながら、ゆっくり学び、成長できる場所です。
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Welcome greeting — first thing a member sees after the banner -->
+<!-- Member welcome greeting -->
 <section class="member-welcome-greeting" aria-label="ようこそメッセージ">
   <div class="member-welcome-greeting__inner">
-    <span class="member-welcome-greeting__badge" aria-hidden="true">💛</span>
-    <div>
-      <p class="member-welcome-greeting__title">ライブラリーへようこそ</p>
-      <p class="member-welcome-greeting__sub">
-        物語、ワークシート、感情ツールをぞんぶんにお楽しみください。育ちゆく心のために、すべてが揃っています。
-      </p>
+    <div class="member-welcome-greeting__badge" aria-hidden="true"><span>💛</span></div>
+    <div class="member-welcome-greeting__copy">
+      <p class="member-welcome-greeting__eyebrow">ライブラリーへおかえりなさい</p>
+      <h2 class="member-welcome-greeting__title">ここは、ただ歓迎されるだけの場所ではありません。<span>あなたの居場所です。</span></h2>
+      <p class="member-welcome-greeting__sub">物語、ワークシート、感情ツール、やさしいサポートを、自分のペースで、自分らしく探してみましょう。</p>
     </div>
+    <a class="member-welcome-greeting__action" href="#feelings"><span>はじめる場所を見つける</span><span aria-hidden="true">↓</span></a>
   </div>
 </section>
 
@@ -895,13 +844,16 @@
       <h2 id="interactiveToolsTitle">感情ツールを試す</h2>
       <p>感情を選ぶ</p>
     </div>
-    <a class="interactive-tools-spotlight__cta" href="interactive-tools.html">
-      <span class="interactive-tools-spotlight__icon" aria-hidden="true">&#10024;</span>
-      <span>
-        <strong>感情ツールを試す →</strong>
-        <small>感情を選ぶ</small>
-      </span>
-    </a>
+    <div class="interactive-tools-spotlight__media">
+      <img class="interactive-tools-spotlight__image" src="../images/interrative_section_intro.webp" alt="子どもがタブレットで気持ちの確認、呼吸、描画、インタラクティブストーリーを試している様子" loading="lazy" decoding="async">
+      <a class="interactive-tools-spotlight__cta" href="interactive-tools.html">
+        <span class="interactive-tools-spotlight__icon" aria-hidden="true">&#10024;</span>
+        <span>
+          <strong>感情ツールを試す →</strong>
+          <small>感情を選ぶ</small>
+        </span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1108,6 +1060,29 @@
   </div>
 </section>
 
+<section class="u-style-060 why-matters" id="why-this-matters" aria-labelledby="jaWhyMattersTitle" data-impact-selected-label="選択中" data-impact-guidance-label="ガイドを見る">
+  <div class="why-matters__inner">
+    <div class="why-matters__media">
+      <img alt="感情を振り返りながら、日記と心を落ち着けるカードを見る子ども" class="why-image" decoding="async" loading="lazy" src="../images/why-this-matters.webp">
+    </div>
+    <div class="why-matters__content">
+      <p class="why-matters__eyebrow">日々の暮らしの中の感情リテラシー</p>
+      <h2 class="u-style-062" id="jaWhyMattersTitle">なぜ大切なのか</h2>
+      <p class="u-style-063">感情について学ぶことは、一度きりの大きなレッスンではありません。今起きていることに名前をつけ、役立つ対処法を練習し、信頼できる大人とのつながりを保つ。そんな小さな瞬間の積み重ねで育ちます。</p>
+    </div>
+    <div class="impact-points" role="tablist" aria-label="感情リテラシーのメリット">
+      <button class="impact-point is-active" id="ja-impact-name-tab" type="button" role="tab" aria-selected="true" aria-controls="ja-impact-name-panel" data-impact-target="ja-impact-name-panel"><span class="impact-point__number" aria-hidden="true">01</span><strong>気持ちに名前をつける</strong><span class="impact-point__hint">選択中</span></button>
+      <button class="impact-point" id="ja-impact-coping-tab" type="button" role="tab" aria-selected="false" aria-controls="ja-impact-coping-panel" data-impact-target="ja-impact-coping-panel"><span class="impact-point__number" aria-hidden="true">02</span><strong>対処法を練習する</strong><span class="impact-point__hint">ガイドを見る</span></button>
+      <button class="impact-point" id="ja-impact-care-tab" type="button" role="tab" aria-selected="false" aria-controls="ja-impact-care-panel" data-impact-target="ja-impact-care-panel"><span class="impact-point__number" aria-hidden="true">03</span><strong>寄り添ってつながる</strong><span class="impact-point__hint">ガイドを見る</span></button>
+    </div>
+    <div class="impact-detail">
+      <article class="impact-detail__panel is-active" id="ja-impact-name-panel" role="tabpanel" aria-labelledby="ja-impact-name-tab"><h3>子どもが使える言葉から始めましょう。</h3><p>感情に名前をつけられると、大人はより落ち着いて応じやすくなり、子どもも心の中で起きていることを一人で抱え込まずにすみます。</p><a href="#feelings">感情を見てみる</a></article>
+      <article class="impact-detail__panel" id="ja-impact-coping-panel" role="tabpanel" aria-labelledby="ja-impact-coping-tab" hidden><h3>難しい場面になる前に練習しましょう。</h3><p>落ち着いている時に、呼吸する、描く、立ち止まる、助けを求めるといった簡単な方法を練習しておくと、必要な時に使いやすくなります。</p><a href="worksheets.html">ワークシートを開く</a></article>
+      <article class="impact-detail__panel" id="ja-impact-care-panel" role="tabpanel" aria-labelledby="ja-impact-care-tab" hidden><h3>つながりがあると、安心して学べます。</h3><p>Healthy Little Minds のリソースは、恥ずかしい思いをさせたり、急かしたり、すぐに正そうとしたりするのではなく、大人が導き、耳を傾け、一緒に気持ちを整えられるように作られています。</p><a href="parents.html">保護者向けサポートへ</a></article>
+    </div>
+  </div>
+</section>
+
 <!-- ✅ About (Refined: no-squeeze avatar + 2026-style pills) -->
 <section class="creator-section localized-about localized-about--ja" aria-labelledby="jaAboutTitle">
   <section class="creator-card u-style-065" id="about-teaser" aria-labelledby="jaAboutTitle">
@@ -1196,7 +1171,8 @@
 <!-- Topics panel JS -->
 
   <script defer src="../button-loader.js?v=1"></script>
-  <script src="../site-ui-upgrades.js?v=2"></script>
-  <script src="../home-mobile-ui.js?v=2"></script>
+  <script src="../impact-tabs.js?v=1"></script>
+<script src="../site-ui-upgrades.js?v=7"></script>
+  <script src="../home-mobile-ui.js?v=3"></script>
 <script defer src="../membership-links.js?v=2"></script></body>
 </html>

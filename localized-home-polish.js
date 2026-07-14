@@ -5,20 +5,16 @@
     if (!bar || bar.dataset.announcementReady === "true") return;
 
     bar.dataset.announcementReady = "true";
-    var hideTimer;
     function hideAnnouncement() {
       if (bar.classList.contains("is-dismissed")) return;
       bar.classList.add("is-dismissing");
       window.setTimeout(function () {
         bar.classList.add("is-dismissed");
         bar.hidden = true;
-      }, 500);
+      }, 180);
     }
 
     if (dismissButton) dismissButton.addEventListener("click", hideAnnouncement);
-    hideTimer = window.setTimeout(hideAnnouncement, 5000);
-    bar.addEventListener("mouseenter", function () { window.clearTimeout(hideTimer); });
-    bar.addEventListener("focusin", function () { window.clearTimeout(hideTimer); });
   }
 
   function normalizeComponentHooks() {
@@ -294,21 +290,23 @@
     window.addEventListener("scroll", update, { passive: true });
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", function () {
-      initLocalizedHeaderState();
-      initSupportGuide();
-      initBookShelf();
-      initAnnouncement();
-      normalizeComponentHooks();
-      initFeelingExplorer();
+  function initLocalizedHome() {
+    [
+      initAnnouncement,
+      initLocalizedHeaderState,
+      initSupportGuide,
+      initBookShelf,
+      normalizeComponentHooks,
+      initFeelingExplorer
+    ].forEach(function (initializer) {
+      try { initializer(); }
+      catch (error) { console.warn("Localized home component failed to initialize", error); }
     });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initLocalizedHome);
   } else {
-    initLocalizedHeaderState();
-    initSupportGuide();
-    initBookShelf();
-    initAnnouncement();
-    normalizeComponentHooks();
-    initFeelingExplorer();
+    initLocalizedHome();
   }
 })();

@@ -55,12 +55,12 @@
   <!-- 폰트 & 스타일 -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="../style.css?v=108">
+<link rel="stylesheet" href="../style.css?v=113">
 <script src="../member-preview.js?v=2"></script>
 <script src="../home-localized-runtime.js?v=1"></script>
 <link rel="stylesheet" href="../localized-home.css?v=35">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
-  <script defer src="../localized-home-polish.js?v=5"></script>
+<script defer src="../localized-home-polish.js?v=9"></script>
   <script defer src="../home-topic-panel.js?v=1"></script>
   <script src="../home-service-worker.js?v=2"></script>
 
@@ -666,61 +666,6 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
                system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   word-break:keep-all;
 }
-/* Welcome Banner */
-.ny-banner{
-  padding:12px 14px;
-  background:#ffffff;
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.ny-banner.hide{
-  opacity:0;
-  transform: translateY(-8px);
-  pointer-events:none;
-}
-
-.ny-banner-inner{
-  max-width:1100px;
-  margin:0 auto;
-  padding:14px 18px;
-  border-radius:16px;
-  display:flex;
-  align-items:center;
-  gap:14px;
-
-  background:linear-gradient(
-    90deg,
-    rgba(255,107,107,0.18),
-    rgba(37,78,112,0.15),
-    rgba(255,221,89,0.2)
-  );
-
-  box-shadow:0 10px 24px rgba(0,0,0,0.08);
-  border:1px solid rgba(0,0,0,0.06);
-}
-
-.ny-emoji{
-  font-size:1.6rem;
-}
-
-.ny-title{
-  font-weight:900;
-  color:#254E70;
-  font-size:1.05rem;
-}
-
-.ny-sub{
-  font-size:0.9rem;
-  font-weight:700;
-  opacity:0.85;
-  margin-top:4px;
-}
-
-@media (max-width:720px){
-  .ny-banner-inner{ padding:12px 14px; }
-  .ny-title{ font-size:1rem; }
-  .ny-sub{ font-size:0.85rem; }
-}
 </style>
 
   <!-- Dark mode: apply saved preference before first paint -->
@@ -729,9 +674,9 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
       document.documentElement.classList.add('dark-mode');
     }
   </script>
-<link href="../home-mobile-ui.css?v=2" rel="stylesheet" />
+<link href="../home-mobile-ui.css?v=5" rel="stylesheet" />
 <link href="../site-ui-upgrades.css?v=1" rel="stylesheet" />
-<link href="../home-experience.css?v=9" rel="stylesheet" />
+<link href="../home-experience.css?v=10" rel="stylesheet" />
 </head>
 <body class="localized-home home-mobile-ui ui-upgraded home-experience">
 <a class="home-skip-link" href="#main-content">주요 콘텐츠로 건너뛰기</a>
@@ -812,6 +757,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
 
   <!-- 🌍 Floating Language Switcher -->
 <nav class="language-switcher" aria-label="언어 선택">
+    <button class="language-switcher__toggle" type="button" aria-expanded="false" aria-label="언어 선택 열기" data-close-label="언어 선택 닫기"><span aria-hidden="true">🌐</span><span>언어</span><span class="language-switcher__chevron" aria-hidden="true"></span></button>
     <a href="../home.html" title="English">
       <img src="../images/flag-en.webp" alt="English" width="24">
     </a>
@@ -828,41 +774,32 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
       <img src="../images/flag-kr.webp" alt="한국어" width="24">
     </a></nav>
 
-<!-- Announcement Bar (KO) -->
-<div id="announcementBar" class="announcement-bar">
-  <strong class="announcement-label">📢💖 새로운 콘텐츠:</strong>
-
-  <a class="announcement-link" href="https://heyzine.com/flip-book/1fb2ef8177.html" target="_blank" rel="noopener noreferrer">
-    📘 『아직 못 해도 괜찮아』 읽기
-  </a>
-  <a class="announcement-link announcement-link--extra" href="https://heyzine.com/flip-book/ed1606de6d.html" target="_blank" rel="noopener noreferrer">
-    📰 『우리가 선택하는 뉴스 (The News We Choose)』 읽기
-  </a>
-  <a class="announcement-link announcement-link--extra" href="https://heyzine.com/flip-book/e9a223a23a.html" target="_blank" rel="noopener noreferrer">
-    🐒 『가끔은 가족이 찾아와요』 읽기
-  </a>
-
-  <a class="announcement-link announcement-link--extra" href="https://heyzine.com/flip-book/8736fac672.html" target="_blank" rel="noopener noreferrer">
-    📘 『데스티니가 포기하고 싶었던 날』 읽기
-  </a>
-
-  <button id="dismissBtn" class="announcement-dismiss" type="button" aria-label="공지 닫기">
-    <span>확인했어요</span><span class="announcement-dismiss__icon" aria-hidden="true">&times;</span>
+<!-- Compact, in-flow website updates -->
+<aside id="announcementBar" class="announcement-bar" aria-labelledby="announcementTitle">
+  <div class="announcement-heading">
+    <span class="announcement-heading__icon" aria-hidden="true">✨</span>
+    <div><strong id="announcementTitle" class="announcement-label">라이브러리 최신 소식</strong><span class="announcement-summary">새로운 이야기 세 편을 만나보세요</span></div>
+  </div>
+  <div class="announcement-items">
+    <a class="announcement-link" href="https://heyzine.com/flip-book/1fb2ef8177.html" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📘</span><span>『아직 못 해도 괜찮아』 읽기</span></a>
+    <a class="announcement-link" href="https://heyzine.com/flip-book/ed1606de6d.html" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📰</span><span>『우리가 선택하는 뉴스』 읽기</span></a>
+    <a class="announcement-link" href="https://heyzine.com/flip-book/e9a223a23a.html" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🐒</span><span>『가끔은 가족이 찾아와요』 읽기</span></a>
+  </div>
+  <button id="dismissBtn" class="announcement-dismiss" type="button" data-home-action="dismiss-announcement" aria-label="최신 소식 닫기">
+    <span class="announcement-dismiss__label">닫기</span><span class="announcement-dismiss__icon" aria-hidden="true">&times;</span>
   </button>
-</div>
+</aside>
 
-<!-- Welcome Banner -->
 <main id="main-content">
-<section class="ny-banner" id="nyBanner" aria-label="환영 메시지">
-  <div class="ny-banner-inner">
-    <span class="ny-emoji">💛</span>
-    <div class="ny-text">
-      <div class="ny-title">Healthy Little Minds에 오신 것을 환영합니다</div>
-      <div class="ny-sub">
-        이곳은 마음을 이해하고, 천천히 배우며 성장할 수 있는 공간입니다.
-      </div>
+<section class="member-welcome-greeting" aria-label="환영 메시지">
+  <div class="member-welcome-greeting__inner">
+    <div class="member-welcome-greeting__badge" aria-hidden="true"><span>💛</span></div>
+    <div class="member-welcome-greeting__copy">
+      <p class="member-welcome-greeting__eyebrow">라이브러리에 다시 오신 것을 환영해요</p>
+      <h2 class="member-welcome-greeting__title">이곳에서는 그저 환영받는 것이 아니에요. <span>바로 당신의 자리예요.</span></h2>
+      <p class="member-welcome-greeting__sub">이야기, 워크시트, 감정 도구와 따뜻한 도움을 나만의 속도와 방식으로 살펴보세요.</p>
     </div>
-
+    <a class="member-welcome-greeting__action" href="#feelings"><span>시작할 곳 찾기</span><span aria-hidden="true">↓</span></a>
   </div>
 </section>
 
@@ -981,13 +918,16 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
       <h2 id="interactiveToolsTitle">감정 도구 체험하기</h2>
       <p>감정 선택하기</p>
     </div>
-    <a class="interactive-tools-spotlight__cta" href="interactive-tools.html">
-      <span class="interactive-tools-spotlight__icon" aria-hidden="true">&#10024;</span>
-      <span>
-        <strong>감정 도구 체험하기 →</strong>
-        <small>감정 선택하기</small>
-      </span>
-    </a>
+    <div class="interactive-tools-spotlight__media">
+      <img class="interactive-tools-spotlight__image" src="../images/interrative_section_intro.webp" alt="아이가 태블릿으로 감정 확인, 호흡, 그림 그리기, 인터랙티브 스토리를 살펴보는 모습" loading="lazy" decoding="async">
+      <a class="interactive-tools-spotlight__cta" href="interactive-tools.html">
+        <span class="interactive-tools-spotlight__icon" aria-hidden="true">&#10024;</span>
+        <span>
+          <strong>감정 도구 체험하기 →</strong>
+          <small>감정 선택하기</small>
+        </span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1240,6 +1180,27 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
   </div>
 </section>
 
+<section class="u-style-060 why-matters" id="why-this-matters" aria-labelledby="koWhyMattersTitle" data-impact-selected-label="선택됨" data-impact-guidance-label="안내 보기">
+  <div class="why-matters__inner">
+    <div class="why-matters__media"><img alt="감정을 돌아보며 일기장과 마음을 진정시키는 활동 카드를 보는 아이" class="why-image" decoding="async" loading="lazy" src="../images/why-this-matters.webp"></div>
+    <div class="why-matters__content">
+      <p class="why-matters__eyebrow">일상 속 정서 문해력</p>
+      <h2 class="u-style-062" id="koWhyMattersTitle">왜 중요할까요?</h2>
+      <p class="u-style-063">정서 학습은 한 번의 큰 수업으로 끝나지 않습니다. 지금 일어나는 일에 이름을 붙이고, 도움이 되는 대처 방법을 연습하며, 믿을 수 있는 어른과 연결되어 있는 작은 순간들을 통해 자랍니다.</p>
+    </div>
+    <div class="impact-points" role="tablist" aria-label="정서 문해력의 이점">
+      <button class="impact-point is-active" id="ko-impact-name-tab" type="button" role="tab" aria-selected="true" aria-controls="ko-impact-name-panel" data-impact-target="ko-impact-name-panel"><span class="impact-point__number" aria-hidden="true">01</span><strong>감정에 이름 붙이기</strong><span class="impact-point__hint">선택됨</span></button>
+      <button class="impact-point" id="ko-impact-coping-tab" type="button" role="tab" aria-selected="false" aria-controls="ko-impact-coping-panel" data-impact-target="ko-impact-coping-panel"><span class="impact-point__number" aria-hidden="true">02</span><strong>대처 방법 연습하기</strong><span class="impact-point__hint">안내 보기</span></button>
+      <button class="impact-point" id="ko-impact-care-tab" type="button" role="tab" aria-selected="false" aria-controls="ko-impact-care-panel" data-impact-target="ko-impact-care-panel"><span class="impact-point__number" aria-hidden="true">03</span><strong>따뜻하게 연결하기</strong><span class="impact-point__hint">안내 보기</span></button>
+    </div>
+    <div class="impact-detail">
+      <article class="impact-detail__panel is-active" id="ko-impact-name-panel" role="tabpanel" aria-labelledby="ko-impact-name-tab"><h3>아이들이 사용할 수 있는 말부터 시작하세요.</h3><p>아이들이 감정에 이름을 붙일 수 있으면, 어른은 더 인내심 있게 반응할 수 있고 아이도 마음속에서 일어나는 일을 혼자 감당하지 않아도 됩니다.</p><a href="#feelings">감정 살펴보기</a></article>
+      <article class="impact-detail__panel" id="ko-impact-coping-panel" role="tabpanel" aria-labelledby="ko-impact-coping-tab" hidden><h3>힘든 순간이 오기 전에 연습하세요.</h3><p>숨 쉬기, 그림 그리기, 잠시 멈추기, 도움 요청하기 같은 간단한 방법은 평온할 때 연습할수록 필요한 순간에 더 쉽게 사용할 수 있습니다.</p><a href="worksheets.html">워크시트 열기</a></article>
+      <article class="impact-detail__panel" id="ko-impact-care-panel" role="tabpanel" aria-labelledby="ko-impact-care-tab" hidden><h3>연결은 배움을 더 안전하게 만듭니다.</h3><p>Healthy Little Minds 자료는 부끄럽게 하거나 재촉하거나 성급히 바로잡기보다, 어른이 안내하고 귀 기울이며 아이와 함께 감정을 조절하도록 돕기 위해 만들어졌습니다.</p><a href="parents.html">부모 지원 보기</a></article>
+    </div>
+  </div>
+</section>
+
 <section class="creator-section localized-about localized-about--ko" aria-labelledby="koAboutTitle">
   <section class="creator-card u-style-065" id="about-teaser" aria-labelledby="koAboutTitle">
     <div class="creator-card__portrait">
@@ -1328,7 +1289,8 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
 
 
   <script defer src="../button-loader.js?v=1"></script>
-  <script src="../site-ui-upgrades.js?v=2"></script>
-  <script src="../home-mobile-ui.js?v=2"></script>
+  <script src="../impact-tabs.js?v=1"></script>
+<script src="../site-ui-upgrades.js?v=7"></script>
+  <script src="../home-mobile-ui.js?v=3"></script>
 <script defer src="../membership-links.js?v=2"></script></body>
 </html>

@@ -47,5 +47,64 @@
     grid.parentNode.insertBefore(intro, grid);
   }
 
+  function initLanguageSwitcher() {
+    var switcher = document.querySelector(".language-switcher");
+    if (!switcher || switcher.dataset.toggleReady === "true") return;
+
+    var toggle = switcher.querySelector(".language-switcher__toggle");
+    if (!toggle) return;
+
+    switcher.dataset.toggleReady = "true";
+    var openLabel = toggle.getAttribute("aria-label") || "Open language choices";
+    var closeLabel = toggle.dataset.closeLabel || "Close language choices";
+
+    function setOpen(open, returnFocus) {
+      switcher.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? closeLabel : openLabel);
+      if (!open && returnFocus) toggle.focus({ preventScroll: true });
+    }
+
+    toggle.addEventListener("click", function () {
+      setOpen(!switcher.classList.contains("is-open"), false);
+    });
+
+    switcher.addEventListener("click", function (event) {
+      if (event.target.closest("a")) setOpen(false, false);
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!switcher.contains(event.target)) setOpen(false, false);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && switcher.classList.contains("is-open")) {
+        setOpen(false, true);
+      }
+    });
+  }
+
+  function initAnnouncementDismissal() {
+    if (document.body.dataset.announcementDismissReady === "true") return;
+    document.body.dataset.announcementDismissReady = "true";
+
+    document.addEventListener("click", function (event) {
+      var dismissButton = event.target.closest('[data-home-action="dismiss-announcement"], #dismissBtn');
+      if (!dismissButton) return;
+
+      var bar = dismissButton.closest("#announcementBar");
+      if (!bar || bar.hidden) return;
+
+      bar.classList.add("is-dismissing");
+      window.setTimeout(function () {
+        bar.classList.add("is-dismissed");
+        bar.hidden = true;
+        bar.style.setProperty("display", "none", "important");
+      }, 180);
+    });
+  }
+
   addLibraryIntro();
+  initLanguageSwitcher();
+  initAnnouncementDismissal();
 }());

@@ -154,21 +154,6 @@
   if (mobileThemeButton) mobileThemeButton.addEventListener("click", toggleTheme);
 
   if (languageNav) {
-    if (!languageNav.id) languageNav.id = "homeLanguageMenu";
-    var languageButton = document.createElement("button");
-    languageButton.className = "home-language-toggle no-loader";
-    languageButton.type = "button";
-    languageButton.setAttribute("aria-controls", languageNav.id);
-    languageButton.setAttribute("aria-expanded", "false");
-    languageButton.setAttribute("aria-label", copy.language);
-    languageButton.textContent = copy.language;
-    document.body.appendChild(languageButton);
-
-    function setLanguages(open) {
-      languageNav.classList.toggle("is-open", open);
-      languageButton.setAttribute("aria-expanded", String(open));
-    }
-
     languageNav.addEventListener("click", function (event) {
       var link = event.target.closest("a[href]");
       if (!link) return;
@@ -180,22 +165,7 @@
           window.localStorage.setItem("isMember", "true");
         }
       } catch (error) {}
-      setLanguages(false);
       window.location.assign(link.href);
-    });
-
-    languageButton.addEventListener("click", function () {
-      setLanguages(!languageNav.classList.contains("is-open"));
-    });
-    document.addEventListener("click", function (event) {
-      if (!languageNav.classList.contains("is-open")) return;
-      if (!languageNav.contains(event.target) && event.target !== languageButton) setLanguages(false);
-    });
-    window.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && languageNav.classList.contains("is-open")) {
-        setLanguages(false);
-        languageButton.focus();
-      }
     });
   }
 }());

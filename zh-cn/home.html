@@ -55,12 +55,12 @@
   <!-- Fonts & Styles -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="../style.css?v=108">
+<link rel="stylesheet" href="../style.css?v=113">
 <script src="../member-preview.js?v=2"></script>
 <script src="../home-localized-runtime.js?v=1"></script>
 <link rel="stylesheet" href="../localized-home.css?v=35">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
-  <script defer src="../localized-home-polish.js?v=5"></script>
+<script defer src="../localized-home-polish.js?v=9"></script>
   <script defer src="../home-topic-panel.js?v=1"></script>
   <script src="../home-service-worker.js?v=2"></script>
 
@@ -765,62 +765,6 @@ footer {
 
 /* Extra guard against any accidental horizontal scrolling */
 html, body { overflow-x: hidden; }
-/* Welcome Banner */
-.ny-banner{
-  padding:12px 14px;
-  background:#ffffff;
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.ny-banner.hide{
-  opacity:0;
-  transform: translateY(-8px);
-  pointer-events:none;
-}
-
-.ny-banner-inner{
-  max-width:1100px;
-  margin:0 auto;
-  padding:14px 18px;
-  border-radius:16px;
-  display:flex;
-  align-items:center;
-  gap:14px;
-
-  background:linear-gradient(
-    90deg,
-    rgba(255,107,107,0.18),
-    rgba(37,78,112,0.15),
-    rgba(255,221,89,0.2)
-  );
-
-  box-shadow:0 10px 24px rgba(0,0,0,0.08);
-  border:1px solid rgba(0,0,0,0.06);
-}
-
-.ny-emoji{
-  font-size:1.6rem;
-}
-
-.ny-title{
-  font-weight:900;
-  color:#254E70;
-  font-size:1.05rem;
-}
-
-.ny-sub{
-  font-size:0.9rem;
-  font-weight:700;
-  opacity:0.85;
-  margin-top:4px;
-}
-
-@media (max-width:720px){
-  .ny-banner-inner{ padding:12px 14px; }
-  .ny-title{ font-size:1rem; }
-  .ny-sub{ font-size:0.85rem; }
-}
-
 </style>
 
   <!-- Dark mode: apply saved preference before first paint -->
@@ -829,9 +773,9 @@ html, body { overflow-x: hidden; }
       document.documentElement.classList.add('dark-mode');
     }
   </script>
-<link href="../home-mobile-ui.css?v=2" rel="stylesheet" />
+<link href="../home-mobile-ui.css?v=5" rel="stylesheet" />
 <link href="../site-ui-upgrades.css?v=1" rel="stylesheet" />
-<link href="../home-experience.css?v=9" rel="stylesheet" />
+<link href="../home-experience.css?v=10" rel="stylesheet" />
 </head>
 <body class="localized-home home-mobile-ui ui-upgraded home-experience">
 <a class="home-skip-link" href="#main-content">跳到主要内容</a>
@@ -915,6 +859,7 @@ html, body { overflow-x: hidden; }
 
 <!-- 🌍 Floating Language Switcher -->
 <nav class="language-switcher" aria-label="选择语言">
+ <button class="language-switcher__toggle" type="button" aria-expanded="false" aria-label="打开语言选项" data-close-label="关闭语言选项"><span aria-hidden="true">🌐</span><span>语言</span><span class="language-switcher__chevron" aria-hidden="true"></span></button>
  <a href="../home.html" title="English">
     <img src="../images/flag-en.webp" alt="English" width="24">
   </a>
@@ -931,45 +876,32 @@ html, body { overflow-x: hidden; }
     <img src="../images/flag-kr.webp" alt="한국어" width="24">
   </a></nav>
 
-<!-- Announcement Bar (ZH-CN) -->
-<div id="announcementBar" class="announcement-bar">
-  <strong class="announcement-label">📢💖 新内容上线：</strong>
-
-  <a class="announcement-link" href="https://heyzine.com/flip-book/1fb2ef8177.html"
-     target="_blank" rel="noopener noreferrer">
-    📘 阅读《当我还不会的时候》
-  </a>
-  <a class="announcement-link announcement-link--extra" href="https://heyzine.com/flip-book/ed1606de6d.html"
-     target="_blank" rel="noopener noreferrer">
-    📰 阅读《我们选择的新闻》
-  </a>
-  <a class="announcement-link announcement-link--extra" href="https://heyzine.com/flip-book/e9a223a23a.html"
-     target="_blank" rel="noopener noreferrer">
-    🐒 阅读《有时候，家人会找到你》
-  </a>
-
-  <a class="announcement-link announcement-link--extra" href="https://heyzine.com/flip-book/8736fac672.html"
-     target="_blank" rel="noopener noreferrer">
-    📘 阅读《命运想要放弃的一天》
-  </a>
-
-  <button id="dismissBtn" class="announcement-dismiss" type="button" aria-label="关闭公告">
-    <span>我知道了</span><span class="announcement-dismiss__icon" aria-hidden="true">&times;</span>
+<!-- Compact, in-flow website updates -->
+<aside id="announcementBar" class="announcement-bar" aria-labelledby="announcementTitle">
+  <div class="announcement-heading">
+    <span class="announcement-heading__icon" aria-hidden="true">✨</span>
+    <div><strong id="announcementTitle" class="announcement-label">资源库最新内容</strong><span class="announcement-summary">精选三个新故事</span></div>
+  </div>
+  <div class="announcement-items">
+    <a class="announcement-link" href="https://heyzine.com/flip-book/1fb2ef8177.html" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📘</span><span>阅读《当我还不会的时候》</span></a>
+    <a class="announcement-link" href="https://heyzine.com/flip-book/ed1606de6d.html" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📰</span><span>阅读《我们选择的新闻》</span></a>
+    <a class="announcement-link" href="https://heyzine.com/flip-book/e9a223a23a.html" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🐒</span><span>阅读《有时候，家人会找到你》</span></a>
+  </div>
+  <button id="dismissBtn" class="announcement-dismiss" type="button" data-home-action="dismiss-announcement" aria-label="关闭最新内容">
+    <span class="announcement-dismiss__label">关闭</span><span class="announcement-dismiss__icon" aria-hidden="true">&times;</span>
   </button>
-</div>
+</aside>
 
-<!-- 💛 Welcome -->
 <main id="main-content">
-<section class="ny-banner" id="nyBanner" aria-label="欢迎信息">
-  <div class="ny-banner-inner">
-    <span class="ny-emoji">💛</span>
-    <div class="ny-text">
-      <div class="ny-title">欢迎来到 Healthy Little Minds</div>
-      <div class="ny-sub">
-        这里是一个帮助孩子理解情绪、慢慢学习、温柔成长的地方。
-      </div>
+<section class="member-welcome-greeting" aria-label="欢迎信息">
+  <div class="member-welcome-greeting__inner">
+    <div class="member-welcome-greeting__badge" aria-hidden="true"><span>💛</span></div>
+    <div class="member-welcome-greeting__copy">
+      <p class="member-welcome-greeting__eyebrow">欢迎回到你的资源库</p>
+      <h2 class="member-welcome-greeting__title">在这里，你不只是受到欢迎。<span>这里也属于你。</span></h2>
+      <p class="member-welcome-greeting__sub">按自己的节奏、用自己的方式，探索故事、学习单、情绪工具和温暖支持。</p>
     </div>
-
+    <a class="member-welcome-greeting__action" href="#feelings"><span>找到开始的地方</span><span aria-hidden="true">↓</span></a>
   </div>
 </section>
 
@@ -1088,13 +1020,16 @@ html, body { overflow-x: hidden; }
       <h2 id="interactiveToolsTitle">试用情绪工具</h2>
       <p>选择一种情绪</p>
     </div>
-    <a class="interactive-tools-spotlight__cta" href="interactive-tools.html">
-      <span class="interactive-tools-spotlight__icon" aria-hidden="true">&#10024;</span>
-      <span>
-        <strong>试用情绪工具 →</strong>
-        <small>选择一种情绪</small>
-      </span>
-    </a>
+    <div class="interactive-tools-spotlight__media">
+      <img class="interactive-tools-spotlight__image" src="../images/interrative_section_intro.webp" alt="孩子通过平板体验情绪打卡、呼吸练习、绘画和互动故事" loading="lazy" decoding="async">
+      <a class="interactive-tools-spotlight__cta" href="interactive-tools.html">
+        <span class="interactive-tools-spotlight__icon" aria-hidden="true">&#10024;</span>
+        <span>
+          <strong>试用情绪工具 →</strong>
+          <small>选择一种情绪</small>
+        </span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1309,6 +1244,27 @@ html, body { overflow-x: hidden; }
   </div>
 </section>
 
+<section class="u-style-060 why-matters" id="why-this-matters" aria-labelledby="cnWhyMattersTitle" data-impact-selected-label="已选择" data-impact-guidance-label="查看指导">
+  <div class="why-matters__inner">
+    <div class="why-matters__media"><img alt="孩子通过情绪日记和舒缓活动卡片回顾自己的感受" class="why-image" decoding="async" loading="lazy" src="../images/why-this-matters.webp"></div>
+    <div class="why-matters__content">
+      <p class="why-matters__eyebrow">日常生活中的情绪素养</p>
+      <h2 class="u-style-062" id="cnWhyMattersTitle">为什么这很重要</h2>
+      <p class="u-style-063">情绪学习不是一堂课就能完成的。它成长于一个个日常小片段：说出正在发生什么，练习有帮助的应对方式，并与值得信赖的成年人保持连接。</p>
+    </div>
+    <div class="impact-points" role="tablist" aria-label="情绪素养带来的帮助">
+      <button class="impact-point is-active" id="cn-impact-name-tab" type="button" role="tab" aria-selected="true" aria-controls="cn-impact-name-panel" data-impact-target="cn-impact-name-panel"><span class="impact-point__number" aria-hidden="true">01</span><strong>说出感受</strong><span class="impact-point__hint">已选择</span></button>
+      <button class="impact-point" id="cn-impact-coping-tab" type="button" role="tab" aria-selected="false" aria-controls="cn-impact-coping-panel" data-impact-target="cn-impact-coping-panel"><span class="impact-point__number" aria-hidden="true">02</span><strong>练习应对</strong><span class="impact-point__hint">查看指导</span></button>
+      <button class="impact-point" id="cn-impact-care-tab" type="button" role="tab" aria-selected="false" aria-controls="cn-impact-care-panel" data-impact-target="cn-impact-care-panel"><span class="impact-point__number" aria-hidden="true">03</span><strong>用关爱建立连接</strong><span class="impact-point__hint">查看指导</span></button>
+    </div>
+    <div class="impact-detail">
+      <article class="impact-detail__panel is-active" id="cn-impact-name-panel" role="tabpanel" aria-labelledby="cn-impact-name-tab"><h3>从孩子会用的语言开始。</h3><p>当孩子能说出自己的感受时，成年人可以更耐心地回应，孩子也不必独自面对内心正在发生的一切。</p><a href="#feelings">探索情绪</a></article>
+      <article class="impact-detail__panel" id="cn-impact-coping-panel" role="tabpanel" aria-labelledby="cn-impact-coping-tab" hidden><h3>在困难时刻到来前练习。</h3><p>呼吸、画画、暂停和寻求帮助等简单方法，在平静时练习过，就更容易在需要时使用。</p><a href="worksheets.html">打开学习单</a></article>
+      <article class="impact-detail__panel" id="cn-impact-care-panel" role="tabpanel" aria-labelledby="cn-impact-care-tab" hidden><h3>连接让学习更有安全感。</h3><p>Healthy Little Minds 资源旨在帮助成年人引导、倾听并陪伴孩子共同调节情绪，而不是羞辱、催促或过早纠正。</p><a href="parents.html">查看家长支持</a></article>
+    </div>
+  </div>
+</section>
+
 <section class="creator-section localized-about localized-about--cn" aria-labelledby="cnAboutTitle">
   <section class="creator-card u-style-065" id="about-teaser" aria-labelledby="cnAboutTitle">
     <div class="creator-card__portrait">
@@ -1401,7 +1357,8 @@ html, body { overflow-x: hidden; }
 
 <!-- DOM Interaction: Scroll + Announcement (merged) -->
   <script defer src="../button-loader.js?v=1"></script>
-  <script src="../site-ui-upgrades.js?v=2"></script>
-  <script src="../home-mobile-ui.js?v=2"></script>
+  <script src="../impact-tabs.js?v=1"></script>
+<script src="../site-ui-upgrades.js?v=7"></script>
+  <script src="../home-mobile-ui.js?v=3"></script>
 <script defer src="../membership-links.js?v=2"></script></body>
 </html>

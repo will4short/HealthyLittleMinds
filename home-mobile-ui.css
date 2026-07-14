@@ -116,7 +116,7 @@
     bottom: calc(4.25rem + env(safe-area-inset-bottom)) !important;
     top: auto !important;
     z-index: 1295 !important;
-    display: none !important;
+    display: flex !important;
     gap: 0.28rem !important;
     width: auto !important;
     max-width: calc(100vw - 1.44rem) !important;
@@ -143,13 +143,17 @@
   }
 
   .home-mobile-ui .language-switcher a {
-    display: grid !important;
+    display: none !important;
     place-items: center;
     width: 42px !important;
     height: 42px !important;
     min-width: 42px;
     padding: 0 !important;
     border-radius: 9px !important;
+  }
+
+  .home-mobile-ui .language-switcher.is-open a {
+    display: grid !important;
   }
 
   .home-mobile-ui .language-switcher a:hover,

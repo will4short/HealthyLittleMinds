@@ -93,6 +93,48 @@
         languageSwitcher.insertBefore(currentLink, languageSwitcher.firstChild);
       }
       currentLink?.setAttribute("aria-current", "page");
+
+      const languageCopy = lang.startsWith("ja")
+        ? { button: "言語", open: "言語の選択肢を開く", close: "言語の選択肢を閉じる" }
+        : lang.startsWith("ko")
+          ? { button: "언어", open: "언어 선택 열기", close: "언어 선택 닫기" }
+          : lang.startsWith("zh-tw") || lang.startsWith("zh-hant")
+            ? { button: "語言", open: "開啟語言選項", close: "關閉語言選項" }
+            : lang.startsWith("zh")
+              ? { button: "语言", open: "打开语言选项", close: "关闭语言选项" }
+              : { button: "Language", open: "Open language choices", close: "Close language choices" };
+
+      languageSwitcher.querySelector(".language-switcher__label")?.remove();
+      let languageToggle = languageSwitcher.querySelector(".language-switcher__toggle");
+      if (!languageToggle) {
+        languageToggle = document.createElement("button");
+        languageToggle.className = "language-switcher__toggle";
+        languageToggle.type = "button";
+        languageToggle.innerHTML = '<span aria-hidden="true">🌐</span><span>' + languageCopy.button + '</span><span class="language-switcher__chevron" aria-hidden="true"></span>';
+        languageSwitcher.prepend(languageToggle);
+      }
+      languageToggle.setAttribute("aria-expanded", "false");
+      languageToggle.setAttribute("aria-label", languageCopy.open);
+      languageSwitcher.classList.add("has-language-toggle");
+
+      const setLanguageMenuOpen = (open) => {
+        languageSwitcher.classList.toggle("is-open", open);
+        languageToggle.setAttribute("aria-expanded", String(open));
+        languageToggle.setAttribute("aria-label", open ? languageCopy.close : languageCopy.open);
+      };
+
+      languageToggle.addEventListener("click", () => {
+        setLanguageMenuOpen(!languageSwitcher.classList.contains("is-open"));
+      });
+      document.addEventListener("click", (event) => {
+        if (!languageSwitcher.classList.contains("is-open") || languageSwitcher.contains(event.target)) return;
+        setLanguageMenuOpen(false);
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape" || !languageSwitcher.classList.contains("is-open")) return;
+        setLanguageMenuOpen(false);
+        languageToggle.focus();
+      });
     }
 
     const sectionMap = [
