@@ -107,6 +107,39 @@
     }
   };
 
+  const routeLimitLabels = {
+    en: {
+      title: "This is outside the preview",
+      body: "The 3-minute preview includes the home library tour and one book. Worksheets, downloads, dashboards, tools, and the rest of the member library require full access.",
+      fullAccess: "Get full access",
+      continue: "Continue preview"
+    },
+    ja: {
+      title: "プレビュー対象外です",
+      body: "3分間のプレビューには、ホームのライブラリーツアーと本1冊が含まれます。ワークシート、ダウンロード、ダッシュボード、ツール、その他の会員教材にはフルアクセスが必要です。",
+      fullAccess: "すべてを利用する",
+      continue: "プレビューを続ける"
+    },
+    ko: {
+      title: "미리보기 범위를 벗어났습니다",
+      body: "3분 미리보기에는 홈 라이브러리 둘러보기와 책 한 권이 포함됩니다. 워크시트, 다운로드, 대시보드, 도구 및 나머지 회원 자료는 전체 이용권이 필요합니다.",
+      fullAccess: "전체 이용권 받기",
+      continue: "미리보기 계속하기"
+    },
+    "zh-cn": {
+      title: "此内容不在预览范围内",
+      body: "3 分钟预览包含主页资源库导览和一本书。练习单、下载内容、仪表板、工具及其他会员资源需要完整访问权限。",
+      fullAccess: "获取完整访问权限",
+      continue: "继续预览"
+    },
+    "zh-tw": {
+      title: "此內容不在預覽範圍內",
+      body: "3 分鐘預覽包含首頁資源庫導覽和一本書。學習單、下載內容、儀表板、工具及其他會員資源需要完整存取權。",
+      fullAccess: "取得完整存取權",
+      continue: "繼續預覽"
+    }
+  };
+
   function getLocale() {
     const first = window.location.pathname.split("/").filter(Boolean)[0];
     return locales.includes(first) ? first : "en";
@@ -118,6 +151,10 @@
 
   function getBookLimitCopy() {
     return bookLimitLabels[getLocale()] || bookLimitLabels.en;
+  }
+
+  function getRouteLimitCopy() {
+    return routeLimitLabels[getLocale()] || routeLimitLabels.en;
   }
 
   function indexUrl() {
@@ -289,6 +326,11 @@
         opacity: 0.62;
       }
 
+      .preview-route-locked {
+        cursor: not-allowed !important;
+        opacity: 0.68;
+      }
+
       .preview-book-limit {
         position: fixed;
         inset: 0;
@@ -453,46 +495,165 @@
   function setupBookLimit() {
     if (!isMemberHomePage() || localStorage.getItem("isMember") === "true" || !isActive()) return;
 
-    const lockOtherBooks = () => {
+    const prepareBookLinks = () => {
       const selectedBook = canonicalBookUrl(localStorage.getItem(previewBookKey));
-      if (!selectedBook) return;
 
       document.querySelectorAll("a").forEach((link) => {
         const bookUrl = bookUrlForLink(link);
-        if (!bookUrl || bookUrl === selectedBook) return;
+        if (!bookUrl) return;
         if (!link.dataset.previewBookHref) link.dataset.previewBookHref = link.href;
         link.removeAttribute("href");
-        link.classList.add("preview-book-locked");
-        link.setAttribute("aria-disabled", "true");
+        link.setAttribute("role", "link");
+        link.setAttribute("tabindex", "0");
+
+        const locked = Boolean(selectedBook && bookUrl !== selectedBook);
+        link.classList.toggle("preview-book-locked", locked);
+        if (locked) {
+          link.setAttribute("aria-disabled", "true");
+        } else {
+          link.removeAttribute("aria-disabled");
+        }
       });
     };
 
-    const handleBookOpen = (event) => {
-      const link = event.target.closest("a");
+    const attemptBookOpen = (link, event) => {
       if (!link || localStorage.getItem("isMember") === "true" || !isActive()) return;
 
       const bookUrl = bookUrlForLink(link);
       if (!bookUrl) return;
 
+      event.preventDefault();
+      event.stopImmediatePropagation();
+
       const selectedBook = canonicalBookUrl(localStorage.getItem(previewBookKey));
       if (!selectedBook) {
         localStorage.setItem(previewBookKey, bookUrl);
-        lockOtherBooks();
+        prepareBookLinks();
+        window.open(bookUrl, "_blank", "noopener,noreferrer");
         return;
       }
-      if (selectedBook === bookUrl) return;
+      if (selectedBook === bookUrl) {
+        window.open(bookUrl, "_blank", "noopener,noreferrer");
+        return;
+      }
 
-      event.preventDefault();
-      event.stopImmediatePropagation();
       showBookLimit(selectedBook);
+    };
+
+    const handleBookOpen = (event) => {
+      attemptBookOpen(event.target.closest("a[data-preview-book-href]"), event);
     };
 
     document.addEventListener("click", handleBookOpen, true);
     document.addEventListener("auxclick", handleBookOpen, true);
-    lockOtherBooks();
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      attemptBookOpen(event.target.closest("a[data-preview-book-href]"), event);
+    }, true);
+    prepareBookLinks();
 
-    const observer = new MutationObserver(lockOtherBooks);
+    const observer = new MutationObserver(prepareBookLinks);
     observer.observe(document.body, { childList: true, subtree: true });
+  }
+
+  function showRouteLimit() {
+    document.querySelector(".preview-route-limit")?.remove();
+    injectStyles();
+
+    const text = getRouteLimitCopy();
+    const overlay = document.createElement("div");
+    overlay.className = "preview-book-limit preview-route-limit";
+    overlay.innerHTML = `
+      <section class="preview-book-limit__dialog" role="dialog" aria-modal="true" aria-labelledby="previewRouteLimitTitle">
+        <span class="preview-book-limit__icon" aria-hidden="true">🔒</span>
+        <h2 id="previewRouteLimitTitle">${text.title}</h2>
+        <p>${text.body}</p>
+        <div class="preview-book-limit__actions">
+          <a href="https://payhip.com/b/j6uL8" target="_blank" rel="noopener">${text.fullAccess}</a>
+          <button type="button" data-preview-route-close>${text.continue}</button>
+        </div>
+      </section>
+    `;
+    document.body.appendChild(overlay);
+
+    const closeButton = overlay.querySelector("[data-preview-route-close]");
+    const close = () => overlay.remove();
+    closeButton.addEventListener("click", close);
+    overlay.addEventListener("click", (event) => {
+      if (event.target === overlay) close();
+    });
+    const onEscape = (event) => {
+      if (event.key !== "Escape" || !overlay.isConnected) return;
+      close();
+      document.removeEventListener("keydown", onEscape);
+    };
+    document.addEventListener("keydown", onEscape);
+    closeButton.focus();
+  }
+
+  function setupRouteLimit() {
+    if (!isMemberHomePage() || localStorage.getItem("isMember") === "true" || !isActive()) return;
+
+    const isAllowedDestination = (link, value) => {
+      if (!value || value.charAt(0) === "#") return true;
+      if (/^(mailto:|tel:|javascript:)/i.test(value)) return true;
+
+      try {
+        const url = new URL(value, window.location.href);
+        if (/\.(pdf|zip|docx?|xlsx?|pptx?|mp4)(?:$|[?#])/i.test(url.href) || link.hasAttribute("download")) return false;
+        if (url.origin !== window.location.origin) return true;
+        if (url.pathname === window.location.pathname && url.hash) return true;
+        if (/^\/(?:home|index|about_me|will-talks|teachers|parents|social)\.html$/i.test(url.pathname)) return true;
+        if (/^\/(?:ja|ko|zh-cn|zh-tw)\/(?:home|index|about_me|will-talks|teachers|parents|social)\.html$/i.test(url.pathname)) return true;
+        return false;
+      } catch (error) {
+        return false;
+      }
+    };
+
+    const prepareRestrictedLinks = () => {
+      document.querySelectorAll("a").forEach((link) => {
+        if (link.hasAttribute("data-preview-book-href")) return;
+        const value = link.dataset.previewRestrictedHref || link.getAttribute("href");
+        if (!value || isAllowedDestination(link, value)) return;
+        if (!link.dataset.previewRestrictedHref) link.dataset.previewRestrictedHref = link.href;
+        link.removeAttribute("href");
+        link.setAttribute("role", "link");
+        link.setAttribute("tabindex", "0");
+        link.setAttribute("aria-disabled", "true");
+        link.classList.add("preview-route-locked");
+      });
+    };
+
+    const attemptRestrictedRoute = (link, event) => {
+      if (!link || localStorage.getItem("isMember") === "true" || !isActive()) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      showRouteLimit();
+    };
+
+    const handleRestrictedRoute = (event) => {
+      attemptRestrictedRoute(event.target.closest("a[data-preview-restricted-href]"), event);
+    };
+
+    document.addEventListener("click", handleRestrictedRoute, true);
+    document.addEventListener("auxclick", handleRestrictedRoute, true);
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      attemptRestrictedRoute(event.target.closest("a[data-preview-restricted-href]"), event);
+    }, true);
+    prepareRestrictedLinks();
+
+    const observer = new MutationObserver(prepareRestrictedLinks);
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("preview") === "restricted") {
+      showRouteLimit();
+      params.delete("preview");
+      const query = params.toString();
+      window.history.replaceState({}, document.title, window.location.pathname + (query ? "?" + query : "") + window.location.hash);
+    }
   }
 
   function setupNotice() {
@@ -574,6 +735,7 @@
     setupPreviewButtons();
     setupNotice();
     setupBookLimit();
+    setupRouteLimit();
     setupExitOffer();
   });
 })();

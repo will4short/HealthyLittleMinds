@@ -1,6 +1,102 @@
 (function () {
   "use strict";
 
+  var previewKey = "hlmHomePreviewUntil";
+  var localeCodes = ["ja", "ko", "zh-cn", "zh-tw"];
+  var previewPageNames = ["home", "index", "about_me", "will-talks", "teachers", "parents", "social"];
+
+  function activePreview() {
+    try {
+      return Number(window.localStorage.getItem(previewKey) || 0) > Date.now();
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function currentLocale() {
+    var parts = window.location.pathname.split("/").filter(Boolean);
+    for (var index = 0; index < parts.length; index += 1) {
+      if (localeCodes.indexOf(parts[index].toLowerCase()) !== -1) return parts[index].toLowerCase();
+    }
+    return "";
+  }
+
+  function isPreviewEntryPath() {
+    var path = window.location.pathname.replace(/\/+$/, "") || "/";
+    var allowedPages = previewPageNames.join("|");
+    return path === "/"
+      || new RegExp("^/(?:" + allowedPages + ")\\.html$", "i").test(path)
+      || new RegExp("^/(?:ja|ko|zh-cn|zh-tw)(?:/(?:" + allowedPages + ")\\.html)?$", "i").test(path);
+  }
+
+  function previewHomeUrl() {
+    var locale = currentLocale();
+    return locale ? "/" + locale + "/home.html" : "/home.html";
+  }
+
+  function isAllowedPreviewLink(link) {
+    var value = link.dataset.previewRestrictedHref || link.getAttribute("href") || "";
+    if (!value || value.charAt(0) === "#" || /^(mailto:|tel:|javascript:)/i.test(value)) return true;
+
+    try {
+      var url = new URL(value, window.location.href);
+      if (/\.(pdf|zip|docx?|xlsx?|pptx?|mp4)(?:$|[?#])/i.test(url.href) || link.hasAttribute("download")) return false;
+      if (url.origin !== window.location.origin) return !/heyzine\.com\/flip-book\//i.test(url.href);
+
+      var path = url.pathname.replace(/\/+$/, "") || "/";
+      var allowedPages = previewPageNames.join("|");
+      return path === "/"
+        || new RegExp("^/(?:" + allowedPages + ")\\.html$", "i").test(path)
+        || new RegExp("^/(?:ja|ko|zh-cn|zh-tw)(?:/(?:" + allowedPages + ")\\.html)?$", "i").test(path);
+    } catch (_) {
+      return false;
+    }
+  }
+
+  if (activePreview() && !isMember() && !isPreviewEntryPath()) {
+    window.location.replace(previewHomeUrl() + "?preview=restricted");
+    return;
+  }
+
+  if (activePreview() && !isMember() && /\/(?:about_me|will-talks|teachers|parents|social)\.html$/i.test(window.location.pathname)) {
+    var preparePreviewLinks = function () {
+      document.querySelectorAll("a").forEach(function (link) {
+        if (link.hasAttribute("data-preview-book-href") || isAllowedPreviewLink(link)) return;
+        if (!link.dataset.previewRestrictedHref) link.dataset.previewRestrictedHref = link.href;
+        link.removeAttribute("href");
+        link.setAttribute("role", "link");
+        link.setAttribute("tabindex", "0");
+        link.setAttribute("aria-disabled", "true");
+      });
+    };
+
+    var openPreviewRestriction = function (link, event) {
+      if (!link || isAllowedPreviewLink(link)) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      window.location.href = previewHomeUrl() + "?preview=restricted";
+    };
+
+    document.addEventListener("click", function (event) {
+      var link = event.target.closest && event.target.closest("a");
+      openPreviewRestriction(link, event);
+    }, true);
+
+    document.addEventListener("auxclick", function (event) {
+      var link = event.target.closest && event.target.closest("a");
+      openPreviewRestriction(link, event);
+    }, true);
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      var link = event.target.closest && event.target.closest("a");
+      openPreviewRestriction(link, event);
+    }, true);
+
+    preparePreviewLinks();
+    new MutationObserver(preparePreviewLinks).observe(document.body, { childList: true, subtree: true });
+  }
+
   function isMember() {
     try {
       return window.localStorage.getItem("isMember") === "true";
