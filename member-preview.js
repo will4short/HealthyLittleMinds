@@ -2,6 +2,7 @@
   "use strict";
 
   const previewKey = "hlmHomePreviewUntil";
+  const previewBookKey = "hlmPreviewSelectedBook";
   const durationMs = 3 * 60 * 1000;
   const locales = ["ko", "ja", "zh-cn", "zh-tw"];
 
@@ -68,6 +69,44 @@
     }
   };
 
+  const bookLimitLabels = {
+    en: {
+      title: "One-book preview",
+      body: "Your preview includes one book. You can reopen the book you chose, or get full access to explore every book.",
+      reopen: "Reopen chosen book",
+      fullAccess: "Get full access",
+      close: "Close"
+    },
+    ja: {
+      title: "1冊プレビュー",
+      body: "プレビューでは1冊の本を読むことができます。選んだ本をもう一度開くか、すべての本を読むにはフルアクセスをご利用ください。",
+      reopen: "選んだ本をもう一度開く",
+      fullAccess: "すべてを利用する",
+      close: "閉じる"
+    },
+    ko: {
+      title: "한 권 미리보기",
+      body: "미리보기에서는 책 한 권을 읽을 수 있습니다. 선택한 책을 다시 열거나, 전체 이용권으로 모든 책을 살펴보세요.",
+      reopen: "선택한 책 다시 열기",
+      fullAccess: "전체 이용권 받기",
+      close: "닫기"
+    },
+    "zh-cn": {
+      title: "单本预览",
+      body: "预览期间可以阅读一本书。你可以重新打开已选择的书，或获取完整访问权限以浏览所有图书。",
+      reopen: "重新打开已选图书",
+      fullAccess: "获取完整访问权限",
+      close: "关闭"
+    },
+    "zh-tw": {
+      title: "單本預覽",
+      body: "預覽期間可以閱讀一本書。你可以重新開啟已選擇的書，或取得完整存取權以瀏覽所有圖書。",
+      reopen: "重新開啟已選圖書",
+      fullAccess: "取得完整存取權",
+      close: "關閉"
+    }
+  };
+
   function getLocale() {
     const first = window.location.pathname.split("/").filter(Boolean)[0];
     return locales.includes(first) ? first : "en";
@@ -75,6 +114,10 @@
 
   function getCopy() {
     return labels[getLocale()] || labels.en;
+  }
+
+  function getBookLimitCopy() {
+    return bookLimitLabels[getLocale()] || bookLimitLabels.en;
   }
 
   function indexUrl() {
@@ -241,6 +284,89 @@
         color: #087c72;
       }
 
+      .preview-book-locked {
+        cursor: not-allowed !important;
+        opacity: 0.62;
+      }
+
+      .preview-book-limit {
+        position: fixed;
+        inset: 0;
+        z-index: 2147483647;
+        display: grid;
+        place-items: center;
+        padding: 1rem;
+        background: rgba(12, 35, 50, 0.58);
+        backdrop-filter: blur(5px);
+      }
+
+      .preview-book-limit__dialog {
+        width: min(92vw, 520px);
+        padding: clamp(1.25rem, 4vw, 2rem);
+        border: 1px solid rgba(37, 78, 112, 0.15);
+        border-radius: 22px;
+        background: #fff;
+        color: #254e70;
+        box-shadow: 0 24px 60px rgba(12, 35, 50, 0.28);
+        font-family: "DM Sans", Arial, sans-serif;
+        text-align: center;
+      }
+
+      .preview-book-limit__icon {
+        display: grid;
+        place-items: center;
+        width: 54px;
+        height: 54px;
+        margin: 0 auto 0.8rem;
+        border-radius: 16px;
+        background: #fff5c7;
+        font-size: 1.45rem;
+      }
+
+      .preview-book-limit h2 {
+        margin: 0;
+        font: 900 clamp(1.45rem, 5vw, 2rem)/1.15 "Nunito", "DM Sans", sans-serif;
+      }
+
+      .preview-book-limit p {
+        margin: 0.75rem auto 0;
+        color: #587286;
+        line-height: 1.6;
+      }
+
+      .preview-book-limit__actions {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        margin-top: 1.15rem;
+      }
+
+      .preview-book-limit__actions a,
+      .preview-book-limit__actions button {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        padding: 0.7rem 0.9rem;
+        border: 0;
+        border-radius: 999px;
+        font: 900 0.9rem "DM Sans", Arial, sans-serif;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .preview-book-limit__actions a:first-child {
+        background: #ff6b6b;
+        color: #fff;
+      }
+
+      .preview-book-limit__actions a:nth-child(2),
+      .preview-book-limit__actions button {
+        background: #e9fbf7;
+        color: #087c72;
+      }
+
       @media (max-width: 640px) {
         .preview-pass-notice {
           left: 0.75rem;
@@ -267,6 +393,106 @@
     document.querySelectorAll("[data-preview-home]").forEach((button) => {
       button.addEventListener("click", start);
     });
+  }
+
+  function isMemberHomePage() {
+    return /\/home\.html$/i.test(window.location.pathname);
+  }
+
+  function canonicalBookUrl(value) {
+    if (!value) return "";
+    try {
+      const url = new URL(value, window.location.href);
+      if (!/^(www\.)?heyzine\.com$/i.test(url.hostname)) return "";
+      if (!/^\/flip-book\/[^/]+\.html$/i.test(url.pathname)) return "";
+      return url.origin + url.pathname;
+    } catch (error) {
+      return "";
+    }
+  }
+
+  function bookUrlForLink(link) {
+    return canonicalBookUrl(link.dataset.previewBookHref || link.getAttribute("href"));
+  }
+
+  function showBookLimit(selectedBook) {
+    document.querySelector(".preview-book-limit")?.remove();
+    injectStyles();
+
+    const text = getBookLimitCopy();
+    const overlay = document.createElement("div");
+    overlay.className = "preview-book-limit";
+    overlay.innerHTML = `
+      <section class="preview-book-limit__dialog" role="dialog" aria-modal="true" aria-labelledby="previewBookLimitTitle">
+        <span class="preview-book-limit__icon" aria-hidden="true">📖</span>
+        <h2 id="previewBookLimitTitle">${text.title}</h2>
+        <p>${text.body}</p>
+        <div class="preview-book-limit__actions">
+          <a href="https://payhip.com/b/j6uL8" target="_blank" rel="noopener">${text.fullAccess}</a>
+          <a href="${selectedBook}" target="_blank" rel="noopener">${text.reopen}</a>
+          <button type="button" data-preview-book-close>${text.close}</button>
+        </div>
+      </section>
+    `;
+    document.body.appendChild(overlay);
+
+    const close = () => overlay.remove();
+    overlay.querySelector("[data-preview-book-close]").addEventListener("click", close);
+    overlay.addEventListener("click", (event) => {
+      if (event.target === overlay) close();
+    });
+    const onEscape = (event) => {
+      if (event.key !== "Escape" || !overlay.isConnected) return;
+      close();
+      document.removeEventListener("keydown", onEscape);
+    };
+    document.addEventListener("keydown", onEscape);
+    overlay.querySelector("[data-preview-book-close]").focus();
+  }
+
+  function setupBookLimit() {
+    if (!isMemberHomePage() || localStorage.getItem("isMember") === "true" || !isActive()) return;
+
+    const lockOtherBooks = () => {
+      const selectedBook = canonicalBookUrl(localStorage.getItem(previewBookKey));
+      if (!selectedBook) return;
+
+      document.querySelectorAll("a").forEach((link) => {
+        const bookUrl = bookUrlForLink(link);
+        if (!bookUrl || bookUrl === selectedBook) return;
+        if (!link.dataset.previewBookHref) link.dataset.previewBookHref = link.href;
+        link.removeAttribute("href");
+        link.classList.add("preview-book-locked");
+        link.setAttribute("aria-disabled", "true");
+      });
+    };
+
+    const handleBookOpen = (event) => {
+      const link = event.target.closest("a");
+      if (!link || localStorage.getItem("isMember") === "true" || !isActive()) return;
+
+      const bookUrl = bookUrlForLink(link);
+      if (!bookUrl) return;
+
+      const selectedBook = canonicalBookUrl(localStorage.getItem(previewBookKey));
+      if (!selectedBook) {
+        localStorage.setItem(previewBookKey, bookUrl);
+        lockOtherBooks();
+        return;
+      }
+      if (selectedBook === bookUrl) return;
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      showBookLimit(selectedBook);
+    };
+
+    document.addEventListener("click", handleBookOpen, true);
+    document.addEventListener("auxclick", handleBookOpen, true);
+    lockOtherBooks();
+
+    const observer = new MutationObserver(lockOtherBooks);
+    observer.observe(document.body, { childList: true, subtree: true });
   }
 
   function setupNotice() {
@@ -347,6 +573,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     setupPreviewButtons();
     setupNotice();
+    setupBookLimit();
     setupExitOffer();
   });
 })();
