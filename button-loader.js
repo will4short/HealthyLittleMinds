@@ -5,7 +5,9 @@
   const SPINNER_CLASS = "hlm-button-spinner";
   const LABEL_CLASS = "hlm-button-label";
   const RESET_DELAY = 1200;
-  const WORLD_CUP_THEME_ENABLED = true;
+  // Archived after the 2026 tournament. Set to true only for a future,
+  // deliberately scheduled seasonal campaign.
+  const WORLD_CUP_THEME_ENABLED = false;
 
   function loadingMessage() {
     const lang = (document.documentElement.lang || "en").toLowerCase();
