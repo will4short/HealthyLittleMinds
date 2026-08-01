@@ -530,6 +530,7 @@ button.preview-pass-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.55rem;
   width: min(100%, 270px);
   min-height: 46px;
   margin: 0.7rem auto 0;
@@ -1967,15 +1968,18 @@ body,
 }
 
 .hero-primary,
-.hero-secondary{
+.hero-secondary,
+.hero-tour{
   display:inline-flex;
   align-items:center;
   justify-content:center;
   min-height:44px;
   padding:.7rem 1rem;
   border-radius:999px;
+  font:inherit;
   font-weight:900;
   text-decoration:none;
+  cursor:pointer;
 }
 
 .hero-primary{
@@ -1990,11 +1994,93 @@ body,
   border:1px solid #d9edf6;
 }
 
+.hero-tour{
+  border:1px solid rgba(255,181,71,.55);
+  background:#fff8df;
+  color:#7a5500;
+  box-shadow:0 8px 18px rgba(255,181,71,.16);
+}
+
+.hero-tour:hover,
+.hero-tour:focus-visible{
+  background:#ffefb8;
+  transform:translateY(-1px);
+}
+
 .access-hero-panel{
   border-radius:18px;
   padding:1rem;
   display:grid;
   gap:.75rem;
+}
+
+.access-hero-brand {
+  display: grid;
+  width: min(10rem, 58%);
+  aspect-ratio: 1;
+  margin: 0.1rem auto 0.35rem;
+  padding: 0.45rem;
+  place-items: center;
+  border: 1px solid rgba(37, 78, 112, 0.1);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle, rgba(255, 214, 82, 0.24), transparent 68%),
+    linear-gradient(145deg, #f5fbff, #fffaf0);
+  box-shadow: 0 14px 30px rgba(37, 78, 112, 0.11);
+  color: inherit;
+  cursor: pointer;
+  appearance: none;
+  transform-origin: 50% 55%;
+  will-change: transform, filter;
+}
+
+.access-hero-brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 15px rgba(37, 78, 112, 0.2));
+  pointer-events: none;
+}
+
+.access-hero-brand:focus-visible {
+  outline: 3px solid #ff6b6b;
+  outline-offset: 4px;
+}
+
+.access-hero-brand:hover,
+.access-hero-brand.is-brand-animating,
+button.preview-pass-btn:hover::before,
+button.preview-pass-btn:focus-visible::before,
+button.preview-pass-btn:active::before {
+  animation: hlm-index-brand-wobble 620ms cubic-bezier(0.22, 0.9, 0.3, 1);
+}
+
+button.preview-pass-btn::before {
+  content: "";
+  display: block;
+  width: 1.55rem;
+  height: 1.55rem;
+  flex: 0 0 auto;
+  background: url("images/logo-3d-icon-256.webp") center / contain no-repeat;
+  filter: drop-shadow(0 4px 7px rgba(37, 78, 112, 0.18));
+  transform-origin: 50% 55%;
+}
+
+@keyframes hlm-index-brand-wobble {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  24% { transform: translateY(-3px) rotate(-8deg) scale(1.045); }
+  48% { transform: translateY(-2px) rotate(6deg) scale(1.04); }
+  72% { transform: translateY(-1px) rotate(-3deg) scale(1.02); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .access-hero-brand,
+  .access-hero-brand:hover,
+  .access-hero-brand.is-brand-animating,
+  button.preview-pass-btn::before {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 .access-hero-panel div{
@@ -2541,7 +2627,7 @@ body.dark-mode .faq-grid p{
     grid-template-columns:1fr;
   }
 
-  .access-hero-actions a{
+  .access-hero-actions > *{
     flex:1 1 210px;
   }
 
@@ -2604,6 +2690,16 @@ body.dark-mode .faq-grid p{
 
   .access-hero-actions{
     flex-direction:column;
+  }
+
+  .access-hero-actions > *{
+    width:100%;
+    flex:0 0 auto;
+  }
+
+  .access-hero-brand{
+    width:6rem;
+    border-radius:22px;
   }
 
   .access-card-actions{

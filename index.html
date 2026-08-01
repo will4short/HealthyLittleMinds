@@ -33,7 +33,7 @@
 
   <!-- Fonts & Favicon -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet"/>
-  <link href="style-index.css?v=9" rel="stylesheet"/>
+  <link href="style-index.css?v=11" rel="stylesheet"/>
   <link href="images/favicon.webp" rel="icon" type="image/webp">
   <link href="images/favicon.ico" rel="icon" type="image/x-icon">
   <link href="/manifest.json" rel="manifest"/>
@@ -144,10 +144,14 @@
         <div class="access-hero-actions">
           <a class="hero-primary" href="#login">Enter Access Code</a>
           <a class="hero-secondary" href="#free-library">Browse Free Resources</a>
+          <button class="hero-tour no-loader" type="button" data-preview-home>Take a 3-minute tour</button>
         </div>
       </div>
 
       <div class="access-hero-panel" aria-label="Library highlights">
+        <button class="access-hero-brand no-loader" type="button" data-brand-motion aria-label="Play the Healthy Little Minds logo animation">
+          <img src="images/logo-3d-seal-512.webp" width="512" height="512" decoding="async" alt="" />
+        </button>
         <div>
           <strong>Stories</strong>
           <span>Character-led books about courage, patience, confidence, and kindness.</span>
@@ -314,13 +318,13 @@
           <span class="pathway-icon" aria-hidden="true">&#9728;</span>
           <h3>For Parents</h3>
           <p>Conversation prompts, calming ideas, and guidance for supporting emotions at home.</p>
-          <a href="#member-benefits">See family resources &rarr;</a>
+          <a href="parents.html">See family resources &rarr;</a>
         </article>
         <article class="pathway-card pathway-card--teachers">
           <span class="pathway-icon" aria-hidden="true">&#9998;</span>
           <h3>For Teachers</h3>
           <p>Child-friendly stories and activities that support emotional literacy in class.</p>
-          <a href="#member-benefits">See classroom support &rarr;</a>
+          <a href="teachers.html">See classroom support &rarr;</a>
         </article>
         <article class="pathway-card pathway-card--growth">
           <span class="pathway-icon" aria-hidden="true">&#10003;</span>
@@ -542,6 +546,7 @@
     <a href="ja/index.html" title="æ—¥æœ¬èªž"><img alt="æ—¥æœ¬èªž" decoding="async" loading="lazy" src="images/flag-jp.webp" width="24"/></a>
     <a href="ko/index.html" title="í•œêµ­ì–´"><img alt="í•œêµ­ì–´" decoding="async" loading="lazy" src="images/flag-kr.webp" width="24"/></a>
   </nav>
+  <script defer src="brand-motion.js?v=1"></script>
   <script defer src="button-loader.js?v=2"></script>
 <script defer src="membership-links.js?v=5"></script></body>
 </html>

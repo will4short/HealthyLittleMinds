@@ -55,7 +55,7 @@
   <!-- Fonts & Styles -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="../style.css?v=113">
+<link rel="stylesheet" href="../style.css?v=115">
 <script src="../member-preview.js?v=6"></script>
 <script src="../home-localized-runtime.js?v=1"></script>
 <link rel="stylesheet" href="../localized-home.css?v=35">
@@ -895,7 +895,9 @@ html, body { overflow-x: hidden; }
 <main id="main-content">
 <section class="member-welcome-greeting" aria-label="欢迎信息">
   <div class="member-welcome-greeting__inner">
-    <div class="member-welcome-greeting__badge" aria-hidden="true"><span>💛</span></div>
+    <button class="member-welcome-greeting__badge brand-mark-motion no-loader" type="button" data-brand-motion aria-label="播放 Healthy Little Minds 标志动画">
+      <img src="../images/logo-3d-seal-512.webp" width="512" height="512" loading="lazy" decoding="async" alt="" />
+    </button>
     <div class="member-welcome-greeting__copy">
       <p class="member-welcome-greeting__eyebrow">欢迎回到你的资源库</p>
       <h2 class="member-welcome-greeting__title">在这里，你不只是受到欢迎。<span>这里也属于你。</span></h2>
@@ -1280,6 +1282,7 @@ html, body { overflow-x: hidden; }
 
     <div class="creator-card__content">
       <div class="u-style-067 localized-about__badge">
+        <img class="brand-heart-icon brand-mark-motion" data-brand-motion src="../images/logo-3d-icon-256.webp" width="256" height="256" loading="lazy" decoding="async" alt="" />
         <span>用心创建</span>
       </div>
 
@@ -1356,6 +1359,7 @@ html, body { overflow-x: hidden; }
 </footer>
 
 <!-- DOM Interaction: Scroll + Announcement (merged) -->
+  <script defer src="../brand-motion.js?v=1"></script>
   <script defer src="../button-loader.js?v=2"></script>
   <script src="../impact-tabs.js?v=1"></script>
 <script src="../site-ui-upgrades.js?v=7"></script>

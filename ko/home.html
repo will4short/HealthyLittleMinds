@@ -55,7 +55,7 @@
   <!-- 폰트 & 스타일 -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="../style.css?v=113">
+<link rel="stylesheet" href="../style.css?v=115">
 <script src="../member-preview.js?v=6"></script>
 <script src="../home-localized-runtime.js?v=1"></script>
 <link rel="stylesheet" href="../localized-home.css?v=35">
@@ -793,7 +793,9 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
 <main id="main-content">
 <section class="member-welcome-greeting" aria-label="환영 메시지">
   <div class="member-welcome-greeting__inner">
-    <div class="member-welcome-greeting__badge" aria-hidden="true"><span>💛</span></div>
+    <button class="member-welcome-greeting__badge brand-mark-motion no-loader" type="button" data-brand-motion aria-label="Healthy Little Minds 로고 애니메이션 재생">
+      <img src="../images/logo-3d-seal-512.webp" width="512" height="512" loading="lazy" decoding="async" alt="" />
+    </button>
     <div class="member-welcome-greeting__copy">
       <p class="member-welcome-greeting__eyebrow">라이브러리에 다시 오신 것을 환영해요</p>
       <h2 class="member-welcome-greeting__title">이곳에서는 그저 환영받는 것이 아니에요. <span>바로 당신의 자리예요.</span></h2>
@@ -1216,6 +1218,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
 
     <div class="creator-card__content">
       <div class="u-style-067 localized-about__badge">
+        <img class="brand-heart-icon brand-mark-motion" data-brand-motion src="../images/logo-3d-icon-256.webp" width="256" height="256" loading="lazy" decoding="async" alt="" />
         <span>정성으로 만들었습니다</span>
       </div>
 
@@ -1288,6 +1291,7 @@ html[lang="ko"] body, html[lang="ko"] .hlm-res{
  <!-- DOM Interaction: Scroll + Announcement -->
 
 
+  <script defer src="../brand-motion.js?v=1"></script>
   <script defer src="../button-loader.js?v=2"></script>
   <script src="../impact-tabs.js?v=1"></script>
 <script src="../site-ui-upgrades.js?v=7"></script>

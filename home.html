@@ -54,7 +54,7 @@
   <!-- Fonts & Styles -->
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link href="style.css?v=113" rel="stylesheet"/>
+  <link href="style.css?v=115" rel="stylesheet"/>
   <script src="member-preview.js?v=6"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Nunito:wght@600;800&amp;display=swap" rel="stylesheet">
    <!-- Structured Data -->
@@ -268,9 +268,9 @@
        ===================================================== -->
   <section class="member-welcome-greeting" aria-label="Welcome message">
     <div class="member-welcome-greeting__inner">
-      <div class="member-welcome-greeting__badge" aria-hidden="true">
-        <span>💛</span>
-      </div>
+      <button class="member-welcome-greeting__badge brand-mark-motion no-loader" type="button" data-brand-motion aria-label="Play the Healthy Little Minds logo animation">
+        <img src="images/logo-3d-seal-512.webp" width="512" height="512" loading="lazy" decoding="async" alt="" />
+      </button>
       <div class="member-welcome-greeting__copy">
         <p class="member-welcome-greeting__eyebrow">Welcome back to your library</p>
         <h2 class="member-welcome-greeting__title">You’re not just welcome here. <span>You belong here.</span></h2>
@@ -1084,6 +1084,7 @@
 
        <div class="creator-card__content">
         <div class="u-style-067">
+         <img class="brand-heart-icon brand-mark-motion" data-brand-motion src="images/logo-3d-icon-256.webp" width="256" height="256" loading="lazy" decoding="async" alt="" />
          <span>Created with care</span>
         </div>
 
@@ -2295,8 +2296,11 @@ document.getElementById('mobileNav')?.addEventListener('click', e => {
   })();
 </script>
 <script>
-  document.getElementById("lastUpdated").textContent =
-    new Date().toLocaleString("en-US", { month: "long", year: "numeric" });
+  const lastUpdated = document.getElementById("lastUpdated");
+  if (lastUpdated) {
+    lastUpdated.textContent =
+      new Date().toLocaleString("en-US", { month: "long", year: "numeric" });
+  }
 </script>
 
 <script>
@@ -2331,6 +2335,7 @@ document.getElementById('mobileNav')?.addEventListener('click', e => {
   if (mobileBtn)  mobileBtn.addEventListener('click', toggleTheme);
 })();
 </script>
+  <script defer src="brand-motion.js?v=1"></script>
   <script defer src="button-loader.js?v=2"></script>
   <script src="site-ui-upgrades.js?v=7"></script>
 <script src="home-mobile-ui.js?v=3"></script>
