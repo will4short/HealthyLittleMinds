@@ -393,6 +393,20 @@ nav a.bulletin-link {
   margin-bottom: 1rem;
 }
 
+#emotional-literacy .book-age-recommendation {
+  display: block;
+  width: fit-content;
+  margin: 0 0 0.65rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: #e8f7f2;
+  color: #176b5b;
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
 .book-info a {
   color: #ff6b6b;
   text-decoration: none;
@@ -6884,6 +6898,23 @@ nav a.bulletin-link {
   margin-top: 0.28rem;
   color: #687782;
   font-weight: 800;
+}
+
+#characters .character-book-age {
+  display: inline-flex;
+  margin-top: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: #e8f7f2;
+  color: #176b5b;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+body.dark-mode #emotional-literacy .book-age-recommendation,
+body.dark-mode #characters .character-book-age {
+  background: rgba(104, 211, 177, 0.16);
+  color: #9ce6d0;
 }
 
 body.dark-mode #characters .character-library-toggle {
