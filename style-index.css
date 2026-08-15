@@ -360,7 +360,7 @@ body.index-page--ko{
 }
 
 /* Responsive nav behavior */
-@media (max-width: 800px){
+@media (max-width: 1120px){
   .main-nav{ display:none; }
   .hamburger{ display:inline-flex; }
   .site-header{

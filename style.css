@@ -9862,3 +9862,44 @@ body.localized-home .announcement-bar[hidden] {
     padding: 0.3rem 0.25rem 1.5rem;
   }
 }
+
+/* Keep the compact header controls through iPad landscape widths. */
+@media (min-width: 769px) and (max-width: 1120px) {
+  body.home-experience .navbar-menu {
+    display: none;
+  }
+
+  body.home-experience .hamburger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42px;
+  }
+
+  body.home-experience .language-switcher,
+  body.localized-home .language-switcher {
+    top: auto !important;
+    right: 0.75rem !important;
+    bottom: calc(0.75rem + env(safe-area-inset-bottom)) !important;
+    max-width: calc(100vw - 1.5rem) !important;
+  }
+
+  .language-switcher__toggle {
+    min-width: 46px;
+    width: 46px;
+    padding-inline: 0 !important;
+  }
+
+  .language-switcher__toggle > span:nth-child(2) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  .language-switcher__chevron {
+    display: none;
+  }
+}
