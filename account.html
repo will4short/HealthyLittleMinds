@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="account.css?v=2">
+  <link rel="stylesheet" href="account.css?v=3">
 </head>
 <body class="account-page">
   <header class="account-shell account-header">
@@ -18,7 +18,16 @@
       <img src="images/logo-icon.webp" alt="">
       <span>Healthy Little Minds</span>
     </a>
-    <a class="account-back" href="index.html">Back to public resources</a>
+    <div class="account-header-actions">
+      <nav class="account-languages" aria-label="Language">
+        <a href="account.html" data-account-locale="en" title="English"><img src="images/flag-en.webp" alt="English"></a>
+        <a href="account.html?locale=ja" data-account-locale="ja" title="日本語"><img src="images/flag-jp.webp" alt="日本語"></a>
+        <a href="account.html?locale=ko" data-account-locale="ko" title="한국어"><img src="images/flag-kr.webp" alt="한국어"></a>
+        <a href="account.html?locale=zh-cn" data-account-locale="zh-cn" title="简体中文"><img src="images/flag-cn.webp" alt="简体中文"></a>
+        <a href="account.html?locale=zh-tw" data-account-locale="zh-tw" title="繁體中文"><img src="images/flag-tw.webp" alt="繁體中文"></a>
+      </nav>
+      <a class="account-back" href="index.html">Back to public resources</a>
+    </div>
   </header>
 
   <main class="account-shell account-main">
@@ -31,9 +40,20 @@
         <li>Use the same email address used during Payhip checkout.</li>
         <li>Your password is handled securely by Supabase Auth.</li>
       </ul>
+      <div class="account-visual" aria-hidden="true">
+        <img src="images/resources-illustration-840.webp" alt="">
+        <div class="account-visual-caption">
+          <span id="visualEyebrow">Made for caring adults</span>
+          <strong id="visualText">Stories and tools for growing minds.</strong>
+        </div>
+      </div>
     </section>
 
     <section class="account-card" aria-label="Account access">
+      <div class="account-card-welcome" aria-hidden="true">
+        <span class="account-card-mark">♡</span>
+        <span id="cardWelcome">Your library is just a step away</span>
+      </div>
       <div class="account-alert" id="accountAlert" role="status" aria-live="polite" hidden></div>
 
       <div id="accountControls">

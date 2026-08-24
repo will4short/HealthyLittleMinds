@@ -35,6 +35,13 @@
 
   var locale = window.HLMRouting ? window.HLMRouting.locale() : "en";
   var copy = translations[locale] || translations.en;
+  var visualCopy = {
+    en: ["Made for caring adults", "Stories and tools for growing minds.", "Your library is just a step away"],
+    ja: ["大切に寄り添う大人の方へ", "育つ心のための物語とツール。", "ライブラリーまで、あと一歩です"],
+    ko: ["아이를 아끼는 어른을 위해", "성장하는 마음을 위한 이야기와 도구.", "라이브러리까지 한 걸음 남았어요"],
+    "zh-cn": ["为关爱孩子的成人而设计", "陪伴心灵成长的故事与工具。", "距离您的资源库只差一步"],
+    "zh-tw": ["為關心孩子的成人而設計", "陪伴心靈成長的故事與工具。", "距離您的資源庫只差一步"]
+  }[locale] || ["Made for caring adults", "Stories and tools for growing minds.", "Your library is just a step away"];
 
   function t(key) { return copy[key] || translations.en[key] || key; }
   function text(selector, key) { var node = document.querySelector(selector); if (node) node.textContent = t(key); }
@@ -57,9 +64,20 @@
     text('#signupForm option[value="parent"]', "parent"); text('#signupForm option[value="educator"]', "educator"); text("#passwordNote", "passwordNote"); text('#signupForm button[type="submit"]', "signup");
     text('[data-account-panel="recovery"] h2', "recoveryHeading"); text('[data-account-panel="recovery"] > p', "recoveryIntro"); label('#recoveryForm label', "newPassword"); text('#recoveryForm button[type="submit"]', "savePassword");
     text("#accessBadge", "checking"); text("#signedInLabel", "signedIn"); text("#openLibraryButton", "openLibrary"); text("#purchaseButton", "purchase"); text("#refreshAccess", "refresh"); text("#signOutButton", "logout");
+    var visualEyebrow = document.querySelector("#visualEyebrow"); if (visualEyebrow) visualEyebrow.textContent = visualCopy[0];
+    var visualText = document.querySelector("#visualText"); if (visualText) visualText.textContent = visualCopy[1];
+    var cardWelcome = document.querySelector("#cardWelcome"); if (cardWelcome) cardWelcome.textContent = visualCopy[2];
     text("#supportBefore", "supportBefore"); text("#supportLink", "supportLink"); text("#supportAfter", "supportAfter"); text("#termsLink", "terms");
     var publicHome = window.HLMRouting.page("index.html"); if (brand) brand.href = publicHome; var back = document.querySelector(".account-back"); if (back) back.href = publicHome;
     var support = document.querySelector("#supportLink"); if (support) support.href = "/contact.html";
+    var currentParams = new URLSearchParams(window.location.search);
+    document.querySelectorAll("[data-account-locale]").forEach(function (link) {
+      var targetLocale = link.dataset.accountLocale;
+      var params = new URLSearchParams(currentParams);
+      if (targetLocale === "en") params.delete("locale"); else params.set("locale", targetLocale);
+      link.href = "/account.html" + (params.toString() ? "?" + params.toString() : "");
+      if (targetLocale === locale) link.setAttribute("aria-current", "page"); else link.removeAttribute("aria-current");
+    });
   }
 
   apply();
