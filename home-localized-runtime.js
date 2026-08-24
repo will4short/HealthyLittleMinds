@@ -3,14 +3,7 @@
 
   var hasPreview = Boolean(window.HLMPreview && window.HLMPreview.isActive());
 
-  if (!hasPreview) {
-    var path = window.location.pathname;
-    var locale = path.split("/")[1];
-    window.location.replace("/account.html?locale=" + encodeURIComponent(locale || "en"));
-    return;
-  }
-
-  window.HLMPreview.scheduleExpiryRedirect();
+  if (hasPreview) window.HLMPreview.scheduleExpiryRedirect();
 
   if (window.location.hash === "#about") {
     window.location.replace("about_me.html");

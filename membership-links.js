@@ -141,4 +141,5 @@
   } else {
     updateMembershipLinks();
   }
+  window.addEventListener("hlm-access-granted", updateMembershipLinks);
 })();

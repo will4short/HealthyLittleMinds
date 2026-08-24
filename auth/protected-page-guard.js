@@ -1,6 +1,8 @@
 (function () {
   "use strict";
 
+  if (window.HLMPreview && window.HLMPreview.isActive && window.HLMPreview.isActive()) return;
+
   window.HLM_PROTECTED_GUARD_ACTIVE = true;
   document.documentElement.classList.add("hlm-protected-pending");
 
@@ -19,10 +21,15 @@
   }
 
   function accountUrl(reason) {
+    var firstPathPart = window.location.pathname.split("/").filter(Boolean)[0] || "";
+    var locale = ["ja", "ko", "zh-cn", "zh-tw"].indexOf(firstPathPart.toLowerCase()) >= 0
+      ? firstPathPart.toLowerCase()
+      : "en";
     var params = new URLSearchParams({
       reason: reason,
       returnTo: window.location.pathname + window.location.search + window.location.hash
     });
+    if (locale !== "en") params.set("locale", locale);
     return "/account.html?" + params.toString();
   }
 
@@ -40,6 +47,7 @@
       document.documentElement.dataset.hlmAccessGranted = "true";
       document.documentElement.dataset.hlmAccessSource = "supabase";
       document.documentElement.classList.remove("hlm-protected-pending");
+      window.dispatchEvent(new CustomEvent("hlm-access-granted"));
     } catch (_) {
       window.location.replace(accountUrl("check-failed"));
     }

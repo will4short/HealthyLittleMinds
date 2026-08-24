@@ -3,8 +3,8 @@
 // Lean precache (no big media) + runtime image cache
 // ===============================
 
-const PRECACHE_NAME = 'hlm-precache-v263'; // legacy member cache retired
-const RUNTIME_NAME  = 'hlm-runtime-v117';  // Supabase-only member requests bypass storage
+const PRECACHE_NAME = 'hlm-precache-v264'; // locale-aware account and member routing
+const RUNTIME_NAME  = 'hlm-runtime-v118';  // protected HTML continues to bypass storage
 const IMAGE_CACHE   = 'hlm-img-v18';       // leave if image rules unchanged
 
 const IMAGE_MAX_ENTRIES = 60;                   // limit image count

@@ -7,6 +7,10 @@
   var initialReason = initialParams.get("reason") || "";
   var requestedReturn = initialParams.get("returnTo") || "";
 
+  function t(key) {
+    return window.HLMAccountI18n ? window.HLMAccountI18n.t(key) : key;
+  }
+
   function safeReturnTo() {
     return requestedReturn.charAt(0) === "/" && requestedReturn.slice(0, 2) !== "//"
       ? requestedReturn
@@ -30,19 +34,20 @@
 
   function friendlyError(error, fallback) {
     var message = String(error && error.message || "").toLowerCase();
-    if (message.indexOf("invalid login") >= 0) return "The email or password was not correct. Please try again or reset your password.";
-    if (message.indexOf("email not confirmed") >= 0) return "Please confirm your email before logging in. You can resend the confirmation below.";
-    if (message.indexOf("already registered") >= 0 || message.indexOf("already been registered") >= 0) return "If an account already exists for this email, you can log in or reset the password.";
-    if (message.indexOf("password") >= 0 && message.indexOf("short") >= 0) return "Choose a password with at least eight characters.";
-    if (message.indexOf("rate") >= 0 || message.indexOf("too many") >= 0) return "Too many attempts were made. Please wait a little while and try again.";
-    return fallback || "We could not complete that request. Please check your connection and try again.";
+    if (message.indexOf("invalid login") >= 0) return t("invalidLogin");
+    if (message.indexOf("email not confirmed") >= 0) return t("confirmEmail");
+    if (message.indexOf("already registered") >= 0 || message.indexOf("already been registered") >= 0) return t("alreadyRegistered");
+    if (message.indexOf("password") >= 0 && message.indexOf("short") >= 0) return t("shortPassword");
+    if (message.indexOf("rate") >= 0 || message.indexOf("too many") >= 0) return t("tooMany");
+    return fallback || t("genericError");
   }
 
   function reasonMessage(reason) {
-    if (reason === "signed-out") return "Log in to open the member library.";
-    if (reason === "email-unconfirmed") return "Confirm your email before opening the member library.";
-    if (reason === "access-required") return "Your account is ready, but full-library access is not connected yet.";
-    if (reason === "account-unavailable") return "This account cannot currently open the member library. Contact support if you need help.";
+    if (reason === "signed-out") return t("signedOut");
+    if (reason === "email-unconfirmed") return t("emailUnconfirmed");
+    if (reason === "access-required") return t("accessRequired");
+    if (reason === "account-unavailable") return t("accountUnavailable");
+    if (reason === "check-failed" || reason === "guard-missing") return t("checkFailed");
     return "";
   }
 
@@ -51,7 +56,7 @@
     var submit = form.querySelector("button[type='submit']");
     if (!submit) return;
     if (!submit.dataset.label) submit.dataset.label = submit.textContent;
-    submit.textContent = busy ? "Please wait…" : submit.dataset.label;
+    submit.textContent = busy ? t("wait") : submit.dataset.label;
   }
 
   function selectPanel(name) {
@@ -68,19 +73,20 @@
     element("accountControls").hidden = true;
     var session = element("accountSession");
     session.hidden = false;
-    element("sessionEmail").textContent = status.user.email || "your account";
-    element("sessionName").textContent = status.profile && status.profile.full_name ? status.profile.full_name : "Member";
+    element("sessionEmail").textContent = status.user.email || t("yourAccount");
+    element("sessionName").textContent = status.profile && status.profile.full_name ? status.profile.full_name : t("member");
+    element("sessionTitle").firstChild.nodeValue = t("hello") + " ";
 
     var badge = element("accessBadge");
     var description = element("accessDescription");
     if (status.allowed) {
-      badge.textContent = "Full library access active";
-      description.textContent = "Access confirmed — opening your member library…";
+      badge.textContent = t("activeBadge");
+      description.textContent = t("activeDescription");
       element("openLibraryButton").hidden = false;
       element("purchaseButton").hidden = true;
     } else {
-      badge.textContent = "Account ready — access not connected";
-      description.textContent = "If you already purchased, make sure this is the same email used at Payhip and check access again.";
+      badge.textContent = t("inactiveBadge");
+      description.textContent = t("inactiveDescription");
       element("openLibraryButton").hidden = true;
       element("purchaseButton").hidden = false;
     }
@@ -99,7 +105,7 @@
   }
 
   async function refreshAccount() {
-    setAlert("Checking your account…", "info");
+    setAlert(t("checkingAccount"), "info");
     try {
       var status = await window.HLMAuth.accessStatus(productKey);
       if (status.state !== "signed-out" && window.HLMSupabase) {
@@ -120,7 +126,7 @@
       setAlert("");
       if (status.allowed) openLibraryAutomatically();
     } catch (error) {
-      setAlert(friendlyError(error, "We could not check your account. Please try again."), "error");
+      setAlert(friendlyError(error, t("checkFailed")), "error");
     }
   }
 
@@ -148,7 +154,7 @@
     var values = new FormData(form);
     var password = String(values.get("password") || "");
     if (password.length < 8) {
-      setAlert("Choose a password with at least eight characters.", "error");
+      setAlert(t("shortPassword"), "error");
       return;
     }
     state.lastEmail = String(values.get("email") || "").trim();
@@ -163,7 +169,7 @@
         emailRedirectTo: accountCallback({ confirmed: "1" })
       });
       if (result.error) throw result.error;
-      setAlert("Check your email to confirm your account. Return here after selecting the confirmation link.", "success");
+      setAlert(t("signupSent"), "success");
       form.reset();
     } catch (error) {
       setAlert(friendlyError(error), "error");
@@ -175,14 +181,14 @@
   async function handleResetRequest() {
     var entered = element("loginEmail").value.trim() || state.lastEmail;
     if (!entered) {
-      setAlert("Enter your email above, then select Forgot password again.", "error");
+      setAlert(t("enterEmailForgot"), "error");
       element("loginEmail").focus();
       return;
     }
     try {
       var result = await window.HLMAuth.requestPasswordReset(entered, accountCallback({ recovery: "1" }));
       if (result.error) throw result.error;
-      setAlert("If an account is associated with that email, a password-reset message will arrive shortly.", "success");
+      setAlert(t("resetSent"), "success");
     } catch (error) {
       setAlert(friendlyError(error), "error");
     }
@@ -191,14 +197,14 @@
   async function handleResend() {
     var entered = element("loginEmail").value.trim() || state.lastEmail;
     if (!entered) {
-      setAlert("Enter your email above, then select Resend confirmation again.", "error");
+      setAlert(t("enterEmailResend"), "error");
       element("loginEmail").focus();
       return;
     }
     try {
       var result = await window.HLMAuth.resendConfirmation(entered, accountCallback({ confirmed: "1" }));
       if (result.error) throw result.error;
-      setAlert("If the account still needs confirmation, a new message will arrive shortly. Check Spam or Junk too.", "success");
+      setAlert(t("resendSent"), "success");
     } catch (error) {
       setAlert(friendlyError(error), "error");
     }
@@ -209,7 +215,7 @@
     var form = event.currentTarget;
     var password = String(new FormData(form).get("password") || "");
     if (password.length < 8) {
-      setAlert("Choose a password with at least eight characters.", "error");
+      setAlert(t("shortPassword"), "error");
       return;
     }
     setBusy(form, true);
@@ -217,7 +223,7 @@
       var result = await window.HLMAuth.updatePassword(password);
       if (result.error) throw result.error;
       state.recovery = false;
-      setAlert("Your password has been updated. Your account is ready.", "success");
+      setAlert(t("passwordUpdated"), "success");
       await refreshAccount();
     } catch (error) {
       setAlert(friendlyError(error), "error");
@@ -227,6 +233,7 @@
   }
 
   async function start() {
+    if (window.HLMAccountI18n) window.HLMAccountI18n.apply();
     document.querySelectorAll("[data-account-tab]").forEach(function (tab) {
       tab.addEventListener("click", function () { selectPanel(tab.dataset.accountTab); });
     });
@@ -261,7 +268,7 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     start().catch(function () {
-      setAlert("Account services are being prepared. Please return to the main page and try again later.", "error");
+      setAlert(t("servicesPreparing"), "error");
     });
   });
 })();

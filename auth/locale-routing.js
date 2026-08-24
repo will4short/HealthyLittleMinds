@@ -4,14 +4,22 @@
   var supportedLocales = ["ja", "ko", "zh-cn", "zh-tw"];
 
   function locale() {
+    var requested = new URLSearchParams(window.location.search).get("locale") || "";
+    if (supportedLocales.indexOf(requested.toLowerCase()) >= 0) return requested.toLowerCase();
     var first = window.location.pathname.split("/").filter(Boolean)[0] || "";
     return supportedLocales.indexOf(first.toLowerCase()) >= 0 ? first.toLowerCase() : "en";
   }
 
   function page(name, query) {
-    var prefix = locale() === "en" ? "/" : "/" + locale() + "/";
-    var result = prefix + name.replace(/^\/+/, "");
-    if (query) result += "?" + new URLSearchParams(query).toString();
+    var currentLocale = locale();
+    var cleanName = name.replace(/^\/+/, "");
+    var isSharedAccount = cleanName === "account.html";
+    var prefix = isSharedAccount || currentLocale === "en" ? "/" : "/" + currentLocale + "/";
+    var result = prefix + cleanName;
+    var destinationQuery = Object.assign({}, query || {});
+    if (isSharedAccount && currentLocale !== "en") destinationQuery.locale = currentLocale;
+    var encodedQuery = new URLSearchParams(destinationQuery).toString();
+    if (encodedQuery) result += "?" + encodedQuery;
     return result;
   }
 

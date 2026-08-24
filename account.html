@@ -99,7 +99,7 @@
       <section class="account-session" id="accountSession" hidden aria-labelledby="sessionTitle">
         <span class="account-status-badge" id="accessBadge">Checking access…</span>
         <h2 id="sessionTitle">Hello, <span id="sessionName">Member</span></h2>
-        <p>Signed in as <strong id="sessionEmail"></strong></p>
+        <p><span id="signedInLabel">Signed in as</span> <strong id="sessionEmail"></strong></p>
         <p id="accessDescription"></p>
         <div class="account-session-actions">
           <button class="account-button" id="openLibraryButton" type="button" hidden>Open member library</button>
@@ -109,19 +109,20 @@
         </div>
       </section>
 
-      <p class="account-support">Need help connecting an earlier purchase? <a href="contact.html">Contact support</a> without sending payment-card details or a password.</p>
+      <p class="account-support"><span id="supportBefore">Need help connecting an earlier purchase?</span> <a id="supportLink" href="contact.html">Contact support</a> <span id="supportAfter">without sending payment-card details or a password.</span></p>
     </section>
   </main>
 
   <footer class="account-shell account-footer">
-    <p>&copy; <span id="accountYear"></span> Healthy Little Minds. <a href="assets/Healthy_Little_Minds_Terms_Conditions.pdf">Terms and conditions</a></p>
+    <p>&copy; <span id="accountYear"></span> Healthy Little Minds. <a id="termsLink" href="assets/Healthy_Little_Minds_Terms_Conditions.pdf">Terms and conditions</a></p>
   </footer>
 
   <script>document.getElementById("accountYear").textContent = new Date().getFullYear();</script>
+  <script src="auth/locale-routing.js"></script>
+  <script src="auth/account-i18n.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="config/supabase-config.js"></script>
   <script src="auth/supabase-client.js"></script>
-  <script src="auth/locale-routing.js"></script>
   <script src="auth/auth-service.js"></script>
   <script src="auth/account-page.js"></script>
 </body>

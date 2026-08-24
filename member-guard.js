@@ -15,5 +15,10 @@
     ? "index.html"
     : (locale ? "/" + locale + "/index.html" : "/index.html");
 
-  window.location.replace(isLocalFile ? redirectTo : "/account.html?reason=guard-missing");
+  var accountParams = new URLSearchParams({
+    reason: "guard-missing",
+    returnTo: window.location.pathname + window.location.search + window.location.hash
+  });
+  if (locale) accountParams.set("locale", locale);
+  window.location.replace(isLocalFile ? redirectTo : "/account.html?" + accountParams.toString());
 })();
