@@ -2,7 +2,7 @@
   "use strict";
 
   var productKey = "full-library";
-  var state = { recovery: false, lastEmail: "" };
+  var state = { recovery: false, lastEmail: "", openingLibrary: false };
   var initialParams = new URLSearchParams(window.location.search);
   var initialReason = initialParams.get("reason") || "";
   var requestedReturn = initialParams.get("returnTo") || "";
@@ -75,7 +75,7 @@
     var description = element("accessDescription");
     if (status.allowed) {
       badge.textContent = "Full library access active";
-      description.textContent = "Your account is ready. You can open the Healthy Little Minds member library.";
+      description.textContent = "Access confirmed — opening your member library…";
       element("openLibraryButton").hidden = false;
       element("purchaseButton").hidden = true;
     } else {
@@ -84,6 +84,18 @@
       element("openLibraryButton").hidden = true;
       element("purchaseButton").hidden = false;
     }
+  }
+
+  function libraryDestination() {
+    return safeReturnTo() || window.HLMRouting.page("home.html", { account: "1" });
+  }
+
+  function openLibraryAutomatically() {
+    if (state.openingLibrary || state.recovery) return;
+    state.openingLibrary = true;
+    window.setTimeout(function () {
+      window.location.replace(libraryDestination());
+    }, 650);
   }
 
   async function refreshAccount() {
@@ -106,6 +118,7 @@
       }
       showSignedIn(status);
       setAlert("");
+      if (status.allowed) openLibraryAutomatically();
     } catch (error) {
       setAlert(friendlyError(error, "We could not check your account. Please try again."), "error");
     }
@@ -224,7 +237,7 @@
     element("resendConfirmation").addEventListener("click", handleResend);
     element("refreshAccess").addEventListener("click", refreshAccount);
     element("openLibraryButton").addEventListener("click", function () {
-      window.location.href = safeReturnTo() || window.HLMRouting.page("home.html", { account: "1" });
+      window.location.href = libraryDestination();
     });
     element("signOutButton").addEventListener("click", async function () { await window.HLMAuth.signOut(); window.location.replace(window.HLMRouting.page("index.html")); });
 
