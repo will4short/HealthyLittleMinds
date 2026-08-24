@@ -4,7 +4,7 @@
   var isPreview = location.protocol === "file:" ||
     location.hostname === "localhost" ||
     location.hostname === "127.0.0.1";
-  if (!isPreview && localStorage.getItem("isMember") !== "true") {
+  if (!isPreview && !window.HLM_PROTECTED_GUARD_ACTIVE) {
     location.replace("index.html");
     return;
   }

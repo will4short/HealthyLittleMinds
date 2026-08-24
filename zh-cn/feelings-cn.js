@@ -1,7 +1,7 @@
 (function () {
   "use strict";
   var preview = location.protocol === "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1";
-  if (!preview && localStorage.getItem("isMember") !== "true") { location.replace("index.html"); return; }
+  if (!preview && !window.HLM_PROTECTED_GUARD_ACTIVE) { location.replace("/account.html?reason=guard-missing"); return; }
 
   var books = {
     yet: { title: "《当我还不会的时候》", image: "../images/when_i_cant_coverpage.webp", text: "在困难的时刻，练习再次尝试与向他人求助。", url: "https://heyzine.com/flip-book/1fb2ef8177.html" },

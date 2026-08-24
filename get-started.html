@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Purchase complete | Healthy Little Minds</title>
+  <meta name="description" content="Connect your Healthy Little Minds purchase to your account.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="images/favicon.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="account.css?v=2">
+</head>
+<body class="account-page">
+  <header class="account-shell account-header">
+    <a class="account-brand" href="index.html"><img src="images/logo-icon.webp" alt=""><span>Healthy Little Minds</span></a>
+    <a class="account-back" href="index.html">Public homepage</a>
+  </header>
+  <main class="account-shell account-main">
+    <section class="account-intro" aria-labelledby="purchaseTitle">
+      <p class="account-kicker">After checkout</p>
+      <h1 id="purchaseTitle">Your library is nearly ready.</h1>
+      <p>If Payhip confirmed your payment, the final step is connecting the purchase to your personal Healthy Little Minds account.</p>
+    </section>
+    <section class="account-card" aria-labelledby="nextTitle">
+      <span class="account-status-badge">Next step</span>
+      <h2 id="nextTitle">Use your checkout email</h2>
+      <p>Create an account or log in using the same email address used during Payhip checkout. This is how we connect the purchase safely.</p>
+      <ul class="account-points">
+        <li>If you already have an account, simply log in.</li>
+        <li>If you are new, create an adult parent/caregiver or educator account.</li>
+        <li>Payment notifications can take a short moment to arrive.</li>
+      </ul>
+      <div class="account-session-actions">
+        <a class="account-button" href="account.html">Continue to account</a>
+        <a class="account-button account-button--secondary" href="contact.html">Get access help</a>
+      </div>
+      <p class="account-support">Do not send your password, complete card details, or authentication links to support.</p>
+    </section>
+  </main>
+  <footer class="account-shell account-footer"><p>&copy; <span id="accountYear"></span> Healthy Little Minds.</p></footer>
+  <script>document.getElementById("accountYear").textContent = new Date().getFullYear();</script>
+</body>
+</html>

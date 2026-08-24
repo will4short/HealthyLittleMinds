@@ -98,11 +98,7 @@
   }
 
   function isMember() {
-    try {
-      return window.localStorage.getItem("isMember") === "true";
-    } catch (_) {
-      return false;
-    }
+    return document.documentElement.dataset.hlmAccessGranted === "true";
   }
 
   function membershipHrefFor(link) {

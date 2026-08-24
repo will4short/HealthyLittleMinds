@@ -3,18 +3,23 @@
 // Lean precache (no big media) + runtime image cache
 // ===============================
 
-const PRECACHE_NAME = 'hlm-precache-v260'; // bump here for new release/update toast
-const RUNTIME_NAME  = 'hlm-runtime-v114';  // bump to refresh updated versioned page assets
+const PRECACHE_NAME = 'hlm-precache-v263'; // legacy member cache retired
+const RUNTIME_NAME  = 'hlm-runtime-v117';  // Supabase-only member requests bypass storage
 const IMAGE_CACHE   = 'hlm-img-v18';       // leave if image rules unchanged
 
 const IMAGE_MAX_ENTRIES = 60;                   // limit image count
 const IMAGE_MAX_AGE_MS  = 1000 * 60 * 60 * 24 * 30; // ~30 days
 
+function isProtectedHtmlPath(pathname) {
+  if (!/\.html$/i.test(pathname)) return false;
+  return !/^\/(?:index|offline|about_me|contact|teachers|will-talks|social|inspire_page)\.html$/i.test(pathname)
+    && !/^\/(?:ja|ko|zh-cn|zh-tw)\/(?:index|about_me|teachers|will-talks|social|inspire_page)\.html$/i.test(pathname);
+}
+
 // Keep precache small & critical (NO big images/videos/PDFs)
 const ASSETS_TO_PRECACHE = [
   // Shell & core pages
-  '/', '/index.html', '/home.html', '/worksheets.html', '/dashboard.html', '/interactive-tools.html',
-  '/growth-plan.html',
+  '/', '/index.html',
   '/audiobook.html',
   '/bulletin.html', '/offline.html', '/more-feelings.html',
   '/teacher-life.html', '/about_me.html',
@@ -30,9 +35,6 @@ const ASSETS_TO_PRECACHE = [
 
   // Teachers Hub (HTML only)
   '/teachers.html', '/zh-tw/teachers.html', '/zh-cn/teachers.html', '/ja/teachers.html', '/ko/teachers.html',
-
-  // Worksheet hubs (HTML only)
-  '/zh-tw/worksheets.html', '/zh-cn/worksheets.html', '/ja/worksheets.html', '/ko/worksheets.html',
 
   // Will Talks (HTML only)
   '/will-talks.html', '/zh-tw/will-talks.html', '/zh-cn/will-talks.html', '/ja/will-talks.html', '/ko/will-talks.html',
@@ -116,18 +118,16 @@ const ASSETS_TO_PRECACHE = [
   '/zh-tw/interactive-stories/scene_6_reflection.html',
   '/zh-tw/interactive-stories/scene6-end.html',
 
-  // Localized pages (HTML only)
-  '/zh-tw/home.html', '/zh-cn/home.html', '/ja/home.html', '/ko/home.html',
+  // Shared public shell assets
   '/ja/index.html', '/ko/index.html', '/zh-tw/index.html', '/zh-cn/index.html',
   '/ja/story-sad.html', '/ko/story-sad.html', '/zh-tw/story-sad.html', '/zh-cn/story-sad.html',
-  '/ja/growth-plan.html', '/ko/growth-plan.html', '/zh-tw/growth-plan.html', '/zh-cn/growth-plan.html',
-  '/zh-tw/dashboard.html', '/zh-tw/interactive-tools.html', '/zh-tw/parents.html',
+  '/zh-tw/parents.html',
   '/zh-tw/parents-tips.html', '/zh-tw/parents-guides.html', '/zh-tw/parents-downloads.html',
-  '/zh-cn/dashboard.html', '/zh-cn/interactive-tools.html', '/zh-cn/parents.html',
+  '/zh-cn/parents.html',
   '/zh-cn/parents-tips.html', '/zh-cn/parents-guides.html', '/zh-cn/parents-downloads.html',
-  '/ko/dashboard.html', '/ko/interactive-tools.html', '/ko/parents.html',
+  '/ko/parents.html',
   '/ko/parents-tips.html', '/ko/parents-guides.html', '/ko/parents-downloads.html',
-  '/ja/dashboard.html', '/ja/interactive-tools.html', '/ja/parents.html',
+  '/ja/parents.html',
   '/ja/parents-tips.html', '/ja/parents-guides.html', '/ja/parents-downloads.html',
 
   // Static assets (small)
@@ -209,6 +209,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(PRECACHE_NAME).then(async (cache) => {
       for (const url of ASSETS_TO_PRECACHE) {
+        if (isProtectedHtmlPath(new URL(url, self.location.origin).pathname)) continue;
         try {
           await cache.add(url);
         } catch (err) {
@@ -259,6 +260,19 @@ self.addEventListener('message', (event) => {
 self.addEventListener('fetch', (event) => {
   // Only handle same-origin
   if (!event.request.url.startsWith(self.location.origin)) return;
+
+  // Account pages, auth code and environment configuration always go directly
+  // to the network. Never retain sessions, recovery URLs, signed-in UI, or
+  // environment-specific account configuration in the service-worker caches.
+  const requestUrl = new URL(event.request.url);
+  const authSensitivePath = /\/(?:account|get-started|home|dashboard|worksheets|interactive-tools|growth-plan)\.html$/i.test(requestUrl.pathname)
+    || isProtectedHtmlPath(requestUrl.pathname)
+    || /^\/(?:auth|config)\//i.test(requestUrl.pathname)
+    || event.request.headers.has('authorization');
+  if (authSensitivePath) {
+    event.respondWith(fetch(event.request, { cache: 'no-store' }));
+    return;
+  }
 
   // 1) Page navigations (address bar / reload / SPA deep-links)
   if (event.request.mode === 'navigate') {

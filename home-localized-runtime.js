@@ -1,23 +1,16 @@
 (function () {
   "use strict";
 
-  var isLocal = window.location.protocol === "file:"
-    || window.location.hostname === "localhost"
-    || window.location.hostname === "127.0.0.1";
-  var isMember = window.localStorage.getItem("isMember") === "true";
   var hasPreview = Boolean(window.HLMPreview && window.HLMPreview.isActive());
 
-  if (!isLocal && !isMember && !hasPreview) {
+  if (!hasPreview) {
     var path = window.location.pathname;
     var locale = path.split("/")[1];
-    var redirectTo = locale && path.indexOf("/" + locale + "/") !== -1
-      ? "/" + locale + "/index.html"
-      : "/index.html";
-    window.location.replace(redirectTo);
+    window.location.replace("/account.html?locale=" + encodeURIComponent(locale || "en"));
     return;
   }
 
-  if (!isMember && hasPreview) window.HLMPreview.scheduleExpiryRedirect();
+  window.HLMPreview.scheduleExpiryRedirect();
 
   if (window.location.hash === "#about") {
     window.location.replace("about_me.html");

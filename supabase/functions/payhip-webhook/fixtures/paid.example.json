@@ -1,0 +1,17 @@
+{
+  "id": "TEST_TRANSACTION_REPLACE_ME",
+  "email": "buyer@example.com",
+  "currency": "USD",
+  "price": 900,
+  "items": [
+    {
+      "product_id": "PAYHIP_PRODUCT_ID_REPLACE_ME",
+      "product_name": "Healthy Little Minds Full Library",
+      "product_key": "PAYHIP_PRODUCT_KEY_REPLACE_ME",
+      "quantity": "1"
+    }
+  ],
+  "date": 1787443200,
+  "type": "paid",
+  "signature": "SHA256_OF_PAYHIP_API_KEY_REPLACE_ME"
+}

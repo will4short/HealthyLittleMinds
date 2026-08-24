@@ -489,11 +489,12 @@
       }
     }
   </style>
+  <script src="/auth/protected-page-guard.js"></script>
 </head>
 <body>
   <script>
     (function () {
-      const isMember = localStorage.getItem("isMember") === "true";
+      const isMember = Boolean(window.HLM_PROTECTED_GUARD_ACTIVE);
       const localPreview = window.location.protocol === "file:" ||
         window.location.hostname === "127.0.0.1" ||
         window.location.hostname === "localhost";

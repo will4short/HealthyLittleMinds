@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your account | Healthy Little Minds</title>
+  <meta name="description" content="Create or manage your Healthy Little Minds account and library access.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="images/favicon.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="account.css?v=2">
+</head>
+<body class="account-page">
+  <header class="account-shell account-header">
+    <a class="account-brand" href="index.html" aria-label="Healthy Little Minds public homepage">
+      <img src="images/logo-icon.webp" alt="">
+      <span>Healthy Little Minds</span>
+    </a>
+    <a class="account-back" href="index.html">Back to public resources</a>
+  </header>
+
+  <main class="account-shell account-main">
+    <section class="account-intro" aria-labelledby="accountTitle">
+      <p class="account-kicker">Your account</p>
+      <h1 id="accountTitle">One gentle place for your library.</h1>
+      <p>Create an adult account or log in to connect your Healthy Little Minds purchase. Children do not need their own email address or account.</p>
+      <ul class="account-points">
+        <li>Free resources remain available without signing in.</li>
+        <li>Use the same email address used during Payhip checkout.</li>
+        <li>Your password is handled securely by Supabase Auth.</li>
+      </ul>
+    </section>
+
+    <section class="account-card" aria-label="Account access">
+      <div class="account-alert" id="accountAlert" role="status" aria-live="polite" hidden></div>
+
+      <div id="accountControls">
+        <div class="account-tabs" role="tablist" aria-label="Account actions">
+          <button class="account-tab" type="button" role="tab" data-account-tab="login" aria-selected="true">Log in</button>
+          <button class="account-tab" type="button" role="tab" data-account-tab="signup" aria-selected="false">Create account</button>
+        </div>
+
+        <section class="account-panel" data-account-panel="login">
+          <h2>Welcome back</h2>
+          <p>Log in with your personal account to continue to your library.</p>
+          <form class="account-form" id="loginForm">
+            <label class="account-field">Email
+              <input id="loginEmail" type="email" name="email" autocomplete="email" required>
+            </label>
+            <label class="account-field">Password
+              <input type="password" name="password" autocomplete="current-password" required>
+            </label>
+            <button class="account-button" type="submit">Log in</button>
+          </form>
+          <div class="account-help-row">
+            <button class="account-link-button" id="forgotPassword" type="button">Forgot password?</button>
+            <button class="account-link-button" id="resendConfirmation" type="button">Resend confirmation</button>
+          </div>
+        </section>
+
+        <section class="account-panel" data-account-panel="signup" hidden>
+          <h2>Create your account</h2>
+          <p>Use an adult’s email address, preferably the same one used at checkout.</p>
+          <form class="account-form" id="signupForm">
+            <label class="account-field">Your name
+              <input type="text" name="full_name" maxlength="120" autocomplete="name" required>
+            </label>
+            <label class="account-field">I’m using Healthy Little Minds as
+              <select name="account_type" required>
+                <option value="parent">A parent or caregiver</option>
+                <option value="educator">An educator</option>
+              </select>
+            </label>
+            <label class="account-field">Email
+              <input type="email" name="email" autocomplete="email" required>
+            </label>
+            <label class="account-field">Create a password
+              <input type="password" name="password" minlength="8" autocomplete="new-password" required aria-describedby="passwordNote">
+            </label>
+            <p class="account-password-note" id="passwordNote">Use at least eight characters and avoid reusing a password from another website.</p>
+            <button class="account-button" type="submit">Create account</button>
+          </form>
+        </section>
+
+        <section class="account-panel" data-account-panel="recovery" hidden>
+          <h2>Choose a new password</h2>
+          <p>Use at least eight characters and choose something you do not use on another website.</p>
+          <form class="account-form" id="recoveryForm">
+            <label class="account-field">New password
+              <input type="password" name="password" minlength="8" autocomplete="new-password" required>
+            </label>
+            <button class="account-button" type="submit">Save new password</button>
+          </form>
+        </section>
+      </div>
+
+      <section class="account-session" id="accountSession" hidden aria-labelledby="sessionTitle">
+        <span class="account-status-badge" id="accessBadge">Checking access…</span>
+        <h2 id="sessionTitle">Hello, <span id="sessionName">Member</span></h2>
+        <p>Signed in as <strong id="sessionEmail"></strong></p>
+        <p id="accessDescription"></p>
+        <div class="account-session-actions">
+          <button class="account-button" id="openLibraryButton" type="button" hidden>Open member library</button>
+          <a class="account-button" id="purchaseButton" href="https://payhip.com/b/j6uL8" target="_blank" rel="noopener" hidden>Get full access</a>
+          <button class="account-button account-button--secondary" id="refreshAccess" type="button">Check access again</button>
+          <button class="account-button account-button--secondary" id="signOutButton" type="button">Log out</button>
+        </div>
+      </section>
+
+      <p class="account-support">Need help connecting an earlier purchase? <a href="contact.html">Contact support</a> without sending payment-card details or a password.</p>
+    </section>
+  </main>
+
+  <footer class="account-shell account-footer">
+    <p>&copy; <span id="accountYear"></span> Healthy Little Minds. <a href="assets/Healthy_Little_Minds_Terms_Conditions.pdf">Terms and conditions</a></p>
+  </footer>
+
+  <script>document.getElementById("accountYear").textContent = new Date().getFullYear();</script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config/supabase-config.js"></script>
+  <script src="auth/supabase-client.js"></script>
+  <script src="auth/locale-routing.js"></script>
+  <script src="auth/auth-service.js"></script>
+  <script src="auth/account-page.js"></script>
+</body>
+</html>

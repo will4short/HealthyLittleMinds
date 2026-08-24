@@ -6,11 +6,12 @@
   <title>Bella Choice Story | Healthy Little Minds</title>
   <link rel="stylesheet" href="../../style.css" />
   <link rel="stylesheet" href="../../interactive-stories/bella-story.css?v=2" />
+  <script src="/auth/protected-page-guard.js"></script>
 </head>
 <body class="bella-story-page" data-scene="scene2-pretend.html">
   <script>
     (function () {
-      const isMember = localStorage.getItem("isMember") === "true";
+      const isMember = Boolean(window.HLM_PROTECTED_GUARD_ACTIVE);
       if (!isMember) window.location.replace("/zh-cn/index.html");
     })();
   </script>

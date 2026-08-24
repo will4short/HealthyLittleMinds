@@ -120,10 +120,16 @@
   setNavFocusable(false);
 
   document.querySelectorAll("[data-home-logout]").forEach(function (control) {
-    control.addEventListener("click", function (event) {
+    control.addEventListener("click", async function (event) {
       event.preventDefault();
-      localStorage.removeItem("isMember");
-      window.location.href = control.dataset.homeLogout || "index.html";
+      if (window.HLMAuth) {
+        try { await window.HLMAuth.signOut(); }
+        catch (error) {}
+      }
+      var destination = window.HLMRouting
+        ? window.HLMRouting.page("account.html")
+        : (control.dataset.homeLogout || "account.html");
+      window.location.href = destination;
     });
   });
 
@@ -160,11 +166,6 @@
       if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button) return;
 
       event.preventDefault();
-      try {
-        if (window.localStorage.getItem("isMember") === "true") {
-          window.localStorage.setItem("isMember", "true");
-        }
-      } catch (error) {}
       window.location.assign(link.href);
     });
   }

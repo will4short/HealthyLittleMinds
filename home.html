@@ -55,6 +55,24 @@
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link href="style.css?v=117" rel="stylesheet"/>
+  <script>document.documentElement.classList.add("hlm-access-pending");</script>
+  <style>
+    html.hlm-access-pending body > :not(#hlmAccessLoader),
+    html.hlm-access-failed body > :not(#hlmAccessLoader) { visibility: hidden !important; }
+    #hlmAccessLoader { position: fixed; inset: 0; z-index: 2147483647; display: grid; place-items: center; padding: 1rem; background: #f8fcfb; color: #254e70; font-family: "DM Sans", Arial, sans-serif; }
+    #hlmAccessLoader[hidden] { display: none !important; }
+    .hlm-access-loader__panel { width: min(92vw, 520px); padding: 2rem; border: 1px solid rgba(37,78,112,.16); border-radius: 24px; background: #fff; box-shadow: 0 22px 60px rgba(37,78,112,.14); text-align: center; }
+    .hlm-access-loader__panel h1 { margin: 0; font: 900 1.7rem "Nunito", "DM Sans", sans-serif; }
+    .hlm-access-loader__panel p { color: #587286; line-height: 1.6; }
+    .hlm-access-loader__panel button, .hlm-access-loader__panel a { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; margin: .35rem; padding: .7rem 1rem; border: 1px solid rgba(37,78,112,.16); border-radius: 999px; background: #087c72; color: #fff; font: 800 .95rem inherit; cursor: pointer; text-decoration: none; }
+    .hlm-access-loader__panel a { background: #fff; color: #087c72; }
+  </style>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="config/supabase-config.js"></script>
+  <script defer src="auth/supabase-client.js"></script>
+  <script defer src="auth/locale-routing.js"></script>
+  <script defer src="auth/auth-service.js"></script>
+  <script defer src="auth/home-transition-guard.js?v=1"></script>
   <script src="member-preview.js?v=6"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Nunito:wght@600;800&amp;display=swap" rel="stylesheet">
    <!-- Structured Data -->
@@ -71,6 +89,9 @@
   <link href="home-experience.css?v=10" rel="stylesheet" />
 </head>
  <body class="home-mobile-ui ui-upgraded home-experience">
+  <div id="hlmAccessLoader" role="status" aria-live="polite">
+    <section class="hlm-access-loader__panel"><h1>Checking your library access…</h1><p>This should only take a moment.</p></section>
+  </div>
   <a class="home-skip-link" href="#main-content">Skip to main content</a>
   <!-- 🔄 Branded Loading Screen -->
   <div class="u-style-001" id="loading-screen">
@@ -1196,37 +1217,6 @@
   }
   </script>
   <script>
-   // 🔒 Redirect to login page if not logged in
-  (function () {
-    const isMember = localStorage.getItem("isMember") === "true";
-    const hasPreview = window.HLMPreview && window.HLMPreview.isActive();
-
-    if (!isMember && !hasPreview) {
-      const isLocal = window.location.protocol === "file:";
-      const path = window.location.pathname;
-      const locale = path.split('/')[1]; // e.g., 'ko', 'zh-tw', etc.
-
-      let redirectTo;
-      if (isLocal) {
-        // Local testing fallback
-        redirectTo = "index.html";
-      } else {
-        // Online redirection logic
-        redirectTo = locale && path.includes(`/${locale}/`)
-          ? `/${locale}/index.html`
-          : "/index.html";
-      }
-
-      window.location.replace(redirectTo);
-      return;
-    }
-
-    if (!isMember && hasPreview) {
-      window.HLMPreview.scheduleExpiryRedirect();
-    }
-  })();
-  </script>
-  <script>
    let audioPlayed = false;
 
   function handleScrollPlay() {
@@ -2349,8 +2339,8 @@ document.getElementById('mobileNav')?.addEventListener('click', e => {
   <script defer src="brand-motion.js?v=1"></script>
   <script defer src="button-loader.js?v=2"></script>
   <script src="site-ui-upgrades.js?v=7"></script>
-<script src="home-mobile-ui.js?v=3"></script>
+<script src="home-mobile-ui.js?v=4"></script>
 <script src="impact-tabs.js?v=1"></script>
 <script src="home-actions.js?v=5"></script>
-<script defer src="membership-links.js?v=5"></script></body>
+<script defer src="membership-links.js?v=6"></script></body>
 </html>

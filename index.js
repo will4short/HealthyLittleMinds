@@ -275,65 +275,6 @@
   }
 
   // ─────────────────────────────────────────────────────────────
-  // LOGIN
-  // CHANGED: error alert now includes a "Get Access" link so a
-  // visitor who typed the wrong password has an immediate path
-  // to purchase rather than a dead end.
-  // All IDs (password-input, loginButton) are untouched.
-  // ─────────────────────────────────────────────────────────────
-  function checkLogin() {
-    const input    = document.getElementById("password-input");
-    const password = (input ? input.value : "").trim();
-
-    if (password === "members123") {
-      localStorage.setItem("isMember", "true");
-      window.location.href = "home.html";
-      return;
-    }
-
-    // CHANGED: richer error — uses data-error-message if set,
-    // otherwise shows the default with a purchase nudge.
-    const customMsg = input && input.dataset.errorMessage
-      ? input.dataset.errorMessage
-      : null;
-
-    showLoginError(
-      customMsg ||
-      "Incorrect password. Please check your email for the access code.\n\nDon't have one yet? Visit healthylittleminds.club to get access."
-    );
-  }
-
-  // ADDED: replaces window.alert() with an inline error message
-  // shown directly below the login button — no browser dialog,
-  // friendlier on mobile, matches brand personality.
-  // D2: inline styles removed — #login-error-msg now styled via style-index.css
-  function showLoginError(message) {
-    let errorEl = document.getElementById("login-error-msg");
-    if (!errorEl) {
-      errorEl = document.createElement("p");
-      errorEl.id = "login-error-msg";
-      errorEl.setAttribute("role", "alert");
-      errorEl.setAttribute("aria-live", "assertive");
-
-      // Insert after the login button
-      const btn = document.getElementById("loginButton");
-      if (btn && btn.parentNode) {
-        btn.parentNode.insertBefore(errorEl, btn.nextSibling);
-      }
-      document.getElementById("password-input")?.setAttribute("aria-describedby", errorEl.id);
-    }
-
-    errorEl.textContent = message;
-    errorEl.hidden = false;
-
-    // Keep the message available until the visitor edits the code.
-    const input = document.getElementById("password-input");
-    if (input) {
-      input.addEventListener("keydown", () => { errorEl.hidden = true; }, { once: true });
-    }
-  }
-
-  // ─────────────────────────────────────────────────────────────
   // CHARACTER CARDS (index.html teaser — 3 cards, no filters)
   // UNCHANGED logic — works whether there are 3 or 7 cards.
   // ─────────────────────────────────────────────────────────────
@@ -372,28 +313,6 @@
       });
     });
     setCharacterFilter("all");
-  }
-
-  // ─────────────────────────────────────────────────────────────
-  // LOGIN SETUP — UNCHANGED
-  // ─────────────────────────────────────────────────────────────
-  function setupLogin() {
-    const input  = document.getElementById("password-input");
-    const button = document.getElementById("loginButton");
-    const form = input?.closest("form");
-    if (form) {
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        checkLogin();
-      });
-    } else if (button) {
-      button.addEventListener("click", checkLogin);
-    }
-    if (input && !form) {
-      input.addEventListener("keydown", (event) => {
-        if (event.key === "Enter") checkLogin();
-      });
-    }
   }
 
   // ─────────────────────────────────────────────────────────────
@@ -473,25 +392,12 @@
   }
 
   // ─────────────────────────────────────────────────────────────
-  // ─────────────────────────────────────────────────────────────
-  // ─────────────────────────────────────────────────────────────
-  // ADDED: logout helper
-  // Exposed on window so any inline onclick="logout()" in HTML
-  // works. Clears isMember before redirecting.
-  // ─────────────────────────────────────────────────────────────
-  window.logout = function () {
-    localStorage.removeItem("isMember");
-    window.location.href = "index.html";
-  };
-
-  // ─────────────────────────────────────────────────────────────
   // BOOT — UNCHANGED call order
   // ─────────────────────────────────────────────────────────────
   document.addEventListener("DOMContentLoaded", () => {
     setupLandingStandard();
     setupLandingBehaviors();
     setupCharacters();
-    setupLogin();
     setupTheme();
     setupMedia();
     setupMenu();

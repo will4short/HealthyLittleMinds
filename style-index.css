@@ -585,6 +585,76 @@ button:hover{
 
 .login-actions{ margin-top:14px; }
 
+.personal-account-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .65rem;
+  margin-top: 1rem;
+}
+
+.personal-account-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #087c72;
+  border-radius: 999px;
+  padding: .7rem 1rem;
+  background: #087c72;
+  color: #fff;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+}
+
+.personal-account-button:hover { background: #05645c; }
+.personal-account-button--secondary { background: #fff; color: #087c72; }
+.personal-account-button--secondary:hover { background: #effbf8; }
+
+.account-privacy-note {
+  margin: .75rem 0 0;
+  color: #587286;
+  font-size: .88rem;
+  line-height: 1.5;
+}
+
+.legacy-access {
+  margin-top: 1rem;
+  border: 1px solid rgba(37,78,112,.14);
+  border-radius: 16px;
+  background: rgba(239,251,248,.6);
+}
+
+.legacy-access summary {
+  padding: .85rem 1rem;
+  color: #087c72;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.legacy-access__body { padding: 0 1rem 1rem; }
+.legacy-access__body p { color: #587286; font-size: .9rem; line-height: 1.5; }
+
+.landing-account-status {
+  margin-top: 1rem;
+  border-radius: 18px;
+  padding: 1rem;
+  background: #effbf8;
+}
+
+.landing-account-status__badge {
+  display: inline-flex;
+  border-radius: 999px;
+  padding: .35rem .65rem;
+  background: #fff;
+  color: #087c72;
+  font-size: .8rem;
+  font-weight: 900;
+}
+
+.landing-account-status h3 { margin: .7rem 0 .3rem; }
+.landing-account-status p { margin: 0 0 .9rem; color: #587286; line-height: 1.5; }
+
 .access-note{
   margin:0 0 .8rem;
   font-size:.94rem;
@@ -2820,6 +2890,8 @@ body.dark-mode {
   .member-entry-grid {
     grid-template-columns: 1fr;
   }
+
+  .personal-account-actions { grid-template-columns: 1fr; }
 
   .login-box,
   .audiobook-card {

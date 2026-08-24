@@ -1,8 +1,7 @@
 (function () {
   "use strict";
 
-  var isMember = window.localStorage.getItem("isMember") === "true";
-  if (isMember) return;
+  if (window.HLM_PROTECTED_GUARD_ACTIVE) return;
 
   var isLocalFile = window.location.protocol === "file:";
   var path = window.location.pathname || "";
@@ -16,5 +15,5 @@
     ? "index.html"
     : (locale ? "/" + locale + "/index.html" : "/index.html");
 
-  window.location.replace(redirectTo);
+  window.location.replace(isLocalFile ? redirectTo : "/account.html?reason=guard-missing");
 })();

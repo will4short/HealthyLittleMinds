@@ -16,11 +16,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&amp;family=Nunito:wght@700;800;900&amp;family=Noto+Sans+TC:wght@400;500;700;800&amp;display=swap" rel="stylesheet" />
   <link href="../story-sad.css?v=1" rel="stylesheet" />
+  <script src="/auth/protected-page-guard.js"></script>
 </head>
 <body class="story-locale-tw">
   <script>
     (function () {
-      const isMember = localStorage.getItem("isMember") === "true";
+      const isMember = Boolean(window.HLM_PROTECTED_GUARD_ACTIVE);
       const localPreview = window.location.protocol === "file:" ||
         window.location.hostname === "127.0.0.1" ||
         window.location.hostname === "localhost";

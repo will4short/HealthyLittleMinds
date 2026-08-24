@@ -1,5 +1,5 @@
 (() => {
-  if (localStorage.getItem("isMember") === "true") return;
+  if (window.HLM_PROTECTED_GUARD_ACTIVE) return;
 
   // Keep local design previews viewable while preserving the live member gate.
   const localPreview = window.location.protocol === "file:" ||
@@ -9,7 +9,7 @@
 
   const locale = window.location.pathname.split("/")[1];
   const translated = ["zh-tw", "zh-cn", "ja", "ko"].includes(locale);
-  window.location.replace(translated ? `/${locale}/index.html` : "/index.html");
+  window.location.replace("/account.html?reason=guard-missing");
 })();
 
 (() => {

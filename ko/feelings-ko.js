@@ -1,7 +1,7 @@
 (function () {
   "use strict";
   var preview = location.protocol === "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1";
-  if (!preview && localStorage.getItem("isMember") !== "true") { location.replace("index.html"); return; }
+  if (!preview && !window.HLM_PROTECTED_GUARD_ACTIVE) { location.replace("/account.html?reason=guard-missing"); return; }
 
   var books = {
     yet: { title: "『아직 못 해도 괜찮아』", image: "../images/when_i_cant_coverpage.webp", text: "어려운 순간에도 연습하고 다시 시도할 수 있음을 알려 주는 이야기.", url: "https://heyzine.com/flip-book/1fb2ef8177.html" },

@@ -33,7 +33,7 @@
 
   <!-- Fonts & Favicon -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet"/>
-  <link href="style-index.css?v=12" rel="stylesheet"/>
+  <link href="style-index.css?v=13" rel="stylesheet"/>
   <link href="images/favicon.webp?v=2" rel="icon" type="image/webp">
   <link href="images/favicon.ico?v=2" rel="icon" type="image/x-icon">
   <link href="/manifest.json" rel="manifest"/>
@@ -54,6 +54,12 @@
 
   <script defer src="member-preview.js?v=6"></script>
   <script defer src="index.js?v=5"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="config/supabase-config.js"></script>
+  <script defer src="auth/supabase-client.js"></script>
+  <script defer src="auth/locale-routing.js"></script>
+  <script defer src="auth/auth-service.js"></script>
+  <script defer src="auth/index-account-bridge.js?v=1"></script>
 
   <!-- Structured data â€” WebSite schema (D: searchAction removed, URL fixed) -->
   <script type="application/ld+json">
@@ -97,7 +103,7 @@
 
       <!-- Desktop nav â€” unchanged links -->
       <nav class="main-nav" aria-label="Primary navigation">
-        <a href="#login">Member login</a>
+        <a href="#login">Member account</a>
         <a href="#free-library">Free resources</a>
         <a href="parents.html">Parents</a>
         <a href="teachers.html">Teachers</a>
@@ -119,7 +125,7 @@
         <button type="button" class="mobile-nav__close no-loader" aria-label="Close menu">×</button>
       </div>
       <p class="mobile-nav__label">Explore</p>
-      <a href="#login">Member login</a>
+      <a href="#login">Member account</a>
       <a href="#free-library">Free resources</a>
       <a href="parents.html">Parents</a>
       <a href="teachers.html">Teachers</a>
@@ -142,7 +148,7 @@
           designed for shared use at home, in class, and in everyday conversations.
         </p>
         <div class="access-hero-actions">
-          <a class="hero-primary" href="#login">Enter Access Code</a>
+          <a class="hero-primary" href="#login">Member account</a>
           <a class="hero-secondary" href="#free-library">Browse Free Resources</a>
           <button class="hero-tour no-loader" type="button" data-preview-home>Take a 3-minute tour</button>
         </div>
@@ -190,12 +196,8 @@
     </section>
 
 
-    <!-- =====================================================
-         SECTION 2: LOGIN â€” MOVED UP
-         Was: after characters, video, and book grid.
-         Now: second visible section, right after the hero.
-         All IDs, input names, and JS hooks are untouched.
-         ===================================================== -->
+    <!-- Personal accounts are primary. The access-code IDs remain temporarily
+         inside the migration disclosure for existing customers. -->
     <section class="member-entry fade-in" id="login" aria-labelledby="memberEntryTitle">
       <div class="landing-heading">
         <p class="eyebrow">Open the library</p>
@@ -204,16 +206,27 @@
       </div>
       <div class="member-entry-grid">
         <div class="login-box">
-          <p class="entry-card-label">Member access</p>
-          <h3>Enter Access Code</h3>
-          <p>If you're a member, type the password to enter.</p>
-          <!-- input id and type are untouched â€” index.js hooks to these -->
-          <input id="password-input" placeholder="Enter password..." type="password"
-                 data-error-message="Incorrect password. Please check your email for access."/>
-          <button id="loginButton" type="button">Login</button>
+          <p class="entry-card-label">Personal account</p>
+          <h3>Log in or create your account</h3>
+          <p>Use an adult account and the same email used during Payhip checkout.</p>
+
+          <div class="account-entry-signed-out">
+            <div class="personal-account-actions">
+              <a class="personal-account-button" href="account.html">Log in</a>
+              <a class="personal-account-button personal-account-button--secondary" href="account.html?mode=signup">Create account</a>
+            </div>
+            <p class="account-privacy-note">Children do not need their own email address or account.</p>
+          </div>
+
+          <section class="landing-account-status" id="landingAccountStatus" hidden aria-live="polite">
+            <span class="landing-account-status__badge">Account recognized</span>
+            <h3 data-account-status-title>Your account is signed in</h3>
+            <p data-account-status-message>Checking library access…</p>
+            <a class="personal-account-button" data-account-status-action href="account.html">View account</a>
+          </section>
 
           <div class="login-actions">
-            <p class="access-note">Use the code from your purchase email. If you do not have one yet, you can still explore the free resources below.</p>
+            <p class="access-note">You can explore the free resources below without creating an account.</p>
             <a
               class="get-access-btn newyear-highlight"
               href="https://payhip.com/b/j6uL8"
@@ -400,7 +413,7 @@
           <div class="access-card-actions">
             <!-- Payhip link untouched -->
             <a class="compare-link" href="https://payhip.com/b/j6uL8" target="_blank" rel="noopener">View full access</a>
-            <a class="member-login-link" href="#login">Already a member? Log in</a>
+            <a class="member-login-link" href="#login">Already a member? Open your account</a>
           </div>
         </article>
       </div>

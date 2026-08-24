@@ -2,7 +2,7 @@
   "use strict";
 
   function requireMember() {
-    if (localStorage.getItem("isMember") === "true") return;
+    if (window.HLM_PROTECTED_GUARD_ACTIVE) return;
     var isLocalFile = window.location.protocol === "file:";
     var parts = window.location.pathname.split("/").filter(Boolean);
     var locale = parts.length > 1 ? parts[0] : "";
@@ -12,7 +12,7 @@
       : supported.indexOf(locale) >= 0
         ? "/" + locale + "/index.html"
         : "/index.html";
-    window.location.replace(target);
+    window.location.replace(isLocalFile ? target : "/account.html?reason=guard-missing");
   }
 
   function setupMobileNav() {

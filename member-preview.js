@@ -6,6 +6,10 @@
   const durationMs = 3 * 60 * 1000;
   const locales = ["ko", "ja", "zh-cn", "zh-tw"];
 
+  function hasFullAccess() {
+    return document.documentElement.dataset.hlmAccessGranted === "true";
+  }
+
   const labels = {
     en: {
       notice: "Preview pass",
@@ -493,7 +497,7 @@
   }
 
   function setupBookLimit() {
-    if (!isMemberHomePage() || localStorage.getItem("isMember") === "true" || !isActive()) return;
+    if (!isMemberHomePage() || hasFullAccess() || !isActive()) return;
 
     const prepareBookLinks = () => {
       const selectedBook = canonicalBookUrl(localStorage.getItem(previewBookKey));
@@ -517,7 +521,7 @@
     };
 
     const attemptBookOpen = (link, event) => {
-      if (!link || localStorage.getItem("isMember") === "true" || !isActive()) return;
+      if (!link || hasFullAccess() || !isActive()) return;
 
       const bookUrl = bookUrlForLink(link);
       if (!bookUrl) return;
@@ -592,7 +596,7 @@
   }
 
   function setupRouteLimit() {
-    if (!isMemberHomePage() || localStorage.getItem("isMember") === "true" || !isActive()) return;
+    if (!isMemberHomePage() || hasFullAccess() || !isActive()) return;
 
     const isAllowedDestination = (link, value) => {
       if (!value || value.charAt(0) === "#") return true;
@@ -626,7 +630,7 @@
     };
 
     const attemptRestrictedRoute = (link, event) => {
-      if (!link || localStorage.getItem("isMember") === "true" || !isActive()) return;
+      if (!link || hasFullAccess() || !isActive()) return;
       event.preventDefault();
       event.stopImmediatePropagation();
       showRouteLimit();
@@ -657,7 +661,7 @@
   }
 
   function setupNotice() {
-    if (localStorage.getItem("isMember") === "true" || !isActive()) return;
+    if (hasFullAccess() || !isActive()) return;
 
     injectStyles();
 
