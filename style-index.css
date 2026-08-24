@@ -186,32 +186,26 @@ body.index-page--ko{
   background:#eef6ff;
 }
 
-/* Get Access button (one animation only) */
+/* Warm, prominent purchase action without an urgent warning-style glow. */
 .get-access-btn{
-  background-color: var(--accent-dark);
+  background-color:#f26767;
   color:#fff !important;
-  padding: .55rem 1.25rem;
+  padding:.5rem 1.05rem;
   border-radius: 999px;
   font-weight: 800;
   text-decoration:none;
   display:inline-block;
   transition: background-color .25s ease, box-shadow .25s ease, transform .2s ease;
-  animation: glowPulse 1.6s infinite alternate;
+  box-shadow:0 5px 12px rgba(242,103,103,.22);
 }
 .get-access-btn:hover{
-  background-color:#a52828;
-  transform: translateY(-2px);
-  box-shadow: 0 0 16px rgba(217,59,59,.75);
-  animation-play-state: paused;
-}
-@keyframes glowPulse{
-  from { box-shadow: 0 0 6px rgba(217,59,59,.35), 0 0 12px rgba(217,59,59,.20); }
-  to   { box-shadow: 0 0 18px rgba(217,59,59,.85), 0 0 28px rgba(217,59,59,.55); }
+  background-color:#e85c5c;
+  transform:translateY(-1px);
+  box-shadow:0 7px 16px rgba(232,92,92,.28);
 }
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce){
-  .get-access-btn{ animation:none !important; }
   .fade-in, .login-box, .welcome-banner{ animation:none !important; }
 }
 
