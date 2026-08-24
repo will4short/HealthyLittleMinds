@@ -3,7 +3,7 @@
 // Lean precache (no big media) + runtime image cache
 // ===============================
 
-const PRECACHE_NAME = 'hlm-precache-v264'; // locale-aware account and member routing
+const PRECACHE_NAME = 'hlm-precache-v265'; // immediate landing page and lifetime-access CTA copy
 const RUNTIME_NAME  = 'hlm-runtime-v118';  // protected HTML continues to bypass storage
 const IMAGE_CACHE   = 'hlm-img-v18';       // leave if image rules unchanged
 
