@@ -109,7 +109,33 @@
     return params.get("book") || DEFAULT_BOOK;
   }
 
-  async function loadBook(bookUrl) {
+  // Only book.json files inside this site's audiobooks/ folder may be opened,
+  // so a shared link cannot load someone else's story into the reader.
+  function resolveBookUrl(value) {
+    if (typeof value !== "string" || !value) return "";
+    if (/[\\\u0000-\u001f\u007f]/.test(value)) return "";
+    var url;
+    try {
+      url = new URL(value, window.location.href);
+    } catch (_) {
+      return "";
+    }
+    var bookRoot = new URL("audiobooks/", window.location.href);
+    if (url.origin !== bookRoot.origin) return "";
+    // Encoded separators or dots could be decoded again by the server.
+    if (/%(?:2e|2f|5c)/i.test(url.pathname)) return "";
+    if (url.pathname.indexOf(bookRoot.pathname) !== 0 || !/\.json$/i.test(url.pathname)) return "";
+    url.hash = "";
+    return url.href;
+  }
+
+  async function loadBook(requestedBookUrl) {
+    var bookUrl = resolveBookUrl(requestedBookUrl);
+    if (!bookUrl) {
+      setLoading(false);
+      showError("This audiobook link is not available. Try the sample book instead.");
+      return;
+    }
     setLoading(true);
     hideError();
     state.bookUrl = bookUrl;

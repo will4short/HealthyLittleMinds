@@ -204,26 +204,15 @@
       pathwayCards.forEach((item) => item.classList.remove("is-active"));
     });
 
+    // The highlight is decorative only, so the steps stay plain content rather
+    // than pretend buttons in the tab order.
     const journeySteps = Array.from(document.querySelectorAll(".journey-step"));
     const setJourneyStep = (selected) => {
-      journeySteps.forEach((step) => {
-        const active = step === selected;
-        step.classList.toggle("is-active", active);
-        step.setAttribute("aria-pressed", String(active));
-      });
+      journeySteps.forEach((step) => step.classList.toggle("is-active", step === selected));
     };
-    journeySteps.forEach((step, index) => {
-      step.tabIndex = 0;
-      step.setAttribute("role", "button");
-      step.setAttribute("aria-pressed", index === 0 ? "true" : "false");
+    journeySteps.forEach((step) => {
       step.addEventListener("click", () => setJourneyStep(step));
-      step.addEventListener("focus", () => setJourneyStep(step));
       step.addEventListener("mouseenter", () => setJourneyStep(step));
-      step.addEventListener("keydown", (event) => {
-        if (event.key !== "Enter" && event.key !== " ") return;
-        event.preventDefault();
-        setJourneyStep(step);
-      });
     });
     if (journeySteps.length) setJourneyStep(journeySteps[0]);
 
@@ -364,27 +353,42 @@
     const panel    = document.getElementById("mobileNav") || document.getElementById("menuDropdown");
     const backdrop = document.getElementById("menuBackdrop");
     if (!button || !panel || !backdrop) return;
-    const close = () => {
+    const isOpen = () => panel.classList.contains("open");
+    // A closed panel is only moved off-screen, so it must also leave the tab
+    // order and the accessibility tree.
+    const setInteractive = (interactive) => {
+      panel.inert = !interactive;
+      panel.setAttribute("aria-hidden", String(!interactive));
+    };
+    const close = ({ restoreFocus = true } = {}) => {
+      if (!isOpen()) return;
       panel.classList.remove("open");
-      panel.setAttribute("aria-hidden", "true");
+      setInteractive(false);
       button.setAttribute("aria-expanded", "false");
       backdrop.hidden = true;
       backdrop.classList.remove("show");
       document.body.classList.remove("body-lock");
+      if (restoreFocus) button.focus();
     };
+    const open = () => {
+      panel.classList.add("open");
+      setInteractive(true);
+      button.setAttribute("aria-expanded", "true");
+      backdrop.hidden = false;
+      backdrop.classList.add("show");
+      document.body.classList.add("body-lock");
+      (panel.querySelector(".mobile-nav__close") || panel.querySelector("a, button"))?.focus();
+    };
+    setInteractive(isOpen());
     button.addEventListener("click", () => {
-      const open = !panel.classList.contains("open");
-      panel.classList.toggle("open", open);
-      panel.setAttribute("aria-hidden", String(!open));
-      button.setAttribute("aria-expanded", String(open));
-      backdrop.hidden = !open;
-      backdrop.classList.toggle("show", open);
-      document.body.classList.toggle("body-lock", open);
+      if (isOpen()) close();
+      else open();
     });
-    backdrop.addEventListener("click", close);
-    panel.querySelector(".mobile-nav__close")?.addEventListener("click", close);
+    backdrop.addEventListener("click", () => close());
+    panel.querySelector(".mobile-nav__close")?.addEventListener("click", () => close());
     panel.addEventListener("click", (event) => {
-      if (event.target.closest("a")) close();
+      // Following a link moves focus to the link target, not back to the menu button.
+      if (event.target.closest("a")) close({ restoreFocus: false });
     });
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") close();

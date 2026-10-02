@@ -171,8 +171,24 @@
       : "../audiobook.html?book=audiobooks/ella/book.json";
   }
 
+  // The stored expiry is browser-controlled, so a value further ahead than one
+  // preview (plus a little clock slack) is treated as invalid and removed.
+  const maxPreviewAheadMs = durationMs + 5000;
+
   function remainingMs() {
-    return Math.max(0, Number(localStorage.getItem(previewKey) || 0) - Date.now());
+    let stored;
+    try {
+      stored = localStorage.getItem(previewKey);
+    } catch (_) {
+      return 0;
+    }
+    if (stored === null) return 0;
+    const remaining = Number(stored) - Date.now();
+    if (!Number.isFinite(remaining) || remaining > maxPreviewAheadMs) {
+      try { localStorage.removeItem(previewKey); } catch (_) {}
+      return 0;
+    }
+    return Math.max(0, remaining);
   }
 
   function isActive() {

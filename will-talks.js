@@ -443,7 +443,7 @@
           <p>${esc(t.topicsLead)}</p>
         </div>
         <div class="wt-topic-explorer" data-topic-explorer>
-          <div class="wt-topic-list" role="list" aria-label="${esc(t.topicsTitle)}">
+          <div class="wt-topic-list" role="group" aria-label="${esc(t.topicsTitle)}">
             ${t.topics.map(topicButton).join("")}
           </div>
           <article class="wt-topic-panel" aria-live="polite">

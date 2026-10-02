@@ -3,9 +3,22 @@
 
   var productKey = "full-library";
 
+  // Must match the preview length in member-preview.js (3 minutes) plus clock slack.
+  var maxPreviewAheadMs = 3 * 60 * 1000 + 5000;
+
   function previewAccess() {
-    try { return Number(window.localStorage.getItem("hlmHomePreviewUntil") || 0) > Date.now(); }
-    catch (_) { return false; }
+    try {
+      var stored = window.localStorage.getItem("hlmHomePreviewUntil");
+      if (stored === null) return false;
+      var remaining = Number(stored) - Date.now();
+      if (!isFinite(remaining) || remaining > maxPreviewAheadMs) {
+        window.localStorage.removeItem("hlmHomePreviewUntil");
+        return false;
+      }
+      return remaining > 0;
+    } catch (_) {
+      return false;
+    }
   }
 
   function grant(source) {

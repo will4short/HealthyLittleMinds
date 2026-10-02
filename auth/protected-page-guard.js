@@ -10,9 +10,19 @@
   style.textContent = "html.hlm-protected-pending body{visibility:hidden!important}";
   document.head.appendChild(style);
 
-  function load(src) {
+  // Pinned Supabase browser build; keep in sync with index.html, home.html and account.html.
+  var supabaseScript = {
+    src: "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js",
+    integrity: "sha384-Rj26LVGvoeRVR6+mwQmFfcR3QOBEwT+ZmuCWpuiqeTzJpCs0ER4ITAWGb4Hiy3Ok"
+  };
+
+  function load(src, integrity) {
     return new Promise(function (resolve, reject) {
       var script = document.createElement("script");
+      if (integrity) {
+        script.integrity = integrity;
+        script.crossOrigin = "anonymous";
+      }
       script.src = src;
       script.addEventListener("load", resolve, { once: true });
       script.addEventListener("error", reject, { once: true });
@@ -35,7 +45,7 @@
 
   async function check() {
     try {
-      await load("https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2");
+      await load(supabaseScript.src, supabaseScript.integrity);
       await load("/config/supabase-config.js");
       await load("/auth/supabase-client.js");
       await load("/auth/auth-service.js");

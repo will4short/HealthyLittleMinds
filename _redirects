@@ -1,0 +1,13 @@
+# Netlify publishes the repository root, so development material is served
+# unless it is explicitly hidden. "404!" applies even when the file exists.
+# Long term: publish a dedicated site folder instead of the repository root.
+/docs/*                              /404.html  404!
+/scripts/*                           /404.html  404!
+/supabase/*                          /404.html  404!
+/tmp/*                               /404.html  404!
+/tests/*                             /404.html  404!
+/README.md                           /404.html  404!
+/LICENSE                             /404.html  404!
+/See                                 /404.html  404!
+/audiobooks/README.md                /404.html  404!
+/config/supabase-config.example.js   /404.html  404!

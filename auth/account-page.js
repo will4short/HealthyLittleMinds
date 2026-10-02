@@ -12,9 +12,7 @@
   }
 
   function safeReturnTo() {
-    return requestedReturn.charAt(0) === "/" && requestedReturn.slice(0, 2) !== "//"
-      ? requestedReturn
-      : "";
+    return window.HLMRouting.safeReturnPath(requestedReturn);
   }
 
   function accountCallback(query) {

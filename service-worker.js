@@ -3,17 +3,37 @@
 // Lean precache (no big media) + runtime image cache
 // ===============================
 
-const PRECACHE_NAME = 'hlm-precache-v267'; // softer header purchase action across locales
-const RUNTIME_NAME  = 'hlm-runtime-v118';  // protected HTML continues to bypass storage
+const PRECACHE_NAME = 'hlm-precache-v268'; // extensionless routes treated like .html
+const RUNTIME_NAME  = 'hlm-runtime-v119';  // media and navigations no longer stored; capped
 const IMAGE_CACHE   = 'hlm-img-v18';       // leave if image rules unchanged
 
-const IMAGE_MAX_ENTRIES = 60;                   // limit image count
-const IMAGE_MAX_AGE_MS  = 1000 * 60 * 60 * 24 * 30; // ~30 days
+const IMAGE_MAX_ENTRIES   = 60;                   // limit image count
+const IMAGE_MAX_AGE_MS    = 1000 * 60 * 60 * 24 * 30; // ~30 days
+const RUNTIME_MAX_ENTRIES = 120;                  // limit scripts/styles/data
+
+// Netlify serves "/parents" and "/ja/" as well as "/parents.html" and
+// "/ja/index.html", so route checks compare the .html form of a path.
+function toHtmlPath(pathname) {
+  if (pathname.endsWith('/')) return pathname + 'index.html';
+  const lastSegment = pathname.slice(pathname.lastIndexOf('/') + 1);
+  return lastSegment.includes('.') ? pathname : pathname + '.html';
+}
 
 function isProtectedHtmlPath(pathname) {
-  if (!/\.html$/i.test(pathname)) return false;
-  return !/^\/(?:index|offline|about_me|contact|teachers|will-talks|social|inspire_page)\.html$/i.test(pathname)
-    && !/^\/(?:ja|ko|zh-cn|zh-tw)\/(?:index|about_me|teachers|will-talks|social|inspire_page)\.html$/i.test(pathname);
+  const htmlPath = toHtmlPath(pathname);
+  if (!/\.html$/i.test(htmlPath)) return false;
+  return !/^\/(?:index|offline|about_me|contact|teachers|will-talks|social|inspire_page)\.html$/i.test(htmlPath)
+    && !/^\/(?:ja|ko|zh-cn|zh-tw)\/(?:index|about_me|teachers|will-talks|social|inspire_page)\.html$/i.test(htmlPath);
+}
+
+// Large media is streamed with Range requests (206 responses cannot be cached)
+// and would quickly fill storage, so the browser handles it directly.
+function isMediaRequest(request, pathname) {
+  return request.headers.has('range')
+    || request.destination === 'audio'
+    || request.destination === 'video'
+    || request.destination === 'track'
+    || /\.(?:mp3|m4a|wav|ogg|mp4|webm|mov|pdf)$/i.test(pathname);
 }
 
 // Keep precache small & critical (NO big images/videos/PDFs)
@@ -265,7 +285,19 @@ self.addEventListener('fetch', (event) => {
   // to the network. Never retain sessions, recovery URLs, signed-in UI, or
   // environment-specific account configuration in the service-worker caches.
   const requestUrl = new URL(event.request.url);
-  const authSensitivePath = /\/(?:account|get-started|home|dashboard|worksheets|interactive-tools|growth-plan)\.html$/i.test(requestUrl.pathname)
+  if (event.request.headers.has('range')) return;
+  if (isMediaRequest(event.request, requestUrl.pathname)) {
+    // Serve the few deliberately precached files (small teacher-toolbox PDFs);
+    // everything else goes to the network without being stored.
+    event.respondWith(
+      caches.open(PRECACHE_NAME)
+        .then((cache) => cache.match(event.request))
+        .then((cached) => cached || fetch(event.request))
+    );
+    return;
+  }
+
+  const authSensitivePath = /\/(?:account|get-started|home|dashboard|worksheets|interactive-tools|growth-plan)\.html$/i.test(toHtmlPath(requestUrl.pathname))
     || isProtectedHtmlPath(requestUrl.pathname)
     || /^\/(?:auth|config)\//i.test(requestUrl.pathname)
     || event.request.headers.has('authorization');
@@ -301,16 +333,14 @@ async function handleNavigationRequest(event) {
     const preload = await event.preloadResponse;
     if (preload) return preload;
 
-    // Network-first for HTML
-    const net = await fetch(event.request);
-    // Optionally: put into runtime cache for navigations too
-    const runtime = await caches.open(RUNTIME_NAME);
-    runtime.put(event.request, net.clone());
-    return net;
+    // Network-first for HTML. Offline fallback reads only the precache, so
+    // navigations are not copied into the runtime cache.
+    return await fetch(event.request);
   } catch (err) {
     // Fallback: cached page or offline shell
     const cache = await caches.open(PRECACHE_NAME);
-    const cached = await cache.match(event.request);
+    const cached = await cache.match(event.request)
+      || await cache.match(toHtmlPath(new URL(event.request.url).pathname));
     return cached || cache.match('/offline.html');
   }
 }
@@ -343,8 +373,10 @@ async function staleWhileRevalidate(event) {
   const fetchPromise = (async () => {
     try {
       const net = await fetch(event.request);
-      if (net.ok) {
-        cache.put(event.request, net.clone());
+      if (net.status === 200 && net.type === 'basic') {
+        cache.put(event.request, net.clone())
+          .then(() => trimImageCache(cache, RUNTIME_MAX_ENTRIES, IMAGE_MAX_AGE_MS))
+          .catch(() => {});
       }
       return net;
     } catch {

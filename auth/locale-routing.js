@@ -27,9 +27,28 @@
     return new URL(page(name, query), window.location.origin).toString();
   }
 
+  // Returns a same-origin path (with query and hash) or "" when the value could
+  // leave this site. Browsers treat "\" like "/" and strip tabs/newlines while
+  // parsing, so "/\evil.example" or "/\t/evil.example" would otherwise resolve
+  // to another host.
+  function safeReturnPath(value) {
+    if (typeof value !== "string" || value.charAt(0) !== "/") return "";
+    if (/[\\\u0000-\u001f\u007f]/.test(value)) return "";
+    var origin = window.location.origin;
+    var url;
+    try {
+      url = new URL(value, origin);
+    } catch (_) {
+      return "";
+    }
+    if (url.origin !== origin) return "";
+    return url.pathname + url.search + url.hash;
+  }
+
   window.HLMRouting = {
     absolutePage: absolutePage,
     locale: locale,
-    page: page
+    page: page,
+    safeReturnPath: safeReturnPath
   };
 })();

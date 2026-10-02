@@ -7,7 +7,14 @@
 /account.html
   Cache-Control: no-store, max-age=0
 
+# Netlify also serves these pages without the extension.
+/account
+  Cache-Control: no-store, max-age=0
+
 /get-started.html
+  Cache-Control: no-store, max-age=0
+
+/get-started
   Cache-Control: no-store, max-age=0
 
 /auth/*

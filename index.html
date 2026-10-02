@@ -33,7 +33,7 @@
 
   <!-- Fonts & Favicon -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet"/>
-  <link href="style-index.css?v=14" rel="stylesheet"/>
+  <link href="style-index.css?v=15" rel="stylesheet"/>
   <link href="images/favicon.webp?v=2" rel="icon" type="image/webp">
   <link href="images/favicon.ico?v=2" rel="icon" type="image/x-icon">
   <link href="/manifest.json" rel="manifest"/>
@@ -52,9 +52,9 @@
     gtag('config', 'G-T2F8H8ZYBL');
   </script>
 
-  <script defer src="member-preview.js?v=6"></script>
-  <script defer src="index.js?v=6"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="member-preview.js?v=7"></script>
+  <script defer src="index.js?v=7"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js" integrity="sha384-Rj26LVGvoeRVR6+mwQmFfcR3QOBEwT+ZmuCWpuiqeTzJpCs0ER4ITAWGb4Hiy3Ok" crossorigin="anonymous"></script>
   <script defer src="config/supabase-config.js"></script>
   <script defer src="auth/supabase-client.js"></script>
   <script defer src="auth/locale-routing.js"></script>
@@ -220,7 +220,7 @@
 
         </div>
 
-        <!-- Free audiobook teaser â€” unchanged -->
+        <!-- Free audiobook teaser — unchanged -->
         <article class="audiobook-card">
           <span class="audio-label">Interactive Audio</span>
           <h3>Try the latest audiobook</h3>
@@ -236,7 +236,7 @@
     <!-- =====================================================
          SECTION 3: FREE LIBRARY
          CHANGED: Kept 4 free books (all had real links).
-         REMOVED: 10 locked "Login to Access" books â€” they
+         REMOVED: 10 locked "Login to Access" books — they
          gave away content without value and cluttered the page.
          The section heading, grid, and card classes are untouched.
          ===================================================== -->
@@ -283,7 +283,7 @@
 
     <!-- =====================================================
          SECTION 4: WHO IT'S FOR (Pathway cards)
-         UNCHANGED â€” all content, classes, and links preserved.
+         UNCHANGED — all content, classes, and links preserved.
          ===================================================== -->
     <section class="pathways-section" aria-labelledby="pathwaysTitle">
       <div class="landing-heading">
@@ -323,7 +323,7 @@
 
     <!-- =====================================================
          SECTION 5: HOW IT HELPS (Journey steps)
-         UNCHANGED â€” all content, classes, and structure.
+         UNCHANGED — all content, classes, and structure.
          ===================================================== -->
     <section class="journey-section" aria-labelledby="journeyTitle">
       <div class="landing-heading">
@@ -355,7 +355,7 @@
 
     <!-- =====================================================
          SECTION 6: MEMBER BENEFITS (Free vs Full comparison)
-         UNCHANGED â€” all content, classes, and Payhip link.
+         UNCHANGED — all content, classes, and Payhip link.
          ===================================================== -->
     <section class="member-benefits" id="member-benefits" aria-labelledby="benefitsTitle">
       <div class="landing-heading">
@@ -396,7 +396,7 @@
          SECTION 7: CHARACTER TEASER
          CHANGED: Reduced from 7 cards to 3 featured ones
          (Amaka, Bella, Goshen) to tease, not spoil.
-         REMOVED: Filter buttons â€” with only 3 cards, filters
+         REMOVED: Filter buttons — with only 3 cards, filters
          add no value and confuse mobile users.
          CHANGED: "See all characters" link â†’ points to #login.
          All existing CSS classes are preserved.
@@ -452,7 +452,7 @@
 
 <!-- =====================================================
          SECTION 10: TRUST NOTE
-         UNCHANGED â€” content and classes preserved.
+         UNCHANGED — content and classes preserved.
          ===================================================== -->
     <section class="trust-note" aria-labelledby="trustTitle">
       <div>
@@ -470,7 +470,7 @@
 
     <!-- =====================================================
          SECTION 11: FAQ
-         UNCHANGED â€” content and classes preserved.
+         UNCHANGED — content and classes preserved.
          ===================================================== -->
     <section class="faq-section" aria-labelledby="faqTitle">
       <div class="landing-heading">
@@ -526,10 +526,10 @@
   <!-- Fixed language switcher widget -->
   <nav class="language-switcher" aria-label="Language options"><span class="language-switcher__label">Language</span>
     <a href="index.html" title="English" aria-current="page"><img alt="English" decoding="async" loading="lazy" src="images/flag-en.webp" width="24"/></a>
-    <a href="zh-tw/index.html" title="ç¹é«”ä¸­æ–‡"><img alt="ç¹é«”ä¸­æ–‡" decoding="async" loading="lazy" src="images/flag-tw.webp" width="24"/></a>
-    <a href="zh-cn/index.html" title="ç®€ä½“ä¸­æ–‡"><img alt="ç®€ä½“ä¸­æ–‡" decoding="async" loading="lazy" src="images/flag-cn.webp" width="24"/></a>
-    <a href="ja/index.html" title="æ—¥æœ¬èªž"><img alt="æ—¥æœ¬èªž" decoding="async" loading="lazy" src="images/flag-jp.webp" width="24"/></a>
-    <a href="ko/index.html" title="í•œêµ­ì–´"><img alt="í•œêµ­ì–´" decoding="async" loading="lazy" src="images/flag-kr.webp" width="24"/></a>
+    <a href="zh-tw/index.html" title="繁體中文"><img alt="繁體中文" decoding="async" loading="lazy" src="images/flag-tw.webp" width="24"/></a>
+    <a href="zh-cn/index.html" title="简体中文"><img alt="简体中文" decoding="async" loading="lazy" src="images/flag-cn.webp" width="24"/></a>
+    <a href="ja/index.html" title="日本語"><img alt="日本語" decoding="async" loading="lazy" src="images/flag-jp.webp" width="24"/></a>
+    <a href="ko/index.html" title="한국어"><img alt="한국어" decoding="async" loading="lazy" src="images/flag-kr.webp" width="24"/></a>
   </nav>
   <script defer src="brand-motion.js?v=1"></script>
   <script defer src="button-loader.js?v=2"></script>
