@@ -302,7 +302,7 @@ self.addEventListener('fetch', (event) => {
     || /^\/(?:auth|config)\//i.test(requestUrl.pathname)
     || event.request.headers.has('authorization');
   if (authSensitivePath) {
-    event.respondWith(fetch(event.request, { cache: 'no-store' }));
+    event.respondWith(handleNetworkOnly(event));
     return;
   }
 
@@ -327,6 +327,21 @@ self.addEventListener('fetch', (event) => {
 // -------------------------------
 // Handlers
 // -------------------------------
+// Auth-sensitive requests are never stored. For navigations, reuse the
+// navigation preload response the browser already started so the page is not
+// downloaded twice.
+async function handleNetworkOnly(event) {
+  if (event.request.mode === 'navigate') {
+    try {
+      const preload = await event.preloadResponse;
+      if (preload) return preload;
+    } catch {
+      // Fall through to a direct network request.
+    }
+  }
+  return fetch(event.request, { cache: 'no-store' });
+}
+
 async function handleNavigationRequest(event) {
   try {
     // Use preload if available for faster response
