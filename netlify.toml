@@ -1,0 +1,6 @@
+# Netlify publishes the repository root (publish directory is set in the
+# Netlify UI and intentionally not overridden here). Development-only material
+# is deleted from Netlify's build copy before publishing, so it never reaches
+# production while remaining in Git.
+[build]
+  command = "rm -rf docs scripts supabase tmp tests && rm -f README.md LICENSE See audiobooks/README.md config/supabase-config.example.js"
