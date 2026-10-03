@@ -50,6 +50,12 @@
         main.appendChild(boundary);
       }
     }
+    if (!document.querySelector('script[src*="trust-footer.js"]')) {
+      var trustFooter = document.createElement("script");
+      trustFooter.src = "/trust-footer.js";
+      trustFooter.defer = true;
+      document.head.appendChild(trustFooter);
+    }
     document.querySelectorAll('a[target="_blank"]').forEach(function (link) {
       var rel = new Set((link.getAttribute("rel") || "").split(/\s+/).filter(Boolean));
       rel.add("noopener");

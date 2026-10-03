@@ -48,14 +48,20 @@
   if (!document.querySelector('link[href*="resource-page-standard.css"]')) {
     var standardStyle = document.createElement("link");
     standardStyle.rel = "stylesheet";
-    standardStyle.href = prefix + "resources/resource-page-standard.css?v=11";
+    standardStyle.href = prefix + "resources/resource-page-standard.css?v=12";
     document.head.appendChild(standardStyle);
   }
   if (!document.querySelector('script[src*="resource-page-standard.js"]')) {
     var standardScript = document.createElement("script");
-    standardScript.src = prefix + "resources/resource-page-standard.js?v=3";
+    standardScript.src = prefix + "resources/resource-page-standard.js?v=4";
     standardScript.defer = true;
     document.head.appendChild(standardScript);
+  }
+  if (!document.querySelector('script[src*="trust-footer.js"]')) {
+    var trustFooterScript = document.createElement("script");
+    trustFooterScript.src = "/trust-footer.js";
+    trustFooterScript.defer = true;
+    document.head.appendChild(trustFooterScript);
   }
   if (!document.querySelector('script[src*="resource-content-library.js"]')) {
     var loadContentLibrary = function () {

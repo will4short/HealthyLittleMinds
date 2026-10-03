@@ -28,6 +28,7 @@ body.contact-page { margin: 0; min-height: 100vh; font-family: "DM Sans", system
 .contact-info-card { border: 1px solid var(--contact-line); border-radius: 20px; background: rgba(255,255,255,.82); box-shadow: 0 14px 32px rgba(37, 78, 112, .08); padding: 1rem; }
 .contact-info-card strong { display: block; color: var(--contact-navy); margin-bottom: .35rem; font-family: "Nunito", sans-serif; font-size: 1.05rem; }
 .contact-info-card span { color: var(--contact-muted); line-height: 1.5; font-size: .94rem; }
+.contact-info-card a, .contact-note a { color: var(--contact-navy); font-weight: 800; text-decoration: underline; text-underline-offset: .15em; }
 .contact-panel { border: 1px solid var(--contact-line); border-radius: 30px; background: rgba(255,255,255,.92); box-shadow: var(--contact-shadow); padding: clamp(1.25rem, 4vw, 2rem); }
 .contact-panel h2 { margin: 0 0 .45rem; color: var(--contact-navy); font-family: "Nunito", sans-serif; font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.08; }
 .contact-panel__intro { margin: 0 0 1.35rem; color: var(--contact-muted); line-height: 1.62; }
