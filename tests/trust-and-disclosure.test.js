@@ -105,6 +105,8 @@ test("Google Analytics is loaded only on the pages the privacy policy lists", ()
   const policy = read("privacy.html");
   assert.match(policy, /Google Analytics 4/);
   assert.match(policy, /English home page/);
+  // The Will Talks page loads a Spotify player, which sets cookies; the policy must say so.
+  assert.match(policy, /Spotify sets its own cookies/);
 });
 
 test("every outside service used by the site's pages is named in the Privacy Policy", () => {
